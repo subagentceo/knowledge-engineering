@@ -1,0 +1,187 @@
+# Send Email in Laravel
+
+Laravel provides a clean API over the popular SwiftMailer library with drivers for SMTP, PHP's `mail`, `sendmail` and more. For this example, we'll be sending a Laravel email with SendGrid using the SMTP Driver. For more information, check out the docs for [Laravel's Mail interface](https://laravel.com/docs/mail).
+
+Laravel 5.5 LTS uses Mailable classes. Mailables in Laravel abstracts building emails with a mailable class. Mailables are responsible for collating data and passing them to views.
+
+## Before you begin using Laravel to send email
+
+Check your `.env` file and configure these variables:
+
+```bash
+MAIL_MAILER=smtp
+# MAIL_DRIVER=smtp # for laravel < 7
+MAIL_HOST=smtp.sendgrid.net
+MAIL_PORT=587
+MAIL_USERNAME=apikey
+MAIL_PASSWORD=sendgrid_api_key
+MAIL_ENCRYPTION=tls
+MAIL_FROM_NAME="John Smith"
+MAIL_FROM_ADDRESS=from@example.com
+```
+
+> \[!NOTE]
+>
+> Set the `MAIL_USERNAME` field to "apikey" to inform SendGrid that you're using an API key.
+
+> \[!NOTE]
+>
+> The `MAIL_FROM_NAME` field requires double quotes because there is a space in the string.
+
+> \[!NOTE]
+>
+> You can send `100 messages per SMTP connection` at a time, and open up to `10 concurrent connections` from a single server at a time.
+
+## Creating a Mailable
+
+> \[!CAUTION]
+>
+> Categories and Unique Arguments will be stored as a "Not PII" field and may be used for counting or other operations as SendGrid runs its systems. These fields generally cannot be redacted or removed. You should take care not to place PII in this field. SendGrid does not treat this data as PII, and its value may be visible to SendGrid employees, stored long-term, and may continue to be stored after you've left SendGrid's platform.
+
+Next you need to create a Mailable class. Open the CLI, go to the project directory, and type:
+
+`php artisan make:mail TestEmail`
+
+This command will create a new file under `app/Mail/TestEmail.php` and it should look something like this:
+
+```php
+<?php
+
+namespace App\Mail;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
+
+class TestEmail extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    public $data;
+
+    public function __construct($data)
+    {
+        $this->data = $data;
+    }
+
+    public function build()
+    {
+        $address = 'janeexampexample@example.com';
+        $subject = 'This is a demo!';
+        $name = 'Jane Doe';
+
+        return $this->view('emails.test')
+                    ->from($address, $name)
+                    ->cc($address, $name)
+                    ->bcc($address, $name)
+                    ->replyTo($address, $name)
+                    ->subject($subject)
+                    ->with([ 'test_message' => $this->data['message'] ]);
+    }
+}
+```
+
+In Laravel `Views` are used as 'templates' when sending an email. Let's create a file under `app/resources/views/emails/test.blade.php` and insert this code:
+
+```html
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h2>Test Email</h2>
+    <p>{{ $test_message }}</p>
+  </body>
+</html>
+```
+
+## Sending an email with Laravel
+
+Now that we have our Mailable Class created, all we need to do is run this code to use Laravel to send email:
+
+```php
+<?php
+    use App\Mail\TestEmail;
+
+    $data = ['message' => 'This is a test!'];
+
+    Mail::to('john@example.com')->send(new TestEmail($data));
+```
+
+## Adding a category or custom field
+
+Categories in SendGrid allow you to split your statistics into sections.
+
+Another useful tool is event notifications. If you want to complete the feedback loop for your product you can pass identifiers as a header which relate to a record in your database which you can then parse the notifications against that record to track deliveries/opens/clicks/bounces.
+
+The `withSwiftMessage` method of the `Mailable` base class allows you to register the callback that is invoked with the raw SwiftMailer message instance before sending the message. This knowledge allows you to customize the message before delivery. To customize your message, use something similar to this:
+
+```php
+<?php
+
+namespace App\Mail;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
+
+class TestEmail extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    public $data;
+
+    public function __construct($data)
+    {
+        $this->data = $data;
+    }
+
+    public function build()
+    {
+        $address = 'janeexampexample@example.com';
+        $subject = 'This is a demo!';
+        $name = 'Jane Doe';
+
+        $headerData = [
+            'category' => 'category',
+            'unique_args' => [
+                'variable_1' => 'abc'
+            ]
+        ];
+
+        $header = $this->asString($headerData);
+
+        $this->withSwiftMessage(function ($message) use ($header) {
+            $message->getHeaders()
+                    ->addTextHeader('X-SMTPAPI', $header);
+        });
+
+        return $this->view('emails.test')
+                    ->from($address, $name)
+                    ->cc($address, $name)
+                    ->bcc($address, $name)
+                    ->replyTo($address, $name)
+                    ->subject($subject)
+                    ->with([ 'data' => $this->data ]);
+    }
+
+    private function asJSON($data)
+    {
+        $json = json_encode($data);
+        $json = preg_replace('/(["\]}])([,:])(["\[{])/', '$1$2 $3', $json);
+
+        return $json;
+    }
+
+
+    private function asString($data)
+    {
+        $json = $this->asJSON($data);
+
+        return wordwrap($json, 76, "\n   ");
+    }
+}
+```

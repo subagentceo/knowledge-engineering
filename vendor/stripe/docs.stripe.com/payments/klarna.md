@@ -106,9 +106,9 @@ To get started with Klarna:
 
 1. Read the [Klarna rules](https://docs.stripe.com/payments/klarna/compliance.md) to ensure your business is eligible to accept Klarna payments. For example, Klarna doesn’t support B2B payments.
 
-1. Refer to [payment options](https://docs.stripe.com/payments/klarna.md#payment-options) to understand what payment options are available to your customers.
+2. Refer to [payment options](https://docs.stripe.com/payments/klarna.md#payment-options) to understand what payment options are available to your customers.
 
-1. If you don’t already have a Stripe integration, create a [Stripe-hosted page](https://docs.stripe.com/checkout/quickstart.md) with [Checkout](https://docs.stripe.com/payments/checkout.md), then [start accepting Klarna payments](https://docs.stripe.com/payments/klarna/accept-a-payment.md).
+3. If you don’t already have a Stripe integration, create a [Stripe-hosted page](https://docs.stripe.com/checkout/quickstart.md) with [Checkout](https://docs.stripe.com/payments/checkout.md), then [start accepting Klarna payments](https://docs.stripe.com/payments/klarna/accept-a-payment.md).
 
    You can also use Checkout to [embed a payment page on your site](https://docs.stripe.com/checkout/embedded/quickstart.md) or [build a customized checkout page with Elements](https://docs.stripe.com/payments/quickstart-checkout-sessions.md) (such as the [Payment Method Messaging Element](https://docs.stripe.com/elements/payment-method-messaging.md)). To build an advanced integration that handles complex payment flows, you can use [Stripe Elements](https://docs.stripe.com/payments/elements.md) with the [Payment Intents API](https://docs.stripe.com/api/payment_intents.md).
 
@@ -126,7 +126,7 @@ Enter your email to request access.
 ```
 
 
-1. Follow best practices, such as [sending relevant data to Klarna about items in the shopping cart](https://docs.stripe.com/payments/klarna/best-practices.md#send-shopping-cart-item-data), to [optimize conversion and cart size for Klarna payments](https://docs.stripe.com/payments/klarna/best-practices.md).
+4. Follow best practices, such as [sending relevant data to Klarna about items in the shopping cart](https://docs.stripe.com/payments/klarna/best-practices.md#send-shopping-cart-item-data), to [optimize conversion and cart size for Klarna payments](https://docs.stripe.com/payments/klarna/best-practices.md).
 
 ## Payment options 
 
@@ -328,4 +328,4 @@ Buyer country filtering applies when you enable a dynamic payment method on the 
 We determine the buyer’s country in the following priority order:
 
 1. Shipping address country: The two-letter country code, not the full name of the country.
-1. Geocoded country: The country based on the client-side IP address.
+2. Geocoded country: The country based on the client-side IP address.

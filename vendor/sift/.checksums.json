@@ -2,305 +2,2272 @@
   "https://sift.com/": {
     "sha256": "7d54fcba90f7107d15c5571f17d2a46f2ac666094b16b3c897816b24661a8eea",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:08:23 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:46:45 GMT"
   },
   "https://sift.com/atom-tickets/": {
     "sha256": "6369c4d041c8e83b83ff152b3a0ad808a92bc7ab937eee43152f3bf703274ffc",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:29 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:48 GMT"
   },
   "https://sift.com/blog/": {
     "sha256": "0bf6b2c414804ab28c93ad24a6e3795b9b9bffbcfbd918626934b9726c7705ab",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:09:11 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:48 GMT"
   },
   "https://sift.com/blog/10-warning-signs-of-ecommerce-fraud-part-3-whats-the-rush/": {
     "sha256": "c25953f6af3fef378880985080871d0ef2d526962434fec1c739ec6639e49b6d",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:33 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:48 GMT"
   },
   "https://sift.com/blog/10-warning-signs-of-ecommerce-fraud-part-4-money-money-money/": {
     "sha256": "5d3b30236c15172e1586af68409a3f9cc66dc6f0cd01a14250b8839f2833e8df",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:31 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:48 GMT"
   },
   "https://sift.com/blog/11-benefits-of-preventing-fraud-and-scams/": {
     "sha256": "a4c9732990fbc82a06e141a88de0c8afdf600f9d14f5e4d8432328fe75a93e8a",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:32 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:52 GMT"
+  },
+  "https://sift.com/blog/2017-mrc-technology-industry-award/": {
+    "sha256": "15a6bfa469721cb6f33ff272bf289068d67a49cd161cf0236b7849a11b741a5c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:48 GMT"
   },
   "https://sift.com/blog/2020-e-commerce-fraud-data-digital-trust-safety-index-recap/": {
     "sha256": "8750c169c5c8f99759d779ec19dac33508bb8c6024f7a59405e21d1119929414",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:34 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:48 GMT"
   },
   "https://sift.com/blog/2020-gartner-market-guide-for-online-fraud-detection-3-key-takeaways/": {
     "sha256": "327a90d703ff98a363c9876843f26a43432dc2608b6ba42bf660490733064ec4",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:30 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:55 GMT"
   },
   "https://sift.com/blog/2021-retail-fraud-stats-online-merchants-need-to-know/": {
     "sha256": "b8ce4a66e1990335ad7a4a21d4f473668948db45957c9988f0bfdd6fd356dc40",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:32 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:48 GMT"
   },
   "https://sift.com/blog/2024-in-review-innovations-partnerships-and-industry-recognition-at-sift/": {
     "sha256": "b9f28aa758ccf493e7bb6bfeb97196e76f4afcfefd716467f7703bb60035bdf2",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:34 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:48 GMT"
   },
   "https://sift.com/blog/3-common-ato-attacks-and-how-to-stop-them/": {
     "sha256": "adf3f75f84640aff76b88df61d221dd622e59bd601ebb797861a61a47876d59b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:34 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:48 GMT"
   },
   "https://sift.com/blog/3-new-console-changes-supercharge-manual-review/": {
     "sha256": "a2ec4daf6bc25eb38b4c1c3fa7b291fd140b6efe150268d6e474aeaae283a87a",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:38 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:48 GMT"
   },
   "https://sift.com/blog/3-themes-from-the-mag-sift-merchant-meet-up-agents-passkeys-and-identity-trust/": {
     "sha256": "c4a0c325b05fdd0d1aa0019b239f17aa041fdb7d5def47fb6e527bdac8526409",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:56 GMT"
+  },
+  "https://sift.com/blog/3570-2/": {
+    "sha256": "d00af7a6b1c5359e969638067999fadcd08d98837c32ee00fc6afa0d4931dc83",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:48 GMT"
   },
   "https://sift.com/blog/3d-secure-authentication-how-it-protects-online-payments/": {
     "sha256": "220e7e9c1ec9a9e6eec8bca9c6180c3de6f30684f9c8264b9e349d2a537caa2a",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:33 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:45:53 GMT"
   },
   "https://sift.com/blog/4-things-learned-steminist-discussion/": {
     "sha256": "3a83f810e08d3352fb028dda65b882edb453894068bca31f9cd1efa069c785ae",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:49 GMT"
   },
   "https://sift.com/blog/4-top-takeaways-from-the-mrc-data-science-summit/": {
     "sha256": "8e501f094982d4d918986138f3595eecffe93e2c1d2358eb8e3a031e3ad7e477",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:37 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:49 GMT"
   },
   "https://sift.com/blog/5-e-commerce-fraud-webinars-to-watch-again-in-2021/": {
     "sha256": "93c232d710ae03c1601284431f73d91f0bdf916756fd956e81ee53dc919e17e5",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:38 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:58 GMT"
   },
   "https://sift.com/blog/5-igaming-industry-shifts-redefining-player-profitability-and-risk/": {
     "sha256": "a2b7eb452b71818c00b2a6a17eefdcb6bc0d81fd3053e8954816425054e4d357",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:41 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:51:03 GMT"
   },
   "https://sift.com/blog/5-trends-redefining-fraud/": {
     "sha256": "03a32e9a63e05219ee3da4f8488769595b387ed0383ff9864fa74260c4fa5d01",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:38 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:49 GMT"
   },
   "https://sift.com/blog/7-types-of-food-delivery-scams-and-how-to-stop-them/": {
     "sha256": "36a33a3972799ffc28a4412ff00b5fd041878118079a3a8157b06154f21b4c31",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:41 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:49 GMT"
   },
   "https://sift.com/blog/a-deep-dive-into-covid-passport-fraud/": {
     "sha256": "16e4e0d6abe0a5075f80bd57623fe7b4b928f451c171d2a5704a59857a7ee1b7",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:49 GMT"
   },
   "https://sift.com/blog/a-guide-to-integrated-risk-management/": {
     "sha256": "f976d9585afe49cbc08c832feb764d1487518e7d9d44a96e6a45ca9f38c8d7d2",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:49 GMT"
+  },
+  "https://sift.com/blog/account-takeover-a-cross-functional-problem/": {
+    "sha256": "cf86bab3a2e0827359a606f836548b670b68df22839e5e1f10a5d8cf96b5f5f8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:01 GMT"
   },
   "https://sift.com/blog/account-takeover-data-consumer-insights-and-emerging-trends-in-2023/": {
     "sha256": "eab82dfb65d41acbecc42c0eee81047026cf195faa32ada65dfd3a44f25b55f0",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:49 GMT"
   },
   "https://sift.com/blog/account-takeover-data-trends-and-insights/": {
     "sha256": "ba183ba7e6619dd2cc24b96c96da7c27de930432631501d528c9a7926a548c12",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:50 GMT"
+  },
+  "https://sift.com/blog/account-takeover-prevention/": {
+    "sha256": "d8c806e059692f3f4a9fa6afaa475560ee644dfe36f53d30d007adf98f3d127f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:04 GMT"
+  },
+  "https://sift.com/blog/account-takeover-protect-business-emerging-threat/": {
+    "sha256": "8876bba1a2ec862330e6f044992b45f74bc77eae497e1f99f77615d0e80e1f70",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:04 GMT"
+  },
+  "https://sift.com/blog/addressing-digital-risk-in-emerging-payments/": {
+    "sha256": "fe4f50be5b5bf0004e9a37f1326d2405b753dda65ac3211dc35db99fc02bae4e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:54 GMT"
+  },
+  "https://sift.com/blog/ai-fueled-fraud-sifts-newest-trust-and-safety-architect-and-a-recap-of-trustcon-2023/": {
+    "sha256": "2d2d0f76726b2ccc86ef97b4ef2dc22c8b1c89973a55f59bc778e600c083abaf",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:54 GMT"
+  },
+  "https://sift.com/blog/ai-scams-a-career-in-trust-and-safety-and-industry-recognition/": {
+    "sha256": "bb611cbd809d6a54ca839cd5c7bfac34f2b1cf929494c80ff5439379aa29b8ea",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:55 GMT"
+  },
+  "https://sift.com/blog/alaska-airlines-elevates-the-customer-experience-and-unlocks-fearless-growth-with-sift/": {
+    "sha256": "f8cec938f0d2678ad34ecfb3207c35c4f4ecbb8b3a96757965d0bd3e8ff8d8a9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:11 GMT"
+  },
+  "https://sift.com/blog/announcing-sift-science-fight-fraud-with-large-scale-machine-learning/": {
+    "sha256": "61965049f71b35a1afb5723b54d7cf527b35608184075142923b2c06175d1b8d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:55 GMT"
+  },
+  "https://sift.com/blog/announcing-smart-collaboration-queues-better-way-manual-review/": {
+    "sha256": "ea65dbdadb358ff3177c1a60828231d176fb9887894dae475659a50feba7cb56",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:55 GMT"
+  },
+  "https://sift.com/blog/api-development-at-sift-science/": {
+    "sha256": "29c6eb96b90f64eece0d5095d1acdbe7377039ab9f67e1d25f35e89f08f49262",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:56 GMT"
+  },
+  "https://sift.com/blog/armen-najarian-joins-sift-as-cmo/": {
+    "sha256": "38eb93a3e224630e4df220afa5e7c8a24258ae27bfe7975f54e61b372b9ea44e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:56 GMT"
+  },
+  "https://sift.com/blog/ask-me-anything-4-core-strategies-to-reduce-and-win-disputes/": {
+    "sha256": "90d951c642ac88f91c720bcee02d1403f30ccf5a814d5ab23c53d630461e746b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:56 GMT"
+  },
+  "https://sift.com/blog/behind-scenes-making-sift-science-ad-campaign/": {
+    "sha256": "b12e903614edf3b414a95cb8214e32bc37e245d825e4d97fbc9408787bf524ec",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:56 GMT"
+  },
+  "https://sift.com/blog/behind-the-signal-doral-fl/": {
+    "sha256": "8cf47acc3ac82a544cba3ecbaae8188ff2cd25f6757a51c2e9cf594a99869425",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:09 GMT"
   },
   "https://sift.com/blog/best-fraud-prevention-software/": {
     "sha256": "e0578b2783948c3b96f2fd3f52c3e4b0ee48c410a70f49deff1825ebf10b264e",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:51:11 GMT"
   },
   "https://sift.com/blog/beware-the-first-time-shoppers/": {
     "sha256": "2664c17d864d03bd521d9d4c8f835a75b77779992e05d7dc1905ffb7f2e5876f",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:45 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:59 GMT"
+  },
+  "https://sift.com/blog/beyond-the-breach-2024-account-takeover-data-insights/": {
+    "sha256": "27aedcef59bbaa4a386a612675c14e7c8ef7134f88527cdbcdf92e9cae77be5a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:59 GMT"
+  },
+  "https://sift.com/blog/big-game-alert-online-gambling-platforms-surge-in-activity-and-fraud-attempts/": {
+    "sha256": "f3c436956fa8d3cf5d8ce78203de7a9e71c1a0ff9e2c3631ef2df6281b41b19b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:59 GMT"
+  },
+  "https://sift.com/blog/black-friday-2025/": {
+    "sha256": "1992d34746381edc1f228a06d630845de0b4487220ae581d80532a42168517af",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:00 GMT"
+  },
+  "https://sift.com/blog/black-friday-fraud-account-takeover-surge-across-food-delivery-ticketing-e-commerce/": {
+    "sha256": "947dd748555ce3d1aa6bddfd4c3c715490fccd9915e0b86f4d9f549fa817e19a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:15 GMT"
+  },
+  "https://sift.com/blog/black-lives-matter/": {
+    "sha256": "838e730280714431ebaaff3a2fa4ce27420ce04b1f47bf94207a3ff022f7301f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:15 GMT"
+  },
+  "https://sift.com/blog/blog-what-is-agentic-commerce/": {
+    "sha256": "48aa1a87afe7df232db615735d8f4736e98887bab184695c0d5bc2b3106b6714",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:03 GMT"
+  },
+  "https://sift.com/blog/botpocalypse-spammy-content-and-phony-engagement-make-up-the-new-face-of-social-media/": {
+    "sha256": "26ac028348201e5f6269cc00154e95859b465e595ee4ba493dfd756b49c2f021",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:04 GMT"
+  },
+  "https://sift.com/blog/brace-yourselves-interns-are-coming/": {
+    "sha256": "924cf706de7297d18366f6460e923226c258480ed6dd9dda6b4e72d719cdf777",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:04 GMT"
+  },
+  "https://sift.com/blog/build-v-buy-5-capabilities-you-need-in-a-fraud-tool/": {
+    "sha256": "b9efcaa32eb7648fed1eb38e75ea21ea9b0c7d8b58cec0fbbb00ac10ab3081df",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:17 GMT"
+  },
+  "https://sift.com/blog/build-versus-buy-model-for-payment-protection/": {
+    "sha256": "218e27bea669617b02636aaa4296d4d4a0468a9b8ef3a3b3ad15a6691855b9f7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:04 GMT"
+  },
+  "https://sift.com/blog/building-an-end-to-end-digital-trust-safety-solution-for-fintech/": {
+    "sha256": "2fcf36a763b90aaf318f1b95ae5c8225558d40698551397fb3277ac73d4877be",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:04 GMT"
+  },
+  "https://sift.com/blog/business-guide-to-payment-fraud-prevention/": {
+    "sha256": "c46ecfd1998bd03f0edc52b6c6f67cd587986b0170f80cd97c4f3c8f7ad03496",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:04 GMT"
+  },
+  "https://sift.com/blog/celebrating-digital-trust/": {
+    "sha256": "0501d423a9d2bd386093ccbd4992c12172705b96c32497b61781141ea81fc023",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:18 GMT"
+  },
+  "https://sift.com/blog/chargeback-fraud/": {
+    "sha256": "7fad36fbac61633a91e5f0084acaf19340624b2dde7d25a895379bea1849dd22",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:19 GMT"
+  },
+  "https://sift.com/blog/chargeback-vs-refund-how-do-you-prevent-chargebacks-and-refund-fraud/": {
+    "sha256": "539d58d40751ccdf6ef7f77fea5433baf5baf54a0ef2d4a985eceb443c33956f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:20 GMT"
+  },
+  "https://sift.com/blog/chargeback-vs-refund-how-to-prevent-chargebacks-and-refund-fraud/": {
+    "sha256": "e883398a4314475ff8d463c580d58379eb4390a56a11bec72dc640031399cc88",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:18 GMT"
+  },
+  "https://sift.com/blog/choosing-the-right-fraud-prevention-solution-for-your-business/": {
+    "sha256": "cc46f66214e47820ec0a4cffa30c929cf14e7453f68cb2c6f56977cbb6482ee3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:12 GMT"
+  },
+  "https://sift.com/blog/chris-jones-joins-sift-as-chief-revenue-officer/": {
+    "sha256": "7ddaa6eb32effaf803e74d1eb08eca7c124c619265e41a3dfcb48bb3fa9cbff1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:21 GMT"
+  },
+  "https://sift.com/blog/ciso-rsa-wrap-up/": {
+    "sha256": "d9b6132af2de589d99fbe047c49d7425d79eb35bcf898b698dd248cec8c554fd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:15 GMT"
+  },
+  "https://sift.com/blog/confessions-fraud-analyst-pt-2/": {
+    "sha256": "d628bf0a0aa5488971a955ad2eff6772cc5126f842a3c6305654c15cebdaa694",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:15 GMT"
+  },
+  "https://sift.com/blog/consumer-friendly-crypto-adapting-your-business-for-alternative-payments/": {
+    "sha256": "f521e6f804ffcbed11e54b19fe45808abfe8055acbd5f442837d7d8732601d90",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:15 GMT"
+  },
+  "https://sift.com/blog/content-abuse-overview/": {
+    "sha256": "7f491195814002a9080e2723a383e8bf63fb831428e94ac73cfd96dfc60133ba",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:16 GMT"
+  },
+  "https://sift.com/blog/content-moderation-kevin-lee-jeff-sakasegawa/": {
+    "sha256": "88207d21c4f1f826493713495591512d4fbfd5acd7c91e1e0b69e8d47aa1f57c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:16 GMT"
+  },
+  "https://sift.com/blog/cost-of-account-takeover/": {
+    "sha256": "16e006121438b1a1647271f864128ae624bff085319b99e4042c5b0a7c0a64f2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:16 GMT"
+  },
+  "https://sift.com/blog/cryptocurrencies-new-fraud-problems-solutions/": {
+    "sha256": "93c52f06cbba91d3f24941c5ab4289c82bf86d8429b6a45e289f422b8c1b19ba",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:25 GMT"
+  },
+  "https://sift.com/blog/culture-spotlight-fireside-chat-with-minnie-ingersoll-coo-code-for-america/": {
+    "sha256": "e0a36b4a016787170f687ef2ebe06326a3bcea7792dbb64933c918c72f17a765",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:16 GMT"
+  },
+  "https://sift.com/blog/culture-spotlight-giving-back-community-sift-cares/": {
+    "sha256": "2c39b698c1228489b619144bdeef716bb3ce355932335d2c0c4e93b95aa79f41",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:16 GMT"
+  },
+  "https://sift.com/blog/custom-workflows-to-match-your-business/": {
+    "sha256": "9eda47d89d85859813cc1be1d3f9385a4774cce316aa83f1aab014b0c3ff2998",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:26 GMT"
+  },
+  "https://sift.com/blog/customer-insult-survey/": {
+    "sha256": "2355c94f320862590effe3151f5a95b845eda4752d665ee8d9a0d337aedaba9b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:18 GMT"
+  },
+  "https://sift.com/blog/cyber-fraud-fusion-improving-security-reducing-ato/": {
+    "sha256": "4f16194f88231398c776b85d93d6c6618ffe8f29751a10bd6552069ec8216125",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:27 GMT"
+  },
+  "https://sift.com/blog/data-breaches-democracy-content-abuse/": {
+    "sha256": "669e19245f8ec0c0aadc0dd6d9d5320773e2c426199434172fa52073c5bc63f7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:19 GMT"
+  },
+  "https://sift.com/blog/data-breaches-why-the-battle-is-just-beginning-for-online-businesses/": {
+    "sha256": "cf4f4aa25b4bfd70c233fe04c673c2e782b274d00894f1749bdd41feeb9ab9e3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:19 GMT"
   },
   "https://sift.com/blog/day-life-bdr-sift-science/": {
     "sha256": "c606a29eed2f9cbedcc92d833391d3da4ba870d204624d946dcd3f7d90fcd759",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:45 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:51:19 GMT"
   },
   "https://sift.com/blog/day-life-senior-software-engineer-sift-science/": {
     "sha256": "091d54cfb21f7ec24da3313209c3e9e669077af0fb846e7b31f8867e4da5d0a8",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:46 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:51:30 GMT"
+  },
+  "https://sift.com/blog/deep-web-vs-dark-web-what-businesses-should-know-about-both/": {
+    "sha256": "0c859086e5ef35611b0be31f40aaa412f5cdcd106135b45931f318ac935cfc6c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:31 GMT"
+  },
+  "https://sift.com/blog/digital-risk-management/": {
+    "sha256": "64fbe3d6e6075209b5258bef0ee3ac9664cfc65afcef6a2c679fa04534ed3476",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:36 GMT"
+  },
+  "https://sift.com/blog/digital-trust-amp-safety-roundup-new-product-features-insights-from-sifts-cmo/": {
+    "sha256": "b5d73ed7f29d3e6e0f196f72e08a70003db32ab34b6628a25f1b16aaf2058067",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:20 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-5-reasons-why-now-is-the-time-for-adoption/": {
+    "sha256": "7acd920b58305e776c934b9fb73ee450d37e952ddfb955c65183ae3fe52d763a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:21 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-roundup-account-security-fraud-as-a-service-and-food-delivery-scams/": {
+    "sha256": "272135b7154a0339f6acc341c8740c3a9f6fbbd7e2fa1f9da4497f11d67cea43",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:33 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-roundup-ato-surges-and-bnpl-fraud-on-the-rise-this-holiday-season/": {
+    "sha256": "f58bcfb63d6b819f4e3a615ee6aa5be367cd23af1eefdce1b8247ec23dff7f30",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:32 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-roundup-costly-chargebacks-dynamically-fighting-ato-and-social-media-scam-risks/": {
+    "sha256": "ace236cfb3dd00c69a54ebabe50d32384844fa916538fb0b6db83010d56ae44d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:25 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-roundup-crypto-scams-policy-abuse-and-deep-web-dangers/": {
+    "sha256": "d718997c7636557ee7dd71fd9cedfbe303bb8435ce9a923473731a8f17c58bc9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:34 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-roundup-economic-uncertainty-fintech-fraud-and-crypto-cons/": {
+    "sha256": "effa85dbb474f3b17ed02db3049179bd3827850416f4017fcc286d365c89b3e9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:26 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-roundup-forrester-fraud-insights-the-rise-of-fraud-influencers-and-the-launch-of-fibr/": {
+    "sha256": "1581faef671512a5e8b141e75cfc3c41e817f6bb37d2fe677a6b8d9ef4bbc8f3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:26 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-roundup-highlights-from-mpe-berlin-spotting-scams/": {
+    "sha256": "c5f9b7508a772e057e0fddfe5805cacaa97d27234d856e705eb8cd3a36b15e02",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:27 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-roundup-holiday-fraud-threats-recession-era-fraudsters-and-crypto-under-fire/": {
+    "sha256": "d9d6abddcdeece581549c220fb2c8b613003d3250a1c86c41d470400882c88dd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:35 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-roundup-how-to-navigate-economic-disruption-and-ensure-consumer-protection/": {
+    "sha256": "22d422fa2d077fd459906711e933568284b06413fedba39541f5739c786e9f61",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:36 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-roundup-new-data-product-news-and-g2-awards/": {
+    "sha256": "ffd6e345c9dc12d6f6775a9bdb13097d8a77e22bef6c196d65e6e68687e18c30",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:36 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-roundup-nfts-and-content-abuse/": {
+    "sha256": "0aa43b1e2f64f19111b5afd7abeb86942add68f8e0a95b9bdb1f5e044902d478",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:37 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-roundup-payment-fraud-targets-fintech/": {
+    "sha256": "30453fe5fc4aa178054c829a59922d6ef453b583357fb9763512150a95d8d968",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:33 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-roundup-protecting-fintech-at-money20-20-the-truth-about-ai-and-fraud-industry-awards-and-the-latest-product-news/": {
+    "sha256": "44841d5af7585ce2ebbc5454775396dd78f0fecbe16f580ee6700d3cb475f0ec",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:39 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-roundup-rising-ato-new-product-updates-and-sift-recognition/": {
+    "sha256": "8a43b0d75579a61d4d0dc48ac106187a188bc38d0aea8232ce95757c221c9d9d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:39 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-roundup-surging-travel-fraud-content-abuse-and-ato/": {
+    "sha256": "96a3aa091b0e11492e3127bb0101dc4a1c2adddcd6615419d9f8800ee6e3d43b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:35 GMT"
+  },
+  "https://sift.com/blog/digital-trust-safety-unlock-new-revenue-without-risk/": {
+    "sha256": "e8217d365654522dc8077de634075644b431a280a1367822869467f53330e80a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:43 GMT"
+  },
+  "https://sift.com/blog/dispute-analyst-job-description-role/": {
+    "sha256": "fa582a78b2c1a2173ad8abdb4e75a6600ed6ba30070cf994a0d8ff2943b5b209",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:36 GMT"
   },
   "https://sift.com/blog/dispute-data-consumer-insights-and-emerging-trends-from-2023/": {
     "sha256": "bb5795f561ca8a83f9533f3102a4a839a9782b4b0b0a44d973e4ba46da3d7d38",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:46 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:51:36 GMT"
+  },
+  "https://sift.com/blog/e-commerce-fraud-in-europe-key-trends-and-mitigation-strategies-for-2025/": {
+    "sha256": "f822c830a514345eec387ef511e04dce6eaf7a9990813e364c5296e9ed68f3f0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:40 GMT"
+  },
+  "https://sift.com/blog/e-commerce-fraud-where-it-hurts/": {
+    "sha256": "f704e3439d690f74e376c903564cda6018d0f6ed78c2b061af903ba268c0f357",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:42 GMT"
+  },
+  "https://sift.com/blog/economic-shifts-are-reshaping-marketplaces-and-fraudsters-are-paying-attention/": {
+    "sha256": "024b061adaa0fc6e55f6ef4461c129f86264c5e0723165dc605bf0164c9d8ae2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:36 GMT"
+  },
+  "https://sift.com/blog/embracing-the-future-of-online-fraud-detection-gartner-recommendations-for-cyber-fraud-fusion/": {
+    "sha256": "ed6b4f3e848b23700050241bb0576e10ef591b5802a30a2a5eb2992005ebf8bf",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:36 GMT"
+  },
+  "https://sift.com/blog/evaluate-payment-fraud-analytics-and-measure-risk/": {
+    "sha256": "4f756b78642cc0fae348c5eebc43df851eb3cfb8c115abdf93c2ee39509bdeb1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:40 GMT"
+  },
+  "https://sift.com/blog/expanded-fibr-data-exclusively-available-for-sifters-customer-community/": {
+    "sha256": "4e8001d569f93f312b50d929447f387e5958cdde20633fb99d969aa345d4cc38",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:37 GMT"
+  },
+  "https://sift.com/blog/expanding-fibr-with-account-takeover-and-two-factor-authentication-trend-data/": {
+    "sha256": "dfbde0bc8d912e79e5c6717e3501374637da36f17b2f22cf4ec47d6bf5d2da35",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:37 GMT"
+  },
+  "https://sift.com/blog/exploring-refund-fraud-by-industry-2025/": {
+    "sha256": "3f346449fc5d76323cb85950b32f870248e0ea129565db3c546becb7da55c132",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:51 GMT"
+  },
+  "https://sift.com/blog/exploring-refund-fraud-by-industry/": {
+    "sha256": "40ff5e92792d2c14028b5def022ba3ad315c34a9c7208c2c031effc370097d65",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:44 GMT"
+  },
+  "https://sift.com/blog/fake-reviews-are-a-fast-growing-fraud-concern/": {
+    "sha256": "ab6a0a3b46e7bf8337cce28e50ced2f88c0ff6cd3d97626d7b2c0beba2af4bfa",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:39 GMT"
+  },
+  "https://sift.com/blog/fake-reviews-its-prime-time-for-fraudsters/": {
+    "sha256": "4d81ddc9c1760db186aad0db96916554eb26147cbb8963e90630c24ffd14055a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:45 GMT"
+  },
+  "https://sift.com/blog/fall-2019-release-sophisticated-protection-2/": {
+    "sha256": "6c3b4ecc919f131f7247708103886a4f3328f5b87097bae0534ef1301cb509f5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:39 GMT"
+  },
+  "https://sift.com/blog/fall-2020-release/": {
+    "sha256": "bf9b8b8fd8d8747c0036e3c8f9b63db90ad508c2092f2046b7fb3b02c69a947a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:39 GMT"
+  },
+  "https://sift.com/blog/fall-2021-sift-product-release/": {
+    "sha256": "fa9f2eb0b969a1f1cb87fa61a439a5076ef177928351c4594c2db18342dd1765",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:40 GMT"
+  },
+  "https://sift.com/blog/faster-food-fraud-why-qsrs-cant-slow-down/": {
+    "sha256": "159a91aba3c45f3c02dcb29a057d39a471c7fe3a8e966496bb11bf71ec95380e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:40 GMT"
+  },
+  "https://sift.com/blog/feeble-minded-fraudsters/": {
+    "sha256": "a886c413d01b2824c43a1353b011a82be34623ba1e9a86a395c548c8be732c09",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:48 GMT"
+  },
+  "https://sift.com/blog/fibr-in-console/": {
+    "sha256": "6d222b97b8a205cc4cf0098965a82a491592b21b098d675a76bd8798af6c5a96",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:51 GMT"
+  },
+  "https://sift.com/blog/first-cnp-award-judges-choice-best-antifraud-solution-gold/": {
+    "sha256": "857e98417b933a5361c98e0e4dffb691ddf07f10cdc63f848db97a2d7cd32c1d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:41 GMT"
   },
   "https://sift.com/blog/five-factors-for-selecting-a-fraud-prevention-solution-with-insights-featuring-gartner/": {
     "sha256": "d1fcfbc3f8d77fb8d8ec7ca44bbdaf6dc8a830785453e97eeb9fcb088af8e0ab",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:46 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:51:41 GMT"
+  },
+  "https://sift.com/blog/five-fraud-solution-oversights-that-gut-business-growth/": {
+    "sha256": "27b0e02000d2f4495314759e10d401dd9e3d2fb81c1fde4e267d2fe17b95d5eb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:51 GMT"
+  },
+  "https://sift.com/blog/food-delivery-fraud-benchmarking-risk-and-tracking-trends/": {
+    "sha256": "315d401bef4b716ad8c914b4748069f15ef06cf91b8886062fdd8748654be6d7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:43 GMT"
+  },
+  "https://sift.com/blog/fraud-at-the-quarter-century-2024-trends-and-predictions-for-2025/": {
+    "sha256": "45db2aa84dc29e7792f2f303cc8f2257e152e2c0c7ce01126fa26000bf6a93c0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:43 GMT"
+  },
+  "https://sift.com/blog/fraud-prevention-for-qsrs-securing-customer-loyalty-with-digital-trust-safety/": {
+    "sha256": "67728a659a720c654ea15538c753938ea00f601fd5a0636fe6bedfa6eb8bd7f8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:43 GMT"
+  },
+  "https://sift.com/blog/fraud-roundup-2017-ato-data-breach-mobile/": {
+    "sha256": "5a4396326cab6e8bcadd475483fb4cb0b3bc61cfe82fa76bb2dfa7d997166089",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:43 GMT"
+  },
+  "https://sift.com/blog/fraud-schemes-explained-proxy-phantom-pig-butchering-and-crypto-cashout/": {
+    "sha256": "a5ef04218a8be93baad9a42dee8ce9bf3abfbf054b2bf979510a05e45fa8cddd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:44 GMT"
+  },
+  "https://sift.com/blog/fraud-score-how-ai-calculates-transaction-risk-in-real-time/": {
+    "sha256": "8aaeb73fe10c104c101802c3f43dbfd90ad18153426384538f13cbdc819b41ef",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:03 GMT"
+  },
+  "https://sift.com/blog/fraud-united-states-rankings/": {
+    "sha256": "cbd89bafd2b684dc873c76dcf5094b16cbffbc40780fe818a37161b005cb301b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:55 GMT"
   },
   "https://sift.com/blog/fraudsters-machine-learning-phishing-brett-johnson/": {
     "sha256": "5f36f09ef810e63e3019f2b0db57928717f4882d423bbd4502fd5b3ae63ff111",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:47 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:51:55 GMT"
+  },
+  "https://sift.com/blog/from-data-to-action-chargeback-trends-and-fraud-strategies-for-2025/": {
+    "sha256": "f2b3027b9f8c40ac8cfc2f5eb409bec0f192de57c3fc6f17f6e2a7254310fcb9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:45 GMT"
+  },
+  "https://sift.com/blog/fullcircl-kyc-aml-uk-gambling-act/": {
+    "sha256": "513ce62d034b6dfdf9f00e486b7ca2b16a919257c142d6eca7098c7d42481c30",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:45 GMT"
   },
   "https://sift.com/blog/gartner-fraud-detection-guide-5-key-takeaways/": {
     "sha256": "b04bd6249d334c6c7dd9b7b9763e96943b0ee972b6725094e741c5f67fbb4115",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:51 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:51:46 GMT"
+  },
+  "https://sift.com/blog/gartner-report-the-convergence-of-online-fraud-prevention-identity-and-cybersecurity/": {
+    "sha256": "c7e2101217d1136f4e8908b55be6798dc314c17e2f259d35876a47495db81d57",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:46 GMT"
+  },
+  "https://sift.com/blog/gdpr-compliance-future/": {
+    "sha256": "ef293d18062ec4d885d5209d8b04f2bcb043edde1aca32fd8518b192cb730272",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:46 GMT"
+  },
+  "https://sift.com/blog/gdpr-content-databreach-2018-fraud-roundup/": {
+    "sha256": "f7c776bc9db8e0c32b5223883b33665024d3cdedf3b84394360706f79d458e2b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:47 GMT"
+  },
+  "https://sift.com/blog/get-to-know-rebecca-alter-sift-trust-and-safety-architect/": {
+    "sha256": "14e845e43987a37d517ec231c3f7f693964c9a700a28ca07ddcdfc55f331f908",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:47 GMT"
+  },
+  "https://sift.com/blog/getting-sift-done-at-money20-20-usa-in-las-vegas/": {
+    "sha256": "fdbde702f8b1ae416fca5bd658114a64f42ac41bcbefb8717425f47234189959",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:47 GMT"
+  },
+  "https://sift.com/blog/getting-to-value-faster-with-digital-trust-safety/": {
+    "sha256": "956bb4bbf9431965b75afbde8d30f1bfa176e3c3dc18f046d63145d2f6d6a113",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:59 GMT"
+  },
+  "https://sift.com/blog/global-e-commerce-fraud/": {
+    "sha256": "a8e6f4d90689795a01b4e4db4fff846e87ba646e0e3392841d95007e2dd759e0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:48 GMT"
+  },
+  "https://sift.com/blog/growing-ai-powered-fraud-highlights-the-need-for-advanced-fraud-detection/": {
+    "sha256": "dd2db834e0b206b184e0aff041d83dd7ae42f452d6a16db5519cb8801ff0b11b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:00 GMT"
+  },
+  "https://sift.com/blog/guide-to-payment-fraud-prevention/": {
+    "sha256": "8e7628aadd0e778d489f41b9f17d4d1136aff2a8979cd1653fc6b783fd555758",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:00 GMT"
+  },
+  "https://sift.com/blog/handling-suspicious-logins/": {
+    "sha256": "53068c0bde03d58120c830b2013bc5aa68892d7917e2c913e580f22401e50394",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:03 GMT"
+  },
+  "https://sift.com/blog/hg1cvfq5ilkllh6608yfgw10hnzq2c/": {
+    "sha256": "86b717d98acab29d8ce25b008081857384b31028e1287fcff2aa5ab02471418d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:52 GMT"
+  },
+  "https://sift.com/blog/hijacked/": {
+    "sha256": "ae485ca584ff542a9770cbf45dfa44cc93cb63359d4fbcd64d8bfc07138f8cc6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:52 GMT"
+  },
+  "https://sift.com/blog/how-ai-is-fueling-online-fraud-in-2025-and-what-businesses-can-do-about-it/": {
+    "sha256": "90e0bc500e627f6b4f84f50530f21afef52c090dd9a88478af2c735821a981a9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:51:53 GMT"
+  },
+  "https://sift.com/blog/how-blackbox-models-undermine-fraud-prevention-cut-growth/": {
+    "sha256": "ef31aa797567a9cc1a5ff34b506c5972d4860aa45483e6baa90c258b914960f5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:04 GMT"
+  },
+  "https://sift.com/blog/how-cfos-can-reframe-fraud-as-a-growth-engine/": {
+    "sha256": "85bfbc1b7e831b68b5a835255cab30b211f593761f44421cfea1afd3dd7c8f48",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:08 GMT"
+  },
+  "https://sift.com/blog/how-do-account-takeover-ato-attacks-bypass-multi-factor-authentication-mfa/": {
+    "sha256": "b8f0e5c5ef7c8e1a6857d1d7f98ae0ec86dad4bbb78632ae4d843555e54222b9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:07 GMT"
+  },
+  "https://sift.com/blog/how-fraud-detection-works-best-practices-for-uk-businesses-in-2025/": {
+    "sha256": "21d814c649b6f48e2dc5db1d228b88efdec6fddfb71859363339d36ca18117e1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:05 GMT"
+  },
+  "https://sift.com/blog/how-fraud-experts-fight-fake-content-in-e-commerce/": {
+    "sha256": "a68217e731163e74f4d3950a2f3f98e4d9543d49200008e451bb42f4142d77b0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:07 GMT"
+  },
+  "https://sift.com/blog/how-fraudsters-misuse-and-abuse-marketplaces/": {
+    "sha256": "4869d8b75776bf0dca5c21cfa77a79d17b0003a226d1597178dd7dc193f75a7f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:08 GMT"
+  },
+  "https://sift.com/blog/how-igaming-operators-can-tackle-the-risks-of-online-gaming/": {
+    "sha256": "e35515b93a45330aebb606e7ee73504332442d6b3013461b2ea1e3e95af56f2a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:03 GMT"
+  },
+  "https://sift.com/blog/how-is-ai-affecting-fraud/": {
+    "sha256": "79f2587181aaff35e08ec00b747bbabc3f103060f8bd6b0231ff87f18305df4f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:13 GMT"
+  },
+  "https://sift.com/blog/how-leading-igaming-brands-are-redefining-vip-experiences/": {
+    "sha256": "07692f5dc4c4560799e07f34babbd7269b672288ee482741c244e76d266c0b93",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:03 GMT"
+  },
+  "https://sift.com/blog/how-merchants-can-fight-and-win-friendly-fraud-disputes/": {
+    "sha256": "b198fb78eedccd8555353751b024f52009b26776487ca8f183799515db3c9e4e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:03 GMT"
+  },
+  "https://sift.com/blog/how-the-coronavirus-is-impacting-consumer-behavior-and-fraud/": {
+    "sha256": "a1a299f60a94e029ab9770cdb6d9ce71ae0938c0fbcc4eb5f8a5985ec6c18679",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:04 GMT"
+  },
+  "https://sift.com/blog/how-the-global-fraud-fighting-community-makes-the-internet-safer-for-everyone/": {
+    "sha256": "51064a9253876601183ec0194e3dc283fd8d4294dd1ab782fb72b48dfd268fc8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:11 GMT"
+  },
+  "https://sift.com/blog/how-to-choose-the-right-fraud-prevention-solution-top-questions-to-ask/": {
+    "sha256": "69730f6ac25be498312cd67281d8d383dc4b4675aeda0cde474a5616f2176a3b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:04 GMT"
+  },
+  "https://sift.com/blog/how-to-combat-promo-abuse-refund-abuse-and-other-types-of-policy-violations/": {
+    "sha256": "48c247e0898190c4d33a9901770e3bb143061fd4c696681871a9926bb0903771",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:11 GMT"
+  },
+  "https://sift.com/blog/how-to-combat-the-emergence-of-automated-and-ai-generated-fraud/": {
+    "sha256": "64cd96d17235624cb839592541b8eb31ebe7340951ba908c0d75a10322ec1a4a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:05 GMT"
+  },
+  "https://sift.com/blog/how-to-combat-the-fraud-economy-in-fintech/": {
+    "sha256": "82e366afb79fb36de6bcc60917fa8febb1fd09eb99b7c43f4a0dbe14bfcad3c6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:06 GMT"
+  },
+  "https://sift.com/blog/how-to-evaluate-payment-fraud-analytics-and-measure-risk/": {
+    "sha256": "d0f79ca8c23076a21d95ce03b45a21df29ff5fd6b06a7974c354679e07a111c0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:06 GMT"
+  },
+  "https://sift.com/blog/how-to-find-the-right-fraud-prevention-solution-for-your-business/": {
+    "sha256": "b49e966e91feccdbd8bfb82bcc2d5473b7cddd52a9983ddf58444e64f376a672",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:15 GMT"
+  },
+  "https://sift.com/blog/how-to-identify-and-stop-card-hopping-and-card-testing-fraud/": {
+    "sha256": "a9bb80b94eb8cf7e3459ef207edff61a24f7318de6a6f3e81981b0c961dc18fb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:15 GMT"
+  },
+  "https://sift.com/blog/how-to-manage-disputes-claims-and-chargebacks-in-paypal/": {
+    "sha256": "c1b5cee6d251351b605e4e3a4025e9ebcc1b8937c21d0246661ac6380f2bd246",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:08 GMT"
+  },
+  "https://sift.com/blog/how-to-optimize-3d-secure-for-chargeback-prevention/": {
+    "sha256": "638603ff5a140fd753065469bd4b9cb7e24498757873b804dce8f4068d7a9859",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:15 GMT"
+  },
+  "https://sift.com/blog/how-to-prepare-for-fraud-this-holiday-season/": {
+    "sha256": "77cdeeaf5a3eaa2de87219b6c88b363259f5f615d83d85887157bc2ae5e529c4",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:08 GMT"
+  },
+  "https://sift.com/blog/how-to-prevent-account-takeovers-ato-prevention-in-2023/": {
+    "sha256": "547d0bfb40cfdfbf6b7940121eb5617c84f14061483aebd1aa86ab4c8ffcb900",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:17 GMT"
+  },
+  "https://sift.com/blog/how-to-prevent-chargebacks-and-protect-your-business/": {
+    "sha256": "699138622cd3f08ce77d110f3e00fdacf1e88dfc954cb7adc0d067026afb66bd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:23 GMT"
+  },
+  "https://sift.com/blog/how-to-prevent-e-commerce-fraud-with-intelligent-automation/": {
+    "sha256": "42351bd0413316e04068f37dfd1f5dc2ef85adafd81d161d4bba9c4e65ceb40b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:12 GMT"
+  },
+  "https://sift.com/blog/how-to-prevent-policy-abuse/": {
+    "sha256": "080c2b1ac99b479dab5435a77c582d6b8b0dea20f065df49096de1439a049639",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:20 GMT"
+  },
+  "https://sift.com/blog/how-to-prevent-subscription-fraud/": {
+    "sha256": "26d97aa8d24de661643878c938470f73e7799c9d451a537fc9f8354d1b24e7cd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:12 GMT"
+  },
+  "https://sift.com/blog/how-to-prevent-travel-and-ticketing-fraud/": {
+    "sha256": "817c5dff9d378ad1f08adc052f315940d001cd976705326d774ece01d9146919",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:13 GMT"
+  },
+  "https://sift.com/blog/how-to-protect-internet-and-software-businesses-from-payment-fraud/": {
+    "sha256": "2ec7bf08f9a74609ab8f358e7ed914ff3d6af27bea22b8dcfba5e4cb2a4df232",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:23 GMT"
+  },
+  "https://sift.com/blog/how-to-protect-your-business-from-first-party-fraud/": {
+    "sha256": "7e938c196769f2898dded0e9201d437b3504588b0f00207c06b10cf5da06ebec",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:24 GMT"
+  },
+  "https://sift.com/blog/how-to-recognize-and-prevent-chargeback-fraud/": {
+    "sha256": "1d82949742b36f346f140438387e028217b45e5e2f16736e8721ae8cc40b1ff2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:25 GMT"
+  },
+  "https://sift.com/blog/how-to-spot-and-stop-subscription-fraud/": {
+    "sha256": "3e206ba2b780eff33e537f8a0cd60c9690d923852f5b420a910340cbc50d88ff",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:25 GMT"
+  },
+  "https://sift.com/blog/how-to-stop-payment-fraud-a-guide-for-b2c-internet-and-software-companies/": {
+    "sha256": "74c638ef67f5ffc97d1f816eda5681be1dd635a2c770bc3590baba41c635d711",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:16 GMT"
+  },
+  "https://sift.com/blog/how-to-strengthening-fraud-operations-during-economic-uncertainty/": {
+    "sha256": "8c8e123b6ed4b506abe54990f9e7473ed07f17534fd51d5a43aa5e52a7d71925",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:26 GMT"
+  },
+  "https://sift.com/blog/how-to-use-ai-in-fraud-detection/": {
+    "sha256": "42d183f5f10b35d9bd6d1e8bd4f4d1c6b2cf8538f2e21df869c4d89c87a22ee3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:18 GMT"
+  },
+  "https://sift.com/blog/how-to-use-webhook-notifications/": {
+    "sha256": "4489fa9d4518bf192cc953a71dee1840afaa9780d5cb0d13fbd07485a996ecca",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:18 GMT"
+  },
+  "https://sift.com/blog/how-we-built-it/": {
+    "sha256": "ca0e7505677cf1d689097f36b054eb63d3cf092fe0eae5c37d03ed7d82e3ea64",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:18 GMT"
+  },
+  "https://sift.com/blog/humans-in-the-loop-ai-first-fraud-decisioning-vs-weighted-rules/": {
+    "sha256": "fb9755fbddf8fb91ec1eecbeb8ce5fd5566b38e2d1a1269ebc2d99dea83f0cde",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:29 GMT"
+  },
+  "https://sift.com/blog/identity-intelligence-the-foundation-of-trust-in-digital-business/": {
+    "sha256": "97092962ddde7436f36ceb02c451a96547bc3bb93992b40d3f5c6a1151d0fab3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:32 GMT"
+  },
+  "https://sift.com/blog/identity-trust-and-the-evolution-of-who-we-are-online/": {
+    "sha256": "bb6732fb7c7c0b24e34ac84ddbcb975a30acb603d7cf8b425aa69140c49207a4",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:24 GMT"
+  },
+  "https://sift.com/blog/identity-trust-xd-in-action/": {
+    "sha256": "33d671585a6a58ce0e18035605832602f9563a183b4ec6b22ed41c5679ed6776",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:32 GMT"
+  },
+  "https://sift.com/blog/images-sift-console/": {
+    "sha256": "34d84eee2f0e83cdc0e1b4d6f374e2d88bc12dc846d9bae4279b7d993feac5f7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:33 GMT"
+  },
+  "https://sift.com/blog/improved-developer-experience-new-api-reference/": {
+    "sha256": "7a7f386a8b7e39e9c804202cea5909d0327c4218ce831e130ae16bad6512c471",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:24 GMT"
+  },
+  "https://sift.com/blog/inside-the-rise-of-ato-how-agentic-ai-is-rewriting-the-rules-of-digital-trust/": {
+    "sha256": "404e2dcfb0ce6bc0b50cb8d8f5e4a25ce4e344b5d696d95e89e1acd597890250",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:24 GMT"
+  },
+  "https://sift.com/blog/insights-on-creating-trust-and-safety-on-the-internet-featuring-gartner-research/": {
+    "sha256": "46d574fa0af52b77e49c9dd2579332c0e51c2b25c9d6bc4326ff8eeaa0122ab9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:25 GMT"
+  },
+  "https://sift.com/blog/into-the-unknown-sifts-trust-and-safety-architects-on-fighting-fraud-in-the-face-of-global-disruption/": {
+    "sha256": "fa6e778969bf70d7928dfce7852f621fad4763c0b561de0a79f51cc50f49872d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:25 GMT"
+  },
+  "https://sift.com/blog/introducing-digital-trust-platform/": {
+    "sha256": "ecb8d1fea3187f14810b2ff7a32e11799559755087adf49d101a99a772a5556f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:39 GMT"
+  },
+  "https://sift.com/blog/introducing-fibr-powered-by-sift/": {
+    "sha256": "829806df045bac46bc38f63caa4923294b955dd97c663b7cc26f915cb3f8e820",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:36 GMT"
+  },
+  "https://sift.com/blog/introducing-identity-trust-xd-decisions-with-dimension/": {
+    "sha256": "db18ce772298162d6fca3d612eed87269429309d56caada44f41dbb530a46945",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:37 GMT"
+  },
+  "https://sift.com/blog/introducing-mobile-locations-better-fraud-fighting/": {
+    "sha256": "46c87c6765ee16f97e0a3f76b9d688ebbbf02cd5abef8f8b7c143c861e36b494",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:26 GMT"
+  },
+  "https://sift.com/blog/introducing-new-customizable-console/": {
+    "sha256": "3d6c0aad645b146d477957fb91be0eed9386f837ecc91b22b3ae6f5b58f50a0c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:26 GMT"
+  },
+  "https://sift.com/blog/introducing-sift-riskwatch/": {
+    "sha256": "fbee53b7ca70d3033c5363488e903462f1ba1608b231d21fc9d272cc6f2e21dc",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:40 GMT"
+  },
+  "https://sift.com/blog/introducing-sifts-expanded-partner-program/": {
+    "sha256": "ef6a63a4a19becb043b7af6196f6ae32c0b204955645b42bb47e1b27e8be607c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:30 GMT"
+  },
+  "https://sift.com/blog/introducing-workflow-simulation/": {
+    "sha256": "c021909830f9d27f89f1696270e1cc8074c21b3e5fea6d9558f2a74f9d8ad34e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:30 GMT"
+  },
+  "https://sift.com/blog/its-all-fun-and-games-until-someone-gets-hacked-fraud-in-the-gaming-industry/": {
+    "sha256": "1f683f57790f0a659f6053a26ca790e264432ee6e3f1b8628e0f57f6e95374f9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:30 GMT"
   },
   "https://sift.com/blog/jason-tan-ceo-sift-science-interview/": {
     "sha256": "3f87b612537552d4bc7eb1f68786c1fc92762476eb831cfb5fb4216df16717dc",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:48 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:52:43 GMT"
+  },
+  "https://sift.com/blog/key-components-of-platform-solutions/": {
+    "sha256": "f9ff334f3c0e5ddd7378a49e8623293ad545600e98b583bd2b1c9300ccc636fc",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:43 GMT"
+  },
+  "https://sift.com/blog/key-takeaways-from-money20-20-europe-2024/": {
+    "sha256": "c123f969c84620dc11e28db30dab1f8b49858b75bbcf42fa32ee83126c07d5a3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:32 GMT"
+  },
+  "https://sift.com/blog/key-takeaways-from-money20-20-las-vegas-2022/": {
+    "sha256": "36d1f3ec2d63d6151870058bd48e21254648ff79144df251c0f65ed4e04f6790",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:33 GMT"
+  },
+  "https://sift.com/blog/key-takeaways-from-sifts-live-session-with-igaming-business/": {
+    "sha256": "8ae3366cfa5553686ae37d905b89805fb470d38f855aea58a29426d8003e7174",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:44 GMT"
+  },
+  "https://sift.com/blog/key-takeaways-from-the-2022-gartner-market-guide-for-online-fraud-detection/": {
+    "sha256": "af393f34c005ca2e9d0bd676dd7cc216e605f1031f4a30ad5bde2b8a6a75dcd4",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:45 GMT"
+  },
+  "https://sift.com/blog/key-takeaways-from-the-2022-marketplace-risk-management-conference/": {
+    "sha256": "4741b3adf957b6846751e698e126510d4935e9f1aeee04876cf81b8db6bf3905",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:46 GMT"
+  },
+  "https://sift.com/blog/key-takeaways-from-the-2024-mrc-virtual-summit-generative-ai/": {
+    "sha256": "d8f014997be1d6467ed288e8736ef794d55a4e83ea40b0724f37f169e6b3d254",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:37 GMT"
+  },
+  "https://sift.com/blog/kris-nagel-sift-ceo-announcement/": {
+    "sha256": "ddee62302f45c98853ff368c2a63d2e9f7c63f96760a331b1dc60902cef01444",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:37 GMT"
+  },
+  "https://sift.com/blog/kyc-crypto-fraud-alert/": {
+    "sha256": "1352e2631d128b6dcfe90f624a469f609e43762d84c43c5e657fb59ab2698e9b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:47 GMT"
+  },
+  "https://sift.com/blog/las-vegas-sift-city/": {
+    "sha256": "1464354308c2434c31fe2e32aedc8a323a4aba06b82ac17105732d175eb36f77",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:47 GMT"
+  },
+  "https://sift.com/blog/legal-loophole-scammers-fraud/": {
+    "sha256": "5839b1d2c121cf41659cdf9dc442755ffaf8a09ed500d4ddf6817bdaab997011",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:40 GMT"
+  },
+  "https://sift.com/blog/looking-back-on-2025-fraud-trends-with-sifts-fraud-industry-benchmarking-resource/": {
+    "sha256": "12acb80edb7001f3d773385d1772e6182f4fff6bcb18ced038b8d6770af06bff",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:48 GMT"
+  },
+  "https://sift.com/blog/lost-transparency-blackbox-ml-and-other-hidden-risks-of-outsourced-fraud-solutions/": {
+    "sha256": "8733ad1ebd299f47ab9644364addfd787abaf516510e1d35194cd56835ac9331",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:43 GMT"
+  },
+  "https://sift.com/blog/loyalty-program-fraud/": {
+    "sha256": "f891514f84b4b1af7b6610414b0e04495d60a3bd933dbea7451a96dd2c376eb4",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:48 GMT"
+  },
+  "https://sift.com/blog/machine-learning-black-box/": {
+    "sha256": "ea5c141559fa11223706bd77f5d8d521575d16415aef70fdd92c6eb3af6d4b57",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:44 GMT"
+  },
+  "https://sift.com/blog/machine-learning-fraud-prevention-whats-next/": {
+    "sha256": "3dd019022a3eba304fdc0464d075f3d32cdbc02f18e617715aeb9ee70c71bcda",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:44 GMT"
+  },
+  "https://sift.com/blog/mag-2025-the-ai-payments-shift-how-risk-is-reaching-the-c-suite/": {
+    "sha256": "c98b284a7c419c22c1d9081df2581f1a1851e022592dd5510860e4def60ac971",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:44 GMT"
+  },
+  "https://sift.com/blog/mastercard-chargebacks-what-to-know/": {
+    "sha256": "1659e00d253e45d7815ecbc2c3772c0bf414e2caf66cec9d77d4aa9a51e9e2db",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:44 GMT"
+  },
+  "https://sift.com/blog/mcdonalds-partners-with-sift-to-protect-millions-of-mobile-app-users-around-the-globe/": {
+    "sha256": "4f98433834ae990cc2430545b83ad05989224a3528707e50e7f4fea5763a2f08",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:51 GMT"
+  },
+  "https://sift.com/blog/measuring-the-performance-of-your-fraud-team/": {
+    "sha256": "2134afb83c189d22f57f3b18560d357ed0624a85f7ad63886c95a1e5b1158394",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:45 GMT"
+  },
+  "https://sift.com/blog/meet-aaron-aficionado-account-management/": {
+    "sha256": "6b257e036a00b7e31675128aab515f9fa53ba3266f4b5be15c0d8c7d3c911812",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:45 GMT"
+  },
+  "https://sift.com/blog/meet-alexander-hall-trust-and-safety-architect/": {
+    "sha256": "67b5e3ba3f7c6f86d2251072ac9de6864e7d71e23a96b22ca766ba369b7a6273",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:45:16 GMT"
+  },
+  "https://sift.com/blog/meet-andrew-scholar-strategy/": {
+    "sha256": "1a1c29288c8fa2e7256f749c1a02e928d907a134ddc8185cca01ab828a2670d8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:52 GMT"
+  },
+  "https://sift.com/blog/meet-jeff-builder-business-development/": {
+    "sha256": "a8e9f984ee430416ea9f11dbae4be47abdb9c8f0d7159ad03654a81646eab8a2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:45 GMT"
+  },
+  "https://sift.com/blog/meet-katherine-superstar-solutions-engineering/": {
+    "sha256": "8dc2bb4017004db9c13028a9b6c4d28d350f5e97f7cba5b11f73adea0c2109db",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:45 GMT"
+  },
+  "https://sift.com/blog/meet-lauren-expert-account-executives/": {
+    "sha256": "d9658a44c49b71c99c1087e7e01e5376d16b6da8b3dee0037259dccf6a9c6bf5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:45 GMT"
+  },
+  "https://sift.com/blog/meet-mike-enterprise-sales-executive/": {
+    "sha256": "013b0520501170a883edc41a7ca6d88d89d736aaef9aa4e75fc06f089ed73453",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:45:15 GMT"
+  },
+  "https://sift.com/blog/meet-samantha-ruler-recruiting/": {
+    "sha256": "bdecbfdaae2134487879f5bf8aa84f49dc0c963b40950d9d7418575e36079350",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:46 GMT"
+  },
+  "https://sift.com/blog/meet-sameer-business-development-representative/": {
+    "sha256": "4d157594bf0b34de78010d9c1a14415d991539a33d3d2668e8ce85ebd12976f0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:46 GMT"
+  },
+  "https://sift.com/blog/ml-meetup-success/": {
+    "sha256": "7fb85431d8d604c2a11b196a23999d2a12d0c8c2c49eefbd4abd265b58341db8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:46 GMT"
+  },
+  "https://sift.com/blog/mobile-e-commerce-fraud-detection/": {
+    "sha256": "a52d1ce44ac763e28216751dde22c7eaabf4dd0c84417cc2ea67d8aff21450f4",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:55 GMT"
+  },
+  "https://sift.com/blog/money20-20-las-vegas-top-takeaways-from-the-sift-team/": {
+    "sha256": "a5e0169eed29e7bad2a54eb51517096f9822a0d5d6df6e16089af74ae52315bb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:45:16 GMT"
+  },
+  "https://sift.com/blog/moving-from-static-rules-to-real-time-identity-trust/": {
+    "sha256": "b87d49eff25c9e4f4eaa9cf34dff5910c7cdc8705477293a1804e2357ba63a87",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:55 GMT"
+  },
+  "https://sift.com/blog/mrc-spring-2021-top-takeaways-from-trust-and-safety-experts/": {
+    "sha256": "6bf1e87393891676d9c49e6ed9d4fc0514da9936387a83369f37fe5a653bda45",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:47 GMT"
+  },
+  "https://sift.com/blog/mrc-vegas-19-key-takeaways-and-learnings/": {
+    "sha256": "acc1d11c20a9c78cb35dea25e13c44227f904dae5be4ed70b04ba41cbdd186fb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:48 GMT"
+  },
+  "https://sift.com/blog/mrc-vegas-2022-insights-from-sift-trust-and-safety-experts/": {
+    "sha256": "2cce8ea526438f5444226502e7d054e78cbf144f875b0645c8e83313ed5dcc4c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:48 GMT"
+  },
+  "https://sift.com/blog/navigating-payment-fraud-insights-from-sift-trust-and-safety-architect-rebecca-alter/": {
+    "sha256": "a1ce97c6bed9ccbdfd13fe6b07612d9cf39d5bff65bba3ddf44677e6150c5092",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:58 GMT"
+  },
+  "https://sift.com/blog/navigating-psd3-and-psr-how-sift-supports-compliance-and-fraud-prevention/": {
+    "sha256": "4069b8170d661120bf0b4a56b0afb3663b874d44be7716bba76cb9121ba04fbe",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:58 GMT"
+  },
+  "https://sift.com/blog/navigating-the-2024-fraud-landscape-data-insights-from-sift-and-mrc/": {
+    "sha256": "d8ad6e980fecbcdafd259fea7f1adff3aa9058ac051f5f0b66f59605c75ffa9c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:58 GMT"
+  },
+  "https://sift.com/blog/navigating-the-evolving-alternative-payments-ecosystem/": {
+    "sha256": "d3f64825c3f5500685478f6073a59212897b006d3a3dcf6a454c7e61c823b138",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:48 GMT"
+  },
+  "https://sift.com/blog/new-2024-fraud-industry-benchmarking-resource-data/": {
+    "sha256": "440cd03a613105bd4946bc3c3b3871cacec3847cdfe6292252081596a7cbb674",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:59 GMT"
+  },
+  "https://sift.com/blog/new-analyst-report-gartners-market-guide-online-fraud-detection/": {
+    "sha256": "4e33372be9be8b908c5731cd32a3353a9d2282d844a3bf8a3284a0865459bb02",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:52 GMT"
+  },
+  "https://sift.com/blog/new-automate-authentication-prevent-account-takeover/": {
+    "sha256": "20d1b945800481a4f059d64765b601d7d25d38d60951a6dff61847f6fb0ede17",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:52 GMT"
+  },
+  "https://sift.com/blog/new-awards-product-leadership-company-culture/": {
+    "sha256": "703e7e2c35796f4236261ee8778770e986f2e4d53e124c19943f421544e1de1e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:02 GMT"
+  },
+  "https://sift.com/blog/new-chapter-new-role-jason-tan/": {
+    "sha256": "728eb0f31f3cc56f38f97bb66090e2957d3f15c0b8a4765bf18ee91234fb7c39",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:52 GMT"
+  },
+  "https://sift.com/blog/new-console-updates-activities-calendar-and-csv-export/": {
+    "sha256": "e5d6b00ac6bffc0c5c646ee92f92a33dc402257a5278b354ef9f398972bdf948",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:02 GMT"
+  },
+  "https://sift.com/blog/new-fibr-metrics-on-fraudulent-payment-methods/": {
+    "sha256": "5855baaa072084282f08fd2cdbcec73356f37eaa0b11f8929a1c8d662e730df7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:55 GMT"
+  },
+  "https://sift.com/blog/new-fraud-abuse-prevention-products/": {
+    "sha256": "9f63ead5008c81fa4d3bb3e2412016e47e1281de59278b7b6432c6fa088bce4e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:55 GMT"
+  },
+  "https://sift.com/blog/new-q2-2025-data-available-in-sifts-fraud-industry-benchmarking-resource/": {
+    "sha256": "f30b789fb62889796c1c50ae83bd173655039461886a76c6a7b10fb86ed7fb8a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:56 GMT"
+  },
+  "https://sift.com/blog/new-q3-2025-data-available-in-sifts-fraud-industry-benchmarking-resource-fibr/": {
+    "sha256": "6064240362a9c9c26291891aa02e8d56078b77102e7d7fdd4c251b3fb37391e2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:56 GMT"
+  },
+  "https://sift.com/blog/new-tools-audit-workflows/": {
+    "sha256": "d97927429e50688f9975986a02fd3104833b467f579e959dc0b0e40b3ea58934",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:56 GMT"
+  },
+  "https://sift.com/blog/on-our-continued-commitment-to-anti-racism-and-allyship/": {
+    "sha256": "40a0fb6c7efb0ffdf73958d7764c32d17c19b23bcb89a9563cb70d21d72c343e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:56 GMT"
+  },
+  "https://sift.com/blog/one-trillion-events-power-the-sift-global-data-network/": {
+    "sha256": "f7ac062186806b0855cc67b07368f9f42361bd936c8c29f6e1b928dd354840e2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:06 GMT"
+  },
+  "https://sift.com/blog/online-fraud-prevention-for-a-better-internet/": {
+    "sha256": "0106b70e60bb3cb9253d219793e08023174453328df4385ee185b1969599064c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:56 GMT"
+  },
+  "https://sift.com/blog/our-commitment-to-data-privacy/": {
+    "sha256": "4ca168b068822667187aaab79d39130bb99b10ccee92554e0886cbad5fcb2b0c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:07 GMT"
+  },
+  "https://sift.com/blog/our-next-chapter/": {
+    "sha256": "72e7201e738d22af01eeca95656e6d071d7e64cbda3e842c9b25803689013d41",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:07 GMT"
+  },
+  "https://sift.com/blog/owning-the-customer-experience-from-start-to-finish-results-revenue-and-roi/": {
+    "sha256": "f276db9140246090838403f88ca4b258f9d440e03004eeef0bca414597bbdef5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:08 GMT"
+  },
+  "https://sift.com/blog/payment-protection-and-dispute-management/": {
+    "sha256": "470f1ae93ab144187053b76ac90c3d3fc2dadeaa1f8a86a429c682dd6acc39c1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:09 GMT"
+  },
+  "https://sift.com/blog/prevent-chargebacks-strategically/": {
+    "sha256": "b4d97a6c84e08030799c59227070337f302a1da95fc5420049ee545e3843313a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:52:59 GMT"
+  },
+  "https://sift.com/blog/prevent-ecommerce-fraud-frugally/": {
+    "sha256": "db05fc8da88f9ee3d06f9da01208e3c5e6ae9bf642570c3afa7ad676755ea4ae",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:10 GMT"
+  },
+  "https://sift.com/blog/preventing-fraud-in-the-igaming-industry/": {
+    "sha256": "8ad603620235035bee44180e0d4939fab8d0d355789e51c12dbfef807535f71c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:10 GMT"
   },
   "https://sift.com/blog/preventing-promo-bonus-and-multi-account-abuse-for-igaming/": {
     "sha256": "125da96de49b450a403d370cbb6d2e55989924a56438a9d2555b7b7fa07b20ea",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:49 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:53:14 GMT"
+  },
+  "https://sift.com/blog/problem-static-pii-identification/": {
+    "sha256": "6d7b53633fa3f9435643b5d66a1fe585e278fa1b3f12a12121d978426444d147",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:14 GMT"
+  },
+  "https://sift.com/blog/protecting-b2b-internet-software-businesses-from-fraud/": {
+    "sha256": "90989bfe2f2334568b08aa972d0f07bba00ae8be4d7a31f0217d966a2f5037c5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:07 GMT"
+  },
+  "https://sift.com/blog/psd2-compliance-a-checklist-to-secure-payments-and-fraud-prevention/": {
+    "sha256": "fef4c89c7e940e7d7853b8d84ff8f10df4cf899d94267b255b741d20eae71bce",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:10 GMT"
+  },
+  "https://sift.com/blog/psd2-ready-or-not-here-it-comes/": {
+    "sha256": "36b9bcc9339654a4a99db8c7d2ddc242023f6feada1f7cea9961bdd30fe6f342",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:07 GMT"
+  },
+  "https://sift.com/blog/psd2-what-merchants-and-psps-need-to-know/": {
+    "sha256": "7747214a63f8f43bfd4f121d54be0836cd5d3516be8ed42d1bb2997ed41f3cac",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:14 GMT"
+  },
+  "https://sift.com/blog/q1-2023-digital-trust-safety-index-payment-fraud-data-and-insights/": {
+    "sha256": "3ecbc2551ae71c9d9ffa2b74b3cb650888dc35d33fa1f8d04f8a2991e031ae40",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:14 GMT"
+  },
+  "https://sift.com/blog/q1-2025-in-review-the-latest-from-sift-on-fraud-risk-and-identity-trust/": {
+    "sha256": "7f9f01ea7bf37b334d6ac00c80a4e7484ca010447952ff23c31b1cb8fd3b27c5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:10 GMT"
+  },
+  "https://sift.com/blog/q2-2025-in-review-the-latest-from-sift/": {
+    "sha256": "ee2e1e1e107d9d6e35dcec03c59601677bea6ddc0a72e3c202c3654ab603792d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:14 GMT"
+  },
+  "https://sift.com/blog/q2-2025-product-updates/": {
+    "sha256": "ae6cf02f9daf3574ce8bf12ec9291bb42b6a2295cb17d90b322fe129c0eb0e42",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:18 GMT"
+  },
+  "https://sift.com/blog/q3-2024-product-updates/": {
+    "sha256": "cc5e3e1694f290df46dc567cd74b2c55edfda1c339a645344adb6f6ab913d6c0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:16 GMT"
+  },
+  "https://sift.com/blog/q3-2025-in-review-sifts-wins-innovations-and-fraud-insights/": {
+    "sha256": "13be17715fbdb04a4154a40082f0be7c4f09aa823d5f5c17c3f8649605e5f415",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:11 GMT"
+  },
+  "https://sift.com/blog/q4-2024-product-updates/": {
+    "sha256": "a02ff0bdf7caf1ae95266cff0f74c33124da70253945830bf884dc42e60e9f93",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:11 GMT"
+  },
+  "https://sift.com/blog/raviv-levi-on-joining-sift/": {
+    "sha256": "e6b6a530ad36d8dd9ebf1074acf5e303267f767fde59d2047addf4fa4b25f571",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:11 GMT"
+  },
+  "https://sift.com/blog/recap-fraud-fighters-forum-presents-journey-to-growth-event/": {
+    "sha256": "d9407bdb07e676142541f0288f66b499c6183601c733a027fba71e00e5bfe768",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:12 GMT"
+  },
+  "https://sift.com/blog/returns-management-what-it-is-and-how-to-optimise-it/": {
+    "sha256": "393c22a2227eb2f5b2d6c690102fa7bce0924b3db111fe7c66d37e0ec76ff934",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:26 GMT"
+  },
+  "https://sift.com/blog/risk-revenue-forum-global-insights-from-industry-experts/": {
+    "sha256": "3ec5e078577a31ee838ad67fb94b43de9d82e23d34234e511caba8be0551a69e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:14 GMT"
+  },
+  "https://sift.com/blog/rules-vs-machine-learning-need-win/": {
+    "sha256": "c625de622616492882dd94134431b4e300bce7f094f91b40343659ebcbd8d57e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:20 GMT"
+  },
+  "https://sift.com/blog/sca-and-tra-exemptions/": {
+    "sha256": "eac4540002260eef66b4232e00e33e796c330821b4f533e46098345c381934bc",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:21 GMT"
   },
   "https://sift.com/blog/second-womens-trust-network-turo-trust-and-safety/": {
     "sha256": "04176b57c32e0cbc690faf10088f068e33f75373687c06c225f479bcd6b85eb4",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:50 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:53:21 GMT"
+  },
+  "https://sift.com/blog/securing-your-competitive-advantage-with-sift/": {
+    "sha256": "b73bfcad8f75f0fe3f7cca2553bfdaaaeb529b3e76e7571899270688a8cf6a74",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:14 GMT"
+  },
+  "https://sift.com/blog/series-e-funding/": {
+    "sha256": "0a3d9123055a1251fea6e8780fdf05fc95e006c90c29e4a05bdf96756e45bb82",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:14 GMT"
+  },
+  "https://sift.com/blog/sift-2023-forrester-wave-digital-fraud-management/": {
+    "sha256": "fb74b8f31b835db1f1849228da9a1ef3107561010aa2ee664882d31259e5b6ec",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:21 GMT"
+  },
+  "https://sift.com/blog/sift-celebrates-a-decade-of-digital-trust-safety-with-awards-and-funding/": {
+    "sha256": "367f3cd099819d0d0b1f239a1f25a07cdbc7bda44c1770985a84a3cc317bf8c4",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:25 GMT"
+  },
+  "https://sift.com/blog/sift-chargeback-better-together/": {
+    "sha256": "cb4193784cc2b22c9a07462a40d40cb0ff47d87a18b6eded09a4566293802ee8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:45:19 GMT"
+  },
+  "https://sift.com/blog/sift-connect/": {
+    "sha256": "062ab8c184173e0c061f585a142252818ba80694e616131af639e0c77c05455a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:16 GMT"
+  },
+  "https://sift.com/blog/sift-forrester-wave-enterprise-fraud-management/": {
+    "sha256": "9d08b47d91f7c33d885faed51f559e2fceee4c6d67511aef9e03d34e3e24668b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:17 GMT"
+  },
+  "https://sift.com/blog/sift-fraud-alert-pig-butchering-scam-couples-romance-with-crypto/": {
+    "sha256": "3574478bec54cc537920ac9689606a592357ad913c903146fa06956dc41e511c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:25 GMT"
+  },
+  "https://sift.com/blog/sift-in-2019-looking-back-on-an-eventful-year/": {
+    "sha256": "f74e403fa135593a64c3ae5b0fa258c64bde4e75d87bd1a637415359fbd89e10",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:19 GMT"
+  },
+  "https://sift.com/blog/sift-integration-magento/": {
+    "sha256": "83fb00173e9ddd5e1b643ea946622cfffe9322904ff8f911ef15b9b04c4324d5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:19 GMT"
+  },
+  "https://sift.com/blog/sift-integration-salesforce-commerce-cloud/": {
+    "sha256": "7af32e875c354ea3729eadda7a9144cf8199087815f25bde04e4244f343dea74",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:25 GMT"
+  },
+  "https://sift.com/blog/sift-leveraged-by-hertz-to-drive-digital-trust-theft-prevention/": {
+    "sha256": "b531140281844f986d098057591436390a57f91f63cac2ff2257ddf1277aa556",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:20 GMT"
+  },
+  "https://sift.com/blog/sift-named-a-leader-in-the-qks-group-spark-matrix-for-ecommerce-fraud-prevention/": {
+    "sha256": "d21b779b93507aa6b7054ec64d2d55df535f399f1b12840e9fc1e5a0b1e8ac7d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:28 GMT"
+  },
+  "https://sift.com/blog/sift-ping-identity-ai-fraud/": {
+    "sha256": "cceb8c5c3ca668c46c13eae7781e6854dc387293b36d84ad68958dc9aadd35ad",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:29 GMT"
+  },
+  "https://sift.com/blog/sift-quarterly-roundup-collaboration-innovation-industry-recognition/": {
+    "sha256": "0aad85b58c53bdb00e4a388d24ab2da9a6d09625e03eacb0b8d5a5ad780a466d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:32 GMT"
+  },
+  "https://sift.com/blog/sift-quarterly-roundup-leading-the-charge-in-digital-trust/": {
+    "sha256": "973757af6676c687780f6127bde30171282244fc205f5d2e433923d13333c048",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:45:20 GMT"
+  },
+  "https://sift.com/blog/sift-quarterly-roundup-rising-to-the-challenge-in-q1-2024/": {
+    "sha256": "c55f9001cd8d83c4d5935f3b1cc188e195fc7f9ea227a5b0241b55b53249604a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:29 GMT"
+  },
+  "https://sift.com/blog/sift-science-2017-numbers/": {
+    "sha256": "9496e2ccaf1ccbf2cea15cd24fee740fefccdfe43322fd28466757d6d3dd3f29",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:25 GMT"
+  },
+  "https://sift.com/blog/sift-science-mrc-vegas-2018/": {
+    "sha256": "433a1fc51ee6c7d0dfbbae5134963d26255d66cf0045b7df5e2a90e710ef41c8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:30 GMT"
+  },
+  "https://sift.com/blog/sift-science-now-privacy-shield-certified/": {
+    "sha256": "80f969083f455c981d9897c0fde22e511bf553409bc089e6188a3859da08fd6d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:31 GMT"
+  },
+  "https://sift.com/blog/sift-science-raises-30m-new-funding/": {
+    "sha256": "9d1f86a750c14df38038d0b5af4ade42a4ee5b7d7807f7dd924dcd6031d71700",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:35 GMT"
+  },
+  "https://sift.com/blog/sift-science-series-d/": {
+    "sha256": "671da4d3f40f2936061b70e19c3d89d870d77dc2caba1d2ac35c9180e93a051a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:26 GMT"
+  },
+  "https://sift.com/blog/sift-science-soc-2-compliant/": {
+    "sha256": "a1a457a0ee807625980e757f165a0820fb547a6863ca69c1446fbd7b07b2594e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:27 GMT"
+  },
+  "https://sift.com/blog/sift-science-trust-advisory-board/": {
+    "sha256": "194d80c007acebc62b2d9f6ff5795ed476ed86b79b4575bf9e30412bdb1622f1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:33 GMT"
+  },
+  "https://sift.com/blog/sift-science-workflows/": {
+    "sha256": "6aab52688412cc2b60c8f90f222046df1a13e576bbe40448db192fa3ea2e9162",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:34 GMT"
+  },
+  "https://sift.com/blog/sift-score-api-for-internal-models/": {
+    "sha256": "46feca36744caffe465360c34b43a87293a8b89c779a9c3f711ba05960bbe73e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:29 GMT"
+  },
+  "https://sift.com/blog/sift-scores/": {
+    "sha256": "bcc7dff8e68ee844a2934b02efd9593a4a88f8824aad35e513deea400665b00d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:35 GMT"
+  },
+  "https://sift.com/blog/sift-to-acquire-chargeback/": {
+    "sha256": "11c6c591d38d542df12d506110d86bd5acce5d55912cff7cf8d518ccbafeb6c8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:36 GMT"
+  },
+  "https://sift.com/blog/sift-vp-global-channel-sales-leslie-lorenco-named-to-crns-2026-channel-chiefs-list/": {
+    "sha256": "f70012b9afca8da8be6174b1d7ba74d7b0897c78118d535cd506683db2f43bcb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:30 GMT"
+  },
+  "https://sift.com/blog/sift-workflow-best-practices/": {
+    "sha256": "1de06261a87aec22b71358f3f7e64772301bff543749ab718c629653ffe65326",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:30 GMT"
+  },
+  "https://sift.com/blog/sifters-community-announcement/": {
+    "sha256": "00a4057b14357318a6f71b787248f36b437fb31f7ae97d20be7404c2fee9c5b5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:41 GMT"
+  },
+  "https://sift.com/blog/siftie-spotlight-adrienne-lumb-web-strategy-manager/": {
+    "sha256": "7db5b95f0fdec6e6bbfd111413cff771e5a6cfef550f1606a800ded549b19db8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:31 GMT"
+  },
+  "https://sift.com/blog/siftie-spotlight-angela-marrujo-content-marketing-associate/": {
+    "sha256": "7a8d72fda25f41d89ad55225302a16fdacbb1a8e04bb63048479896a29555ea1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:38 GMT"
+  },
+  "https://sift.com/blog/siftie-spotlight-bret-blount-director-communications/": {
+    "sha256": "9e904df9348af47a380af7a4cc00181b110c3b7ae7b1a04748438d92629b6adf",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:38 GMT"
+  },
+  "https://sift.com/blog/siftie-spotlight-dandrew-cruda-senior-marketing-manager-demand-generation/": {
+    "sha256": "3315cb581b74ff7bd98827749965763c358959a2f00ac14089dcb62bcd28bb82",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:33 GMT"
+  },
+  "https://sift.com/blog/siftie-spotlight-freda-kreitzer-specialist/": {
+    "sha256": "3356ce4ae3147cb8572f65096969d6439e56c25e1b7f02fbe31add04ee16dfdd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:39 GMT"
+  },
+  "https://sift.com/blog/siftie-spotlight-jeff-sakasegawa-trust-and-safety-architect/": {
+    "sha256": "fe91a87ff4211408cee94a79d824f2857dbae6356e1fbb16ba4e23d1bd7401c7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:40 GMT"
+  },
+  "https://sift.com/blog/siftie-spotlight-kyle-kwon-support-engineer/": {
+    "sha256": "f4b771606d12722536b885c5e7106c389be4537ff3087026e47322ac06b9f59e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:40 GMT"
+  },
+  "https://sift.com/blog/siftie-spotlight-lauren-stasko-senior-program-marketing-manager/": {
+    "sha256": "71e1c517b6063bc11ffb569f6d8a5c30422ec57dfa3e97ceeac88e098fa2853b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:36 GMT"
+  },
+  "https://sift.com/blog/siftie-spotlight-madison-majerle-account-manager/": {
+    "sha256": "c2cafe9255b312eaa319636d7085af78eeda0585bfa916e99cac07cd9ff4572f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:40 GMT"
+  },
+  "https://sift.com/blog/siftie-spotlight-maya-meyers-front-desk-ambassador/": {
+    "sha256": "95996768483f045214be09b9434557fdb36c68b070ca6af07b12e61e29c3d430",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:36 GMT"
+  },
+  "https://sift.com/blog/siftie-spotlight-patrick-marx-staff-software-engineer/": {
+    "sha256": "d9b3ad133bc01e83e7254fe49a7c5a33a8ffd1238b7a8cc5bfc3217fb0a4d889",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:36 GMT"
+  },
+  "https://sift.com/blog/siftie-spotlight-rachel-xiao-technical-recruiter/": {
+    "sha256": "468acd9315991adf0ef121a824778a4b048c50ebfb8d055020195c9ae415eb74",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:37 GMT"
+  },
+  "https://sift.com/blog/siftie-spotlight-ricky-franklin-account-executive/": {
+    "sha256": "a4b6e8401f2d92937f519583c7d10595490277f7799eaf4e0113567c7f93dacb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:43 GMT"
+  },
+  "https://sift.com/blog/sifts-innovative-journey-40-patents-and-counting/": {
+    "sha256": "a78e0c85d5ff49727a5d058cfb32afdd19553fabd51b25109c73a528e1d79fc6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:43 GMT"
+  },
+  "https://sift.com/blog/sifts-insights-from-mrc-berlin-2022/": {
+    "sha256": "6fef1c3f8c701d25b60df7d8c57bacd156c8ad9d5f746acfa958f5a076192a80",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:43 GMT"
+  },
+  "https://sift.com/blog/sifts-latest-fraud-data-insights-from-money20-20-and-g2-awards/": {
+    "sha256": "63c032b4317375b7f0fea353a2923a6aecfc4f654645c2a4c8cf4a125acbf7e1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:43 GMT"
+  },
+  "https://sift.com/blog/sifts-top-takeaways-from-bitcoin-2022/": {
+    "sha256": "2140e8b2a52e7f4231a263604d96853268a0407dad68170c701eec7e0352e0d5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:44 GMT"
+  },
+  "https://sift.com/blog/sifts-universal-guide-to-fraud-risk-acronyms/": {
+    "sha256": "9e144b983a2c3497d07729edd7195393d9581f67d4732f0bdfffa3bdf699b965",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:44 GMT"
+  },
+  "https://sift.com/blog/soc-2-type-2-renewed/": {
+    "sha256": "0cc8160db1ecf49bca9c255ef6991319da82db3d9de5898cc3415d3561d5c91c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:40 GMT"
+  },
+  "https://sift.com/blog/special-report-fighting-fraud-in-the-age-of-ai-and-automation/": {
+    "sha256": "29fc1bb55e5b9b90adf7b110b8d926b74cf2d4e5ec2b21c11ea4401556923036",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:46 GMT"
+  },
+  "https://sift.com/blog/spf-100-stop-payment-fraud-this-summer-so-you-dont-get-burned/": {
+    "sha256": "d84e4e88df51eb1235814e13ac7e7fde0e13f3f31185569c67690502ecccbd7f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:41 GMT"
+  },
+  "https://sift.com/blog/spring-2019-release-enterprise-trust-safety/": {
+    "sha256": "11856ae7d7403d87e251da57294a57ed24a4cdae7d208ec22fb4301854a081d0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:46 GMT"
+  },
+  "https://sift.com/blog/spring-2020-release-a-connected-ecosystem/": {
+    "sha256": "32080ad48bd4502f4246eeb17e914e1b37d9d95d34a3d93d38b9edb6d383e39c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:47 GMT"
+  },
+  "https://sift.com/blog/spring-2021-release/": {
+    "sha256": "edcdbbba03d74ad0003af5ff475cecd641e51335b639ca92c6646c1c3b6c2d21",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:47 GMT"
+  },
+  "https://sift.com/blog/spring-2023-sift-product-release-smarter-more-flexible-fraud-prevention/": {
+    "sha256": "5c00f69b79e5cdd83ad5b3a0e13a433f5a2c2f134950ba6c14f45eeb6fdc9a65",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:48 GMT"
+  },
+  "https://sift.com/blog/stats-holiday-fraud/": {
+    "sha256": "9bdae6fb5dfecd0ad88c7f8b9fe1b08fd30c2225d74bc30eb94e2a8ce4679ee5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:43 GMT"
+  },
+  "https://sift.com/blog/steve-love-sift-chief-financial-officer/": {
+    "sha256": "651d0bba91d6c5b6c678f0d126a6969736ffca2fc179b8df13250bc3490b0c23",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:49 GMT"
+  },
+  "https://sift.com/blog/stop-bad-content-build-better-communities/": {
+    "sha256": "14791054d76b0151651396ab5bb6c4fa1d0ede0487eb1effe38cbb17486229cd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:49 GMT"
+  },
+  "https://sift.com/blog/streaming-fraud-what-it-is-and-how-it-works/": {
+    "sha256": "f8df6f06bce615534fea8f55b87d80eb69fea8f1695bfd4e3536a6586cc66b8c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:48:05 GMT"
+  },
+  "https://sift.com/blog/summer-2019-release-intelligent-performance/": {
+    "sha256": "4178d6e1faa2b32463e9c3cc793bd833f53bb2413d1f3205590ebba859cb6b49",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:45 GMT"
+  },
+  "https://sift.com/blog/summer-2020-release/": {
+    "sha256": "0ef778add5465e40a50229b2414973b73202b59420ce8a2d8c6f9db56524842d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:46 GMT"
+  },
+  "https://sift.com/blog/sync-with-sift-and-fintech-leaders-at-money20-20-las-vegas/": {
+    "sha256": "36b3cdf475e9ad5f55cc916f9c126bc19c4b0cff724f48f47683e528b095e168",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:50 GMT"
+  },
+  "https://sift.com/blog/synthetic-identity-fraud-why-its-the-fastest-growing-financial-crime/": {
+    "sha256": "ec1174263f392ddcefbcae26c2f0f0823c6af728f051edbe58b6f44c91838928",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:48 GMT"
+  },
+  "https://sift.com/blog/tackling-the-fraud-economy-with-sifts-fraud-intelligence-center/": {
+    "sha256": "26f5538d4bb025b78d09aa646de934b28460ebc19ce5252a567f955f94bbb14d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:51 GMT"
+  },
+  "https://sift.com/blog/talking-fraud-trends-and-a-trust-and-safety-mindset-with-brittany-allen-trust-and-safety-architect/": {
+    "sha256": "12ac94adaa5e040b47162e631ca5e52c92bae35d4dbacb4aa05854341fac8b45",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:51 GMT"
+  },
+  "https://sift.com/blog/talking-growth-and-digital-trust-safety-mrc-2019/": {
+    "sha256": "156f7582cecdd5fe46cd78d3ff341f32c6f71f450378a5836c598a39e924b292",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:52 GMT"
+  },
+  "https://sift.com/blog/telegram-fraud-scheme/": {
+    "sha256": "1ed05ee2af276b5c01ad557f22899f75997a6f92bd6df7a1c7f1d03d739cb4ad",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:53 GMT"
+  },
+  "https://sift.com/blog/thanks-obama/": {
+    "sha256": "2b0f05a6d1035c02255146a22ef815603ca0d844763b5fd0b1af25f314bdd527",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:48 GMT"
+  },
+  "https://sift.com/blog/the-7-best-practices-for-returns-management/": {
+    "sha256": "441f7c386ea13e52931072e813baf008ebbfa67bf8771b8c61b09e3b956056e6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:53 GMT"
+  },
+  "https://sift.com/blog/the-ai-transformation-is-reshaping-global-fraud-are-you-ready-for-the-risk/": {
+    "sha256": "5edf6b9c375dab8bb17fcc3cb93b4ebb6881e85e8c6222c10d552991f46d6854",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:50 GMT"
+  },
+  "https://sift.com/blog/the-art-science-of-dynamic-friction-powering-protection-and-growth-at-scale/": {
+    "sha256": "8ae91d820b983aeff1c150c6fac5fc7bdfb88839ccca15c4289b94c16cda5b28",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:50 GMT"
+  },
+  "https://sift.com/blog/the-democratisation-of-fraud/": {
+    "sha256": "1839023f36623594b3f1f4d0bb03eea120b7a8bbd88f298ab2a4db2dd8195e4e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:01 GMT"
+  },
+  "https://sift.com/blog/the-detective-and-the-commando-hiring-in-digital-trust-safety/": {
+    "sha256": "401ca7b9d62089514951cea931bfd94366e8f694e8ba1439f1ebb550c90a4214",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:55 GMT"
+  },
+  "https://sift.com/blog/the-digital-trust-safety-deficit/": {
+    "sha256": "a0705a349d40bfb2d99eb474e1f304429b16d8840f4439ae3ccefce18971350b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:56 GMT"
+  },
+  "https://sift.com/blog/the-digital-trust-safety-mindset/": {
+    "sha256": "4cd4cf1cb378094a13eb51ef34014b64b49f1462a129395502935367299a0cf1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:51 GMT"
+  },
+  "https://sift.com/blog/the-era-of-ai-powered-risk-decisioning/": {
+    "sha256": "d6e9435725582ca5f16d0bc75a082033fbe9ad3d15dc1cdf25224134912aaa24",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:51 GMT"
+  },
+  "https://sift.com/blog/the-evolving-fraud-economy-how-ai-is-reshaping-digital-risks/": {
+    "sha256": "a87d87cd25bb5ed5955d01e78f77978251859c1f945ce772b78b43a1bdd8e9cb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:51 GMT"
+  },
+  "https://sift.com/blog/the-first-rule-in-fighting-fraud-rules-dont-work/": {
+    "sha256": "7d6ca590211435fe10a407417302196a439220981f3ef383e0482631b38dbc4b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:03 GMT"
+  },
+  "https://sift.com/blog/the-future-of-fraud-fighting/": {
+    "sha256": "623738c9ec884856a7fead418a53e5c0a5bda3e0d4a7a9d4358f711e24e842ad",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:00 GMT"
+  },
+  "https://sift.com/blog/the-good-the-bad-and-the-ugly-what-will-2019-bring-for-fraud/": {
+    "sha256": "24451f5ce7c4095c578ea4bcb9b6e5102d343fd3749753e166d19cf79f094200",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:00 GMT"
+  },
+  "https://sift.com/blog/the-league/": {
+    "sha256": "64c5c535120a0c91e8294e3feb6a88b77b70ba378dc60b8b0bf463dbf28ef26d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:53 GMT"
+  },
+  "https://sift.com/blog/the-new-sift-science-console/": {
+    "sha256": "155e2747e4785e56b6ab929256e0eef1bdd84eeee640e69b69ce832714132c9f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:53 GMT"
+  },
+  "https://sift.com/blog/the-next-evolution-of-risk-intelligence-integrating-global-industry-and-business-insights/": {
+    "sha256": "7f996c7c830d734cc1e4f61d3fece3184b8e633ddfe8ae34a72ac79623e9fa5e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:53 GMT"
+  },
+  "https://sift.com/blog/the-refund-hack-economy-why-e-commerce-chargebacks-surged-in-2025/": {
+    "sha256": "64f6a06c4a9861692f25728c6a07e0d2a0c9a9ffdd78594fb509abeee1b43003",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:09 GMT"
+  },
+  "https://sift.com/blog/the-rise-of-friendly-fraud-and-how-to-choose-the-right-fraud-prevention-solution/": {
+    "sha256": "b1cc97ff1b134d6f5a1f9b8efe71298b2313a7304c7b33b41abc805d347b1f70",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:09 GMT"
+  },
+  "https://sift.com/blog/the-rising-risk-of-online-disputes/": {
+    "sha256": "6b4d545700e3f815c8634a1905bf560c10ee1f1a527dc63960d36e5b16612444",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:56 GMT"
+  },
+  "https://sift.com/blog/the-strategic-implications-of-fraud-in-your-digital-transformation-journey/": {
+    "sha256": "935a20f3492ebbd055c1e539d96e71efe19c1297d4791b2d2202867c2210be65",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:10 GMT"
+  },
+  "https://sift.com/blog/the-summary-of-sift-in-fall-2014/": {
+    "sha256": "e2b1ee63b88266065ab1dfa03041420a012dad0789a72955e8e087bcd3a6159d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:15 GMT"
+  },
+  "https://sift.com/blog/the-top-5-valid-reasons-to-dispute-a-charge/": {
+    "sha256": "ca1024fff1db0afa2108dfab31ffab7685acf46af03542c9e1e8d1a278ac87e3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:13 GMT"
+  },
+  "https://sift.com/blog/the-true-cost-of-e-commerce-fraud-for-a-store-owner/": {
+    "sha256": "ec4e99ad106c06def4d1be55ce4f58e81a298f900032b8f199e3f455c0ce38f6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:14 GMT"
+  },
+  "https://sift.com/blog/tips-and-tricks-for-hospitality-disputes/": {
+    "sha256": "6c204314a697a3f215a710d5fc8fa2762fd65b5696950017e36211a3b93daab6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:15 GMT"
   },
   "https://sift.com/blog/tis-the-season-for-fraud-how-businesses-can-stay-secure-during-the-holidays/": {
     "sha256": "10208c90d9235dfbf905064264e1fdb8342926f21c43d0f47b498a6070bc62fe",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:49 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:03 GMT"
+  },
+  "https://sift.com/blog/top-fraud-findings-from-crypto-expo-asia-2022/": {
+    "sha256": "9f53c9965754451524f01460abbca3b2e4de575e96b963ed92b862c3f03b5be4",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:16 GMT"
+  },
+  "https://sift.com/blog/top-fraud-risks-growth-drivers-for-internet-software-and-services/": {
+    "sha256": "e721074aef6acc61aa9f961da89c3d3573b02190943ea6ade9ed05794e000031",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:09 GMT"
+  },
+  "https://sift.com/blog/top-insights-from-sigma-malta/": {
+    "sha256": "23adad51a7547f178ef5d9a0a9c28f45a4c795dff0f6b879b525e5e6393b7b51",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:09 GMT"
+  },
+  "https://sift.com/blog/top-takeaways-from-money20-20-amsterdam-2023/": {
+    "sha256": "e3d5db651c2e54bcdd7a253667c7851be7e54b92491338f8a602901f685bc6cf",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:10 GMT"
+  },
+  "https://sift.com/blog/top-takeaways-from-money20-20-usa-kyc-risk-fintech-fraud-trends/": {
+    "sha256": "68aa5f6bd586a07fd2c0453d97e7da4b4a1503cc168434efc820f17dfd9171a1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:10 GMT"
+  },
+  "https://sift.com/blog/top-takeaways-from-mpe-berlin-2023/": {
+    "sha256": "3975b849f975f3cadbb9cd7fbd52e5a7b51b3c69a60a47be293178a326875154",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:26 GMT"
+  },
+  "https://sift.com/blog/top-takeaways-from-mrc-barcelona-2023/": {
+    "sha256": "8ad1efe8951a878425c7e432e1b14827fe1291d9daf766ea323d8b80ade38581",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:10 GMT"
+  },
+  "https://sift.com/blog/top-takeaways-from-mrc-vegas-2023/": {
+    "sha256": "42f4c4fe264f4f25dae8721004a805eec9c7f66c4b71347659680ccc889c1e02",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:23 GMT"
+  },
+  "https://sift.com/blog/top-takeaways-from-sifts-live-session-with-forrester-on-selecting-the-right-digital-fraud-management-partner/": {
+    "sha256": "061f8c830c58d2417ddbb6d4cfc63526c8f3e66fbc6eb0f9f61278eb425ef89e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:23 GMT"
+  },
+  "https://sift.com/blog/top-takeaways-from-trustcon-2023/": {
+    "sha256": "fc10f735abc34b3b7f98fd76e343320a697c9df30060c43f23b1f2b535a634fd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:30 GMT"
+  },
+  "https://sift.com/blog/top-takeaways-the-c-suite-imperative-for-online-fraud-management/": {
+    "sha256": "0a4b0618d1d55c3f2d7fcbfc879626007361ee91e2985a0f9816bcbf35740ac7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:28 GMT"
+  },
+  "https://sift.com/blog/tracking-the-evolution-of-payment-fraud-in-2025/": {
+    "sha256": "ec34d75a03c8e8253af9224f269cf1164a44c2fe350f010d3ebedb9cf291bfd6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:15 GMT"
+  },
+  "https://sift.com/blog/transact-2022-key-learnings-for-merchants-and-payment-providers/": {
+    "sha256": "cd8bd99e24f613f6e74b668301edb4db86c237e3bdb625230047752e396936ed",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:29 GMT"
+  },
+  "https://sift.com/blog/transaction-disputes/": {
+    "sha256": "986d7f21f2d505bf3ece7f850aabdac2bd2063259243a65d0902aee5e9d23939",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:34 GMT"
+  },
+  "https://sift.com/blog/travel-fraud-challenges/": {
+    "sha256": "cba0736a5e594f00ef096678755b2f592da3ac89a61e0999be84961f7269c1a7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:17 GMT"
+  },
+  "https://sift.com/blog/trust-and-safety-architect-jane-lee/": {
+    "sha256": "96a8a5e1578616883e268a4062a96dd150be6f441dfc83ffad1188a646eb993b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:17 GMT"
+  },
+  "https://sift.com/blog/trust-is-social-but-social-doesnt-equal-trust/": {
+    "sha256": "e5f0e583ac12b76fef9c97224e8ddede122f1b782a75f3f8b62c5e0a30890589",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:31 GMT"
+  },
+  "https://sift.com/blog/understanding-authorized-push-payment-app-fraud-and-the-new-consumer-protections/": {
+    "sha256": "ac39090e86d6e99cc0911eabec6a35b4306fafe0d0227307e9db63201fbdf140",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:33 GMT"
+  },
+  "https://sift.com/blog/understanding-social-engineering-and-preventing-account-takeovers/": {
+    "sha256": "72a246b34540fd1c2535e5f45f14fc1955ca3b15600300738a64cb4c3fdc0e61",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:33 GMT"
+  },
+  "https://sift.com/blog/unlocking-growth-through-fraud-prevention-key-insights-for-finance-leaders/": {
+    "sha256": "37cf64e8c543a9ae2d27cc64f3522a31d601751682a3a4ed58e30a212858682a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:26 GMT"
+  },
+  "https://sift.com/blog/visa-chargeback-changes-merchants/": {
+    "sha256": "dd3a1b92939357d95f32c772576c42de8c008eef85a364bcd34ea95ff1a1452e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:35 GMT"
+  },
+  "https://sift.com/blog/visa-chargebacks-what-to-know/": {
+    "sha256": "32686392f4e15ff7f7592f9fec7b60e7784d00b8d309307d1f4d5b3d5f60ea5d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:28 GMT"
+  },
+  "https://sift.com/blog/visa-mastercard-chargebacks-what-to-know-now/": {
+    "sha256": "f35fde79fd0623378a9a98c5517d944285145f98908723f039a4489f10749afa",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:28 GMT"
+  },
+  "https://sift.com/blog/visas-vamp-dispute-threshold-changes-and-what-you-can-do-to-prepare/": {
+    "sha256": "2a866c298c4f8a5bbcd40e0fe63eb047e96cff13226d7e37a5649c9f75f0ba41",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:37 GMT"
+  },
+  "https://sift.com/blog/what-are-account-takeovers-ato/": {
+    "sha256": "fb48ad6ae0220f5fe56e103de9511ba76a363e3aec0eba55d8f5487fa86f9562",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:36 GMT"
+  },
+  "https://sift.com/blog/what-are-ai-scams-and-how-do-you-stop-them/": {
+    "sha256": "0b94e1904940f180a5104ffe1a9939a378c094a1942c17a0922015a6efb84971",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:37 GMT"
+  },
+  "https://sift.com/blog/what-are-ai-scams/": {
+    "sha256": "d7caac4fcc06e7f03356ef1acd15afc2a59e0b940dd90750441d89c0006f54b8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:40 GMT"
+  },
+  "https://sift.com/blog/what-does-social-say/": {
+    "sha256": "2155bf97e8a70b052a119b81f43cd5e714691dee5d26723dc8eaee27845b9794",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:38 GMT"
+  },
+  "https://sift.com/blog/what-is-a-one-time-password-bot/": {
+    "sha256": "610a4235c012b270935f66fd1d79891e5c2022b2cabd00ffee6d09092ed80e43",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:40 GMT"
+  },
+  "https://sift.com/blog/what-is-a-transaction-dispute/": {
+    "sha256": "251bdf32bb83e758f9b0535db336c1bcd1037e5998a4eac93dd836b0b6e198f8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:39 GMT"
+  },
+  "https://sift.com/blog/what-is-ai-ml-and-why-does-it-matter-in-fraud-prevention/": {
+    "sha256": "0f70120699be7a9f6ee54baf3a7ce247ab6f507846c2b6a13f6d2ceb3684e28f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:36 GMT"
+  },
+  "https://sift.com/blog/what-is-an-otp-bot/": {
+    "sha256": "b29b612e51bc130f8a537b2a97af8a09c751d25683f1f90ccf68abce2e643c2d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:40 GMT"
+  },
+  "https://sift.com/blog/what-is-big-data-part-i/": {
+    "sha256": "465af43fb65a20cdbb3fe185fa4de2fc673f576184cb041988d0a8dd31c44d47",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:40 GMT"
+  },
+  "https://sift.com/blog/what-is-card-testing-fraud-and-how-to-protect-your-business/": {
+    "sha256": "352633b60d8c77de742ba1935630b71df6b5bdeeb9ba5a765aa845da368c4402",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:41 GMT"
+  },
+  "https://sift.com/blog/what-is-content-abuse/": {
+    "sha256": "e9638509297992ac3910589761f7a6a8a96e59a2ba319b1fc42cc45f55e6c46c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:37 GMT"
+  },
+  "https://sift.com/blog/what-is-digital-risk-management/": {
+    "sha256": "893570b278be9f17ea5d9fd5def35978d8901cfd757dd3ab997661fa59dcf77f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:43 GMT"
+  },
+  "https://sift.com/blog/what-is-digital-trust-and-why-is-it-at-risk/": {
+    "sha256": "1e06ae841530626106aaaae1333d85afb19bc402885196e1a201f5a836309663",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:43 GMT"
+  },
+  "https://sift.com/blog/what-is-fake-account-creation/": {
+    "sha256": "a319b0f9520232a8ea5f1fb45569bef89cff623cf6529f3336a7fe261bae22a1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:43 GMT"
+  },
+  "https://sift.com/blog/what-is-machine-learning-intro/": {
+    "sha256": "82f905a151c1bced9eb4583942153713ef5e96f17a9350805880daf2679281b8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:43 GMT"
+  },
+  "https://sift.com/blog/what-is-money-movement/": {
+    "sha256": "b24d12a9fecf49ebbfc04cb7448f20169bba4b994d6cca104aee38e198fd31c7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:43 GMT"
+  },
+  "https://sift.com/blog/what-is-online-streaming-fraud/": {
+    "sha256": "1a6f53718cbd61ba6f62eae35262e152aec65f31f282fe028192b91f8b016f48",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:44 GMT"
+  },
+  "https://sift.com/blog/what-is-payment-fraud/": {
+    "sha256": "7f8cd4e0e9a4fea52c73ddd738c2a4399574734f36634b661800a48f33fa3b14",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:40 GMT"
+  },
+  "https://sift.com/blog/what-is-return-fraud-and-how-can-businesses-fight-it/": {
+    "sha256": "6d50fdc3dbdc095165f07257d1fd0b9d99de079cd9cfb51c012b0b31acc731c4",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:44 GMT"
+  },
+  "https://sift.com/blog/what-is-risk-prioritization/": {
+    "sha256": "ccc8e77b242c2f784cf2c941fbffcdc157b709b6b69e650a2a4134a448798501",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:45 GMT"
+  },
+  "https://sift.com/blog/what-is-the-chargeback-process/": {
+    "sha256": "cf74ff7543148df5f139f04557c0e4fa87383276137211d77fd40cede879831b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:46 GMT"
+  },
+  "https://sift.com/blog/what-is-the-democratization-of-fraud/": {
+    "sha256": "677e7529df3dcb7cc536a1f79c9f189b0b5d4825fece5dc95d67a84f42477d38",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:47 GMT"
+  },
+  "https://sift.com/blog/what-is-transaction-monitoring/": {
+    "sha256": "99d4f5a3d366a0b5320fff2b109d2abb88afd82c2ba3e2a1aea450a48c74ac1b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:47 GMT"
+  },
+  "https://sift.com/blog/what-you-need-to-know-about-the-visa-compelling-evidence-3-0-update/": {
+    "sha256": "8782e49468d035dbafe89434a43a5b828e322d44aadb18e5d2e8f64b94688f1e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:44 GMT"
+  },
+  "https://sift.com/blog/when-disruption-hits-data-is-your-best-defense/": {
+    "sha256": "b83d691bc8b551bc52c872ae367cbc441adc0353f4568b77a6f25486cf46d706",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:47 GMT"
+  },
+  "https://sift.com/blog/when-gift-cards-hit-hard/": {
+    "sha256": "ec6141ae4070c88e824fb91ba5bc63063d13d3e2b948e9bd6730d93cf914c24b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:48 GMT"
+  },
+  "https://sift.com/blog/where-does-fraud-go-from-here-how-coronavirus/": {
+    "sha256": "9f5ccf0e49747597c7347e8113179462b11c92f654e1282bbd43a600ead7a339",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:48 GMT"
+  },
+  "https://sift.com/blog/why-are-e-commerce-payment-forms-so-complicated/": {
+    "sha256": "6bf07a42be574514f71fc27052aeb99479758809c164b1a300da3dc869afbc5b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:48 GMT"
+  },
+  "https://sift.com/blog/why-digital-trust-safety-why-now-with-jason-tan/": {
+    "sha256": "e664f80f936475a942a5bc597e6a376aeedad7f2418928f817c0504de96eace3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:45 GMT"
+  },
+  "https://sift.com/blog/why-social-media-signals-cant-stop-sophisticated-fraud/": {
+    "sha256": "fb8f024f638078b9486852d88b36d264ba590d4e70e651b66b5a9a7e3d3f6e1e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:50 GMT"
+  },
+  "https://sift.com/blog/why-the-full-consumer-journey-is-critical-for-effective-fraud-prevention/": {
+    "sha256": "7f7034c589acc4217b1d3c5636e6975cd820de6b0b039967388d0e1c22458491",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:51 GMT"
+  },
+  "https://sift.com/blog/work-faster-and-smarter-with-decisions/": {
+    "sha256": "9ce628e043dc2ce623179996ba771f5d84c9647856939553b12ad22cb9d5822e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:51 GMT"
+  },
+  "https://sift.com/blog/you-down-with-cnp/": {
+    "sha256": "9bff4292972484215dcb22dccd8ff71127bd3ad041993572dacd6fd85e0bca10",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:51 GMT"
   },
   "https://sift.com/community/": {
     "sha256": "8825662ec717d67cf77334fcf69b2d7ae2d19f697f72adbaa65da55597196be7",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:09:49 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:52 GMT"
   },
   "https://sift.com/community/supersifters/": {
     "sha256": "ff44a91d8b78fc471ec06004bd252ab8cde0a9924e951cf1c794c4df25311cc0",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:49 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:51 GMT"
   },
   "https://sift.com/company/": {
     "sha256": "76bad0f6b7fcd41f11613b7407ca8025921cad6f7fd71951713ec56b2e3f46d9",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:48 GMT"
   },
   "https://sift.com/company/brand-center/": {
     "sha256": "b340412741e6e37b1ff76b06c7c32052f0ca78a7dc1e598c78e2f8b2bbd5f9bb",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:09:50 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:59 GMT"
   },
   "https://sift.com/contact-us/": {
     "sha256": "a9a90a393a7870fdc863dacf08fb0a8aaa21064cfb64e516737460f026046494",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:52 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:48 GMT"
   },
   "https://sift.com/customer-reviews/": {
     "sha256": "3c050e9878b419b2cddb210b35f642f03d14e758ef011a4b2965feef0c94d190",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:53 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:58 GMT"
   },
   "https://sift.com/data-request/": {
     "sha256": "49a0921e17957d68bbc782431e518ebb15dcbe7b1f9ac448b0b2b95b3226abea",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:52 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:54 GMT"
   },
   "https://sift.com/demo/": {
     "sha256": "ccfc4f66903710ccd4e35118f96304dbc0c94babc8eb0cb5c1f5edd81c5116f0",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:49 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:53 GMT"
   },
   "https://sift.com/developer-overview/": {
     "sha256": "b2ce7660ee6656b9755f61cd29b4f659f2ad88293e8c0ddaa4f4a1a8135a530d",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:49 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:54 GMT"
   },
   "https://sift.com/events/": {
-    "sha256": "698032ffc3275e42e5cb540e4b616cd2a102d35da0f4883fa008e58142cc9fa3",
+    "sha256": "9b51d92e41833c0bfb149f407032f89fada08e6260fb4f9fe28a5e73758ac13a",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:49 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:52 GMT"
   },
   "https://sift.com/fibr-fraud-industry-benchmarking-resource/": {
     "sha256": "4d9c306b6757fed4bcc23c14bafd35b69e96307becdc9cdbb3a98fe3ed695304",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:49 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:55 GMT"
   },
   "https://sift.com/fraud-center/": {
     "sha256": "c4dea55044784604f74f01dcdab57c6c0c26f82b54a3fed17a8c5172a1683974",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:11:38 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:52 GMT"
   },
   "https://sift.com/fraud-schemes/": {
     "sha256": "82a91b542d9d87dc583c57937f85bee4ffec98f1777370778eec64cd82e41b09",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:52 GMT"
   },
   "https://sift.com/index-reports-account-takeover-fraud-q3-2024/": {
     "sha256": "78c4958abb61b11a86791f60be2028d161b2ea001c770ac4808c5487f1b89c4c",
-    "lastStatus": 200
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:52 GMT"
   },
   "https://sift.com/index-reports-account-takeover-fraud-q3-2025/": {
     "sha256": "e66d5d27c3e7f2abbe8f7e9ee9efa549a34b7ec7059047bfcc601e06dc13e444",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:50 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:58 GMT"
   },
   "https://sift.com/index-reports-ai-fraud-q2-2024/": {
     "sha256": "dfd3b7c3d2bf21784d440d3fab100405fa8ce535e3189ce54371c619ed0655d7",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:05 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:59 GMT"
   },
   "https://sift.com/index-reports-ai-fraud-q2-2025/": {
     "sha256": "f332e091899a8c7baab97f6c650360930a7ed2c964ce28028f68caeb972b3130",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:59 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:53 GMT"
   },
   "https://sift.com/index-reports-disputes-q4-2023/": {
     "sha256": "2e684bec941499b0a30af57b4f7622b782171e672852e057948a91830eae9f84",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:00 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:59 GMT"
   },
   "https://sift.com/index-reports-disputes-q4-2025/": {
     "sha256": "56440ee75d81cd6d2cd720a5882d497495b1036b3af40ed8a079118dd803ff3d",
-    "lastStatus": 200
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:59 GMT"
   },
   "https://sift.com/index-reports-payment-fraud-q1-2025/": {
     "sha256": "af6cec7b5902e8d081b17f625d76d5c4215e8ac1647709cd33ce6ea66e321f2f",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:05 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:02 GMT"
   },
   "https://sift.com/investors/": {
     "sha256": "c0254778a3d9dc0c323e493defffe8e71bb795ae196ad9af032ecea6fb0b66fa",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:01 GMT"
   },
   "https://sift.com/partners/technology/": {
     "sha256": "ec80b364b3adaebe7eaf2b26582dfb9855fe84f16ba91195337809ca2800a3af",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:03 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:03 GMT"
   },
   "https://sift.com/partnerships/": {
     "sha256": "9716cdab981ad2842c56c08593932e0aaeb6e5ae6499d85132274ea8c2112e52",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:06 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:59 GMT"
   },
   "https://sift.com/patents/": {
     "sha256": "6a80a9502400ab07adefb605a4924ee7c5bf608e3a94392c5c6cededb2c276b0",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:06 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:59 GMT"
   },
   "https://sift.com/platform/": {
     "sha256": "269c5404867d95f2cb423dc07057e5b0085accd52d6ba1778be12261f728c5d1",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:06:44 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:54:59 GMT"
   },
   "https://sift.com/platform/account-defense/": {
     "sha256": "6486e6998835a27a1b0a12f74d9bf3f11126790a4bb5aa36d248a36145718a51",
@@ -309,191 +2276,1088 @@
   "https://sift.com/platform/new-releases/": {
     "sha256": "688cd16de6e104401eb126e3ba6e8ed62a85689e8741bfb9a4fbebe50a58c0af",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:04 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:03 GMT"
   },
   "https://sift.com/platform/payment-protection/": {
     "sha256": "2eabbdeb309e53dd4377f0620a175c3f11fef50c336a72e9cada691762da4c9f",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:07 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:03 GMT"
   },
   "https://sift.com/program-accertify-alternatives/": {
     "sha256": "65037f76247460f9b378ac775ff926ce0cb08489358700a9ea839d2658bc8624",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:10 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:05 GMT"
   },
   "https://sift.com/program-accertify-demo/": {
     "sha256": "b9f827575d046b0969278ed433594f5caacc8ba58c007c8f8fadeb3e4ba5a340",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:08 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:03 GMT"
   },
   "https://sift.com/program-ecommerce-demo/": {
     "sha256": "fbdadb91a2c42d0329fc666bc61986c5e7dc8891a2015e991428bd8501d70f61",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:10 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:06 GMT"
   },
   "https://sift.com/program-food-delivery-demo/": {
     "sha256": "9cab640334f083b4a3096a2548859e50d7d6b7a32a4ed6786ad99a8786bd1b4c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:13 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:05 GMT"
   },
   "https://sift.com/program-identity-trust-xd-demo/": {
     "sha256": "937f6ba638a34598a6171d5ed18d2b66ad339b2fe051826bca6df5798dc7b1f6",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:10 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:06 GMT"
   },
   "https://sift.com/program-igaming-demo/": {
     "sha256": "8a572b0b975bc1b0bd75edafd6f7f2fbbc91b594aa886e54307aa2e37aee232e",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:11 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:06 GMT"
   },
   "https://sift.com/program-internet-software-demo/": {
     "sha256": "d74748b6ec3e9fd9311cbc5eb06a22abe94decd430a90782e71304c79b263041",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:12 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:08 GMT"
   },
   "https://sift.com/program-kount-alternatives/": {
     "sha256": "b6285e98418a2d2508db937f586f1b3b7119be75d4b3508e802a8d86f0ab50b8",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:14 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:09 GMT"
   },
   "https://sift.com/program-kount-demo/": {
     "sha256": "a5e37ef0d205c349e3a544dfaf000a895b96fbf5b01e424f132c74dee23c66c2",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:16 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:07 GMT"
   },
   "https://sift.com/program-marketplaces-demo/": {
     "sha256": "0b5ed130323c0f82d7133223b4338f64b95d773f39030fe2f5addd8903355191",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:14 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:08 GMT"
   },
   "https://sift.com/psd2/": {
     "sha256": "9c612b7c2b7ea53a5dc817a15147f81ed4e9dd61b57268425e88773c7d7de61b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:15 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:09 GMT"
   },
   "https://sift.com/resources/": {
     "sha256": "5892f2c93d0ca5c40e58ceb06573961a7c2012b1b48b124fa38f809d4569767c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:11:48 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:55:06 GMT"
+  },
+  "https://sift.com/resources/case-studies/banxa-case-study/": {
+    "sha256": "6f66ca25a2379f98d1ca33e6881fe8a850a8f22610dacf71db1ac8d704503cfd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:10 GMT"
+  },
+  "https://sift.com/resources/case-studies/chownow/": {
+    "sha256": "1c9b78f9cdfe7e54b698faf7b6f0cafbf96ddf8d6e1b177d9cd6e297a1bcd2ad",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:10 GMT"
+  },
+  "https://sift.com/resources/case-studies/coffee-meets-bagel-case-study/": {
+    "sha256": "c6cd0c852978b3d25aa2a746d969d6beb32a0c9602fdbfb2b85bd4df1d59fd94",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:11 GMT"
+  },
+  "https://sift.com/resources/case-studies/coinjar-case-study/": {
+    "sha256": "734bfb770d356c3b946ddf3137d33a1c695dd471e94e3f1ff7074e3f72dd99ba",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:11 GMT"
+  },
+  "https://sift.com/resources/case-studies/cozy/": {
+    "sha256": "8fabd7ab9dcee9c37b6ddb28c6e6767b544ee1d3547a97df549e61bfe5d25a52",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:15 GMT"
+  },
+  "https://sift.com/resources/case-studies/creative-market/": {
+    "sha256": "59ba2fe1eb8e6b8c234a1d55055e649ce423240c08e67a7c1938da2408bcb543",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:12 GMT"
+  },
+  "https://sift.com/resources/case-studies/curve/": {
+    "sha256": "987268a46e999554c3b42fafe9ba465a5d7b102b29b69dbb8854506ad9f43ae6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:13 GMT"
+  },
+  "https://sift.com/resources/case-studies/destinia/": {
+    "sha256": "02e53213e8315f1358845c52f84ec0efab7c00ff729771633a0887adb0ff9054",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:13 GMT"
+  },
+  "https://sift.com/resources/case-studies/doxo-case-study/": {
+    "sha256": "f04a7081b3c0bbcc698bc96c8afabdbe4616c1c8bab9a02acb332add0a7fc096",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:10 GMT"
+  },
+  "https://sift.com/resources/case-studies/ebth/": {
+    "sha256": "f14f88b83ce54b70ce738a61c997d3a1aabd75348fb2d57325cbd0caa485708b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:14 GMT"
+  },
+  "https://sift.com/resources/case-studies/email-marketing-platform-case-study/": {
+    "sha256": "1024fd3303b951c5d49accc3964af99d39c8443d02d1d17e46c3ecefc6e39791",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:14 GMT"
+  },
+  "https://sift.com/resources/case-studies/getmyboat-case-study/": {
+    "sha256": "e40335033401f35ed0a12a2b1cac3f6f2be31b689a3d77e3e32f5ffccf176685",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:17 GMT"
+  },
+  "https://sift.com/resources/case-studies/harrys/": {
+    "sha256": "0b4f26c13d81b686dde0a3cbed9d8350253cb92a68f87a5672f5cdc73446bc53",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:16 GMT"
+  },
+  "https://sift.com/resources/case-studies/iwantmyname/": {
+    "sha256": "86e368e1017b261911c6c75431009c886811edf09665ba9f95f5f1d90654f2eb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:16 GMT"
+  },
+  "https://sift.com/resources/case-studies/ksl-com/": {
+    "sha256": "a2bcd07f229b8f4ca57c62e154b4a91f310874e04a3964b847c95d0656907aba",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:16 GMT"
+  },
+  "https://sift.com/resources/case-studies/link-money/": {
+    "sha256": "11da2ede710e50945f55761e798b93c146bd00d72a2fd979568b7893b0c87f13",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:17 GMT"
+  },
+  "https://sift.com/resources/case-studies/logitravel/": {
+    "sha256": "13051df1d93b9b4ca7c9c52136657174025d796511e4077c7c8ad27b33972a1b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:17 GMT"
+  },
+  "https://sift.com/resources/case-studies/lunchbox-case-study/": {
+    "sha256": "aa588ea31963a695947b0318147058b98b84c4f81db74ba3113fd7c29a0b9e11",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:17 GMT"
+  },
+  "https://sift.com/resources/case-studies/markt-de-case-study/": {
+    "sha256": "8a86b626836673768a41a9057e35ab5f2e95d8b2d678b2d10e0a24a95c5cf79c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:18 GMT"
+  },
+  "https://sift.com/resources/case-studies/partnerstack-case-study/": {
+    "sha256": "a2812bde15bc8a5394bf64cdedbf12afb34c7cf6d6d0e6686b7a2e8579b5936c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:19 GMT"
+  },
+  "https://sift.com/resources/case-studies/patreon/": {
+    "sha256": "4144726bddce7b61e92285221e4db3fcbc4db27725deac95c0362c00b919b423",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:20 GMT"
+  },
+  "https://sift.com/resources/case-studies/paulas-choice-case-study/": {
+    "sha256": "6838cf75938ed8faa67705ab581890da7863d93e1120236343e0130892f8ef6f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:20 GMT"
+  },
+  "https://sift.com/resources/case-studies/paymongo-case-study/": {
+    "sha256": "947f20e55e0515810573a87e662000197f2cfebc75bb33f34551082bfde2fc23",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:20 GMT"
+  },
+  "https://sift.com/resources/case-studies/poshmark/": {
+    "sha256": "e6180abc4df8e7af500921450813b208092ebbe52b83fde53810585830a2f43e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:21 GMT"
+  },
+  "https://sift.com/resources/case-studies/qube-money-case-study/": {
+    "sha256": "90e4adcbffa4a4ad7f3a751423d3b3c26b457aa9517bc140e91b502f2c0ec846",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:21 GMT"
+  },
+  "https://sift.com/resources/case-studies/remitly/": {
+    "sha256": "a75e4fd6d131af4d3d56c0f985dc2901190854b27fdc7835c76eb97c95bec9ab",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:21 GMT"
+  },
+  "https://sift.com/resources/case-studies/rently/": {
+    "sha256": "339cfc1e47aec293fa0b961206ddfa19a6ce9a05fdd654a949fd537e80dbded8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:22 GMT"
+  },
+  "https://sift.com/resources/case-studies/reward-gateway-edenred-case-study/": {
+    "sha256": "89106ae59d28ffe818a884256f3493d9d267d89a7a636e50113769694eaef852",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:23 GMT"
+  },
+  "https://sift.com/resources/case-studies/skillshare/": {
+    "sha256": "8fe257a230f9498c73b6892121c92efec974401b51fc28866f004d09d1c647b0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:23 GMT"
+  },
+  "https://sift.com/resources/case-studies/smartproxy-case-study/": {
+    "sha256": "d94f42689601f32e477faa9c9072fb91102651c5c2c96261c7bf9d2561faea4a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:23 GMT"
+  },
+  "https://sift.com/resources/case-studies/studypool-case-study/": {
+    "sha256": "fee26f9003f06e6b45786f8d3db106fe59e7c8c0456a46490e15693a62c83812",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:24 GMT"
+  },
+  "https://sift.com/resources/case-studies/swan-bitcoin-case-study/": {
+    "sha256": "acd8e4132e704c3333856c1001c3b9e5b82caaa676743ecfce6ebe0a0c925c50",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:24 GMT"
+  },
+  "https://sift.com/resources/case-studies/taptap-send-case-study/": {
+    "sha256": "618dc8f2aeafbd68d3a194b357a0331da77fa815ed22fb39307317bd0dbcf4c3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:25 GMT"
+  },
+  "https://sift.com/resources/case-studies/traveloka/": {
+    "sha256": "a0a86a91040c7b295a8acfd2fdfe73ba11dcdcad52001b75be2cafe82eb13fa2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:25 GMT"
+  },
+  "https://sift.com/resources/case-studies/turo/": {
+    "sha256": "54b5a2ae8f73ebf679a205bfcdc9e3eeec79115be0fb0d50e25e866133ac2ba1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:26 GMT"
+  },
+  "https://sift.com/resources/case-studies/tutory-case-study/": {
+    "sha256": "2daf4de4645e5f1ef40e21dc803f0d1e75278fea274ff97274fc2428c3f9824c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:26 GMT"
+  },
+  "https://sift.com/resources/case-studies/universe/": {
+    "sha256": "6783e1c8f4e1c7cd03be722a512e303bc8940c07489cccf1e08da6c6a0cffe7e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:27 GMT"
+  },
+  "https://sift.com/resources/case-studies/zoosk/": {
+    "sha256": "925007f37efa3c99de1ce35562cfa2f8549ea0f9c013adad1cee9bcc5b249516",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:27 GMT"
+  },
+  "https://sift.com/resources/demos/account-defense/": {
+    "sha256": "fa644039682a4534434d2b96cb2d6f8294f0474f452112c39f5bc9dd374fc7e1",
+    "lastStatus": 200
+  },
+  "https://sift.com/resources/demos/content-integrity/": {
+    "sha256": "15d3408b01448110ca04e4c38d0dc5b5c4a36fcc836451bf6f667418d7fa8b5b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:31 GMT"
+  },
+  "https://sift.com/resources/demos/demo-whitepages-pro-integration/": {
+    "sha256": "f89d91fc70b6b09a8ef52a44aad78652a2653497be4265aec8100793f53bde12",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:29 GMT"
+  },
+  "https://sift.com/resources/demos/dispute-management-demo/": {
+    "sha256": "22f96afd355096637919f88e66e15c80377eff8a4957017d3358b2bbb297e11b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:29 GMT"
+  },
+  "https://sift.com/resources/demos/payment-protection/": {
+    "sha256": "736f91dd559a67b97c6ff03006edc07e2b5669c5fe543b7d1cdee07f5d04703b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:30 GMT"
+  },
+  "https://sift.com/resources/demos/sift-for-fintech-console-demo-video/": {
+    "sha256": "8b9202f1a85ff7cbe41908460e7c7c1730a613e019bfd8ba5fa081a65c84b6ac",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:30 GMT"
+  },
+  "https://sift.com/resources/ebooks/2023-consumer-payments-survey-report/": {
+    "sha256": "c38b2886c6c94cab98dfb2ac1d22382c7f3a6d8f0a5c386b1bdb05527e77d6af",
+    "lastStatus": 200
+  },
+  "https://sift.com/resources/ebooks/a-cfos-guide-to-fraud-prevention-value-creation-and-risk-management/": {
+    "sha256": "6070904384f79c66faef86eb057bdc322559a26e15ae22a93c0298284668730a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:31 GMT"
+  },
+  "https://sift.com/resources/ebooks/ato-priority-2022/": {
+    "sha256": "4b0ee5fe1a205a7b3d41558249a1511f6e49f5c2f1b3814a39d22afd52ad9c80",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:31 GMT"
+  },
+  "https://sift.com/resources/ebooks/building-seamless-secure-product-experiences-a-3-part-guide/": {
+    "sha256": "852441c030cd2748c64411f22d48d4920f0feaa049ce0bdfbb00172c0971eed2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:32 GMT"
+  },
+  "https://sift.com/resources/ebooks/chargeback-reason-code-encyclopedia/": {
+    "sha256": "a8376a2dfbdcc898a226ac09af896d05157742927cb5d0d30c05ef498a39731e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:33 GMT"
+  },
+  "https://sift.com/resources/ebooks/complete-guide-to-account-takeover/": {
+    "sha256": "695182091604a4fffe45b59cedf5e09ea149e172c540a08314528dd73ee81aa7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:33 GMT"
+  },
+  "https://sift.com/resources/ebooks/digital-commerce-360-retail-tips-to-fight-fraud-during-covid-times/": {
+    "sha256": "3433270b37c4da82fc1cdce35e45b6116923397b5f930d38a0f57ea1d06361ea",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:36 GMT"
+  },
+  "https://sift.com/resources/ebooks/digital-commerce-evaluation-guide-for-online-fraud-solutions/": {
+    "sha256": "672eee42a38de4f52052e91c98000117eceb5536ff784d8ef16ac0b6fa9b961d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:33 GMT"
+  },
+  "https://sift.com/resources/ebooks/digital-security-playbook-building-trust-and-loyalty-online/": {
+    "sha256": "6d7344886455bba95fb8306a623851851146c3f3b4441f2d26b2b95cb53231be",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:34 GMT"
+  },
+  "https://sift.com/resources/ebooks/digital-trust-and-safety-playbook/": {
+    "sha256": "cf31779b4fdacd914f653ac29e70aa27afe3d74db8db65c8d2e713c4deec08da",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:34 GMT"
+  },
+  "https://sift.com/resources/ebooks/digital-trust-safety-combatting-the-evolving-complexities-of-payment-fraud/": {
+    "sha256": "3a732889cf11fe9b91cf53ca8b066f5f52e6614f10490202a331335dbfb6ba13",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:34 GMT"
+  },
+  "https://sift.com/resources/ebooks/dispute-best-practices/": {
+    "sha256": "66cc763ee1fe3a79c56133468bc8b3e705beae97234785e716e6693a48757d69",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:36 GMT"
+  },
+  "https://sift.com/resources/ebooks/dynamic-friction-delivering-the-right-experiences-at-the-right-time/": {
+    "sha256": "7f403803899b9b25ade5a02e411353b85cc28b2900b303eeb28fe0df1ce49d2c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:36 GMT"
+  },
+  "https://sift.com/resources/ebooks/e-commerce-and-omni-channel-fraud-digital-acceleration/": {
+    "sha256": "adc27aa08037ee417f4bd6617291c64b8a2d8406514831ac06639c6083033ef7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:36 GMT"
+  },
+  "https://sift.com/resources/ebooks/evaluation-guide-for-online-fraud-solutions/": {
+    "sha256": "36f216df4029372e9678580558b8d64e8e43fac3a5341b4074aaf24e1b3a9d5b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:37 GMT"
+  },
+  "https://sift.com/resources/ebooks/fake-reviews-a-growing-fraud-concern-affecting-brand-loyalty-and-growth/": {
+    "sha256": "47bca1861ace646a0884eff4c2aa848b047a5a6890174b68137c5d29c64e364c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:37 GMT"
+  },
+  "https://sift.com/resources/ebooks/forrester-wave-digital-fraud-management-report/": {
+    "sha256": "9d08b47d91f7c33d885faed51f559e2fceee4c6d67511aef9e03d34e3e24668b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:53:17 GMT"
+  },
+  "https://sift.com/resources/ebooks/fraud-prevention-in-e-commerce-report-2020-2021/": {
+    "sha256": "22b4612acfb9209c87a8c5d41232b525a413383278786af6e2a466081d2569da",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:38 GMT"
+  },
+  "https://sift.com/resources/ebooks/fraud-prevention-in-ecommerce-report-2023-2024/": {
+    "sha256": "d2f4fa770829b4656838ba8a48a3d6dcee20f2b2477f6767149333459ed2bde6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:41 GMT"
+  },
+  "https://sift.com/resources/ebooks/fraud-prevention-tactical-guide-e-commerce-operations/": {
+    "sha256": "d06cdd949898c05d049883c3c8f30736f446294754b1f05cbb842e32df978ba3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:39 GMT"
+  },
+  "https://sift.com/resources/ebooks/gartner-emerging-tech-the-future-of-online-fraud-prevention/": {
+    "sha256": "e75c79df77d0afcc8b5bcd94551ed86b191c9e60dac8b8cd3bd244339fcdc0e3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:39 GMT"
+  },
+  "https://sift.com/resources/ebooks/how-online-fraudsters-are-exploiting-omnichannel-retail/": {
+    "sha256": "17c155f2d976782eac6f16564900110be6349177b0b525f93a26c48212f15c72",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:39 GMT"
+  },
+  "https://sift.com/resources/ebooks/how-sift-works/": {
+    "sha256": "f5e90e35241b0dfe0d1808c264d7336882af31029aeeef2c75f58e8d7315a342",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:40 GMT"
+  },
+  "https://sift.com/resources/ebooks/how-to-build-resilient-fraud-management-strategies/": {
+    "sha256": "e65aaadb85832fe9f68687b45f8064aa07a10039234571c228b436bc04b9a27e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:40 GMT"
+  },
+  "https://sift.com/resources/ebooks/insurance-vs-machine-learning-for-fraud-prevention/": {
+    "sha256": "0b2eee67bc61e26380796fda9579e34c78d2c4c127c83235b61b323df2cfdec8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:41 GMT"
+  },
+  "https://sift.com/resources/ebooks/integrating-ato-and-payment-fraud-systems/": {
+    "sha256": "6f32ae95962941889d736f646fdc5b05b7693fd27e0a9086a8bc65f55b412709",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:42 GMT"
+  },
+  "https://sift.com/resources/ebooks/internet-software-evaluation-guide-online-fraud-solutions/": {
+    "sha256": "bc4bf018f1f073fe241c1ff3ebd4f9c74275f7a4970f5a659f61dc532e2a8efa",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:42 GMT"
+  },
+  "https://sift.com/resources/ebooks/leading-the-digital-trust-safety-transformation/": {
+    "sha256": "ca5b5348a7f71f66ac489432a3ae3e706b544a90437dce98809a3da5a86d5ed3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:42 GMT"
+  },
+  "https://sift.com/resources/ebooks/machine-learning-fraud-prevention-whats-next/": {
+    "sha256": "0f79c254093ef0db7f1e3b126421298de8c9149141bf724ed8039e89bdc5dc4b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:42 GMT"
+  },
+  "https://sift.com/resources/ebooks/not-all-machine-learning-solutions-are-created-equal-the-unmatched-value-of-real-time-fraud-prevention-and-global-data/": {
+    "sha256": "8c08208953f4b439e5e1daa205e1e84aa292a7c848266f5522ee98da763f5284",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:43 GMT"
+  },
+  "https://sift.com/resources/ebooks/online-fraud-prevention-how-rules-based-systems-are-killing-growth/": {
+    "sha256": "1df6c8aabe51c1f22724c76492de9a1924f6715c512efe6dfcc57ad30ea498bc",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:40 GMT"
+  },
+  "https://sift.com/resources/ebooks/payment-fraud-prevention-quick-pivots-and-proactive-planning/": {
+    "sha256": "c199879eb05e485abe20c5d5d667c6b47781195ec8c79b3be0faaccdc1da31be",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:46 GMT"
+  },
+  "https://sift.com/resources/ebooks/protecting-cash-flow-and-predictability-a-3-part-guide/": {
+    "sha256": "7759bd9b73548db2d8b35eaf6be29a9e40444bd2690fe7cc89f6426a6c55bf2a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:44 GMT"
+  },
+  "https://sift.com/resources/ebooks/quick-guide-to-online-fraud-solutions/": {
+    "sha256": "991d9d84417d50f7dbf62dd5193b02576d76d541ea1f07a57e4c8153983bc9d6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:41 GMT"
+  },
+  "https://sift.com/resources/ebooks/report-qks-spark-matrix-ecommerce-fraud-prevention-q4-2025/": {
+    "sha256": "6ef5021e22e224953fccc3112d015951be5e615ab9baaa28d5f108f7ad2079af",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:44 GMT"
+  },
+  "https://sift.com/resources/ebooks/securing-scaling-operational-efficiency-a-3-part-guide/": {
+    "sha256": "5175e731ffb04f28daaa965591521c53ce6d7069425c22333ecb8b7bdbaf2e68",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:44 GMT"
+  },
+  "https://sift.com/resources/ebooks/sift-g2-leader-fraud-detection-2026/": {
+    "sha256": "13eebb652a244927d00746a92c27f29916da68c76ae03d3da0f52b372bf1085d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:45 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-account-takeover-fraud-2020/": {
+    "sha256": "1074cb72a3c5143fc7fa026f29a2e2412037c03ab5f1aa254cf60fd71151f23d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:45 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-account-takeover-fraud-2021/": {
+    "sha256": "65aa57a6224bb9dfa9d5916662cbf2cb13802a898c8395ab62e3c140b11e1425",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:47 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-account-takeover-fraud-2022/": {
+    "sha256": "7f08cb68a484e9f2a18f7314624ac9f02c53357d096030673c49cd2590e52bfe",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:46 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-account-takeover-fraud-2023/": {
+    "sha256": "5e4fe645d4cf06ccf90771235878ff9354aa866b5bd7efd767f828a0ebf88983",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:49 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-account-takeover-fraud-2024/": {
+    "sha256": "2a5ffdaebf4b963a52293096ff92e34b96673543773a39330f0f385b3293d649",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:47 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-ai-fraud-2023/": {
+    "sha256": "fa071845b8df3e99a691fb560ce9f2a5dcad81de0ac30d99607f672f90ccfc85",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:47 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-ai-fraud-2024/": {
+    "sha256": "6a49cb4c8e4ec94b6db6263425e60547d1f93f729e58581093f2b8b8e9861eb0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:50 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-chargeback-fraud-2022/": {
+    "sha256": "6971933d09cbdd034d94b8658a9ef9f281e2f7e65b5452d0fc89e3bc7a425700",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:48 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-chargeback-fraud-2023/": {
+    "sha256": "2e684bec941499b0a30af57b4f7622b782171e672852e057948a91830eae9f84",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:54:59 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-payment-fraud-2020/": {
+    "sha256": "72c5068fd27d18b8ec6bf14dfe2f88ef491cbb36a6543035d014ab90197f2fb9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:49 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-payment-fraud-2021/": {
+    "sha256": "8bca80bbdd9cb8e0491a9e4113f10898647b84f9ce7c341aa9651422f5b90de5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:50 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-payment-fraud-2022/": {
+    "sha256": "de942cdfd202956d033420562dd9edea0bceb68f5e3aa4db48181095df85a436",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:50 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-payment-fraud-2023/": {
+    "sha256": "739274715696e4c5b9e5c1a19477e3ad06ea6f16400bd0208a0f7dc38e09c9d1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:50 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-payment-fraud-2024/": {
+    "sha256": "91a6d4f9fbf7c12143a9eeea5a1954211bc276eaf2982b6a54f9b7acad58b0af",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:53 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-seasonal-fraud-2020/": {
+    "sha256": "1c1cc971040904073a31e687f6526f9303442da8ed07bf61e2e11462e88d35a6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:51 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-seasonal-fraud-2021/": {
+    "sha256": "baf46236c36fddad80aad236e9b0145f15eaca4862c86bd589b5c42636c5aeed",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:53 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-spam-scams-2020/": {
+    "sha256": "e12a3c7873d52cc5abf073f0123cdc32161541dce2d429f4fb0d6e87d843b9c6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:55 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-spam-scams-2021/": {
+    "sha256": "8c2476aef9b679110daf35d4b3a63cd3dc5025dcee39ae5a20a61a8c63a2a2c5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:53 GMT"
+  },
+  "https://sift.com/resources/index-reports/digital-trust-index-spam-scams-2022/": {
+    "sha256": "cf278704b058d743a7e88791162c6f37de1552d9f290228f4f4f1bdd16505126",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:53 GMT"
+  },
+  "https://sift.com/resources/index-reports/q1-2025-digital-trust-index/": {
+    "sha256": "a78442a1685bea2f786e8f9c81db2afff97b23481257f35c06968ad6a7e8f7a0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:53 GMT"
+  },
+  "https://sift.com/resources/index-reports/q2-2025-digital-trust-index-ai-fraud/": {
+    "sha256": "5f5f9b9e1f73022ba9db3f416a1713cfd8a8bfe14ec2ff6c95685f7392156e24",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:53 GMT"
+  },
+  "https://sift.com/resources/index-reports/q3-2025-digital-trust-index-account-takeovers-in-the-era-of-agentic-ai/": {
+    "sha256": "c7fa8528af29ef1aae2f15a8f9bb782c0264358382f131c91ee3ffb12a8b8e15",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:55 GMT"
+  },
+  "https://sift.com/resources/index-reports/q4-2024-digital-trust-index/": {
+    "sha256": "ec87daab4863211921538c2e56a637d4fbb416b1261790dc8074820f6afe1e1e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:56 GMT"
+  },
+  "https://sift.com/resources/index-reports/q4-2025-digital-trust-index-the-rising-impact-of-chargebacks-and-consumer-disputes/": {
+    "sha256": "9d244aa3d7b17f42b082256dd9bc981c29288a55ca819674c8cb05bc9fe1b91f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:56 GMT"
+  },
+  "https://sift.com/resources/onepagers/a-luxury-retailer-reduced-98-of-emv-related-disputes/": {
+    "sha256": "dbd4de3dbf80b4120cf29596003faaa8c9d67db4820167bca6e9d5df587e8485",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:56 GMT"
+  },
+  "https://sift.com/resources/onepagers/devcode-sift-for-igaming/": {
+    "sha256": "0362e4fdcab32769031bdde08a5d72a7f6f9a53de8cb1680f5734aba8214c628",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:56 GMT"
+  },
+  "https://sift.com/resources/onepagers/digital-commerce-fraud-solutions/": {
+    "sha256": "83da319ba83f971b7e0025cca7c0d80715a602243b4bad7e15e68c08914c2a8f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:56 GMT"
+  },
+  "https://sift.com/resources/onepagers/digital-trust-and-safety-igaming/": {
+    "sha256": "351bf1fe5099a898a3eda73c3500baf4cd2f7981fc3ddc9d39b9699dda6606f6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:57 GMT"
+  },
+  "https://sift.com/resources/onepagers/digital-trust-safety-complete-real-time-fraud-protection-for-fintech/": {
+    "sha256": "a601b5a74f8282d82dc7073b153eb9dc89bce33131dba0d98e059736f8505bef",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:57 GMT"
+  },
+  "https://sift.com/resources/onepagers/expand-fearlessly-with-ai-fueled-fraud-protection-from-sign-up-to-checkout/": {
+    "sha256": "63be7f1952aeb20f0916674ba8dd1eff7eb12cbc9c687fcd0b658b774742faad",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:58 GMT"
+  },
+  "https://sift.com/resources/onepagers/fraud-industry-benchmarking-resource/": {
+    "sha256": "4fd8c58ec23fe10b7d9b5dae8a434b4edf8c54427d4776cf3d1a8f928a38e673",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:58 GMT"
+  },
+  "https://sift.com/resources/onepagers/fraud-solution-checklist-for-cisos/": {
+    "sha256": "b535b1b36d06ed7518edbae19dbc885628af640a88a8f2c2aead727b6f6d3708",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:02 GMT"
+  },
+  "https://sift.com/resources/onepagers/identity-trust-xd-decisions-with-dimension/": {
+    "sha256": "5892f2c93d0ca5c40e58ceb06573961a7c2012b1b48b124fa38f809d4569767c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:06 GMT"
+  },
+  "https://sift.com/resources/onepagers/managing-risk-friction-and-growth-under-psd2/": {
+    "sha256": "a9e2763f5969959e4d422c00a55d722c931d03039abb5c695b6af6612ba3f771",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:59 GMT"
+  },
+  "https://sift.com/resources/onepagers/ping-identity-sift-integration/": {
+    "sha256": "b7c8c88b20dd0e7d39247db6b211e2f3289cc3836bfa816565db06b3b72daa06",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:55:59 GMT"
+  },
+  "https://sift.com/resources/onepagers/protect-your-payments-from-checkout-to-chargeback/": {
+    "sha256": "0a26e4139b41a95f219ee20e6e9f972e7dda686bd4cd5069371e6f1e2ade2bd9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:00 GMT"
+  },
+  "https://sift.com/resources/onepagers/sift-account-defense/": {
+    "sha256": "8c254c156c571f0e84d4553a36f810fd1a25ca0591743c2bcde065f23b481028",
+    "lastStatus": 200
+  },
+  "https://sift.com/resources/onepagers/sift-chargeback-how-a-major-airline-stopped-33-of-initiated-disputes-in-under-90-days/": {
+    "sha256": "3c446f1c3333fb8bbb165f4ed6025b7b7abc261ec163408c3f4228afc5f12a2e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:00 GMT"
+  },
+  "https://sift.com/resources/onepagers/sift-chargeback-how-real-time-resolution-helped-a-leading-credit-repair-company-win-disputes/": {
+    "sha256": "b271ea54d11dfaaf8f3d60130fc1768489b234cad9f1dca0518ce1649c5a1095",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:01 GMT"
+  },
+  "https://sift.com/resources/onepagers/sift-content-integrity-stay-ahead-of-spam-and-scams/": {
+    "sha256": "80ed04ac25e7b7ca86cd5b248bd6615007a57f94936e359d5d7c65fdc819ab4c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:02 GMT"
+  },
+  "https://sift.com/resources/onepagers/sift-for-card-testing/": {
+    "sha256": "cf5b765be6efd80623f0857bc34ba834322a88419b1b03f11bb0effa9cc9b67f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:02 GMT"
+  },
+  "https://sift.com/resources/onepagers/sift-for-internet-software-services/": {
+    "sha256": "fd8fa98fafc05722cab55da2ccbd2178130e48c087a2642fef812dea2d9881b2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:03 GMT"
+  },
+  "https://sift.com/resources/onepagers/sift-for-streaming-services-fraud/": {
+    "sha256": "0714062d5c9b50936728fedce2d526cd4b554a8d1758494bb69eda4db7c08e59",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:03 GMT"
+  },
+  "https://sift.com/resources/onepagers/sift-for-subscription-fraud/": {
+    "sha256": "82ca9b71d73a862629bafff0b486eaff6c0e894fb95e9fb309c0eb7cb6da280d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:04 GMT"
+  },
+  "https://sift.com/resources/onepagers/sift-managed-services/": {
+    "sha256": "0a2ccacad652dcee0477fdf756ac44ba1f8d86b46fe72be2dae7945847b33d82",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:04 GMT"
+  },
+  "https://sift.com/resources/onepagers/sift-payment-protection-proactively-prevent-payment-fraud/": {
+    "sha256": "97f218929d1eb2802cd5562b08983b3407a55794120df17325d7a48314843843",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:04 GMT"
+  },
+  "https://sift.com/resources/onepagers/sift-platform/": {
+    "sha256": "a1b46c1e7144ed47ee05ecc801185806f3de18e458a935ff219ed6121e9043e8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:02 GMT"
+  },
+  "https://sift.com/resources/videos/about-sift/": {
+    "sha256": "b51ff9fc529da210ebb36ee00686b00e5b4beb4084f6cf6de4dd9a4b220251f2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:05 GMT"
+  },
+  "https://sift.com/resources/videos/banxa-customer-story/": {
+    "sha256": "3448d82859e9cfa025e936245bc75a1f267e4d63870a89df91e2c2737c61068a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:05 GMT"
+  },
+  "https://sift.com/resources/videos/beating-the-odds-in-the-global-fraud-economy-part-2/": {
+    "sha256": "6ba01aa9940f1c3fcc66d159b4cd8cdb972b585a9c8bd846d49a448486fc7789",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:06 GMT"
+  },
+  "https://sift.com/resources/videos/beating-the-odds-in-the-global-fraud-economy/": {
+    "sha256": "6230207e7782d7fbb272740f90f49777cbc444d396bf5c4516a0d056839dfe49",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:06 GMT"
+  },
+  "https://sift.com/resources/videos/fraud-fighting-in-the-time-of-covid-19/": {
+    "sha256": "33de5c05a15654245cb0cf36a56ea8a38488161e7ad3d86e67c581af899448e9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:07 GMT"
+  },
+  "https://sift.com/resources/videos/how-does-sift-work/": {
+    "sha256": "6467ed183e6ec651138bc0791098c1845d0b201f91e846843064a1113d3ff850",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:07 GMT"
+  },
+  "https://sift.com/resources/videos/opentable-testimonial/": {
+    "sha256": "ad6011f479c2508d47f03bd91ecccc4c735b9483e01817669ed39cb2ae986b37",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:08 GMT"
+  },
+  "https://sift.com/resources/videos/patreon-customer-story/": {
+    "sha256": "afc7b9aa5d29024eedcd51d8b396eb0887c7c6384a10a6f27964d9770b96fa85",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:12 GMT"
+  },
+  "https://sift.com/resources/videos/paulas-choice-customer-story/": {
+    "sha256": "eea1278bcabba0fdd5a88bff1dff5962bc3ebc10e84cf9cde4741859a1946b80",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:10 GMT"
+  },
+  "https://sift.com/resources/videos/poshmark-testimonial/": {
+    "sha256": "d2b4493a3417e8e65878014e159a238ddac916e897838856c519f2a8f508ec88",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:11 GMT"
+  },
+  "https://sift.com/resources/videos/the-democratization-of-fraud-meets-fraud-as-a-service/": {
+    "sha256": "824184e87e552e83c850f8d699a773d0262f9ed381089097779b826cf8e5182c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:11 GMT"
+  },
+  "https://sift.com/resources/videos/the-endless-summer-of-fraud/": {
+    "sha256": "50cbf542e01a9e9db3791986df1722db9803e9769f876101dd356ed0b30c8249",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:11 GMT"
+  },
+  "https://sift.com/resources/videos/the-pig-butchers-of-crypto/": {
+    "sha256": "9a7463f476ce55502b1aed1f2f72c329068a6a20eadcabeb2fec6d3f0f241845",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:12 GMT"
+  },
+  "https://sift.com/resources/videos/the-u-s-secret-service-investigates-global-pig-butchering-scams/": {
+    "sha256": "49e5ce9693eaa370b44580968d482b86521f6fc93c5325fc88eb09c4d9516175",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:13 GMT"
+  },
+  "https://sift.com/resources/videos/zoosk-testimonial/": {
+    "sha256": "bc72642a2f49440431a7cf95f84beb971561e581664659890e912ffce4d814fe",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:14 GMT"
+  },
+  "https://sift.com/resources/webinars/accelerating-profitable-play-tackling-bonus-abuse-and-responsible-gambling/": {
+    "sha256": "e307c9307f48bef40d25aa119e890d86baf3722f40dc916ea301f7d3694b9cb9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:15 GMT"
+  },
+  "https://sift.com/resources/webinars/are-account-takeovers-haunting-your-organization/": {
+    "sha256": "7e2c14e9c6ef2c85c2312a4ddfa5950d91df29b24d3b8347d7e411c8932cd37c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:15 GMT"
+  },
+  "https://sift.com/resources/webinars/atos-in-2025-agentic-ai-supercharges-fraud-as-a-service/": {
+    "sha256": "1b5ecbd9f5b9e08b812d1c3411254343fc6874b2890fe0615bef7dadaa890c3b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:16 GMT"
+  },
+  "https://sift.com/resources/webinars/automation-and-payment-fraud-fighting-fire-with-fire/": {
+    "sha256": "71615b1afec94d3a420c996f612a77276400e02e54881668cf76e9c4187426af",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:17 GMT"
+  },
+  "https://sift.com/resources/webinars/balanced-ato-risk-strategies-leveraging-dynamic-friction/": {
+    "sha256": "b6a52a0810e345fbe655ad404a1301c4f01cc07a41124a3ee3c6b5ce2ada9b12",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:18 GMT"
+  },
+  "https://sift.com/resources/webinars/boost-acceptance-rates-with-ai-powered-tra-exemptions/": {
+    "sha256": "a2acdb687ebad5367c9101ec3df2e6d5a5733c621adedad12d8663553a930e9a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:17 GMT"
+  },
+  "https://sift.com/resources/webinars/chargeback-trends-and-fraud-strategies-for-2025/": {
+    "sha256": "e989b24dcb0029c0cdb59148df4889e1e653906e193dd1d7dc9117d82964fa29",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:19 GMT"
+  },
+  "https://sift.com/resources/webinars/enhancing-fraud-operations-through-network-tokenization-and-payment-orchestration/": {
+    "sha256": "abbabbba383357564b9d13d1b1dc9d633894cd4563cf5905fd54d2bfb4d1eb6d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:14 GMT"
+  },
+  "https://sift.com/resources/webinars/fast-tracking-identity-trust-in-the-age-of-ai/": {
+    "sha256": "6562704ddf925be72ba87c44584dca414c26ca3bf0ded1f3176d51c5dbb30629",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:19 GMT"
+  },
+  "https://sift.com/resources/webinars/finance-the-future-of-risk-is-fraud-messing-with-your-margins/": {
+    "sha256": "50c99107eb75438da236890594bd5d6ab35a23d318a04e33e389c2c0aa4ca7b6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:20 GMT"
+  },
+  "https://sift.com/resources/webinars/from-guardrails-to-growth-unlocking-user-intent-with-ai/": {
+    "sha256": "782effd7dc70aa95130e9bf29c8672c8355f976ff33d1d72a8bfda00cccb31db",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:21 GMT"
+  },
+  "https://sift.com/resources/webinars/from-login-to-loyalty-using-ai-to-build-trust-and-block-fraud/": {
+    "sha256": "5343c094168a7d5e497bb769bf8c6c9edba9bbe72f96786d344b758c09279daa",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:22 GMT"
+  },
+  "https://sift.com/resources/webinars/holiday-havoc-2024-strategic-considerations-for-this-years-rush/": {
+    "sha256": "0c8bbfaad1eea6d66782624b86b99bdf7415ffb6db940b659833c8ac69cf1b1f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:22 GMT"
+  },
+  "https://sift.com/resources/webinars/how-modern-cfos-fight-fraud-and-fuel-revenue/": {
+    "sha256": "9169da7470bd83bf45b3b2eadabe91fe21d9c3830249ad11c25ce96108dd6388",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:22 GMT"
+  },
+  "https://sift.com/resources/webinars/how-to-combat-the-emergence-of-automated-and-ai-generated-fraud/": {
+    "sha256": "8aaf2561adc3d9f403473a112ca258db325bee470a134d852ef81190df8f8deb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:23 GMT"
+  },
+  "https://sift.com/resources/webinars/how-to-defend-your-business-against-first-party-fraud/": {
+    "sha256": "d20234a2165476a2f5d422a096c162cb8cdf6260bf7750065f715dab79e407e5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:20 GMT"
+  },
+  "https://sift.com/resources/webinars/how-to-navigate-the-next-generation-of-payment-fraud/": {
+    "sha256": "026b42d951054e9320192f2fa1bc2033135a16b2eff1377fe1dd694cf922decf",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:23 GMT"
+  },
+  "https://sift.com/resources/webinars/i-fraudbot-signals-and-strategy-for-preventing-genai-fraud/": {
+    "sha256": "1d6e545c003af594e14af435b1e66b1a997be8b881228838d4b1ed178d36a88f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:24 GMT"
+  },
+  "https://sift.com/resources/webinars/maximise-player-approvals-with-ai-powered-fraud-tools/": {
+    "sha256": "3db3ac141dc6037e47bb7d2af34ebf8562c34bd8d8536d1798fac9a16f27bde5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:25 GMT"
+  },
+  "https://sift.com/resources/webinars/new-trends-in-the-payments-ecosystem/": {
+    "sha256": "947684062a33dffcf43d7d0910af28ae62a799e373b357c96285cdbf765972a1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:25 GMT"
+  },
+  "https://sift.com/resources/webinars/passwordless-technology-psd2/": {
+    "sha256": "cb64f83288268b787c3bd86b51b58cf62933728e191dabbbc85fd33994bbfd9a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:25 GMT"
+  },
+  "https://sift.com/resources/webinars/responsible-gambling-reinvented/": {
+    "sha256": "4129bdcfdda28b7863aa68c1ce7feafbbc24d2147d348986cb35644d8e14fef1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:25 GMT"
+  },
+  "https://sift.com/resources/webinars/retail-dive-cyberthreats-how-to-prep-for-the-upswing-this-holiday-season/": {
+    "sha256": "80b2b466278b47138739bb5818cc7f975b827d6e5e98aabffc5c80ba1218d0ca",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:26 GMT"
+  },
+  "https://sift.com/resources/webinars/safeguarding-customer-loyalty-with-smarter-fraud-prevention/": {
+    "sha256": "1532d31ef29be1f7500246ba34baf310f66144fc7033f010f247650f33d9dd51",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:26 GMT"
+  },
+  "https://sift.com/resources/webinars/selecting-the-right-digital-fraud-management-partner-featuring-forrester/": {
+    "sha256": "2921cba73d7c6574a404148dea82c7d2c5e152f0ab6d11abc9481d0b8a36de95",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:26 GMT"
+  },
+  "https://sift.com/resources/webinars/state-of-fraud-lessons-learned-from-2022-and-insights-into-2023/": {
+    "sha256": "363cb9c6f78fa5a3a36e5e2ea4b501e397a2b4dd2fa59956c47838bb2231d56e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:28 GMT"
+  },
+  "https://sift.com/resources/webinars/stop-the-drip-uniting-fragmented-account-takeover-challenges-operations/": {
+    "sha256": "3482b4a70a835f698c6f1155b12e2c0b019d65eed5a2f621d3fc23381eb1f827",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:28 GMT"
+  },
+  "https://sift.com/resources/webinars/supersifter-spotlight-tcgplayer/": {
+    "sha256": "8c6b96f935575168776e7994ac240f736eed0e98bb436585146110a52e85782c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:28 GMT"
+  },
+  "https://sift.com/resources/webinars/the-ai-fraud-frontier-how-fraudsters-and-fraud-fighters-have-adopted-ai-technology/": {
+    "sha256": "4ea40ccbd1915a9c3dca2683809905acb2a1ea00020d8ca50832ad3eb014829d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:28 GMT"
+  },
+  "https://sift.com/resources/webinars/the-ato-playbook-actionable-insights-from-a-former-fraudster-and-fraud-manager/": {
+    "sha256": "7b20cfce0363b88524db9de576988cd630c6fc099520212974906a26ca6836dc",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:28 GMT"
+  },
+  "https://sift.com/resources/webinars/the-c-suite-imperative-why-executives-must-prioritize-online-fraud-prevention-as-a-growth-lever/": {
+    "sha256": "909fae7a25bc0d1cf7fb67323ea218344faf4183fbef6c0648b5a1b18436d2c7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:29 GMT"
+  },
+  "https://sift.com/resources/webinars/the-loyalty-fraudsters-playbook/": {
+    "sha256": "55fcee2d903ff1242cb7ce01cae15bb2f406a649426c13f275c86a1de4d78cbb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:29 GMT"
+  },
+  "https://sift.com/resources/webinars/time-matters-swift-and-agile-responses-to-payment-fraud-attacks/": {
+    "sha256": "396cc32effbd544b03e829b4d54c65b049e99b9f901b60bfa7bdde645d29cd68",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:31 GMT"
+  },
+  "https://sift.com/resources/webinars/tis-the-season-scaling-with-sift-managed-services-in-time-for-the-holidays/": {
+    "sha256": "4b4f5c455a20a5449879a467dc3cba905e65e7d33aa32d50eae71a9d09a96c9d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:31 GMT"
+  },
+  "https://sift.com/resources/webinars/tracking-the-evolution-of-payment-fraud-insights-and-strategies-for-2025/": {
+    "sha256": "b455ae7195b65d61c14cc0e75c9dbb7552d407496ec3a32824a9d26c80ffed92",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:31 GMT"
+  },
+  "https://sift.com/resources/webinars/winning-the-race-against-ai-driven-fraud/": {
+    "sha256": "8c0b6f03850cab34e204b1e9c366f5982da726952fcb8f8891f753e72b840560",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:31 GMT"
+  },
+  "https://sift.com/resources/webinars/your-roadmap-to-better-player-insights/": {
+    "sha256": "12cfb514795333a00ea5d6b829d08ae300d138b9f629ce4d9ad464e10cfc6932",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:56:34 GMT"
   },
   "https://sift.com/risk-assessment/": {
     "sha256": "71a8937f2e0cb3c5cb4b07e4685a11bb41357c17c84861bdf9f98870ff23079b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:15 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:36 GMT"
   },
   "https://sift.com/services/": {
     "sha256": "8f6f987d5ed7e27a914c4e0a165f8b9a6f1c649e6a0018b3da7465e525f7e81e",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:14 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:29 GMT"
   },
   "https://sift.com/sift-payment-protection-demo-video/": {
     "sha256": "6223138d82aa8afa41b4bffecba8cd2cf992a8c3735530d9e6c45f80740e44cf",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:18 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:33 GMT"
   },
   "https://sift.com/sitemap/": {
     "sha256": "36f96122c794b0245230d661fcc565a3634b725b56fee5c06a65ebc1bf89267d",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:13 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:34 GMT"
   },
   "https://sift.com/solutions/": {
     "sha256": "0b48981787ebc87114e4fd9755d20010dba47a37240ca719da6a642f8098d93a",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:06:53 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:37 GMT"
   },
   "https://sift.com/solutions/account-creation/": {
     "sha256": "e5839022912d71b97fcd1022d5d7e65834d52fe01a9563a5d8c6fe00137ee6e2",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:25 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:37 GMT"
   },
   "https://sift.com/solutions/ato/": {
     "sha256": "1c863547ba32d4550693b33ea6f638ea4fe4489ef7a897995f19c798df26b2a1",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:37 GMT"
   },
   "https://sift.com/solutions/cfo/": {
     "sha256": "82866c5a958330dc8988044b91f2826ce83212367ed096ce0f813a4d0ac6a10d",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:07:07 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:36 GMT"
   },
   "https://sift.com/solutions/chargeback-fraud/": {
     "sha256": "ac9c5ceaeb5283ca20f26496a6f11ff8a25a961814df57480c192614fabc4e82",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:34 GMT"
   },
   "https://sift.com/solutions/content-scams/": {
     "sha256": "7025dafafb58bf8247bafdab67257081a1dc120ca76a9e65be1485a539715101",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:34 GMT"
   },
   "https://sift.com/solutions/digital-commerce/": {
     "sha256": "e15bece918e11d53f2d70ad1abfb86415582d6913b3fbc8d43e4731bc4f7af79",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:11:58 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:34 GMT"
   },
   "https://sift.com/solutions/fintech-finance/": {
     "sha256": "e17f5389bfae7ffd8081b8df987733522e8a2f60b361e0907ffec51957846a42",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:23 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:39 GMT"
   },
   "https://sift.com/solutions/food-delivery/": {
     "sha256": "5fc896365a5249b71f97b002155367895b83ea6c5c998bda3f29fa2bc9769ff5",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:23 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:39 GMT"
   },
   "https://sift.com/solutions/information-security/": {
     "sha256": "bf3cd63db087787d24648c6dfef393feeb03001405df4c8565fc036dddab7e23",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:24 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:35 GMT"
   },
   "https://sift.com/solutions/internet-software/": {
     "sha256": "2a684c8ee4a0b1903b8d147320660383fc102142585c3e8f92d900ee4a8d0523",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:11:59 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:35 GMT"
   },
   "https://sift.com/solutions/it-operations/": {
     "sha256": "bb06538882b446bc613a7e74dcc640f5d79d649ac48acde5da090361fedba2bc",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:24 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:39 GMT"
   },
   "https://sift.com/solutions/money-movement/": {
     "sha256": "6e58ff81d1010d7acd87cb45ad77b3eda763aa4e9245e65961e72cfa29c236a1",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:27 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:36 GMT"
   },
   "https://sift.com/solutions/online-gambling/": {
     "sha256": "fe0b6db85ab6368e1e02ac0d29e23c63f551bbea6f8ad5c7f67048b002737602",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:26 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:39 GMT"
   },
   "https://sift.com/solutions/payment-fraud/": {
     "sha256": "53f8b8dbaa2ab0880df205eb6adbbd1e786c3017b1bf368cf227ada705ed5a01",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:04:52 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:36 GMT"
   },
   "https://sift.com/solutions/product-management/": {
     "sha256": "20a51d96c2ae6cac846c38cbf897afa334de84e65188b3bcb1aec81ff91c893e",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:28 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:36 GMT"
   },
   "https://sift.com/solutions/sift-score-api/": {
     "sha256": "4ad08df1ac1193305563cec089b797d0bd22741c9466dff5731ec467af35b594",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:27 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:37 GMT"
   },
   "https://sift.com/solutions/travel-transportation/": {
     "sha256": "0d211ce660ce9e0819b20c9257a5fc1cfd382bdde34479de824dbb7bc377d481",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:28 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:37 GMT"
   },
   "https://sift.com/solutions/trust-fraud-operations/": {
     "sha256": "8b7818887e2e90323c51823416bec161bc62d6f99f1f134d1b5aed89432dae37",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:14:24 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:39 GMT"
   },
   "https://sift.com/why-sift/": {
     "sha256": "8fb799b714e9d03b9da3028b746df69be7f78405a5aa4898c06216bcb9926986",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:11:57 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:56:40 GMT"
   }
 }

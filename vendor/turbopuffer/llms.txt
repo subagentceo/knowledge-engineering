@@ -43,7 +43,7 @@
 
 ## API
 
-- [Overview](https://turbopuffer.com/docs/overview.md): Overview of the API
+- [Overview](https://turbopuffer.com/docs/api-overview.md): Overview of the API
 - [Write](https://turbopuffer.com/docs/write.md): Learn how to create, update, or delete documents
 - [Query](https://turbopuffer.com/docs/query.md): Learn how to query documents
 - [Namespace metadata](https://turbopuffer.com/docs/metadata.md): Learn how to get and update metadata about a namespace

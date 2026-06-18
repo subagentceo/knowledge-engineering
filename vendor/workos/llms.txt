@@ -36,11 +36,12 @@ This documentation site provides guides, references, and examples for implementi
 
 - [User Sessions Widget](https://workos.com/docs/widgets/user-sessions): A widget for displaying and managing user sessions in your application.
 - [User Security Widget](https://workos.com/docs/widgets/user-security): A widget for controlling user security settings in your application.
-- [User Profile Widget](https://workos.com/docs/widgets/user-profile): A widget for displaying and managing a user’s profile in your application.
+- [User Profile Widget](https://workos.com/docs/widgets/user-profile): A widget for displaying and managing a user's profile in your application.
 - [User Management Widget](https://workos.com/docs/widgets/user-management): A widget for displaying and managing users in your application.
 - [Authorization Tokens](https://workos.com/docs/widgets/tokens): Ensure Widgets have the appropriate permissions in your application.
 - [Quick Start](https://workos.com/docs/widgets/quick-start): A step-by-step guide for setting up WorkOS Widgets in your application.
 - [Pipes Widget](https://workos.com/docs/widgets/pipes): A widget for displaying and managing connected accounts with Pipes.
+- [Pipes Admin Widget](https://workos.com/docs/widgets/pipes-admin): A widget for organization admins to manage their organization's Pipes connections — enabling providers, supplying OAuth credentials, and configuring scopes.
 - [Organization Switcher Widget](https://workos.com/docs/widgets/organization-switcher): A widget for switching between organizations in your application.
 - [Localization](https://workos.com/docs/widgets/localization): Learn how to display Widgets in multiple languages.
 - [WorkOS Widgets](https://workos.com/docs/widgets/index): Learn how to integrate WorkOS Widgets in your app.
@@ -70,9 +71,9 @@ This documentation site provides guides, references, and examples for implementi
 - [SAML Security Considerations](https://workos.com/docs/sso/saml-security): Learn about additional SAML features that WorkOS supports.
 - [Redirect URIs](https://workos.com/docs/sso/redirect-uris): Learn what a redirect URI is and how it relates to Service Provider and Identity Provider initiated login flows.
 - [Login Flows](https://workos.com/docs/sso/login-flows): Learn the differences between SP‑initiated and IdP‑initiated SSO.
-- [Launch Checklist](https://workos.com/docs/sso/launch-checklist): Make sure you’re ready to take your app to production.
+- [Launch Checklist](https://workos.com/docs/sso/launch-checklist): Make sure you're ready to take your app to production.
 - [Just-In-Time User Provisioning](https://workos.com/docs/sso/jit-provisioning): Learn how to provision users in your app using Just-In-Time user provisioning.
-- [FAQ for IT teams](https://workos.com/docs/sso/it-team-faq): Answers to common questions from your customer’s IT team.
+- [FAQ for IT teams](https://workos.com/docs/sso/it-team-faq): Answers to common questions from your customer's IT team.
 - [Single Sign-On](https://workos.com/docs/sso/index): Facilitate greater security, easier account management, and accelerated application onboarding and adoption.
 - [Identity Provider Role Assignment](https://workos.com/docs/sso/identity-provider-role-assignment): Learn how to map role data from identity providers to roles in your app with SSO.
 - [Example Apps](https://workos.com/docs/sso/example-apps): View sample Single Sign-On apps for each SDK.
@@ -223,6 +224,7 @@ This documentation site provides guides, references, and examples for implementi
 - [authkit - user - send-verification-email](https://workos.com/docs/reference/authkit/user/send-verification-email)
 - [authkit - user - update](https://workos.com/docs/reference/authkit/user/update)
 - [client-libraries](https://workos.com/docs/reference/client-libraries)
+- [client - issue](https://workos.com/docs/reference/client/issue)
 - [directory-sync](https://workos.com/docs/reference/directory-sync)
 - [directory-sync - directory](https://workos.com/docs/reference/directory-sync/directory)
 - [directory-sync - directory-group](https://workos.com/docs/reference/directory-sync/directory-group)
@@ -286,6 +288,13 @@ This documentation site provides guides, references, and examples for implementi
 - [groups - list](https://workos.com/docs/reference/groups/list)
 - [groups - list-members](https://workos.com/docs/reference/groups/list-members)
 - [groups - remove-member](https://workos.com/docs/reference/groups/remove-member)
+- [groups - role-assignment](https://workos.com/docs/reference/groups/role-assignment)
+- [groups - role-assignment - create](https://workos.com/docs/reference/groups/role-assignment/create)
+- [groups - role-assignment - get](https://workos.com/docs/reference/groups/role-assignment/get)
+- [groups - role-assignment - list](https://workos.com/docs/reference/groups/role-assignment/list)
+- [groups - role-assignment - remove-group-role-assignment](https://workos.com/docs/reference/groups/role-assignment/remove-group-role-assignment)
+- [groups - role-assignment - remove-group-role-assignments](https://workos.com/docs/reference/groups/role-assignment/remove-group-role-assignments)
+- [groups - role-assignment - replace-group-role-assignments](https://workos.com/docs/reference/groups/role-assignment/replace-group-role-assignments)
 - [groups - update](https://workos.com/docs/reference/groups/update)
 - [magic-link](https://workos.com/docs/reference/magic-link)
 - [magic-link - passwordless-session](https://workos.com/docs/reference/magic-link/passwordless-session)
@@ -315,7 +324,9 @@ This documentation site provides guides, references, and examples for implementi
 - [pipes - connected-account - get](https://workos.com/docs/reference/pipes/connected-account/get)
 - [pipes - connected-account - get-authorize-url](https://workos.com/docs/reference/pipes/connected-account/get-authorize-url)
 - [pipes - provider](https://workos.com/docs/reference/pipes/provider)
+- [pipes - provider - configure](https://workos.com/docs/reference/pipes/provider/configure)
 - [pipes - provider - list](https://workos.com/docs/reference/pipes/provider/list)
+- [pipes - provider - list-for-organization](https://workos.com/docs/reference/pipes/provider/list-for-organization)
 - [radar](https://workos.com/docs/reference/radar)
 - [radar - attempts](https://workos.com/docs/reference/radar/attempts)
 - [radar - attempts - create](https://workos.com/docs/reference/radar/attempts/create)
@@ -432,6 +443,7 @@ This documentation site provides guides, references, and examples for implementi
 ## Pipes
 
 - [Providers](https://workos.com/docs/pipes/providers): Explore the third-party providers available for Pipes integrations.
+- [Organization-scoped providers](https://workos.com/docs/pipes/organization-scoped-providers): Per-organization customization for a Pipe provider's scopes, credentials, and enablement.
 - [Pipes](https://workos.com/docs/pipes/index): Enable your customers to connect their third-party accounts to your application.
 - [Custom providers](https://workos.com/docs/pipes/custom-providers): Define your own OAuth provider in Pipes when the one you need isn't in the WorkOS catalog.
 
@@ -456,7 +468,7 @@ This documentation site provides guides, references, and examples for implementi
 
 ## Magic Link
 
-- [Launch Checklist](https://workos.com/docs/magic-link/launch-checklist): Make sure you’re ready to take your app to production.
+- [Launch Checklist](https://workos.com/docs/magic-link/launch-checklist): Make sure you're ready to take your app to production.
 - [Magic Link](https://workos.com/docs/magic-link/index): The fastest way to securely enable authentication – passwordless sign-in via email in a couple lines of code.
 - [Example Apps](https://workos.com/docs/magic-link/example-apps): View sample Magic Link apps for each SDK.
 
@@ -530,7 +542,7 @@ This documentation site provides guides, references, and examples for implementi
 - [Auth0](https://workos.com/docs/integrations/auth0-saml): Learn how to configure a connection to Auth0 via SAML.
 - [Auth0 Enterprise Connection](https://workos.com/docs/integrations/auth0-enterprise-connection): Learn how to use WorkOS with your existing Auth0 applications.
 - [Auth0 Directory Sync](https://workos.com/docs/integrations/auth0-directory-sync): Learn how to use Directory Sync with your Auth0 applications.
-- [Apple](https://workos.com/docs/integrations/apple): Learn how to set up “Sign in with Apple”
+- [Apple](https://workos.com/docs/integrations/apple): Learn how to set up "Sign in with Apple"
 - [ADP OpenID Connect](https://workos.com/docs/integrations/adp-oidc): Learn how to configure a connection to ADP via OIDC.
 - [Access People HR](https://workos.com/docs/integrations/access-people-hr): Learn about syncing your user list with Access People HR.
 
@@ -542,6 +554,11 @@ This documentation site provides guides, references, and examples for implementi
 - [Resource Types](https://workos.com/docs/fga/resource-types): Define the schema of your application's resource hierarchy in the WorkOS Dashboard.
 - [Resource Discovery](https://workos.com/docs/fga/resource-discovery): Find which resources a user can access, or who has access to a resource.
 - [Quick Start](https://workos.com/docs/fga/quick-start): Build a complete authorization model from resource types to access checks in minutes.
+- [Share Button](https://workos.com/docs/fga/model-your-app-share-button): Build a share dialog that lists current members of a resource and grants or revokes access.
+- [Multi-level Inheritance](https://workos.com/docs/fga/model-your-app-multi-level-inheritance): Model authorization for nested resources and permission-gated UI components.
+- [High-Cardinality Data](https://workos.com/docs/fga/model-your-app-high-cardinality-data): Use FGA to authorize high-cardinality data like documents, files, and messages without syncing them as resources.
+- [Basic App](https://workos.com/docs/fga/model-your-app-basic): Model authorization for a project management app with list and detail pages.
+- [Protecting API Endpoints](https://workos.com/docs/fga/model-your-app-api-endpoints): Use the check endpoint to protect every CRUD operation in your REST API.
 - [Migrate from SpiceDB](https://workos.com/docs/fga/migration-spicedb): Map your SpiceDB schema to WorkOS FGA resource types, roles, and permissions.
 - [Migrate from Oso Cloud](https://workos.com/docs/fga/migration-oso): Map your Oso Cloud Polar policies to WorkOS FGA resource types, roles, and permissions.
 - [Migrate from OpenFGA](https://workos.com/docs/fga/migration-openfga): Map your OpenFGA authorization model to WorkOS FGA resource types, roles, and permissions.
@@ -580,6 +597,7 @@ This documentation site provides guides, references, and examples for implementi
 - [Identity Provider Role Assignment](https://workos.com/docs/directory-sync/identity-provider-role-assignment): Learn how to map role data from identity providers to roles in your app with Directory Sync.
 - [Handle Inactive Users](https://workos.com/docs/directory-sync/handle-inactive-users): Learn why inactive users are deleted from directories by default and how to configure this behavior.
 - [Example Apps](https://workos.com/docs/directory-sync/example-apps): View sample Directory Sync apps for each SDK.
+- [Unique Emails](https://workos.com/docs/directory-sync/email-uniqueness): Learn why directory user emails must be unique among active users, and how to avoid conflicts.
 - [User Attributes](https://workos.com/docs/directory-sync/attributes): Configure how attributes map from directory providers to Directory Users.
 
 ## Deprecations
@@ -602,11 +620,14 @@ This documentation site provides guides, references, and examples for implementi
 - [Social Login](https://workos.com/docs/authkit/social-login): Quickly and easily integrate with social OAuth providers.
 - [Sessions](https://workos.com/docs/authkit/sessions): Learn more about integrating sessions.
 - [Roles and Permissions](https://workos.com/docs/authkit/roles-and-permissions): Manage and assign roles and permissions to users.
+- [AuthKit](https://workos.com/docs/authkit/remix): Easy to use authentication platform designed to provide a flexible, secure, and fast integration.
+- [AuthKit](https://workos.com/docs/authkit/react): Easy to use authentication platform designed to provide a flexible, secure, and fast integration.
 - [Radar](https://workos.com/docs/authkit/radar): Protecting against bots, fraud and abuse.
 - [Pipes](https://workos.com/docs/authkit/pipes): Enable your customers to connect their third-party accounts to your application.
 - [Passkeys](https://workos.com/docs/authkit/passkeys): Configuring passkey authentication and enrollment.
 - [AuthKit](https://workos.com/docs/authkit/overview): Easy to use authentication APIs designed to provide a flexible, secure, and fast integration.
 - [Organization Authentication Policies](https://workos.com/docs/authkit/organization-policies): Customize available authentication methods for each organization.
+- [AuthKit](https://workos.com/docs/authkit/nextjs): Easy to use authentication platform designed to provide a flexible, secure, and fast integration.
 - [Modeling Your App](https://workos.com/docs/authkit/modeling-your-app): Learn how to architect your WorkOS integration
 - [Migrating to AuthKit](https://workos.com/docs/authkit/migrations): Guidance on moving your existing users to WorkOS.
 - [Multi-Factor Authentication](https://workos.com/docs/authkit/mfa): Add an additional layer of security to your application.
@@ -618,11 +639,12 @@ This documentation site provides guides, references, and examples for implementi
 - [Just-in-time Provisioning](https://workos.com/docs/authkit/jit-provisioning): Automatically provision users and memberships with JIT provisioning.
 - [Invite-only signup](https://workos.com/docs/authkit/invite-only-signup): Modeling an invite-only application without a public signup page.
 - [Invitations](https://workos.com/docs/authkit/invitations): Easily add users to your application or as members of an organization.
-- [AuthKit](https://workos.com/docs/authkit/index): Easy to use authentication platform designed to provide a flexible, secure, and fast integration.
+- [Get started with AuthKit](https://workos.com/docs/authkit/index): Set up AuthKit in your app using either the AI Installer & CLI or a manual framework-specific guide.
 - [Impersonation](https://workos.com/docs/authkit/impersonation): Learn how to sign into your application as one of your users.
 - [Identity Linking](https://workos.com/docs/authkit/identity-linking): Automatic deduplication of user credentials across identity providers.
 - [Hosted UI](https://workos.com/docs/authkit/hosted-ui): Customizable sign-in UI that abstracts away all of the complexity associated with building secure authentication flows.
 - [Groups](https://workos.com/docs/authkit/groups): Organize organization members into groups for easier management.
+- [Group Role Assignments](https://workos.com/docs/authkit/group-role-assignments): Assign roles to groups so all members automatically inherit the role and its permissions.
 - [Example apps](https://workos.com/docs/authkit/example-apps): View sample AuthKit apps.
 - [Staging vs. production environments](https://workos.com/docs/authkit/environments): Understand the differences between staging and production environments, when to use each, and how to go live.
 - [Email Verification](https://workos.com/docs/authkit/email-verification): Learn more about the email verification process.
@@ -634,10 +656,13 @@ This documentation site provides guides, references, and examples for implementi
 - [Connect](https://workos.com/docs/authkit/connect): Enable other applications to access your users and their identities.
 - [AI Installer & CLI](https://workos.com/docs/authkit/cli-installer): Integrate AuthKit with one command, manage resources, provision environments, and equip your coding agents — all from the WorkOS CLI.
 - [CLI Auth](https://workos.com/docs/authkit/cli-auth): Quickly add authentication to your command-line application.
-- [Branding](https://workos.com/docs/authkit/branding): Customize AuthKit to fit natively with your app’s unique design.
+- [Branding](https://workos.com/docs/authkit/branding): Customize AuthKit to fit natively with your app's unique design.
 - [Applications](https://workos.com/docs/authkit/applications): Manage authentication across every surface your product runs on with a shared identity layer.
 - [API Keys](https://workos.com/docs/authkit/api-keys): Provide secure, self-service API key management to your customers.
 - [Actions](https://workos.com/docs/authkit/actions): Customize authentication flows with your own logic.
+- [AuthKit](https://workos.com/docs/authkit/vanilla/ruby): Easy to use authentication platform designed to provide a flexible, secure, and fast integration.
+- [AuthKit](https://workos.com/docs/authkit/vanilla/python): Easy to use authentication platform designed to provide a flexible, secure, and fast integration.
+- [AuthKit](https://workos.com/docs/authkit/vanilla/nodejs): Easy to use authentication platform designed to provide a flexible, secure, and fast integration.
 - [Standalone Connect](https://workos.com/docs/authkit/connect/standalone): Integrate Connect's OAuth API with your existing authentication stack.
 - [OAuth Applications](https://workos.com/docs/authkit/connect/oauth): Integrate OAuth applications with WorkOS Connect for web and mobile authentication.
 - [M2M Applications](https://workos.com/docs/authkit/connect/m2m): Implement machine-to-machine authentication with WorkOS Connect.
@@ -648,7 +673,7 @@ This documentation site provides guides, references, and examples for implementi
 ## Audit Logs
 
 - [Metadata Schema](https://workos.com/docs/audit-logs/metadata-schema): Define strict JSON Schema for validating event metadata.
-- [Log Streams](https://workos.com/docs/audit-logs/log-streams): Stream Audit Log Events to your customers’ SIEM providers.
+- [Log Streams](https://workos.com/docs/audit-logs/log-streams): Stream Audit Log Events to your customers' SIEM providers.
 - [Audit Logs](https://workos.com/docs/audit-logs/index): Ingest and export Audit Log Events from your application.
 - [Exporting Events](https://workos.com/docs/audit-logs/exporting-events): Export Audit Log Events through the WorkOS Dashboard and API.
 - [Editing Events](https://workos.com/docs/audit-logs/editing-events): Modify existing event configuration with backwards compatibility.

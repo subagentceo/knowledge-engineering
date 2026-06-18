@@ -1,7 +1,7 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > Functions, storage & data > functions
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: The Neon CLI `neonctl functions` command manages Neon Functions on a branch: `neonctl functions deploy <slug>` bundles and deploys a function from a local directory (with --path, --entry, --runtime, --env, and --wait), and the list, get, and delete subcommands manage deployed functions. The slug is the permanent function identifier: 1 to 20 lowercase letters and digits.
+> Summary: The Neon CLI `neonctl functions` command manages Neon Functions on a branch: `neonctl functions deploy <slug>` bundles and deploys a function from a local directory or entry file (with --src, --runtime, --env, and --wait), and the list, get, and delete subcommands manage deployed functions. The slug is the permanent function identifier: 1 to 20 lowercase letters and digits.
 
 # Neon CLI command: functions
 
@@ -17,28 +17,27 @@ Subcommands: [deploy](https://neon.com/docs/cli/functions#deploy), [list](https:
 
 ## neonctl functions deploy
 
-Deploys a function from a local directory. The `<slug>` is the permanent function identifier: 1 to 20 lowercase letters and digits (`^[a-z0-9]{1,20}$`).
+Deploys a function from a local directory or entry file. The `<slug>` is the permanent function identifier: 1 to 20 lowercase letters and digits (`^[a-z0-9]{1,20}$`).
 
 ```bash
 neonctl functions deploy <slug> [options]
 ```
 
-| Option         | Description                                        | Type    | Default | Required |
-| -------------- | -------------------------------------------------- | ------- | ------- | :------: |
-| `--path`       | Base directory for the function (resolves --entry) | string  | —       |    No    |
-| `--entry`      | Entry file to bundle, relative to --path           | string  | —       |    No    |
-| `--runtime`    | Function runtime Possible values: `nodejs24`       | string  | —       |    No    |
-| `--env`        | Environment variable as KEY=VALUE (repeatable)     | string  | —       |    No    |
-| `--wait`       | Wait for the deployment to finish building         | boolean | `true`  |    No    |
-| `--project-id` | Project ID                                         | string  | —       |    No    |
-| `--branch`     | Branch ID or name                                  | string  | —       |    No    |
+| Option         | Description                                                                                           | Type    | Default | Required |
+| -------------- | ----------------------------------------------------------------------------------------------------- | ------- | ------- | :------: |
+| `--src`        | Function source: a directory containing index.ts, index.mjs, or index.js, or a path to the entry file | string  | —       |    No    |
+| `--runtime`    | Function runtime Possible values: `nodejs24`                                                          | string  | —       |    No    |
+| `--env`        | Environment variable as KEY=VALUE (repeatable)                                                        | string  | —       |    No    |
+| `--wait`       | Wait for the deployment to finish building                                                            | boolean | `true`  |    No    |
+| `--project-id` | Project ID                                                                                            | string  | —       |    No    |
+| `--branch`     | Branch ID or name                                                                                     | string  | —       |    No    |
 
 Use `--wait` to block until the deployment finishes building, which is the predictable path for scripts and CI.
 
-Deploy a function from the current directory:
+Deploy a function from an entry file:
 
 ```bash
-neonctl functions deploy hello --path . --entry functions/hello.ts
+neonctl functions deploy hello --src functions/hello.ts
 ```
 
 ```text filename="Output"
@@ -54,7 +53,7 @@ INFO: Function deployment hello/1 completed.
 Deploy with environment variables and wait for the build:
 
 ```bash
-neonctl functions deploy hello --entry functions/hello.ts --env LOG_LEVEL=info --wait
+neonctl functions deploy hello --src functions/hello.ts --env LOG_LEVEL=info --wait
 ```
 
 ## neonctl functions list

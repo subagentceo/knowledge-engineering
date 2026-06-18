@@ -59,7 +59,7 @@ When using your own domain, email will be sent from `welcome@<your domain>` and 
 
 WorkOS recommends that you set up DMARC (Domain-based Message Authentication, Reporting & Conformance) with your domain provider. Google has released [guidelines](https://support.google.com/a/answer/81126?visit_id=638529785140327067-2643207201\&rd=1#zippy=%2Crequirements-for-all-senders%2Crequirements-for-sending-or-more-messages-per-day) for email senders and the guidelines include DMARC requirements. Apple and Yahoo have released similar best practice guides.
 
-A DMARC policy tells a receiving mail server what to do when a message from your domain doesn’t pass DMARC authentication. Configuring DMARC requires setting up a DNS TXT record with your domain provider.
+A DMARC policy tells a receiving mail server what to do when a message from your domain doesn't pass DMARC authentication. Configuring DMARC requires setting up a DNS TXT record with your domain provider.
 
 Here is an example DMARC record that will reject all emails not legitimately sent by an email provider on your behalf:
 

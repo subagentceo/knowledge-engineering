@@ -67,9 +67,12 @@ import * as Sentry from "<sdk-package-name>";
 Sentry.init({
   dsn: "https://<key>@o<orgId>.ingest.sentry.io/<projectId>",
 
-  // Adds request headers and IP for users, for more info visit:
-  // https://docs.sentry.io/platforms/javascript/configuration/options/#sendDefaultPii
-  sendDefaultPii: true,
+  dataCollection: {
+    // To disable sending user data and HTTP bodies, uncomment the lines below. For more info visit:
+    // https://docs.sentry.io/platforms/javascript/configuration/options/#dataCollection
+    // userInfo: false,
+    // httpBodies: [],
+  },
 
   // Alternatively, use `process.env.npm_package_version` for a dynamic release version
   // if your build tool supports it.
@@ -130,9 +133,12 @@ Sentry.init({
     Sentry.init({
       dsn: "https://<key>@o<orgId>.ingest.sentry.io/<projectId>",
 
-      // Adds request headers and IP for users, for more info visit:
-      // https://docs.sentry.io/platforms/javascript/configuration/options/#sendDefaultPii
-      sendDefaultPii: true,
+      dataCollection: {
+        // To disable sending user data and HTTP bodies, uncomment the lines below. For more info visit:
+        // https://docs.sentry.io/platforms/javascript/configuration/options/#dataCollection
+        // userInfo: false,
+        // httpBodies: [],
+      },
 
       // Alternatively, use `process.env.npm_package_version` for a dynamic release version
       // if your build tool supports it.
@@ -189,8 +195,8 @@ Sentry.init({
 
 ```html
 <script
-  src="https://browser.sentry-cdn.com/10.57.0/bundle.tracing.min.js"
-  integrity="sha384-fm7orKrUHTJhAKcdqNq6Kb/0qIpMNYz3TbwoEoiA3hdbnHqSBhIqMAZ4XS09pCU5"
+  src="https://browser.sentry-cdn.com/10.58.0/bundle.tracing.min.js"
+  integrity="sha384-kds8iO3vDj6X38OxubDgbg45botpNZVBJJPEvhtXGaxOK27CfWEBvSFjD/pBYFu/"
   crossorigin="anonymous"
 ></script>
 
@@ -198,9 +204,12 @@ Sentry.init({
   Sentry.init({
     dsn: "https://<key>@o<orgId>.ingest.sentry.io/<projectId>",
 
-    // Adds request headers and IP for users, for more info visit:
-    // https://docs.sentry.io/platforms/javascript/configuration/options/#sendDefaultPii
-    sendDefaultPii: true,
+    dataCollection: {
+      // To disable sending user data and HTTP bodies, uncomment the lines below. For more info visit:
+      // https://docs.sentry.io/platforms/javascript/configuration/options/#dataCollection
+      // userInfo: false,
+      // httpBodies: [],
+    },
 
     // Alternatively, use `process.env.npm_package_version` for a dynamic release version
     // if your build tool supports it.

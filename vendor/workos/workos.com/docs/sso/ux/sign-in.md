@@ -2,13 +2,13 @@
 
 ## Introduction
 
-Now that we’ve seen how the Single Sign-On (SSO) APIs work, you may want to consider how to best integrate this new flow in the sign-in experience for your users. This guide will walk you through a few different approaches you could take in your application:
+Now that we've seen how the Single Sign-On (SSO) APIs work, you may want to consider how to best integrate this new flow in the sign-in experience for your users. This guide will walk you through a few different approaches you could take in your application:
 
 - Separate SSO flow
 - Separate email and password fields
 - Auto-hide the password field
 
-Throughout this guide, let’s consider the following scenario:
+Throughout this guide, let's consider the following scenario:
 
 - You are building an app called *Demo App*
 - An organization named *Foo Corp* is using Single Sign-On with Okta as the [IdP](https://workos.com/docs/glossary/idp)
@@ -31,4 +31,4 @@ Instead of asking users for their email and password in one screen, you could fi
 
 ## Auto-hide the password field
 
-Finally, as an extension to the previous approach, you can automatically hide the password field if the user’s domain is SSO-enabled. This feature is a bit more complicated to implement, but provides a more seamless experience for users.
+Finally, as an extension to the previous approach, you can automatically hide the password field if the user's domain is SSO-enabled. This feature is a bit more complicated to implement, but provides a more seamless experience for users.

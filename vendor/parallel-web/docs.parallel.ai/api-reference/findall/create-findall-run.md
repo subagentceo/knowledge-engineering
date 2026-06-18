@@ -295,9 +295,12 @@ components:
             - items:
                 $ref: '#/components/schemas/ExcludeCandidate'
               type: array
+              maxItems: 10000
             - type: 'null'
           title: Exclude List
-          description: List of entity names/IDs to exclude from results.
+          description: >-
+            List of entity names/IDs to exclude from results. At most 10,000
+            entries are allowed.
         metadata:
           anyOf:
             - additionalProperties:

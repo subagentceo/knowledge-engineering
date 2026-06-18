@@ -234,13 +234,15 @@ tpuf_config:
 
 Maximum concurrent queries to a single namespace allowed. This protects the node
 against a single namespace being overloaded. 429s will be returned from
-queries if there is not enough capacity to handle them.
+queries if there is not enough capacity to handle them. You can also configure concurrency limits at the organization level.
 
 Example:
 ```yaml
 tpuf_config:
     fairness:
       query_concurrency_per_namespace: 16  # default
+      query_concurrency_overrides:
+        "5x8olkguh1l2jvtjrpgnvlcm": 32  # org id
 ```
 
 ---

@@ -1,7 +1,7 @@
 ---
 vendor: modelcontextprotocol
 llms_txt: https://modelcontextprotocol.io/llms.txt
-count: 336
+count: 337
 transform: append-md
 ---
 
@@ -186,6 +186,7 @@ transform: append-md
 | https://modelcontextprotocol.io/seps/2484-conformance-tests-required-for-final-seps.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2484-conformance-tests-required-for-final-seps.md` |
 | https://modelcontextprotocol.io/seps/2549-TTL-for-list-results | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2549-TTL-for-list-results.md` |
 | https://modelcontextprotocol.io/seps/2549-TTL-for-list-results.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2549-TTL-for-list-results.md` |
+| https://modelcontextprotocol.io/seps/2567-sessionless-mcp | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2567-sessionless-mcp.md` |
 | https://modelcontextprotocol.io/seps/2567-sessionless-mcp.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2567-sessionless-mcp.md` |
 | https://modelcontextprotocol.io/seps/2575-stateless-mcp | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2575-stateless-mcp.md` |
 | https://modelcontextprotocol.io/seps/2575-stateless-mcp.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2575-stateless-mcp.md` |

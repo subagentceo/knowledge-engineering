@@ -83,13 +83,14 @@ Lists objects in a bucket.
 neonctl bucket object list <bucket>[/<prefix>] [options]
 ```
 
-| Option         | Description                                                   | Type   | Default | Required |
-| -------------- | ------------------------------------------------------------- | ------ | ------- | :------: |
-| `--project-id` | Project ID                                                    | string | —       |    No    |
-| `--branch`     | Branch ID or name                                             | string | —       |    No    |
-| `--delimiter`  | Collapse keys sharing a common prefix (e.g. "/") into folders | string | —       |    No    |
-| `--cursor`     | Pagination cursor returned as next\_cursor by a previous call | string | —       |    No    |
-| `--limit`      | Maximum number of items (objects + folders) to return         | number | —       |    No    |
+| Option         | Description                                                                                                                              | Type    | Default | Required |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- | :------: |
+| `--project-id` | Project ID                                                                                                                               | string  | —       |    No    |
+| `--branch`     | Branch ID or name                                                                                                                        | string  | —       |    No    |
+| `--recursive`  | List every key flat, descending into nested folders (no delimiter). Mutually exclusive with --delimiter. Mirrors "aws s3 ls --recursive" | boolean | `false` |    No    |
+| `--delimiter`  | Collapse keys sharing this prefix separator into folders. Defaults to "/" (folder view); ignored when --recursive is set                 | string  | —       |    No    |
+| `--cursor`     | Pagination cursor returned as next\_cursor by a previous call                                                                            | string  | —       |    No    |
+| `--limit`      | Maximum number of items (objects + folders) to return                                                                                    | number  | —       |    No    |
 
 List the objects under a prefix, collapsing keys into folders:
 

@@ -26,7 +26,7 @@
   },
   "https://openfeature.dev/docs/reference/concepts/evaluation-api": {
     "sha256": "e9c6b61b9898f1d8da7c334991b24f3d3022b450f5edf30d3902ea4d8d49667c",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "\"6b5712f592c4538d602d7b6f2bac1f26-ssl-df\""
   },
   "https://openfeature.dev/docs/reference/concepts/evaluation-context": {
@@ -111,7 +111,7 @@
   },
   "https://openfeature.dev/docs/reference/sdks/client/web/": {
     "sha256": "9a8edfcb413253357104fa96c48f1156ce0c35fb18530cb7fbc9f588fda07315",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "\"2ede271de8da742f366028e9fbaa46db-ssl-df\""
   },
   "https://openfeature.dev/docs/reference/sdks/client/web/angular": {
@@ -246,7 +246,7 @@
   },
   "https://openfeature.dev/docs/tutorials/open-feature-operator/quick-start": {
     "sha256": "bbdf622ffa605a9247a951f9bd56d5d99a811095583961307ea59f1601e3573f",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "\"ef0cfe8800585eb03415f33de35d1c0e-ssl-df\""
   },
   "https://openfeature.dev/specification/": {

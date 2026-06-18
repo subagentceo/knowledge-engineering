@@ -4,7 +4,7 @@
 
 The [IdP Attributes page](https://dashboard.workos.com/environment/identity-provider-attributes) in the WorkOS Dashboard is where you configure which attributes are collected from identity providers (IdPs) and how they map to [SSO Profile](https://workos.com/docs/reference/sso/profile) and [Directory User](https://workos.com/docs/reference/directory-sync/directory-user) objects.
 
-WorkOS automatically normalizes a standard set of attributes from identity providers into SSO Profiles. More unique cases can be mapped by your customer's IT contact. In this guide, you’ll learn how to configure standard, predefined, and custom attributes.
+WorkOS automatically normalizes a standard set of attributes from identity providers into SSO Profiles. More unique cases can be mapped by your customer's IT contact. In this guide, you'll learn how to configure standard, predefined, and custom attributes.
 
 > For Directory Sync-specific attribute details, see [User Attributes](https://workos.com/docs/directory-sync/attributes).
 
@@ -25,11 +25,11 @@ Every SSO Profile comes with the following standard attributes. These are the co
 
 | Attribute    | Type and description                                                                                                   | Status            |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| `idp_id`     | The user’s unique identifier, assigned by the identity provider. Different identity providers use different ID formats | Strictly required |
-| `email`      | The user’s email                                                                                                       | Strictly required |
-| `first_name` | The user’s first name                                                                                                  | Configurable      |
-| `last_name`  | The user’s last name                                                                                                   | Configurable      |
-| `name`       | The user’s full name                                                                                                   | Configurable      |
+| `idp_id`     | The user's unique identifier, assigned by the identity provider. Different identity providers use different ID formats | Strictly required |
+| `email`      | The user's email                                                                                                       | Strictly required |
+| `first_name` | The user's first name                                                                                                  | Configurable      |
+| `last_name`  | The user's last name                                                                                                   | Configurable      |
+| `name`       | The user's full name                                                                                                   | Configurable      |
 
 `idp_id` and `email` are always required for SSO Profiles. The `first_name`, `last_name`, and `name` attributes can be configured per environment. By default, `first_name` and `last_name` are enabled and required, while `name` is disabled and optional.
 
@@ -47,16 +47,16 @@ When enabled, IT contacts will be asked to map these attributes during SSO confi
 
 | Attribute               | Type and description                                                                                                            | Status   |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `addresses`             | The user’s list of address objects (`street_address`, `locality`, `region`, `postal_code`, `country`, `primary`, `raw_address`) | Optional |
-| `cost_center_name`      | The user’s cost center name                                                                                                     | Optional |
-| `department_name`       | The user’s department name                                                                                                      | Optional |
-| `division_name`         | The user’s division name                                                                                                        | Optional |
-| `emails`                | The user’s list of email objects (`type`, `value`, `primary`)                                                                   | Optional |
-| `employee_type`         | The user’s employment type                                                                                                      | Optional |
-| `employment_start_date` | The user’s start date                                                                                                           | Optional |
-| `job_title`             | The user’s job title                                                                                                            | Optional |
-| `manager_email`         | The email address for the user’s manager                                                                                        | Optional |
-| `username`              | The user’s username                                                                                                             | Optional |
+| `addresses`             | The user's list of address objects (`street_address`, `locality`, `region`, `postal_code`, `country`, `primary`, `raw_address`) | Optional |
+| `cost_center_name`      | The user's cost center name                                                                                                     | Optional |
+| `department_name`       | The user's department name                                                                                                      | Optional |
+| `division_name`         | The user's division name                                                                                                        | Optional |
+| `emails`                | The user's list of email objects (`type`, `value`, `primary`)                                                                   | Optional |
+| `employee_type`         | The user's employment type                                                                                                      | Optional |
+| `employment_start_date` | The user's start date                                                                                                           | Optional |
+| `job_title`             | The user's job title                                                                                                            | Optional |
+| `manager_email`         | The email address for the user's manager                                                                                        | Optional |
+| `username`              | The user's username                                                                                                             | Optional |
 
 #### Enable or disable a predefined attribute
 

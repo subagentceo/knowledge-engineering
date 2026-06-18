@@ -22,69 +22,7 @@ When initiating SSO for one of your users, instead of calling the SSO [Get Autho
 
 #### Next.js
 
-```js
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { WorkOS } from '@workos-inc/node';
-
-const workos = new WorkOS(process.env.WORKOS_API_KEY);
-const clientId = process.env.WORKOS_CLIENT_ID;
-
-export default (_req: NextApiRequest, res: NextApiResponse) => {
-  // The user's organization ID
-  const organization = 'org_123';
-
-  // The callback URI WorkOS should redirect to after the authentication
-  const redirectUri = 'https://my-app.com/callback';
-
-  /* -diff-start */
-  const authorizationUrl = workos.sso.getAuthorizationUrl({
-    organization,
-  /* -diff-end */
-  /* +diff-start */
-  const authorizationUrl = workos.userManagement.getAuthorizationUrl({
-    organizationId: organization,
-  /* +diff-end */
-    redirectUri,
-    clientId,
-  });
-
-  res.redirect(authorizationUrl);
-};
-```
-
 #### Express
-
-```js
-const express = require('express');
-const { WorkOS } = require('@workos-inc/node');
-
-const app = express();
-
-const workos = new WorkOS(process.env.WORKOS_API_KEY);
-const clientId = process.env.WORKOS_CLIENT_ID;
-
-app.get('/auth', (_req, res) => {
-  // The user's organization ID
-  const organization = 'org_123';
-
-  // The callback URI WorkOS should redirect to after the authentication
-  const redirectUri = 'https://my-app.com/callback';
-
-  /* -diff-start */
-  const authorizationUrl = workos.sso.getAuthorizationUrl({
-    organization,
-  /* -diff-end */
-  /* +diff-start */
-  const authorizationUrl = workos.userManagement.getAuthorizationUrl({
-    organizationId: organization,
-  /* +diff-end */
-    redirectUri,
-    clientId,
-  });
-
-  res.redirect(authorizationUrl);
-});
-```
 
 The AuthKit Get Authorization API supports all of the same initiation parameters as the SSO API. In addition, it also supports an additional provider type, `authkit`, which will be covered later in this guide.
 
@@ -96,64 +34,11 @@ However, instead of calling the SSO [Get a Profile and Token](https://workos.com
 
 #### Next.js
 
-```js
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { WorkOS } from '@workos-inc/node';
-
-const workos = new WorkOS(process.env.WORKOS_API_KEY);
-const clientId = process.env.WORKOS_CLIENT_ID;
-
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { code } = req.query;
-
-  /* -diff-start */
-  const { profile } = await workos.sso.getProfileAndToken({
-  /* -diff-end */
-  /* +diff-start */
-  const { user } = await workos.userManagement.authenticateWithCode({
-  /* +diff-end */
-    code,
-    clientId,
-  });
-
-  // Use the information in `user` for further business logic.
-
-  res.redirect('/');
-};
-```
-
 #### Express
 
-```js
-const express = require('express');
-const { WorkOS } = require('@workos-inc/node');
+> **Important:** Instead of receiving a [Profile](https://workos.com/docs/reference/sso/profile), your application now receives a full [User object](https://workos.com/docs/reference/authkit/user). While many of the fields are similar, such as the user's email or name, the **User ID's will be different** than the Profile ID's you may have previously persisted in your application.
 
-const app = express();
-const workos = new WorkOS(process.env.WORKOS_API_KEY);
-const clientId = process.env.WORKOS_CLIENT_ID;
-
-app.get('/callback', async (req, res) => {
-  const { code } = req.query;
-
-  /* -diff-start */
-  const { profile } = await workos.sso.getProfileAndToken({
-  /* -diff-end */
-  /* +diff-start */
-  const { user } = await workos.userManagement.authenticateWithCode({
-  /* +diff-end */
-    code,
-    clientId,
-  });
-
-  // Use the information in `user` for further business logic.
-
-  res.redirect('/');
-});
-```
-
-> **Important:** Instead of receiving a [Profile](https://workos.com/docs/reference/sso/profile), your application now receives a full [User object](https://workos.com/docs/reference/authkit/user). While many of the fields are similar, such as the user’s email or name, the **User ID’s will be different** than the Profile ID’s you may have previously persisted in your application.
-
-If email is a unique identifier in your application, you can use the WorkOS User’s email to identify the application-local user. WorkOS ensures that user email is verified before successfully completing an authentication request. When the API issues an email verification challenge, an [email verification response](https://workos.com/docs/reference/authkit/authentication-errors/email-verification-required-error) is returned.
+If email is a unique identifier in your application, you can use the WorkOS User's email to identify the application-local user. WorkOS ensures that user email is verified before successfully completing an authentication request. When the API issues an email verification challenge, an [email verification response](https://workos.com/docs/reference/authkit/authentication-errors/email-verification-required-error) is returned.
 
 ### Handling new authentication flows
 
@@ -161,9 +46,9 @@ The AuthKit API offers a higher-level abstraction than the SSO API, offering mor
 
 This means that when your application attempts to exchange a code for a user object, it may return one of several new expected errors. These map to cases that were previously mentioned, like requiring that the user first verify their email, or enroll in MFA.
 
-If your application doesn’t require these extra settings, they can be disabled in the *Authentication* section of the [WorkOS Dashboard](https://dashboard.workos.com/).
+If your application doesn't require these extra settings, they can be disabled in the *Authentication* section of the [WorkOS Dashboard](https://dashboard.workos.com/).
 
-> If you are using AuthKit, you won’t need to handle error cases like required email verification, as AuthKit will automatically request this before a user is directed to their callback endpoint.
+> If you are using AuthKit, you won't need to handle error cases like required email verification, as AuthKit will automatically request this before a user is directed to their callback endpoint.
 
 ## AuthKit
 
@@ -175,45 +60,9 @@ Getting started with AuthKit is as simple as passing `authkit` as the `provider`
 
 #### Next.js
 
-```ts
-import type { NextApiRequest, NextApiResponse } from 'next';
-
-export default (_req: NextApiRequest, res: NextApiResponse) => {
-  // The callback URI WorkOS should redirect to after the authentication
-  const redirectUri = 'https://my-app.com/callback';
-
-  const authorizationUrl = workos.userManagement.getAuthorizationUrl({
-    /* +diff-start */
-    provider: 'authkit',
-    /* +diff-end */
-    redirectUri,
-    clientId,
-  });
-
-  res.redirect(authorizationUrl);
-};
-```
-
 #### Express
 
-```js
-app.get('/auth', (_req, res) => {
-  // The callback URI WorkOS should redirect to after the authentication
-  const redirectUri = 'https://my-app.com/callback';
-
-  const authorizationUrl = workos.userManagement.getAuthorizationUrl({
-    /* +diff-start */
-    provider: 'authkit',
-    /* +diff-end */
-    redirectUri,
-    clientId,
-  });
-
-  res.redirect(authorizationUrl);
-});
-```
-
-AuthKit can handle many of the concerns your application likely needed to previously, such as identifying which users sign in using enterprise SSO, and correctly routing them to their organization’s identity provider.
+AuthKit can handle many of the concerns your application likely needed to previously, such as identifying which users sign in using enterprise SSO, and correctly routing them to their organization's identity provider.
 
 ## Directory Sync
 
@@ -221,6 +70,6 @@ Directory provisioning is also supported in AuthKit. See the [Directory Provisio
 
 ## Next Steps
 
-Check out the [full guide](https://workos.com/docs/authkit), along with the [API reference](https://workos.com/docs/reference/authkit) to get an idea of all the ways your application’s user management needs can be solved by WorkOS.
+Check out the [full guide](https://workos.com/docs/authkit), along with the [API reference](https://workos.com/docs/reference/authkit) to get an idea of all the ways your application's user management needs can be solved by WorkOS.
 
 If you need help migrating your existing WorkOS integration, or have any other questions, please reach out to [WorkOS support](mailto:support@workos.com?subject=WorkOS%20Support).
