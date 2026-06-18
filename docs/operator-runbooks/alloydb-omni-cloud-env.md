@@ -1,14 +1,42 @@
 ---
 runbook: alloydb-omni-cloud-env
-outcome: Cloud sessions get system PostgreSQL 16 + Redis 7 with the Kimball dw schema loaded at session start; AlloyDB Omni 18 runs on the operator's Docker Desktop host and is reached via the MCP_DOCKER gateway.
-unblocks: Local-DB-backed agents that need Postgres + Redis in-cloud, and the host-side AlloyDB Omni columnar engine via MCP_DOCKER
+outcome: Cloud sessions connect to AlloyDB Omni + Redis on wsl-ubuntu2604-jadecli (100.112.152.5) via Cloudflare Tunnel. DATABASE_URL + REDIS_URL are set in the cloud env UI; start_services.sh publishes them to the session env.
+unblocks: All DB-backed cloud agents; eliminates GCP registry dependency and per-session schema loads
 operator-manual-steps:
-  - enable the MCP_DOCKER connector (Connectors panel) to reach host AlloyDB Omni — takes effect in a new session
-  - (optional) set DATABASE_URL in the cloud env UI only to point at a host/tunnelled AlloyDB endpoint
-outcome_id: OKWP2
+  - set DATABASE_URL and REDIS_URL in the cloud env UI pointing at Cloudflare Tunnel endpoints
+  - run WSL setup steps (one-time): see wsl-backend-setup.md
+outcome_id: OWSL1
+supersedes: OKWP2
 ---
 
 # Operator runbook: AlloyDB Omni + Redis in the Claude Code cloud env
+
+## 2026-06-17 update — WSL persistent backend supersedes PG16 (OWSL1, READ FIRST)
+
+**The 2-context model below (OKWP2) is superseded by ADR OWSL1.**
+
+`wsl-ubuntu2604-jadecli` (Tailscale `100.112.152.5`) now runs AlloyDB Omni + Redis
+persistently in Docker. Cloud sessions connect via **Cloudflare Tunnel**; Mac sessions
+connect via Tailscale directly. `start_services.sh` no longer starts local PG16/Redis —
+it reads `DATABASE_URL`/`REDIS_URL` from the cloud env UI and publishes them to
+`CLAUDE_ENV_FILE`.
+
+**Cloud env UI variables to set:**
+
+| Variable | Value |
+|---|---|
+| `DATABASE_URL` | `postgres://postgres:<pw>@<tunnel-hostname>/ke` |
+| `REDIS_URL` | `redis://<tunnel-hostname>:6379` |
+
+`ALLOYDB_OMNI_PASSWORD` is no longer needed in the cloud env — credentials travel inside `DATABASE_URL`.
+
+See: [`docs/decisions/2026-06-17-wsl-tailscale-persistent-backend.md`](../decisions/2026-06-17-wsl-tailscale-persistent-backend.md)
+
+---
+
+## 2026-06-14 correction — two runtime contexts (OKWP2, superseded)
+
+> ⚠ Retained for historical reference. The PG16 fallback in start_services.sh has been removed. If DATABASE_URL is absent, the cloud session degrades gracefully.
 
 Bootstraps AlloyDB Omni (PostgreSQL 18, Debian) and Redis 7.0 inside the
 [Claude Code cloud environment](https://code.claude.com/docs/en/claude-code-on-the-web)
@@ -19,17 +47,7 @@ so every session has a local Postgres + Redis without per-session image pulls.
 (`google/alloydbomni`) carried PG17; PG18 is gcr.io-only (private invite
 programme, `alloydb-omni-contact@google.com`).
 
-Two-file split per the operator's decomposition:
-
-- **Setup script** (cloud-env field, cached into env snapshot): does
-  the slow image pull and creates the data dir.
-- **SessionStart hook** (`.claude/settings.json` in this repo): runs
-  `scripts/start_services.sh` on every session — fast container
-  start, idempotent.
-
-This is the pattern recommended by Claude Code's own cloud-env docs.
-
-## 2026-06-14 correction — two runtime contexts (READ FIRST)
+## 2026-06-14 correction — two runtime contexts (archived)
 
 The original `docker run gcr.io/alloydb-omni/...` design in `start_services.sh`
 **cannot run inside a Claude Code cloud session.** Verified empirically:
