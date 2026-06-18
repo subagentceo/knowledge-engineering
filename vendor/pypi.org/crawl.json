@@ -1,0 +1,21 @@
+{
+  "name": "pypi.org",
+  "kind": "pypi-api",
+  "homepage": "https://pypi.org",
+  "page_cap": 0,
+  "incremental": true,
+  "_topology_note": "URL path: vendor/pypi.org/<package>.md — fetched via https://pypi.org/pypi/<package>/json, info.description field extracted",
+  "_api_base": "https://pypi.org/pypi",
+  "packages": {
+    "anthropic":              { "path": "anthropic.md" },
+    "claude-agent-sdk":       { "path": "claude-agent-sdk.md" },
+    "mcp":                    { "path": "mcp.md" },
+    "agent-client-protocol":  { "path": "agent-client-protocol.md" },
+    "a2a-sdk":                { "path": "a2a-sdk.md" },
+    "redis":                  { "path": "redis.md" },
+    "hiredis":                { "path": "hiredis.md" },
+    "redisvl":                { "path": "redisvl.md" },
+    "redis-om":               { "path": "redis-om.md" },
+    "pydantic":               { "path": "pydantic.md" }
+  }
+}
