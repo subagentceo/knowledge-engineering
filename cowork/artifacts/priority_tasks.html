@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0a0a" />
+<title>priority tasks — knowledge-engineering</title>
+<style>
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  font-family: ui-monospace, SFMono-Regular, "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
+  background: #0a0a0a;
+  color: #d4d4d4;
+  -webkit-font-smoothing: antialiased;
+  font-size: 13px;
+}
+
+/* ── Header ── */
+#header {
+  padding: 10px 16px 12px;
+  border-bottom: 1px solid #1f1f1f;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+#header h1 { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: 1px; color: #f4f4f4; }
+#header .meta { font-size: 11px; color: #6a6a6a; }
+#header .badge {
+  margin-left: auto;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid #2a2a2a;
+  padding: 2px 8px;
+  color: #51c4ff;
+}
+
+/* ── Nav ── */
+nav {
+  padding: 6px 16px;
+  border-bottom: 1px solid #1f1f1f;
+  font-size: 11px;
+  color: #6a6a6a;
+  display: flex;
+  gap: 16px;
+}
+nav a { color: #51c4ff; text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+
+/* ── State machine legend ── */
+#fsm {
+  margin: 12px 16px;
+  border: 1px solid #2a2a2a;
+  border-left: 3px solid #51c4ff;
+  padding: 8px 12px;
+  background: #111;
+  font-size: 11px;
+  color: #9a9a9a;
+}
+#fsm .flow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.fsm-state {
+  border: 1px solid #2a2a2a;
+  padding: 2px 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.fsm-state.pending     { color: #9a9a9a; border-color: #3a3a3a; }
+.fsm-state.in-progress { color: #51c4ff; border-color: #51c4ff44; }
+.fsm-state.blocked     { color: #e6b455; border-color: #e6b45544; }
+.fsm-state.completed   { color: #7bd88f; border-color: #7bd88f44; }
+.fsm-state.failed      { color: #ff6b6b; border-color: #ff6b6b44; }
+.fsm-arrow { color: #3a3a3a; }
+
+/* ── Score legend ── */
+#score-legend {
+  margin: 0 16px 12px;
+  display: flex;
+  gap: 16px;
+  font-size: 10px;
+  color: #6a6a6a;
+  flex-wrap: wrap;
+}
+.score-dim { display: flex; align-items: center; gap: 4px; }
+.score-dot { width: 6px; height: 6px; display: inline-block; }
+
+/* ── Domain filter bar ── */
+#filters {
+  margin: 0 16px 12px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  border: 1px solid #2a2a2a;
+  background: #111;
+  color: #9a9a9a;
+  font-family: inherit;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+.filter-btn.active { border-color: #51c4ff; color: #51c4ff; }
+
+/* ── Task cards ── */
+main { padding: 0 16px 32px; }
+
+.task-card {
+  border: 1px solid #2a2a2a;
+  background: #111;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  gap: 0 12px;
+  align-items: start;
+}
+.task-card.state-pending     { border-left: 3px solid #3a3a3a; }
+.task-card.state-in-progress { border-left: 3px solid #51c4ff; }
+.task-card.state-blocked     { border-left: 3px solid #e6b455; }
+.task-card.state-completed   { border-left: 3px solid #7bd88f; opacity: .5; }
+.task-card.state-failed      { border-left: 3px solid #ff6b6b; }
+
+.task-rank {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3a3a3a;
+  line-height: 1;
+  padding-top: 2px;
+  text-align: right;
+}
+.task-card.state-in-progress .task-rank { color: #51c4ff44; }
+
+.task-body {}
+.task-subject {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f4f4f4;
+  margin: 0 0 5px;
+}
+.task-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 10px;
+  color: #6a6a6a;
+}
+.task-tag {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #2a2a2a;
+  padding: 0 5px;
+}
+.tag-pm      { color: #e6b455; border-color: #e6b45533; }
+.tag-data    { color: #51c4ff; border-color: #51c4ff33; }
+.tag-eng     { color: #9a9a9a; border-color: #3a3a3a; }
+.tag-design  { color: #7bd88f; border-color: #7bd88f33; }
+
+.task-score-col {
+  text-align: right;
+  white-space: nowrap;
+}
+.total-score {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f4f4f4;
+  line-height: 1;
+}
+.score-bar-row {
+  display: flex;
+  gap: 3px;
+  margin-top: 5px;
+  justify-content: flex-end;
+}
+.score-seg {
+  height: 3px;
+  min-width: 2px;
+}
+
+/* ── Score bar color map ── */
+.seg-urgency            { background: #ff6b6b; }
+.seg-impact             { background: #51c4ff; }
+.seg-dependency-unblock { background: #e6b455; }
+.seg-effort-efficiency  { background: #7bd88f; }
+.seg-staleness          { background: #6a6a6a; }
+
+/* ── Jira key ── */
+.jira-key { font-size: 10px; color: #6a6a6a; margin-top: 3px; }
+
+/* ── Section header ── */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 0 6px;
+  border-bottom: 1px solid #1f1f1f;
+  margin-bottom: 8px;
+}
+.section-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #9a9a9a;
+}
+.section-count { font-size: 11px; color: #6a6a6a; }
+
+/* ── Bench targets ── */
+#bench {
+  margin: 16px 0 0;
+  border: 1px solid #2a2a2a;
+  border-left: 3px solid #e6b455;
+  background: #111;
+  padding: 10px 12px;
+}
+#bench h3 {
+  margin: 0 0 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #e6b455;
+  font-weight: 600;
+}
+.bench-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.bench-table th { text-align: left; color: #6a6a6a; font-weight: 400; padding: 0 12px 4px 0; }
+.bench-table td { padding: 2px 12px 2px 0; color: #d4d4d4; }
+.bench-table .target { color: #7bd88f; }
+.bench-table .runtime { color: #51c4ff; }
+
+/* ── Footer ── */
+footer {
+  padding: 16px;
+  border-top: 1px solid #1f1f1f;
+  font-size: 11px;
+  color: #6a6a6a;
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <h1>priority tasks</h1>
+  <span class="meta">knowledge-engineering · 2026-06-18 · rerank: score (llm on wednesday)</span>
+  <span class="badge">pre-wednesday</span>
+</header>
+
+<nav>
+  <a href="connector_audit_94.html">connector audit</a>
+  <a href="product_vision.html">product vision</a>
+  <span style="color:#3a3a3a">priority tasks</span>
+</nav>
+
+<div id="fsm">
+  <span style="color:#6a6a6a;font-size:10px;text-transform:uppercase;letter-spacing:1px;">task state machine</span>
+  <div class="flow">
+    <span class="fsm-state pending">pending</span>
+    <span class="fsm-arrow">──claim──▶</span>
+    <span class="fsm-state in-progress">in_progress</span>
+    <span class="fsm-arrow">──complete──▶</span>
+    <span class="fsm-state completed">completed</span>
+    <span style="color:#3a3a3a;margin:0 4px">|</span>
+    <span class="fsm-state in-progress">in_progress</span>
+    <span class="fsm-arrow">──block──▶</span>
+    <span class="fsm-state blocked">blocked</span>
+    <span class="fsm-arrow">──unblock──▶</span>
+    <span class="fsm-state in-progress">in_progress</span>
+    <span style="color:#3a3a3a;margin:0 4px">|</span>
+    <span class="fsm-state in-progress">in_progress</span>
+    <span class="fsm-arrow">──fail──▶</span>
+    <span class="fsm-state failed">failed</span>
+    <span class="fsm-arrow">──retry──▶</span>
+    <span class="fsm-state pending">pending</span>
+  </div>
+</div>
+
+<div id="score-legend">
+  <span style="color:#6a6a6a;font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-right:4px">score dims:</span>
+  <span class="score-dim"><span class="score-dot" style="background:#ff6b6b"></span> urgency 30%</span>
+  <span class="score-dim"><span class="score-dot" style="background:#51c4ff"></span> impact 25%</span>
+  <span class="score-dim"><span class="score-dot" style="background:#e6b455"></span> dep_unblock 20%</span>
+  <span class="score-dim"><span class="score-dot" style="background:#7bd88f"></span> effort_eff 15%</span>
+  <span class="score-dim"><span class="score-dot" style="background:#6a6a6a"></span> staleness 10%</span>
+</div>
+
+<div id="filters">
+  <button class="filter-btn active" onclick="filterDomain('all')">all</button>
+  <button class="filter-btn" onclick="filterDomain('product-management')">product-management</button>
+  <button class="filter-btn" onclick="filterDomain('data')">data</button>
+  <button class="filter-btn" onclick="filterDomain('engineering')">engineering</button>
+  <button class="filter-btn" onclick="filterDomain('design')">design</button>
+</div>
+
+<main>
+
+<div class="section-header">
+  <span class="section-label">pending · top priority</span>
+  <span class="section-count">7 tasks · ranked by score · due by 2026-06-25</span>
+</div>
+
+<!-- T1: Schedule Wednesday metrics-review task -->
+<div class="task-card state-pending" data-domain="product-management">
+  <div class="task-rank">1</div>
+  <div class="task-body">
+    <p class="task-subject">Schedule Wednesday 10:00 UTC metrics-review task</p>
+    <div class="task-meta">
+      <span class="task-tag tag-pm">product-management</span>
+      <span>ke_fit: ★★★★★</span>
+      <span>~0.5h</span>
+      <span>due 2026-06-25</span>
+    </div>
+    <p style="margin:4px 0 0;font-size:11px;color:#9a9a9a">
+      Call <code style="color:#51c4ff">mcp__scheduled-tasks__create_scheduled_task</code> with
+      <code style="color:#51c4ff">cronExpression: "0 10 * * 3"</code> — blocks the first unattended run.
+    </p>
+  </div>
+  <div class="task-score-col">
+    <div class="total-score">82.5</div>
+    <div class="score-bar-row">
+      <div class="score-seg seg-urgency"          style="width:24px"></div>
+      <div class="score-seg seg-impact"           style="width:20px"></div>
+      <div class="score-seg seg-dependency-unblock" style="width:16px"></div>
+      <div class="score-seg seg-effort-efficiency" style="width:12px"></div>
+      <div class="score-seg seg-staleness"         style="width:8px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- T2: Install analytics template -->
+<div class="task-card state-pending" data-domain="data">
+  <div class="task-rank">2</div>
+  <div class="task-body">
+    <p class="task-subject">Install analytics template (agent-native)</p>
+    <div class="task-meta">
+      <span class="task-tag tag-data">data</span>
+      <span>ke_fit: ★★★★★</span>
+      <span>~2h</span>
+      <span>due 2026-06-25</span>
+    </div>
+    <p style="margin:4px 0 0;font-size:11px;color:#9a9a9a">
+      <code style="color:#51c4ff">npx @agent-native/core@latest create my-analytics-app --template analytics</code>
+      — open-source Amplitude/Looker alternative, AI writes the SQL.
+    </p>
+  </div>
+  <div class="task-score-col">
+    <div class="total-score">79.0</div>
+    <div class="score-bar-row">
+      <div class="score-seg seg-urgency"          style="width:22px"></div>
+      <div class="score-seg seg-impact"           style="width:20px"></div>
+      <div class="score-seg seg-dependency-unblock" style="width:12px"></div>
+      <div class="score-seg seg-effort-efficiency" style="width:10px"></div>
+      <div class="score-seg seg-staleness"         style="width:8px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- T3: Install plan template -->
+<div class="task-card state-pending" data-domain="product-management">
+  <div class="task-rank">3</div>
+  <div class="task-body">
+    <p class="task-subject">Install plan template (agent-native)</p>
+    <div class="task-meta">
+      <span class="task-tag tag-pm">product-management</span>
+      <span>ke_fit: ★★★★★</span>
+      <span>~1h</span>
+      <span>due 2026-06-25</span>
+    </div>
+    <p style="margin:4px 0 0;font-size:11px;color:#9a9a9a">
+      <code style="color:#51c4ff">npx @agent-native/core@latest skills add visual-plan</code>
+      — visual plan surface for Claude Code & coding agents.
+    </p>
+  </div>
+  <div class="task-score-col">
+    <div class="total-score">77.5</div>
+    <div class="score-bar-row">
+      <div class="score-seg seg-urgency"          style="width:22px"></div>
+      <div class="score-seg seg-impact"           style="width:20px"></div>
+      <div class="score-seg seg-dependency-unblock" style="width:10px"></div>
+      <div class="score-seg seg-effort-efficiency" style="width:12px"></div>
+      <div class="score-seg seg-staleness"         style="width:8px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- T4: Run cargo bench -->
+<div class="task-card state-pending" data-domain="engineering">
+  <div class="task-rank">4</div>
+  <div class="task-body">
+    <p class="task-subject">Run cargo bench — validate < 1 ms p99 for 1 000 tasks</p>
+    <div class="task-meta">
+      <span class="task-tag tag-eng">engineering</span>
+      <span>ke_fit: ★★★★☆</span>
+      <span>~1h</span>
+      <span>due 2026-06-25</span>
+    </div>
+    <p style="margin:4px 0 0;font-size:11px;color:#9a9a9a">
+      <code style="color:#51c4ff">cargo bench --manifest-path cowork/templates/Cargo.toml</code>
+      — confirm Rust hot path meets SKILL.md latency target.
+    </p>
+  </div>
+  <div class="task-score-col">
+    <div class="total-score">71.0</div>
+    <div class="score-bar-row">
+      <div class="score-seg seg-urgency"          style="width:20px"></div>
+      <div class="score-seg seg-impact"           style="width:18px"></div>
+      <div class="score-seg seg-dependency-unblock" style="width:10px"></div>
+      <div class="score-seg seg-effort-efficiency" style="width:12px"></div>
+      <div class="score-seg seg-staleness"         style="width:8px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- T5: Install brain template -->
+<div class="task-card state-pending" data-domain="data">
+  <div class="task-rank">5</div>
+  <div class="task-body">
+    <p class="task-subject">Install brain template (agent-native)</p>
+    <div class="task-meta">
+      <span class="task-tag tag-data">data</span>
+      <span>ke_fit: ★★★★★</span>
+      <span>~2h</span>
+    </div>
+    <p style="margin:4px 0 0;font-size:11px;color:#9a9a9a">
+      <code style="color:#51c4ff">npx @agent-native/core@latest create my-brain-app --template brain</code>
+      — company chat over cited memory from Slack, GitHub, Granola, Clips.
+    </p>
+  </div>
+  <div class="task-score-col">
+    <div class="total-score">68.5</div>
+    <div class="score-bar-row">
+      <div class="score-seg seg-urgency"          style="width:18px"></div>
+      <div class="score-seg seg-impact"           style="width:20px"></div>
+      <div class="score-seg seg-dependency-unblock" style="width:8px"></div>
+      <div class="score-seg seg-effort-efficiency" style="width:10px"></div>
+      <div class="score-seg seg-staleness"         style="width:8px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- T6: Customize data:build-dashboard skill -->
+<div class="task-card state-pending" data-domain="data">
+  <div class="task-rank">6</div>
+  <div class="task-body">
+    <p class="task-subject">Customize data:build-dashboard skill for ke repo</p>
+    <div class="task-meta">
+      <span class="task-tag tag-data">data</span>
+      <span>ke_fit: ★★★☆☆</span>
+      <span>~3h</span>
+    </div>
+    <p style="margin:4px 0 0;font-size:11px;color:#9a9a9a">
+      Add AlloyDB query templates and cowork/ design system tokens to the
+      <code style="color:#51c4ff">data:build-dashboard</code> skill.
+    </p>
+  </div>
+  <div class="task-score-col">
+    <div class="total-score">55.0</div>
+    <div class="score-bar-row">
+      <div class="score-seg seg-urgency"          style="width:14px"></div>
+      <div class="score-seg seg-impact"           style="width:14px"></div>
+      <div class="score-seg seg-dependency-unblock" style="width:8px"></div>
+      <div class="score-seg seg-effort-efficiency" style="width:8px"></div>
+      <div class="score-seg seg-staleness"         style="width:8px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- T7: Update vendor count in CLAUDE.md -->
+<div class="task-card state-pending" data-domain="engineering">
+  <div class="task-rank">7</div>
+  <div class="task-body">
+    <p class="task-subject">Update vendor count in CLAUDE.md (25 → actual)</p>
+    <div class="task-meta">
+      <span class="task-tag tag-eng">engineering</span>
+      <span>ke_fit: ★★☆☆☆</span>
+      <span>~0.25h</span>
+    </div>
+    <p style="margin:4px 0 0;font-size:11px;color:#9a9a9a">
+      CLAUDE.md still says "16+ tools spanning 25 vendor doc surfaces" — count has grown.
+    </p>
+  </div>
+  <div class="task-score-col">
+    <div class="total-score">38.0</div>
+    <div class="score-bar-row">
+      <div class="score-seg seg-urgency"          style="width:10px"></div>
+      <div class="score-seg seg-impact"           style="width:8px"></div>
+      <div class="score-seg seg-dependency-unblock" style="width:4px"></div>
+      <div class="score-seg seg-effort-efficiency" style="width:12px"></div>
+      <div class="score-seg seg-staleness"         style="width:8px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Bench targets section -->
+<div id="bench">
+  <h3>benchmark targets · by 2026-06-25</h3>
+  <table class="bench-table">
+    <thead>
+      <tr>
+        <th>runtime</th>
+        <th>metric</th>
+        <th>target</th>
+        <th>command</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="runtime">Rust/serde</td>
+        <td>rerank 1 000 tasks p99</td>
+        <td class="target">&lt; 1 ms</td>
+        <td><code style="color:#9a9a9a">cargo bench --manifest-path cowork/templates/Cargo.toml</code></td>
+      </tr>
+      <tr>
+        <td class="runtime">TypeScript/Zod</td>
+        <td>rerank 1 000 tasks p99</td>
+        <td class="target">&lt; 10 ms</td>
+        <td><code style="color:#9a9a9a">npx tsx cowork/templates/rerank-engine.ts --top 10</code></td>
+      </tr>
+      <tr>
+        <td class="runtime">L1 LRU cache</td>
+        <td>hit rate (repeat queries)</td>
+        <td class="target">≥ 0.90</td>
+        <td><code style="color:#9a9a9a">cargo bench cache_hit_rate_repeat_1000</code></td>
+      </tr>
+      <tr>
+        <td class="runtime">LLM Haiku</td>
+        <td>tokens per rerank run</td>
+        <td class="target">&lt; 500</td>
+        <td><code style="color:#9a9a9a">uvx python rerank-cli.py --llm --top 5</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</main>
+
+<footer>
+  <span>priority-tasks · knowledge-engineering · 2026-06-18</span>
+  <span style="margin-left:24px">next run: 2026-06-25 09:00 UTC (one hour before metrics-review)</span>
+</footer>
+
+<script>
+function filterDomain(domain) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.task-card').forEach(card => {
+    const cardDomain = card.dataset.domain;
+    card.style.display = (domain === 'all' || cardDomain === domain) ? '' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>

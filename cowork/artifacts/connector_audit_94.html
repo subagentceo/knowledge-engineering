@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0a0a" />
+<title>connector audit — anthropic &amp; partners</title>
+<style>
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  font-family: ui-monospace, SFMono-Regular, "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
+  background: #0a0a0a;
+  color: #d4d4d4;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: 13px;
+}
+
+#header {
+  padding: 10px 16px 12px;
+  border-bottom: 1px solid #1f1f1f;
+}
+#header h1 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #f4f4f4;
+}
+#header p {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: #6a6a6a;
+}
+
+#note {
+  padding: 8px 16px;
+  border-bottom: 1px solid #1f1f1f;
+  font-size: 11px;
+  color: #9a9a9a;
+  border-left: 3px solid #51c4ff;
+  margin: 12px 16px;
+  border: 1px solid #2a2a2a;
+  border-left: 3px solid #51c4ff;
+  padding: 8px 12px;
+}
+#note strong { color: #e6e6e6; }
+
+main { padding: 12px 16px 32px; }
+
+.section { margin-bottom: 20px; }
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 6px 0 6px;
+  border-bottom: 1px solid #1f1f1f;
+  margin-bottom: 10px;
+}
+.section-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.label-install { color: #7bd88f; }
+.label-consider { color: #e6b455; }
+.label-skip { color: #6a6a6a; }
+
+.section-count {
+  font-size: 11px;
+  color: #6a6a6a;
+}
+.section-sub {
+  font-size: 11px;
+  color: #6a6a6a;
+  margin-left: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 6px;
+}
+
+.chip {
+  border: 1px solid #2a2a2a;
+  padding: 7px 10px;
+  font-size: 12px;
+  background: #111;
+}
+.chip.install { border-left: 3px solid #7bd88f; }
+.chip.consider { border-left: 3px solid #e6b455; }
+.chip.skip { border-left: 3px solid #1f1f1f; opacity: .5; }
+
+.chip-name {
+  font-weight: 600;
+  color: #f4f4f4;
+  margin: 0 0 3px;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}
+.chip-reason {
+  color: #9a9a9a;
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.chip-tag {
+  display: inline-block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #2a2a2a;
+  padding: 0 4px;
+  margin-top: 5px;
+  color: #6a6a6a;
+}
+
+.skip-groups { display: flex; flex-direction: column; gap: 8px; }
+.skip-group-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6a6a6a;
+  margin: 0 0 4px;
+}
+.skip-row { display: flex; flex-wrap: wrap; gap: 4px; }
+.skip-pill {
+  font-size: 11px;
+  color: #6a6a6a;
+  border: 1px solid #1f1f1f;
+  padding: 2px 7px;
+  background: #0f0f0f;
+}
+
+footer {
+  padding: 16px;
+  border-top: 1px solid #1f1f1f;
+  font-size: 11px;
+  color: #6a6a6a;
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <h1>connector audit</h1>
+  <p>anthropic &amp; partners · 94 connectors · 2026-06-18 · repo: knowledge-engineering</p>
+</header>
+
+<div id="note">
+  <strong>audit findings:</strong> 94 connectors in marketplace. "claude in chrome" is not a marketplace mcp — it's a chrome browser extension installed separately. confirmed live in session: <strong>macos · filesystem · control chrome · word (by anthropic)</strong>. pdf-viewer and powerpoint appear installed based on list ordering.
+</div>
+
+<main>
+
+<!-- INSTALL -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-label label-install">install</span>
+    <span class="section-count">8</span>
+    <span class="section-sub">high signal for multi-agent ke repo · 25+ vendor surfaces</span>
+  </div>
+  <div class="grid">
+    <div class="chip install">
+      <p class="chip-name">KARP Inspector Lite</p>
+      <p class="chip-reason">Semantic code search, no api key. Best tool for navigating a 25-vendor multi-agent codebase by meaning not keywords.</p>
+      <span class="chip-tag">community</span>
+    </div>
+    <div class="chip install">
+      <p class="chip-name">Dash</p>
+      <p class="chip-reason">Offline api doc browser. 25+ vendor surfaces in repo means zero-latency local lookup beats every web_fetch.</p>
+      <span class="chip-tag">community</span>
+    </div>
+    <div class="chip install">
+      <p class="chip-name">Stats Compass</p>
+      <p class="chip-reason">Data loading, cleaning, viz, ml workflows. Direct fit for knowledge engineering + kimball dw work.</p>
+      <span class="chip-tag">community</span>
+    </div>
+    <div class="chip install">
+      <p class="chip-name">GoPlus AgentGuard</p>
+      <p class="chip-reason">Blocks malicious skills, prevents data leaks. Critical for a multi-agent chassis shipping to founders.</p>
+      <span class="chip-tag">community</span>
+    </div>
+    <div class="chip install">
+      <p class="chip-name">Saga — Project Tracker</p>
+      <p class="chip-reason">SQLite-backed jira-like tracker for ai agents. Fills gap between jira (connected) and local agent task logs.</p>
+      <span class="chip-tag">community</span>
+    </div>
+    <div class="chip install">
+      <p class="chip-name">Snyk Security</p>
+      <p class="chip-reason">Dep vulnerability scanning. Node/ts monorepo with 25+ vendor packages — scan before shipping.</p>
+      <span class="chip-tag">vendor</span>
+    </div>
+    <div class="chip install">
+      <p class="chip-name">Shadcn UI</p>
+      <p class="chip-reason">Component source + demos. Repo has frontend work; shadcn is the de facto component layer for this stack.</p>
+      <span class="chip-tag">community</span>
+    </div>
+    <div class="chip install">
+      <p class="chip-name">Pathmode</p>
+      <p class="chip-reason">Agent intent layer + dependency graphs. Directly useful for orchestrating multi-agent flows in this chassis.</p>
+      <span class="chip-tag">community</span>
+    </div>
+  </div>
+</div>
+
+<!-- CONSIDER -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-label label-consider">consider</span>
+    <span class="section-count">12</span>
+    <span class="section-sub">depends on which parts of the stack you actively use</span>
+  </div>
+  <div class="grid">
+    <div class="chip consider">
+      <p class="chip-name">Grafana MCP Server</p>
+      <p class="chip-reason">If self-hosting observability. Otherwise skip — dynatrace/instana overlap.</p>
+    </div>
+    <div class="chip consider">
+      <p class="chip-name">Socket</p>
+      <p class="chip-reason">Real-time dep supply-chain scanning. Complements snyk — catches malicious packages snyk misses.</p>
+    </div>
+    <div class="chip consider">
+      <p class="chip-name">Growthbook</p>
+      <p class="chip-reason">OSS feature flagging. Relevant if the chassis ships feature flags to forks.</p>
+    </div>
+    <div class="chip consider">
+      <p class="chip-name">Coupler.io</p>
+      <p class="chip-reason">Connects 100s of data sources. Useful for pulling external data into the dw without custom connectors.</p>
+    </div>
+    <div class="chip consider">
+      <p class="chip-name">Docling MCP</p>
+      <p class="chip-reason">Doc processing + analysis. If ingesting pdfs/docs into the knowledge corpus — pairs with vendor crawler.</p>
+    </div>
+    <div class="chip consider">
+      <p class="chip-name">Harness MCP Server</p>
+      <p class="chip-reason">CI/CD + feature flags. Only if harness is your pipeline; if github actions, skip.</p>
+    </div>
+    <div class="chip consider">
+      <p class="chip-name">Kubernetes MCP Server</p>
+      <p class="chip-reason">kubectl via mcp. Only if deploying agents to k8s — likely relevant as the chassis scales.</p>
+    </div>
+    <div class="chip consider">
+      <p class="chip-name">AWS API MCP Server</p>
+      <p class="chip-reason">Full aws cli bridge. Less relevant if cloudflare workers is your primary edge layer.</p>
+    </div>
+    <div class="chip consider">
+      <p class="chip-name">Minutes</p>
+      <p class="chip-reason">Local whisper.cpp transcription, privacy-first. Good for indexing architecture calls into the knowledge base.</p>
+    </div>
+    <div class="chip consider">
+      <p class="chip-name">Figma</p>
+      <p class="chip-reason">Pull figma context → generate code. Only if you design components in figma first.</p>
+    </div>
+    <div class="chip consider">
+      <p class="chip-name">Desktop Commander</p>
+      <p class="chip-reason">Terminal + file access. Overlaps macos (shell) + filesystem. Consider only for a separate permission boundary.</p>
+    </div>
+    <div class="chip consider">
+      <p class="chip-name">Metabase</p>
+      <p class="chip-reason">Analytics on the dw. Only if you run a metabase instance against your alloydb tables.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SKIP -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-label label-skip">skip</span>
+    <span class="section-count">74</span>
+    <span class="section-sub">grouped by reason</span>
+  </div>
+  <div class="skip-groups">
+    <div>
+      <p class="skip-group-label">wrong os (macos user)</p>
+      <div class="skip-row"><span class="skip-pill">Windows-MCP</span><span class="skip-pill">Android-MCP</span></div>
+    </div>
+    <div>
+      <p class="skip-group-label">creative / 3d / av</p>
+      <div class="skip-row"><span class="skip-pill">Blender</span><span class="skip-pill">Autodesk Fusion</span><span class="skip-pill">Affinity</span><span class="skip-pill">Sketch</span><span class="skip-pill">Lens Studio</span><span class="skip-pill">Resolume Arena</span><span class="skip-pill">Resolume Wire</span><span class="skip-pill">Ableton Knowledge</span><span class="skip-pill">ElevenLabs Player</span><span class="skip-pill">ElevenLabs Agents MCP App</span><span class="skip-pill">Cloudglue</span></div>
+    </div>
+    <div>
+      <p class="skip-group-label">domain science (not this domain)</p>
+      <div class="skip-row"><span class="skip-pill">Enrichr MCP Server</span><span class="skip-pill">Boltz</span><span class="skip-pill">10x Genomics Cloud</span><span class="skip-pill">OpenSTAAD MCP Server</span><span class="skip-pill">ToolUniverse</span></div>
+    </div>
+    <div>
+      <p class="skip-group-label">sap ecosystem</p>
+      <div class="skip-row"><span class="skip-pill">SAP Fiori MCP Server</span><span class="skip-pill">SAP CAP MCP Server</span><span class="skip-pill">SAP MDK MCP Server</span><span class="skip-pill">SAPUI5 MCP Server</span></div>
+    </div>
+    <div>
+      <p class="skip-group-label">finance / trading / crypto</p>
+      <div class="skip-row"><span class="skip-pill">Revolut X</span><span class="skip-pill">Massive Market Data</span><span class="skip-pill">BlockchainQuery</span><span class="skip-pill">Jaz Accounting</span></div>
+    </div>
+    <div>
+      <p class="skip-group-label">marketing / sales / outreach</p>
+      <div class="skip-row"><span class="skip-pill">Vibe Prospecting</span><span class="skip-pill">Tomba MCP Server</span><span class="skip-pill">Mailtrap</span><span class="skip-pill">Braze MCP Server</span><span class="skip-pill">Vybit Notifications</span><span class="skip-pill">Microsoft Clarity</span><span class="skip-pill">B12 Website Generator</span><span class="skip-pill">Cloudinary Asset Management</span></div>
+    </div>
+    <div>
+      <p class="skip-group-label">enterprise security / network</p>
+      <div class="skip-row"><span class="skip-pill">Zscaler MCP Server</span><span class="skip-pill">PanOS MCP</span><span class="skip-pill">Defense.com Threat Analysis</span><span class="skip-pill">Rapid7 Bulk Export</span><span class="skip-pill">Conviso MCP Server</span><span class="skip-pill">Miggo</span><span class="skip-pill">Dynatrace MCP Server</span><span class="skip-pill">MCP Instana Server</span></div>
+    </div>
+    <div>
+      <p class="skip-group-label">testing / qa / tickets (already have jira)</p>
+      <div class="skip-row"><span class="skip-pill">Qase Test Management</span><span class="skip-pill">SmartBear MCP</span><span class="skip-pill">RT (Request Tracker)</span><span class="skip-pill">Backlog MCP Server</span></div>
+    </div>
+    <div>
+      <p class="skip-group-label">personal productivity / macos notes + calendar</p>
+      <div class="skip-row"><span class="skip-pill">Fantastical</span><span class="skip-pill">BusyCal</span><span class="skip-pill">Noteplan</span><span class="skip-pill">Drafts</span><span class="skip-pill">Read and Write Apple Notes</span><span class="skip-pill">Read and Send iMessages</span></div>
+    </div>
+    <div>
+      <p class="skip-group-label">pdf (covered by pdf-viewer + pdf tools already installed)</p>
+      <div class="skip-row"><span class="skip-pill">Nutrient PDF Editor</span><span class="skip-pill">Nutrient DWS</span><span class="skip-pill">Avanquest PDF API</span></div>
+    </div>
+    <div>
+      <p class="skip-group-label">analytics / bi (low priority unless actively using these platforms)</p>
+      <div class="skip-row"><span class="skip-pill">Tableau MCP Server</span><span class="skip-pill">Zoho Analytics</span><span class="skip-pill">CKAN MCP Server</span><span class="skip-pill">MeetGeek</span></div>
+    </div>
+    <div>
+      <p class="skip-group-label">misc / low signal</p>
+      <div class="skip-row"><span class="skip-pill">Apify</span><span class="skip-pill">TomTom Maps MCP</span><span class="skip-pill">Azure MCP Server</span><span class="skip-pill">Lumin</span><span class="skip-pill">SignWell</span><span class="skip-pill">Vendr Software Pricing Tools</span><span class="skip-pill">React Aria</span><span class="skip-pill">React Spectrum (S2)</span></div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <span>connector-audit-94 · knowledge-engineering · 2026-06-18</span>
+</footer>
+
+</body>
+</html>
