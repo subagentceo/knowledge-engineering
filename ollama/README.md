@@ -8,7 +8,7 @@ file here exists to catch a failure that actually bit us.
 | File | Role |
 |---|---|
 | `contract.py` | Pydantic v2 — the durability **invariant**. Fails honestly when not durable. |
-| `contract.yaml` | Observed-state instance (auto-written by `autoresolve.py`). |
+| `contract.example.yaml` | Reference instance (durable end-state). `contract.yaml` is the live one autoresolve writes — gitignored so it never churns. |
 | `install.yaml` | Terse spec: detect→fix/escalate checks + the 13 curated `learned_failures`. |
 | `autoresolve.py` | Runs macOS checks, self-heals (warm cold model, 403→IP fallback), validates, and **emits a DurableTask** to `engineering.jsonl` when it hits the operator-sudo wall. |
 | `mac-bootstrap.sh` | Sourced from `~/.zshrc`. Resolves a *serving* address (MagicDNS host if it 200s, else live tailnet IP — never hardcoded) and sources `scripts/use-local.sh`. |

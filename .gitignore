@@ -58,3 +58,4 @@ appendonlydir/
 
 cowork/skills/claude/ollama/.last-good.yaml
 ollama/__pycache__/
+ollama/contract.yaml

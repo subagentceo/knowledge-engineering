@@ -1,0 +1,10 @@
+tailscale_ip: 100.112.152.5
+port: 11434
+bind_address: 0.0.0.0
+model: qwen2.5-coder:7b
+persistent_override: true
+get_reachable: true
+post_inference_ok: true
+cold_load_timeout_s: 120
+warm_response_s: 0.43
+survives_wsl_shutdown: true
