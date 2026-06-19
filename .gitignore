@@ -55,3 +55,6 @@ audit_container_results.jsonl
 
 # Redis AOF runtime data (SessionStart hook starts redis-server)
 appendonlydir/
+
+cowork/skills/claude/ollama/.last-good.yaml
+ollama/__pycache__/
