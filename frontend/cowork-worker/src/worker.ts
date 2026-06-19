@@ -34,7 +34,7 @@ export interface Env {
 // ── Coworker manifest (inline — no FS access in Worker runtime) ───────────────
 
 const COWORKERS = [
-  { id: "pm-coworker",           domain: "product-management", model: "claude-sonnet-4-6",        protocols: ["a2a","e2m-mcp","mcp"] },
+  { id: "product-management-coworker",           domain: "product-management", model: "claude-sonnet-4-6",        protocols: ["a2a","e2m-mcp","mcp"] },
   { id: "design-coworker",       domain: "design",             model: "claude-sonnet-4-6",        protocols: ["a2a","e2m-mcp"] },
   { id: "engineering-coworker",  domain: "engineering",        model: "claude-haiku-4-5-20251001", protocols: ["a2a","e2m-mcp","mcp"] },
   { id: "data-coworker",         domain: "data",               model: "claude-haiku-4-5-20251001", protocols: ["a2a","e2m-mcp"] },
@@ -71,8 +71,8 @@ export class CoworkMcp extends McpAgent<Env> {
     this.server.registerTool(
       "get_coworker",
       {
-        description: "Get details for a specific coworker by id (e.g. 'pm-coworker').",
-        inputSchema: { id: z.string().describe("Coworker id, e.g. pm-coworker") },
+        description: "Get details for a specific coworker by id (e.g. 'product-management-coworker').",
+        inputSchema: { id: z.string().describe("Coworker id, e.g. product-management-coworker") },
         annotations: { readOnlyHint: true },
       },
       async ({ id }) => {
@@ -113,7 +113,7 @@ export class CoworkMcp extends McpAgent<Env> {
       {
         description: "Draft a DurableTask envelope for a coworker mailbox. Returns the envelope JSON for the operator to write via e2m-mcp envelope_write.",
         inputSchema: {
-          to:      z.string().describe("Coworker id, e.g. pm-coworker"),
+          to:      z.string().describe("Coworker id, e.g. product-management-coworker"),
           subject: z.string().describe("Task subject line"),
           queue:   z.enum(DOMAINS as [string, ...string[]]).describe("Domain queue"),
           ke_fit_score: z.number().int().min(1).max(5).default(3).describe("KE fit score 1-5"),
@@ -148,6 +148,50 @@ function secure(r: Response): Response {
   return out;
 }
 
+// @generated morning-summary route — refreshed by project-management-coworker 07:00 PST
+// @cite cowork/scripts/morning-summary.py
+const MORNING_SUMMARY_DATE = "2026-06-19";
+const MORNING_SUMMARY_HTML = `<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Morning Summary — 2026-06-19</title>
+<style>
+* { box-sizing: border-box; }
+html,body { margin:0;padding:0;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#0a0a0a;color:#d4d4d4;font-size:13px; }
+#header { padding:10px 16px 12px;border-bottom:1px solid #1f1f1f;display:flex;align-items:baseline;gap:16px; }
+#header h1 { margin:0;font-size:15px;font-weight:600;letter-spacing:1px;color:#f4f4f4; }
+#header .meta { font-size:11px;color:#6a6a6a; }
+#header .badge { margin-left:auto;font-size:10px;text-transform:uppercase;letter-spacing:1px;border:1px solid #2a2a2a;padding:2px 8px;color:#7bd88f; }
+main { padding:12px 16px 40px; }
+.section { margin-bottom:24px; }
+.section-header { display:flex;align-items:baseline;gap:10px;padding:6px 0;border-bottom:1px solid #1f1f1f;margin-bottom:10px; }
+.section-label { font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:600; }
+.lbl-cyan { color:#51c4ff; } .lbl-green { color:#7bd88f; } .lbl-amber { color:#f4a73b; }
+table { border-collapse:collapse;width:100%;font-size:12px; }
+th,td { padding:.35rem .7rem;border:1px solid #1f1f1f;text-align:left; }
+th { background:#111;color:#9a9a9a;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.5px; }
+tr:hover { background:#111; }
+.commit { font-size:11px;padding:4px 8px;border-left:2px solid #51c4ff;margin-bottom:4px;color:#9a9a9a; }
+.note { margin:12px 0;border:1px solid #2a2a2a;border-left:3px solid #7bd88f;padding:8px 12px;background:#111;font-size:11px;color:#9a9a9a; }
+</style></head><body>
+<div id="header">
+  <h1>morning summary</h1>
+  <span class="meta">2026-06-19 · project-management-coworker</span>
+  <span class="badge">07:00 PST</span>
+</div>
+<main>
+<div class="note">Generated at 2026-06-19T18:59:21Z by project-management-coworker (claude-opus-4-6). Dispatched to product-management-coworker mailbox.</div>
+<div class="section">
+  <div class="section-header"><span class="section-label lbl-cyan">queue health</span></div>
+  <table><thead><tr><th>domain</th><th>pending</th><th>in_progress</th><th>blocked</th><th>completed</th></tr></thead>
+  <tbody><tr><td style="color:#51c4ff">agent-resources</td><td style="color:#51c4ff">1</td><td style="color:#7bd88f">0</td><td style="color:#f47067">0</td><td style="color:#6a6a6a">0</td></tr><tr><td style="color:#51c4ff">data</td><td style="color:#51c4ff">1</td><td style="color:#7bd88f">0</td><td style="color:#f47067">0</td><td style="color:#6a6a6a">0</td></tr><tr><td style="color:#51c4ff">design</td><td style="color:#51c4ff">0</td><td style="color:#7bd88f">0</td><td style="color:#f47067">0</td><td style="color:#6a6a6a">0</td></tr><tr><td style="color:#7bd88f">engineering</td><td style="color:#51c4ff">1</td><td style="color:#7bd88f">0</td><td style="color:#f47067">0</td><td style="color:#6a6a6a">2</td></tr><tr><td style="color:#7bd88f">finance</td><td style="color:#51c4ff">1</td><td style="color:#7bd88f">0</td><td style="color:#f47067">0</td><td style="color:#6a6a6a">1</td></tr><tr><td style="color:#51c4ff">human-resources</td><td style="color:#51c4ff">0</td><td style="color:#7bd88f">0</td><td style="color:#f47067">0</td><td style="color:#6a6a6a">0</td></tr><tr><td style="color:#7bd88f">legal</td><td style="color:#51c4ff">1</td><td style="color:#7bd88f">0</td><td style="color:#f47067">0</td><td style="color:#6a6a6a">1</td></tr><tr><td style="color:#7bd88f">marketing</td><td style="color:#51c4ff">1</td><td style="color:#7bd88f">0</td><td style="color:#f47067">0</td><td style="color:#6a6a6a">1</td></tr><tr><td style="color:#51c4ff">operations</td><td style="color:#51c4ff">1</td><td style="color:#7bd88f">0</td><td style="color:#f47067">0</td><td style="color:#6a6a6a">0</td></tr><tr><td style="color:#7bd88f">operator</td><td style="color:#51c4ff">4</td><td style="color:#7bd88f">0</td><td style="color:#f47067">0</td><td style="color:#6a6a6a">1</td></tr><tr><td style="color:#7bd88f">product-management</td><td style="color:#51c4ff">3</td><td style="color:#7bd88f">0</td><td style="color:#f47067">0</td><td style="color:#6a6a6a">1</td></tr><tr><td style="color:#7bd88f">project-management</td><td style="color:#51c4ff">12</td><td style="color:#7bd88f">0</td><td style="color:#f47067">0</td><td style="color:#6a6a6a">2</td></tr><tr><td style="color:#51c4ff">sales</td><td style="color:#51c4ff">0</td><td style="color:#7bd88f">0</td><td style="color:#f47067">0</td><td style="color:#6a6a6a">0</td></tr><tr><td style="color:#51c4ff">skill-grades</td><td style="color:#51c4ff">0</td><td style="color:#7bd88f">0</td><td style="color:#f47067">0</td><td style="color:#6a6a6a">0</td></tr><tr><td style="color:#51c4ff">skill-outcomes</td><td style="color:#51c4ff">0</td><td style="color:#7bd88f">0</td><td style="color:#f47067">0</td><td style="color:#6a6a6a">0</td></tr></tbody></table>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-label lbl-green">recent commits</span><span style="font-size:10px;color:#6a6a6a">last 8h</span></div>
+  <div class="commit" style="color:#6a6a6a">No commits in last 8h</div>
+</div>
+</main></body></html>`;
+
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
@@ -170,6 +214,13 @@ export default {
     // Root → app shell
     if (url.pathname === "/" || url.pathname === "") {
       return secure(new Response(coworkShell(env.COWORKERS_HOST), {
+        headers: { "content-type": "text/html; charset=utf-8" },
+      }));
+    }
+
+    // Morning summary artifact (latest)
+    if (url.pathname === "/summary" || url.pathname === "/morning-summary") {
+      return secure(new Response(MORNING_SUMMARY_HTML, {
         headers: { "content-type": "text/html; charset=utf-8" },
       }));
     }
@@ -410,7 +461,7 @@ function coworkShell(coworkersHost: string): string {
 
   <footer>
     <span>cowork.subagentknowledge.com — knowledge-engineering chassis v0.2.0</span>
-    <span>7 coworkers · 7 queues · MCP @ /mcp</span>
+    <span>7 coworkers · 7 queues · MCP @ /mcp · <a href="/summary" style="color:#7bd88f;text-decoration:none">morning summary &nearr;</a></span>
   </footer>
 </div>
 </body>
