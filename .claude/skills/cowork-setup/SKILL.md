@@ -1,73 +1,85 @@
 ---
 name: cowork-setup
-description: Guided Cowork setup — install role-matched plugins, connect your tools, try a skill. Use when a new coworker (human or agent) joins the repo and asks "how do I get set up", "onboard me", "what plugins do I need", "cowork setup", or names a role (data-engineer, researcher, frontend). Walks role selection → plugin/skill install → tool connection checklist → a first skill run → the contribution loop for multi-agent, multi-session 24/7 incremental development.
+description: >
+  Onboard a new coworker (human or agent) to the knowledge-engineering repo.
+  Walks role selection, plugin/skill install, tool connection, first skill
+  run, and contribution loop. Use when anyone asks "how do I get set up",
+  "onboard me", "what plugins do I need", "cowork setup", or names a role
+  (data-engineer, researcher, frontend). Emits a DurableTask to
+  engineering.jsonl if toolchain gaps are detected. Pairs with
+  durable-toolchain-doctor (environment audit) and heartbeat (first tick).
+  Do NOT use for per-session context recovery — use heartbeat for that.
 ---
 
-# cowork-setup
+<!--
+  @cite cowork/coworkers/manifest.json           (coworker registry)
+  @cite cowork/templates/task-state-machine.ts   (DurableTask schema)
+  @cite cowork/mcp/e2m-mcp/server.ts
+  @cite .claude/rules/pr-ops.md
+-->
 
-guided onboarding for coworkers contributing to knowledge-engineering. one pass: pick a role, install its plugins, connect tools, try a skill, join the loop.
+## Onboarding schema (Pydantic)
 
-```yaml
-refs:
-  chain: docs/prompts/coworker-dev-chain.md
-  queue: seeds/memory/heartbeat/batch-2026-06-09-citation-service.md
-  mail:  mail/README.md
-  prov:  src/course-plugins/PROVENANCE.md
-  ops:   .claude/rules/pr-ops.md
+```python
+from pydantic import BaseModel
+from typing import Literal, List
+
+class CoworkerSetup(BaseModel):
+    role: Literal["data-engineer", "researcher", "frontend", "engineering"]
+    plugins: List[str]
+    skills: List[str]
+    first_skill: str
+    gaps: List[str] = []   # filled by durable-toolchain-doctor
 ```
 
-## 1. pick a role
+## Roles
 
-```yaml
-roles:
-  data-engineer:
-    plugins: [claude-deployments, model-context-protocol]   # src/course-plugins/
-    skills:  [semantic-cache, kimball-model-yaml, dreams-consolidate]
-    surfaces: [data/models/alloydb/, scripts/dw*.ts, scripts/load-citation-warehouse.ts]
-    first_skill: /semantic-cache — start services, read the tier table, run npm run dw:load
-  researcher:
-    plugins: [ai-fluency, claude-api]
-    skills:  [read-reference-managed-agents, llms-crud, deep-research]
-    surfaces: [citations MCP lane (citations_search/get/by_year/by_team), dw.csl_items, frontend citations table]
-    first_skill: /read-reference-managed-agents — ask how memory stores work, then citations_search your topic
-  frontend:
-    plugins: [claude-code]
-    skills:  [run, verify, format-markdown]
-    surfaces: [frontend/src/, frontend/tests/, frontend/public/*.json feeds]
-    first_skill: /run — boot the vite app and see the citations + warehouse + status panes
+| Role | Plugins | First skill |
+|------|---------|-------------|
+| data-engineer | claude-deployments, model-context-protocol | semantic-cache |
+| researcher | ai-fluency, claude-api | read-reference-managed-agents |
+| frontend | claude-code | format-markdown |
+| engineering | claude-code, model-context-protocol | durable-toolchain-doctor |
+
+## Step 1 — Environment audit
+
+```bash
+# runs durable-toolchain-doctor; emits DurableTask for each gap
+python3 .claude/skills/durable-toolchain-doctor/SKILL.md
 ```
 
-install: `npm run install:plugins` materializes the marketplace set; session skills under `.claude/skills/` are auto-discovered.
+If gaps found → DurableTask emitted to `cowork/data/queues/engineering.jsonl`:
 
-## 2. connect your tools
+```json
+{
+  "id": "<uuid>", "queue": "engineering",
+  "subject": "cowork-setup: toolchain gap for role=<role>",
+  "state": "pending", "ke_fit_score": 3,
+  "created_at": "<iso>", "updated_at": "<iso>",
+  "error": {
+    "role": "<role>", "missing": ["redis-cli", "psql"],
+    "resolvable": true,
+    "suggested_skill": "durable-toolchain-install"
+  }
+}
+```
+
+## Step 2 — Tool checklist
 
 ```yaml
 checklist:
-  - service postgresql start && service redis-server start   # neither runs by default
-  - OAuth only — CLAUDE_CODE_OAUTH_TOKEN; ANTHROPIC_API_KEY is rejected at every layer
-  - github via MCP tools (no gh CLI in web sessions)
-  - DATABASE_URL for dw work: postgres://<user>@/<db>?host=/var/run/postgresql
+  - service postgresql start && service redis-server start
+  - OAuth only: CLAUDE_CODE_OAUTH_TOKEN; ANTHROPIC_API_KEY rejected everywhere
+  - GitHub via MCP tools (no gh CLI in web sessions)
+  - DATABASE_URL: postgres://<user>@/<db>?host=/var/run/postgresql
 ```
 
-## 3. try a skill
+## Step 3 — Contribution loop
 
-run your role's `first_skill` from section 1. success = you produced an artifact (a query result, a rendered pane, a loaded table) without editing code.
+```
+Read cowork/data/queues/<domain>.jsonl → claim top pending task →
+git checkout -b claude/<slug> → commit per todo → push →
+PR with labels automerge → auto-merge on CI green.
+```
 
-## 4. join the loop
-
-<contribution_loop>
-Read the batch queue (refs: queue) and pick the top unblocked id, or check
-mail with receive_mail(agent=<your-id>) for handoffs (refs: mail). One id
-per PR, branch claude/<slug>, labels automerge + skip-cost-gate at
-creation, rebase auto-merge (refs: ops). Commit per todo; send_mail a
-broadcast when you finish an id so other loop schedules see it.
-</contribution_loop>
-
-<role_isolation>
-Worktree-isolate parallel work (agents: isolation=worktree). Never push a
-worktree-agent-* branch — rescue to claude/<slug> first (refs: ops).
-</role_isolation>
-
-## tl;dr
-
-three roles, each with plugins + skills + surfaces + a first skill to try. tools checklist is four lines (postgres, redis, oauth, mcp github). contribution = batch queue + repo mail + the pr-ops loop. a coworker goes from clone to first merged PR without asking a human.
+One task per PR. Branch must start with `claude/`.
