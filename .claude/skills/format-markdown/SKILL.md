@@ -1,42 +1,64 @@
 ---
 name: format-markdown
-description: Format markdown files to CommonMark/GFM using prettier (commonmark-based parser — the npm analog of cmark-gfm / commonmark.js / swift-markdown). Use when asked to format, normalize, lint, or clean up markdown, or to make .md files CommonMark/GFM-compliant. Preserves the crawler's F1–F6 fidelity invariants (`* ` bullets, leading H1, no inline-link re-adding).
+description: >
+  Format markdown files to CommonMark/GFM using prettier. Use when asked to
+  format, normalize, lint, or clean up markdown, or to make .md files
+  CommonMark-compliant. Preserves the crawler F1-F6 fidelity invariants.
+  Emits a DurableTask to engineering.jsonl if prettier exits non-zero or
+  fidelity tests fail. Trigger on: "format markdown", "normalize md",
+  "lint markdown", "CommonMark", "GFM format", "clean up the docs".
+  Pairs with refresh-vendors (vendor/ fidelity gate).
+  Do NOT use for non-markdown files.
 ---
 
-# format-markdown
-
-Normalize markdown to CommonMark/GFM with prettier (pinned devDependency).
+<!--
+  @cite src/lib/blog-extract-fidelity.test.ts    (F1-F6 fidelity invariants)
+  @cite cowork/templates/task-state-machine.ts   (DurableTask schema)
+-->
 
 ## Run
 
-Format specific files or globs:
-
 ```bash
-npx prettier --write --prose-wrap preserve <files-or-globs>
+# format changed files only
+npx prettier --write --prose-wrap preserve   $(git diff --name-only origin/main...HEAD -- "*.md")
+
+# format specific glob
+npx prettier --write --prose-wrap preserve "docs/**/*.md"
 ```
 
-Format every markdown file changed in the current PR vs `main`:
+## Failure → DurableTask
 
-```bash
-npx prettier --write --prose-wrap preserve $(git diff --name-only origin/main...HEAD -- '*.md')
+```json
+{
+  "id": "<uuid>", "queue": "engineering",
+  "subject": "format-markdown: prettier exited non-zero or F1-F6 fidelity failed",
+  "state": "pending", "ke_fit_score": 3,
+  "created_at": "<iso>", "updated_at": "<iso>",
+  "error": {
+    "files": ["vendor/anthropics/..."],
+    "fidelity_test": "F3_star_bullets",
+    "resolvable": true,
+    "suggested_skill": "format-markdown"
+  }
+}
 ```
 
-`--prose-wrap preserve` keeps existing line breaks (don't reflow prose).
+## Fidelity gate (vendor/ only)
 
-## Guardrails
+After formatting vendor files, always verify:
 
-- This repo's `vendor/**` mirrors must keep the crawler's F1–F6 fidelity. After
-  formatting vendor files, ALWAYS verify:
-  ```bash
-  npx tsx src/lib/blog-extract-fidelity.test.ts
-  ```
-  Prettier preserves F1–F6 (keeps `* ` bullets, leading H1, adds no inline links),
-  but confirm 17/0 before committing.
-- Commit type must be `chore` or `docs` (not `style` — rejected by `conventions.test.ts`).
-  End the subject with the active outcome tag `(O<N>)`.
+```bash
+npx tsx src/lib/blog-extract-fidelity.test.ts
+# expect: 17 pass / 0 fail
+```
 
-## Lineage
+F1-F6 invariants: `* ` bullets preserved, leading H1 intact, no inline-link injection,
+no prose reflowing that breaks crawled structure.
 
-CommonMark/GFM spec chain this aligns to: commonmark.js → cmark-gfm →
-anthropics/swift-markdown(-ui) → swiftlang/swift-syntax. Prettier 3 is the
-installable formatter whose parser implements the same CommonMark/GFM grammar.
+## Commit convention
+
+```
+chore(docs): normalize vendor markdown to CommonMark
+```
+
+Not `style` — `conventions.test.ts` rejects that type.
