@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0a0a" />
+<title>product vision — cowork / knowledge-engineering</title>
+<style>
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  font-family: ui-monospace, SFMono-Regular, "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
+  background: #0a0a0a;
+  color: #d4d4d4;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: 13px;
+}
+
+/* ── header ── */
+#header { padding: 10px 16px 12px; border-bottom: 1px solid #1f1f1f; }
+#header h1 { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: 1px; color: #f4f4f4; }
+#header p { margin: 4px 0 0; font-size: 11px; color: #6a6a6a; }
+#header nav { margin-top: 8px; display: flex; gap: 14px; font-size: 11px; }
+#header nav a { color: #51c4ff; text-decoration: none; }
+#header nav a:hover { text-decoration: underline; }
+
+/* ── main ── */
+main { padding: 12px 16px 40px; }
+
+/* ── sections ── */
+.section { margin-bottom: 28px; }
+.section-header {
+  display: flex; align-items: baseline; gap: 10px;
+  padding: 6px 0; border-bottom: 1px solid #1f1f1f; margin-bottom: 10px;
+}
+.section-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
+}
+.lbl-cyan   { color: #51c4ff; }
+.lbl-green  { color: #7bd88f; }
+.lbl-amber  { color: #e6b455; }
+.lbl-muted  { color: #6a6a6a; }
+.section-sub { font-size: 11px; color: #6a6a6a; margin-left: auto; }
+
+/* ── callout note ── */
+.note {
+  border: 1px solid #2a2a2a; border-left: 3px solid #51c4ff;
+  padding: 8px 12px; font-size: 11px; color: #9a9a9a; margin-bottom: 18px;
+}
+.note strong { color: #e6e6e6; }
+
+/* ── citations table ── */
+.cite-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.cite-table th { text-align: left; padding: 4px 8px; border-bottom: 1px solid #2a2a2a; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: #6a6a6a; }
+.cite-table td { padding: 4px 8px; border-bottom: 1px solid #1d1d1d; color: #c0c0c0; vertical-align: top; }
+.cite-table td:first-child { color: #51c4ff; white-space: nowrap; }
+.cite-table a { color: #51c4ff; text-decoration: none; }
+.cite-table a:hover { text-decoration: underline; }
+.cite-badge {
+  display: inline-block; font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.5px; border: 1px solid #2a2a2a; padding: 0 4px; color: #6a6a6a;
+}
+.badge-repo   { color: #7bd88f; }
+.badge-tmpl   { color: #e6b455; }
+.badge-vendor { color: #51c4ff; }
+
+/* ── template grid ── */
+.tmpl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 6px;
+}
+.tmpl-card {
+  border: 1px solid #2a2a2a; padding: 8px 10px; background: #111; font-size: 12px;
+}
+.tmpl-card.high  { border-left: 3px solid #7bd88f; }
+.tmpl-card.medium { border-left: 3px solid #e6b455; }
+.tmpl-card.low   { border-left: 3px solid #2a2a2a; opacity: .55; }
+.tmpl-name { font-weight: 600; color: #f4f4f4; margin: 0 0 3px; }
+.tmpl-tagline { color: #9a9a9a; font-size: 11px; margin: 0 0 5px; line-height: 1.45; }
+.tmpl-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+.tmpl-pill {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px;
+  border: 1px solid #2a2a2a; padding: 0 4px; color: #6a6a6a;
+}
+.tmpl-pill.recommended { color: #7bd88f; border-color: #7bd88f44; }
+.tmpl-pill.consider    { color: #e6b455; border-color: #e6b45544; }
+.tmpl-score { color: #51c4ff; }
+
+/* ── skill inventory ── */
+.skill-domains { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+.skill-domain { border: 1px solid #2a2a2a; padding: 10px; background: #0d0d0d; }
+.skill-domain-name { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #6a6a6a; margin: 0 0 8px; }
+.skill-list { list-style: none; margin: 0; padding: 0; }
+.skill-list li { font-size: 11px; padding: 3px 0; border-bottom: 1px solid #1a1a1a; color: #c0c0c0; display: flex; gap: 6px; align-items: center; }
+.skill-list li:last-child { border-bottom: none; }
+.skill-icon { color: #51c4ff; font-size: 10px; }
+.skill-icon.pm  { color: #e6b455; }
+.skill-icon.ds  { color: #7bd88f; }
+.skill-icon.de  { color: #51c4ff; }
+.skill-icon.da  { color: #bd93f9; }
+
+/* ── metrics cadence state machine ── */
+.sm-container { border: 1px solid #2a2a2a; padding: 10px 14px; background: #0d0d0d; }
+.sm-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #6a6a6a; margin: 0 0 10px; }
+.sm-states { display: flex; gap: 4px; align-items: flex-start; flex-wrap: wrap; }
+.sm-state {
+  border: 1px solid #2a2a2a; padding: 6px 10px; min-width: 130px; font-size: 11px;
+}
+.sm-state.active { border-color: #51c4ff44; background: #0a1a2a; }
+.sm-state-name { color: #f4f4f4; font-weight: 600; margin-bottom: 2px; }
+.sm-state-desc { color: #6a6a6a; font-size: 10px; line-height: 1.4; }
+.sm-arrow { color: #2a2a2a; font-size: 14px; align-self: center; padding: 0 2px; }
+.sm-trigger { font-size: 10px; color: #51c4ff; margin-top: 4px; }
+
+/* ── multi-agent plan ── */
+.agent-plan { display: flex; flex-direction: column; gap: 8px; }
+.agent-row {
+  border: 1px solid #2a2a2a; padding: 8px 12px; display: flex; gap: 12px;
+  align-items: flex-start; font-size: 12px; background: #0d0d0d;
+}
+.agent-role { color: #e6b455; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; min-width: 110px; padding-top: 1px; }
+.agent-desc { color: #c0c0c0; line-height: 1.5; }
+.agent-tools { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 4px; }
+.agent-tool {
+  font-size: 10px; border: 1px solid #1f1f1f; padding: 0 5px; color: #9a9a9a;
+}
+
+/* ── html-effectiveness ── */
+.he-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 4px; }
+.he-row { border: 1px solid #1f1f1f; padding: 5px 8px; font-size: 11px; color: #9a9a9a; }
+.he-num { color: #51c4ff; margin-right: 6px; }
+.he-cat { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: #6a6a6a; margin-left: 4px; }
+
+/* ── footer ── */
+footer { padding: 16px; border-top: 1px solid #1f1f1f; font-size: 11px; color: #6a6a6a; display: flex; flex-wrap: wrap; gap: 6px 16px; }
+footer a { color: #51c4ff; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <h1>product vision</h1>
+  <p>cowork/ · knowledge-engineering · 2026-06-18</p>
+  <nav>
+    <a href="connector_audit_94.html">← page 1: connector audit</a>
+    <a href="https://subagentknowledge.com/">subagentknowledge.com ↗</a>
+    <a href="https://github.com/BuilderIO/agent-native">agent-native ↗</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ── CITATIONS INDEX ── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-label lbl-cyan">citations</span>
+    <span class="section-sub">all sourced urls for this cowork/ session · durable reference</span>
+  </div>
+  <table class="cite-table">
+    <thead>
+      <tr><th>ref</th><th>url</th><th>kind</th><th>relevance</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>C1</td>
+        <td><a href="https://github.com/BuilderIO/agent-native" target="_blank">github.com/BuilderIO/agent-native</a></td>
+        <td><span class="cite-badge badge-repo">repo</span></td>
+        <td>Framework for building agent-native applications. 12 templates.</td>
+      </tr>
+      <tr>
+        <td>C2</td>
+        <td><a href="https://github.com/anthropics/launch-your-agent" target="_blank">github.com/anthropics/launch-your-agent</a></td>
+        <td><span class="cite-badge badge-repo">repo</span></td>
+        <td>Claude Code skills: interview → scope → launch → grade → schedule a managed agent.</td>
+      </tr>
+      <tr>
+        <td>C3</td>
+        <td><a href="https://github.com/anthropics/html-effectiveness" target="_blank">github.com/anthropics/html-effectiveness</a></td>
+        <td><span class="cite-badge badge-repo">repo</span></td>
+        <td>20 standalone HTML examples — code review, design systems, slide decks, editors, status reports. Starting point for cowork/ html arsenal.</td>
+      </tr>
+      <tr>
+        <td>C4</td>
+        <td><a href="https://www.agent-native.com/templates/analytics" target="_blank">agent-native.com/templates/analytics</a></td>
+        <td><span class="cite-badge badge-tmpl">template</span></td>
+        <td>AI analytics: natural-language SQL, BigQuery, HubSpot, GitHub, Grafana connectors. ke_fit_score: 5.</td>
+      </tr>
+      <tr>
+        <td>C5</td>
+        <td><a href="https://www.agent-native.com/templates/plan" target="_blank">agent-native.com/templates/plan</a></td>
+        <td><span class="cite-badge badge-tmpl">template</span></td>
+        <td>Visual plans for Claude Code — wireframes, diagrams, annotated code, shareable links. ke_fit_score: 5.</td>
+      </tr>
+      <tr>
+        <td>C6</td>
+        <td><a href="https://www.agent-native.com/templates/brain" target="_blank">agent-native.com/templates/brain</a></td>
+        <td><span class="cite-badge badge-tmpl">template</span></td>
+        <td>Company memory over Slack, GitHub, Granola, Clips — cited recall with review gates. ke_fit_score: 5.</td>
+      </tr>
+      <tr>
+        <td>C7</td>
+        <td><a href="https://www.agent-native.com/templates/calendar" target="_blank">agent-native.com/templates/calendar</a></td>
+        <td><span class="cite-badge badge-tmpl">template</span></td>
+        <td>AI-native calendar + scheduling. ke_fit_score: 3.</td>
+      </tr>
+      <tr>
+        <td>C8</td>
+        <td><a href="https://www.agent-native.com/templates/content" target="_blank">agent-native.com/templates/content</a></td>
+        <td><span class="cite-badge badge-tmpl">template</span></td>
+        <td>Content planning and publishing workflow. ke_fit_score: 3.</td>
+      </tr>
+      <tr>
+        <td>C9</td>
+        <td><a href="https://www.agent-native.com/templates/slides" target="_blank">agent-native.com/templates/slides</a></td>
+        <td><span class="cite-badge badge-tmpl">template</span></td>
+        <td>Agent-generated slide decks. ke_fit_score: 3.</td>
+      </tr>
+      <tr>
+        <td>C10</td>
+        <td><a href="https://www.agent-native.com/templates/mail" target="_blank">agent-native.com/templates/mail</a></td>
+        <td><span class="cite-badge badge-tmpl">template</span></td>
+        <td>AI-native email management. ke_fit_score: 2.</td>
+      </tr>
+      <tr>
+        <td>C11</td>
+        <td><a href="https://www.agent-native.com/templates/forms" target="_blank">agent-native.com/templates/forms</a></td>
+        <td><span class="cite-badge badge-tmpl">template</span></td>
+        <td>Dynamic AI-powered form builder. ke_fit_score: 2.</td>
+      </tr>
+      <tr>
+        <td>C12</td>
+        <td><a href="https://www.agent-native.com/templates/clips" target="_blank">agent-native.com/templates/clips</a></td>
+        <td><span class="cite-badge badge-tmpl">template</span></td>
+        <td>Video clip management + AI summarization. ke_fit_score: 3.</td>
+      </tr>
+      <tr>
+        <td>C13</td>
+        <td><a href="https://www.agent-native.com/templates/dispatch" target="_blank">agent-native.com/templates/dispatch</a></td>
+        <td><span class="cite-badge badge-tmpl">template</span></td>
+        <td>Agent task dispatch and routing. Direct fit for multi-agent orchestration. ke_fit_score: 4.</td>
+      </tr>
+      <tr>
+        <td>C14</td>
+        <td><a href="https://www.agent-native.com/templates/design" target="_blank">agent-native.com/templates/design</a></td>
+        <td><span class="cite-badge badge-tmpl">template</span></td>
+        <td>AI-native design tool. ke_fit_score: 3.</td>
+      </tr>
+      <tr>
+        <td>C15</td>
+        <td><a href="https://www.agent-native.com/templates/assets" target="_blank">agent-native.com/templates/assets</a></td>
+        <td><span class="cite-badge badge-tmpl">template</span></td>
+        <td>Asset library for agent-native apps. ke_fit_score: 2.</td>
+      </tr>
+      <tr>
+        <td>C16</td>
+        <td><a href="https://subagentknowledge.com/" target="_blank">subagentknowledge.com</a></td>
+        <td><span class="cite-badge badge-vendor">vendor</span></td>
+        <td>Live design system reference. ghostty-inspired monospace dark. All cowork/ artifacts must match.</td>
+      </tr>
+      <tr>
+        <td>C17</td>
+        <td><a href="https://platform.claude.com/docs/en/managed-agents/overview" target="_blank">platform.claude.com/…/managed-agents/overview</a></td>
+        <td><span class="cite-badge badge-vendor">vendor</span></td>
+        <td>CMA primitives: agents, sessions, environments, vaults, schedules. Source of truth for multi-agent patterns.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── AGENT-NATIVE TEMPLATES ── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-label lbl-amber">agent-native templates</span>
+    <span class="section-sub">12 templates · @cite C4–C15 · ke_fit_score 1–5</span>
+  </div>
+  <div class="note">
+    <strong>install priority:</strong> analytics (C4), plan (C5), brain (C6), and dispatch (C13) map directly to the multi-agent knowledge engineering chassis. analytics integrates with jira + github connectors already tracked in fact_connectors. plan gives claude code a visual surface to replace markdown walls. brain closes the institutional memory gap. dispatch coordinates subagents.
+  </div>
+  <div class="tmpl-grid">
+    <div class="tmpl-card high">
+      <p class="tmpl-name">Analytics</p>
+      <p class="tmpl-tagline">Open-source Amplitude/Mixpanel/Looker. AI writes SQL over your data sources.</p>
+      <div class="tmpl-meta">
+        <span class="tmpl-pill recommended">recommended</span>
+        <span class="tmpl-pill"><span class="tmpl-score">★★★★★</span></span>
+        <span class="tmpl-pill">C4</span>
+      </div>
+    </div>
+    <div class="tmpl-card high">
+      <p class="tmpl-name">Plan</p>
+      <p class="tmpl-tagline">Visual planning for Claude Code — wireframes, diagrams, annotated code.</p>
+      <div class="tmpl-meta">
+        <span class="tmpl-pill recommended">recommended</span>
+        <span class="tmpl-pill"><span class="tmpl-score">★★★★★</span></span>
+        <span class="tmpl-pill">C5</span>
+      </div>
+    </div>
+    <div class="tmpl-card high">
+      <p class="tmpl-name">Brain</p>
+      <p class="tmpl-tagline">Company knowledge chat over Slack, GitHub, transcripts — cited recall.</p>
+      <div class="tmpl-meta">
+        <span class="tmpl-pill recommended">recommended</span>
+        <span class="tmpl-pill"><span class="tmpl-score">★★★★★</span></span>
+        <span class="tmpl-pill">C6</span>
+      </div>
+    </div>
+    <div class="tmpl-card high">
+      <p class="tmpl-name">Dispatch</p>
+      <p class="tmpl-tagline">Agent task routing layer. Coordinates subagent fan-out.</p>
+      <div class="tmpl-meta">
+        <span class="tmpl-pill recommended">recommended</span>
+        <span class="tmpl-pill"><span class="tmpl-score">★★★★</span> </span>
+        <span class="tmpl-pill">C13</span>
+      </div>
+    </div>
+    <div class="tmpl-card medium">
+      <p class="tmpl-name">Clips</p>
+      <p class="tmpl-tagline">Video clip management + AI summarization into knowledge base.</p>
+      <div class="tmpl-meta">
+        <span class="tmpl-pill consider">consider</span>
+        <span class="tmpl-pill"><span class="tmpl-score">★★★</span></span>
+        <span class="tmpl-pill">C12</span>
+      </div>
+    </div>
+    <div class="tmpl-card medium">
+      <p class="tmpl-name">Calendar</p>
+      <p class="tmpl-tagline">AI-native calendar. Pairs with wednesday 10:00 UTC review cadence.</p>
+      <div class="tmpl-meta">
+        <span class="tmpl-pill consider">consider</span>
+        <span class="tmpl-pill"><span class="tmpl-score">★★★</span></span>
+        <span class="tmpl-pill">C7</span>
+      </div>
+    </div>
+    <div class="tmpl-card medium">
+      <p class="tmpl-name">Content</p>
+      <p class="tmpl-tagline">Content planning + publishing workflow.</p>
+      <div class="tmpl-meta">
+        <span class="tmpl-pill consider">consider</span>
+        <span class="tmpl-pill"><span class="tmpl-score">★★★</span></span>
+        <span class="tmpl-pill">C8</span>
+      </div>
+    </div>
+    <div class="tmpl-card medium">
+      <p class="tmpl-name">Design</p>
+      <p class="tmpl-tagline">AI-native design tool for components. Pairs with design-system skill.</p>
+      <div class="tmpl-meta">
+        <span class="tmpl-pill consider">consider</span>
+        <span class="tmpl-pill"><span class="tmpl-score">★★★</span></span>
+        <span class="tmpl-pill">C14</span>
+      </div>
+    </div>
+    <div class="tmpl-card medium">
+      <p class="tmpl-name">Slides</p>
+      <p class="tmpl-tagline">Agent-generated decks from structured content. Pairs with pptx skill.</p>
+      <div class="tmpl-meta">
+        <span class="tmpl-pill consider">consider</span>
+        <span class="tmpl-pill"><span class="tmpl-score">★★★</span></span>
+        <span class="tmpl-pill">C9</span>
+      </div>
+    </div>
+    <div class="tmpl-card medium">
+      <p class="tmpl-name">Assets</p>
+      <p class="tmpl-tagline">Asset library for agent-native apps.</p>
+      <div class="tmpl-meta">
+        <span class="tmpl-pill consider">consider</span>
+        <span class="tmpl-pill"><span class="tmpl-score">★★</span></span>
+        <span class="tmpl-pill">C15</span>
+      </div>
+    </div>
+    <div class="tmpl-card low">
+      <p class="tmpl-name">Mail</p>
+      <p class="tmpl-tagline">AI-native email. Low signal for this repo.</p>
+      <div class="tmpl-meta">
+        <span class="tmpl-pill">skip</span>
+        <span class="tmpl-pill"><span class="tmpl-score">★★</span></span>
+        <span class="tmpl-pill">C10</span>
+      </div>
+    </div>
+    <div class="tmpl-card low">
+      <p class="tmpl-name">Forms</p>
+      <p class="tmpl-tagline">Dynamic form builder. Low fit for ke chassis.</p>
+      <div class="tmpl-meta">
+        <span class="tmpl-pill">skip</span>
+        <span class="tmpl-pill"><span class="tmpl-score">★★</span></span>
+        <span class="tmpl-pill">C11</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── HTML-EFFECTIVENESS (20 FILES) ── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-label lbl-cyan">html-effectiveness</span>
+    <span class="section-sub">20 files · @cite C3 · starting point for cowork/ html arsenal</span>
+  </div>
+  <div class="he-grid">
+    <div class="he-row"><span class="he-num">01</span>exploration-code-approaches<span class="he-cat">explore</span></div>
+    <div class="he-row"><span class="he-num">02</span>exploration-visual-designs<span class="he-cat">explore</span></div>
+    <div class="he-row"><span class="he-num">03</span>code-review-pr<span class="he-cat">code</span></div>
+    <div class="he-row"><span class="he-num">04</span>code-understanding<span class="he-cat">code</span></div>
+    <div class="he-row"><span class="he-num">05</span>design-system<span class="he-cat">code</span></div>
+    <div class="he-row"><span class="he-num">06</span>component-variants<span class="he-cat">code</span></div>
+    <div class="he-row"><span class="he-num">07</span>prototype-animation<span class="he-cat">proto</span></div>
+    <div class="he-row"><span class="he-num">08</span>prototype-interaction<span class="he-cat">proto</span></div>
+    <div class="he-row"><span class="he-num">09</span>slide-deck<span class="he-cat">comms</span></div>
+    <div class="he-row"><span class="he-num">10</span>svg-illustrations<span class="he-cat">comms</span></div>
+    <div class="he-row"><span class="he-num">11</span>status-report<span class="he-cat">comms</span></div>
+    <div class="he-row"><span class="he-num">12</span>incident-report<span class="he-cat">comms</span></div>
+    <div class="he-row"><span class="he-num">13</span>flowchart-diagram<span class="he-cat">diagram</span></div>
+    <div class="he-row"><span class="he-num">14</span>research-feature-explainer<span class="he-cat">diagram</span></div>
+    <div class="he-row"><span class="he-num">15</span>research-concept-explainer<span class="he-cat">diagram</span></div>
+    <div class="he-row"><span class="he-num">16</span>implementation-plan<span class="he-cat">diagram</span></div>
+    <div class="he-row"><span class="he-num">17</span>pr-writeup<span class="he-cat">comms</span></div>
+    <div class="he-row"><span class="he-num">18</span>editor-triage-board<span class="he-cat">editor</span></div>
+    <div class="he-row"><span class="he-num">19</span>editor-feature-flags<span class="he-cat">editor</span></div>
+    <div class="he-row"><span class="he-num">20</span>editor-prompt-tuner<span class="he-cat">editor</span></div>
+  </div>
+</div>
+
+<!-- ── SKILL INVENTORY ── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-label lbl-green">skill inventory</span>
+    <span class="section-sub">cowork/skills/plugins/ · 4 domains · 38 skills</span>
+  </div>
+  <div class="skill-domains">
+    <div class="skill-domain">
+      <p class="skill-domain-name" style="color:#e6b455;">product-management · 8</p>
+      <ul class="skill-list">
+        <li><span class="skill-icon pm">●</span>metrics-review <em style="color:#51c4ff;font-size:10px;">(customized ↓)</em></li>
+        <li><span class="skill-icon pm">●</span>competitive-brief</li>
+        <li><span class="skill-icon pm">●</span>product-brainstorming</li>
+        <li><span class="skill-icon pm">●</span>roadmap-update</li>
+        <li><span class="skill-icon pm">●</span>sprint-planning</li>
+        <li><span class="skill-icon pm">●</span>stakeholder-update</li>
+        <li><span class="skill-icon pm">●</span>synthesize-research</li>
+        <li><span class="skill-icon pm">●</span>write-spec</li>
+      </ul>
+    </div>
+    <div class="skill-domain">
+      <p class="skill-domain-name" style="color:#bd93f9;">data · 11</p>
+      <ul class="skill-list">
+        <li><span class="skill-icon da">●</span>analyze</li>
+        <li><span class="skill-icon da">●</span>build-dashboard</li>
+        <li><span class="skill-icon da">●</span>create-viz</li>
+        <li><span class="skill-icon da">●</span>data-context-extractor</li>
+        <li><span class="skill-icon da">●</span>data-visualization</li>
+        <li><span class="skill-icon da">●</span>explore-data</li>
+        <li><span class="skill-icon da">●</span>sql-queries</li>
+        <li><span class="skill-icon da">●</span>statistical-analysis</li>
+        <li><span class="skill-icon da">●</span>validate-data</li>
+        <li><span class="skill-icon da">●</span>write-query</li>
+        <li><span class="skill-icon da" style="color:#6a6a6a;">○</span>datadog: ddconfig · ddsetup · ddtoolsets</li>
+      </ul>
+    </div>
+    <div class="skill-domain">
+      <p class="skill-domain-name" style="color:#51c4ff;">engineering · 10</p>
+      <ul class="skill-list">
+        <li><span class="skill-icon de">●</span>architecture</li>
+        <li><span class="skill-icon de">●</span>code-review</li>
+        <li><span class="skill-icon de">●</span>debug</li>
+        <li><span class="skill-icon de">●</span>deploy-checklist</li>
+        <li><span class="skill-icon de">●</span>documentation</li>
+        <li><span class="skill-icon de">●</span>incident-response</li>
+        <li><span class="skill-icon de">●</span>standup</li>
+        <li><span class="skill-icon de">●</span>system-design</li>
+        <li><span class="skill-icon de">●</span>tech-debt</li>
+        <li><span class="skill-icon de">●</span>testing-strategy</li>
+      </ul>
+    </div>
+    <div class="skill-domain">
+      <p class="skill-domain-name" style="color:#7bd88f;">design · 7</p>
+      <ul class="skill-list">
+        <li><span class="skill-icon ds">●</span>accessibility-review</li>
+        <li><span class="skill-icon ds">●</span>design-critique</li>
+        <li><span class="skill-icon ds">●</span>design-handoff</li>
+        <li><span class="skill-icon ds">●</span>design-system</li>
+        <li><span class="skill-icon ds">●</span>research-synthesis</li>
+        <li><span class="skill-icon ds">●</span>user-research</li>
+        <li><span class="skill-icon ds">●</span>ux-copy</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ── WEDNESDAY 10:00 UTC METRICS CADENCE ── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-label lbl-amber">metrics cadence</span>
+    <span class="section-sub">every wednesday · 10:00 utc · data-driven pm loop</span>
+  </div>
+  <div class="note">
+    <strong>approach:</strong> metrics-review skill (customized) runs against <code>dw.fact_connectors</code> + <code>dw.dim_agent_templates</code> on a scheduled task (wednesday 10:00 UTC). a <strong>collector agent</strong> snapshots tool_calls, approval_rate, and ke_fit_score. an <strong>analyst agent</strong> generates the scorecard HTML. a <strong>pm agent</strong> writes the roadmap delta. output lands in <code>cowork/artifacts/</code> as a dated html file.
+  </div>
+  <div class="sm-container">
+    <p class="sm-title">state machine — wednesday review</p>
+    <div class="sm-states">
+      <div class="sm-state">
+        <div class="sm-state-name">idle</div>
+        <div class="sm-state-desc">Waiting for next Wednesday 10:00 UTC trigger</div>
+        <div class="sm-trigger">→ cron: 0 10 * * 3</div>
+      </div>
+      <div class="sm-arrow">→</div>
+      <div class="sm-state active">
+        <div class="sm-state-name">collect</div>
+        <div class="sm-state-desc">Collector agent snapshots fact_connectors + dim_agent_templates</div>
+        <div class="sm-trigger">→ alloydb snapshot complete</div>
+      </div>
+      <div class="sm-arrow">→</div>
+      <div class="sm-state">
+        <div class="sm-state-name">analyze</div>
+        <div class="sm-state-desc">Analyst agent runs metrics-review skill against snapshot</div>
+        <div class="sm-trigger">→ scorecard generated</div>
+      </div>
+      <div class="sm-arrow">→</div>
+      <div class="sm-state">
+        <div class="sm-state-name">synthesize</div>
+        <div class="sm-state-desc">PM agent writes roadmap delta + install recommendations</div>
+        <div class="sm-trigger">→ html artifact written</div>
+      </div>
+      <div class="sm-arrow">→</div>
+      <div class="sm-state">
+        <div class="sm-state-name">publish</div>
+        <div class="sm-state-desc">Artifact saved to cowork/artifacts/metrics_YYYY-MM-DD.html</div>
+        <div class="sm-trigger">→ idle (next week)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MULTI-AGENT PM PLAN ── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-label lbl-green">multi-agent product-management</span>
+    <span class="section-sub">focus: cowork/ · @cite C2 · @cite vendor/anthropics/platform.claude.com/…/managed-agents</span>
+  </div>
+  <div class="note">
+    <strong>recommendation:</strong> run three specialized agents in parallel each wednesday. the collector has readonly access to alloydb. the analyst uses the metrics-review skill + data:analyze + data:build-dashboard. the pm agent uses product-management:roadmap-update + product-management:write-spec to produce a delta spec. all three write back to <code>cowork/artifacts/</code>. no single agent needs full repo access.
+  </div>
+  <div class="agent-plan">
+    <div class="agent-row">
+      <span class="agent-role">collector</span>
+      <div>
+        <div class="agent-desc">Snapshots dw.fact_connectors, dw.dim_agent_templates, and dw.dim_desktop into a JSONL report for the current week. Runs first; downstream agents depend on its output.</div>
+        <div class="agent-tools">
+          <span class="agent-tool">data:sql-queries</span>
+          <span class="agent-tool">data:validate-data</span>
+          <span class="agent-tool">alloydb readonly</span>
+        </div>
+      </div>
+    </div>
+    <div class="agent-row">
+      <span class="agent-role">analyst</span>
+      <div>
+        <div class="agent-desc">Ingests collector JSONL. Runs metrics-review skill to produce scorecard: tool_calls trend, approval_rate by connector, ke_fit_score distribution across templates. Emits a dated HTML artifact.</div>
+        <div class="agent-tools">
+          <span class="agent-tool">product-management:metrics-review</span>
+          <span class="agent-tool">data:analyze</span>
+          <span class="agent-tool">data:build-dashboard</span>
+          <span class="agent-tool">design:data-viz</span>
+        </div>
+      </div>
+    </div>
+    <div class="agent-row">
+      <span class="agent-role">pm agent</span>
+      <div>
+        <div class="agent-desc">Reads analyst scorecard. Runs product-management:roadmap-update to surface what to install next, which connectors to prioritize, and which templates graduate from "consider" to "recommended". Writes a delta spec and updates cowork/artifacts/product_vision.html if vision has changed.</div>
+        <div class="agent-tools">
+          <span class="agent-tool">product-management:roadmap-update</span>
+          <span class="agent-tool">product-management:write-spec</span>
+          <span class="agent-tool">product-management:stakeholder-update</span>
+          <span class="agent-tool">engineering:documentation</span>
+        </div>
+      </div>
+    </div>
+    <div class="agent-row">
+      <span class="agent-role">design agent</span>
+      <div>
+        <div class="agent-desc">Reviews any new cowork/ artifacts against subagentknowledge.com design system. Runs design:design-system + design:design-critique. Flags deviations and emits corrected CSS where needed. Fires only when new HTML artifacts are created.</div>
+        <div class="agent-tools">
+          <span class="agent-tool">design:design-system</span>
+          <span class="agent-tool">design:design-critique</span>
+          <span class="agent-tool">design:accessibility-review</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PRODUCT VISION NORTH STAR ── -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-label lbl-cyan">north star</span>
+    <span class="section-sub">cowork/ product vision · incremental progress</span>
+  </div>
+  <div class="note">
+    <strong>vision:</strong> <em>cowork/ is the operating system for this repo</em> — a live, data-driven set of HTML pages that makes the repo's state observable, its metrics reviewable on a schedule, and its product direction evolvable by multi-agent collaboration. The html-effectiveness repo (C3) is the pattern library. The agent-native templates (C4–C15) are the building blocks. The Kimball DW (fact_connectors, dim_desktop, dim_agent_templates) is the data substrate. The skill inventory (38 skills across 4 domains) is the agent capability surface.
+    <br><br>
+    <strong>incremental progress path:</strong> install analytics (C4) + plan (C5) → wire fact_connectors to analytics → activate wednesday 10:00 UTC review → add brain (C6) for knowledge recall → add dispatch (C13) for agent orchestration.
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <a href="connector_audit_94.html">← page 1: connector audit</a>
+  <a href="https://subagentknowledge.com/">subagentknowledge.com ↗</a>
+  <span>cowork/ · knowledge-engineering · 2026-06-18</span>
+</footer>
+
+</body>
+</html>
