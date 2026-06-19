@@ -56,8 +56,8 @@ footer { padding: 16px; border-top: 1px solid #1f1f1f; font-size: 11px; color: #
 
 <div class="status-bar">
   <span>queue: <span class="val"><code>product-management</code></span></span>
-  <span>agent: <span class="val"><code>pm-agent</code></span></span>
-  <span>mailbox: <span class="val"><code>cowork/data/mailbox/pm-agent.jsonl</code></span></span>
+  <span>agent: <span class="val"><code>product-management-agent</code></span></span>
+  <span>mailbox: <span class="val"><code>cowork/data/mailbox/product-management-agent.jsonl</code></span></span>
 </div>
 
 <div class="section-header"><span class="section-label">description</span></div>
@@ -67,7 +67,7 @@ footer { padding: 16px; border-top: 1px solid #1f1f1f; font-size: 11px; color: #
 
 <div class="mailbox-panel">
   <h3>dispatch task via e2m-mcp</h3>
-  <p style="font-size:11px;color:#9a9a9a;margin:0 0 8px">Write an envelope to <code>cowork/data/queues/product-management.jsonl</code> → agent <code>pm-agent</code> picks it up from mailbox.</p>
+  <p style="font-size:11px;color:#9a9a9a;margin:0 0 8px">Write an envelope to <code>cowork/data/queues/product-management.jsonl</code> → agent <code>product-management-agent</code> picks it up from mailbox.</p>
   <div class="envelope-form">
     <label>subject (imperative, ≤80 chars)</label>
     <input type="text" id="subject" placeholder="e.g. Install forms template" />
@@ -99,7 +99,7 @@ footer { padding: 16px; border-top: 1px solid #1f1f1f; font-size: 11px; color: #
 </div>
 <div class="card">
   <h3>mailbox_send</h3>
-  <p>Routes the task notification to <code>cowork/data/mailbox/pm-agent.jsonl</code> with type=task.</p>
+  <p>Routes the task notification to <code>cowork/data/mailbox/product-management-agent.jsonl</code> with type=task.</p>
 </div>
 <div class="card">
   <h3>task_transition</h3>

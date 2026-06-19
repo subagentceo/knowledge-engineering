@@ -1,0 +1,2 @@
+{"_type": "message", "id": "5800f534-1f08-444a-87a5-b2791c285b81", "task_id": "577c8ee7-a981-42f8-aaf8-a3cecd57b338", "from": "product-management-coworker", "to": "project-management-coworker", "subject": "Bootstrap: claim project-management-coworker role, run nightly review cadence", "state": "pending", "at": "2026-06-19T02:23:36Z"}
+{"id": "5800f534-1f08-444a-87a5-b2791c285b81", "status": "acked", "acked_by": "project-management-coworker", "acked_at": "2026-06-19T06:41:01Z", "note": "project-management-coworker online; SKILL.md authored; nightly cadence registered"}

@@ -1,0 +1,354 @@
+# E2M Tasks Extension Schema
+# Protocol: io.e2m/tasks
+# Version: draft
+# Extends: io.modelcontextprotocol/tasks (ext-tasks)
+# Type-safety cascade: YAML → TypeScript/Zod → Rust/serde → Python/Pydantic
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://e2m.dev/schema/draft/tasks.json"
+title: E2M Tasks Extension
+description: >
+  Task payload schema for e2m envelopes (payloadKind: "task").
+  Extends MCP ext-tasks with envelope-native routing, multi-agent
+  handoff, and Anthropic model runtime compatibility.
+
+$defs:
+
+  # ── Task Status ──────────────────────────────────────────────────────────────
+
+  TaskStatus:
+    type: string
+    enum:
+      - pending        # Not yet started
+      - working        # Actively being processed
+      - input_required # Waiting for client input (sampling/elicitation)
+      - delegated      # Forwarded to another agent mailbox
+      - completed      # Finished successfully
+      - failed         # Terminated with error
+      - cancelled      # Cancelled before completion
+
+  # ── Task Priority ────────────────────────────────────────────────────────────
+
+  TaskPriority:
+    type: string
+    enum: [low, normal, high, critical]
+    description: Scheduling priority hint for the receiving mailbox
+
+  # ── Agent Runtime Target ─────────────────────────────────────────────────────
+  # Defines which Anthropic model runtime or external agent should execute the task
+
+  AnthropicModelTarget:
+    type: object
+    required: [provider, model]
+    additionalProperties: false
+    properties:
+      provider:
+        type: string
+        const: anthropic
+      model:
+        type: string
+        description: >
+          Anthropic model ID. Examples: claude-sonnet-4-20250514,
+          claude-opus-4-5-20251101, claude-haiku-4-5-20251001
+      maxTokens:
+        type: integer
+        minimum: 1
+        maximum: 200000
+        description: Max tokens for this task's model call
+      systemPrompt:
+        type: string
+        description: Optional system prompt override for this task
+
+  ExternalAgentTarget:
+    type: object
+    required: [protocol, address]
+    additionalProperties: false
+    properties:
+      protocol:
+        type: string
+        enum: [mcp, a2a, acp, e2m]
+      address:
+        type: string
+        description: Protocol-specific address of the target agent
+
+  TaskTarget:
+    oneOf:
+      - $ref: "#/$defs/AnthropicModelTarget"
+      - $ref: "#/$defs/ExternalAgentTarget"
+
+  # ── Input/Output ─────────────────────────────────────────────────────────────
+
+  TaskInputRequest:
+    type: object
+    required: [requestId, kind]
+    additionalProperties: false
+    properties:
+      requestId:
+        type: string
+        description: Unique ID for matching responses to requests
+      kind:
+        type: string
+        enum: [sampling, elicitation, roots_list]
+        description: What kind of input is being requested
+      prompt:
+        type: string
+        description: For sampling requests — the prompt to send to the model
+      schema:
+        type: object
+        description: For elicitation — JSON Schema describing expected input shape
+      context:
+        type: object
+        additionalProperties: true
+        description: Additional context for the input request
+
+  TaskInputResponse:
+    type: object
+    required: [requestId]
+    additionalProperties: false
+    properties:
+      requestId:
+        type: string
+      result:
+        description: The response value — shape depends on request kind
+      error:
+        type: object
+        properties:
+          code: { type: integer }
+          message: { type: string }
+
+  # ── Core Task ────────────────────────────────────────────────────────────────
+
+  Task:
+    type: object
+    required: [taskId, status, createdAt, lastUpdatedAt]
+    additionalProperties: false
+    properties:
+      taskId:
+        type: string
+        format: uuid
+        description: Globally unique task identifier
+      status:
+        $ref: "#/$defs/TaskStatus"
+      priority:
+        $ref: "#/$defs/TaskPriority"
+      statusMessage:
+        type: [string, "null"]
+        description: Human-readable description of the current state
+      createdAt:
+        type: string
+        format: date-time
+      lastUpdatedAt:
+        type: string
+        format: date-time
+      ttlMs:
+        type: [integer, "null"]
+        description: Milliseconds from createdAt before the server may discard this task
+      pollIntervalMs:
+        type: integer
+        description: Suggested polling interval in milliseconds
+      target:
+        $ref: "#/$defs/TaskTarget"
+        description: Which agent/model should execute this task
+      parentTaskId:
+        type: [string, "null"]
+        description: Parent task ID for subtask chains
+      delegatedTo:
+        type: [string, "null"]
+        description: Mailbox address this task was forwarded to (status=delegated)
+
+  # ── Task Payload Variants (by status) ────────────────────────────────────────
+
+  PendingTaskPayload:
+    allOf:
+      - $ref: "#/$defs/Task"
+      - type: object
+        required: [instruction]
+        properties:
+          status:
+            type: string
+            const: pending
+          instruction:
+            type: string
+            description: Natural language or structured instruction for the task
+          inputSchema:
+            type: object
+            description: Optional JSON Schema for structured task input
+          inputData:
+            type: object
+            description: Structured input data (validated against inputSchema if present)
+
+  WorkingTaskPayload:
+    allOf:
+      - $ref: "#/$defs/Task"
+      - type: object
+        properties:
+          status:
+            type: string
+            const: working
+          progressPercent:
+            type: integer
+            minimum: 0
+            maximum: 100
+
+  InputRequiredTaskPayload:
+    allOf:
+      - $ref: "#/$defs/Task"
+      - type: object
+        required: [inputRequests]
+        properties:
+          status:
+            type: string
+            const: input_required
+          inputRequests:
+            type: object
+            additionalProperties:
+              $ref: "#/$defs/TaskInputRequest"
+
+  DelegatedTaskPayload:
+    allOf:
+      - $ref: "#/$defs/Task"
+      - type: object
+        required: [delegatedTo]
+        properties:
+          status:
+            type: string
+            const: delegated
+
+  CompletedTaskPayload:
+    allOf:
+      - $ref: "#/$defs/Task"
+      - type: object
+        required: [result]
+        properties:
+          status:
+            type: string
+            const: completed
+          result:
+            type: object
+            additionalProperties: true
+            description: >
+              Final task result. Shape is task-defined. For Anthropic model runtime,
+              this maps to the CreateMessageResult structure.
+
+  FailedTaskPayload:
+    allOf:
+      - $ref: "#/$defs/Task"
+      - type: object
+        required: [error]
+        properties:
+          status:
+            type: string
+            const: failed
+          error:
+            type: object
+            required: [code, message]
+            properties:
+              code: { type: integer }
+              message: { type: string }
+              data: { type: [object, "null"] }
+
+  CancelledTaskPayload:
+    allOf:
+      - $ref: "#/$defs/Task"
+      - type: object
+        properties:
+          status:
+            type: string
+            const: cancelled
+
+  # ── Discriminated Union ───────────────────────────────────────────────────────
+
+  TaskPayload:
+    description: >
+      Discriminated union on `status`. Use this as the payload in an
+      e2m Envelope with payloadKind: "task".
+    oneOf:
+      - $ref: "#/$defs/PendingTaskPayload"
+      - $ref: "#/$defs/WorkingTaskPayload"
+      - $ref: "#/$defs/InputRequiredTaskPayload"
+      - $ref: "#/$defs/DelegatedTaskPayload"
+      - $ref: "#/$defs/CompletedTaskPayload"
+      - $ref: "#/$defs/FailedTaskPayload"
+      - $ref: "#/$defs/CancelledTaskPayload"
+    discriminator:
+      propertyName: status
+
+  # ── RPC Methods ──────────────────────────────────────────────────────────────
+
+  CreateTaskRequest:
+    type: object
+    required: [method, params]
+    properties:
+      method:
+        type: string
+        const: tasks/create
+      params:
+        type: object
+        required: [instruction]
+        properties:
+          instruction: { type: string }
+          target: { $ref: "#/$defs/TaskTarget" }
+          priority: { $ref: "#/$defs/TaskPriority" }
+          ttlMs: { type: [integer, "null"] }
+          inputSchema: { type: object }
+          inputData: { type: object }
+
+  GetTaskRequest:
+    type: object
+    required: [method, params]
+    properties:
+      method:
+        type: string
+        const: tasks/get
+      params:
+        type: object
+        required: [taskId]
+        properties:
+          taskId: { type: string, format: uuid }
+
+  UpdateTaskRequest:
+    type: object
+    required: [method, params]
+    properties:
+      method:
+        type: string
+        const: tasks/update
+      params:
+        type: object
+        required: [taskId, inputResponses]
+        properties:
+          taskId: { type: string, format: uuid }
+          inputResponses:
+            type: object
+            additionalProperties:
+              $ref: "#/$defs/TaskInputResponse"
+
+  CancelTaskRequest:
+    type: object
+    required: [method, params]
+    properties:
+      method:
+        type: string
+        const: tasks/cancel
+      params:
+        type: object
+        required: [taskId]
+        properties:
+          taskId: { type: string, format: uuid }
+
+  DelegateTaskRequest:
+    type: object
+    required: [method, params]
+    properties:
+      method:
+        type: string
+        const: tasks/delegate
+      params:
+        type: object
+        required: [taskId, toMailbox]
+        properties:
+          taskId: { type: string, format: uuid }
+          toMailbox: { type: string, description: "e2m mailbox address to delegate to" }
+
+# Root export
+$ref: "#/$defs/TaskPayload"

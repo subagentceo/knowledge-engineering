@@ -1,0 +1,286 @@
+# E2M OAuth Extension Schema
+# Protocol: io.e2m/oauth
+# Version: draft
+# Extends: MCP ext-auth (oauth-client-credentials + enterprise-managed-authorization)
+# Type-safety cascade: YAML → TypeScript/Zod → Rust/serde → Python/Pydantic
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://e2m.dev/schema/draft/oauth.json"
+title: E2M OAuth Extension
+description: >
+  OAuth payload schemas for e2m envelopes (payloadKind: "oauth").
+  Covers machine-to-machine client credentials, enterprise SSO token exchange,
+  and agent-to-agent credential delegation — all transported as typed e2m envelopes.
+
+$defs:
+
+  # ── Auth Flow Types ───────────────────────────────────────────────────────────
+
+  OAuthFlowKind:
+    type: string
+    enum:
+      - client_credentials    # M2M, no user interaction (RFC 6749 §4.4 / OAuth 2.1)
+      - token_exchange        # Enterprise SSO identity assertion (RFC 8693)
+      - agent_delegation      # e2m-native: agent grants another agent scoped access
+      - refresh               # Token refresh
+      - revocation            # Token revocation
+
+  # ── Token ────────────────────────────────────────────────────────────────────
+
+  BearerToken:
+    type: object
+    required: [accessToken, tokenType, issuedAt]
+    additionalProperties: false
+    properties:
+      accessToken:
+        type: string
+        description: The bearer token value
+      tokenType:
+        type: string
+        const: Bearer
+      expiresIn:
+        type: [integer, "null"]
+        description: Seconds until expiration. null = non-expiring.
+      expiresAt:
+        type: [string, "null"]
+        format: date-time
+        description: Absolute expiry timestamp (ISO 8601). Derived from issuedAt + expiresIn.
+      issuedAt:
+        type: string
+        format: date-time
+      scope:
+        type: string
+        description: Space-separated list of granted scopes
+      refreshToken:
+        type: [string, "null"]
+        description: Present when refresh is supported
+
+  # ── Client Credentials Flow ───────────────────────────────────────────────────
+
+  ClientCredentialsRequest:
+    type: object
+    required: [flowKind, clientId, authMethod, tokenEndpoint]
+    additionalProperties: false
+    properties:
+      flowKind:
+        type: string
+        const: client_credentials
+      clientId:
+        type: string
+      authMethod:
+        type: string
+        enum: [private_key_jwt, client_secret_basic]
+        description: >
+          JWT auth (RECOMMENDED per ext-auth / RFC 7523 §2.2) or
+          client secret (OAuth 2.1 §2.4.1)
+      tokenEndpoint:
+        type: string
+        format: uri
+      scope:
+        type: string
+        description: Requested scopes (space-separated)
+      audience:
+        type: string
+        description: Target resource / MCP server identifier
+      # JWT auth fields (required when authMethod = private_key_jwt)
+      jwtAssertion:
+        type: [string, "null"]
+        description: Pre-built JWT client assertion (RFC 7523). Provide OR let runtime build it.
+      keyId:
+        type: [string, "null"]
+        description: Key ID hint if the runtime should build the JWT assertion
+
+  ClientCredentialsResult:
+    type: object
+    required: [flowKind, token]
+    additionalProperties: false
+    properties:
+      flowKind:
+        type: string
+        const: client_credentials
+      token:
+        $ref: "#/$defs/BearerToken"
+      serverMetadata:
+        type: [object, "null"]
+        description: Cached AS metadata (RFC 8414) for this token endpoint
+
+  # ── Enterprise Token Exchange Flow ───────────────────────────────────────────
+  # Based on ext-auth enterprise-managed-authorization
+  # RFC 8693 Token Exchange + RFC 7523 JWT Authorization Grant
+
+  TokenExchangeRequest:
+    type: object
+    required: [flowKind, subjectToken, subjectTokenType, tokenEndpoint, audience]
+    additionalProperties: false
+    properties:
+      flowKind:
+        type: string
+        const: token_exchange
+      subjectToken:
+        type: string
+        description: The identity assertion (ID Token or SAML assertion) from the IdP
+      subjectTokenType:
+        type: string
+        enum:
+          - urn:ietf:params:oauth:token-type:id_token
+          - urn:ietf:params:oauth:token-type:saml2
+        description: Token type per RFC 8693 §3
+      tokenEndpoint:
+        type: string
+        format: uri
+        description: IdP token exchange endpoint
+      audience:
+        type: string
+        description: MCP Server / e2m mailbox identifier being accessed
+      requestedTokenType:
+        type: string
+        const: "urn:ietf:params:oauth:token-type:jwt"
+        description: Resulting token type (ID-JAG)
+      scope:
+        type: string
+
+  TokenExchangeResult:
+    type: object
+    required: [flowKind, idJag, targetToken]
+    additionalProperties: false
+    properties:
+      flowKind:
+        type: string
+        const: token_exchange
+      idJag:
+        type: string
+        description: Identity Assertion JWT Authorization Grant (ID-JAG)
+      targetToken:
+        $ref: "#/$defs/BearerToken"
+        description: Access token issued by the MCP Server's Authorization Server
+
+  # ── Agent Delegation Flow (e2m-native) ───────────────────────────────────────
+  # Allows one agent to grant another scoped, time-limited access via envelope
+
+  AgentDelegationRequest:
+    type: object
+    required: [flowKind, grantorMailbox, granteeMailbox, scopes, ttlMs]
+    additionalProperties: false
+    properties:
+      flowKind:
+        type: string
+        const: agent_delegation
+      grantorMailbox:
+        type: string
+        description: The e2m mailbox address granting access
+      granteeMailbox:
+        type: string
+        description: The e2m mailbox address receiving delegated access
+      scopes:
+        type: array
+        items: { type: string }
+        description: Specific capabilities being delegated
+      ttlMs:
+        type: integer
+        description: Milliseconds this delegation is valid
+      constraints:
+        type: [object, "null"]
+        additionalProperties: true
+        description: Optional additional constraints (rate limits, allowed methods, etc.)
+
+  AgentDelegationResult:
+    type: object
+    required: [flowKind, delegationToken, expiresAt]
+    additionalProperties: false
+    properties:
+      flowKind:
+        type: string
+        const: agent_delegation
+      delegationToken:
+        type: string
+        description: Signed JWT encoding the delegation grant
+      expiresAt:
+        type: string
+        format: date-time
+      grantedScopes:
+        type: array
+        items: { type: string }
+
+  # ── Token Refresh ────────────────────────────────────────────────────────────
+
+  RefreshRequest:
+    type: object
+    required: [flowKind, refreshToken, tokenEndpoint]
+    additionalProperties: false
+    properties:
+      flowKind:
+        type: string
+        const: refresh
+      refreshToken: { type: string }
+      tokenEndpoint: { type: string, format: uri }
+      scope: { type: string }
+
+  RefreshResult:
+    type: object
+    required: [flowKind, token]
+    additionalProperties: false
+    properties:
+      flowKind:
+        type: string
+        const: refresh
+      token:
+        $ref: "#/$defs/BearerToken"
+
+  # ── Token Revocation ─────────────────────────────────────────────────────────
+
+  RevocationRequest:
+    type: object
+    required: [flowKind, token, revocationEndpoint]
+    additionalProperties: false
+    properties:
+      flowKind:
+        type: string
+        const: revocation
+      token: { type: string }
+      tokenTypeHint:
+        type: string
+        enum: [access_token, refresh_token, delegation_token]
+      revocationEndpoint: { type: string, format: uri }
+
+  RevocationResult:
+    type: object
+    required: [flowKind, revoked]
+    additionalProperties: false
+    properties:
+      flowKind:
+        type: string
+        const: revocation
+      revoked: { type: boolean }
+
+  # ── Discriminated Unions ──────────────────────────────────────────────────────
+
+  OAuthRequestPayload:
+    description: >
+      Discriminated union on `flowKind`. Use as the payload in an
+      e2m Envelope with payloadKind: "oauth" (request direction).
+    oneOf:
+      - $ref: "#/$defs/ClientCredentialsRequest"
+      - $ref: "#/$defs/TokenExchangeRequest"
+      - $ref: "#/$defs/AgentDelegationRequest"
+      - $ref: "#/$defs/RefreshRequest"
+      - $ref: "#/$defs/RevocationRequest"
+    discriminator:
+      propertyName: flowKind
+
+  OAuthResultPayload:
+    description: >
+      Discriminated union on `flowKind`. Use as the payload in an
+      e2m Envelope with payloadKind: "oauth" (reply direction).
+    oneOf:
+      - $ref: "#/$defs/ClientCredentialsResult"
+      - $ref: "#/$defs/TokenExchangeResult"
+      - $ref: "#/$defs/AgentDelegationResult"
+      - $ref: "#/$defs/RefreshResult"
+      - $ref: "#/$defs/RevocationResult"
+    discriminator:
+      propertyName: flowKind
+
+# Root: either a request or result payload (direction determined by envelope header)
+oneOf:
+  - $ref: "#/$defs/OAuthRequestPayload"
+  - $ref: "#/$defs/OAuthResultPayload"

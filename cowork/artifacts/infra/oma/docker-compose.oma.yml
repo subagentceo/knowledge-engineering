@@ -1,0 +1,54 @@
+# Open Managed Agents — e2m integration overlay
+# Extends the main e2m stack with OMA server + web UI
+# Uses AlloyDB Omni (already running) instead of bundled postgres
+#
+# Usage:
+#   docker compose -f ../docker/docker-compose.yml -f docker-compose.oma.yml up -d
+#
+# Or standalone (AlloyDB must already be running):
+#   docker compose -f docker-compose.oma.yml up -d
+
+services:
+  oma-server:
+    image: ghcr.io/rogeriochaves/open-managed-agents/server:latest
+    container_name: e2m-oma-server
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      # AlloyDB Omni on host network (mac: host-gateway)
+      DATABASE_URL: postgresql://postgres:${ALLOYDB_PASSWORD:-postgres}@host-gateway:5432/oma
+      PORT: "3001"
+      NODE_ENV: production
+    extra_hosts:
+      - "host-gateway:host-gateway"
+    ports:
+      - "3001:3001"
+    depends_on:
+      - oma-migrate
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:3001/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  oma-migrate:
+    image: ghcr.io/rogeriochaves/open-managed-agents/server:latest
+    container_name: e2m-oma-migrate
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://postgres:${ALLOYDB_PASSWORD:-postgres}@host-gateway:5432/oma
+    extra_hosts:
+      - "host-gateway:host-gateway"
+    command: ["node", "dist/migrate.js"]
+    restart: "no"
+
+  oma-web:
+    image: ghcr.io/rogeriochaves/open-managed-agents/web:latest
+    container_name: e2m-oma-web
+    restart: unless-stopped
+    environment:
+      VITE_API_URL: http://localhost:3001
+    ports:
+      - "5173:5173"
+    depends_on:
+      - oma-server

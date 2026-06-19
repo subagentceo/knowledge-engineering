@@ -1,0 +1,66 @@
+{
+  "$schema": "https://flagd.dev/schema/v0/flags.json",
+  "flags": {
+    "e2m.model.coordinator": {
+      "state": "ENABLED",
+      "variants": {
+        "sonnet": "claude-sonnet-4-20250514",
+        "haiku": "claude-haiku-4-5-20251001",
+        "opus": "claude-opus-4-5-20251101"
+      },
+      "defaultVariant": "sonnet"
+    },
+    "e2m.memory.cache-enabled": {
+      "state": "ENABLED",
+      "variants": {
+        "on": true,
+        "off": false
+      },
+      "defaultVariant": "on"
+    },
+    "e2m.memory.cache-ttl-ms": {
+      "state": "ENABLED",
+      "variants": {
+        "default": 300000,
+        "short": 60000,
+        "long": 900000
+      },
+      "defaultVariant": "default"
+    },
+    "e2m.envelope.bloom-dedup": {
+      "state": "ENABLED",
+      "variants": {
+        "on": true,
+        "off": false
+      },
+      "defaultVariant": "on"
+    },
+    "e2m.db.backend": {
+      "state": "ENABLED",
+      "variants": {
+        "alloydb": "alloydb",
+        "redis": "redis",
+        "dual": "dual"
+      },
+      "defaultVariant": "alloydb"
+    },
+    "e2m.otel.sampling-rate": {
+      "state": "ENABLED",
+      "variants": {
+        "full": 1.0,
+        "half": 0.5,
+        "tenth": 0.1,
+        "off": 0.0
+      },
+      "defaultVariant": "full"
+    },
+    "e2m.auth.model": {
+      "state": "ENABLED",
+      "variants": {
+        "egress-proxy": "egress-proxy",
+        "environment-key": "environment-key"
+      },
+      "defaultVariant": "egress-proxy"
+    }
+  }
+}
