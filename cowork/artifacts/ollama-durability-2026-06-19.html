@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0a0a" />
+<title>ollama durable link — A2A resolution of #522 — cowork / knowledge-engineering</title>
+<style>
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  font-family: ui-monospace, SFMono-Regular, "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
+  background: #0a0a0a; color: #d4d4d4;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-size: 13px;
+}
+/* ── header ── (canonical: product_vision.html) */
+#header { padding: 10px 16px 12px; border-bottom: 1px solid #1f1f1f; }
+#header h1 { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: 1px; color: #f4f4f4; }
+#header p { margin: 4px 0 0; font-size: 11px; color: #6a6a6a; }
+#header nav { margin-top: 8px; display: flex; gap: 14px; font-size: 11px; flex-wrap: wrap; }
+#header nav a { color: #51c4ff; text-decoration: none; }
+#header nav a:hover { text-decoration: underline; }
+.badge { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; border: 1px solid #2a2a2a; padding: 2px 8px; color: #7bd88f; }
+
+main { padding: 12px 16px 40px; }
+
+/* ── sections ── */
+.section { margin-bottom: 28px; }
+.section-header { display: flex; align-items: baseline; gap: 10px; padding: 6px 0; border-bottom: 1px solid #1f1f1f; margin-bottom: 12px; }
+.section-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+.lbl-cyan { color: #51c4ff; } .lbl-green { color: #7bd88f; } .lbl-amber { color: #e6b455; }
+.lbl-red { color: #f47067; } .lbl-purple { color: #bd93f9; } .lbl-muted { color: #6a6a6a; }
+.section-sub { font-size: 11px; color: #6a6a6a; margin-left: auto; }
+
+/* ── callout note ── */
+.note { border: 1px solid #2a2a2a; border-left: 3px solid #51c4ff; padding: 8px 12px; font-size: 11px; color: #9a9a9a; margin-bottom: 18px; line-height: 1.6; }
+.note strong { color: #e6e6e6; }
+.note.green { border-left-color: #7bd88f; }
+
+/* ── headline metrics ── */
+.metrics { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; margin-bottom: 6px; }
+.metric { border: 1px solid #2a2a2a; padding: 10px 12px; background: #0d0d0d; }
+.metric .v { font-size: 20px; font-weight: 600; color: #f4f4f4; letter-spacing: .5px; }
+.metric .v.green { color: #7bd88f; } .metric .v.cyan { color: #51c4ff; } .metric .v.amber { color: #e6b455; }
+.metric .k { font-size: 10px; text-transform: uppercase; letter-spacing: .5px; color: #6a6a6a; margin-top: 4px; }
+
+/* ── timeline state machine (canonical: product_vision .sm-*) ── */
+.sm-states { display: flex; gap: 4px; align-items: stretch; flex-wrap: wrap; }
+.sm-state { border: 1px solid #2a2a2a; padding: 6px 10px; min-width: 150px; flex: 1; font-size: 11px; background: #0d0d0d; }
+.sm-state.done { border-left: 3px solid #7bd88f; }
+.sm-state.wrong { border-left: 3px solid #f47067; }
+.sm-state-name { color: #f4f4f4; font-weight: 600; margin-bottom: 2px; }
+.sm-state-time { font-size: 10px; color: #51c4ff; }
+.sm-state-desc { color: #6a6a6a; font-size: 10px; line-height: 1.45; margin-top: 3px; }
+.sm-arrow { color: #2a2a2a; font-size: 14px; align-self: center; padding: 0 2px; }
+
+/* ── A2A swimlane ── */
+.a2a { display: grid; grid-template-columns: 1fr 40px 1fr; gap: 0 0; align-items: stretch; border: 1px solid #2a2a2a; background: #0d0d0d; }
+.a2a-head { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; padding: 6px 10px; border-bottom: 1px solid #1f1f1f; }
+.a2a-head.mac { color: #51c4ff; } .a2a-head.wsl { color: #bd93f9; }
+.a2a-mid { border-left: 1px solid #1f1f1f; border-right: 1px solid #1f1f1f; }
+.a2a-msg { padding: 6px 10px; font-size: 11px; border-bottom: 1px solid #161616; color: #c0c0c0; line-height: 1.45; }
+.a2a-msg .who { font-size: 9px; text-transform: uppercase; letter-spacing: .5px; color: #6a6a6a; display: block; margin-bottom: 2px; }
+.a2a-msg.ok { border-left: 2px solid #7bd88f; } .a2a-msg.no { border-left: 2px solid #f47067; }
+.a2a-arrow { display: flex; align-items: center; justify-content: center; color: #6a6a6a; font-size: 13px; border-bottom: 1px solid #161616; }
+
+/* ── tables (canonical: morning-summary, product_vision .cite-table) ── */
+table { border-collapse: collapse; width: 100%; font-size: 12px; }
+th { text-align: left; padding: 4px 8px; border-bottom: 1px solid #2a2a2a; font-size: 10px; text-transform: uppercase; letter-spacing: .5px; color: #6a6a6a; background: #111; }
+td { padding: 4px 8px; border-bottom: 1px solid #1d1d1d; color: #c0c0c0; vertical-align: top; }
+tr:hover { background: #111; }
+td:first-child { color: #51c4ff; white-space: nowrap; }
+.trap { color: #f47067; } .fix { color: #7bd88f; }
+
+/* ── contract code block ── */
+.contract { border: 1px solid #2a2a2a; border-left: 3px solid #7bd88f; background: #0d0d0d; padding: 10px 14px; font-size: 11px; line-height: 1.65; white-space: pre; overflow-x: auto; color: #c0c0c0; }
+.contract .k { color: #51c4ff; } .contract .v { color: #7bd88f; } .contract .c { color: #6a6a6a; }
+
+/* ── artifact grid (canonical: .tmpl-card) ── */
+.art-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 6px; }
+.art-card { border: 1px solid #2a2a2a; padding: 8px 10px; background: #111; font-size: 12px; border-left: 3px solid #51c4ff; }
+.art-card.skill { border-left-color: #bd93f9; }
+.art-name { font-weight: 600; color: #f4f4f4; margin: 0 0 3px; }
+.art-desc { color: #9a9a9a; font-size: 11px; margin: 0; line-height: 1.45; }
+.art-path { color: #6a6a6a; font-size: 10px; margin-top: 4px; word-break: break-all; }
+
+/* ── pills ── */
+.pill { display: inline-block; font-size: 10px; text-transform: uppercase; letter-spacing: .5px; border: 1px solid #2a2a2a; padding: 0 5px; color: #6a6a6a; }
+.pill.green { color: #7bd88f; border-color: #7bd88f44; } .pill.cyan { color: #51c4ff; border-color: #51c4ff44; }
+
+/* ── footer ── */
+footer { padding: 16px; border-top: 1px solid #1f1f1f; font-size: 11px; color: #6a6a6a; display: flex; flex-wrap: wrap; gap: 6px 16px; }
+footer a { color: #51c4ff; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <h1>ollama durable link — A2A resolution of #522</h1>
+  <p>cowork/ · knowledge-engineering · 2026-06-19 · macOS ⇄ WSL over Tailscale · ~3.5h, two agents, one GitHub issue</p>
+  <nav>
+    <span class="badge">resolved</span>
+    <a href="morning-summary-2026-06-19.html">← morning summary</a>
+    <a href="skill-eval-2026-06-19.html">skill eval</a>
+    <a href="product_vision.html">product vision</a>
+    <a href="https://github.com/subagentceo/knowledge-engineering/issues/522" target="_blank">issue #522 ↗</a>
+    <a href="https://cowork.subagentknowledge.com/" target="_blank">cowork ↗</a>
+    <a href="https://coworkers.subagentknowledge.com/" target="_blank">coworkers ↗</a>
+    <a href="https://subagentknowledge.com/" target="_blank">subagentknowledge.com ↗</a>
+  </nav>
+</header>
+
+<main>
+
+<div class="note green">
+  <strong>What happened:</strong> two Claude Code agents — one on this <strong>macOS</strong> box, one on the <strong>WSL Ubuntu</strong> box with the RTX 2080 Ti — coordinated <em>only</em> through GitHub issue #522 to route Claude Code's inference to a local <strong>qwen2.5-coder:7b</strong> over Tailscale, and make it survive restarts. The operator was the relay, not the executor. <strong>Every disagreement was settled by a deterministic local probe's exit code, never by either agent's prose.</strong>
+</div>
+
+<!-- ── headline metrics ── -->
+<div class="section">
+  <div class="metrics">
+    <div class="metric"><div class="v green">DURABLE</div><div class="k">contract state</div></div>
+    <div class="metric"><div class="v cyan">200</div><div class="k">POST /v1/messages · hostname</div></div>
+    <div class="metric"><div class="v">0.0.0.0</div><div class="k">ollama bind (was 127.0.0.1)</div></div>
+    <div class="metric"><div class="v amber">13</div><div class="k">curated failures caught</div></div>
+    <div class="metric"><div class="v">0.28s</div><div class="k">warm inference</div></div>
+    <div class="metric"><div class="v cyan">1</div><div class="k">operator sudo (one-time)</div></div>
+  </div>
+</div>
+
+<!-- ── journey timeline ── -->
+<div class="section">
+  <div class="section-header"><span class="section-label lbl-cyan">the journey</span><span class="section-sub">false-positive → diagnosis → fix → durable</span></div>
+  <div class="sm-states">
+    <div class="sm-state wrong"><div class="sm-state-name">Tailscale down</div><div class="sm-state-time">phase 0</div><div class="sm-state-desc">macOS Tailscale.app removed; node key expired. Reinstalled 1.98.5 pkg → tailnet online.</div></div>
+    <div class="sm-arrow">→</div>
+    <div class="sm-state wrong"><div class="sm-state-name">false "resolved"</div><div class="sm-state-time">the trap</div><div class="sm-state-desc">GET-only healthcheck passed while POST inference was dead. Reopened ×4.</div></div>
+    <div class="sm-arrow">→</div>
+    <div class="sm-state wrong"><div class="sm-state-name">wrong diagnosis</div><div class="sm-state-time">mac agent</div><div class="sm-state-desc">"forwarder drops POST bodies." WSL agent disproved it: raw TCP pipe returned 200.</div></div>
+    <div class="sm-arrow">→</div>
+    <div class="sm-state done"><div class="sm-state-name">real cause</div><div class="sm-state-time">cold load</div><div class="sm-state-desc">First POST loads ~5GB VRAM (~88s); 5s client timeout fired. Not a network bug.</div></div>
+    <div class="sm-arrow">→</div>
+    <div class="sm-state done"><div class="sm-state-name">operator harden</div><div class="sm-state-time">1× sudo</div><div class="sm-state-desc">systemd OLLAMA_HOST=0.0.0.0 + NOPASSWD self-heal rule. Binds all interfaces every boot.</div></div>
+    <div class="sm-arrow">→</div>
+    <div class="sm-state done"><div class="sm-state-name">DURABLE</div><div class="sm-state-time">verified 2×</div><div class="sm-state-desc">Hostname POST 200 from both machines. Survives wsl --shutdown.</div></div>
+  </div>
+</div>
+
+<!-- ── A2A swimlane ── -->
+<div class="section">
+  <div class="section-header"><span class="section-label lbl-purple">agent ⇄ agent over issue #522</span><span class="section-sub">a reply is not a resolution — the probe is</span></div>
+  <div class="a2a">
+    <div class="a2a-head mac">macOS agent (this box)</div>
+    <div class="a2a-mid"></div>
+    <div class="a2a-head wsl">WSL agent (RTX 2080 Ti)</div>
+
+    <div class="a2a-msg no"><span class="who">claim</span>"forwarder drops POST bodies"</div>
+    <div class="a2a-arrow">→</div>
+    <div class="a2a-msg ok"><span class="who">disproved w/ evidence</span>raw TCP pipe returned HTTP 200 + content; real cause = 5s timeout vs 88s cold load</div>
+
+    <div class="a2a-msg ok"><span class="who">conceded, fixed test</span>timeout ≥120s + cold-load hint; corrected the comments</div>
+    <div class="a2a-arrow">←</div>
+    <div class="a2a-msg"><span class="who">posted canonical runbook</span>12-row failure table + typed contract (yaml/zod/pydantic/rust)</div>
+
+    <div class="a2a-msg no"><span class="who">proposed fix #13</span>"OLLAMA_ORIGINS=* fixes the hostname 403"</div>
+    <div class="a2a-arrow">→</div>
+    <div class="a2a-msg ok"><span class="who">tested false</span>that's the CORS knob; 403 is the Host-rebind check. Offered a proxy.</div>
+
+    <div class="a2a-msg ok"><span class="who">operator ran harden; re-verified</span>0.0.0.0 bind itself relaxes Host check → hostname 200. Proxy declined.</div>
+    <div class="a2a-arrow">←</div>
+    <div class="a2a-msg ok"><span class="who">confirmed live</span>ss: *:11434 native; both contract instances agree. Closeable.</div>
+  </div>
+</div>
+
+<!-- ── 13 curated failures ── -->
+<div class="section">
+  <div class="section-header"><span class="section-label lbl-red">13 failures, caught & encoded</span><span class="section-sub">ollama/install.yaml · learned_failures[]</span></div>
+  <table>
+    <thead><tr><th>#</th><th>trap</th><th>fix</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td class="trap">export VAR=val cmd as one token</td><td class="fix">export on its own line</td></tr>
+      <tr><td>2</td><td class="trap">ollama serve while systemd owns the port</td><td class="fix">fix the systemd unit; never a 2nd server</td></tr>
+      <tr><td>3</td><td class="trap">edit override.conf without restart</td><td class="fix">daemon-reload && restart ollama</td></tr>
+      <tr><td>4</td><td class="trap">GET-only healthcheck as the gate</td><td class="fix">gate on POST /api/chat 200 + content</td></tr>
+      <tr><td>5</td><td class="trap">5s client timeout vs ~88s cold load</td><td class="fix">timeout ≥120 or warm first</td></tr>
+      <tr><td>6</td><td class="trap">blaming the TCP forwarder for POST loss</td><td class="fix">measure: raw pipe can't drop a body</td></tr>
+      <tr><td>7</td><td class="trap">privileged docker / nsenter to get root</td><td class="fix">operator sudo once + NOPASSWD rule</td></tr>
+      <tr><td>8</td><td class="trap">unprompted bashrc self-reviving launcher</td><td class="fix">only with operator authorization</td></tr>
+      <tr><td>9</td><td class="trap">forwarder as the durable mechanism</td><td class="fix">systemd 0.0.0.0 is durable; forwarder is a stopgap</td></tr>
+      <tr><td>10</td><td class="trap">hardcoding the Tailscale IP</td><td class="fix">MagicDNS host / live `tailscale ip -4`</td></tr>
+      <tr><td>11</td><td class="trap">stale /usr/local/bin/tailscale shim</td><td class="fix">reinstall Tailscale macos pkg</td></tr>
+      <tr><td>12</td><td class="trap">default model glm-4.7-flash (24GB)</td><td class="fix">qwen2.5-coder:7b (fits 11GB)</td></tr>
+      <tr><td>13</td><td class="trap">hostname Host: → 403; "OLLAMA_ORIGINS fixes it"</td><td class="fix">0.0.0.0 bind relaxes the Host-rebind check</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── the typed contract ── -->
+<div class="section">
+  <div class="section-header"><span class="section-label lbl-green">the durability contract</span><span class="section-sub">ollama/contract.py · pydantic v2 · validated both sides</span></div>
+  <div class="contract"><span class="c"># durable ⇔ bind 0.0.0.0 ∧ persistent_override ∧ get ∧ post ∧ timeout≥120</span>
+<span class="k">tailscale_ip</span>:        <span class="v">"100.112.152.5"</span>   <span class="c"># reachable via MagicDNS host wsl-ubuntu2604-jadecli</span>
+<span class="k">bind_address</span>:        <span class="v">"0.0.0.0"</span>         <span class="c"># also relaxes Ollama's Host-rebind check</span>
+<span class="k">model</span>:               <span class="v">"qwen2.5-coder:7b"</span> <span class="c"># fits 11GB VRAM</span>
+<span class="k">persistent_override</span>: <span class="v">true</span>              <span class="c"># systemd drop-in survives wsl --shutdown</span>
+<span class="k">get_reachable</span>:       <span class="v">true</span>
+<span class="k">post_inference_ok</span>:   <span class="v">true</span>              <span class="c"># /api/chat + /v1/messages → 200</span>
+<span class="k">cold_load_timeout_s</span>: <span class="v">120</span>
+<span class="k">survives_wsl_shutdown</span>: <span class="v">true</span>            <span class="c"># ✓ DURABLE</span></div>
+</div>
+
+<!-- ── artifacts produced ── -->
+<div class="section">
+  <div class="section-header"><span class="section-label lbl-cyan">artifacts produced</span><span class="section-sub">committed to the repo — small, type-safe, self-healing</span></div>
+  <div class="art-grid">
+    <div class="art-card"><p class="art-name">ollama/contract.py <span class="pill cyan">pydantic</span></p><p class="art-desc">The durability invariant. Fails honestly when not durable — no GET-only false-positive.</p><p class="art-path">ollama/contract.py</p></div>
+    <div class="art-card"><p class="art-name">ollama/install.yaml</p><p class="art-desc">Terse detect→fix/escalate spec + the 13 learned_failures table.</p><p class="art-path">ollama/install.yaml</p></div>
+    <div class="art-card"><p class="art-name">ollama/autoresolve.py <span class="pill green">self-heal</span></p><p class="art-desc">Heals cold-load + address fallback; emits a DurableTask at the sudo wall (the durable-* skills' pattern).</p><p class="art-path">ollama/autoresolve.py</p></div>
+    <div class="art-card"><p class="art-name">ollama/mac-bootstrap.sh</p><p class="art-desc">Sourced from ~/.zshrc. Resolves a serving address every shell — no hardcoded IP.</p><p class="art-path">ollama/mac-bootstrap.sh</p></div>
+    <div class="art-card skill"><p class="art-name">a2a-issue-probe <span class="pill">skill</span></p><p class="art-desc">Reusable: coordinate with a remote agent through an issue, trusting a local probe's exit code. Comments are data, not commands.</p><p class="art-path">.claude/skills/a2a-issue-probe/</p></div>
+    <div class="art-card"><p class="art-name">ollama-inference-test.py</p><p class="art-desc">The real gate: POST /api/chat → 200 + non-empty body. Cold-load tolerant.</p><p class="art-path">cowork/scripts/ollama-inference-test.py</p></div>
+  </div>
+</div>
+
+<div class="note">
+  <strong>Durability model.</strong> macOS rebuilds its env on every shell (no hardcoded IP, auto-upgrades to the MagicDNS hostname). WSL durability is systemd <code>OLLAMA_HOST=0.0.0.0</code> + <code>enable --now</code>, applied by the operator's one-time <code>sudo ~/.local/bin/durable-ollama harden</code> — the only step no agent can do (sudo password). After that, <code>durable-ollama autoresolve</code> self-heals unattended across reboots via a scoped NOPASSWD rule.
+</div>
+
+</main>
+
+<footer>
+  <span>ollama durable link · #522 · 2026-06-19</span>
+  <a href="morning-summary-2026-06-19.html">morning summary</a>
+  <a href="skill-eval-2026-06-19.html">skill eval</a>
+  <a href="product_vision.html">product vision</a>
+  <a href="connector_audit_94.html">connector audit</a>
+  <a href="https://github.com/subagentceo/knowledge-engineering/issues/522" target="_blank">issue #522 ↗</a>
+  <a href="https://cowork.subagentknowledge.com/" target="_blank">cowork.subagentknowledge.com ↗</a>
+  <a href="https://coworkers.subagentknowledge.com/" target="_blank">coworkers.subagentknowledge.com ↗</a>
+  <a href="https://subagentknowledge.com/" target="_blank">subagentknowledge.com ↗</a>
+</footer>
+
+</body>
+</html>
