@@ -51,7 +51,12 @@
       ],
       "description": "Lead PM. Routes work, manages priority-rerank cadence, maintains product-management queue. Orchestrates peer coworkers via e2m-mcp mailbox_send.",
       "subdomain_surface": "coworkers.subagentknowledge.com/product-management",
-      "test": "cowork/coworkers/tests/pm-coworker.test.ts"
+      "test": "cowork/coworkers/tests/pm-coworker.test.ts",
+      "role": "chief-of-staff",
+      "direct_reports": [
+        "project-management-coworker"
+      ],
+      "notes": "TODO: rename id\u2192product-management-coworker once routing stable"
     },
     {
       "id": "design-coworker",
@@ -303,160 +308,45 @@
         "human-resources:recruiting-pipeline"
       ],
       "test": "cowork/coworkers/tests/human-resources-coworker.test.ts"
+    },
+    {
+      "id": "project-management-coworker",
+      "display_name": "Project Management",
+      "domain": "project-management",
+      "queue": "project-management",
+      "mailbox": "cowork/data/mailbox/project-management-coworker.jsonl",
+      "skill": "cowork/coworkers/skills/project-management-coworker/SKILL.md",
+      "model": "claude-opus-4-6",
+      "model_budget": "claude-opus-4-8",
+      "trigger_phrase": "/project-management-coworker",
+      "protocols": [
+        "a2a",
+        "e2m-mcp"
+      ],
+      "peers": [
+        "pm-coworker",
+        "engineering-coworker",
+        "agent-resources-coworker"
+      ],
+      "reports_to": "pm-coworker",
+      "description": "Execution tracker, nightly review, type-safety auditor. Reports to product-management."
     }
   ],
-  "plugins": {
-    "enterprise-search": {
+  "plugins": [
+    {
+      "id": "project-management",
       "skills": [
-        "digest",
-        "knowledge-synthesis",
-        "search",
-        "search-strategy",
-        "source-management"
-      ],
-      "coworker_affinity": [
-        "pm-coworker",
-        "data-coworker",
-        "engineering-coworker"
-      ],
-      "description": "Cross-vendor doc search across 25 vendor surfaces in vendor/. Powers the enterprise knowledge surface."
-    },
-    "productivity": {
-      "skills": [
-        "memory-management",
-        "start",
-        "task-management",
-        "update"
-      ],
-      "coworker_affinity": [
-        "pm-coworker"
-      ],
-      "description": "Session continuity, heartbeat, task routing. Extends structured-prompt-resume."
-    },
-    "skill-ci-cd": {
-      "skills": [
-        "durable-agent-ci-cd-rubrics",
-        "durable-agent-ci-cd-evals",
-        "durable-agent-ci-cd-outcomes"
-      ],
-      "skill_paths": [
-        ".claude/skills/durable-agent-ci-cd-rubrics/SKILL.md",
-        ".claude/skills/durable-agent-ci-cd-evals/SKILL.md",
-        ".claude/skills/durable-agent-ci-cd-outcomes/SKILL.md"
-      ],
-      "coworker_affinity": [
-        "engineering-coworker",
-        "pm-coworker"
-      ],
-      "description": "Merge gate for .claude/skills/. rubrics defines scoring (D1 type-safety, D2 durability, D3 agent-reuse, D4 packaging). evals runs the harness and writes cowork/data/queues/skill-grades.jsonl. outcomes reads grades, emits verdict per skill, and writes blocking DurableTasks to engineering.jsonl.",
-      "protocols": [
-        "e2m-mcp"
-      ],
-      "cite": [
-        ".claude/skills/durable-agent-ci-cd-rubrics/SKILL.md",
-        "cowork/templates/task-state-machine.ts",
-        "cowork/mcp/e2m-mcp/server.ts",
-        "cowork/data/queues/skill-grades.jsonl",
-        "cowork/data/queues/skill-outcomes.jsonl"
+        "nightly-review",
+        "type-safety-audit",
+        "morning-summary",
+        "output-schema-codify",
+        "pr-recap",
+        "queue-health-report",
+        "schedule-review",
+        "standard-enforcement"
       ]
-    },
-    "durable-memory": {
-      "skills": [
-        "durable-lru-dreams",
-        "durable-pg-memory-store"
-      ],
-      "skill_paths": [
-        ".claude/skills/durable-lru-dreams/SKILL.md",
-        ".claude/skills/durable-pg-memory-store/SKILL.md"
-      ],
-      "coworker_affinity": [
-        "pm-coworker",
-        "engineering-coworker",
-        "data-coworker"
-      ],
-      "description": "Redis LRU + postgres durable memory layer. durable-lru-dreams owns the Dreams API lifecycle and dream_consolidation task pipeline. durable-pg-memory-store owns memory store CRUD, memory version history, PII redact, and cache hit/miss telemetry. Both write DurableTask envelopes to engineering.jsonl via e2m-mcp.",
-      "protocols": [
-        "e2m-mcp"
-      ],
-      "cite": [
-        "platform.claude.com/docs/en/managed-agents/dreams.md",
-        "platform.claude.com/docs/en/managed-agents/memory.md",
-        "cowork/templates/task-state-machine.ts",
-        ".claude/skills/durable-lru-dreams/references/durable-dreams-memory-tasks.sql"
-      ]
-    },
-    "legal": {
-      "skills": [
-        "legal:brief",
-        "legal:compliance-check",
-        "legal:legal-response",
-        "legal:legal-risk-assessment",
-        "legal:meeting-briefing",
-        "legal:review-contract",
-        "legal:signature-request",
-        "legal:triage-nda",
-        "legal:vendor-check"
-      ],
-      "coworker_affinity": [
-        "legal-coworker",
-        "sales-coworker",
-        "engineering-coworker"
-      ],
-      "description": "Legal review, compliance, NDA triage, contract review, vendor due-diligence. All output queued for operator approval before any external action."
-    },
-    "marketing": {
-      "skills": [
-        "marketing:brand-review",
-        "marketing:campaign-plan",
-        "marketing:competitive-brief",
-        "marketing:content-creation",
-        "marketing:draft-content",
-        "marketing:email-sequence",
-        "marketing:performance-report",
-        "marketing:seo-audit"
-      ],
-      "coworker_affinity": [
-        "marketing-coworker",
-        "sales-coworker",
-        "pm-coworker"
-      ],
-      "description": "Brand, content, SEO, campaigns, competitive intelligence. All content queued \u2014 never published without operator approval."
-    },
-    "agent-resources": {
-      "skills": [
-        "agent-resources:onboard",
-        "agent-resources:upgrade-skill",
-        "agent-resources:performance-report",
-        "agent-resources:cost-report",
-        "agent-resources:retire"
-      ],
-      "coworker_affinity": [
-        "agent-resources-coworker",
-        "engineering-coworker",
-        "pm-coworker"
-      ],
-      "description": "Agent lifecycle management: onboard, upgrade, review, retire. Coordinates with engineering-coworker for SKILL.md changes."
-    },
-    "human-resources": {
-      "skills": [
-        "human-resources:comp-analysis",
-        "human-resources:draft-offer",
-        "human-resources:interview-prep",
-        "human-resources:onboarding",
-        "human-resources:org-planning",
-        "human-resources:people-report",
-        "human-resources:performance-review",
-        "human-resources:policy-lookup",
-        "human-resources:recruiting-pipeline"
-      ],
-      "coworker_affinity": [
-        "human-resources-coworker",
-        "finance-coworker",
-        "legal-coworker"
-      ],
-      "description": "People ops for humans. All offers/correspondence draft-only \u2014 operator approves before send."
     }
-  },
+  ],
   "continuity": {
     "queue_dir": "cowork/data/queues",
     "mailbox_dir": "cowork/data/mailbox",

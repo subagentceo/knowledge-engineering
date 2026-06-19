@@ -22,11 +22,12 @@ DOMAIN_TO_MAILBOX = {
   "marketing":          "marketing-coworker",
   "agent-resources":    "agent-resources-coworker",
   "human-resources":    "human-resources-coworker",
+  "project-management": "project-management-coworker",
 }
 
 def main():
     p = argparse.ArgumentParser(description="Dispatch DurableTask to coworker queue + mailbox")
-    p.add_argument("--queue",   required=True, choices=list(DOMAIN_TO_MAILBOX.keys()))
+    p.add_argument("--queue",   required=True)
     p.add_argument("--subject", required=True)
     p.add_argument("--from",    dest="sender", default="pm-coworker")
     p.add_argument("--ke",      type=int, default=None, help="ke_fit_score 1-5")
