@@ -17,7 +17,7 @@ if [ -z "$TAILSCALE_IP" ]; then
 fi
 
 OLLAMA_PORT="${OLLAMA_PORT:-11434}"
-OLLAMA_MODEL="${OLLAMA_MODEL:-glm-4.7-flash:latest}"
+OLLAMA_MODEL="${OLLAMA_MODEL:-qwen2.5-coder:7b}"  # fits 11GB VRAM; glm-4.7-flash needs 24GB
 
 export ANTHROPIC_BASE_URL="http://${TAILSCALE_IP}:${OLLAMA_PORT}"
 export ANTHROPIC_API_KEY="ollama"

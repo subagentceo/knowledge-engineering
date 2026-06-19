@@ -15,8 +15,10 @@ updated_at: "2026-06-19"
 
 # ── Local Ollama (zero Anthropic cost) ────────────────────────────────────────
 local:
-  preferred_model: "glm-4.7-flash:latest"      # fits 8GB VRAM, strong tool-calling
-  fallback_model:  "devstral-small-2:24b"       # if 16GB VRAM available
+  # RTX 2080 (11GB VRAM) — verified by Parallel research 2026-06-19
+  # glm-4.7-flash is 30B MoE (~24GB VRAM) — does NOT fit. Use qwen2.5-coder.
+  preferred_model: "qwen2.5-coder:7b"           # ~5GB VRAM, 45-70 t/s, solid tool-calling
+  fallback_model:  "qwen2.5-coder:14b-q4_k_m"  # ~9GB VRAM, higher quality if speed ok
   backend_check:   "cowork/scripts/ollama-healthcheck.py"
   tailscale_env:   "OLLAMA_TAILSCALE_IP"        # set to WSL machine Tailscale IP
 
