@@ -1,231 +1,83 @@
 ---
 name: heartbeat
 description: >
-  Long-running orchestrator loop spanning multiple Claude Code sessions
-  with persisted memory. The lead orchestration agent reads the current
-  state of the project (rubrics, milestones, open PRs, last heartbeat
-  artifact), picks the next actionable task, executes it, and writes a
-  durable note back to the memory store before yielding the session.
-  Use when the operator wants the agent to keep working across sessions
-  without manual hand-off.
-disable-model-invocation: false
+  Cross-session orchestrator: reads the e2m JSONL queues, claims the
+  highest-priority pending DurableTask, executes it, writes the state
+  transition, and yields. Use whenever the user starts a new session and
+  asks "what's next", "continue", "heartbeat", "pick up where we left off",
+  or a /loop tick fires. Fire eagerly at session start — always read the
+  queues before answering "what should I work on". Do NOT use for
+  single-shot questions with no recurrence — just answer those directly.
+  Pairs with structured-prompt-resume (interrupt recovery) and
+  durable-toolchain-autoresolve (gap remediation).
 ---
 
-# When to invoke
+<!--
+  @cite cowork/data/queues/                       (JSONL domain queues)
+  @cite cowork/templates/task-state-machine.ts    (DurableTask schema)
+  @cite cowork/mcp/e2m-mcp/server.ts              (envelope_write, mailbox)
+  @cite seeds/posture/session-start.xml           (auth + posture)
+-->
 
-Invoke this skill when:
+## Protocol
 
-- The user starts a new session and asks "what's next?" / "continue".
-- A `/routines run "<interval>"` expression dispatches to `/loop` and
-  the loop body calls the heartbeat (i.e., the heartbeat is the work
-  done per tick).
-- The planner emits a `kind: "heartbeat"` step.
-- A `/schedule` routine fires on a cron expression.
+Every tick is a single atomic unit: read → claim → execute → write.
 
-# Citations
-
-Sources for the cross-session memory + dreams pattern (used here as
-guidance, NOT as Managed Agents API calls):
-
-- `vendor/anthropics/platform.claude.com/docs/en/managed-agents/memory.md`
-- `vendor/anthropics/platform.claude.com/docs/en/managed-agents/dreams.md`
-
-Sources for the operator-side translation:
-
-- `seeds/prompts/operator-2026-05-10-heartbeat.md`
-- `seeds/posture/session-start.xml`
-- `rubrics/phase-0.md` (and the rest of `rubrics/phase-{1..12}.md`)
-
-# State boundaries
-
-**Memory store layout (operator-side translation of `/mnt/memory/`).**
-
-```
-seeds/memory/
-  heartbeat/
-    last-tick.md            # one-line summary + git SHA at end of last tick
-    open-questions.md       # questions for the operator (PR comments or chat)
-    decisions.md            # decisions the orchestrator made, dated
-    next-actions.md         # the queue this tick pops from
-  _shared/                  # read-only reference material
-    rubrics-snapshot.md     # derived from rubrics/, refreshed on dream
-    project-state.md        # derived from GH milestones + issues
+```python
+# Pseudocode — exact schema from cowork/templates/task-state-machine.ts
+task = read_highest_priority("cowork/data/queues/product-management.jsonl")
+write_transition(task.id, state="in_progress", updated_at=now())
+result = execute(task)
+write_transition(task.id, state="completed" if result.ok else "failed",
+                 result=result.payload, error=result.error)
 ```
 
-All paths under `seeds/memory/` are git-tracked. Each heartbeat tick
-that mutates state commits with message `chore(memory): heartbeat
-tick <iso-timestamp>`. Untrusted external bodies (anything under
-`vendor/`) MUST NOT be written into `seeds/memory/` — see the
-prompt-injection warning in `seeds/citations/memory.md`.
+## Queue read order (priority)
 
-# Per-tick procedure
+1. `cowork/data/queues/product-management.jsonl` — pm tasks
+2. `cowork/data/queues/engineering.jsonl` — skill gate + toolchain gaps
+3. `cowork/data/queues/data.jsonl`, `design.jsonl`, `sales.jsonl`, `finance.jsonl`
 
-1. **Read state.** Open `seeds/memory/heartbeat/last-tick.md` and
-   `seeds/memory/heartbeat/next-actions.md`. If empty, derive the
-   queue from open issues on the GitHub project (Phase 4+).
-2. **Pick.** Pop the top action. If none, exit cleanly with
-   `loop tick <iso> — queue empty`.
-3. **Verify gates.** Resolve the action's rubric reference
-   (`rubrics/phase-<N>.md`). If the phase has unmet operator-gating
-   steps (Phase 1 example: Neon Console install), surface them as a
-   PR comment or in `open-questions.md` and pick the next action.
-4. **Execute.** Decompose the action into todos, run the work,
-   commit per-todo per the operator discipline.
-5. **Open PR with auto-merge.** When the work is ready, open a PR via
-   `mcp__github__create_pull_request`. Label it `automerge` (see
-   `.github/workflows/auto-merge.yml`). Required CI workflows
-   (`verify.yml`, `osv-scanner.yml`) gate the merge — operator does
-   NOT review. Subscribe to PR activity via
-   `mcp__github__subscribe_pr_activity` so failures wake the next
-   session.
-6. **Watch CI.** PR-activity events arrive as
-   `<github-webhook-activity>` messages in subsequent sessions. The
-   heartbeat reads each event, classifies the failure (see the table
-   in `docs/governance.md`), and either (a) pushes a fix, (b) posts a
-   question to the PR for the operator tiebreaker, or (c) skips
-   silently if no action is needed. Retry cap: 3 fix loops per PR.
-7. **Record.** Append a one-line entry to `decisions.md` and update
-   `last-tick.md` with the final git SHA + ISO timestamp. Commit.
-8. **Yield.** Exit the session. The next heartbeat (next `/loop` tick
-   or next session, or the next webhook event) resumes from the new
-   `last-tick.md`.
+Last-line-wins per `task_id`. Skip `state=completed|failed|blocked`.
 
-# Cross-session resumption
-
-A fresh session resumes by reading `seeds/memory/heartbeat/last-tick.md`
-and the latest `seeds/memory/heartbeat/decisions.md` entries. No
-in-process state is required. This is the operator-side translation of
-"memory store mounted as a directory inside the session's container":
-
-| Managed-agents primitive (cited)              | Operator-side translation                              |
-| --------------------------------------------- | ------------------------------------------------------ |
-| `/mnt/memory/<store>/` (mounted directory)    | `seeds/memory/<store>/` (git-tracked directory)        |
-| Standard file tools (read/write the mount)    | `Read` / `Write` / `Edit` tools against the directory  |
-| "stay in sync across sessions that share it"  | Atomic git commits; `git pull` before each session     |
-| `read_write` vs `read_only` access mode       | git permissions + the `_shared/` convention            |
-| Memory versions + audit log                   | `git log seeds/memory/`                                |
-| Dreams (reorganize the store)                 | Weekly `/schedule` running a "dream" sub-routine       |
-
-# Dream sub-routine (Phase 11+, optional)
-
-Per `seeds/citations/dreams.md`:
-
-> A dream reads an existing memory store alongside past session
-> transcripts, then produces a new, reorganized memory store: duplicates
-> merged, stale or contradicted entries replaced with the latest value,
-> and new insights surfaced.
-
-Operator-side translation:
-
-1. A weekly `/schedule` fires.
-2. The dream sub-agent reads `seeds/memory/heartbeat/*.md` plus the
-   last N tick artifacts (from `git log`).
-3. It produces a reorganized memory store in a branch
-   (`heartbeat/dream/<iso>`) and opens a draft PR.
-4. The operator reviews and merges; merging adopts the new store.
-5. If the operator rejects, close the PR; the original store is
-   untouched (matches the cited doc's "input store is never modified"
-   discipline).
-
-Phase 11 layers Turbopuffer on top: pre-embed all memory entries via
-Voyage AI, store vectors in Turbopuffer, query semantically when the
-heartbeat asks "what do I remember about X?".
-
-### Turbopuffer dream-memory plan (cited from `seeds/citations/turbopuffer.md`)
-
-Once Phase 11.C lands (gated on `secrets.VOYAGE_API_KEY` + `secrets.TURBOPUFFER_API_KEY`):
-
-- `seeds/memory/heartbeat/decisions.md` entries become Turbopuffer
-  documents in a `heartbeat` namespace (per
-  `vendor/turbopuffer/turbopuffer.com/docs/namespaces.md`).
-- Each entry: `{id: <tick_iso>, vector: <Voyage 1024-dim>, decision,
-  sha, tick_iso}`.
-- Dream query: vector + BM25 hybrid search (per
-  `vendor/turbopuffer/turbopuffer.com/docs/hybrid.md`) — exact phrases
-  (PR numbers, file paths) rank alongside semantic matches.
-- Warm-cache pre-flight at tick start (per
-  `vendor/turbopuffer/turbopuffer.com/docs/warm-cache.md`) drops
-  first-query latency from p50=343ms (cold) to p50=8ms (warm).
-- Subprocessor disclosure: this surface is documented in the root
-  `SUBPROCESSORS.md` so forking founders re-evaluate before adding
-  end-user data (out of `PRODUCTRD.md` v1 scope).
-
-# CI-failure dispatch classifier
-
-Per `docs/governance.md`:
-
-| Failure signal in webhook event | Classifier verdict | Action |
-|---|---|---|
-| `verify.yml` exit ≠ 0 with `error TS` lines | typecheck | spawn type-fixer sub-agent against the offending file |
-| `verify.yml` exit ≠ 0 with `verify:citations` block | citations | spawn @cite-fixer sub-agent against the test file lacking a header |
-| `verify.yml` exit ≠ 0 with `verify:gates` block | gates drift | spawn gates-syncer against `docs/phase-gates.md` vs rubrics |
-| `verify.yml` exit ≠ 0 in MCP smoke | tool-list mismatch | check `scripts/verify.ts` `expected: N` vs the lane source |
-| `osv-scanner.yml` SARIF with high-severity | dep CVE | spawn dep-bumper sub-agent; bump the vulnerable package; verify |
-| `neon-branch.yml` / `cloudflare-preview.yml` ::warning::missing secret | operator gate | post a comment summarizing the missing secret; do NOT push |
-| Anything ambiguous / >3 retries | escalate | post a question to the PR for the operator |
-
-After each dispatch the heartbeat records the classifier verdict and
-the sub-agent's outcome in `seeds/memory/heartbeat/decisions.md`.
-
-# Per-tick read order (Phase 15 codification)
-
-This skill IS this repo's **Dispatch** per the Cowork primitive defined
-in `vendor/anthropics/claude.com/docs/cowork/guide/dispatch.md`:
-
-> Dispatch is a long-running agent in Cowork that takes high-level
-> instructions and carries them out in the background. ... it can run
-> many child tasks beneath that conversation.
-
-Each PR opened by this skill IS a Dispatch child task.
-
-On every tick, read state in this order — sourced from the canonical
-project manifest at `docs/PROJECT.md` (Phase 15.A):
-
-1. **`docs/PROJECT.md`** — the project manifest (Cowork-style; folders +
-   instructions + links + memory + plugins + dispatch wiring). Identifies
-   what "this project" is doing.
-2. **`docs/pending.md`** — the live 3-column dashboard (Phase 15.B):
-   operator browser actions / operator CLI actions / autonomous follow-ups.
-   Identifies what's blocked vs ready.
-3. **`docs/phase-gates.md`** — per-phase dependency map. Identifies which
-   phases can advance (operator-pending count = 0 for that phase).
-4. **`seeds/memory/heartbeat/last-tick.md`** — what the previous heartbeat
-   tick decided. Identifies where to resume.
-5. **`seeds/memory/heartbeat/next-actions.md`** — the queue (currently
-   derived from open GH issues; Phase 11.C lights up Turbopuffer-backed
-   semantic memory).
-
-Pop the top action whose phase rubric says READY (criteria 1-N met OR
-operator gates cleared). Execute. Open PR with `automerge` label. Yield.
-
-# Boris Cherny lead orchestration pattern
-
-The heartbeat skill is the operator-side embodiment of the publicly-
-documented Anthropic pattern (Boris Cherny) where a sufficiently
-scaffolded agent system writes 100% of the codebase. The lead
-orchestrator (this skill) drives sub-agents (Phase 10's
-`npm-research` / `verifier` / `crawl-curator`) per rubric, opens PRs
-with auto-merge enabled, listens for CI events, dispatches fixers on
-failure, and continues across sessions. Operator becomes a
-tiebreaker, not a reviewer (see `docs/governance.md`).
-
-# Examples
+## DurableTask state machine
 
 ```
-# First-ever tick after PR 3 lands:
-/routines run "heartbeat"
-→ reads empty next-actions.md
-→ derives initial queue from GitHub project Phase 1 milestone issues
-→ picks the first Phase 1 issue
-→ runs Phase 1 rubric gating check
-→ if green: commits scripts/crawl-vendors.ts scaffold per the rubric
-→ records "phase-1 started" decision; updates last-tick.md
-→ yields
-
-# Weekly dream sub-routine:
-/schedule every Sunday 22:00 run heartbeat dream
-→ reads seeds/memory/heartbeat/*.md
-→ opens draft PR with reorganized memory store
-→ surfaces 1-3 new insights in the PR body
-→ yields
+pending → in_progress → completed
+                      → failed      (write error + resolvable flag)
+                      → blocked     (write depends_on list)
 ```
+
+Emit every transition as a JSONL append — never update in place.
+
+## Failure pattern
+
+```json
+{
+  "id": "<uuid>", "queue": "engineering", "subject": "...",
+  "state": "failed", "ke_fit_score": 4,
+  "created_at": "...", "updated_at": "...",
+  "error": {
+    "message": "npm run verify exited 1",
+    "resolvable": true,
+    "suggested_skill": "durable-toolchain-autoresolve"
+  }
+}
+```
+
+## Scheduling
+
+```bash
+# session-start hook (always)
+python3 .claude/skills/durable-agent-ci-cd-evals/scripts/eval_skills.py   --skills-dir .claude/skills --output cowork/data/queues/skill-grades.jsonl
+
+# nightly at 04:00 UTC
+/schedule "every day 04:00" npm run service:refresh
+```
+
+## Invariants
+
+- OAuth only. `ANTHROPIC_API_KEY` presence = bug.
+- One task per commit. Conventional commit: `<type>(<scope>): <subject>`.
+- Branch must start with `claude/`. Labels: `automerge`.
+- OAUTO17: bot close/reopen cycles → silent skip.
