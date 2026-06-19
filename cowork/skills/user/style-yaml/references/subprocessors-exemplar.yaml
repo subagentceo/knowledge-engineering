@@ -1,0 +1,41 @@
+# Anthropic subprocessors.yaml exemplar
+# This file is the canonical reference for how style-yaml emits YAML
+# with a top-level citations: array.
+#
+# Source: Anthropic subprocessors page (operator-provided schema.ts + YAML pair)
+# Date: 2026-06-04
+#
+# The pattern: flat YAML data + optional top-level `citations:` array
+# matching CitationSchema from citation.schema.ts.
+
+infrastructure:
+  - name: Google Cloud Platform
+    purpose: Cloud infrastructure
+    location: Worldwide
+    products: [All Products]
+    url: cloud.google.com
+  - name: Amazon Web Services
+    purpose: Cloud Infrastructure
+    location: Worldwide
+    products: [All Products]
+    url: aws.amazon.com
+
+billing:
+  - name: Stripe
+    purpose: Billing
+    location: United States
+    products: [Claude Pro/Max, Claude Developer Platform, Claude for Work]
+    url: www.stripe.com
+
+# Citation sidecar follows the same top-level key pattern:
+citations:
+  - id: anthropic-subprocessors-2026
+    type: webpage
+    title: Anthropic Subprocessors
+    URL: https://www.anthropic.com/legal/subprocessors
+    issued:
+      date-parts: [[2026, 1, 1]]
+    prov:
+      wasDerivedFrom: ["https://www.anthropic.com/legal/subprocessors"]
+      generatedAtTime: "2026-06-04T00:00:00Z"
+      wasAttributedTo: "mcp://agent/operator-01"
