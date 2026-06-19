@@ -9,13 +9,13 @@ Returns the best available inference backend:
 Usage:
   from cowork.scripts.ollama_healthcheck import check_backend
   backend = check_backend()
-  # backend = {"available": True, "base_url": "http://100.x.x.x:11434", "model": "glm-4.7-flash:latest", "source": "local"}
+  # backend = {"available": True, "base_url": "http://100.x.x.x:11434", "model": "qwen2.5-coder:7b", "source": "local"}
   # or       = {"available": True, "base_url": "https://api.anthropic.com", "model": None, "source": "anthropic"}
 
 Env vars read:
   OLLAMA_TAILSCALE_IP  — Tailscale IP of the WSL machine (required for local)
   OLLAMA_PORT          — default 11434
-  OLLAMA_MODEL         — default glm-4.7-flash:latest
+  OLLAMA_MODEL         — default qwen2.5-coder:7b  (fits 11GB VRAM; glm-4.7-flash needs 24GB)
   ANTHROPIC_API_KEY    — used in fallback path (must be real key, not "ollama")
 """
 
@@ -28,7 +28,7 @@ import sys
 # ── config ────────────────────────────────────────────────────────────────────
 TAILSCALE_IP  = os.environ.get("OLLAMA_TAILSCALE_IP", "")
 OLLAMA_PORT   = int(os.environ.get("OLLAMA_PORT", "11434"))
-OLLAMA_MODEL  = os.environ.get("OLLAMA_MODEL", "glm-4.7-flash:latest")
+OLLAMA_MODEL  = os.environ.get("OLLAMA_MODEL", "qwen2.5-coder:7b")
 PING_TIMEOUT  = float(os.environ.get("OLLAMA_PING_TIMEOUT", "2.0"))  # seconds
 
 # ── helpers ───────────────────────────────────────────────────────────────────
