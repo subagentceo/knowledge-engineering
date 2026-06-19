@@ -7,12 +7,13 @@ description: >
   (completed / failed / blocked) with structured results and full echo log.
   Every step is logged with [RESOLVE], [SKIP], [ESCALATE] prefixes; every
   outcome is a JSONL transition — failures never disappear silently.
-  Use this skill WHENEVER the user says "autoresolve", "fix toolchain gaps",
+  Fire whenever the user says "autoresolve", "fix toolchain gaps",
   "resolve pending tasks", "auto-fix missing tools", "what's blocking my
   toolchain", or after durable-toolchain-doctor emits the action field
   "run durable-toolchain-autoresolve". This is the orchestrator: doctor detects,
   install fixes, autoresolve closes the loop. Unresolvable tasks (unknown env,
   no package mapping) go to blocked state with a human-readable escalation note.
+  Do NOT use for non-toolchain DurableTasks — use heartbeat for those.
   Pairs with durable-toolchain-doctor and durable-toolchain-install.
 
 ---
