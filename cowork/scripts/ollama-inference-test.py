@@ -6,10 +6,17 @@ Unlike ollama-healthcheck.py (which only does GET / and GET /api/tags), this
 script POSTs an actual inference request and asserts a 200 + non-empty body.
 
 WHY this exists: a GET-only healthcheck is a false-positive gate. GET /api/tags
-succeeds even when POST /api/chat dies, because GET carries no request body and
-never triggers a model load into VRAM. Issue #522 was repeatedly declared
-"resolved" off a passing GET healthcheck while inference was 100% broken
-(POST returned http_code=000 at a ~5s read-timeout). This test closes that gap.
+succeeds even when a real inference request is still in flight, because GET
+carries no body and never triggers a model load into VRAM. Issue #522 was
+declared "resolved" off a passing GET healthcheck without ever exercising
+inference. This test POSTs real inference so the gate means something.
+
+NOTE (#522 post-mortem): the FIRST POST to a cold model loads weights into VRAM
+(~90s on an RTX 2080 Ti). A short client timeout (e.g. 5s) will see that as a
+RemoteDisconnected / http_code=000 — which looks like a network/proxy fault but
+is just the client giving up mid-load. That is why TIMEOUT defaults to 120s and
+the failure path prints a cold-load hint. GET vs POST asymmetry = model load,
+not a binding or forwarder bug.
 
 @cite https://docs.ollama.com/faq  (OLLAMA_HOST=0.0.0.0:11434 — bind-all config)
 @cite cowork/config/local-model-policy.yaml
@@ -66,8 +73,9 @@ def run_inference(host: str, port: int, model: str, prompt: str, timeout: float)
     except urllib.error.HTTPError as e:
         return {"ok": False, "reason": f"HTTP {e.code}", "elapsed_s": round(time.monotonic() - started, 2)}
     except Exception as e:
-        # http_code=000 class: connection reset / empty reply / read timeout —
-        # the exact symptom of the body-dropping userspace forwarder.
+        # http_code=000 class: connection reset / empty reply / read timeout.
+        # On a COLD model this is usually the client timeout firing during the
+        # ~90s VRAM load, NOT a network fault — see the cold-load hint below. (#522)
         return {"ok": False, "reason": f"{type(e).__name__}: {e}", "elapsed_s": round(time.monotonic() - started, 2)}
 
     if status != 200:
@@ -95,6 +103,12 @@ def main() -> int:
     print(f"✗ FAIL [{label}] {result['reason']} after {result['elapsed_s']}s")
     if "raw_head" in result:
         print(f"  body head: {result['raw_head']!r}")
+    # A timeout/disconnect near the client deadline on a COLD model is not a
+    # network bug — the first POST loads the model into VRAM (~90s on a 2080 Ti)
+    # while GET never does. Don't misdiagnose it as the forwarder. (#522)
+    if result["elapsed_s"] >= TIMEOUT - 1 or "Disconnect" in result["reason"] or "timed out" in result["reason"].lower():
+        print(f"  hint: cold model-load can exceed the client timeout (now {TIMEOUT:.0f}s). "
+              f"Re-run within OLLAMA_KEEP_ALIVE to hit the warm path, or raise OLLAMA_TEST_TIMEOUT.")
     return 1
 
 
