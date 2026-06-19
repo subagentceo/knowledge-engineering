@@ -1,82 +1,75 @@
 ---
 name: refresh-manifest
-description: Refresh the subagentmcp enterprise manifest — re-enumerate orgs, pull every repo via the GitHub API under admin-jadecli, rebuild enterprise.json, and stamp a fresh verified_at. Use when enterprise.json is stale (the SessionStart drift warning fires past 7 days), when repos/orgs/members change, or when the operator asks to refresh/rebuild the manifest.
-disable-model-invocation: true
+description: >
+  Refresh the subagentmcp enterprise manifest (enterprise.json) by re-enumerating
+  all orgs and repos via GitHub API under admin-jadecli. Use when enterprise.json
+  is stale (SessionStart drift warning fires past 7 days), when repos/orgs/members
+  change, or when the operator says "refresh the manifest", "rebuild enterprise.json",
+  or "re-enumerate orgs". Emits a DurableTask to engineering.jsonl if the fetch
+  fails or totals.repos changes unexpectedly. Pairs with heartbeat (session-start
+  audit) and durable-toolchain-doctor (prerequisite check).
+  Do NOT run automatically — user-only because it overwrites enterprise.json.
 ---
 
-# Refresh the enterprise manifest
+<!--
+  @cite enterprise-mirror/.meta/fetch.sh         (org enumeration)
+  @cite enterprise-mirror/.meta/build.py         (manifest build)
+  @cite cowork/templates/task-state-machine.ts   (DurableTask schema)
+  @cite cowork/mcp/e2m-mcp/server.ts
+-->
 
-This skill refreshes `enterprise.json` — the canonical map of the `subagentmcp`
-GitHub Enterprise (10 orgs, 239 repos as of the last refresh). It is **user-only**
-(`disable-model-invocation: true`) because it hits the network and overwrites
-`enterprise.json`; don't run it as a side effect of something else.
+## Manifest schema (Pydantic)
 
-## When to run
+```python
+from pydantic import BaseModel
+from typing import Optional
+from datetime import datetime
 
-- The SessionStart hook warns the manifest is ≥7 days old (the CLAUDE.md drift SLA).
-- New repos, orgs, or members were added to the enterprise.
-- The operator explicitly asks to refresh / rebuild / re-verify the manifest.
+class OrgSummary(BaseModel):
+    name: str
+    repos: int
 
-## Prerequisite
+class ManifestTotals(BaseModel):
+    orgs: int
+    repos: int
+    verified_at: datetime
 
-The `admin-jadecli` alias must be authenticated with `admin:enterprise` scope — it
-is the only alias that can query `enterprise(slug: "subagentmcp")`. Verify:
-
-```bash
-gh auth status --user admin-jadecli
+class EnterpriseManifest(BaseModel):
+    enterprise: str
+    totals: ManifestTotals
+    orgs: list[OrgSummary]
 ```
-
-If it's missing, run `gh auth login` (or `./setup.sh --auth`) before proceeding.
 
 ## Procedure
 
-Two steps, both scripted. Run from the repo root (`/Users/alexzh/subagentmcp`).
-
-### 1. Fetch raw repo data (re-enumerates orgs)
-
 ```bash
-.meta/fetch.sh
+# Step 1 — fetch (requires admin-jadecli with admin:enterprise scope)
+gh auth status --user admin-jadecli   # verify scope
+.meta/fetch.sh                         # writes .meta/<org>.repos.json
+
+# Step 2 — build
+python3 .meta/build.py                 # rewrites enterprise.json, stamps verified_at
 ```
 
-This re-enumerates the enterprise's orgs via GraphQL (so a newly-created org is
-picked up automatically), then writes `.meta/<org>.repos.json` for each. It runs
-under the `admin-jadecli` token.
+## Failure → DurableTask
 
-### 2. Rebuild enterprise.json
-
-```bash
-python3 .meta/build.py
+```json
+{
+  "id": "<uuid>", "queue": "engineering",
+  "subject": "refresh-manifest: fetch failed or repo count changed unexpectedly",
+  "state": "pending", "ke_fit_score": 3,
+  "created_at": "<iso>", "updated_at": "<iso>",
+  "error": {
+    "step": "fetch|build", "expected_repos": 239, "actual_repos": 0,
+    "resolvable": true,
+    "suggested_skill": "refresh-claude-oauth"
+  }
+}
 ```
 
-This projects every raw repo to the manifest's 9-field shape, preserves the
-`enterprise` and `identities` blocks (which aren't in the API), recomputes
-`orgs` + `totals`, and stamps `verified_at` to today (UTC). Empty raw files
-(e.g. the orphaned local `opencoworkers/`) are skipped — they are not real
-enterprise orgs.
-
-Pin a specific date with `--date YYYY-MM-DD` if reproducing a past state.
-
-## Verify before trusting the result
-
-After rebuilding, sanity-check the diff — a refresh should be **additive** in the
-normal case (new repos/orgs), not a wholesale change:
+## Verify
 
 ```bash
-git -C "$(git rev-parse --show-toplevel 2>/dev/null || echo .)" diff --stat enterprise.json 2>/dev/null \
-  || jq '.totals' enterprise.json
+jq ".totals" enterprise.json
+git diff --stat enterprise.json   # additive change = healthy
 ```
-
-Confirm `.totals.repos` moved in the direction you expect. If a whole org's repos
-vanished, the fetch likely hit a token-scope or pagination problem — investigate
-`.meta/<org>.repos.json` before committing to the new manifest.
-
-> Note: this tree is **not** a git repo and is read-mostly. `build.py` rewrites
-> `enterprise.json` in place; there's no commit step here. If the operator wants
-> the refreshed manifest version-controlled, that belongs in its real home repo,
-> not this mirror tree (per CLAUDE.md).
-
-## Also update CLAUDE.md if structure changed
-
-If the org count changed or an org's role shifted, update the org table and the
-layout tree in `CLAUDE.md` to match — the prose there is hand-maintained and
-won't auto-sync from `enterprise.json`.
