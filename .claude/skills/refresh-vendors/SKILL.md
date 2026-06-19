@@ -1,89 +1,57 @@
 ---
 name: refresh-vendors
 description: >
-  Re-crawl the local vendor mirror (`vendor/`) on a recurring schedule.
-  Emits a `/schedule` SlashCommand for users who want automated weekly
-  refreshes. The crawler itself lives at `scripts/crawl-vendors.ts`;
-  this skill is the operator-facing wiring + heartbeat-friendly cadence.
-disable-model-invocation: false
+  Re-crawl the vendor/ markdown mirror and schedule automated weekly refreshes.
+  Use when the user asks for "weekly vendor refresh", "recrawl docs",
+  "refresh vendors", "vendor mirror stale", "set up automated crawl",
+  or when npm run verify:freshness reports warn (14d+) or error (30d+).
+  Emits a DurableTask to engineering.jsonl if crawl exits non-zero.
+  Pairs with citation-service-loop (full pipeline) and heartbeat (trigger).
+  Do NOT invoke from within a session when egress is blocked — use
+  npm run service:refresh:local instead.
 ---
 
-# When to invoke
+<!--
+  @cite scripts/crawl-vendors.ts                 (crawl implementation)
+  @cite rubrics/phase-2.md                       (freshness thresholds)
+  @cite cowork/templates/task-state-machine.ts   (DurableTask schema)
+  @cite cowork/mcp/e2m-mcp/server.ts
+-->
 
-Invoke this skill when:
+## Commands
 
-- The user asks for "weekly", "scheduled", "automated", or "cron" refresh of the vendor docs mirror.
-- The planner emits a `kind: "schedule"` step whose description mentions "vendor", "crawl", "mirror", or "freshness".
-- `npm run verify:freshness` reports any vendor as `warn` (≥14d) or `error` (≥30d).
-- The user says any of: "refresh vendors", "recrawl docs", "wake up the crawler".
-
-# Citations
-
-- `vendor/anthropics/code.claude.com/docs/en/commands.md` — `/schedule` slash command surface.
-- `vendor/anthropics/code.claude.com/docs/en/agent-sdk/slash-commands.md` — programmatic emission of slash commands.
-- `seeds/prompts/operator-2026-05-10.md` — the working agreement that gates everything to `npm run verify`.
-- `rubrics/phase-2.md` — `verify:freshness` thresholds (14d warn, 30d error).
-- `rubrics/phase-5.md` — refresh ergonomics rubric.
-
-# Procedure
-
-1. Read the user's intent. If they specify a cadence (e.g., "every Monday"), pass it through verbatim. Otherwise default to **`every Monday 09:00`** (matches the plan).
-2. Emit a SlashCommand of the form below via the planner's `emit` callback. **Do not run the crawl yourself in-session** — `/schedule` is the surface that hands the work to Anthropic's managed cloud-cron infrastructure.
-3. Surface the routine ID back to the user; record it in `seeds/memory/heartbeat/decisions.md` so the heartbeat orchestrator knows the schedule exists.
-4. Mark the planner step `completed` only after `/schedule` confirms the routine was created (the existing `.claude/skills/schedule-bridge.md` procedure handles this).
-
-# Canonical SlashCommand template — weekly (all vendors)
-
-```
-/schedule every Monday 09:00 run "npm run crawl:vendors && npm run verify:freshness && (git diff --quiet vendor/ || (git checkout -b chore/vendor-refresh-$(date +%Y%m%d) && git add vendor/ && git commit -m 'chore(vendors): weekly mirror refresh' && git push -u origin HEAD && gh pr create --label automerge --title 'chore(vendors): weekly mirror refresh' --body 'Auto-PR from /schedule routine: refresh-vendors. CI gates the merge per docs/governance.md.'))"
+```bash
+npm run crawl:vendors           # all 25 vendor surfaces
+npm run crawl:vendor -- <name>  # single vendor
+npm run verify:freshness        # check last_crawled timestamps
 ```
 
-# Daily per-surface SlashCommand templates (Phase 13.B-D)
+## Failure → DurableTask
 
-Daily-cadence surfaces have higher edit volume than the docs vendors —
-engineering blog posts, claude.com/blog categories, marketing pages.
-For each high-velocity content surface we emit a daily `/schedule`
-rather than the weekly umbrella above. The daily routine is identical
-to the weekly except it targets a single vendor, runs at a chosen UTC
-hour, and uses a vendor-specific branch prefix.
-
-## anthropic-engineering (Phase 13.B — O1)
-
-```
-/schedule every day 06:00 run "npm run crawl:vendor -- anthropic-engineering && (git diff --quiet vendor/anthropic-engineering/ || (git checkout -b chore/anthropic-engineering-refresh-$(date +%Y%m%d) && git add vendor/anthropic-engineering/ && git commit -m 'chore(anthropic-engineering): daily mirror refresh' && git push -u origin HEAD && gh pr create --label automerge --title 'chore(anthropic-engineering): daily mirror refresh' --body 'Auto-PR from /schedule routine: refresh-vendors (daily/anthropic-engineering). CI gates the merge per docs/governance.md.'))"
-```
-
-## Template (for future Phase 13.C/D surfaces)
-
-Replace `<vendor>` with the vendor directory name (e.g. `claude-blog`,
-`anthropic-customers`).
-
-```
-/schedule every day HH:MM run "npm run crawl:vendor -- <vendor> && (git diff --quiet vendor/<vendor>/ || (git checkout -b chore/<vendor>-refresh-$(date +%Y%m%d) && git add vendor/<vendor>/ && git commit -m 'chore(<vendor>): daily mirror refresh' && git push -u origin HEAD && gh pr create --label automerge --title 'chore(<vendor>): daily mirror refresh' --body 'Auto-PR from /schedule routine: refresh-vendors (daily/<vendor>). CI gates the merge per docs/governance.md.'))"
+```json
+{
+  "id": "<uuid>", "queue": "engineering",
+  "subject": "refresh-vendors: crawl failed for <vendor>",
+  "state": "pending", "ke_fit_score": 3,
+  "created_at": "<iso>", "updated_at": "<iso>",
+  "error": {
+    "vendor": "anthropics", "exit_code": 1,
+    "resolvable": true,
+    "suggested_skill": "durable-toolchain-doctor"
+  }
+}
 ```
 
-The pipeline:
+## Schedule (weekly PR)
 
-1. `npm run crawl:vendors` — re-crawls all 12 vendors per their `crawl.json` (idempotent; mtime preserved on unchanged content).
-2. `npm run verify:freshness` — confirms every mirrored vendor has a fresh `last_crawled` timestamp.
-3. `git diff --quiet vendor/` — short-circuit if nothing changed.
-4. Otherwise: branch + commit + push + draft PR with `automerge` label, so the no-HITL loop merges it (per `docs/governance.md`).
-
-The heartbeat orchestrator (`.claude/skills/heartbeat.md`) already knows how to react to the resulting PR's CI events.
-
-# Examples
-
-```
-User: "Set up a weekly refresh of the vendor docs."
-Skill: emits /schedule every Monday 09:00 run "...". Returns the routine ID.
-
-User: "Run the crawl every day at 06:00."
-Skill: emits /schedule every day 06:00 run "...". (Uncommon; defaults to weekly per the operator-stated cadence.)
-
-verify:freshness reports anthropics warn (15d):
-Heartbeat dispatches: emits /loop 1h "npm run crawl:vendor -- anthropics" until age = 0d, then exits.
+```bash
+/schedule "every Monday 09:00"   "npm run crawl:vendors && npm run verify:freshness &&   (git diff --quiet vendor/ ||     (git checkout -b chore/vendor-refresh-$(date +%Y%m%d) &&      git add vendor/ &&      git commit -m 'chore(vendors): weekly mirror refresh' &&      git push -u origin HEAD &&      gh pr create --label automerge --title 'chore(vendors): weekly mirror refresh'))"
 ```
 
-# Why this skill exists
+## Freshness thresholds (rubrics/phase-2.md)
 
-Plan section *Phase 5 — Refresh ergonomics* requires a `/schedule` template that drives weekly recrawls without any operator action between runs. The recrawl itself has no operator gates (Phase 1 ensured `crawl:vendors` is autonomous). The skill is the documented hand-off between operator intent ("keep this fresh") and the cron'd execution.
+| Age | Status |
+|-----|--------|
+| < 14d | ok |
+| 14-29d | warn |
+| 30d+ | error |
