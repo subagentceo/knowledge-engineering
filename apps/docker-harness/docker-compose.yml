@@ -1,0 +1,79 @@
+# Docker test harness for apps/ — build + test each app in a clean, version-correct env.
+#
+# Service images:
+#   - Python apps need 3.11+ (pyproject requires-python >=3.11). The host sandbox
+#     ships 3.10, so the local env cannot satisfy the pin — Docker fixes this.
+#   - Redis/Postgres use Canonical's hardened ubuntu/* runtime rocks (Pebble init),
+#     which are purpose-built as service containers.
+#   - Python/Node test runners use standard build images (pip/npm toolchain + shell
+#     entrypoint), since the ubuntu/python rock is a Pebble runtime, not a builder.
+#
+# Usage:
+#   docker compose -f apps/docker-harness/docker-compose.yml run --rm py-tests
+#   docker compose -f apps/docker-harness/docker-compose.yml run --rm node-tests
+#   docker compose -f apps/docker-harness/docker-compose.yml up redis postgres   # service deps
+#
+# All app source is mounted read-write at /work/apps (the repo apps/ dir).
+
+services:
+  # --- service dependencies (Canonical ubuntu/* rocks) ---
+  redis:
+    image: ubuntu/redis:7.0-22.04_stable
+    environment:
+      # ubuntu/redis rock: set an empty password override to allow local dev auth-less use
+      TZ: UTC
+    ports:
+      - "6379:6379"
+
+  postgres:
+    image: ubuntu/postgres:16-24.04_stable
+    environment:
+      POSTGRES_PASSWORD: dev
+      POSTGRES_USER: dev
+      POSTGRES_DB: knowledge_engineering
+      TZ: UTC
+    ports:
+      - "5432:5432"
+
+  # --- Python apps: api-core, admin-api, compliance-api, fivetran-bridge ---
+  py-tests:
+    image: python:3.13-slim
+    working_dir: /work/apps
+    depends_on:
+      - redis
+    environment:
+      REDIS_URL: redis://redis:6379
+      PIP_DISABLE_PIP_VERSION_CHECK: "1"
+    volumes:
+      - ../:/work/apps:rw
+      - py-cache:/root/.cache/pip
+    entrypoint: ["bash", "/work/apps/docker-harness/run-python-tests.sh"]
+
+  # --- Node app: analytics-dashboard/cost (claude-cost-poller) ---
+  node-tests:
+    image: node:22-bookworm-slim
+    working_dir: /work/apps/analytics-dashboard/cost
+    volumes:
+      - ../:/work/apps:rw
+      - node-cache:/root/.npm
+    entrypoint: ["bash", "/work/apps/docker-harness/run-node-tests.sh"]
+
+  # --- Swift apps: portable targets build + test on Linux here ---
+  # Swift is first-class on Linux (swift.org/install/linux). This service builds
+  # and TESTS the portable targets (OrchestratorCore: 3 tests pass on Linux; the
+  # SwiftUI apps' Foundation-only model layers typecheck). Only SwiftUI/AppKit
+  # views and the FoundationModels summarizer are host-only (macOS + Xcode);
+  # run-swift-tests.sh documents those rather than pretending they can't build.
+  #
+  # Verified against this repo with Swift 6.1.2 aarch64-linux.
+  swift-tests:
+    # Docker Official Image (library/swift). `latest` == Swift 6.3.2 on Ubuntu noble.
+    image: swift:latest
+    working_dir: /work/apps
+    volumes:
+      - ../:/work/apps:rw
+    entrypoint: ["bash", "/work/apps/docker-harness/run-swift-tests.sh"]
+
+volumes:
+  py-cache:
+  node-cache:

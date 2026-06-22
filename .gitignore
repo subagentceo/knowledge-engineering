@@ -64,3 +64,5 @@ apps/open-managed-agents
 apps/claude-cowork-linux
 apps/ClaudeForFoundationModels
 apps/agent-native
+apps/managed-coworkers
+apps/*.zip
