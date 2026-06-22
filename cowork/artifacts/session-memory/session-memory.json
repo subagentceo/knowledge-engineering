@@ -1,0 +1,617 @@
+{
+  "_type": "session_memory",
+  "schema": "anthropic-messages-api + e2m-envelope",
+  "session": {
+    "id": "local_5726538a (Envelope-to-mailbox protocol design)",
+    "surface": "Cowork · macOS 27.0",
+    "model": "claude-opus-4-8",
+    "date": "2026-06-19",
+    "operator": "ADMIN_JADECLI"
+  },
+  "note": "Curated episode index (consolidated, dreams-style) — one record per exchange, not the raw transcript. Each turn maps to a (user, assistant) Messages-API pair and carries e2m-shaped structured I/O.",
+  "turns": [
+    {
+      "_type": "turn",
+      "id": "t01",
+      "seq": 1,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "/structured-prompt-formatter — e2m protocol brain dump (server.ts, 8 py scripts, screenshot)"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "routed the brain-dump into the house structured-prompt format, grounded on existing repo canon"
+      },
+      "io": {
+        "tools": [
+          "Skill",
+          "Read",
+          "Bash",
+          "TaskCreate",
+          "Write"
+        ],
+        "files": [
+          "docs/prompts/e2m-brain-dump-routed-2026-06-19.md"
+        ],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 6000
+    },
+    {
+      "_type": "turn",
+      "id": "t02",
+      "seq": 2,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "add Rust as a co-equal binding; +docker-ubuntu, org×language, google-cloud refs"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "reframed §5 (TS+Python+Rust co-equal); refs 22→46; +directives"
+      },
+      "io": {
+        "tools": [
+          "Edit",
+          "Bash"
+        ],
+        "files": [
+          "docs/prompts/e2m-brain-dump-routed-2026-06-19.md"
+        ],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 4000
+    },
+    {
+      "_type": "turn",
+      "id": "t03",
+      "seq": 3,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "resolve the org×language searches into actual upstream repos; ecosystem map"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "§8 ecosystem map; layered upstream → e2m → downstream; surfaced redis/anthropics Rust gaps"
+      },
+      "io": {
+        "tools": [
+          "MCP_DOCKER.search_repositories ×15",
+          "Edit",
+          "Bash"
+        ],
+        "files": [
+          "docs/prompts/e2m-brain-dump-routed-2026-06-19.md"
+        ],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 5000
+    },
+    {
+      "_type": "turn",
+      "id": "t04",
+      "seq": 4,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "local-model dev loop (kdnuggets) — we implemented it"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "§9 local model + 5 refs + sentinel directive (OAuth-only boundary)"
+      },
+      "io": {
+        "tools": [
+          "Edit",
+          "Bash"
+        ],
+        "files": [
+          "docs/prompts/e2m-brain-dump-routed-2026-06-19.md"
+        ],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 3500
+    },
+    {
+      "_type": "turn",
+      "id": "t05",
+      "seq": 5,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "check my macOS hardware/software/iOS + Applications"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "mounted /Applications + /CoreServices; 35 apps; macOS 27.0 (26A5353q); hardware/iOS not via filesystem"
+      },
+      "io": {
+        "tools": [
+          "request_cowork_directory ×2",
+          "Bash",
+          "Read"
+        ],
+        "files": [],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 2000
+    },
+    {
+      "_type": "turn",
+      "id": "t06",
+      "seq": 6,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": ".mcpb extensions like filesystem — can you use them?"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "audited connected tools (Drive + container, not local fs); folder-grant is the real path"
+      },
+      "io": {
+        "tools": [
+          "ToolSearch"
+        ],
+        "files": [],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 1500
+    },
+    {
+      "_type": "turn",
+      "id": "t07",
+      "seq": 7,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "durable-toolchain; build a cheerio sitemap crawler for support.claude.com; cowork 2GB VM; fixed-size L1/L2/L3 LRU"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "§10; verified fixed-size LRU (0 warm re-fetch, no TTL); scaffolded vendor/support-claude-sitemap"
+      },
+      "io": {
+        "tools": [
+          "Bash(lru-verify)",
+          "Read",
+          "Write",
+          "Edit"
+        ],
+        "files": [
+          "vendor/support-claude-sitemap/crawl.json",
+          "vendor/support-claude-sitemap/collections.yaml",
+          "vendor/support-claude-sitemap/README.md",
+          "docs/prompts/e2m-brain-dump-routed-2026-06-19.md"
+        ],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 8000
+    },
+    {
+      "_type": "turn",
+      "id": "t08",
+      "seq": 8,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "subagentknowledge.com depends on vendor/; run the crawl + organize by collection subdirs"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "can't bulk-crawl (egress/restriction); materialized 16 per-collection subdirs + organizer; runbook; §11; dispatched 2 e2m tasks"
+      },
+      "io": {
+        "tools": [
+          "Bash",
+          "Read",
+          "Write",
+          "Edit"
+        ],
+        "files": [
+          "vendor/support-claude-sitemap/organize.mjs",
+          "vendor/support-claude-sitemap/manifest.yaml",
+          "vendor/support-claude-sitemap/<16×>_collection.md",
+          "cowork/runbooks/support-claude-sitemap.md",
+          "docs/prompts/e2m-brain-dump-routed-2026-06-19.md"
+        ],
+        "envelopes": [
+          "engineering.jsonl: crawl+organize",
+          "data.jsonl: dw:load+manifest (depends_on)"
+        ],
+        "queues": [
+          "engineering",
+          "data"
+        ]
+      },
+      "tokens_est": 9000
+    },
+    {
+      "_type": "turn",
+      "id": "t09",
+      "seq": 9,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "Claude for Mac 1.14271.0; build a .mcpb; help use ClaudeForFoundationModels; my devices; swift for linux"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "built support-claude-docs .mcpb; grounded CFM (server-side, .proxied not .apiKey); iOS needs Mac+Xcode (not Linux)"
+      },
+      "io": {
+        "tools": [
+          "MCP_DOCKER.get_file_contents",
+          "Read",
+          "Write ×4",
+          "Bash"
+        ],
+        "files": [
+          "cowork/mcpb/support-claude-docs/manifest.json",
+          "cowork/mcpb/support-claude-docs/server/index.mjs",
+          "cowork/mcpb/support-claude-docs/package.json",
+          "cowork/mcpb/support-claude-docs/README.md"
+        ],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 7000
+    },
+    {
+      "_type": "turn",
+      "id": "t10",
+      "seq": 10,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "use my claude.ai subscription auth for Foundation Models"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "subscription OAuth is official-clients-only (Apr-2026 ban); FM needs Console API key / .proxied; App Attest soon"
+      },
+      "io": {
+        "tools": [
+          "WebSearch ×2"
+        ],
+        "files": [],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 3000
+    },
+    {
+      "_type": "turn",
+      "id": "t11",
+      "seq": 11,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "I'm building only for myself; Agent SDK billing change was paused (thenewstack)"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "corrected: June-15 split paused; Claude Code headless = sanctioned subscription path; FM has no subscription slot"
+      },
+      "io": {
+        "tools": [
+          "WebSearch ×2"
+        ],
+        "files": [],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 3000
+    },
+    {
+      "_type": "turn",
+      "id": "t12",
+      "seq": 12,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "Agent SDK can route to a local model on top of the subscription"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "affirmed (inverse of the banned move); 4 lanes; CFM → local Ollama via baseURL experiment"
+      },
+      "io": {
+        "tools": [],
+        "files": [],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 1500
+    },
+    {
+      "_type": "turn",
+      "id": "t13",
+      "seq": 13,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "put the dual-backend material into ollama/"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "ollama/AUTH-LANES.md: 4 lanes, why local routing is sanctioned (zero Anthropic usage), Apple extension"
+      },
+      "io": {
+        "tools": [
+          "Read ×4",
+          "Write",
+          "Edit",
+          "Bash"
+        ],
+        "files": [
+          "ollama/AUTH-LANES.md",
+          "ollama/README.md"
+        ],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 4500
+    },
+    {
+      "_type": "turn",
+      "id": "t14",
+      "seq": 14,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "my own open-knowledge-format > Google OKF; alloydb + kimball + cube"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "e2m-OKF: strict superset of Google OKF v0.1 (typed semantics, citations, e2m exchange); SPEC+schema+sample"
+      },
+      "io": {
+        "tools": [
+          "MCP_DOCKER.get_file_contents",
+          "Read",
+          "Write ×6",
+          "Bash"
+        ],
+        "files": [
+          "okf/SPEC.md",
+          "okf/README.md",
+          "okf/e2m-okf.schema.json",
+          "okf/samples/index.md",
+          "okf/samples/warehouse/index.md",
+          "okf/samples/warehouse/fact_vendor_crawl.md"
+        ],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 7000
+    },
+    {
+      "_type": "turn",
+      "id": "t15",
+      "seq": 15,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "reframe: drop 'kimball+cube'; semantic layer over postgres DDL + redis L1/L2/L3 + memory store + dreams"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "reframed okf/* (0 'cube'; +§7 storage/cache/memory; Kimball → cited reference only)"
+      },
+      "io": {
+        "tools": [
+          "Edit ×14",
+          "Bash"
+        ],
+        "files": [
+          "okf/SPEC.md",
+          "okf/README.md",
+          "okf/e2m-okf.schema.json",
+          "okf/samples/*"
+        ],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 5000
+    },
+    {
+      "_type": "turn",
+      "id": "t16",
+      "seq": 16,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "coworker → subagent layer; outcome-driven development on top of TDD red/green/refactor"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "coworker-subagent-delegation.md: 3 tiers, e2m dispatch (evaluator=outcome), subagent chains cowork/plugins, ODD⊃rubric⊃TDD"
+      },
+      "io": {
+        "tools": [
+          "Bash",
+          "Write",
+          "TaskCreate"
+        ],
+        "files": [
+          "cowork/standards/coworker-subagent-delegation.md"
+        ],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 5000
+    },
+    {
+      "_type": "turn",
+      "id": "t17",
+      "seq": 17,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "managers (nightly) → coworkers → teams → subagents (deterministic files); canonical docs"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "agent-hierarchy.md: 4 tiers; e2m = the agent-teams realization (shared list+mailbox); manager = scheduled Dispatch"
+      },
+      "io": {
+        "tools": [
+          "Bash",
+          "Read ×3",
+          "Write"
+        ],
+        "files": [
+          "cowork/standards/agent-hierarchy.md"
+        ],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 5500
+    },
+    {
+      "_type": "turn",
+      "id": "t18",
+      "seq": 18,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "durability critical; managers enforce Sentry; alert via iMessage; Slack/Telegram only if 100% no-human"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "durability+alerting section: Sentry gate + iMessage-only escalation; Slack/Telegram excluded (need human-created tokens)"
+      },
+      "io": {
+        "tools": [
+          "Bash",
+          "Edit ×2"
+        ],
+        "files": [
+          "cowork/standards/agent-hierarchy.md"
+        ],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 4000
+    },
+    {
+      "_type": "turn",
+      "id": "t19",
+      "seq": 19,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "startup vision; Configure Third-Party Inference gateway; 1p→3p (gcp/azure/aws); vs MS Scout"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "provider-portability section: gateway = the 1p→3p knob; Dispatch is 1p-only → custom e2m managers keep it portable"
+      },
+      "io": {
+        "tools": [
+          "Bash",
+          "Edit ×2"
+        ],
+        "files": [
+          "cowork/standards/agent-hierarchy.md"
+        ],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 4500
+    },
+    {
+      "_type": "turn",
+      "id": "t20",
+      "seq": 20,
+      "envelope_type": "summary",
+      "at": "2026-06-19",
+      "user": {
+        "role": "user",
+        "summary": "create token-minimizing session-memory HTML artifacts for this Cowork"
+      },
+      "assistant": {
+        "role": "assistant",
+        "model": "claude-opus-4-8",
+        "summary": "this memory store + light-mode HTML artifact (Messages-API + e2m envelope shape)"
+      },
+      "io": {
+        "tools": [
+          "ToolSearch",
+          "session_info.list_sessions",
+          "Bash",
+          "Write",
+          "create_artifact"
+        ],
+        "files": [
+          "cowork/artifacts/session-memory/session-memory.json",
+          "cowork/artifacts/session-memory/index.html"
+        ],
+        "envelopes": [],
+        "queues": []
+      },
+      "tokens_est": 6000
+    }
+  ],
+  "totals": {
+    "turns": 20,
+    "files_created": 24,
+    "tool_kinds": 14,
+    "e2m_envelopes": 2,
+    "queues": [
+      "engineering",
+      "data"
+    ],
+    "tokens_full_est": 95000,
+    "tokens_memory_est": 4140,
+    "compression": "23:1"
+  }
+}

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manager Tier + Operator Routing Protocol</title>
+<style>
+  /* dogfoods design-coworker 8-token system — bg/text/bright/cyan/green/amber/red/border, monospace, corners<=3px, uppercase labels */
+  :root{
+    --bg:#0a0a0a; --text:#d4d4d4; --bright:#f4f4f4; --cyan:#51c4ff; --green:#7bd88f;
+    --amber:#e6b455; --red:#ff6b6b; --border:#2a2a2a; --card:#111; --muted:#6a6a6a; --muted2:#9a9a9a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:14px/1.6 ui-monospace,SFMono-Regular,"Menlo","Monaco","Consolas",monospace;}
+  .wrap{max-width:940px;margin:0 auto;padding:36px 22px 80px}
+  header{border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:26px;
+    display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+  h1{font-size:20px;margin:0;color:var(--bright);letter-spacing:.5px}
+  .sub{color:var(--muted2);font-size:13px;margin-top:6px}
+  .label{text-transform:uppercase;letter-spacing:1px;font-size:11px;color:var(--muted2)}
+  h2{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted2);
+    margin:32px 0 10px;border-bottom:1px solid var(--border);padding-bottom:6px}
+  p{margin:0 0 10px}
+  .pill{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border);
+    padding:5px 11px;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted2)}
+  .dot{width:7px;height:7px;background:var(--cyan);border-radius:2px}
+  .card{background:var(--card);border:1px solid var(--border);padding:16px 18px;margin:12px 0}
+  code,.mono{font-family:inherit;color:var(--cyan)}
+  .k-cyan{color:var(--cyan)} .k-green{color:var(--green)} .k-amber{color:var(--amber)} .k-red{color:var(--red)} .k-br{color:var(--bright)}
+  ul{margin:6px 0 0;padding-left:18px} li{margin:4px 0}
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted2);text-transform:uppercase;letter-spacing:1px;font-size:11px}
+  td.k{white-space:nowrap;color:var(--bright)}
+  .badge{display:inline-block;border:1px solid var(--border);padding:1px 7px;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+  .b-cyan{color:var(--cyan);border-color:#51c4ff44}.b-green{color:var(--green);border-color:#7bd88f44}
+  .b-amber{color:var(--amber);border-color:#e6b45544}.b-red{color:var(--red);border-color:#ff6b6b44}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:680px){.grid{grid-template-columns:1fr}}
+  .slice{display:flex;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--border)}
+  .slice:last-child{border-bottom:0}
+  .num{flex:0 0 24px;height:24px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:12px}
+  .note{border-left:2px solid var(--amber);padding:10px 14px;margin:12px 0;background:#0d0d0d}
+  .note.green{border-color:var(--green)} .note.cyan{border-color:var(--cyan)}
+  svg{width:100%;height:auto;display:block;border:1px solid var(--border);background:#0d0d0d}
+  .foot{margin-top:30px;border:1px solid var(--border);padding:16px 18px;background:var(--card)}
+  .btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .btn{appearance:none;border:1px solid var(--border);background:#0d0d0d;color:var(--text);
+    padding:10px 14px;font-family:inherit;font-size:13px;cursor:pointer;text-align:left;text-transform:uppercase;letter-spacing:.5px}
+  .btn.primary{border-color:#7bd88f44;color:var(--green)}
+  .btn:hover{border-color:var(--cyan)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <h1>MANAGER TIER + OPERATOR ROUTING</h1>
+      <div class="sub">A supervisory layer over the existing coworkers. <span class="k-cyan">project-manager</span> is the default router when an unattached operator request is unclear.</div>
+    </div>
+    <span class="pill"><span class="dot"></span>Proposal · for review</span>
+  </header>
+
+  <p><span class="label">Situation</span><br>
+  You opened a cowork session <span class="k-br">not attached to a coworker</span>. A request lands with no
+  owner — and today nothing decides where it goes. Some requests are clearly one domain; many are ambiguous
+  or span several. We need a typed routing protocol, with a safe default.</p>
+
+  <h2>The hierarchy — 3 tiers (dogfoods reports_to / lead-over-teammate)</h2>
+  <div class="card">
+  <svg viewBox="0 0 880 372" role="img" aria-label="Three-tier hierarchy">
+    <defs>
+      <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#6a6a6a"/></marker>
+      <marker id="ac" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#51c4ff"/></marker>
+      <marker id="ag" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#7bd88f"/></marker>
+    </defs>
+
+    <!-- operator -->
+    <rect x="350" y="18" width="180" height="42" fill="#0a0a0a" stroke="#f4f4f4"/>
+    <text x="440" y="38" text-anchor="middle" fill="#f4f4f4" font-size="13" font-family="monospace">OPERATOR</text>
+    <text x="440" y="52" text-anchor="middle" fill="#9a9a9a" font-size="10" font-family="monospace">unattached session → operator.jsonl</text>
+
+    <!-- classify diamond -->
+    <polygon points="440,86 510,118 440,150 370,118" fill="#0a0a0a" stroke="#e6b455"/>
+    <text x="440" y="115" text-anchor="middle" fill="#e6b455" font-size="11" font-family="monospace">CLASSIFY</text>
+    <text x="440" y="128" text-anchor="middle" fill="#9a9a9a" font-size="9" font-family="monospace">haiku · score 12 domains</text>
+    <line x1="440" y1="60" x2="440" y2="84" stroke="#6a6a6a" stroke-width="1.5" marker-end="url(#a)"/>
+
+    <!-- confident branch -> a domain manager (right) -->
+    <line x1="510" y1="118" x2="690" y2="118" stroke="#7bd88f" stroke-width="1.5" marker-end="url(#ag)"/>
+    <text x="600" y="110" text-anchor="middle" fill="#7bd88f" font-size="10" font-family="monospace">clear domain</text>
+    <rect x="690" y="98" width="170" height="40" fill="#0a0a0a" stroke="#7bd88f"/>
+    <text x="775" y="123" text-anchor="middle" fill="#7bd88f" font-size="11" font-family="monospace">&lt;domain&gt;-MANAGER</text>
+
+    <!-- ambiguous branch -> project-manager (down) -->
+    <line x1="440" y1="150" x2="440" y2="176" stroke="#51c4ff" stroke-width="1.5" marker-end="url(#ac)"/>
+    <text x="535" y="168" text-anchor="middle" fill="#51c4ff" font-size="10" font-family="monospace">unclear / multi-domain → default</text>
+    <rect x="338" y="176" width="204" height="46" fill="#0a0a0a" stroke="#51c4ff"/>
+    <text x="440" y="196" text-anchor="middle" fill="#51c4ff" font-size="12" font-family="monospace">PROJECT-MANAGER</text>
+    <text x="440" y="210" text-anchor="middle" fill="#9a9a9a" font-size="9" font-family="monospace">default router + cross-domain orchestrator</text>
+
+    <!-- managers row -->
+    <text x="40" y="258" fill="#9a9a9a" font-size="10" font-family="monospace" letter-spacing="1">TIER 1 · MANAGERS</text>
+    <line x1="440" y1="222" x2="200" y2="266" stroke="#51c4ff" stroke-width="1" marker-end="url(#ac)"/>
+    <line x1="440" y1="222" x2="440" y2="266" stroke="#51c4ff" stroke-width="1" marker-end="url(#ac)"/>
+    <line x1="440" y1="222" x2="680" y2="266" stroke="#51c4ff" stroke-width="1" marker-end="url(#ac)"/>
+    <rect x="150" y="266" width="120" height="34" fill="#0a0a0a" stroke="#7bd88f"/><text x="210" y="287" text-anchor="middle" fill="#7bd88f" font-size="10" font-family="monospace">data-manager</text>
+    <rect x="380" y="266" width="120" height="34" fill="#0a0a0a" stroke="#7bd88f"/><text x="440" y="287" text-anchor="middle" fill="#7bd88f" font-size="10" font-family="monospace">design-manager</text>
+    <rect x="620" y="266" width="120" height="34" fill="#0a0a0a" stroke="#7bd88f"/><text x="680" y="287" text-anchor="middle" fill="#7bd88f" font-size="10" font-family="monospace">…10 more</text>
+
+    <!-- coworkers row -->
+    <text x="40" y="334" fill="#9a9a9a" font-size="10" font-family="monospace" letter-spacing="1">TIER 2 · COWORKERS</text>
+    <line x1="210" y1="300" x2="210" y2="340" stroke="#6a6a6a" stroke-width="1" marker-end="url(#a)"/>
+    <line x1="440" y1="300" x2="440" y2="340" stroke="#6a6a6a" stroke-width="1" marker-end="url(#a)"/>
+    <line x1="680" y1="300" x2="680" y2="340" stroke="#6a6a6a" stroke-width="1" marker-end="url(#a)"/>
+    <rect x="150" y="340" width="120" height="28" fill="#111" stroke="#2a2a2a"/><text x="210" y="358" text-anchor="middle" fill="#6a6a6a" font-size="9.5" font-family="monospace">data-coworker</text>
+    <rect x="380" y="340" width="120" height="28" fill="#111" stroke="#2a2a2a"/><text x="440" y="358" text-anchor="middle" fill="#6a6a6a" font-size="9.5" font-family="monospace">design-coworker</text>
+    <rect x="620" y="340" width="120" height="28" fill="#111" stroke="#2a2a2a"/><text x="680" y="358" text-anchor="middle" fill="#6a6a6a" font-size="9.5" font-family="monospace">…</text>
+  </svg>
+  </div>
+
+  <h2>Routing protocol — the new e2m primitive</h2>
+  <div class="card" style="padding-top:8px">
+    <table>
+      <tr><th>Operator request looks like…</th><th>Route to</th><th>Why</th></tr>
+      <tr><td>one clear domain, high confidence</td><td class="k"><span class="k-green">&lt;domain&gt;-manager</span></td><td>direct; no orchestration needed</td></tr>
+      <tr><td>low confidence / no clear winner</td><td class="k"><span class="k-cyan">project-manager</span></td><td>default safety net (your rule)</td></tr>
+      <tr><td>spans ≥2 domains</td><td class="k"><span class="k-cyan">project-manager</span></td><td>decompose + fan-out to managers</td></tr>
+      <tr><td>pure status / "what's blocked"</td><td class="k"><span class="k-cyan">project-manager</span></td><td>it already owns the queue review</td></tr>
+    </table>
+    <p class="sub" style="margin-top:10px">Flow: <code>operator.jsonl</code> intake → <span class="k-amber">classify</span> (haiku, scores 12 domains) →
+    route envelope (<code>envelope_type: "task"</code>, <code>to: &lt;manager&gt;</code>). On ambiguity the classifier emits
+    <code>to: project-manager</code>. Every hop is one typed JSONL line — fully replayable.</p>
+  </div>
+
+  <h2>What a manager is (manager : coworker :: lead : teammate)</h2>
+  <div class="card">
+    <p>A manager is a coworker with a supervisory lifecycle. It does not do the atomic work — it
+    <span class="k-br">decomposes, dispatches, aggregates</span>:</p>
+    <p class="mono" style="color:var(--muted2)">INTAKE → CLASSIFY → DECOMPOSE → DISPATCH(coworker) → AGGREGATE → REPORT(up)</p>
+    <p>New manifest fields: <code>tier: manager</code>, <code>manages: [&lt;domain&gt;-coworker]</code>,
+    <code>reports_to: operator</code>. <span class="k-cyan">project-manager</span> additionally carries
+    <code>role: router</code> — the only one that reads <code>operator.jsonl</code> intake.</p>
+  </div>
+
+  <h2>The 12 managers → existing coworkers</h2>
+  <div class="card" style="padding-top:8px">
+    <table>
+      <tr><th>Manager</th><th>Manages (existing coworker)</th></tr>
+      <tr><td class="k"><span class="k-cyan">project-manager</span> <span class="badge b-cyan">router</span></td><td>project-management-coworker</td></tr>
+      <tr><td class="k">product-manager</td><td>product-management-coworker</td></tr>
+      <tr><td class="k">data-manager</td><td>data-coworker</td></tr>
+      <tr><td class="k">design-manager</td><td>design-coworker</td></tr>
+      <tr><td class="k">engineering-manager</td><td>engineering-coworker</td></tr>
+      <tr><td class="k">operations-manager</td><td>operations-coworker</td></tr>
+      <tr><td class="k">finance-manager</td><td>finance-coworker</td></tr>
+      <tr><td class="k">legal-manager</td><td>legal-coworker</td></tr>
+      <tr><td class="k">sales-manager</td><td>sales-coworker</td></tr>
+      <tr><td class="k">human-resources-manager</td><td>human-resources-coworker</td></tr>
+      <tr><td class="k">agent-resources-manager</td><td>agent-resources-coworker</td></tr>
+      <tr><td class="k">compliance-manager <span class="badge b-amber">gap</span></td><td><span class="k-amber">no compliance-coworker yet</span> — pair with legal-coworker or create one</td></tr>
+    </table>
+    <p class="sub" style="margin-top:10px"><span class="k-amber">Honest mismatch:</span> 11 managers map 1:1; <span class="k-amber">compliance-manager</span> has no coworker (closest is legal). And a <span class="mono">marketing-coworker</span> exists but you didn't ask for a marketing-manager — leave it under product/ops, or add one for symmetry. Your call.</p>
+  </div>
+
+  <h2>Refinement of your request (the "modify" part)</h2>
+  <div class="note cyan">
+    <p style="margin:0"><span class="label">Don't hand-write 12 near-identical skills.</span> That's the drift trap we already hit twice
+    (the Fivetran format, the 8-token system). Instead:</p>
+    <ul>
+      <li>One <code>&lt;manager_lifecycle&gt;</code> contract + one <code>managers.manifest.json</code> (id, domain, manages, peers).</li>
+      <li>Generate the 12 thin <code>SKILL.md</code> from that manifest — they differ only by domain/queue/managed-coworker.</li>
+      <li><span class="k-cyan">project-manager</span> = the manager lifecycle <span class="k-br">+ a router module</span> (the classifier). One special case, not twelve.</li>
+    </ul>
+  </div>
+
+  <h2>Build plan — incremental, each ships alone</h2>
+  <div class="card">
+    <div class="slice"><div class="num">1</div><div><span class="k-br">Router only.</span> project-manager reads <code>operator.jsonl</code>, classifies, writes a route envelope. Default = itself. No managers yet — it just dispatches to existing coworkers.</div></div>
+    <div class="slice"><div class="num">2</div><div><span class="k-br">Manager template + manifest.</span> Shared lifecycle + <code>managers.manifest.json</code>; generate 2 managers (data, design) as the proof.</div></div>
+    <div class="slice"><div class="num">3</div><div><span class="k-br">Generate the remaining 10</span> from the manifest; wire <code>manages</code> dispatch + <code>AGGREGATE</code> back to project-manager.</div></div>
+    <div class="slice"><div class="num">4</div><div><span class="k-br">Resolve gaps</span> — compliance-coworker decision, marketing-manager decision, classifier threshold tuning.</div></div>
+  </div>
+
+  <h2>Honest notes</h2>
+  <div class="note green"><span class="label">reused, not rebuilt</span><br>
+    Coworker <code>SKILL.md</code> structure, <code>reports_to</code>/<code>peers</code>, <code>operator.jsonl</code> intake, the DurableTask state machine, e2m envelopes, the coworkers manifest pattern — all already exist.</div>
+  <div class="note"><span class="label">new / unverified</span><br>
+    The classifier (model = haiku per <code>session_model.mechanical</code>; <span class="k-amber">confidence threshold needs tuning, not assumed</span>). The manager tier itself. The compliance + marketing mismatches above.</div>
+
+  <div class="foot">
+    <span class="label">your call</span>
+    <p class="sub" style="margin:6px 0 0">Nothing touches git or your uncommitted files until you say so. This is one proposal, as requested.</p>
+    <div class="btnrow">
+      <button class="btn primary" onclick="sendPrompt&&sendPrompt('Build slice 1 — the project-manager router: read operator.jsonl, classify, dispatch, default to itself.')">Start slice 1 (router)</button>
+      <button class="btn" onclick="sendPrompt&&sendPrompt('Build slices 1 and 2 — router plus the manager template/manifest with data-manager and design-manager generated.')">Slices 1 + 2</button>
+      <button class="btn" onclick="sendPrompt&&sendPrompt('Decide the compliance-manager and marketing-manager gaps before building.')">Resolve the gaps first</button>
+      <button class="btn" onclick="sendPrompt&&sendPrompt('Revise the manager-tier proposal: here is what I want changed —')">Revise</button>
+    </div>
+  </div>
+
+  <p class="sub" style="margin-top:22px">Prepared 2026-06-19 · dogfoods design-coworker 8-token system · for ADMIN_JADECLI</p>
+</div>
+</body>
+</html>

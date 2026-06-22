@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mail — agent app (e2m preview)</title>
+<style>
+:root{--bg:#0a0a0a;--text:#d4d4d4;--bright:#f4f4f4;--cyan:#51c4ff;--green:#7bd88f;--amber:#e6b455;--red:#ff6b6b;--border:#2a2a2a;--card:#111;--mut:#6a6a6a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:13px;line-height:1.55}
+.top{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:14px}
+.top h1{font-size:15px;color:var(--bright);letter-spacing:1px;text-transform:uppercase;margin:0}
+.top .sub{color:var(--mut);font-size:11px}.badge{margin-left:auto;font-size:10px;text-transform:uppercase;letter-spacing:1px;border:1px solid var(--border);padding:2px 8px;color:var(--green)}
+.note{margin:10px 16px;border:1px solid var(--border);border-left:3px solid var(--cyan);background:var(--card);padding:8px 12px;font-size:11.5px;color:#9a9a9a}
+.layout{display:grid;grid-template-columns:340px 1fr;gap:0;height:calc(100vh - 120px);min-height:420px}
+@media(max-width:740px){.layout{grid-template-columns:1fr;height:auto}}
+.list{border-right:1px solid var(--border);overflow:auto}
+.row{padding:10px 14px;border-bottom:1px solid #1f1f1f;cursor:pointer}.row:hover,.row.on{background:var(--card)}
+.row .f{color:var(--bright);font-size:12px}.row .s{color:var(--text);font-size:12px;margin:1px 0}.row .m{color:var(--mut);font-size:10.5px}
+.et{font-size:9.5px;text-transform:uppercase;letter-spacing:.5px;padding:0 5px;border-radius:4px;border:1px solid var(--border)}
+.task{color:var(--cyan)}.result{color:var(--green)}.escalate{color:var(--red)}.operator{color:var(--amber)}.notify{color:var(--mut)}
+.thread{padding:16px 18px;overflow:auto}.thread h2{font-size:14px;color:var(--bright);margin:0 0 2px}
+.hdr{color:var(--mut);font-size:11px;margin-bottom:12px}.body{white-space:pre-wrap;border:1px solid var(--border);background:var(--card);padding:12px;font-size:12.5px}
+.payload{margin-top:10px;color:var(--mut);font-size:11px}.payload pre{background:#0d0d0d;border:1px solid var(--border);padding:8px;overflow:auto}
+.actions{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+.btn{background:transparent;border:1px solid var(--border);color:var(--cyan);padding:6px 11px;font:inherit;font-size:11.5px;cursor:pointer}.btn:hover{border-color:var(--cyan);color:var(--bright)}
+.map{color:var(--mut);font-size:11px;margin:12px 16px;border-top:1px solid var(--border);padding-top:8px}.map b{color:var(--text)}
+</style></head><body>
+<div class="top"><h1>Mail</h1><span class="sub">agent application · e2m-native</span><span class="badge">preview</span></div>
+<div class="note">Local preview of the <b style="color:var(--bright)">agent-native</b> <code>mail</code> template, implemented over our <b style="color:var(--bright)">e2m</b> protocol — no <code>npx</code>, no live fetch. Mapping: an <b>email = an Envelope</b>, a <b>reply = a Transition</b>, the <b>inbox = the e2m mailbox</b> (<code>cowork/data/mailbox/&lt;agent&gt;.jsonl</code>). Sample envelopes embedded inline.</div>
+<div class="layout">
+  <div class="list" id="list"></div>
+  <div class="thread" id="thread"></div>
+</div>
+<div class="map">e2m ↔ mail: <b>from/to</b> = sender/recipient · <b>subject</b> = subject · <b>envelope_type</b> = label (task/result/escalate/operator/notify) · <b>payload</b> = structured attachment · <b>state</b> = read/unread · actions write back to the JSONL as transitions (preview only).</div>
+<script id="mailbox" type="application/json">[
+ {"_type":"envelope","id":"e1","envelope_type":"operator","from":"operator","to":"product-manager","subject":"OP1: stand up the platform section of agent apps","at":"2026-06-19T21:40:00Z","state":"pending","payload":{"priority":1,"due":"2026-09"}},
+ {"_type":"envelope","id":"e2","envelope_type":"task","from":"project-manager","to":"product-manager","subject":"Routed: gate the templates behind a vault secret","at":"2026-06-19T21:42:00Z","state":"pending","payload":{"router":"project-manager","vault_ref":"vlt_platform"}},
+ {"_type":"envelope","id":"e3","envelope_type":"result","from":"design-coworker","to":"product-manager","subject":"Mail app preview is token-compliant (8/8)","at":"2026-06-19T21:55:00Z","state":"pending","payload":{"verdict":"pass","score":"8/8"}},
+ {"_type":"envelope","id":"e4","envelope_type":"escalate","from":"engineering-manager","to":"operator","subject":"Blocked: vault secret not set (needs operator)","at":"2026-06-19T22:01:00Z","state":"pending","payload":{"reason":"durable-vault-store: vlt_platform absent","resolvable":false,"channel":"imessage"}}
+]</script>
+<script>
+const MB=JSON.parse(document.getElementById('mailbox').textContent),e=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const list=document.getElementById('list'),thread=document.getElementById('thread');
+list.innerHTML=MB.map((m,i)=>`<div class="row${i===0?' on':''}" data-i="${i}">
+ <div class="f">${e(m.from)} <span class="et ${m.envelope_type}">${m.envelope_type}</span></div>
+ <div class="s">${e(m.subject)}</div><div class="m">→ ${e(m.to)} · ${e(m.at.slice(11,16))}</div></div>`).join('');
+function open(i){[...list.children].forEach(r=>r.classList.toggle('on',+r.dataset.i===i));const m=MB[i];
+ thread.innerHTML=`<h2>${e(m.subject)}</h2><div class="hdr">from <b style="color:var(--text)">${e(m.from)}</b> → ${e(m.to)} · <span class="et ${m.envelope_type}">${m.envelope_type}</span> · ${e(m.at)}</div>
+ <div class="body">${e(m.subject)}\n\n(envelope body — in the live app this renders the message + threaded transitions)</div>
+ <div class="payload">payload:<pre>${e(JSON.stringify(m.payload,null,2))}</pre></div>
+ <div class="actions">
+   <button class="btn" onclick="act('reply','${m.id}')">Reply → transition</button>
+   <button class="btn" onclick="act('ack','${m.id}')">Ack (read)</button>
+   <button class="btn" onclick="act('dispatch','${m.id}')">Dispatch → queue</button>
+   <button class="btn" onclick="act('escalate','${m.id}')">Escalate → iMessage</button>
+ </div>`;}
+function act(a,id){thread.insertAdjacentHTML('beforeend',`<div class="payload" style="color:var(--green)">› ${a} on ${id} — would append a transition row to the mailbox JSONL (preview; no write).</div>`);}
+list.onclick=ev=>{const r=ev.target.closest('.row');if(r)open(+r.dataset.i);};open(0);
+</script></body></html>

@@ -1,0 +1,17 @@
+[package]
+name    = "priority-queue"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "priority-queue"
+path = "src/main.rs"
+
+[dependencies]
+serde.workspace     = true
+serde_json.workspace = true
+uuid.workspace      = true
+chrono.workspace    = true
+thiserror.workspace = true
+lru.workspace       = true
+ahash.workspace     = true

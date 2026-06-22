@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Platform — agent applications · coworkers.subagentknowledge.com</title>
+<style>
+:root{--bg:#0a0a0a;--text:#d4d4d4;--bright:#f4f4f4;--cyan:#51c4ff;--green:#7bd88f;--amber:#e6b455;--red:#ff6b6b;--border:#2a2a2a;--card:#111;--mut:#6a6a6a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:13px;line-height:1.55}
+.wrap{max-width:940px;margin:0 auto;padding:26px 20px 70px}h1{color:var(--bright);font-size:18px;letter-spacing:1px;text-transform:uppercase;margin:0 0 2px}
+.sub{color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.gate{border:1px solid var(--amber);border-left:3px solid var(--amber);background:var(--card);padding:10px 13px;margin:16px 0;font-size:12px}
+.gate b{color:var(--amber)}.gate code{color:var(--cyan)}
+h2{color:var(--cyan);font-size:11px;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--border);padding-bottom:5px;margin:24px 0 10px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}@media(max-width:740px){.grid{grid-template-columns:1fr}}
+.app{background:var(--card);border:1px solid var(--border);padding:11px 13px}.app b{color:var(--bright)}
+.app .st{float:right;font-size:9.5px;text-transform:uppercase;letter-spacing:.5px}.ready{color:var(--green)}.pending{color:var(--mut)}
+.app .map{color:var(--mut);font-size:10.5px;margin-top:4px}.app a{color:var(--cyan);text-decoration:none}
+table{border-collapse:collapse;width:100%;font-size:11px;margin-top:8px}th,td{border:1px solid var(--border);padding:4px 7px;text-align:left}th{color:var(--mut);text-transform:uppercase;font-size:10px}
+footer{color:var(--mut);font-size:11px;margin-top:26px;border-top:1px solid var(--border);padding-top:10px}
+</style></head><body><div class="wrap">
+<h1>Platform — agent applications</h1>
+<div class="sub">coworkers.subagentknowledge.com / platform · gated</div>
+
+<div class="gate">🔒 <b>Gated section.</b> Access is gated by a password the <b>operator</b> stores in the vault, referenced
+here as <code>vault_id: vlt_platform</code> — never as plaintext. Coworkers / managers / subagents on macOS or the
+Tailscale network resolve the secret from the vault by ref; the value lives only in the macOS Keychain.
+<br><span style="color:var(--mut)">Operator action (one-time, not done by the agent):</span>
+<code>/durable-vault-store create vlt_platform --kind static_bearer --keychain</code>
+</div>
+
+<h2>Agent applications (12)</h2>
+<div class="grid" id="grid"></div>
+
+<h2>Template mapping (the time-saver — reuse, don't re-scaffold)</h2>
+<table><tr><th>agent-native template</th><th>npx (not run)</th><th>we already have</th><th>e2m wiring</th></tr>
+<tr><td>mail</td><td>create --template mail</td><td>templates/mail.html → mail-agent.html ✓</td><td>envelope=email, transition=reply</td></tr>
+<tr><td>calendar</td><td>--template calendar</td><td>templates/calendar.html</td><td>scheduled tasks = manager cadence</td></tr>
+<tr><td>plan</td><td>skills add visual-plan</td><td>templates/plan.html</td><td>the OP1 (operational-plan/)</td></tr>
+<tr><td>content / forms / design</td><td>--template …</td><td>templates/{content,forms,design}.html</td><td>design-coworker 8-token system</td></tr>
+<tr><td>dispatch</td><td>--template dispatch</td><td>templates/dispatch.html</td><td>e2m envelope_write / routing</td></tr>
+<tr><td>brain / analytics</td><td>--template …</td><td>templates/{brain,analytics}.html</td><td>e2m-OKF warehouse + memory store</td></tr>
+<tr><td>assets / chat</td><td>--template assets/chat</td><td>templates/{clips,index}.html</td><td>artifacts + the e2m thread</td></tr>
+</table>
+
+<footer>each app = an existing template, agent-wired over e2m and gated by <code>vlt_platform</code> · flagship: <a href="../templates/mail-agent.html">mail-agent.html</a> · @cite cowork/coworkers/operational-plan/contributions/product-manager.md</footer>
+<script>
+const APPS=[
+ ["Mail","mail","ready","../templates/mail-agent.html","envelope=email · reply=transition"],
+ ["Calendar","calendar","pending","../templates/calendar.html","OP1 cadence + scheduled tasks"],
+ ["Plan","plan","pending","../templates/plan.html","the 2026 OP1 (with project-manager)"],
+ ["Dispatch","dispatch","pending","../templates/dispatch.html","e2m routing / envelope_write"],
+ ["Brain","brain","pending","../templates/brain.html","memory store + dreams"],
+ ["Analytics","analytics","pending","../templates/analytics.html","e2m-OKF warehouse"],
+ ["Content","content","pending","../templates/content.html","8-token system"],
+ ["Forms","forms","pending","../templates/forms.html","typed inputs → envelopes"],
+ ["Design","design","pending","../templates/design.html","design-coworker tokens"],
+ ["Assets","assets","pending","../templates/clips.html","artifacts / media"],
+ ["Chat","chat","pending","../templates/index.html","the e2m thread"],
+ ["Slides","slides","pending","../templates/slides.html","narratives / PR-FAQ"]
+];
+document.getElementById('grid').innerHTML=APPS.map(a=>`<div class="app"><span class="st ${a[2]}">${a[2]==='ready'?'preview ✓':'template'}</span>
+ <b>${a[0]}</b><div class="map">${a[4]}</div><div style="margin-top:5px"><a href="${a[3]}">open →</a></div></div>`).join('');
+</script></div></body></html>

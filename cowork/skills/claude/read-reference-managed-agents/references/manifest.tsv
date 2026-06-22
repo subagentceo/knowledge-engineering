@@ -1,0 +1,179 @@
+file	level	header	start_line	end_line
+overview.md	H1	Claude Managed Agents overview	1	115
+overview.md	H2	Core concepts	26	36
+overview.md	H2	How it works	37	56
+overview.md	H2	When to use Claude Managed Agents	57	65
+overview.md	H2	Supported tools	66	76
+overview.md	H2	Beta access	77	89
+overview.md	H2	Rate limits	90	100
+overview.md	H2	Branding guidelines	101	115
+quickstart.md	H1	Get started with Claude Managed Agents	1	179
+quickstart.md	H2	Core concepts	13	21
+quickstart.md	H2	Prerequisites	22	26
+quickstart.md	H2	Install the CLI	27	74
+quickstart.md	H2	Install the SDK	75	120
+quickstart.md	H2	Create your first session	121	153
+quickstart.md	H2	What's happening	154	163
+quickstart.md	H2	Next steps	164	179
+onboarding.md	H1	Prototype in Console	1	41
+onboarding.md	H2	How to build an agent	13	23
+onboarding.md	H2	Testing an agent	24	27
+onboarding.md	H2	From prototype to code	28	41
+agent-setup.md	H1	Define your agent	1	99
+agent-setup.md	H2	Agent configuration fields	15	28
+agent-setup.md	H2	Create an agent	29	49
+agent-setup.md	H2	Update an agent	50	72
+agent-setup.md	H3	Update semantics	64	72
+agent-setup.md	H2	Agent lifecycle	73	94
+agent-setup.md	H3	List versions	81	87
+agent-setup.md	H3	Archive an agent	88	94
+agent-setup.md	H2	Next steps	95	99
+define-outcomes.md	H1	Define outcomes	1	128
+define-outcomes.md	H2	Create a rubric	17	52
+define-outcomes.md	H2	Create a session with an outcome	53	79
+define-outcomes.md	H2	Outcome events	80	101
+define-outcomes.md	H3	Outcome evaluation end	90	101
+define-outcomes.md	H2	Checking on outcome status	102	113
+define-outcomes.md	H2	Retrieving deliverables	114	128
+tools.md	H1	Tools	1	116
+tools.md	H2	Available tools	15	29
+tools.md	H2	Configuring the toolset	30	78
+tools.md	H3	Disabling specific tools	49	62
+tools.md	H3	Enabling only specific tools	63	78
+tools.md	H2	Custom tools	79	116
+tools.md	H3	Best practices for custom tool definitions	111	116
+skills.md	H1	Skills	1	49
+skills.md	H2	Enable skills on a session	20	42
+skills.md	H2	Skill types	43	49
+mcp-connector.md	H1	MCP connector	1	66
+mcp-connector.md	H2	Declare MCP servers on the agent	20	47
+mcp-connector.md	H2	Provide auth at session creation	48	61
+mcp-connector.md	H2	Supported MCP server types	62	66
+multi-agent.md	H1	Multiagent sessions	1	121
+multi-agent.md	H2	How it works	13	28
+multi-agent.md	H3	What to delegate	21	28
+multi-agent.md	H2	Configure the coordinator	29	57
+multi-agent.md	H2	Create the session	58	66
+multi-agent.md	H2	Threads	67	121
+multi-agent.md	H3	List threads	79	85
+multi-agent.md	H3	Interrupt a session thread	86	96
+multi-agent.md	H3	Archive a session thread	97	105
+multi-agent.md	H3	Primary thread events	106	116
+multi-agent.md	H3	Tool permissions and custom tools	117	121
+sessions.md	H1	Start a session	1	112
+sessions.md	H2	Creating a session	13	36
+sessions.md	H2	MCP authentication through vaults	37	48
+sessions.md	H2	Starting the session	49	68
+sessions.md	H2	Session statuses	69	79
+sessions.md	H2	Other session operations	80	112
+sessions.md	H3	Retrieving a session	82	88
+sessions.md	H3	Listing sessions	89	95
+sessions.md	H3	Archiving a session	96	103
+sessions.md	H3	Deleting a session	104	112
+events-and-streaming.md	H1	Session event stream	1	316
+events-and-streaming.md	H2	Event types	13	73
+events-and-streaming.md	H3	User events	21	30
+events-and-streaming.md	H3	Agent events	31	45
+events-and-streaming.md	H3	Session events	46	59
+events-and-streaming.md	H3	Span events	60	73
+events-and-streaming.md	H2	Integrating events	74	189
+events-and-streaming.md	H3	Sending events	76	118
+events-and-streaming.md	H3	Streaming events	119	170
+events-and-streaming.md	H3	Listing past events	171	189
+events-and-streaming.md	H2	Additional scenarios	190	302
+events-and-streaming.md	H3	Handling custom tool calls	192	226
+events-and-streaming.md	H3	Tool confirmation	227	257
+events-and-streaming.md	H3	Resuming an idle session	258	285
+events-and-streaming.md	H3	Tracking usage	286	302
+events-and-streaming.md	H2	Console observability	303	310
+events-and-streaming.md	H2	Debugging tips	311	316
+environments.md	H1	Cloud environment setup	1	126
+environments.md	H2	Create an environment	13	28
+environments.md	H2	Use the environment in a session	29	39
+environments.md	H2	Configuration options	40	100
+environments.md	H3	Packages	42	70
+environments.md	H3	Networking	71	100
+environments.md	H2	Environment lifecycle	101	107
+environments.md	H2	Manage environments	108	123
+environments.md	H2	Pre-installed runtimes	124	126
+cloud-containers.md	H1	Container reference	1	71
+cloud-containers.md	H2	Programming languages	13	25
+cloud-containers.md	H2	Databases	26	37
+cloud-containers.md	H2	Utilities	38	62
+cloud-containers.md	H3	System tools	40	48
+cloud-containers.md	H3	Development tools	49	56
+cloud-containers.md	H3	Text processing	57	62
+cloud-containers.md	H2	Container specifications	63	71
+permission-policies.md	H1	Permission policies	1	126
+permission-policies.md	H2	Permission policy types	13	19
+permission-policies.md	H2	Set a policy for a toolset	20	66
+permission-policies.md	H3	Agent toolset permissions	22	42
+permission-policies.md	H3	MCP toolset permissions	43	66
+permission-policies.md	H2	Override an individual tool policy	67	87
+permission-policies.md	H2	Respond to confirmation requests	88	123
+permission-policies.md	H2	Custom tools	124	126
+vaults.md	H1	Authenticate with vaults	1	146
+vaults.md	H2	Create a vault	15	30
+vaults.md	H2	Add a credential	31	86
+vaults.md	H3	MCP OAuth credential	35	58
+vaults.md	H3	Static bearer credential	59	86
+vaults.md	H2	Reference the vault at session creation	87	103
+vaults.md	H2	Credential refresh	104	123
+vaults.md	H3	Diagnose an OAuth refresh failure	116	123
+vaults.md	H2	Rotate a credential	124	140
+vaults.md	H2	Other operations	141	146
+files.md	H1	Adding files	1	119
+files.md	H2	Uploading files	13	21
+files.md	H2	Mounting files in a session	22	45
+files.md	H2	Multiple files	46	59
+files.md	H2	Managing files on a running session	60	82
+files.md	H2	Listing and downloading session files	83	100
+files.md	H2	Supported file types	101	110
+files.md	H2	File paths	111	119
+memory.md	H1	Using agent memory	1	216
+memory.md	H2	Overview	13	20
+memory.md	H2	Create a memory store	21	50
+memory.md	H3	Seed it with content (optional)	35	50
+memory.md	H2	Attach a memory store to a session	51	83
+memory.md	H3	How the agent accesses memory	78	83
+memory.md	H2	View and edit memories	84	156
+memory.md	H3	List memories	88	100
+memory.md	H3	Read a memory	101	110
+memory.md	H3	Create a memory	111	122
+memory.md	H3	Update a memory	123	147
+memory.md	H3	Delete a memory	148	156
+memory.md	H2	Audit memory changes	157	194
+memory.md	H3	List versions	163	173
+memory.md	H3	Retrieve a version	174	183
+memory.md	H3	Redact a version	184	194
+memory.md	H2	Manage memory stores	195	213
+memory.md	H3	List stores	197	203
+memory.md	H3	Archive a store	204	213
+memory.md	H2	Limits	214	216
+github.md	H1	Accessing GitHub	1	93
+github.md	H2	GitHub MCP and Session Resources	15	37
+github.md	H2	Token permissions	38	52
+github.md	H2	Multiple repositories	53	56
+github.md	H2	Managing repositories on a running session	57	73
+github.md	H2	Creating pull requests	74	93
+webhooks.md	H1	Subscribe to webhooks	1	114
+webhooks.md	H2	Supported event types	11	37
+webhooks.md	H3	Session events	13	25
+webhooks.md	H3	Vault events	26	37
+webhooks.md	H2	Register an endpoint	38	47
+webhooks.md	H2	Verify the signature	48	79
+webhooks.md	H2	Handle an event	80	108
+webhooks.md	H2	Delivery behavior	109	114
+dreams.md	H1	Dreams	1	146
+dreams.md	H2	How it works	21	29
+dreams.md	H2	Create a dream	30	51
+dreams.md	H2	Track progress	52	76
+dreams.md	H3	Lifecycle	63	72
+dreams.md	H3	Watch the pipeline run	73	76
+dreams.md	H2	Use the output	77	101
+dreams.md	H2	Cancel a dream	102	109
+dreams.md	H2	Archive a dream	110	117
+dreams.md	H2	List dreams	118	124
+dreams.md	H2	Errors	125	135
+dreams.md	H2	Billing	136	139
+dreams.md	H2	Limits	140	146
