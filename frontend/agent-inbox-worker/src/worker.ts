@@ -15,7 +15,7 @@
  * The live deploy (dist/worker.js) is the dependency-free inbound half (parse + KV queue). Running
  * `wrangler deploy` promotes to this build: stateful agents + outbound replies.
  */
-import { Agent, routeAgentEmail } from "agents";
+import { Agent, callable, routeAgentEmail, type EmailSendBinding } from "agents";
 import { createAddressBasedEmailResolver, type AgentEmail } from "agents/email";
 import PostalMime from "postal-mime";
 import { parse as parseE2M, type Envelope } from "@coworkers/e2m-ts";
@@ -24,13 +24,37 @@ import { DOMAIN, ROLES, localPart, isKnownRole, type Role } from "./manifest.js"
 export { DOMAIN, ROLES, roleEmail, localPart, isKnownRole, type Role } from "./manifest.js";
 
 interface Env {
-  EMAIL: { send: (msg: unknown) => Promise<unknown> };
+  EMAIL: EmailSendBinding;
   ManagerInbox: DurableObjectNamespace;
 }
 
 /** One inbox agent per manager role. Inbound email becomes an e2m envelope in agent state. */
 export class ManagerInbox extends Agent<Env, { envelopes: Envelope[] }> {
   initialState = { envelopes: [] as Envelope[] };
+
+  /**
+   * Proactive outbound: send email from one coworker role to another.
+   * Uses the SDK pattern (this.sendEmail) not the low-level EmailMessage constructor.
+   * @cite https://developers.cloudflare.com/agents/communication-channels/email/
+   */
+  @callable()
+  async sendCoworkerEmail(params: {
+    to: string;
+    from: string;
+    subject: string;
+    text: string;
+  }): Promise<{ messageId: string }> {
+    const messageId = `<${crypto.randomUUID()}@${DOMAIN}>`;
+    await this.sendEmail({
+      binding: this.env.EMAIL,
+      to: params.to,
+      from: params.from,
+      subject: params.subject,
+      text: params.text,
+      headers: { "Message-ID": messageId },
+    });
+    return { messageId };
+  }
 
   async onEmail(email: AgentEmail): Promise<void> {
     const raw = await email.getRaw();
