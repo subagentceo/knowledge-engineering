@@ -17,7 +17,7 @@
  *
  * @cite github.com/cloudflare/agents                         (McpAgent pattern)
  * @cite plugins/mcp-server-dev/skills/build-mcp-server/references/deploy-cloudflare-workers.md
- * @cite cowork/coworkers/manifest.json                       (7 coworker definitions)
+ * @cite cowork/coworkers/manifest.json                       (12 coworker definitions)
  * @cite cowork/mcp/e2m-mcp/server.ts                        (envelope schema)
  */
 
@@ -47,7 +47,7 @@ export class CoworkMcp extends McpAgent<Env> {
     this.server.registerTool(
       "list_coworkers",
       {
-        description: "List all 7 coworkers with their domain, model, and supported protocols.",
+        description: "List all 12 coworkers with their domain, model, and supported protocols.",
         inputSchema: {},
         annotations: { readOnlyHint: true },
       },
@@ -75,7 +75,7 @@ export class CoworkMcp extends McpAgent<Env> {
     this.server.registerTool(
       "get_queue_status",
       {
-        description: "Get current queue status across all 7 coworker domains. Returns pending/in_progress/completed counts per domain.",
+        description: "Get current queue status across all 12 coworker domains. Returns pending/in_progress/completed counts per domain.",
         inputSchema: {
           domain: z.enum(DOMAINS as [string, ...string[]])
             .optional()
@@ -395,7 +395,7 @@ function coworkShell(): string {
 
   <div class="hero">
     <h1>The cowork/ application</h1>
-    <p>Multi-protocol coworker OS. 7 coworkers communicate via a2a, acp, mcp, and e2m-mcp envelopes. Each domain has a queue, a mailbox, and a skill.</p>
+    <p>Multi-protocol coworker OS. 12 coworkers communicate via a2a, acp, mcp, and e2m-mcp envelopes. Each domain has a queue, a mailbox, and a skill.</p>
     <div class="mcp-box">
       <div class="lbl">MCP endpoint — paste into Claude connectors</div>
       <code>https://cowork.subagentknowledge.com/mcp</code>
@@ -446,7 +446,7 @@ function coworkShell(): string {
 
   <footer>
     <span>cowork.subagentknowledge.com — knowledge-engineering chassis v0.2.0</span>
-    <span>7 coworkers · 7 queues · MCP @ /mcp · <a href="/summary" style="color:#7bd88f;text-decoration:none">morning summary &nearr;</a></span>
+    <span>12 coworkers · 12 queues · MCP @ /mcp · <a href="/summary" style="color:#7bd88f;text-decoration:none">morning summary &nearr;</a></span>
   </footer>
 </div>
 </body>

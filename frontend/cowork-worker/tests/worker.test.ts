@@ -15,8 +15,8 @@ import {
 } from "../src/manifest.js";
 
 describe("COWORKERS manifest", () => {
-  test("has exactly 7 coworkers", () => {
-    assert.equal(COWORKERS.length, 7);
+  test("has exactly 12 coworkers", () => {
+    assert.equal(COWORKERS.length, 12);
   });
 
   test("every coworker has required fields", () => {
@@ -50,8 +50,9 @@ describe("COWORKERS manifest", () => {
     const valid = new Set([
       "claude-sonnet-4-6",
       "claude-haiku-4-5-20251001",
-      "claude-opus-4-8",
+      "claude-opus-4-6",
       "claude-opus-4-7",
+      "claude-opus-4-8",
     ]);
     for (const cw of COWORKERS) {
       assert.ok(valid.has(cw.model), `${cw.id} has unknown model: ${cw.model}`);

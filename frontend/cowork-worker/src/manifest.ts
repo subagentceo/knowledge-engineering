@@ -19,6 +19,11 @@ export const COWORKERS: CoworkerEntry[] = [
   { id: "sales-coworker",             domain: "sales",              model: "claude-haiku-4-5-20251001", protocols: ["a2a","e2m-mcp"] },
   { id: "operations-coworker",        domain: "operations",         model: "claude-haiku-4-5-20251001", protocols: ["a2a","e2m-mcp","acp"] },
   { id: "finance-coworker",           domain: "finance",            model: "claude-haiku-4-5-20251001", protocols: ["a2a","e2m-mcp"] },
+  { id: "legal-coworker",            domain: "legal",              model: "claude-sonnet-4-6",        protocols: ["a2a","e2m-mcp"] },
+  { id: "marketing-coworker",        domain: "marketing",          model: "claude-sonnet-4-6",        protocols: ["a2a","e2m-mcp"] },
+  { id: "agent-resources-coworker",  domain: "agent-resources",    model: "claude-sonnet-4-6",        protocols: ["a2a","e2m-mcp"] },
+  { id: "human-resources-coworker",  domain: "human-resources",    model: "claude-sonnet-4-6",        protocols: ["a2a","e2m-mcp"] },
+  { id: "project-management-coworker", domain: "project-management", model: "claude-opus-4-6",       protocols: ["a2a","e2m-mcp"] },
 ];
 
 export const DOMAINS = COWORKERS.map(c => c.domain);
