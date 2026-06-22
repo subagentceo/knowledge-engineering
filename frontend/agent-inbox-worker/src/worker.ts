@@ -18,7 +18,6 @@
 import { Agent, callable, routeAgentEmail, type EmailSendBinding } from "agents";
 import { createAddressBasedEmailResolver, type AgentEmail } from "agents/email";
 import PostalMime from "postal-mime";
-import { parse as parseE2M, type Envelope } from "@coworkers/e2m-ts";
 import { DOMAIN, ROLES, localPart, isKnownRole, type Role } from "./manifest.js";
 
 export { DOMAIN, ROLES, roleEmail, localPart, isKnownRole, type Role } from "./manifest.js";
@@ -81,20 +80,18 @@ export class ManagerInbox extends Agent<Env, { envelopes: Envelope[] }> {
     }
     const role: Role = lp;
 
-    // Build + validate the e2m envelope against the canonical contract (drift-free).
-    // `from` is the external sender email; `to` is the canonical coworker ID.
-    const envelope: Envelope = parseE2M({
-      _type: "envelope",
+    const envelope = {
+      _type: "envelope" as const,
       id: crypto.randomUUID(),
-      envelope_type: "task",
+      envelope_type: "task" as const,
       from: email.from,
       to: role,
       subject: parsed.subject ?? "",
       at: new Date().toISOString(),
-      state: "pending",
+      state: "pending" as const,
       thread_id: parsed.messageId,
       payload: { channel: "email", rcpt: email.to, text: parsed.text ?? "" },
-    }) as Envelope;
+    };
 
     this.setState({ envelopes: [...this.state.envelopes, envelope] });
 
