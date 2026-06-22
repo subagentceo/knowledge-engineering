@@ -3,7 +3,11 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "esModuleInterop": true,
@@ -11,7 +15,15 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "noEmit": true,
-    "types": ["@cloudflare/workers-types", "node"]
+    "types": [
+      "@cloudflare/workers-types",
+      "node"
+    ]
   },
-  "include": ["src", "tests", "scripts", "vite.config.ts"]
+  "include": [
+    "src",
+    "tests",
+    "scripts",
+    "vite.config.ts"
+  ]
 }

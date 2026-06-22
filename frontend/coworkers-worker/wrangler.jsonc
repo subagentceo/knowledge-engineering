@@ -1,13 +1,41 @@
 {
   "name": "coworkers-frontend",
-  "main": "index.js",
+  // entry point is now the TypeScript worker (wrangler bundles via esbuild)
+  "main": "src/worker.ts",
   "compatibility_date": "2025-06-01",
+  "compatibility_flags": ["nodejs_compat"],
   "account_id": "e6294e3ea89f8207af387d459824aaae",
   "routes": [
     {
-      "pattern": "coworkers.subagentknowledge.com/*",
+      "pattern": "coworkers.subagentknowledge.com",
       "zone_id": "3f820e0424fd375d5b6f86acaad0d5d7",
       "custom_domain": true
+    }
+  ],
+  "vars": {
+    "SITE_NAME": "coworkers",
+    "COWORK_HOST": "cowork.subagentknowledge.com"
+  },
+  // ── Durable Objects ────────────────────────────────────────────────────────
+  "durable_objects": {
+    "bindings": [
+      // legacy directory DO (already deployed, namespace_id preserved)
+      {
+        "name": "MCP_OBJECT",
+        "class_name": "CoworkersMcp"
+      },
+      // new e2m coordination DO
+      {
+        "name": "COWORKERS_MCP_APP",
+        "class_name": "CoworkersMcpApp"
+      }
+    ]
+  },
+  // ── SQLite v1 migration for CoworkersMcpApp ────────────────────────────────
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["CoworkersMcpApp"]
     }
   ]
 }

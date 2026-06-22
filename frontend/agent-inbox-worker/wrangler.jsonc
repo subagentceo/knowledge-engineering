@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "agent-inbox",
+  // MCP surface entry-point; email handler is re-exported from worker.ts.
+  "main": "src/agent-inbox.app.ts",
+  "compatibility_date": "2025-06-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "account_id": "e6294e3ea89f8207af387d459824aaae",
+
+  // Outbound — Cloudflare Email Service (SPF/DKIM/DMARC auto-configured for subagentknowledge.com).
+  "send_email": [{ "name": "EMAIL", "remote": true }],
+
+  // Inbound queue — KV namespace shared by both the live deploy and the MCP agent.
+  "kv_namespaces": [
+    { "binding": "INBOX", "id": "4bcdd7b006cc42ba9bfebd9587ea5235" }
+  ],
+
+  // Durable Objects — ManagerInbox (stateful per-role email agents) +
+  //                   AgentInboxMcp (the MCP server Durable Object, v1 SQLite).
+  "durable_objects": {
+    "bindings": [
+      { "name": "ManagerInbox", "class_name": "ManagerInbox" },
+      { "name": "AgentInboxMcp", "class_name": "AgentInboxMcp" }
+    ]
+  },
+  // v1 migration creates SQLite-backed storage for both DO classes.
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["ManagerInbox", "AgentInboxMcp"] }
+  ]
+
+  // Inbound routing rules (product-manager@ / project-manager@ / legal-manager@ / finance-manager@
+  // -> this worker) are managed via Email Routing (already live); see deploy.sh / README.
+}

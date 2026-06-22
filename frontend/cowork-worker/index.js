@@ -8,7 +8,7 @@ export class CoworkMcp {
 }
 
 const COWORKERS = [
-  { id:"pm-coworker",                 label:"product-management",  model:"sonnet-4-6", color:"#51c4ff", role:"chief-of-staff" },
+  { id:"product-management-coworker",                 label:"product-management",  model:"sonnet-4-6", color:"#51c4ff", role:"chief-of-staff" },
   { id:"project-management-coworker", label:"project-management",  model:"opus-4-6",   color:"#f4a73b", role:"execution" },
   { id:"engineering-coworker",        label:"engineering",         model:"sonnet-4-6", color:"#7bd88f", role:"implementation" },
   { id:"design-coworker",             label:"design",              model:"haiku-4-5",  color:"#c084fc", role:"ux" },
@@ -38,9 +38,9 @@ const RECENT_WORK = [
   { at:"02:24", from:"project-management", subject:"Nightly review — 14 queues scanned, 0 blocked", state:"completed" },
   { at:"02:24", from:"project-management", subject:"Type-safety audit — 0 violations", state:"completed" },
   { at:"02:24", from:"project-management", subject:"Morning summary artifact written", state:"completed" },
-  { at:"01:15", from:"pm-coworker",        subject:"project-management-coworker SKILL.md deployed", state:"completed" },
+  { at:"01:15", from:"product-management-coworker",        subject:"project-management-coworker SKILL.md deployed", state:"completed" },
   { at:"00:42", from:"engineering",        subject:"CF Workers upgraded: cowork + coworkers", state:"completed" },
-  { at:"23:55", from:"pm-coworker",        subject:"3 scheduled tasks created (00:00/06:00/07:00 PST)", state:"completed" },
+  { at:"23:55", from:"product-management-coworker",        subject:"3 scheduled tasks created (00:00/06:00/07:00 PST)", state:"completed" },
 ];
 
 function buildHTML() {
@@ -155,7 +155,7 @@ body{padding-top:env(safe-area-inset-top);padding-bottom:calc(env(safe-area-inse
   </div>
 </div>
 <div id="panel-plan" class="panel">
-  <div class="sh"><span class="sh-l">product roadmap</span><span class="sh-s">pm-coworker</span></div>
+  <div class="sh"><span class="sh-l">product roadmap</span><span class="sh-s">product-management-coworker</span></div>
   <div class="pc green">
     <div class="pc-title">Phase 20 — agent-native visualization</div>
     <div class="pc-body">cowork.subagentknowledge.com rebuilt with dispatch/plan/calendar patterns. Mobile-first for iPhone 16 Pro. Version-controlled via git + CF Worker deploy.</div>

@@ -1,13 +1,37 @@
 {
   "name": "cowork-frontend",
-  "main": "index.js",
+  "main": "src/worker.ts",
   "compatibility_date": "2025-06-01",
+  "compatibility_flags": ["nodejs_compat"],
   "account_id": "e6294e3ea89f8207af387d459824aaae",
   "routes": [
     {
-      "pattern": "cowork.subagentknowledge.com/*",
+      "pattern": "cowork.subagentknowledge.com",
       "zone_id": "3f820e0424fd375d5b6f86acaad0d5d7",
       "custom_domain": true
+    }
+  ],
+  // Durable Object binding for CoworkMcp (McpAgent pattern)
+  // @cite github.com/cloudflare/agents (McpAgent DO binding)
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "COWORK_MCP",
+        "class_name": "CoworkMcp"
+      },
+      // Keep existing MCP_OBJECT binding used by worker.ts CoworkMcp
+      {
+        "name": "MCP_OBJECT",
+        "class_name": "CoworkMcp"
+      }
+    ]
+  },
+  // v1 sqlite migration — creates artifacts table for list_artifacts / get_artifact
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["CoworkMcp"],
+      "new_classes": []
     }
   ]
 }
