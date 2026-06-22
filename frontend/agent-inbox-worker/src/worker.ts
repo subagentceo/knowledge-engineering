@@ -19,9 +19,9 @@ import { Agent, routeAgentEmail } from "agents";
 import { createAddressBasedEmailResolver, type AgentEmail } from "agents/email";
 import PostalMime from "postal-mime";
 import { parse as parseE2M, type Envelope } from "@coworkers/e2m-ts";
-import { DOMAIN, ROLES, localPart, type Role } from "./manifest.js";
+import { DOMAIN, ROLES, localPart, isKnownRole, type Role } from "./manifest.js";
 
-export { DOMAIN, FUNCTIONS, TIERS, ROLES, roleEmail, localPart, type Role, type AgentFunction, type AgentTier } from "./manifest.js";
+export { DOMAIN, ROLES, roleEmail, localPart, isKnownRole, type Role } from "./manifest.js";
 
 interface Env {
   EMAIL: { send: (msg: unknown) => Promise<unknown> };
@@ -35,9 +35,20 @@ export class ManagerInbox extends Agent<Env, { envelopes: Envelope[] }> {
   async onEmail(email: AgentEmail): Promise<void> {
     const raw = await email.getRaw();
     const parsed = await PostalMime.parse(raw);
-    const role = localPart(email.to) as Role;
+    const lp = localPart(email.to);
+
+    // Guard: reject email to unknown coworker addresses (misconfigured routing).
+    if (!isKnownRole(lp)) {
+      await this.replyToEmail(email, {
+        fromName: "agent-inbox (coworkers)",
+        body: `No coworker found for address ${email.to}. Valid addresses: ${ROLES.map((r) => `${r}@${DOMAIN}`).join(", ")}`,
+      });
+      return;
+    }
+    const role: Role = lp;
 
     // Build + validate the e2m envelope against the canonical contract (drift-free).
+    // `from` is the external sender email; `to` is the canonical coworker ID.
     const envelope: Envelope = parseE2M({
       _type: "envelope",
       id: crypto.randomUUID(),

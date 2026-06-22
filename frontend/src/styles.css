@@ -508,3 +508,71 @@ body {
 .memory-dreams { color: #e6b455; }
 
 .memory-agent { color: #51c4ff; }
+
+/* ── coworker-inbox pane (email-routing research preview) ── */
+#inbox-pane {
+  padding: 12px;
+  border-top: 1px solid #1f1f1f;
+}
+
+#inbox-pane h2 {
+  font-size: 14px;
+  color: #e6e6e6;
+  margin: 0 0 6px;
+}
+
+.inbox-subtext {
+  font-size: 11px;
+  color: #6a6a6a;
+  margin: 0 0 10px;
+}
+
+.inbox-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+.inbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.inbox-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.inbox-address {
+  flex: 1;
+  color: #c4b5fd;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.inbox-status {
+  font-size: 11px;
+  width: 52px;
+  text-align: right;
+}
+
+.inbox-count {
+  font-size: 11px;
+  color: #6a6a6a;
+  width: 52px;
+  text-align: right;
+}
+
+.inbox-footer {
+  margin: 10px 0 0;
+  font-size: 11px;
+  color: #e6b455;
+}

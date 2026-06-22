@@ -12,6 +12,7 @@ import { loadTableSemantics, renderWarehouse } from "./warehouse.js";
 import { loadVendorStats, renderServiceStatus } from "./service-status.js";
 import { loadMemories, renderMemoryBrowser } from "./memory-browser.js";
 import { loadCacheStats, renderCacheStatus } from "./cache-status.js";
+import { loadInboxStatus, renderCoworkerInbox } from "./coworker-inbox.js";
 
 async function hydrateCacheStatus(): Promise<void> {
   const root = document.getElementById("cache-status") as HTMLDivElement | null;
@@ -20,6 +21,16 @@ async function hydrateCacheStatus(): Promise<void> {
     renderCacheStatus(root, await loadCacheStats());
   } catch (err) {
     root.textContent = `failed to load cache stats: ${(err as Error).message}`;
+  }
+}
+
+async function hydrateCoworkerInbox(): Promise<void> {
+  const root = document.getElementById("coworker-inbox") as HTMLDivElement | null;
+  if (!root) return;
+  try {
+    renderCoworkerInbox(root, await loadInboxStatus());
+  } catch (err) {
+    root.textContent = `failed to load inbox status: ${(err as Error).message}`;
   }
 }
 
@@ -73,6 +84,7 @@ async function main(): Promise<void> {
   void hydrateServiceStatus();
   void hydrateCacheStatus();
   void hydrateMemoryBrowser();
+  void hydrateCoworkerInbox();
 
   const accordionRoot = document.getElementById("accordion") as HTMLDivElement | null;
   const loadingEl = document.getElementById("accordion-loading") as HTMLDivElement | null;

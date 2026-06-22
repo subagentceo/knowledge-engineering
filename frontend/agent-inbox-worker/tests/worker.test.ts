@@ -6,16 +6,15 @@ import { strict as assert } from "node:assert";
 import { describe, test } from "vitest";
 import {
   DOMAIN,
-  FUNCTIONS,
-  TIERS,
   ROLES,
   roleEmail,
   localPart,
+  isKnownRole,
   type Role,
 } from "../src/manifest.js";
 
 describe("ROLES", () => {
-  test("generates 12 roles (4 functions x 3 tiers)", () => {
+  test("has exactly 12 coworker addresses (matches live Cloudflare Email Routing)", () => {
     assert.equal(ROLES.length, 12);
   });
 
@@ -23,26 +22,39 @@ describe("ROLES", () => {
     assert.equal(new Set(ROLES).size, ROLES.length);
   });
 
-  test("includes expected combinations", () => {
-    assert.ok(ROLES.includes("product-manager"));
-    assert.ok(ROLES.includes("finance-subagent"));
-    assert.ok(ROLES.includes("legal-coworker"));
-    assert.ok(ROLES.includes("project-manager"));
+  test("includes all 12 canonical coworker ids", () => {
+    const expected: Role[] = [
+      "product-management-coworker",
+      "project-management-coworker",
+      "design-coworker",
+      "engineering-coworker",
+      "data-coworker",
+      "sales-coworker",
+      "operations-coworker",
+      "finance-coworker",
+      "legal-coworker",
+      "marketing-coworker",
+      "agent-resources-coworker",
+      "human-resources-coworker",
+    ];
+    for (const id of expected) {
+      assert.ok(ROLES.includes(id), `missing coworker id: ${id}`);
+    }
   });
 
-  test("follows <function>-<tier> pattern", () => {
+  test("all roles end with -coworker", () => {
     for (const role of ROLES) {
-      const parts = role.split("-");
-      assert.ok(parts.length === 2, `${role} should have exactly one hyphen`);
-      assert.ok((FUNCTIONS as readonly string[]).includes(parts[0]!), `${role} has unknown function: ${parts[0]}`);
-      assert.ok((TIERS as readonly string[]).includes(parts[1]!), `${role} has unknown tier: ${parts[1]}`);
+      assert.ok(role.endsWith("-coworker"), `${role} should end with -coworker`);
     }
   });
 });
 
 describe("roleEmail", () => {
   test("builds email from role", () => {
-    assert.equal(roleEmail("product-manager"), "product-manager@subagentknowledge.com");
+    assert.equal(
+      roleEmail("product-management-coworker"),
+      "product-management-coworker@subagentknowledge.com",
+    );
   });
 
   test("uses DOMAIN constant", () => {
@@ -52,19 +64,38 @@ describe("roleEmail", () => {
 
 describe("localPart", () => {
   test("extracts local part from email", () => {
-    assert.equal(localPart("product-manager@subagentknowledge.com"), "product-manager");
+    assert.equal(
+      localPart("product-management-coworker@subagentknowledge.com"),
+      "product-management-coworker",
+    );
   });
 
   test("strips +tag extensions", () => {
-    assert.equal(localPart("finance-manager+urgent@subagentknowledge.com"), "finance-manager");
+    assert.equal(
+      localPart("finance-coworker+urgent@subagentknowledge.com"),
+      "finance-coworker",
+    );
   });
 
   test("lowercases", () => {
-    assert.equal(localPart("Product-Manager@FOO.COM"), "product-manager");
+    assert.equal(localPart("Engineering-Coworker@FOO.COM"), "engineering-coworker");
   });
 
   test("returns empty string for empty input", () => {
     assert.equal(localPart(""), "");
+  });
+});
+
+describe("isKnownRole", () => {
+  test("returns true for known role local part", () => {
+    assert.ok(isKnownRole("legal-coworker"));
+    assert.ok(isKnownRole("data-coworker"));
+  });
+
+  test("returns false for unknown local parts", () => {
+    assert.ok(!isKnownRole("product-manager"));   // old stale name
+    assert.ok(!isKnownRole("finance-subagent"));   // old stale name
+    assert.ok(!isKnownRole("unknown-role"));
   });
 });
 
