@@ -27,9 +27,9 @@ Step 3 — Enforce standards: every JSONL record in `cowork/data/mailbox/` must 
 
 For any file with violations, write a corrected version with missing fields backfilled (use "unknown" for from/to, ISO timestamp for dates).
 
-Step 4 — Write summary to `cowork/data/mailbox/pm-coworker.jsonl`:
+Step 4 — Write summary to `cowork/data/mailbox/product-management-coworker.jsonl`:
 ```json
-{"_type":"message","id":"<uuid>","from":"project-management-coworker","to":"pm-coworker","subject":"6am type-safety audit complete — N violations fixed","at":"<ISO>","state":"pending","payload":{"violations_found":N,"files_fixed":N}}
+{"_type":"message","id":"<uuid>","from":"project-management-coworker","to":"product-management-coworker","subject":"6am type-safety audit complete — N violations fixed","at":"<ISO>","state":"pending","payload":{"violations_found":N,"files_fixed":N}}
 ```
 
 @cite cowork/coworkers/skills/project-management-coworker/SKILL.md

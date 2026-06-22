@@ -4,7 +4,7 @@ description: >-
   Search across all 25 vendor doc surfaces in vendor/. Returns ranked excerpts
   with @cite provenance. Use when: "search vendor docs", "find in vendor/",
   "look up <library> API", "what does <vendor> say about X".
-coworker_affinity: [pm-coworker, data-coworker, engineering-coworker]
+coworker_affinity: [product-management-coworker, data-coworker, engineering-coworker]
 plugin: enterprise-search
 ---
 

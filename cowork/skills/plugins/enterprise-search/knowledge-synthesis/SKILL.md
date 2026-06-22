@@ -4,7 +4,7 @@ description: >-
   Cross-vendor synthesis: compare how multiple vendors handle the same concept.
   Use when: "compare Neon vs AlloyDB", "how do CF and AWS differ on X",
   "synthesize vendor approaches to <topic>".
-coworker_affinity: [pm-coworker, engineering-coworker, data-coworker]
+coworker_affinity: [product-management-coworker, engineering-coworker, data-coworker]
 plugin: enterprise-search
 ---
 

@@ -4,7 +4,7 @@ description: >-
   Read and write heartbeat memory: last-tick decisions, open questions, next-actions.
   Use when: "what did we decide last session", "save this decision", "open questions",
   "update heartbeat", "what's in memory".
-coworker_affinity: [pm-coworker]
+coworker_affinity: [product-management-coworker]
 plugin: productivity
 ---
 

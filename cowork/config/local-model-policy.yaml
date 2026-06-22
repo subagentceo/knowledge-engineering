@@ -65,7 +65,7 @@ local:
 # ── Anthropic API (high-value tasks only) ────────────────────────────────────
 anthropic:
   models:
-    orchestration: "claude-sonnet-4-6"     # pm-coworker: low latency, high interaction
+    orchestration: "claude-sonnet-4-6"     # product-management-coworker: low latency, high interaction
     implementation: "claude-opus-4-6"      # engineering, legal: high effort
     budget_tasks: "claude-haiku-4-5"       # data, finance: cost-sensitive
 
@@ -79,7 +79,7 @@ anthropic:
       rationale: "Complex ES module constraints, multipart upload format, DO bindings"
 
     - type: "cross-coworker-orchestration"
-      description: "pm-coworker directing multiple coworkers in a single session"
+      description: "product-management-coworker directing multiple coworkers in a single session"
       rationale: "High-context multi-agent coordination"
 
     - type: "pr-creation"

@@ -4,7 +4,7 @@ description: >-
   Session start skill. Bootstraps a cowork session: reads mailbox, reconstructs
   queue state, claims highest-priority task. Replaces cold-start uncertainty.
   Use when: "start session", "/start", beginning any new cowork session.
-coworker_affinity: [pm-coworker]
+coworker_affinity: [product-management-coworker]
 plugin: productivity
 ---
 

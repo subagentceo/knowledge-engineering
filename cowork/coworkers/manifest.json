@@ -28,14 +28,14 @@
   },
   "coworkers": [
     {
-      "id": "pm-coworker",
+      "id": "product-management-coworker",
       "display_name": "Product Management",
       "domain": "product-management",
       "queue": "cowork/data/queues/product-management.jsonl",
-      "mailbox": "cowork/data/mailbox/pm-coworker.jsonl",
-      "skill": "cowork/coworkers/skills/pm-coworker/SKILL.md",
+      "mailbox": "cowork/data/mailbox/product-management-coworker.jsonl",
+      "skill": "cowork/coworkers/skills/product-management-coworker/SKILL.md",
       "model": "claude-sonnet-4-6",
-      "trigger_phrase": "/pm-coworker",
+      "trigger_phrase": "/product-management-coworker",
       "protocols": [
         "a2a",
         "e2m-mcp",
@@ -51,7 +51,7 @@
       ],
       "description": "Lead PM. Routes work, manages priority-rerank cadence, maintains product-management queue. Orchestrates peer coworkers via e2m-mcp mailbox_send.",
       "subdomain_surface": "coworkers.subagentknowledge.com/product-management",
-      "test": "cowork/coworkers/tests/pm-coworker.test.ts",
+      "test": "cowork/coworkers/tests/product-management-coworker.test.ts",
       "role": "chief-of-staff",
       "direct_reports": [
         "project-management-coworker"
@@ -72,7 +72,7 @@
         "e2m-mcp"
       ],
       "peers": [
-        "pm-coworker",
+        "product-management-coworker",
         "engineering-coworker"
       ],
       "description": "Design token + HTML artifact coworker. Owns cowork/artifacts/ and the 8-token design system.",
@@ -94,7 +94,7 @@
         "mcp"
       ],
       "peers": [
-        "pm-coworker",
+        "product-management-coworker",
         "data-coworker"
       ],
       "description": "TypeScript + Rust implementation coworker. Owns cowork/mcp/, cowork/templates/, src/.",
@@ -115,7 +115,7 @@
         "e2m-mcp"
       ],
       "peers": [
-        "pm-coworker",
+        "product-management-coworker",
         "engineering-coworker"
       ],
       "description": "AlloyDB / Kimball DW coworker. Owns dw.* schema, dim_agent_templates, fact tables.",
@@ -136,7 +136,7 @@
         "e2m-mcp"
       ],
       "peers": [
-        "pm-coworker",
+        "product-management-coworker",
         "finance-coworker"
       ],
       "description": "Outreach + mail coworker. Owns cowork/apps/mail/, sales queue, finance cost tracking.",
@@ -158,7 +158,7 @@
         "acp"
       ],
       "peers": [
-        "pm-coworker",
+        "product-management-coworker",
         "finance-coworker",
         "engineering-coworker"
       ],
@@ -180,7 +180,7 @@
         "e2m-mcp"
       ],
       "peers": [
-        "pm-coworker",
+        "product-management-coworker",
         "sales-coworker",
         "operations-coworker"
       ],
@@ -202,7 +202,7 @@
         "e2m-mcp"
       ],
       "peers": [
-        "pm-coworker",
+        "product-management-coworker",
         "sales-coworker",
         "engineering-coworker"
       ],
@@ -235,7 +235,7 @@
         "e2m-mcp"
       ],
       "peers": [
-        "pm-coworker",
+        "product-management-coworker",
         "sales-coworker",
         "legal-coworker"
       ],
@@ -267,7 +267,7 @@
         "e2m-mcp"
       ],
       "peers": [
-        "pm-coworker",
+        "product-management-coworker",
         "engineering-coworker",
         "human-resources-coworker"
       ],
@@ -289,7 +289,7 @@
         "e2m-mcp"
       ],
       "peers": [
-        "pm-coworker",
+        "product-management-coworker",
         "legal-coworker",
         "finance-coworker",
         "agent-resources-coworker"
@@ -324,11 +324,11 @@
         "e2m-mcp"
       ],
       "peers": [
-        "pm-coworker",
+        "product-management-coworker",
         "engineering-coworker",
         "agent-resources-coworker"
       ],
-      "reports_to": "pm-coworker",
+      "reports_to": "product-management-coworker",
       "description": "Execution tracker, nightly review, type-safety auditor. Reports to product-management."
     }
   ],

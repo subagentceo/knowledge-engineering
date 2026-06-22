@@ -4,7 +4,7 @@ description: >-
   End-of-session update: write heartbeat tick, emit YAML status block, route
   outstanding tasks to peer coworkers. Use when: "wrap up", "end session",
   "save progress", "update status", "what's outstanding".
-coworker_affinity: [pm-coworker]
+coworker_affinity: [product-management-coworker]
 plugin: productivity
 ---
 

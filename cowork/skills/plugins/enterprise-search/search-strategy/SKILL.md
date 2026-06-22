@@ -3,7 +3,7 @@ name: enterprise-search:search-strategy
 description: >-
   Plan a multi-step research strategy before executing expensive vendor doc fetches.
   Use when: "how should I research X", "plan a search for Y", "build a research plan".
-coworker_affinity: [pm-coworker, engineering-coworker]
+coworker_affinity: [product-management-coworker, engineering-coworker]
 plugin: enterprise-search
 ---
 

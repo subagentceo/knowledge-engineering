@@ -56,16 +56,16 @@ QUEUE_DIR.mkdir(parents=True, exist_ok=True)
 with open(QUEUE_DIR / "product-management.jsonl", "a") as f:
     f.write(json.dumps(task) + "\n")
 
-# Reply to pm-coworker mailbox
+# Reply to product-management-coworker mailbox
 MAILBOX_DIR.mkdir(parents=True, exist_ok=True)
 msg = {
     "_type": "message", "id": str(uuid.uuid4()), "task_id": task_id,
-    "from": "project-management-coworker", "to": "pm-coworker",
+    "from": "project-management-coworker", "to": "product-management-coworker",
     "subject": f"Nightly review: {sum(v.get('completed',0) for v in summary.values())} completed, {len(blocked_queues)} blocked",
     "state": "pending", "at": now,
     "payload": summary
 }
-with open(MAILBOX_DIR / "pm-coworker.jsonl", "a") as f:
+with open(MAILBOX_DIR / "product-management-coworker.jsonl", "a") as f:
     f.write(json.dumps(msg) + "\n")
 
 print(json.dumps({"status": "ok", "queues_scanned": len(summary), "blocked": blocked_queues, "at": now}))

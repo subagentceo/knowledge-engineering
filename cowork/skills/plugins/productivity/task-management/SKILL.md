@@ -4,7 +4,7 @@ description: >-
   Create, claim, transition, and route DurableTask envelopes via e2m-mcp.
   Use when: "create a task", "assign task to <coworker>", "route this to engineering",
   "mark task complete", "what tasks are pending".
-coworker_affinity: [pm-coworker]
+coworker_affinity: [product-management-coworker]
 plugin: productivity
 ---
 

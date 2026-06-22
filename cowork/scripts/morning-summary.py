@@ -2,7 +2,7 @@
 """
 morning-summary.py — run by project-management-coworker at 07:00 PST
 @cite cowork/templates/task-state-machine.ts
-Generates HTML morning summary, dispatches to pm-coworker mailbox.
+Generates HTML morning summary, dispatches to product-management-coworker mailbox.
 Saves to cowork/artifacts/morning-summary-YYYY-MM-DD.html
 """
 import json, uuid, datetime, pathlib, subprocess, collections
@@ -102,15 +102,15 @@ out = ARTIFACT_DIR / f"morning-summary-{date_str}.html"
 out.write_text(html)
 print(f"written: {out}")
 
-# Dispatch to pm-coworker mailbox
+# Dispatch to product-management-coworker mailbox
 MAILBOX_DIR.mkdir(parents=True, exist_ok=True)
 msg = {
     "_type": "message", "id": str(uuid.uuid4()),
-    "from": "project-management-coworker", "to": "pm-coworker",
+    "from": "project-management-coworker", "to": "product-management-coworker",
     "subject": f"Morning summary ready — {total_completed} completed tasks, {len(recent_commits)} commits",
     "state": "pending", "at": now_str,
     "payload": {"artifact": str(out), "queue_stats": queue_stats}
 }
-with open(MAILBOX_DIR / "pm-coworker.jsonl", "a") as f:
+with open(MAILBOX_DIR / "product-management-coworker.jsonl", "a") as f:
     f.write(json.dumps(msg) + "\n")
 print(json.dumps({"status": "ok", "artifact": str(out), "at": now_str}))

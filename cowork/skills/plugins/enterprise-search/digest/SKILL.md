@@ -3,7 +3,7 @@ name: enterprise-search:digest
 description: >-
   Summarize a vendor doc surface or topic into a concise digest with citations.
   Use when: "digest <vendor>", "summarize vendor docs on X", "TL;DR vendor/<path>".
-coworker_affinity: [pm-coworker, data-coworker]
+coworker_affinity: [product-management-coworker, data-coworker]
 plugin: enterprise-search
 ---
 

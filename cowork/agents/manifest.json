@@ -1,0 +1,79 @@
+{
+  "$schema": "https://schemas.anthropic.com/cowork-agents.schema.json",
+  "version": "0.1.0",
+  "description": "Cowork multi-agent manifest. Maps domain queues to agent identities and their SKILL.md entry points. Read by structured-prompt-resume and each domain-agent at session start.",
+  "session_model": {
+    "mechanical": "claude-haiku-4-5-20251001",
+    "review": "claude-sonnet-4-6",
+    "planning": "claude-sonnet-4-6"
+  },
+  "agents": [
+    {
+      "id": "product-management-coworker",
+      "domain": "product-management",
+      "queue": "cowork/data/queues/product-management.jsonl",
+      "mailbox": "cowork/data/mailbox/product-management-agent.jsonl",
+      "skill": "cowork/agents/skills/product-management-agent/SKILL.md",
+      "model": "claude-sonnet-4-6",
+      "trigger_phrase": "/product-management-coworker",
+      "description": "Lead PM cowork agent. Routes work, manages priority-rerank cadence, maintains product-management queue.",
+      "test": "cowork/agents/tests/product-management-agent.test.ts"
+    },
+    {
+      "id": "design-agent",
+      "domain": "design",
+      "queue": "cowork/data/queues/design.jsonl",
+      "mailbox": "cowork/data/mailbox/design-agent.jsonl",
+      "skill": "cowork/agents/skills/design-agent/SKILL.md",
+      "model": "claude-sonnet-4-6",
+      "trigger_phrase": "/design-agent",
+      "description": "Design token + HTML artifact agent. Owns cowork/artifacts/ and the 8-token design system.",
+      "test": "cowork/agents/tests/design-agent.test.ts"
+    },
+    {
+      "id": "engineering-agent",
+      "domain": "engineering",
+      "queue": "cowork/data/queues/engineering.jsonl",
+      "mailbox": "cowork/data/mailbox/engineering-agent.jsonl",
+      "skill": "cowork/agents/skills/engineering-agent/SKILL.md",
+      "model": "claude-haiku-4-5-20251001",
+      "trigger_phrase": "/engineering-agent",
+      "description": "TypeScript + Rust implementation agent. Owns cowork/mcp/, cowork/templates/, src/.",
+      "test": "cowork/agents/tests/engineering-agent.test.ts"
+    },
+    {
+      "id": "data-agent",
+      "domain": "data",
+      "queue": "cowork/data/queues/data.jsonl",
+      "mailbox": "cowork/data/mailbox/data-agent.jsonl",
+      "skill": "cowork/agents/skills/data-agent/SKILL.md",
+      "model": "claude-haiku-4-5-20251001",
+      "trigger_phrase": "/data-agent",
+      "description": "AlloyDB / Kimball DW agent. Owns dw.* schema, dim_agent_templates, fact tables.",
+      "test": "cowork/agents/tests/data-agent.test.ts"
+    },
+    {
+      "id": "sales-agent",
+      "domain": "sales",
+      "queue": "cowork/data/queues/sales.jsonl",
+      "mailbox": "cowork/data/mailbox/sales-agent.jsonl",
+      "skill": "cowork/agents/skills/sales-agent/SKILL.md",
+      "model": "claude-haiku-4-5-20251001",
+      "trigger_phrase": "/sales-agent",
+      "description": "Outreach + mail agent. Owns cowork/apps/mail/, sales queue, finance cost tracking.",
+      "test": "cowork/agents/tests/sales-agent.test.ts"
+    }
+  ],
+  "continuity": {
+    "queue_dir": "cowork/data/queues",
+    "mailbox_dir": "cowork/data/mailbox",
+    "resume_skill": "cowork/skills/user/structured-prompt-resume/SKILL.md",
+    "test_runner": "cowork/agents/tests/run-all.ts",
+    "session_break_protocol": "read mailbox \u2192 read queue \u2192 claim highest_priority pending \u2192 execute \u2192 write transition"
+  },
+  "cite": [
+    "cowork/mcp/e2m-mcp/server.ts",
+    "cowork/templates/task-state-machine.ts",
+    "cowork/skills/plugins/product-management:priority-rerank/SKILL.md"
+  ]
+}

@@ -1,38 +1,28 @@
 #!/usr/bin/env python3
 """
 type-safety-audit.py — run by project-management-coworker at 06:00 PST
+@cite cowork/standards/mailbox-envelope-canon.md
+@cite cowork/scripts/mailbox-schema-validate.py
 @cite cowork/templates/task-state-machine.ts
-Scans all mailbox JSONL for missing required DurableTask fields.
-Emits DurableTask to engineering queue for each violation found.
-"""
-import json, uuid, datetime, pathlib
 
-MAILBOX_DIR = pathlib.Path("cowork/data/mailbox")
-QUEUE_DIR   = pathlib.Path("cowork/data/queues")
+Delegates record validation to the single canonical validator so the audit, the
+emitter (e2m-mcp/server.ts), and the schema doc cannot drift apart again.
+Emits a DurableTask to the engineering queue when violations are found.
+"""
+import json, uuid, datetime, pathlib, sys
+
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "cowork" / "scripts"))
+from importlib import import_module
+validate = import_module("mailbox-schema-validate")
+
+MAILBOX_DIR = ROOT / "cowork" / "data" / "mailbox"
+QUEUE_DIR   = ROOT / "cowork" / "data" / "queues"
 now = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 
-REQUIRED_TASK_FIELDS = {"_type", "id", "queue", "subject", "state", "created_at", "updated_at"}
-REQUIRED_MSG_FIELDS  = {"_type", "id", "from", "to", "subject", "at"}
-
-violations = []
-
-for mbf in sorted(MAILBOX_DIR.glob("*.jsonl")):
-    for i, line in enumerate(mbf.read_text().strip().splitlines()):
-        if not line.strip(): continue
-        try:
-            rec = json.loads(line)
-        except json.JSONDecodeError as e:
-            violations.append({"file": str(mbf), "line": i+1, "issue": f"invalid JSON: {e}"})
-            continue
-        rtype = rec.get("_type")
-        if rtype == "task":
-            missing = REQUIRED_TASK_FIELDS - set(rec.keys())
-            if missing:
-                violations.append({"file": str(mbf), "line": i+1, "issue": f"missing fields: {sorted(missing)}", "id": rec.get("id", "?")})
-        elif rtype == "message":
-            missing = REQUIRED_MSG_FIELDS - set(rec.keys())
-            if missing:
-                violations.append({"file": str(mbf), "line": i+1, "issue": f"missing fields: {sorted(missing)}"})
+_, raw_violations = validate.scan([MAILBOX_DIR])
+violations = [{"file": v["file"], "line": v["line"], "id": v.get("id"),
+              "issue": "; ".join(v["issues"])} for v in raw_violations]
 
 # Emit one engineering task per violation batch (cap at 10)
 QUEUE_DIR.mkdir(parents=True, exist_ok=True)
