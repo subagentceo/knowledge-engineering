@@ -1,0 +1,176 @@
+diff --git a/.github/workflows/codeql.yml b/.github/workflows/codeql.yml
+index 0ee1ff4b..032a0cbe 100644
+--- a/.github/workflows/codeql.yml
++++ b/.github/workflows/codeql.yml
+@@ -56,7 +56,7 @@ permissions:
+ 
+ concurrency:
+   group: codeql-${{ github.workflow }}-${{ github.ref }}
+-  cancel-in-progress: true
++  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+ 
+ jobs:
+   analyze:
+diff --git a/.github/workflows/osv-scanner.yml b/.github/workflows/osv-scanner.yml
+index bfe8da92..6622f3dd 100644
+--- a/.github/workflows/osv-scanner.yml
++++ b/.github/workflows/osv-scanner.yml
+@@ -44,7 +44,7 @@ permissions:
+ 
+ concurrency:
+   group: osv-${{ github.workflow }}-${{ github.ref }}
+-  cancel-in-progress: true
++  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+ 
+ jobs:
+   scan-pr:
+diff --git a/.github/workflows/verify.yml b/.github/workflows/verify.yml
+index 4068b710..d5edce18 100644
+--- a/.github/workflows/verify.yml
++++ b/.github/workflows/verify.yml
+@@ -34,7 +34,11 @@ permissions:
+ 
+ concurrency:
+   group: ${{ github.workflow }}-${{ github.ref }}
+-  cancel-in-progress: true
++  # Only cancel in-progress for PRs (latest push wins). Push-to-main runs
++  # must complete — cancelling them leaves required checks in a failed state
++  # that blocks the merge gate (this was the root cause of the CI failures
++  # that required admin bypass on PR #521).
++  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+ 
+ jobs:
+   verify:
+diff --git a/.github/workflows/email-routing-setup.yml b/.github/workflows/email-routing-setup.yml
+new file mode 100644
+index 00000000..90331ae9
+--- /dev/null
++++ b/.github/workflows/email-routing-setup.yml
+@@ -0,0 +1,127 @@
++name: email-routing-setup
++
++# One-shot workflow: creates Cloudflare Email Routing rules for all 12
++# coworker addresses on subagentknowledge.com, routing each to the
++# agent-inbox Worker.
++#
++# Trigger: workflow_dispatch only (manual from Actions tab).
++# Requires: CLOUDFLARE_API_TOKEN secret with Email Routing:Edit scope.
++#
++# @cite https://developers.cloudflare.com/email-service/configuration/email-routing-addresses/
++# @cite coworkers/organizations/github/e2m-tf/modules/email-routing/main.tf
++
++on:
++  workflow_dispatch:
++
++permissions:
++  contents: read
++
++env:
++  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
++  ZONE_ID: "3f820e0424fd375d5b6f86acaad0d5d7"
++  DOMAIN: "subagentknowledge.com"
++  WORKER_NAME: "agent-inbox"
++
++jobs:
++  setup-email-routing:
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++
++      - name: Enable Email Routing
++        run: |
++          echo "▶ Enabling Email Routing on $DOMAIN..."
++          curl -sf "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/enable" \
++            -X POST \
++            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
++            -H "Content-Type: application/json" \
++            | python3 -c "import sys,json; d=json.load(sys.stdin); print('✓ Enabled' if d.get('success') else f'Note: {d}')" \
++            || echo "Email routing may already be enabled or token lacks scope"
++
++      - name: List existing rules
++        id: existing
++        run: |
++          EXISTING=$(curl -sf "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/rules?per_page=100" \
++            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
++            | python3 -c "
++          import sys, json
++          d = json.load(sys.stdin)
++          for r in d.get('result', []):
++              for m in r.get('matchers', []):
++                  if m.get('field') == 'to':
++                      print(m['value'].split('@')[0])
++          " || true)
++          echo "existing<<EOF" >> $GITHUB_OUTPUT
++          echo "$EXISTING" >> $GITHUB_OUTPUT
++          echo "EOF" >> $GITHUB_OUTPUT
++          echo "Found $(echo "$EXISTING" | grep -c . || echo 0) existing rules"
++
++      - name: Create routing rules for 12 coworkers
++        run: |
++          COWORKERS=(
++            product-management-coworker
++            project-management-coworker
++            design-coworker
++            engineering-coworker
++            data-coworker
++            sales-coworker
++            operations-coworker
++            finance-coworker
++            legal-coworker
++            marketing-coworker
++            agent-resources-coworker
++            human-resources-coworker
++          )
++
++          CREATED=0
++          SKIPPED=0
++          FAILED=0
++
++          for CW in "${COWORKERS[@]}"; do
++            ADDRESS="${CW}@${DOMAIN}"
++
++            if echo "${{ steps.existing.outputs.existing }}" | grep -q "^${CW}$"; then
++              echo "○ $ADDRESS (already exists)"
++              SKIPPED=$((SKIPPED + 1))
++              continue
++            fi
++
++            RESULT=$(curl -s -X POST \
++              "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/rules" \
++              -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
++              -H "Content-Type: application/json" \
++              -d "{
++                \"matchers\": [{\"type\": \"literal\", \"field\": \"to\", \"value\": \"$ADDRESS\"}],
++                \"actions\": [{\"type\": \"worker\", \"value\": [\"$WORKER_NAME\"]}],
++                \"enabled\": true,
++                \"name\": \"$CW\"
++              }")
++
++            SUCCESS=$(echo "$RESULT" | python3 -c "import sys,json; print(json.load(sys.stdin).get('success', False))" 2>/dev/null)
++
++            if [[ "$SUCCESS" == "True" ]]; then
++              echo "✓ $ADDRESS → $WORKER_NAME"
++              CREATED=$((CREATED + 1))
++            else
++              ERROR=$(echo "$RESULT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('errors',[{}])[0].get('message','unknown'))" 2>/dev/null)
++              echo "✗ $ADDRESS: $ERROR"
++              FAILED=$((FAILED + 1))
++            fi
++          done
++
++          echo ""
++          echo "═══ Summary ═══"
++          echo "  Created: $CREATED"
++          echo "  Skipped: $SKIPPED"
++          echo "  Failed:  $FAILED"
++
++          if [[ $FAILED -gt 0 ]]; then
++            echo "::warning::$FAILED email routing rules failed to create. Check if CLOUDFLARE_API_TOKEN has Email Routing:Edit scope."
++          fi
++
++      - name: Verify rules
++        run: |
++          TOTAL=$(curl -sf "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/rules?per_page=100" \
++            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
++            | python3 -c "import sys,json; d=json.load(sys.stdin); print(len(d.get('result',[])))" 2>/dev/null || echo "?")
++          echo "Total routing rules on $DOMAIN: $TOTAL"

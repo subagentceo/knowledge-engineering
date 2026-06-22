@@ -34,7 +34,11 @@ permissions:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  # Only cancel in-progress for PRs (latest push wins). Push-to-main runs
+  # must complete — cancelling them leaves required checks in a failed state
+  # that blocks the merge gate (this was the root cause of the CI failures
+  # that required admin bypass on PR #521).
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   verify:
