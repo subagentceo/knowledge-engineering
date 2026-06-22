@@ -1,0 +1,40 @@
+erDiagram
+  AGENT ||--o{ TEAM_MEMBER : "in"
+  TEAM  ||--o{ TEAM_MEMBER : "has"
+  AGENT ||--o{ ENVELOPE : "from"
+  AGENT ||--o{ ENVELOPE : "to"
+  ENVELOPE ||--o{ ENVELOPE : "thread"
+  AGENT ||--o{ DURABLE_TASK : "from"
+  AGENT ||--o{ DURABLE_TASK : "owns"
+  DURABLE_TASK ||--o{ TRANSITION : "transitions"
+  AGENT {
+    text id PK
+    agent_function fn
+    agent_tier tier
+    text email UK
+  }
+  TEAM { text id PK
+         text name UK }
+  TEAM_MEMBER { text team_id FK
+                text agent_id FK }
+  ENVELOPE {
+    uuid id PK
+    envelope_type envelope_type
+    text from_agent FK
+    text to_agent FK
+    envelope_state state
+    uuid thread_id FK
+    jsonb payload
+  }
+  DURABLE_TASK {
+    uuid id PK
+    text queue
+    task_state state
+    text owner FK
+    jsonb evaluator
+  }
+  TRANSITION {
+    uuid id FK
+    timestamptz at
+    transition_event event
+  }

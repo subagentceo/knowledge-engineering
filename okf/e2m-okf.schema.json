@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "okf/e2m-okf.schema.json",
+  "title": "E2mOkfConceptFrontmatter",
+  "description": "Frontmatter contract for an e2m-OKF concept. Superset of Google OKF v0.1: the OKF surface fields plus typed e2m-OKF extensions. The `semantics` block, when inlined, additionally validates against schemas/table-semantics.schema.json.",
+  "type": "object",
+  "required": ["okf_version", "type", "e2m_okf_version", "concept_id"],
+  "properties": {
+    "okf_version": { "const": "0.1" },
+    "type": { "type": "string", "minLength": 1 },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "resource": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "timestamp": { "type": "string", "format": "date-time" },
+
+    "e2m_okf_version": { "const": "0.1" },
+    "concept_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9/_-]*$" },
+
+    "semantics": {
+      "type": "object",
+      "description": "The predefined semantic layer over the postgres DDL (data-warehousing best practices inform the modeling). Either `ref` a canonical AlloyDbTableSemantics yaml, or inline its shape.",
+      "properties": {
+        "ref": { "type": "string", "pattern": "\\.ya?ml$" },
+        "table_kind": { "enum": ["fact", "dim", "rpt", "events"] },
+        "grain": { "type": "string" },
+        "scd_type": { "enum": [0, 1, 2, 3, 4] },
+        "aggregates": { "type": "string", "pattern": "^fact_[a-z0-9_]+$" }
+      },
+      "anyOf": [{ "required": ["ref"] }, { "required": ["table_kind"] }]
+    },
+
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "to"],
+        "properties": {
+          "type": { "enum": ["foreign_key", "aggregated_by", "derives_from", "depends_on"] },
+          "from": { "type": "string" },
+          "to": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+
+    "citations": {
+      "type": "array",
+      "description": "CSL-JSON 1.0 subset (style-citations schema).",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "title"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "title": { "type": "string" },
+          "author": { "type": "array", "items": { "type": "object" } },
+          "issued": { "type": "object" },
+          "URL": { "type": "string" }
+        }
+      }
+    },
+
+    "exchange": {
+      "type": "object",
+      "properties": {
+        "envelope_type": { "enum": ["task", "ack", "result", "escalate", "notify", "summary", "operator"] },
+        "to": { "type": "string" }
+      }
+    },
+
+    "_provenance": {
+      "type": "object",
+      "properties": {
+        "source": { "type": "string" },
+        "schemaRef": { "type": "string" },
+        "reviewerPassed": { "type": "boolean" }
+      }
+    }
+  }
+}

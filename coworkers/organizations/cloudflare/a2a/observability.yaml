@@ -1,0 +1,104 @@
+# a2a.terse.v1 — Cloudflare Workers Observability MCP server
+# @cite cf-observability-mcp https://observability.mcp.cloudflare.com/mcp
+server: cf.observability
+source: "https://observability.mcp.cloudflare.com/mcp"
+citations:
+  - &cf-observability-mcp
+    id: cf-observability-mcp
+    type: webpage
+    title: "Cloudflare Workers Observability MCP server"
+    url: "https://observability.mcp.cloudflare.com/mcp"
+    accessed: {date-parts: [[2026, 6, 20]]}
+
+tools:
+
+  - op: cf.observability.query_worker_observability
+    inputs:
+      query:   {type: object, required: false}
+    outputs:
+      logs:    {type: array, items: object}
+    steps:
+      - submit query/filters object to observability MCP
+      - return structured Worker log events
+    citations:
+      - *cf-observability-mcp
+    eval:
+      - {criterion: structural_fidelity, score: 5, evidence: "op+inputs+outputs+steps+eval present, key order correct"}
+      - {criterion: terseness,           score: 5, evidence: "no prose; typed I/O only"}
+      - {criterion: io_contract,         score: 4, evidence: "query object shape unspecified by server; output typed array of objects"}
+      - {criterion: self_eval_tail,      score: 5, evidence: "7-criterion eval array present and scored"}
+      - {criterion: cross_platform,      score: 5, evidence: "valid YAML 1.2, no host-specific constructs"}
+      - {criterion: determinism,         score: 5, evidence: "op matches cf.observability.* regex"}
+      - {criterion: traceability,        score: 5, evidence: "cites cf-observability-mcp CSL entry"}
+
+  - op: cf.observability.observability_keys
+    inputs:
+      dataset: {type: string, required: false}
+    outputs:
+      keys:    {type: array, items: string}
+    steps:
+      - query observability MCP for available structured log key names
+    citations:
+      - *cf-observability-mcp
+    eval:
+      - {criterion: structural_fidelity, score: 5, evidence: "op+inputs+outputs+steps+eval present, key order correct"}
+      - {criterion: terseness,           score: 5, evidence: "no prose; typed I/O only"}
+      - {criterion: io_contract,         score: 5, evidence: "dataset optional string; keys typed string array"}
+      - {criterion: self_eval_tail,      score: 5, evidence: "7-criterion eval array present and scored"}
+      - {criterion: cross_platform,      score: 5, evidence: "valid YAML 1.2, no host-specific constructs"}
+      - {criterion: determinism,         score: 5, evidence: "op matches cf.observability.* regex"}
+      - {criterion: traceability,        score: 5, evidence: "cites cf-observability-mcp CSL entry"}
+
+  - op: cf.observability.observability_values
+    inputs:
+      key:     {type: string, required: true}
+    outputs:
+      values:  {type: array, items: string}
+    steps:
+      - query observability MCP for distinct values for the given log key
+    citations:
+      - *cf-observability-mcp
+    eval:
+      - {criterion: structural_fidelity, score: 5, evidence: "op+inputs+outputs+steps+eval present, key order correct"}
+      - {criterion: terseness,           score: 5, evidence: "no prose; typed I/O only"}
+      - {criterion: io_contract,         score: 5, evidence: "key required string; values typed string array"}
+      - {criterion: self_eval_tail,      score: 5, evidence: "7-criterion eval array present and scored"}
+      - {criterion: cross_platform,      score: 5, evidence: "valid YAML 1.2, no host-specific constructs"}
+      - {criterion: determinism,         score: 5, evidence: "op matches cf.observability.* regex"}
+      - {criterion: traceability,        score: 5, evidence: "cites cf-observability-mcp CSL entry"}
+
+  - op: cf.observability.workers_list
+    inputs:
+      account_id: {type: string, required: false}
+    outputs:
+      workers:    {type: array, items: object}
+    steps:
+      - list all Workers scripts visible to the authenticated account
+    citations:
+      - *cf-observability-mcp
+    eval:
+      - {criterion: structural_fidelity, score: 5, evidence: "op+inputs+outputs+steps+eval present, key order correct"}
+      - {criterion: terseness,           score: 5, evidence: "no prose; typed I/O only"}
+      - {criterion: io_contract,         score: 5, evidence: "account_id optional; workers typed object array"}
+      - {criterion: self_eval_tail,      score: 5, evidence: "7-criterion eval array present and scored"}
+      - {criterion: cross_platform,      score: 5, evidence: "valid YAML 1.2, no host-specific constructs"}
+      - {criterion: determinism,         score: 5, evidence: "op matches cf.observability.* regex"}
+      - {criterion: traceability,        score: 5, evidence: "cites cf-observability-mcp CSL entry"}
+
+  - op: cf.observability.workers_get_worker
+    inputs:
+      name:    {type: string, required: true}
+    outputs:
+      worker:  {type: object}
+    steps:
+      - fetch Worker script metadata and configuration by name
+    citations:
+      - *cf-observability-mcp
+    eval:
+      - {criterion: structural_fidelity, score: 5, evidence: "op+inputs+outputs+steps+eval present, key order correct"}
+      - {criterion: terseness,           score: 5, evidence: "no prose; typed I/O only"}
+      - {criterion: io_contract,         score: 5, evidence: "name required string; worker typed object"}
+      - {criterion: self_eval_tail,      score: 5, evidence: "7-criterion eval array present and scored"}
+      - {criterion: cross_platform,      score: 5, evidence: "valid YAML 1.2, no host-specific constructs"}
+      - {criterion: determinism,         score: 5, evidence: "op matches cf.observability.* regex"}
+      - {criterion: traceability,        score: 5, evidence: "cites cf-observability-mcp CSL entry"}

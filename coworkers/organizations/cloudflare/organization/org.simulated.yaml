@@ -1,0 +1,39 @@
+# Simulated Cloudflare Organization for the startup.
+# Real feature is enterprise-only; this models it 1:1 so it promotes to `cloudflare_organization` later.
+# Ref: https://developers.cloudflare.com/fundamentals/organizations/
+#      https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/organization
+
+organization:
+  name: subagent-coworkers          # pending the legal-business-name decision (operator)
+  simulated: true                   # account is not enterprise; this is the as-if model
+  limits: { max_accounts: 500, max_zones: 5000 }   # real org limits
+
+  # Members. At launch every org member is Org Super Admin (per Cloudflare beta).
+  members:
+    - { user: operator, role: org-super-admin, principal: true }
+    - { user: product-manager,         role: member }
+    - { user: project-manager,         role: member }
+    - { user: engineering-manager,     role: member }
+    - { user: data-manager,            role: member }
+    - { user: design-manager,          role: member }
+    - { user: operations-manager,      role: member }
+    - { user: finance-manager,         role: member }
+    - { user: legal-manager,           role: member }
+    - { user: compliance-manager,      role: member }
+    - { user: human-resources-manager, role: member }
+    - { user: agent-resources-manager, role: member }
+    - { user: sales-manager,           role: member }
+
+  # Child accounts (the live one + simulated siblings we would run at scale).
+  accounts:
+    - { name: "Alex@jadecli.com's Account", id: e6294e3ea89f8207af387d459824aaae, env: production, real: true }
+    - { name: "subagent-staging",  env: staging, real: false }
+    - { name: "subagent-data",     env: production, plane: data, real: false }
+
+  # Shared policies (org-wide), the enterprise payoff: write once, apply across child accounts.
+  shared_policies:
+    - { type: waf,     name: baseline-waf,      applies_to: all-accounts }
+    - { type: gateway, name: egress-allowlist,  applies_to: all-accounts }
+
+  # Tag governance is org-wide too (POLICY.md): required tag set enforced on every child account.
+  tag_policy_ref: ../POLICY.md

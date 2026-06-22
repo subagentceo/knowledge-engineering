@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../../../schemas/fivetran-table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: FivetranTableSemantics
+table_kind: compliance
+
+metadata:
+  name: chat
+  labels:
+    connector: compliance
+
+spec:
+  version: 1.0.0
+  schema: claude_ai
+  grain: "one row per claude.ai chat"
+  primary_key: [id]
+  load_type: incremental
+  codeowners:
+    - data-coworker
+  columns:
+    - name: id
+      kind: dimension
+      sql_type: text
+    - name: organization_uuid
+      kind: dimension
+      sql_type: text
+    - name: project_id
+      kind: dimension
+      sql_type: text
+    - name: user_id
+      kind: dimension
+      sql_type: text
+    - name: created_at
+      kind: time_dimension
+      sql_type: timestamptz
+    - name: deleted_at
+      kind: time_dimension
+      sql_type: timestamptz
+    - name: href
+      kind: dimension
+      sql_type: text
+    - name: model
+      kind: dimension
+      sql_type: text
+    - name: name
+      kind: dimension
+      sql_type: text
+    - name: organization_id
+      kind: dimension
+      sql_type: text
+    - name: updated_at
+      kind: time_dimension
+      sql_type: timestamptz
+  ddl: |
+    CREATE TABLE IF NOT EXISTS claude_ai.chat (
+        id TEXT PRIMARY KEY,
+        organization_uuid TEXT,
+        project_id TEXT,
+        user_id TEXT,
+        created_at TIMESTAMPTZ,
+        deleted_at TIMESTAMPTZ,
+        href TEXT,
+        model TEXT,
+        name TEXT,
+        organization_id TEXT,
+        updated_at TIMESTAMPTZ
+    );
+
+# @cite Fivetran ERD: Claude Compliance (claude.ai export)
+# @cite uploads/Claude Compliance_diagram.pdf

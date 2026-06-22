@@ -75,7 +75,7 @@ python3 cowork/scripts/nightly-review.py
 ```
 
 Creates `cowork/data/queues/project-management.jsonl` entries for any cross-coworker
-issues found, then dispatches summary to pm-coworker mailbox.
+issues found, then dispatches summary to product-management-coworker mailbox.
 
 ## Type-safety audit script
 

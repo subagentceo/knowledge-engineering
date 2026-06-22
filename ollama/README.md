@@ -12,6 +12,7 @@ file here exists to catch a failure that actually bit us.
 | `install.yaml` | Terse spec: detect→fix/escalate checks + the 13 curated `learned_failures`. |
 | `autoresolve.py` | Runs macOS checks, self-heals (warm cold model, 403→IP fallback), validates, and **emits a DurableTask** to `engineering.jsonl` when it hits the operator-sudo wall. |
 | `mac-bootstrap.sh` | Sourced from `~/.zshrc`. Resolves a *serving* address (MagicDNS host if it 200s, else live tailnet IP — never hardcoded) and sources `scripts/use-local.sh`. |
+| `AUTH-LANES.md` | The four credential lanes (subscription / local / on-device / API key), why local routing is **sanctioned** (zero Anthropic usage), and the ClaudeForFoundationModels→local-Ollama experiment. |
 
 ## Durability model (the steer: "make everything survive restart")
 

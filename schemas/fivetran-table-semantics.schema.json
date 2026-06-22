@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/fivetran-table-semantics.schema.json",
+  "title": "FivetranTableSemantics",
+  "description": "One consolidated file per Fivetran source table: typed YAML semantics PLUS the PostgreSQL 16 DDL embedded in spec.ddl. Sibling to AlloyDbTableSemantics (which is for Kimball warehouse tables). These describe raw connector-landed tables for the anthropic_claude Fivetran connector.",
+  "type": "object",
+  "required": ["apiVersion", "kind", "table_kind", "metadata", "spec"],
+  "properties": {
+    "apiVersion": { "const": "anthropic.com/v1" },
+    "kind": { "const": "FivetranTableSemantics" },
+    "table_kind": { "enum": ["entity", "usage", "compliance"] },
+    "metadata": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+        "labels": { "type": "object", "additionalProperties": { "type": "string" } }
+      }
+    },
+    "spec": {
+      "type": "object",
+      "required": ["version", "schema", "grain", "primary_key", "columns", "ddl"],
+      "properties": {
+        "version": { "type": "string" },
+        "schema": { "type": "string" },
+        "grain": { "type": "string", "minLength": 1 },
+        "primary_key": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "load_type": { "enum": ["incremental", "full"] },
+        "sync_dedup_key": { "type": "string" },
+        "codeowners": { "type": "array", "items": { "type": "string" } },
+        "columns": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "kind", "sql_type"],
+            "properties": {
+              "name": { "type": "string" },
+              "kind": { "enum": ["dimension", "measure", "time_dimension"] },
+              "sql_type": { "type": "string" },
+              "description": { "type": "string" }
+            }
+          }
+        },
+        "ddl": {
+          "type": "string",
+          "minLength": 1,
+          "description": "PostgreSQL 16 CREATE TABLE for this one table. The single source of truth for the physical table; YAML columns above must match it 1:1 (enforced by scripts/validate-fivetran-models)."
+        }
+      }
+    }
+  }
+}

@@ -4,11 +4,11 @@ description: >
   Dispatch a task to any coworker's JSONL queue and mailbox via e2m-mcp pattern.
   Fire whenever the operator says "dispatch to X", "send to X coworker", "assign to X",
   "trigger the Y agent/coworker", "queue a task for Z", or invokes /dispatch-coworker.
-  Covers all 11 coworkers: pm, engineering, design, data, sales, finance, operations,
-  legal, marketing, agent-resources, human-resources.
-  Do NOT use for reading queue state (use /pm-agent for that) or for running skills
+  Covers all 12 coworkers: product-management, project-management, engineering, design,
+  data, sales, finance, operations, legal, marketing, agent-resources, human-resources.
+  Do NOT use for reading queue state (use /product-management-coworker for that) or for running skills
   that don't produce a DurableTask envelope.
-  Pairs with structured-prompt-resume (pm state), pm-agent (queue reader/claimer),
+  Pairs with structured-prompt-resume (product-management state), product-management-coworker (queue reader/claimer),
   heartbeat (weekly cadence).
 ---
 
@@ -25,7 +25,8 @@ the write so no reinvention per call.
 
 | trigger | queue domain | mailbox file |
 |---|---|---|
-| pm / product-management | product-management | cowork/data/mailbox/pm-coworker.jsonl |
+| product-management | product-management | cowork/data/mailbox/product-management-coworker.jsonl |
+| project-management | project-management | cowork/data/mailbox/project-management-coworker.jsonl |
 | engineering | engineering | cowork/data/mailbox/engineering-coworker.jsonl |
 | design | design | cowork/data/mailbox/design-coworker.jsonl |
 | data | data | cowork/data/mailbox/data-coworker.jsonl |
@@ -49,7 +50,7 @@ interface DurableTask {
   state: "pending";
   created_at: string;   // ISO-8601
   updated_at: string;   // same as created_at on create
-  from?: string;        // sender coworker id (e.g. "pm-coworker")
+  from?: string;        // sender coworker id (e.g. "product-management-coworker")
   ke_fit_score?: number; // 1-5, optional
   payload?: Record<string, unknown>; // domain-specific data
 }
@@ -62,7 +63,7 @@ interface DurableTask {
 3. **Run dispatch script** (reusable, avoids re-inventing JSONL writes):
 
 ```bash
-python3 cowork/scripts/dispatch.py   --queue <domain>   --subject "<subject>"   --from pm-coworker   --ke <1-5>   [--payload '{"key":"value"}']
+python3 cowork/scripts/dispatch.py   --queue <domain>   --subject "<subject>"   --from product-management-coworker   --ke <1-5>   [--payload '{"key":"value"}']
 ```
 
 If the script does not exist, create it (see scripts/ section below) then run it.
@@ -94,7 +95,7 @@ QUEUE_DIR   = pathlib.Path("cowork/data/queues")
 MAILBOX_DIR = pathlib.Path("cowork/data/mailbox")
 
 DOMAIN_TO_MAILBOX = {
-  "product-management": "pm-coworker",
+  "product-management": "product-management-coworker",
   "engineering":        "engineering-coworker",
   "design":             "design-coworker",
   "data":               "data-coworker",
@@ -105,13 +106,14 @@ DOMAIN_TO_MAILBOX = {
   "marketing":          "marketing-coworker",
   "agent-resources":    "agent-resources-coworker",
   "human-resources":    "human-resources-coworker",
+  "project-management": "project-management-coworker",
 }
 
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--queue",   required=True)
     p.add_argument("--subject", required=True)
-    p.add_argument("--from",    dest="sender", default="pm-coworker")
+    p.add_argument("--from",    dest="sender", default="product-management-coworker")
     p.add_argument("--ke",      type=int, default=None)
     p.add_argument("--payload", default=None)
     args = p.parse_args()

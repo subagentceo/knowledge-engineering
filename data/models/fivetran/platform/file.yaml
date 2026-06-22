@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=../../../../schemas/fivetran-table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: FivetranTableSemantics
+table_kind: entity
+
+metadata:
+  name: file
+  labels:
+    connector: platform
+
+spec:
+  version: 1.0.0
+  schema: anthropic_claude
+  grain: "one row per workspace file"
+  primary_key: [id]
+  load_type: incremental
+  codeowners:
+    - data-coworker
+  columns:
+    - name: id
+      kind: dimension
+      sql_type: text
+    - name: created_at
+      kind: time_dimension
+      sql_type: timestamptz
+    - name: downloadable
+      kind: dimension
+      sql_type: text
+    - name: filename
+      kind: dimension
+      sql_type: text
+    - name: mime_type
+      kind: dimension
+      sql_type: text
+    - name: size_bytes
+      kind: measure
+      sql_type: bigint
+    - name: type
+      kind: dimension
+      sql_type: text
+  ddl: |
+    CREATE TABLE IF NOT EXISTS anthropic_claude.file (
+        id TEXT PRIMARY KEY,
+        created_at TIMESTAMPTZ,
+        downloadable TEXT,
+        filename TEXT,
+        mime_type TEXT,
+        size_bytes BIGINT,
+        type TEXT
+    );
+
+# @cite Fivetran ERD: Claude Platform (Admin/API)
+# @cite uploads/Claude Platform_diagram.pdf
+# @cite https://fivetran.com/docs/connectors/applications/claude-platform/api-configuration

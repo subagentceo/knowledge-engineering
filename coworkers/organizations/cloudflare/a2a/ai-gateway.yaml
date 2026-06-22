@@ -1,0 +1,111 @@
+%YAML 1.2
+---
+op: cf.ai_gateway.list_gateways
+inputs:
+  account_id: {type: string, required: false}
+outputs:
+  gateways: {type: array, items: object}
+steps:
+  - call list_gateways on ai-gateway MCP; pass account_id when multi-account
+citations:
+  - id: cf-ai-gateway-mcp
+    type: webpage
+    title: "Cloudflare AI Gateway MCP server"
+    url: "https://ai-gateway.mcp.cloudflare.com/mcp"
+    accessed: {date-parts: [[2026, 6, 20]]}
+eval:
+  - {criterion: structural_fidelity, score: 5, evidence: "op+inputs+outputs+eval present, key order correct"}
+  - {criterion: terseness, score: 5, evidence: "no prose; single optional input"}
+  - {criterion: io_contract, score: 5, evidence: "account_id typed string optional; outputs typed array"}
+  - {criterion: self_eval_tail, score: 5, evidence: "7-criterion tail present"}
+  - {criterion: cross_platform, score: 5, evidence: "valid YAML 1.2, no host-specific constructs"}
+  - {criterion: determinism, score: 5, evidence: "op matches cf.ai_gateway.list_gateways regex"}
+  - {criterion: traceability, score: 5, evidence: "cites https://ai-gateway.mcp.cloudflare.com/mcp"}
+---
+op: cf.ai_gateway.list_logs
+inputs:
+  gateway_id: {type: string, required: true}
+outputs:
+  logs: {type: array, items: object}
+steps:
+  - call list_logs on ai-gateway MCP with required gateway_id
+citations:
+  - id: cf-ai-gateway-mcp
+    type: webpage
+    title: "Cloudflare AI Gateway MCP server"
+    url: "https://ai-gateway.mcp.cloudflare.com/mcp"
+    accessed: {date-parts: [[2026, 6, 20]]}
+eval:
+  - {criterion: structural_fidelity, score: 5, evidence: "op+inputs+outputs+eval present, key order correct"}
+  - {criterion: terseness, score: 5, evidence: "no prose; minimal required input"}
+  - {criterion: io_contract, score: 5, evidence: "gateway_id required string; outputs typed array"}
+  - {criterion: self_eval_tail, score: 5, evidence: "7-criterion tail present"}
+  - {criterion: cross_platform, score: 5, evidence: "valid YAML 1.2, no host-specific constructs"}
+  - {criterion: determinism, score: 5, evidence: "op matches cf.ai_gateway.list_logs regex"}
+  - {criterion: traceability, score: 5, evidence: "cites https://ai-gateway.mcp.cloudflare.com/mcp"}
+---
+op: cf.ai_gateway.get_log_details
+inputs:
+  log_id: {type: string, required: true}
+outputs:
+  log: {type: object}
+steps:
+  - call get_log_details on ai-gateway MCP with required log_id
+citations:
+  - id: cf-ai-gateway-mcp
+    type: webpage
+    title: "Cloudflare AI Gateway MCP server"
+    url: "https://ai-gateway.mcp.cloudflare.com/mcp"
+    accessed: {date-parts: [[2026, 6, 20]]}
+eval:
+  - {criterion: structural_fidelity, score: 5, evidence: "op+inputs+outputs+eval present, key order correct"}
+  - {criterion: terseness, score: 5, evidence: "no prose; single required input"}
+  - {criterion: io_contract, score: 5, evidence: "log_id required string; output typed object"}
+  - {criterion: self_eval_tail, score: 5, evidence: "7-criterion tail present"}
+  - {criterion: cross_platform, score: 5, evidence: "valid YAML 1.2, no host-specific constructs"}
+  - {criterion: determinism, score: 5, evidence: "op matches cf.ai_gateway.get_log_details regex"}
+  - {criterion: traceability, score: 5, evidence: "cites https://ai-gateway.mcp.cloudflare.com/mcp"}
+---
+op: cf.ai_gateway.get_log_request_body
+inputs:
+  log_id: {type: string, required: true}
+outputs:
+  body: {type: object}
+steps:
+  - call get_log_request_body on ai-gateway MCP with required log_id
+citations:
+  - id: cf-ai-gateway-mcp
+    type: webpage
+    title: "Cloudflare AI Gateway MCP server"
+    url: "https://ai-gateway.mcp.cloudflare.com/mcp"
+    accessed: {date-parts: [[2026, 6, 20]]}
+eval:
+  - {criterion: structural_fidelity, score: 5, evidence: "op+inputs+outputs+eval present, key order correct"}
+  - {criterion: terseness, score: 5, evidence: "no prose; single required input"}
+  - {criterion: io_contract, score: 5, evidence: "log_id required string; output typed object"}
+  - {criterion: self_eval_tail, score: 5, evidence: "7-criterion tail present"}
+  - {criterion: cross_platform, score: 5, evidence: "valid YAML 1.2, no host-specific constructs"}
+  - {criterion: determinism, score: 5, evidence: "op matches cf.ai_gateway.get_log_request_body regex"}
+  - {criterion: traceability, score: 5, evidence: "cites https://ai-gateway.mcp.cloudflare.com/mcp"}
+---
+op: cf.ai_gateway.get_log_response_body
+inputs:
+  log_id: {type: string, required: true}
+outputs:
+  body: {type: object}
+steps:
+  - call get_log_response_body on ai-gateway MCP with required log_id
+citations:
+  - id: cf-ai-gateway-mcp
+    type: webpage
+    title: "Cloudflare AI Gateway MCP server"
+    url: "https://ai-gateway.mcp.cloudflare.com/mcp"
+    accessed: {date-parts: [[2026, 6, 20]]}
+eval:
+  - {criterion: structural_fidelity, score: 5, evidence: "op+inputs+outputs+eval present, key order correct"}
+  - {criterion: terseness, score: 5, evidence: "no prose; single required input"}
+  - {criterion: io_contract, score: 5, evidence: "log_id required string; output typed object"}
+  - {criterion: self_eval_tail, score: 5, evidence: "7-criterion tail present"}
+  - {criterion: cross_platform, score: 5, evidence: "valid YAML 1.2, no host-specific constructs"}
+  - {criterion: determinism, score: 5, evidence: "op matches cf.ai_gateway.get_log_response_body regex"}
+  - {criterion: traceability, score: 5, evidence: "cites https://ai-gateway.mcp.cloudflare.com/mcp"}

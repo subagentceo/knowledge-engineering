@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=../../../../schemas/fivetran-table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: FivetranTableSemantics
+table_kind: compliance
+
+metadata:
+  name: compliance_role_permission
+  labels:
+    connector: compliance
+
+spec:
+  version: 1.0.0
+  schema: claude_ai
+  grain: "one row per role permission"
+  primary_key: [_fivetran_id]
+  load_type: incremental
+  codeowners:
+    - data-coworker
+  columns:
+    - name: _fivetran_id
+      kind: dimension
+      sql_type: text
+    - name: compliance_role_id
+      kind: dimension
+      sql_type: text
+    - name: organization_uuid
+      kind: dimension
+      sql_type: text
+    - name: action
+      kind: dimension
+      sql_type: text
+    - name: resource_id
+      kind: dimension
+      sql_type: text
+    - name: resource_type
+      kind: dimension
+      sql_type: text
+  ddl: |
+    CREATE TABLE IF NOT EXISTS claude_ai.compliance_role_permission (
+        _fivetran_id TEXT PRIMARY KEY,
+        compliance_role_id TEXT,
+        organization_uuid TEXT,
+        action TEXT,
+        resource_id TEXT,
+        resource_type TEXT
+    );
+
+# @cite Fivetran ERD: Claude Compliance (claude.ai export)
+# @cite uploads/Claude Compliance_diagram.pdf

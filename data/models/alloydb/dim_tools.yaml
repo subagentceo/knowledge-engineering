@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: dim
+scd_type: 1
+grain: one row per (connector_slug, tool_name)
+aggregates: fact_connectors
+
+metadata:
+  name: dim_tools
+  labels:
+    domain: connectors
+    platform: desktop
+
+spec:
+  version: 0.1.0
+  schema: dw
+  description: >-
+    Individual tools exposed by each desktop connector. SCD-1: tool
+    definitions overwrite in place; history captured in events_connectors.
+    Permission tier mirrors "Tool permissions" in Claude for Mac settings.
+  codeowners:
+    - admin@jadecli.com
+  sla_policy: daily
+  load_type: full
+  allowed_operations:
+    - read
+    - scd1_overwrite
+  columns:
+    - name: surrogate_key
+      kind: dimension
+      sql_type: BIGINT GENERATED ALWAYS AS IDENTITY
+      description: Warehouse surrogate key.
+    - name: connector_slug
+      kind: dimension
+      sql_type: TEXT
+      description: FK to dim_desktop.slug (current row).
+    - name: tool_name
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        Exact tool name as registered in MCP
+        (e.g. "Shell", "Snapshot", "navigate").
+    - name: permission_tier
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        Claude for Mac permission class.
+        readonly  — safe read-only operations (no side effects).
+        write     — creates/modifies/deletes data or state.
+        system    — OS-level or irreversible actions.
+    - name: description
+      kind: dimension
+      sql_type: TEXT
+      description: Human-readable description of what the tool does.
+    - name: requires_user_approval
+      kind: dimension
+      sql_type: BOOLEAN
+      description: TRUE when Claude must request approval before each call.
+    - name: updated_at
+      kind: time_dimension
+      sql_type: TIMESTAMPTZ
+      description: Last time this row was overwritten (SCD-1).

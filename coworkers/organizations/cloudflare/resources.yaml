@@ -1,0 +1,132 @@
+account_id: e6294e3ea89f8207af387d459824aaae
+zone_id: 3f820e0424fd375d5b6f86acaad0d5d7
+domain: subagentknowledge.com
+resources:
+- type: worker
+  id: mail-frontend
+  managed_by: e2m-tf
+  tags:
+    managed-by: e2m-tf
+    app: mail
+    env: production
+    e2m-plane: frontend
+    domain: subagentknowledge.com
+    team: product
+- type: worker
+  id: calendar-frontend
+  managed_by: e2m-tf
+  tags:
+    managed-by: e2m-tf
+    app: calendar
+    env: production
+    e2m-plane: frontend
+    domain: subagentknowledge.com
+    team: product
+- type: worker
+  id: cowork-frontend
+  managed_by: e2m-tf
+  tags:
+    managed-by: e2m-tf
+    app: cowork
+    env: production
+    e2m-plane: frontend
+    domain: subagentknowledge.com
+    team: product
+- type: worker
+  id: coworkers-frontend
+  managed_by: e2m-tf
+  tags:
+    managed-by: e2m-tf
+    app: coworkers
+    env: production
+    e2m-plane: frontend
+    domain: subagentknowledge.com
+    team: product
+- type: worker
+  id: agent-inbox
+  managed_by: e2m-tf
+  tags:
+    managed-by: e2m-tf
+    app: agent-inbox
+    env: production
+    e2m-plane: email
+    domain: subagentknowledge.com
+    team: product
+- type: kv_namespace
+  id: 4bcdd7b006cc42ba9bfebd9587ea5235
+  managed_by: e2m-tf
+  tags:
+    managed-by: e2m-tf
+    app: agent-inbox
+    env: production
+    e2m-plane: email
+    domain: subagentknowledge.com
+    team: product
+- type: worker
+  id: compliance-worker
+  managed_by: e2m-tf
+  tags:
+    managed-by: e2m-tf
+    app: compliance
+    env: production
+    e2m-plane: governance
+    domain: subagentknowledge.com
+    team: project
+- type: worker
+  id: plan-frontend
+  managed_by: e2m-tf
+  tags:
+    managed-by: e2m-tf
+    app: plan
+    env: production
+    e2m-plane: frontend
+    domain: subagentknowledge.com
+    team: product
+not_taggable:
+- type: email_routing_rule
+  id: pending-terraform-apply
+  address: operator-subagent@subagentknowledge.com
+- type: email_routing_rule
+  id: pending-terraform-apply
+  address: operator-coworker@subagentknowledge.com
+- type: email_routing_rule
+  id: pending-terraform-apply
+  address: operator-manager@subagentknowledge.com
+- type: email_routing_rule
+  id: 17911df5ff654ea88a2f28f7e00c5e30
+  address: product-manager@subagentknowledge.com
+- type: email_routing_rule
+  id: 8b773c9e42c6408d82d2713e246b29c2
+  address: product-coworker@subagentknowledge.com
+- type: email_routing_rule
+  id: 23eb157371a14dd4ae2ebebf21faf522
+  address: product-subagent@subagentknowledge.com
+- type: email_routing_rule
+  id: 5e64d51170ab4224bddb3fc8d8ab0ac1
+  address: project-manager@subagentknowledge.com
+- type: email_routing_rule
+  id: 546952de3a2b4684a5b2b1f396e600ac
+  address: project-coworker@subagentknowledge.com
+- type: email_routing_rule
+  id: 3776b6f56a2b435caee844cd46572ba2
+  address: project-subagent@subagentknowledge.com
+- type: email_routing_rule
+  id: 06838147ed4147529858e404429e8a00
+  address: finance-manager@subagentknowledge.com
+- type: email_routing_rule
+  id: d0ebfbfc1272467f96e34fa01b35f086
+  address: finance-coworker@subagentknowledge.com
+- type: email_routing_rule
+  id: fb72ae6b7fe0414c9b64c0db5fd4bc57
+  address: finance-subagent@subagentknowledge.com
+- type: email_routing_rule
+  id: 53d2f368ec9840a0862961429bfd2a3f
+  address: legal-manager@subagentknowledge.com
+- type: email_routing_rule
+  id: e05e9dc2db0744b69624e406c541b6d1
+  address: legal-coworker@subagentknowledge.com
+- type: email_routing_rule
+  id: 72e42a9c87e048bf8a46791d91a772fa
+  address: legal-subagent@subagentknowledge.com
+- type: email_routing_settings
+  id: 3f820e0424fd375d5b6f86acaad0d5d7

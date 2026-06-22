@@ -1,0 +1,91 @@
+# yaml-language-server: $schema=../../../../schemas/fivetran-table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: FivetranTableSemantics
+table_kind: usage
+
+metadata:
+  name: claude_code_usage_report
+  labels:
+    connector: platform
+
+spec:
+  version: 1.0.0
+  schema: anthropic_claude
+  grain: "one row per claude code usage report"
+  primary_key: [_fivetran_id]
+  load_type: incremental
+  codeowners:
+    - data-coworker
+  columns:
+    - name: _fivetran_id
+      kind: dimension
+      sql_type: text
+    - name: organization_id
+      kind: dimension
+      sql_type: text
+    - name: actor_api_key_name
+      kind: dimension
+      sql_type: text
+    - name: actor_email_address
+      kind: dimension
+      sql_type: text
+    - name: actor_type
+      kind: dimension
+      sql_type: text
+    - name: core_metrics_commits_by_claude_code
+      kind: measure
+      sql_type: bigint
+    - name: core_metrics_lines_of_code_added
+      kind: measure
+      sql_type: bigint
+    - name: core_metrics_lines_of_code_removed
+      kind: measure
+      sql_type: bigint
+    - name: core_metrics_num_sessions
+      kind: measure
+      sql_type: bigint
+    - name: core_metrics_pull_requests_by_claude_code
+      kind: measure
+      sql_type: bigint
+    - name: customer_type
+      kind: dimension
+      sql_type: text
+    - name: date
+      kind: dimension
+      sql_type: timestamptz
+    - name: subscription_type
+      kind: dimension
+      sql_type: text
+    - name: terminal_type
+      kind: dimension
+      sql_type: text
+    - name: tool_actions_accepted
+      kind: measure
+      sql_type: bigint
+    - name: tool_actions_rejected
+      kind: measure
+      sql_type: bigint
+  ddl: |
+    CREATE TABLE IF NOT EXISTS anthropic_claude.claude_code_usage_report (
+        _fivetran_id TEXT PRIMARY KEY,
+        organization_id TEXT,
+        actor_api_key_name TEXT,
+        actor_email_address TEXT,
+        actor_type TEXT,
+        core_metrics_commits_by_claude_code BIGINT,
+        core_metrics_lines_of_code_added BIGINT,
+        core_metrics_lines_of_code_removed BIGINT,
+        core_metrics_num_sessions BIGINT,
+        core_metrics_pull_requests_by_claude_code BIGINT,
+        customer_type TEXT,
+        date TIMESTAMPTZ,
+        subscription_type TEXT,
+        terminal_type TEXT,
+        tool_actions_accepted BIGINT,
+        tool_actions_rejected BIGINT
+    );
+
+# @cite Fivetran ERD: Claude Platform (Admin/API)
+# @cite uploads/Claude Platform_diagram.pdf
+# @cite https://fivetran.com/docs/connectors/applications/claude-platform/api-configuration

@@ -1,0 +1,74 @@
+server: cf.dns
+source: https://dns-analytics.mcp.cloudflare.com/mcp
+
+tools:
+  - op: cf.dns.dns_report
+    inputs:
+      domain: {type: string, required: false}
+    outputs:
+      report: {type: object}
+    steps:
+      - fetch DNS report analytics for domain
+
+  - op: cf.dns.show_account_dns_settings
+    inputs:
+      account_id: {type: string, required: true}
+    outputs:
+      settings: {type: object}
+    steps:
+      - retrieve account-level DNS configuration
+
+  - op: cf.dns.show_zone_dns_settings
+    inputs:
+      zone_id: {type: string, required: true}
+    outputs:
+      settings: {type: object}
+    steps:
+      - retrieve zone-level DNS configuration
+
+  - op: cf.dns.zone_details
+    inputs:
+      zone_id: {type: string, required: true}
+    outputs:
+      zone: {type: object}
+    steps:
+      - fetch zone metadata and details
+
+  - op: cf.dns.zones_list
+    inputs: {}
+    outputs:
+      zones: {type: array, items: object}
+    steps:
+      - enumerate all zones in account
+
+citations:
+  - id: cf-dns-mcp
+    type: webpage
+    title: "Cloudflare DNS Analytics MCP server"
+    url: "https://dns-analytics.mcp.cloudflare.com/mcp"
+    accessed: {date-parts: [[2026, 6, 19]]}
+
+eval:
+  - criterion: structural_fidelity
+    score: 5
+    evidence: "a2a.terse skeleton: server, tools with op/inputs/outputs/steps, citations, eval tail"
+  - criterion: terseness
+    score: 5
+    evidence: "no prose; tool specs only, one-line steps"
+  - criterion: io_contract
+    score: 5
+    evidence: "typed inputs (required: bool), outputs as object/array, no defensive null coalescing"
+  - criterion: self_eval_tail
+    score: 5
+    evidence: "7-criterion eval array with criterion/score/evidence triplets"
+  - criterion: cross_platform
+    score: 5
+    evidence: "pure YAML 1.2, runs in any a2a.terse harness"
+  - criterion: determinism
+    score: 5
+    evidence: "op namespace cf.dns.<tool> immutable per Cloudflare spec"
+  - criterion: traceability
+    score: 5
+    evidence: "citations array cites docs-mcp source via CSL webpage entry"
+
+weighted_total: 5.0

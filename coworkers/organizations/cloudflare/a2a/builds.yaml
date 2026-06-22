@@ -1,0 +1,95 @@
+---
+# cf.builds.workers_builds_set_active_worker
+op: cf.builds.workers_builds_set_active_worker
+inputs:
+  worker: {type: string, required: true}
+outputs:
+  ok: {type: bool}
+steps:
+  - set active worker context in builds MCP session
+citations:
+  - id: cf-builds-mcp
+    type: webpage
+    title: "Cloudflare Workers Builds MCP server"
+    url: "https://builds.mcp.cloudflare.com/mcp"
+    accessed: {date-parts: [[2026, 6, 20]]}
+eval:
+  - {criterion: structural_fidelity, score: 5, evidence: "op+inputs+outputs+steps+citations+eval present, key order correct"}
+  - {criterion: terseness, score: 5, evidence: "no prose; single imperative step"}
+  - {criterion: io_contract, score: 5, evidence: "worker typed string required; ok typed bool"}
+  - {criterion: self_eval_tail, score: 5, evidence: "7-criterion eval array present and scored"}
+  - {criterion: cross_platform, score: 5, evidence: "valid YAML 1.2, no host-specific constructs"}
+  - {criterion: determinism, score: 5, evidence: "op matches cf.builds.* regex; same tool → same spec"}
+  - {criterion: traceability, score: 5, evidence: "citations cites https://builds.mcp.cloudflare.com/mcp"}
+
+---
+# cf.builds.workers_builds_list_builds
+op: cf.builds.workers_builds_list_builds
+inputs:
+  worker: {type: string, required: true}
+outputs:
+  builds: {type: array, items: object}
+steps:
+  - list all CI/CD builds for the specified worker
+citations:
+  - id: cf-builds-mcp
+    type: webpage
+    title: "Cloudflare Workers Builds MCP server"
+    url: "https://builds.mcp.cloudflare.com/mcp"
+    accessed: {date-parts: [[2026, 6, 20]]}
+eval:
+  - {criterion: structural_fidelity, score: 5, evidence: "op+inputs+outputs+steps+citations+eval present, key order correct"}
+  - {criterion: terseness, score: 5, evidence: "no prose; single imperative step"}
+  - {criterion: io_contract, score: 5, evidence: "worker typed string required; builds typed array of object"}
+  - {criterion: self_eval_tail, score: 5, evidence: "7-criterion eval array present and scored"}
+  - {criterion: cross_platform, score: 5, evidence: "valid YAML 1.2, no host-specific constructs"}
+  - {criterion: determinism, score: 5, evidence: "op matches cf.builds.* regex; same tool → same spec"}
+  - {criterion: traceability, score: 5, evidence: "citations anchor aliased from cf-builds-mcp entry"}
+
+---
+# cf.builds.workers_builds_get_build
+op: cf.builds.workers_builds_get_build
+inputs:
+  build_id: {type: string, required: true}
+outputs:
+  build: {type: object}
+steps:
+  - retrieve build metadata for the given build_id
+citations:
+  - id: cf-builds-mcp
+    type: webpage
+    title: "Cloudflare Workers Builds MCP server"
+    url: "https://builds.mcp.cloudflare.com/mcp"
+    accessed: {date-parts: [[2026, 6, 20]]}
+eval:
+  - {criterion: structural_fidelity, score: 5, evidence: "op+inputs+outputs+steps+citations+eval present, key order correct"}
+  - {criterion: terseness, score: 5, evidence: "no prose; single imperative step"}
+  - {criterion: io_contract, score: 5, evidence: "build_id typed string required; build typed object"}
+  - {criterion: self_eval_tail, score: 5, evidence: "7-criterion eval array present and scored"}
+  - {criterion: cross_platform, score: 5, evidence: "valid YAML 1.2, no host-specific constructs"}
+  - {criterion: determinism, score: 5, evidence: "op matches cf.builds.* regex; same tool → same spec"}
+  - {criterion: traceability, score: 5, evidence: "citations anchor aliased from cf-builds-mcp entry"}
+
+---
+# cf.builds.workers_builds_get_build_logs
+op: cf.builds.workers_builds_get_build_logs
+inputs:
+  build_id: {type: string, required: true}
+outputs:
+  logs: {type: string}
+steps:
+  - fetch raw build log output for the given build_id
+citations:
+  - id: cf-builds-mcp
+    type: webpage
+    title: "Cloudflare Workers Builds MCP server"
+    url: "https://builds.mcp.cloudflare.com/mcp"
+    accessed: {date-parts: [[2026, 6, 20]]}
+eval:
+  - {criterion: structural_fidelity, score: 5, evidence: "op+inputs+outputs+steps+citations+eval present, key order correct"}
+  - {criterion: terseness, score: 5, evidence: "no prose; single imperative step"}
+  - {criterion: io_contract, score: 5, evidence: "build_id typed string required; logs typed string"}
+  - {criterion: self_eval_tail, score: 5, evidence: "7-criterion eval array present and scored"}
+  - {criterion: cross_platform, score: 5, evidence: "valid YAML 1.2, no host-specific constructs"}
+  - {criterion: determinism, score: 5, evidence: "op matches cf.builds.* regex; same tool → same spec"}
+  - {criterion: traceability, score: 5, evidence: "citations anchor aliased from cf-builds-mcp entry"}

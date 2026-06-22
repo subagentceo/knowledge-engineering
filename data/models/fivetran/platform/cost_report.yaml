@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../../../schemas/fivetran-table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: FivetranTableSemantics
+table_kind: usage
+
+metadata:
+  name: cost_report
+  labels:
+    connector: platform
+
+spec:
+  version: 1.0.0
+  schema: anthropic_claude
+  grain: "one row per cost report"
+  primary_key: [_fivetran_id]
+  load_type: incremental
+  codeowners:
+    - data-coworker
+  columns:
+    - name: _fivetran_id
+      kind: dimension
+      sql_type: text
+    - name: ending_at
+      kind: time_dimension
+      sql_type: timestamptz
+    - name: starting_at
+      kind: time_dimension
+      sql_type: timestamptz
+  ddl: |
+    CREATE TABLE IF NOT EXISTS anthropic_claude.cost_report (
+        _fivetran_id TEXT PRIMARY KEY,
+        ending_at TIMESTAMPTZ,
+        starting_at TIMESTAMPTZ
+    );
+
+# @cite Fivetran ERD: Claude Platform (Admin/API)
+# @cite uploads/Claude Platform_diagram.pdf
+# @cite https://fivetran.com/docs/connectors/applications/claude-platform/api-configuration

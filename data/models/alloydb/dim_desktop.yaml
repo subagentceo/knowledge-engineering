@@ -1,0 +1,118 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: dim
+scd_type: 2
+grain: one row per connector version (slug + row_effective_from)
+
+metadata:
+  name: dim_desktop
+  labels:
+    domain: connectors
+    platform: desktop
+    source: anthropic-marketplace
+
+spec:
+  version: 0.1.0
+  schema: dw
+  description: >-
+    Desktop-native connectors from the Anthropic & Partners marketplace.
+    "Desktop" = requires a locally-running process, OS access, or controls
+    a native app (macOS, Windows, Android). Cloud-only API connectors excluded.
+    SCD-2 so capability changes across versions are preserved.
+  codeowners:
+    - admin@jadecli.com
+  sla_policy: daily
+  data_start_date: "2026-06-18"
+  load_type: incremental
+  allowed_operations:
+    - read
+    - scd2_rewrite
+  columns:
+    - name: surrogate_key
+      kind: dimension
+      sql_type: BIGINT GENERATED ALWAYS AS IDENTITY
+      description: Warehouse surrogate key.
+    - name: slug
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        Stable kebab-case identifier (e.g. "macos", "filesystem",
+        "control-chrome"). Never changes even if display_name is renamed.
+    - name: row_effective_from
+      kind: time_dimension
+      sql_type: TIMESTAMPTZ
+      description: When this version of the row became current.
+    - name: row_effective_to
+      kind: time_dimension
+      sql_type: TIMESTAMPTZ
+      description: When this version expired. 'infinity' = current row.
+    - name: is_current
+      kind: dimension
+      sql_type: BOOLEAN
+      description: Shortcut flag; TRUE on the live row.
+    - name: display_name
+      kind: dimension
+      sql_type: TEXT
+      description: Human-readable name from the marketplace (e.g. "Macos").
+    - name: publisher
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        Who ships the connector. "Anthropic" for first-party
+        (Macos, Filesystem, Claude in Chrome, Control Chrome, Word, PowerPoint);
+        vendor name otherwise.
+    - name: os_target
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        Primary OS the connector targets.
+        One of: macos | windows | android | cross-platform.
+    - name: access_model
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        How the connector gets local access.
+        One of: applescript | native-process | browser-extension |
+                filesystem | adb | stdin-mcp.
+    - name: mcp_namespace
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        Claude tool namespace prefix (e.g. "mcp__Macos__",
+        "mcp__Claude_in_Chrome__"). NULL when namespace is UUID-based.
+    - name: mcp_namespace_uuid
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        UUID segment when namespace is not human-readable
+        (e.g. "5f7bfa4d-99d7-4188-a5cc-313c7b326267" for Filesystem).
+    - name: semver
+      kind: dimension
+      sql_type: TEXT
+      description: Connector version string from marketplace (semver or NULL).
+    - name: tool_count_readonly
+      kind: measure
+      sql_type: SMALLINT
+      measure_type: count
+      description: Number of read-only tools this connector exposes.
+    - name: tool_count_write
+      kind: measure
+      sql_type: SMALLINT
+      measure_type: count
+      description: Number of write/delete tools this connector exposes.
+    - name: requires_approval
+      kind: dimension
+      sql_type: BOOLEAN
+      description: >-
+        TRUE if Claude must ask user before executing write tools
+        (mirrors "Tool permissions" toggle in Claude for Mac).
+    - name: marketplace_url
+      kind: dimension
+      sql_type: TEXT
+      description: Canonical listing URL on the Anthropic connector marketplace.
+    - name: loaded_at
+      kind: time_dimension
+      sql_type: TIMESTAMPTZ
+      description: Warehouse load timestamp.

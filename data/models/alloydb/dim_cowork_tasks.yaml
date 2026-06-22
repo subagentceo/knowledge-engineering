@@ -1,0 +1,156 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: fact
+scd_type: 0   # append-only snapshot — rows never overwritten; state transitions add rows
+grain: one row per (date_key, task_id, state_transition)
+
+metadata:
+  name: dim_cowork_tasks
+  labels:
+    domain: product
+    platform: cowork
+    source: ext-tasks-mcp
+
+spec:
+  version: 0.1.0
+  schema: dw
+  description: >-
+    Durable task ledger for the cowork/ product-management loop.
+    Each row captures one state transition for one task, making the
+    full state machine auditable. The current state of any task is
+    the row with the highest transition_seq for that task_id.
+    Feeds the priority-rerank skill and the Wednesday metrics cadence.
+  codeowners:
+    - admin@jadecli.com
+  sla_policy: daily
+  data_start_date: "2026-06-18"
+  load_type: append
+  allowed_operations:
+    - read
+    - append
+
+  columns:
+    - name: surrogate_key
+      kind: dimension
+      sql_type: BIGINT GENERATED ALWAYS AS IDENTITY
+      description: Warehouse surrogate key (append-only row ID).
+
+    - name: date_key
+      kind: time_dimension
+      sql_type: INTEGER
+      description: >-
+        Foreign key to dw.dim_date (YYYYMMDD integer). The date the
+        transition was recorded, not the task creation date.
+
+    - name: task_id
+      kind: dimension
+      sql_type: UUID
+      description: >-
+        Application-level task UUID from pgdurable / ext-tasks MCP.
+        Matches DurableTask.id in task-state-machine.ts.
+
+    - name: queue
+      kind: dimension
+      sql_type: TEXT
+      description: pgdurable queue name (default "cowork").
+
+    - name: subject
+      kind: dimension
+      sql_type: TEXT
+      description: Task title at the time of this transition.
+
+    - name: prior_state
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        State before this transition. NULL for the initial insert (pending).
+        One of: pending | in_progress | blocked | completed | failed.
+
+    - name: new_state
+      kind: dimension
+      sql_type: TEXT
+      description: State after this transition.
+
+    - name: event
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        Event that triggered the transition.
+        One of: claim | complete | block | unblock | fail | retry.
+
+    - name: transition_seq
+      kind: measure
+      sql_type: INTEGER
+      measure_type: count
+      description: >-
+        Monotonically increasing sequence per task_id. Row with MAX
+        transition_seq for a given task_id is the current state.
+
+    - name: owner
+      kind: dimension
+      sql_type: TEXT
+      description: Agent or user who performed the transition (NULL if unclaimed).
+
+    - name: domain
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        Task domain at time of transition.
+        One of: product-management | data | engineering | design.
+
+    - name: ke_fit_score
+      kind: measure
+      sql_type: SMALLINT
+      measure_type: score
+      description: Knowledge-engineering fit score (1-5) copied from the task.
+
+    - name: priority_total
+      kind: measure
+      sql_type: NUMERIC(5,1)
+      measure_type: score
+      description: >-
+        Computed priority_score.total at the time of transition (from
+        rerank-engine.ts / rerank-cli.py). NULL if scored before
+        the priority-rerank skill was installed.
+
+    - name: estimated_hours
+      kind: measure
+      sql_type: NUMERIC(6,2)
+      measure_type: duration_hours
+      description: Estimated effort hours at time of transition.
+
+    - name: due_date
+      kind: time_dimension
+      sql_type: DATE
+      description: Task due date at time of transition (NULL if unset).
+
+    - name: jira_key
+      kind: dimension
+      sql_type: TEXT
+      description: Jira issue key (e.g. SCRUM-7) bridging to the external backlog.
+
+    - name: error
+      kind: dimension
+      sql_type: TEXT
+      description: Error message for fail/block transitions. NULL otherwise.
+
+    - name: snapshot_at
+      kind: time_dimension
+      sql_type: TIMESTAMPTZ
+      description: Wall-clock time this row was written to AlloyDB.
+
+  derived_metrics:
+    - name: cycle_time_hours
+      description: >-
+        Hours from first claim (in_progress) to complete, per task_id.
+        Query: SELECT task_id, EXTRACT(EPOCH FROM (MAX(snapshot_at) FILTER (WHERE new_state='completed') - MIN(snapshot_at) FILTER (WHERE new_state='in_progress'))) / 3600 AS cycle_time_hours FROM dw.dim_cowork_tasks GROUP BY task_id HAVING bool_or(new_state='completed')
+    - name: block_rate
+      description: >-
+        Fraction of tasks that entered the blocked state at least once.
+        Query: SELECT COUNT(DISTINCT task_id) FILTER (WHERE new_state='blocked')::float / NULLIF(COUNT(DISTINCT task_id), 0) FROM dw.dim_cowork_tasks
+    - name: reopen_rate
+      description: >-
+        Fraction of tasks that had a retry transition.
+        Query: SELECT COUNT(DISTINCT task_id) FILTER (WHERE event='retry')::float / NULLIF(COUNT(DISTINCT task_id), 0) FROM dw.dim_cowork_tasks
