@@ -24,8 +24,8 @@ class TestCheckRecord:
             "_type": "envelope",
             "id": "e1",
             "envelope_type": "task",
-            "from": "pm",
-            "to": "eng",
+            "from": "product-management-coworker",
+            "to": "engineering-coworker",
             "subject": "Do work",
             "at": "2026-06-22T00:00:00Z",
             "state": "pending",
@@ -72,8 +72,8 @@ class TestCheckRecord:
             "_type": "envelope",
             "id": "e1",
             "envelope_type": "invalid_type",
-            "from": "pm",
-            "to": "eng",
+            "from": "product-management-coworker",
+            "to": "engineering-coworker",
             "subject": "x",
             "at": "now",
             "state": "pending",
@@ -86,8 +86,8 @@ class TestCheckRecord:
             "_type": "envelope",
             "id": "e1",
             "envelope_type": "task",
-            "from": "pm",
-            "to": "eng",
+            "from": "product-management-coworker",
+            "to": "engineering-coworker",
             "subject": "x",
             "at": "now",
             "state": "cancelled",
@@ -99,7 +99,7 @@ class TestCheckRecord:
         rec = {
             "_type": "task",
             "id": "t1",
-            "queue": "eng",
+            "queue": "engineering",
             "subject": "x",
             "state": "cancelled",
             "created_at": "now",
@@ -128,7 +128,7 @@ class TestScan:
         f = d / "test.jsonl"
         f.write_text(json.dumps({
             "_type": "envelope", "id": "e1", "envelope_type": "task",
-            "from": "pm", "to": "eng", "subject": "ok", "at": "now", "state": "pending",
+            "from": "product-management-coworker", "to": "engineering-coworker", "subject": "ok", "at": "now", "state": "pending",
         }) + "\n")
         scanned, violations = scan([d])
         assert scanned == 1

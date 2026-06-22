@@ -42,7 +42,7 @@ describe("envelopeSchema", () => {
     _type: "envelope" as const,
     id: "test-id",
     envelope_type: "task" as const,
-    from: "pm-coworker",
+    from: "product-management-coworker",
     to: "eng-coworker",
     subject: "Do the thing",
     at: "2026-06-22T00:00:00Z",
@@ -152,8 +152,8 @@ describe("discriminated unions", () => {
       _type: "envelope",
       id: "e1",
       envelope_type: "notify",
-      from: "pm",
-      to: "eng",
+      from: "product-management-coworker",
+      to: "engineering-coworker",
       subject: "hi",
       at: "2026-06-22T00:00:00Z",
       state: "pending",
@@ -172,7 +172,7 @@ describe("discriminated unions", () => {
     queueRecordSchema.parse({
       _type: "task",
       id: "t1",
-      queue: "eng",
+      queue: "engineering-coworker",
       subject: "work",
       state: "pending",
       created_at: "2026-06-22T00:00:00Z",
@@ -193,7 +193,7 @@ describe("operatorEnvelopeSchema", () => {
       _type: "envelope",
       id: "op1",
       envelope_type: "operator",
-      from: "pm-coworker",
+      from: "product-management-coworker",
       to: "operator",
       subject: "Decision needed",
       at: "2026-06-22T00:00:00Z",
@@ -208,7 +208,7 @@ describe("operatorEnvelopeSchema", () => {
         _type: "envelope",
         id: "op1",
         envelope_type: "task",
-        from: "pm",
+        from: "product-management-coworker",
         to: "operator",
         subject: "s",
         at: "now",
@@ -224,7 +224,7 @@ describe("operatorEnvelopeSchema", () => {
         _type: "envelope",
         id: "op1",
         envelope_type: "operator",
-        from: "pm",
+        from: "product-management-coworker",
         to: "eng-coworker",
         subject: "s",
         at: "now",
@@ -237,10 +237,10 @@ describe("operatorEnvelopeSchema", () => {
 
 describe("makeEnvelope()", () => {
   test("creates valid envelope", () => {
-    const e = makeEnvelope("pm", "eng", "task", { data: 1 });
+    const e = makeEnvelope("product-management-coworker", "engineering-coworker", "task", { data: 1 });
     assert.equal(e._type, "envelope");
-    assert.equal(e.from, "pm");
-    assert.equal(e.to, "eng");
+    assert.equal(e.from, "product-management-coworker");
+    assert.equal(e.to, "engineering-coworker");
     assert.equal(e.envelope_type, "task");
     assert.equal(e.state, "pending");
     assert.equal(e.priority, 3);
@@ -249,13 +249,13 @@ describe("makeEnvelope()", () => {
   });
 
   test("default subject includes type and sender", () => {
-    const e = makeEnvelope("pm", "eng", "notify");
+    const e = makeEnvelope("product-management-coworker", "engineering-coworker", "notify");
     assert.ok(e.subject.includes("notify"));
-    assert.ok(e.subject.includes("pm"));
+    assert.ok(e.subject.includes("product-management-coworker"));
   });
 
   test("overrides apply", () => {
-    const e = makeEnvelope("pm", "eng", "task", undefined, {
+    const e = makeEnvelope("product-management-coworker", "engineering-coworker", "task", undefined, {
       subject: "Custom subject",
       priority: 5,
     });
@@ -264,7 +264,7 @@ describe("makeEnvelope()", () => {
   });
 
   test("result validates against zod schema", () => {
-    const e = makeEnvelope("pm", "operator", "operator", { urgent: true }, {
+    const e = makeEnvelope("product-management-coworker", "operator", "operator", { urgent: true }, {
       requires_decision: true,
       decision_options: ["yes", "no"],
     });
