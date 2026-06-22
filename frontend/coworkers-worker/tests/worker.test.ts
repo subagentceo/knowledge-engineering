@@ -15,8 +15,8 @@ import {
 } from "../src/manifest.js";
 
 describe("COWORKERS directory", () => {
-  test("has exactly 7 coworkers", () => {
-    assert.equal(COWORKERS.length, 7);
+  test("has exactly 12 coworkers", () => {
+    assert.equal(COWORKERS.length, 12);
   });
 
   test("every coworker has all required fields", () => {

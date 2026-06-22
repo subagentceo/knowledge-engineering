@@ -48,7 +48,7 @@ export class CoworkersMcp extends McpAgent<Env> {
     this.server.registerTool(
       "list_coworkers",
       {
-        description: "List all 7 coworkers with domain, protocols, peers, and description.",
+        description: "List all 12 coworkers with domain, protocols, peers, and description.",
         inputSchema: {
           protocol: z.enum(PROTOCOLS).optional().describe("Filter by protocol support (a2a, e2m-mcp, mcp, acp)."),
         },
@@ -439,7 +439,7 @@ function coworkersPage(): string {
 
   <footer>
     <span>coworkers.subagentknowledge.com — knowledge-engineering chassis v0.2.0</span>
-    <span>7 coworkers · 7 domains · 4 protocols · MCP @ /mcp</span>
+    <span>12 coworkers · 12 domains · 4 protocols · MCP @ /mcp</span>
   </footer>
 </div>
 </body>

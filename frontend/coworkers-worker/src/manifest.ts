@@ -1,7 +1,7 @@
 /**
  * coworkers-worker/src/manifest.ts — pure data + helpers, no Worker runtime deps.
  *
- * @cite cowork/coworkers/manifest.json (7 coworker definitions)
+ * @cite cowork/coworkers/manifest.json (12 coworker definitions)
  */
 
 export interface Coworker {
@@ -85,6 +85,56 @@ export const COWORKERS: Coworker[] = [
     peers: ["product-management-coworker", "sales-coworker", "operations-coworker"],
     description: "Cost tracking + vendor spend coworker. Owns finance.jsonl, cost approval gates.",
     model: "claude-haiku-4-5-20251001",
+  },
+  {
+    id: "legal-coworker",
+    display_name: "Legal",
+    domain: "legal",
+    trigger_phrase: "/legal-coworker",
+    protocols: ["a2a", "e2m-mcp"],
+    peers: ["product-management-coworker", "sales-coworker", "engineering-coworker"],
+    description: "Legal review, compliance, NDA triage, contract review. Queues all correspondence — never sends without operator approval.",
+    model: "claude-sonnet-4-6",
+  },
+  {
+    id: "marketing-coworker",
+    display_name: "Marketing",
+    domain: "marketing",
+    trigger_phrase: "/marketing-coworker",
+    protocols: ["a2a", "e2m-mcp"],
+    peers: ["product-management-coworker", "sales-coworker", "legal-coworker"],
+    description: "Brand, content, SEO, campaigns, competitive intelligence. Queues all content — never publishes without operator approval.",
+    model: "claude-sonnet-4-6",
+  },
+  {
+    id: "agent-resources-coworker",
+    display_name: "Agent Resources",
+    domain: "agent-resources",
+    trigger_phrase: "/agent-resources-coworker",
+    protocols: ["a2a", "e2m-mcp"],
+    peers: ["product-management-coworker", "engineering-coworker", "human-resources-coworker"],
+    description: "Agent lifecycle: onboard new coworkers, upgrade skills, track performance (ke_fit_score), manage cost, retire agents.",
+    model: "claude-sonnet-4-6",
+  },
+  {
+    id: "human-resources-coworker",
+    display_name: "Human Resources",
+    domain: "human-resources",
+    trigger_phrase: "/human-resources-coworker",
+    protocols: ["a2a", "e2m-mcp"],
+    peers: ["product-management-coworker", "legal-coworker", "finance-coworker", "agent-resources-coworker"],
+    description: "People ops for humans: recruiting, onboarding, performance, comp, org planning. All correspondence status=draft — never sends without operator approval.",
+    model: "claude-sonnet-4-6",
+  },
+  {
+    id: "project-management-coworker",
+    display_name: "Project Management",
+    domain: "project-management",
+    trigger_phrase: "/project-management-coworker",
+    protocols: ["a2a", "e2m-mcp"],
+    peers: ["product-management-coworker", "engineering-coworker", "agent-resources-coworker"],
+    description: "Execution tracker, nightly review, type-safety auditor. Reports to product-management.",
+    model: "claude-opus-4-6",
   },
 ];
 
