@@ -11,7 +11,7 @@ QUEUE_DIR   = pathlib.Path("cowork/data/queues")
 MAILBOX_DIR = pathlib.Path("cowork/data/mailbox")
 
 DOMAIN_TO_MAILBOX = {
-  "product-management": "pm-coworker",
+  "product-management": "product-management-coworker",
   "engineering":        "engineering-coworker",
   "design":             "design-coworker",
   "data":               "data-coworker",
@@ -29,7 +29,7 @@ def main():
     p = argparse.ArgumentParser(description="Dispatch DurableTask to coworker queue + mailbox")
     p.add_argument("--queue",   required=True)
     p.add_argument("--subject", required=True)
-    p.add_argument("--from",    dest="sender", default="pm-coworker")
+    p.add_argument("--from",    dest="sender", default="product-management-coworker")
     p.add_argument("--ke",      type=int, default=None, help="ke_fit_score 1-5")
     p.add_argument("--payload", default=None, help="JSON string for domain-specific data")
     args = p.parse_args()
