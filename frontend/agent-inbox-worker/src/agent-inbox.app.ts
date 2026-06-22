@@ -127,6 +127,24 @@ export default {
   async fetch(req: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(req.url);
 
+    // GET /inbox — read all envelopes from all coworker DO instances
+    if (url.pathname === "/inbox") {
+      const ROLES = ["product-management-coworker","project-management-coworker","design-coworker","engineering-coworker","data-coworker","sales-coworker","operations-coworker","finance-coworker","legal-coworker","marketing-coworker","agent-resources-coworker","human-resources-coworker"];
+      const inboxes: Record<string, unknown[]> = {};
+      for (const role of ROLES) {
+        try {
+          const id = env.ManagerInbox.idFromName(role);
+          const stub = env.ManagerInbox.get(id);
+          const resp = await stub.fetch(new Request("https://do-internal/state"));
+          if (resp.ok) {
+            const state = await resp.json() as { envelopes?: unknown[] };
+            if (state.envelopes?.length) inboxes[role] = state.envelopes;
+          }
+        } catch { /* empty DO */ }
+      }
+      return Response.json({ inboxes, checked: ROLES.length, at: new Date().toISOString() });
+    }
+
     // POST /send-internal — send coworker-to-coworker emails via ManagerInbox DO callable.
     // Uses @callable sendCoworkerEmail → this.sendEmail() SDK pattern (not new EmailMessage directly).
     // @cite https://developers.cloudflare.com/agents/communication-channels/email/

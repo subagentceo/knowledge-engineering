@@ -58,6 +58,17 @@ export class ManagerInbox extends Agent<Env, { envelopes: Envelope[] }> {
   async onEmail(email: AgentEmail): Promise<void> {
     const raw = await email.getRaw();
     const parsed = await PostalMime.parse(raw);
+
+    // Auto-verify Cloudflare Email Routing destination address verification emails.
+    // CF sends these when a destination address is added; they contain a verification link.
+    const body = parsed.text ?? parsed.html ?? "";
+    if (email.from.includes("cloudflare") && body.includes("Verify email address")) {
+      const urlMatch = body.match(/https:\/\/[^\s"<>]+verify[^\s"<>]*/i);
+      if (urlMatch) {
+        try { await fetch(urlMatch[0], { redirect: "follow" }); } catch { /* best effort */ }
+      }
+    }
+
     const lp = localPart(email.to);
 
     // Guard: reject email to unknown coworker addresses (misconfigured routing).
