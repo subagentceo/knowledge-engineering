@@ -155,24 +155,15 @@ export default {
       const results = [];
       for (const pair of PAIRS) {
         try {
-          // Route through the sender role's ManagerInbox DO instance → @callable sendCoworkerEmail.
           const senderRole = pair.from.split("@")[0] ?? pair.from;
-          const stub = env.ManagerInbox.get(env.ManagerInbox.idFromName(senderRole));
-          // Call the DO callable via HTTP (agents SDK pattern: POST /agents/<class>/<id>/<method>)
-          const doResp = await stub.fetch(
-            new Request(`https://do-internal/call/sendCoworkerEmail`, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ to: pair.to, from: pair.from, subject: pair.subject, text: pair.text }),
-            })
-          );
-          if (!doResp.ok) {
-            const errText = await doResp.text();
-            results.push({ from: pair.from, to: pair.to, status: "error", error: errText });
-          } else {
-            const { messageId } = await doResp.json() as { messageId: string };
-            results.push({ from: pair.from, to: pair.to, status: "sent", messageId });
-          }
+          const id = env.ManagerInbox.idFromName(senderRole);
+          const stub = env.ManagerInbox.get(id) as DurableObjectStub & {
+            sendCoworkerEmail: (params: { to: string; from: string; subject: string; text: string }) => Promise<{ messageId: string }>;
+          };
+          const { messageId } = await stub.sendCoworkerEmail({
+            to: pair.to, from: pair.from, subject: pair.subject, text: pair.text,
+          });
+          results.push({ from: pair.from, to: pair.to, status: "sent", messageId });
         } catch (err) {
           results.push({ from: pair.from, to: pair.to, status: "error", error: String(err) });
         }

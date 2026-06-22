@@ -44,14 +44,13 @@ export class ManagerInbox extends Agent<Env, { envelopes: Envelope[] }> {
     subject: string;
     text: string;
   }): Promise<{ messageId: string }> {
-    const messageId = `<${crypto.randomUUID()}@${DOMAIN}>`;
+    const messageId = crypto.randomUUID();
     await this.sendEmail({
       binding: this.env.EMAIL,
       to: params.to,
       from: params.from,
       subject: params.subject,
       text: params.text,
-      headers: { "Message-ID": messageId },
     });
     return { messageId };
   }
