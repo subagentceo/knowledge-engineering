@@ -129,12 +129,12 @@ export default {
     if (url.pathname === "/api/manifest")
       return secure(Response.json({ app: "mail", template: "agent-native/mail", protocol: "e2m", actions: ACTIONS, version: "0.1.0" }));
     if (url.pathname === "/" || url.pathname === "")
-      return secure(new Response(mailShell(env.COWORKERS_HOST), { headers: { "content-type": "text/html; charset=utf-8" } }));
+      return secure(new Response(mailShell(), { headers: { "content-type": "text/html; charset=utf-8" } }));
     return secure(new Response("Not found", { status: 404 }));
   },
 };
 
-function mailShell(coworkersHost: string): string {
+function mailShell(): string {
   return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>mail — subagentknowledge</title><style>
 *{box-sizing:border-box}html,body{margin:0;height:100%;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#0a0a0a;color:#d4d4d4;font-size:13px}
@@ -148,16 +148,16 @@ nav{display:flex;align-items:center;border-bottom:1px solid #1f1f1f;padding:0 12
 .act{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}.btn{background:transparent;border:1px solid #2a2a2a;color:#51c4ff;padding:6px 11px;font:inherit;font-size:11.5px;cursor:pointer}
 footer{padding:12px 16px;font-size:11px;color:#6a6a6a;border-top:1px solid #1f1f1f}a{color:#51c4ff;text-decoration:none}
 </style></head><body>
-<nav><a href="/" class="active">mail/</a><a href="https://${coworkersHost}">coworkers/</a><a href="/mcp">mcp</a><a href="/api/manifest">manifest</a><div class="spacer"></div><a href="https://subagentknowledge.com">subagentknowledge.com ↗</a></nav>
+<nav><a href="/" class="active">mail/</a><a href="https://coworkers.subagentknowledge.com">coworkers/</a><a href="/mcp">mcp</a><a href="/api/manifest">manifest</a><div class="spacer"></div><a href="https://subagentknowledge.com">subagentknowledge.com ↗</a></nav>
 <div class="hero"><h1>Mail — agent-native over e2m</h1><p>An agent-powered inbox where <b>email = envelope</b>, <b>reply = transition</b>, and the mailbox is the e2m JSONL. Drafts are queue-first — the operator reviews before send.</p>
 <div class="mcp"><div class="l">MCP endpoint — paste into Claude connectors</div><code>https://mail.subagentknowledge.com/mcp</code></div></div>
 <div class="box"><div class="list" id="list"></div><div class="thread" id="thread"></div></div>
 <footer>mail.subagentknowledge.com · actions: list_emails · get_thread · draft_email · send_email · template: agent-native/mail</footer>
 <script id="mb" type="application/json">[
-{"id":"e1","envelope_type":"operator","from":"operator","to":"product-manager","subject":"OP1: stand up the platform section","at":"2026-06-19T21:40:00Z"},
-{"id":"e2","envelope_type":"task","from":"project-manager","to":"product-manager","subject":"Routed: gate templates behind a vault secret","at":"2026-06-19T21:42:00Z"},
-{"id":"e3","envelope_type":"result","from":"design-coworker","to":"product-manager","subject":"Mail app token-compliant (8/8)","at":"2026-06-19T21:55:00Z"},
-{"id":"e4","envelope_type":"escalate","from":"engineering-manager","to":"operator","subject":"Blocked: vault secret not set","at":"2026-06-19T22:01:00Z"}]</script>
+{"id":"e1","envelope_type":"task","from":"product-management-coworker@subagentknowledge.com","to":"engineering-coworker@subagentknowledge.com","subject":"Build e2m envelope schema tests","at":"2026-06-22T14:00:00Z"},
+{"id":"e2","envelope_type":"result","from":"engineering-coworker@subagentknowledge.com","to":"product-management-coworker@subagentknowledge.com","subject":"495 tests pass, all 5 workers deployed","at":"2026-06-22T15:30:00Z"},
+{"id":"e3","envelope_type":"summary","from":"project-management-coworker@subagentknowledge.com","to":"product-management-coworker@subagentknowledge.com","subject":"Nightly review: 14 completed, 0 blocked","at":"2026-06-22T07:00:00Z"},
+{"id":"e4","envelope_type":"notify","from":"operations-coworker@subagentknowledge.com","to":"engineering-coworker@subagentknowledge.com","subject":"12 email routing rules live on subagentknowledge.com","at":"2026-06-22T16:00:00Z"}]</script>
 <script>
 var MB=JSON.parse(document.getElementById('mb').textContent),e=function(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')};
 var L=document.getElementById('list'),T=document.getElementById('thread');

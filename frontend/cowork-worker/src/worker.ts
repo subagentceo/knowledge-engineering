@@ -198,7 +198,7 @@ export default {
 
     // Root → app shell
     if (url.pathname === "/" || url.pathname === "") {
-      return secure(new Response(coworkShell(env.COWORKERS_HOST), {
+      return secure(new Response(coworkShell(), {
         headers: { "content-type": "text/html; charset=utf-8" },
       }));
     }
@@ -216,7 +216,7 @@ export default {
 
 // ── HTML shell ────────────────────────────────────────────────────────────────
 
-function coworkShell(coworkersHost: string): string {
+function coworkShell(): string {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -386,7 +386,7 @@ function coworkShell(coworkersHost: string): string {
 
   <nav>
     <a href="/" class="active">cowork/</a>
-    <a href="https://${coworkersHost}">coworkers/</a>
+    <a href="https://coworkers.subagentknowledge.com">coworkers/</a>
     <a href="/mcp">mcp</a>
     <a href="/api/manifest">manifest</a>
     <div class="spacer"></div>

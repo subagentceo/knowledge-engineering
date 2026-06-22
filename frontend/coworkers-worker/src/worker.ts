@@ -152,7 +152,7 @@ export default {
     }
 
     if (url.pathname === "/" || url.pathname === "") {
-      return secure(new Response(coworkersPage(env.COWORK_HOST), {
+      return secure(new Response(coworkersPage(), {
         headers: { "content-type": "text/html; charset=utf-8" },
       }));
     }
@@ -180,7 +180,7 @@ const DOMAIN_COLORS: Record<string, string> = {
   "finance":            "#a8e063",
 };
 
-function coworkersPage(coworkHost: string): string {
+function coworkersPage(): string {
   const cards = COWORKERS.map(cw => {
     const domainColor = DOMAIN_COLORS[cw.domain] ?? "#d4d4d4";
     const protocolBadges = cw.protocols.map(p => {
@@ -379,7 +379,7 @@ function coworkersPage(coworkHost: string): string {
   </script>
 
   <nav>
-    <a href="https://${coworkHost}">cowork/</a>
+    <a href="https://cowork.subagentknowledge.com">cowork/</a>
     <a href="/" class="active">coworkers/</a>
     <a href="/mcp">mcp</a>
     <div class="spacer"></div>
