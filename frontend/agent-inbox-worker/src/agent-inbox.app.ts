@@ -14,6 +14,7 @@
  * wrangler entry-point can serve both MCP and email.
  */
 import { McpAgent } from "agents/mcp";
+import { type EmailSendBinding } from "agents";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
@@ -32,7 +33,7 @@ interface Env {
   /** Durable Object namespace for the MCP agent (this class). */
   AgentInboxMcp: DurableObjectNamespace;
   /** Outbound email binding. */
-  EMAIL: { send: (msg: unknown) => Promise<unknown> };
+  EMAIL: EmailSendBinding;
 }
 
 // ---------------------------------------------------------------------------
@@ -125,6 +126,59 @@ export class AgentInboxMcp extends McpAgent<Env> {
 export default {
   async fetch(req: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(req.url);
+
+    // POST /send-internal — send coworker-to-coworker emails via ManagerInbox DO callable.
+    // Uses @callable sendCoworkerEmail → this.sendEmail() SDK pattern (not new EmailMessage directly).
+    // @cite https://developers.cloudflare.com/agents/communication-channels/email/
+    if (url.pathname === "/send-internal" && req.method === "POST") {
+      const SEND_DOMAIN = "subagentknowledge.com";
+      const PAIRS = [
+        {
+          from: `product-management-coworker@${SEND_DOMAIN}`,
+          to: `engineering-coworker@${SEND_DOMAIN}`,
+          subject: "[e2m dogfood] Task: implement /inbox-status.json endpoint",
+          text: `Hi engineering-coworker,\n\nLive coworker-to-coworker email via agent-inbox worker.\n\nTask: add GET /inbox-status.json returning KV envelope counts per role.\nPriority: 2 | ke_fit_score: 4\nThread: email-routing-research-preview-2026-06-22\n\n-- product-management-coworker@${SEND_DOMAIN}`,
+        },
+        {
+          from: `project-management-coworker@${SEND_DOMAIN}`,
+          to: `design-coworker@${SEND_DOMAIN}`,
+          subject: "[e2m dogfood] Notify: email routing dogfood sprint kicked off",
+          text: `Hi design-coworker,\n\nAll 12 coworker addresses confirmed routing to agent-inbox worker.\nThread: email-routing-research-preview-2026-06-22\n\n-- project-management-coworker@${SEND_DOMAIN}`,
+        },
+        {
+          from: `data-coworker@${SEND_DOMAIN}`,
+          to: `product-management-coworker@${SEND_DOMAIN}`,
+          subject: "[e2m dogfood] Result: 185 envelopes validated, 0 violations",
+          text: `Hi product-management-coworker,\n\n185 records scanned | 0 violations | all envelopes canonical.\nThread: email-routing-research-preview-2026-06-22\n\n-- data-coworker@${SEND_DOMAIN}`,
+        },
+      ];
+      const results = [];
+      for (const pair of PAIRS) {
+        try {
+          // Route through the sender role's ManagerInbox DO instance → @callable sendCoworkerEmail.
+          const senderRole = pair.from.split("@")[0] ?? pair.from;
+          const stub = env.ManagerInbox.get(env.ManagerInbox.idFromName(senderRole));
+          // Call the DO callable via HTTP (agents SDK pattern: POST /agents/<class>/<id>/<method>)
+          const doResp = await stub.fetch(
+            new Request(`https://do-internal/call/sendCoworkerEmail`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ to: pair.to, from: pair.from, subject: pair.subject, text: pair.text }),
+            })
+          );
+          if (!doResp.ok) {
+            const errText = await doResp.text();
+            results.push({ from: pair.from, to: pair.to, status: "error", error: errText });
+          } else {
+            const { messageId } = await doResp.json() as { messageId: string };
+            results.push({ from: pair.from, to: pair.to, status: "sent", messageId });
+          }
+        } catch (err) {
+          results.push({ from: pair.from, to: pair.to, status: "error", error: String(err) });
+        }
+      }
+      return Response.json({ results, sent_at: new Date().toISOString() });
+    }
 
     if (url.pathname === "/sse") {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any -- SDK typing mismatch

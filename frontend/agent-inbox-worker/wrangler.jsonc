@@ -8,6 +8,8 @@
   "account_id": "e6294e3ea89f8207af387d459824aaae",
 
   // Outbound — Cloudflare Email Service (SPF/DKIM/DMARC auto-configured for subagentknowledge.com).
+  // remote: true routes sends through the real Email Service API.
+  // @cite https://developers.cloudflare.com/agents/communication-channels/email/
   "send_email": [{ "name": "EMAIL", "remote": true }],
 
   // Inbound queue — KV namespace shared by both the live deploy and the MCP agent.
