@@ -51,11 +51,16 @@ def check_record(rec):
     return errs
 
 
+NON_E2M_QUEUES = {"skill-grades", "skill-outcomes"}
+
+
 def scan(dirs):
     violations = []
     scanned = 0
     for d in dirs:
         for f in sorted(pathlib.Path(d).glob("*.jsonl")):
+            if f.stem in NON_E2M_QUEUES:
+                continue
             for i, line in enumerate(f.read_text().strip().splitlines()):
                 if not line.strip():
                     continue

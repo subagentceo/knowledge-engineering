@@ -67,8 +67,9 @@ def main():
     MAILBOX_DIR.mkdir(parents=True, exist_ok=True)
     mbfile = MAILBOX_DIR / f"{mb_id}.jsonl"
     msg = {
-        "_type": "message",
+        "_type": "envelope",
         "id": str(uuid.uuid4()),
+        "envelope_type": "task",
         "task_id": task_id,
         "from": args.sender,
         "to": mb_id,
