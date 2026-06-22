@@ -1,0 +1,85 @@
+# install.yaml — curated, type-safe install spec for durable local Ollama over Tailscale (#522)
+# Consumed by autoresolve.py. Each `check` is detect → fix (self-healable) or escalate (operator/WSL).
+# Curated from the 13 real failures hit during #522 — see `learned_failures` (do not repeat these).
+# @cite https://github.com/subagentceo/knowledge-engineering/issues/522  (canonical runbook)
+# @cite https://docs.ollama.com/faq
+
+version: "1"
+contract: "ollama/contract.yaml"
+host: "wsl-ubuntu2604-jadecli"        # MagicDNS name — IP-reassignment-proof; use over hardcoded IP
+fallback_ip_env: "OLLAMA_TAILSCALE_IP"
+port: 11434
+model: "qwen2.5-coder:7b"
+cold_load_timeout_s: 120
+
+# ── side: macOS (consumer) — everything here is self-healable, no sudo ───────────
+macos:
+  deps: ["pydantic", "pyyaml"]         # autoresolve pip-installs if missing
+  checks:
+    - id: tailscale_up
+      detect: "tailscale status"
+      fix: "open -a Tailscale"          # reinstall pkg if app absent (failure row #11)
+      kind: self_heal
+    - id: resolve_host
+      detect: "ping -c1 {host}"         # MagicDNS must resolve the name
+      fix: "fall back to {fallback_ip_env}"
+      kind: self_heal
+    - id: get_reachable
+      detect: "GET http://{addr}:{port}/ == 'Ollama is running'"
+      kind: probe
+    - id: post_inference
+      detect: "POST http://{addr}:{port}/api/chat -> 200 + non-empty content (timeout {cold_load_timeout_s}s)"
+      fix: "warm the model with one POST, then retry"   # cold-load, not a network bug (row #5/#6)
+      kind: self_heal
+    - id: route_claude_code
+      detect: "ANTHROPIC_BASE_URL == http://{addr}:{port}"
+      fix: "source scripts/use-local.sh"
+      kind: self_heal
+
+# ── side: WSL (host) — durable layer; the one wall agents cannot cross is sudo ───
+wsl:
+  durable_mechanism: "systemd"          # NOT a bashrc `ollama serve` (row #2: addr already in use)
+  checks:
+    - id: native_bind
+      detect: "ss -tlnp | grep ':{port}' shows 0.0.0.0, not 127.0.0.1"
+      fix: "sudo ~/.local/bin/durable-ollama harden"    # sets OLLAMA_HOST=0.0.0.0 + restart + NOPASSWD
+      kind: escalate_operator                            # one-time sudo; no agent can type the password (row #7)
+    - id: origins_allow_hostname
+      detect: "POST to http://{host}:{port} (Host: hostname) returns 200, not 403"
+      fix: "add Environment=\"OLLAMA_ORIGINS=*\" to the systemd drop-in (failure row #13)"
+      kind: escalate_operator
+    - id: autostart_enabled
+      detect: "systemctl is-enabled ollama == enabled"
+      fix: "sudo systemctl enable --now ollama"
+      kind: escalate_operator
+    - id: rebind_after_shutdown
+      detect: "tailscale ip -4 changed since last good"
+      fix: "~/.local/bin/durable-ollama autoresolve"     # rebinds + warms; no sudo, safe in bashrc
+      kind: self_heal
+
+# ── the 13 curated failures — autoresolve refuses to repeat any of these ─────────
+learned_failures:
+  - { n: 1,  trap: "export VAR=val cmd as one token",          fix: "export on its own line" }
+  - { n: 2,  trap: "ollama serve while systemd owns the port", fix: "fix the systemd unit; never a 2nd server" }
+  - { n: 3,  trap: "edit override.conf without restart",        fix: "daemon-reload && restart ollama" }
+  - { n: 4,  trap: "GET-only healthcheck as the gate",          fix: "gate on POST /api/chat 200 + content" }
+  - { n: 5,  trap: "5s client timeout vs ~88s cold load",       fix: "timeout >=120 or warm first" }
+  - { n: 6,  trap: "blaming the TCP forwarder for POST loss",   fix: "measure: raw pipe can't drop a body" }
+  - { n: 7,  trap: "privileged docker/nsenter to get root",     fix: "operator sudo once + NOPASSWD rule" }
+  - { n: 8,  trap: "unprompted bashrc self-reviving launcher",  fix: "only with operator authorization" }
+  - { n: 9,  trap: "forwarder as the durable mechanism",        fix: "systemd 0.0.0.0 is durable; forwarder is a stopgap" }
+  - { n: 10, trap: "hardcoding the Tailscale IP",               fix: "use MagicDNS host / `tailscale ip -4`" }
+  - { n: 11, trap: "stale /usr/local/bin/tailscale shim",       fix: "reinstall Tailscale macos pkg" }
+  - { n: 12, trap: "default model glm-4.7-flash (24GB)",        fix: "qwen2.5-coder:7b (fits 11GB)" }
+  - { n: 13, trap: "MagicDNS hostname -> HTTP 403",             fix: "OLLAMA_ORIGINS=* in systemd drop-in" }
+
+# ── integration with the durable skills (steer: 'add durable-* into ollama/') ────
+# We do NOT vendor those 20KB skills here (keep it small). The integration point is
+# the SHARED DurableTask queue they both consume: when a WSL check is escalate_operator
+# and cannot self-heal, autoresolve emits a DurableTask to engineering.jsonl — exactly
+# the pattern durable-lru-dreams and durable-pg-memory-store use for unattended recovery.
+durable_skills:
+  pattern_source: [".claude/skills/durable-lru-dreams", ".claude/skills/durable-pg-memory-store"]
+  queue: "cowork/data/queues/engineering.jsonl"
+  emit_when: "any escalate_operator check fails"
+  last_good_state: "ollama/.last-good.yaml"   # tiny local durable layer (no pg/redis dep)

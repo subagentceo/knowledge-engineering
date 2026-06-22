@@ -1,0 +1,337 @@
+# Managed Agents Memory API — Canonical Schema
+# Source: https://platform.claude.com/docs/en/managed-agents/memory
+# Protocol version: managed-agents-2026-04-01
+# Type-safety cascade: YAML (this) → TypeScript/Zod → Rust/serde → Python/Pydantic
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://e2m.dev/schema/draft/managed-agents-memory.json"
+title: Managed Agents Memory API
+description: >
+  Schema for Anthropic Managed Agents Memory Stores, Memories, and Memory Versions.
+  Memory stores give agents persistent cross-session memory mounted at /mnt/memory/.
+  Each write creates an immutable version for audit and rollback.
+
+$defs:
+
+  # ── Identifiers ─────────────────────────────────────────────────────────────
+
+  MemoryStoreId:
+    type: string
+    pattern: "^memstore_"
+    description: "Prefixed ID, e.g. memstore_01Hx..."
+
+  MemoryId:
+    type: string
+    pattern: "^mem_"
+    description: "Prefixed ID for an individual memory document"
+
+  MemoryVersionId:
+    type: string
+    pattern: "^memver_"
+    description: "Prefixed ID for an immutable memory version"
+
+  # ── Enums ───────────────────────────────────────────────────────────────────
+
+  MemoryAccess:
+    type: string
+    enum: [read_write, read_only]
+    description: >
+      Access mode when attaching a store to a session.
+      Defaults to read_write. Use read_only for shared reference stores
+      or any store that receives untrusted input (prompt injection risk).
+
+  MemoryOperation:
+    type: string
+    enum: [create, update, delete, redact]
+    description: The mutation type recorded in a memory version
+
+  MemoryStoreStatus:
+    type: string
+    enum: [active, archived]
+    description: Archived stores are read-only and cannot be attached to new sessions
+
+  MemoryItemType:
+    type: string
+    enum: [memory, memory_prefix]
+    description: Used in list results; memory_prefix represents a directory node
+
+  # ── Memory Store ────────────────────────────────────────────────────────────
+
+  MemoryStore:
+    type: object
+    required: [id, name, description, status, created_at, updated_at]
+    additionalProperties: false
+    properties:
+      id:
+        $ref: "#/$defs/MemoryStoreId"
+      name:
+        type: string
+        maxLength: 256
+        description: Human-readable name for the store
+      description:
+        type: string
+        maxLength: 4096
+        description: >
+          Passed to the agent to explain what the store contains.
+          Be specific — this is the agent's primary signal for which
+          store to use for which purpose.
+      status:
+        $ref: "#/$defs/MemoryStoreStatus"
+      archived_at:
+        type: [string, "null"]
+        format: date-time
+        description: Set when the store is archived. Archiving is one-way.
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+
+  CreateMemoryStoreParams:
+    type: object
+    required: [name, description]
+    additionalProperties: false
+    properties:
+      name:
+        type: string
+        maxLength: 256
+      description:
+        type: string
+        maxLength: 4096
+
+  UpdateMemoryStoreParams:
+    type: object
+    additionalProperties: false
+    minProperties: 1
+    properties:
+      name:
+        type: string
+        maxLength: 256
+      description:
+        type: string
+        maxLength: 4096
+
+  ListMemoryStoresParams:
+    type: object
+    additionalProperties: false
+    properties:
+      include_archived:
+        type: boolean
+        default: false
+        description: Include archived stores in results
+
+  # ── Memory ──────────────────────────────────────────────────────────────────
+
+  Memory:
+    type: object
+    required: [id, memory_store_id, path, content_sha256, created_at, updated_at]
+    additionalProperties: false
+    properties:
+      id:
+        $ref: "#/$defs/MemoryId"
+      memory_store_id:
+        $ref: "#/$defs/MemoryStoreId"
+      path:
+        type: string
+        pattern: "^/"
+        description: >
+          POSIX path within the store, e.g. /preferences/formatting.md
+          Paths are hierarchical — use directory structure for organization.
+      content:
+        type: [string, "null"]
+        maxLength: 102400
+        description: >
+          Full text content of the memory. Present when retrieved individually.
+          Absent or null in list results for performance.
+          Max 100 kB (~25k tokens).
+      content_sha256:
+        type: string
+        description: SHA-256 hex digest of content. Use as precondition for safe updates.
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+
+  MemoryListItem:
+    type: object
+    required: [type, path]
+    additionalProperties: false
+    properties:
+      type:
+        $ref: "#/$defs/MemoryItemType"
+      path:
+        type: string
+      id:
+        $ref: "#/$defs/MemoryId"
+        description: Present only when type is memory
+
+  CreateMemoryParams:
+    type: object
+    required: [path]
+    additionalProperties: false
+    properties:
+      path:
+        type: string
+        pattern: "^/"
+        description: Must not already exist — create does not overwrite
+      content:
+        type: string
+        maxLength: 102400
+
+  UpdateMemoryParams:
+    type: object
+    additionalProperties: false
+    minProperties: 1
+    properties:
+      path:
+        type: string
+        pattern: "^/"
+        description: Rename the memory to this path
+      content:
+        type: string
+        maxLength: 102400
+      precondition:
+        $ref: "#/$defs/ContentSha256Precondition"
+        description: >
+          Optimistic concurrency guard. Update only applies if the stored
+          content hash matches. On mismatch: re-read and retry.
+
+  ContentSha256Precondition:
+    type: object
+    required: [type, content_sha256]
+    additionalProperties: false
+    properties:
+      type:
+        type: string
+        const: content_sha256
+      content_sha256:
+        type: string
+        description: Expected SHA-256 hex digest of current content
+
+  ListMemoriesParams:
+    type: object
+    additionalProperties: false
+    properties:
+      path_prefix:
+        type: string
+        description: Filter to memories under this path prefix (browse like a directory)
+      order_by:
+        type: string
+        enum: [path, created_at, updated_at]
+        default: created_at
+      depth:
+        type: integer
+        minimum: 1
+        description: How many directory levels to descend when listing
+
+  # ── Memory Version ───────────────────────────────────────────────────────────
+
+  MemoryVersion:
+    type: object
+    required: [id, memory_store_id, memory_id, operation, created_at]
+    additionalProperties: false
+    properties:
+      id:
+        $ref: "#/$defs/MemoryVersionId"
+      memory_store_id:
+        $ref: "#/$defs/MemoryStoreId"
+      memory_id:
+        $ref: "#/$defs/MemoryId"
+      operation:
+        $ref: "#/$defs/MemoryOperation"
+      content:
+        type: [string, "null"]
+        description: >
+          Full content at this version. Present when retrieved individually.
+          Null when redacted. Versions are retained for 30 days
+          (recent versions always kept regardless of age).
+      content_sha256:
+        type: [string, "null"]
+        description: Null when redacted
+      session_id:
+        type: [string, "null"]
+        description: Session that created this version, if agent-authored
+      created_at:
+        type: string
+        format: date-time
+
+  ListMemoryVersionsParams:
+    type: object
+    additionalProperties: false
+    properties:
+      memory_id:
+        $ref: "#/$defs/MemoryId"
+        description: Filter to versions of a specific memory
+
+  # ── Session Resource Attachment ──────────────────────────────────────────────
+
+  MemoryStoreResource:
+    type: object
+    required: [type, memory_store_id]
+    additionalProperties: false
+    description: >
+      Attach a memory store to a session via the resources[] array.
+      Maximum 8 memory stores per session.
+      Stores can only be attached at session creation time.
+    properties:
+      type:
+        type: string
+        const: memory_store
+      memory_store_id:
+        $ref: "#/$defs/MemoryStoreId"
+      access:
+        $ref: "#/$defs/MemoryAccess"
+        default: read_write
+      instructions:
+        type: string
+        maxLength: 4096
+        description: >
+          Session-specific guidance shown to the agent alongside the store's
+          name and description. E.g. "Check this before starting any task."
+
+  # ── API Endpoints Summary ────────────────────────────────────────────────────
+
+  ApiEndpoints:
+    type: object
+    description: Reference for all memory API endpoints (not a runtime schema)
+    properties:
+      memory_stores:
+        type: object
+        properties:
+          create:   { type: string, const: "POST   /v1/memory_stores" }
+          retrieve: { type: string, const: "GET    /v1/memory_stores/{id}" }
+          update:   { type: string, const: "POST   /v1/memory_stores/{id}" }
+          list:     { type: string, const: "GET    /v1/memory_stores" }
+          archive:  { type: string, const: "POST   /v1/memory_stores/{id}/archive" }
+          delete:   { type: string, const: "DELETE /v1/memory_stores/{id}" }
+      memories:
+        type: object
+        properties:
+          create:   { type: string, const: "POST   /v1/memory_stores/{store_id}/memories" }
+          retrieve: { type: string, const: "GET    /v1/memory_stores/{store_id}/memories/{id}" }
+          update:   { type: string, const: "POST   /v1/memory_stores/{store_id}/memories/{id}" }
+          list:     { type: string, const: "GET    /v1/memory_stores/{store_id}/memories" }
+          delete:   { type: string, const: "DELETE /v1/memory_stores/{store_id}/memories/{id}" }
+      memory_versions:
+        type: object
+        properties:
+          retrieve: { type: string, const: "GET    /v1/memory_stores/{store_id}/memory_versions/{id}" }
+          list:     { type: string, const: "GET    /v1/memory_stores/{store_id}/memory_versions" }
+          redact:   { type: string, const: "POST   /v1/memory_stores/{store_id}/memory_versions/{id}/redact" }
+
+  # ── Limits ──────────────────────────────────────────────────────────────────
+
+  Limits:
+    type: object
+    description: Hard limits for the Memory API
+    properties:
+      memory_max_bytes:      { type: integer, const: 102400,  description: "100 kB per memory" }
+      memories_per_store:    { type: integer, const: 2000,    description: "Max memories per store" }
+      stores_per_session:    { type: integer, const: 8,       description: "Max stores attached to one session" }
+      instructions_max_chars:{ type: integer, const: 4096,    description: "Max chars for session-level instructions" }
+      version_retention_days:{ type: integer, const: 30,      description: "Versions retained for 30 days (recent always kept)" }
+      rate_create_rpm:       { type: integer, const: 300,     description: "Create endpoints: 300 req/min per org" }
+      rate_read_rpm:         { type: integer, const: 600,     description: "Read endpoints: 600 req/min per org" }

@@ -1,0 +1,9 @@
+/*!
+ * This source file is part of the Swift.org open source project
+ *
+ * Copyright (c) 2021 Apple Inc. and the Swift project authors
+ * Licensed under Apache License v2.0 with Runtime Library Exception
+ *
+ * See https://swift.org/LICENSE.txt for license information
+ * See https://swift.org/CONTRIBUTORS.txt for Swift project authors
+ */@supports(background-color:color-mix(in srgb,red,blue)){[data-v-66b22ef4] .documentation-hero:before{background:linear-gradient(var(--standard-accent-color,var(--accent-color,var(--color-figure-gray-secondary))),color-mix(in srgb,var(--standard-accent-color,var(--accent-color,var(--color-figure-gray-secondary))),transparent 70%))}}.hide-overview[data-v-66b22ef4] h2#Overview{display:none}

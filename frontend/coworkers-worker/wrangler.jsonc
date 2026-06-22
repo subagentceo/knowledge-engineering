@@ -1,40 +1,41 @@
-// frontend/coworkers-worker/wrangler.jsonc
-//
-// CF Worker: coworkers.subagentknowledge.com
-// McpAgent-backed worker — serves coworker directory at / and MCP server at /mcp.
-// Durable Object required for McpAgent session state (SQLite-backed).
-//
-// @cite github.com/cloudflare/agents                (McpAgent + DO pattern)
-// @cite plugins/mcp-server-dev/references/deploy-cloudflare-workers.md
-// @cite cowork/coworkers/manifest.json              (7 coworker definitions)
-//
-// Deploy:
-//   cd frontend && npx wrangler deploy --config coworkers-worker/wrangler.jsonc
 {
   "name": "coworkers-frontend",
+  // entry point is now the TypeScript worker (wrangler bundles via esbuild)
   "main": "src/worker.ts",
-  "compatibility_date": "2026-01-01",
+  "compatibility_date": "2025-06-01",
   "compatibility_flags": ["nodejs_compat"],
-
-  "durable_objects": {
-    "bindings": [
-      { "name": "MCP_OBJECT", "class_name": "CoworkersMcp" }
-    ]
-  },
-
-  "migrations": [
-    { "tag": "v1", "new_sqlite_classes": ["CoworkersMcp"] }
-  ],
-
+  "account_id": "e6294e3ea89f8207af387d459824aaae",
   "routes": [
     {
       "pattern": "coworkers.subagentknowledge.com",
+      "zone_id": "3f820e0424fd375d5b6f86acaad0d5d7",
       "custom_domain": true
     }
   ],
-
   "vars": {
     "SITE_NAME": "coworkers",
     "COWORK_HOST": "cowork.subagentknowledge.com"
-  }
+  },
+  // ── Durable Objects ────────────────────────────────────────────────────────
+  "durable_objects": {
+    "bindings": [
+      // legacy directory DO (already deployed, namespace_id preserved)
+      {
+        "name": "MCP_OBJECT",
+        "class_name": "CoworkersMcp"
+      },
+      // new e2m coordination DO
+      {
+        "name": "COWORKERS_MCP_APP",
+        "class_name": "CoworkersMcpApp"
+      }
+    ]
+  },
+  // ── SQLite v1 migration for CoworkersMcpApp ────────────────────────────────
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["CoworkersMcpApp"]
+    }
+  ]
 }

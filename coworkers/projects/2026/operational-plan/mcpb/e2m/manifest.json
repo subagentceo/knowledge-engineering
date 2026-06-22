@@ -1,0 +1,47 @@
+{
+  "$schema": "https://raw.githubusercontent.com/anthropics/mcpb/main/schemas/mcpb-manifest-v0.4.schema.json",
+  "manifest_version": "0.4",
+  "name": "e2m",
+  "display_name": "e2m — typed coworker coordination",
+  "version": "0.1.0",
+  "description": "Typed Envelope/DurableTask/Transition/Team coordination over append-only JSONL — the e2m-mcp peer lane for the operational plan.",
+  "long_description": "Exposes the e2m coordination substrate as typed MCP tools: envelope_write, envelope_read, task_transition, mailbox_send, mailbox_recv, mailbox_ack, agent_directory, team_dispatch. Operator is a first-class participant (mailbox + queue). Reads/writes only JSONL under the configured operational-plan DATA_DIR; nothing leaves the machine. Schema mirrors cowork/schemas/envelope.ts.",
+  "author": { "name": "subagentceo", "url": "https://coworkers.subagentknowledge.com" },
+  "repository": { "type": "git", "url": "https://github.com/subagentceo/knowledge-engineering" },
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.mjs"],
+      "env": { "DATA_DIR": "${user_config.data_dir}" }
+    }
+  },
+  "tools": [
+    { "name": "envelope_write", "description": "Append a typed DurableTask to its queue" },
+    { "name": "envelope_read", "description": "Read a queue (latest-line-wins) with optional state filter" },
+    { "name": "task_transition", "description": "Append a task state transition" },
+    { "name": "mailbox_send", "description": "Send a typed Envelope to an agent's mailbox" },
+    { "name": "mailbox_recv", "description": "Read an agent's envelopes (optionally pending only)" },
+    { "name": "mailbox_ack", "description": "Acknowledge an envelope" },
+    { "name": "agent_directory", "description": "The 15-agent registry + named teams" },
+    { "name": "team_dispatch", "description": "Fan one Envelope to every member of a team" }
+  ],
+  "tools_generated": false,
+  "keywords": ["e2m", "coworkers", "envelope", "mailbox", "team", "operational-plan"],
+  "license": "MIT",
+  "compatibility": {
+    "claude_desktop": ">=1.0.0",
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": { "node": ">=18.0.0" }
+  },
+  "user_config": {
+    "data_dir": {
+      "type": "directory",
+      "title": "operational-plan e2m data dir",
+      "description": "Path to the operational-plan data root (mailbox/ + queues/ JSONL).",
+      "default": "${HOME}/knowledge-engineering/coworkers/projects/2026/operational-plan/data",
+      "required": true
+    }
+  }
+}

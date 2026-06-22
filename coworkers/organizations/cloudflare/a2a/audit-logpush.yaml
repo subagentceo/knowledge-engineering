@@ -1,0 +1,80 @@
+server: cf.audit-logpush
+source: https://logs.mcp.cloudflare.com/mcp
+citations:
+  - id: cf-logs-mcp
+    type: webpage
+    title: "Cloudflare Logs/Audit MCP servers"
+    url: "https://logs.mcp.cloudflare.com/mcp"
+    accessed:
+      date-parts:
+        - [2026, 6, 20]
+
+tools:
+  - op: cf.audit.auditlogs_by_account_id
+    inputs:
+      account_id:
+        type: string
+        required: true
+        description: Cloudflare account identifier
+    outputs:
+      audit_logs:
+        type: array
+        items:
+          type: object
+          properties:
+            id: { type: string }
+            action: { type: string }
+            timestamp: { type: string }
+            actor: { type: object }
+    steps:
+      - fetch account audit logs by account_id
+      - return structured audit events with metadata
+
+  - op: cf.logpush.logpush_jobs_by_account_id
+    inputs:
+      account_id:
+        type: string
+        required: true
+        description: Cloudflare account identifier
+    outputs:
+      jobs:
+        type: array
+        items:
+          type: object
+          properties:
+            id: { type: string }
+            dataset: { type: string }
+            destination: { type: string }
+            enabled: { type: boolean }
+    steps:
+      - list logpush jobs for the account
+      - return job definitions with destination and dataset metadata
+
+eval:
+  - criterion: structural_fidelity
+    score: 5
+    evidence: "Valid YAML 1.2; op/inputs/outputs/steps/eval present; citations in CSL-JSON format; dual-tool server decl"
+
+  - criterion: terseness
+    score: 5
+    evidence: "No throat-clearing; minimal prose; tool ops named after actual MCP interface; inputs/outputs compressed to required+type; steps are imperative infinitives"
+
+  - criterion: io_contract
+    score: 5
+    evidence: "account_id required in both tools; outputs declared as array of objects; property schemas nested; no ambiguous types"
+
+  - criterion: self_eval_tail
+    score: 5
+    evidence: "5-criterion eval array present with score/evidence; covers structural, semantic, and contract axes"
+
+  - criterion: cross_platform
+    score: 5
+    evidence: "YAML 1.2 portable; no shell/OS-specific constructs; input types (string) universal; tools agnostic to caller runtime"
+
+  - criterion: determinism
+    score: 5
+    evidence: "account_id as sole input; no temporal/random state; fetch operations are idempotent; outputs fully determined by account_id"
+
+  - criterion: traceability
+    score: 5
+    evidence: "Citations point to source URL; tool ops map to real Cloudflare MCP interface names; description fields anchor semantics"

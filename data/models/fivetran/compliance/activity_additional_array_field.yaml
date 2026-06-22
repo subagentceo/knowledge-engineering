@@ -1,0 +1,51 @@
+# yaml-language-server: $schema=../../../../schemas/fivetran-table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: FivetranTableSemantics
+table_kind: compliance
+
+metadata:
+  name: activity_additional_array_field
+  labels:
+    connector: compliance
+
+spec:
+  version: 1.0.0
+  schema: claude_ai
+  grain: "one row per activity array extra field"
+  primary_key: [index, activity_id]
+  load_type: incremental
+  codeowners:
+    - data-coworker
+  columns:
+    - name: index
+      kind: dimension
+      sql_type: bigint
+    - name: activity_id
+      kind: dimension
+      sql_type: text
+    - name: activity_type
+      kind: dimension
+      sql_type: text
+    - name: array_field_name
+      kind: dimension
+      sql_type: text
+    - name: field_name
+      kind: dimension
+      sql_type: text
+    - name: field_value
+      kind: dimension
+      sql_type: text
+  ddl: |
+    CREATE TABLE IF NOT EXISTS claude_ai.activity_additional_array_field (
+        index BIGINT NOT NULL,
+        activity_id TEXT NOT NULL,
+        activity_type TEXT,
+        array_field_name TEXT,
+        field_name TEXT,
+        field_value TEXT,
+        PRIMARY KEY (index, activity_id)
+    );
+
+# @cite Fivetran ERD: Claude Compliance (claude.ai export)
+# @cite uploads/Claude Compliance_diagram.pdf

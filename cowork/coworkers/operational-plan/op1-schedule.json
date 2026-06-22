@@ -1,0 +1,113 @@
+{
+  "_type": "op1_sprint",
+  "sprint": "op1-12h",
+  "tz": "America/Los_Angeles",
+  "start_utc": "2026-06-20T02:00:00Z",
+  "block_minutes": 60,
+  "served_at": "https://calendar.subagentknowledge.com/api/schedule",
+  "drive": {
+    "coworker_skill": "/op1-coworker",
+    "manager_skill": "/op1-manager"
+  },
+  "blocks": [
+    {
+      "hour": 1,
+      "time_pdt": "7:00 PM",
+      "start_utc": "2026-06-20T02:00:00Z",
+      "manager": "product-manager",
+      "coworker": "operator",
+      "focus": "OP1 kickoff \u2014 set the envelope: targets, the 5 providers",
+      "invitee": "operator",
+      "goal": "get the e2m-ts naming convention right \u2014 scaffold @coworkers/e2m-ts (tri-pass)",
+      "goal_task_id": "e8c49150-030e-4645-8ca3-206de18e5743"
+    },
+    {
+      "hour": 2,
+      "time_pdt": "8:00 PM",
+      "start_utc": "2026-06-20T03:00:00Z",
+      "manager": "design-manager",
+      "coworker": "design-coworker",
+      "focus": "design OP1 \u2014 the 8-token system, the platform UI"
+    },
+    {
+      "hour": 3,
+      "time_pdt": "9:00 PM",
+      "start_utc": "2026-06-20T04:00:00Z",
+      "manager": "engineering-manager",
+      "coworker": "engineering-coworker",
+      "focus": "engineering OP1 \u2014 e2m packages, the workers, CI"
+    },
+    {
+      "hour": 4,
+      "time_pdt": "10:00 PM",
+      "start_utc": "2026-06-20T05:00:00Z",
+      "manager": "data-manager",
+      "coworker": "data-coworker",
+      "focus": "data OP1 \u2014 e2m-OKF warehouse, freshness"
+    },
+    {
+      "hour": 5,
+      "time_pdt": "11:00 PM",
+      "start_utc": "2026-06-20T06:00:00Z",
+      "manager": "project-manager",
+      "coworker": "project-management-coworker",
+      "focus": "delivery rollup + the operator router"
+    },
+    {
+      "hour": 6,
+      "time_pdt": "12:00 AM",
+      "start_utc": "2026-06-20T07:00:00Z",
+      "manager": "operations-manager",
+      "coworker": "operations-coworker",
+      "focus": "ops OP1 \u2014 deploys, runbooks, uptime"
+    },
+    {
+      "hour": 7,
+      "time_pdt": "1:00 AM",
+      "start_utc": "2026-06-20T08:00:00Z",
+      "manager": "finance-manager",
+      "coworker": "finance-coworker",
+      "focus": "finance OP1 \u2014 cost, 1p->3p economics"
+    },
+    {
+      "hour": 8,
+      "time_pdt": "2:00 AM",
+      "start_utc": "2026-06-20T09:00:00Z",
+      "manager": "legal-manager",
+      "coworker": "legal-coworker",
+      "focus": "legal OP1 \u2014 contracts, the OAuth-only posture"
+    },
+    {
+      "hour": 9,
+      "time_pdt": "3:00 AM",
+      "start_utc": "2026-06-20T10:00:00Z",
+      "manager": "compliance-manager",
+      "coworker": "legal-coworker",
+      "focus": "compliance OP1 \u2014 OTel observability, audit"
+    },
+    {
+      "hour": 10,
+      "time_pdt": "4:00 AM",
+      "start_utc": "2026-06-20T11:00:00Z",
+      "manager": "human-resources-manager",
+      "coworker": "human-resources-coworker",
+      "focus": "people OP1 \u2014 hiring, onboarding"
+    },
+    {
+      "hour": 11,
+      "time_pdt": "5:00 AM",
+      "start_utc": "2026-06-20T12:00:00Z",
+      "manager": "agent-resources-manager",
+      "coworker": "agent-resources-coworker",
+      "focus": "agent-lifecycle OP1 \u2014 skills, evals, provisioning"
+    },
+    {
+      "hour": 12,
+      "time_pdt": "6:00 AM",
+      "start_utc": "2026-06-20T13:00:00Z",
+      "manager": "sales-manager",
+      "coworker": "sales-coworker",
+      "focus": "sales OP1 \u2014 pipeline, GTM"
+    }
+  ]
+}

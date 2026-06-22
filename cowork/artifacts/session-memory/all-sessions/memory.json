@@ -1,0 +1,160 @@
+{
+  "_type": "sessions_index",
+  "schema": "messages-api + e2m-envelope",
+  "note": "cross-session map (metadata-level); deep stores generated per session on demand",
+  "meta": [
+    "Cowork · macOS",
+    "operator index",
+    "18 sessions"
+  ],
+  "stats": [
+    [
+      "sessions",
+      18
+    ],
+    [
+      "themes",
+      5
+    ],
+    [
+      "coworker-setups",
+      11
+    ],
+    [
+      "deep stores",
+      1
+    ],
+    [
+      "tokens (this index)",
+      "~858"
+    ]
+  ],
+  "sessions": [
+    {
+      "id": "local_b642a867",
+      "title": "Apps status assessment",
+      "status": "idle",
+      "theme": "assessment",
+      "deep": false
+    },
+    {
+      "id": "local_63cb88cc",
+      "title": "Agent resources coworker setup",
+      "status": "idle",
+      "theme": "coworker-setup",
+      "deep": false
+    },
+    {
+      "id": "local_9e95a44c",
+      "title": "Project management coworker setup",
+      "status": "idle",
+      "theme": "coworker-setup",
+      "deep": false
+    },
+    {
+      "id": "local_c1bdc852",
+      "title": "Coworkers type safety audit",
+      "status": "idle",
+      "theme": "scheduled",
+      "deep": false
+    },
+    {
+      "id": "local_ad5f7a08",
+      "title": "Coworkers morning summary",
+      "status": "idle",
+      "theme": "scheduled",
+      "deep": false
+    },
+    {
+      "id": "local_6d78ce11",
+      "title": "Coworkers midnight session",
+      "status": "idle",
+      "theme": "scheduled",
+      "deep": false
+    },
+    {
+      "id": "local_b6cc4dd2",
+      "title": "Directory creation",
+      "status": "idle",
+      "theme": "infra",
+      "deep": false
+    },
+    {
+      "id": "local_b0c41805",
+      "title": "Alpine Linux toolchain install",
+      "status": "idle",
+      "theme": "infra",
+      "deep": false
+    },
+    {
+      "id": "local_215f754d",
+      "title": "Legal coworker setup",
+      "status": "idle",
+      "theme": "coworker-setup",
+      "deep": false
+    },
+    {
+      "id": "local_ee641a4b",
+      "title": "Human resources coworker setup",
+      "status": "idle",
+      "theme": "coworker-setup",
+      "deep": false
+    },
+    {
+      "id": "local_c2ef3c2f",
+      "title": "Marketing coworker setup",
+      "status": "idle",
+      "theme": "coworker-setup",
+      "deep": false
+    },
+    {
+      "id": "local_eba9715e",
+      "title": "Design coworker skill setup",
+      "status": "idle",
+      "theme": "coworker-setup",
+      "deep": false
+    },
+    {
+      "id": "local_4299ffcf",
+      "title": "Data-coworker skill setup",
+      "status": "idle",
+      "theme": "coworker-setup",
+      "deep": false
+    },
+    {
+      "id": "local_5d4d9000",
+      "title": "Sales coworker setup",
+      "status": "idle",
+      "theme": "coworker-setup",
+      "deep": false
+    },
+    {
+      "id": "local_d2a02940",
+      "title": "Finance coworker setup",
+      "status": "idle",
+      "theme": "coworker-setup",
+      "deep": false
+    },
+    {
+      "id": "local_da980acb",
+      "title": "Operations coworker setup",
+      "status": "idle",
+      "theme": "coworker-setup",
+      "deep": false
+    },
+    {
+      "id": "local_e9bc2e0c",
+      "title": "Engineering coworker skill setup",
+      "status": "idle",
+      "theme": "coworker-setup",
+      "deep": false
+    },
+    {
+      "id": "local_5726538a",
+      "title": "Envelope-to-mailbox protocol design",
+      "status": "active",
+      "theme": "protocol",
+      "deep": true
+    }
+  ]
+}

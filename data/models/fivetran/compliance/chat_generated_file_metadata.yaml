@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../../../../schemas/fivetran-table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: FivetranTableSemantics
+table_kind: compliance
+
+metadata:
+  name: chat_generated_file_metadata
+  labels:
+    connector: compliance
+
+spec:
+  version: 1.0.0
+  schema: claude_ai
+  grain: "one row per generated chat file"
+  primary_key: [id, chat_message_generated_file_id]
+  load_type: incremental
+  codeowners:
+    - data-coworker
+  columns:
+    - name: id
+      kind: dimension
+      sql_type: text
+    - name: chat_message_generated_file_id
+      kind: dimension
+      sql_type: text
+    - name: claude_chat_id
+      kind: dimension
+      sql_type: text
+    - name: created_at
+      kind: time_dimension
+      sql_type: timestamptz
+    - name: filename
+      kind: dimension
+      sql_type: text
+    - name: md_5
+      kind: dimension
+      sql_type: text
+    - name: mime_type
+      kind: dimension
+      sql_type: text
+    - name: size_bytes
+      kind: measure
+      sql_type: bigint
+  ddl: |
+    CREATE TABLE IF NOT EXISTS claude_ai.chat_generated_file_metadata (
+        id TEXT NOT NULL,
+        chat_message_generated_file_id TEXT NOT NULL,
+        claude_chat_id TEXT,
+        created_at TIMESTAMPTZ,
+        filename TEXT,
+        md_5 TEXT,
+        mime_type TEXT,
+        size_bytes BIGINT,
+        PRIMARY KEY (id, chat_message_generated_file_id)
+    );
+
+# @cite Fivetran ERD: Claude Compliance (claude.ai export)
+# @cite uploads/Claude Compliance_diagram.pdf

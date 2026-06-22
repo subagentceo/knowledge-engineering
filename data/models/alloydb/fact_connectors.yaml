@@ -1,0 +1,99 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: fact
+grain: one row per (date_key, connector_slug, session_id)
+
+metadata:
+  name: fact_connectors
+  labels:
+    domain: connectors
+    platform: desktop
+
+spec:
+  version: 0.1.0
+  schema: dw
+  description: >-
+    Periodic snapshot of connector installation and session-level tool usage.
+    One row per connector per Cowork session per day. Measures track tool call
+    volume, approval events, and error rates to inform which extensions to
+    prioritise adding next.
+  codeowners:
+    - admin@jadecli.com
+  sla_policy: daily
+  data_start_date: "2026-06-18"
+  load_type: append_only
+  allowed_operations:
+    - read
+    - append
+  columns:
+    - name: surrogate_key
+      kind: dimension
+      sql_type: BIGINT GENERATED ALWAYS AS IDENTITY
+      description: Warehouse surrogate key.
+    - name: date_key
+      kind: time_dimension
+      sql_type: INTEGER
+      description: FK → dw.dim_date.date_key (YYYYMMDD).
+    - name: connector_sk
+      kind: dimension
+      sql_type: BIGINT
+      description: FK → dw.dim_desktop.surrogate_key (current row at load time).
+    - name: session_id
+      kind: dimension
+      sql_type: TEXT
+      description: Cowork session UUID (from local-agent-mode-sessions path).
+    - name: is_installed
+      kind: dimension
+      sql_type: BOOLEAN
+      description: Whether the connector was enabled in Claude for Mac at snapshot time.
+    - name: is_enabled
+      kind: dimension
+      sql_type: BOOLEAN
+      description: Whether tool permissions were toggled ON by the user.
+    - name: tool_calls_readonly
+      kind: measure
+      sql_type: INTEGER
+      measure_type: count
+      description: Number of read-only tool calls made this session.
+    - name: tool_calls_write
+      kind: measure
+      sql_type: INTEGER
+      measure_type: count
+      description: Number of write/system tool calls made this session.
+    - name: approval_prompts
+      kind: measure
+      sql_type: INTEGER
+      measure_type: count
+      description: Times Claude asked user approval before executing a write tool.
+    - name: approval_granted
+      kind: measure
+      sql_type: INTEGER
+      measure_type: count
+      description: Times the user approved a write tool call.
+    - name: approval_denied
+      kind: measure
+      sql_type: INTEGER
+      measure_type: count
+      description: Times the user denied a write tool call.
+    - name: tool_errors
+      kind: measure
+      sql_type: INTEGER
+      measure_type: count
+      description: Tool calls that returned an error response.
+    - name: approval_rate
+      kind: measure
+      sql_type: NUMERIC(5,4)
+      measure_type: ratio
+      description: approval_granted / NULLIF(approval_prompts, 0).
+      calculation:
+        expression: "approval_granted::numeric / NULLIF(approval_prompts, 0)"
+        inherits:
+          - fact_connectors.approval_granted
+          - fact_connectors.approval_prompts
+        result_type: numeric
+    - name: snapshot_at
+      kind: time_dimension
+      sql_type: TIMESTAMPTZ
+      description: When this snapshot row was written.

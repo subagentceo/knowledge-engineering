@@ -1,0 +1,31 @@
+{
+  "_type": "op1_plan",
+  "year": 2026,
+  "model": "amazon-op1 / s-team",
+  "pages_per_section": 6,
+  "providers": [
+    "GCP / Vertex",
+    "Azure / Foundry",
+    "AWS / Bedrock",
+    "Anthropic (1p)",
+    "OpenAI"
+  ],
+  "sections": 12,
+  "s_team": [
+    "product-manager",
+    "project-manager",
+    "compliance-manager",
+    "data-manager",
+    "design-manager",
+    "operations-manager",
+    "human-resources-manager",
+    "agent-resources-manager",
+    "sales-manager",
+    "engineering-manager",
+    "finance-manager",
+    "legal-manager"
+  ],
+  "router": [
+    "project-manager"
+  ]
+}

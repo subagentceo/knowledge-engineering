@@ -1,0 +1,461 @@
+# AlloyDB Schema Contract — e2m + crawler
+# Kimball data warehousing topology: fact_ / dim_ / rpt_
+# semver governs breaking changes. Bump MINOR for new columns, MAJOR for drops/renames.
+# Each column is typed as: dimension | time_dimension | measure
+# measure_type enum: additive | semi_additive | non_additive | count | count_distinct
+#                    average | rate | duration | derived
+# codeowners, sla_policy, data_start_date, load_type — reserved for future governance
+
+schema_version: "1.0.0"
+dialect: postgresql_18          # AlloyDB Omni PostgreSQL 18
+extensions: [pgvector, uuid-ossp]
+
+# ── Dimension Tables ──────────────────────────────────────────────────────────
+
+tables:
+
+  - name: dim_pages
+    version: "1.0.0"
+    type: dim
+    scd_type: II                # new row per content change (content_hash changes)
+    grain: "one row per unique page content version (URL × content_hash)"
+    description: >
+      Crawled pages from anthropic.com and claude.com sitemaps.
+      Content is stored as CommonMark markdown only — no raw HTML ever persisted.
+      Deduplication key is content_hash (SHA-256 of markdown).
+    load_type: upsert_on_conflict_content_hash
+    # codeowners: ["@opencoworkers/data-eng"]
+    # sla_policy: crawl_weekly
+    # data_start_date: "2026-06-09"
+    columns:
+      - name: page_key
+        column_type: dimension
+        data_type: uuid
+        is_primary_key: true
+        default: "uuid_generate_v4()"
+        nullable: false
+
+      - name: url
+        column_type: dimension
+        data_type: text
+        nullable: false
+        description: "Canonical absolute URL"
+
+      - name: url_path
+        column_type: dimension
+        data_type: text
+        nullable: false
+        description: "URL pathname component e.g. /research/constitutional-ai"
+
+      - name: site
+        column_type: dimension
+        data_type: text
+        nullable: false
+        allowed_values: ["anthropic.com", "claude.com"]
+
+      - name: section
+        column_type: dimension
+        data_type: text
+        nullable: false
+        description: "Top-level path segment: research | engineering | solutions | root"
+
+      - name: title
+        column_type: dimension
+        data_type: text
+        nullable: false
+
+      - name: description
+        column_type: dimension
+        data_type: text
+        nullable: true
+
+      - name: content_hash
+        column_type: dimension
+        data_type: char(64)
+        nullable: false
+        unique: true
+        description: "SHA-256 of markdown content — dedup and cache invalidation key"
+
+      - name: markdown
+        column_type: dimension
+        data_type: text
+        nullable: false
+        description: "CommonMark-validated markdown. Never raw HTML."
+
+      - name: pdf_urls
+        column_type: dimension
+        data_type: jsonb
+        nullable: false
+        default: "'[]'"
+        description: "Array of absolute PDF URLs found on page"
+
+      - name: published_at
+        column_type: time_dimension
+        data_type: timestamptz
+        nullable: true
+
+      - name: lastmod
+        column_type: time_dimension
+        data_type: timestamptz
+        nullable: true
+        description: "lastmod from sitemap.xml"
+
+      - name: crawled_at
+        column_type: time_dimension
+        data_type: timestamptz
+        nullable: false
+        default: "NOW()"
+
+      - name: word_count
+        column_type: measure
+        measure_type: count
+        data_type: integer
+        nullable: false
+        default: "0"
+        unit: words
+        description: "Plain-text word count of markdown body"
+
+  - name: dim_documents
+    version: "1.0.0"
+    type: dim
+    scd_type: I                 # overwrite on re-crawl
+    grain: "one row per unique PDF URL"
+    description: "PDF documents discovered during page crawl. Markdown-extracted text stored."
+    load_type: upsert_on_conflict_pdf_url
+    columns:
+      - name: doc_key
+        column_type: dimension
+        data_type: uuid
+        is_primary_key: true
+        default: "uuid_generate_v4()"
+
+      - name: pdf_url
+        column_type: dimension
+        data_type: text
+        nullable: false
+        unique: true
+
+      - name: page_key
+        column_type: dimension
+        data_type: uuid
+        nullable: false
+        fk_table: dim_pages
+        fk_column: page_key
+
+      - name: title
+        column_type: dimension
+        data_type: text
+        nullable: true
+
+      - name: markdown_text
+        column_type: dimension
+        data_type: text
+        nullable: true
+        description: "Text extracted from PDF, converted to CommonMark"
+
+      - name: content_hash
+        column_type: dimension
+        data_type: char(64)
+        nullable: true
+
+      - name: crawled_at
+        column_type: time_dimension
+        data_type: timestamptz
+        nullable: false
+        default: "NOW()"
+
+      - name: page_count
+        column_type: measure
+        measure_type: count
+        data_type: integer
+        nullable: true
+        unit: pages
+
+# ── Fact Tables ───────────────────────────────────────────────────────────────
+
+  - name: fact_crawl_events
+    version: "1.0.0"
+    type: fact
+    grain: "one row per page crawl attempt (URL × crawled_at)"
+    description: >
+      Immutable record of each crawl attempt. ok/skip/error status.
+      Never updated — append-only. Used for crawl SLA monitoring.
+    load_type: append
+    columns:
+      - name: event_id
+        column_type: dimension
+        data_type: uuid
+        is_primary_key: true
+        default: "uuid_generate_v4()"
+
+      - name: page_key
+        column_type: dimension
+        data_type: uuid
+        nullable: true
+        fk_table: dim_pages
+
+      - name: url
+        column_type: dimension
+        data_type: text
+        nullable: false
+
+      - name: site
+        column_type: dimension
+        data_type: text
+        nullable: false
+
+      - name: section
+        column_type: dimension
+        data_type: text
+        nullable: false
+
+      - name: status
+        column_type: dimension
+        data_type: text
+        nullable: false
+        allowed_values: ["ok", "skip", "error"]
+
+      - name: skip_reason
+        column_type: dimension
+        data_type: text
+        nullable: true
+        allowed_values: ["seen", "filtered", "no_content", null]
+
+      - name: error_message
+        column_type: dimension
+        data_type: text
+        nullable: true
+
+      - name: from_cache
+        column_type: dimension
+        data_type: boolean
+        nullable: true
+
+      - name: crawled_at
+        column_type: time_dimension
+        data_type: timestamptz
+        nullable: false
+        default: "NOW()"
+
+      - name: duration_ms
+        column_type: measure
+        measure_type: duration
+        data_type: integer
+        nullable: false
+        unit: milliseconds
+        description: "Wall-clock time for this crawl attempt"
+
+      - name: word_count
+        column_type: measure
+        measure_type: count
+        data_type: integer
+        nullable: true
+        unit: words
+
+      - name: pdf_count
+        column_type: measure
+        measure_type: count
+        data_type: integer
+        nullable: true
+        unit: pdf_documents
+        description: "PDFs discovered on this page"
+
+  - name: fact_envelope_events
+    version: "1.0.0"
+    type: fact
+    grain: "one row per e2m envelope state transition"
+    description: >
+      Immutable event log for e2m envelope lifecycle.
+      Each status change (pending→processing→completed) is a new row.
+    load_type: append
+    columns:
+      - name: event_id
+        column_type: dimension
+        data_type: uuid
+        is_primary_key: true
+        default: "uuid_generate_v4()"
+
+      - name: envelope_id
+        column_type: dimension
+        data_type: uuid
+        nullable: false
+        fk_table: e2m_envelopes
+
+      - name: from_status
+        column_type: dimension
+        data_type: text
+        nullable: true
+
+      - name: to_status
+        column_type: dimension
+        data_type: text
+        nullable: false
+
+      - name: protocol
+        column_type: dimension
+        data_type: text
+        nullable: false
+        description: "e2m | mcp | a2a | acp"
+
+      - name: from_host
+        column_type: dimension
+        data_type: text
+        nullable: false
+
+      - name: to_host
+        column_type: dimension
+        data_type: text
+        nullable: false
+
+      - name: payload_kind
+        column_type: dimension
+        data_type: text
+        nullable: false
+
+      - name: transitioned_at
+        column_type: time_dimension
+        data_type: timestamptz
+        nullable: false
+        default: "NOW()"
+
+      - name: payload_size_bytes
+        column_type: measure
+        measure_type: additive
+        data_type: integer
+        nullable: true
+        unit: bytes
+
+      - name: transition_ms
+        column_type: measure
+        measure_type: duration
+        data_type: integer
+        nullable: true
+        unit: milliseconds
+        description: "Time elapsed since previous state transition"
+
+# ── Report Tables ─────────────────────────────────────────────────────────────
+
+  - name: rpt_crawl_daily
+    version: "1.0.0"
+    type: rpt
+    grain: "one row per site × section × day"
+    description: "Pre-aggregated crawl metrics. Refreshed after each crawl run."
+    load_type: truncate_reload
+    columns:
+      - name: report_date
+        column_type: time_dimension
+        data_type: date
+        nullable: false
+
+      - name: site
+        column_type: dimension
+        data_type: text
+        nullable: false
+
+      - name: section
+        column_type: dimension
+        data_type: text
+        nullable: false
+
+      - name: pages_ok
+        column_type: measure
+        measure_type: count
+        data_type: integer
+        nullable: false
+
+      - name: pages_skipped
+        column_type: measure
+        measure_type: count
+        data_type: integer
+        nullable: false
+
+      - name: pages_errored
+        column_type: measure
+        measure_type: count
+        data_type: integer
+        nullable: false
+
+      - name: cache_hit_rate
+        column_type: measure
+        measure_type: derived
+        data_type: numeric(5,4)
+        nullable: false
+        formula:
+          operation: divide
+          numerator: pages_from_cache
+          denominator: pages_ok
+          inherits: [pages_from_cache, pages_ok]
+
+      - name: pages_from_cache
+        column_type: measure
+        measure_type: count
+        data_type: integer
+        nullable: false
+
+      - name: avg_duration_ms
+        column_type: measure
+        measure_type: derived
+        data_type: numeric(10,2)
+        nullable: false
+        formula:
+          operation: divide
+          numerator: total_duration_ms
+          denominator: pages_ok
+          inherits: [total_duration_ms, pages_ok]
+
+      - name: total_duration_ms
+        column_type: measure
+        measure_type: additive
+        data_type: bigint
+        nullable: false
+
+      - name: total_word_count
+        column_type: measure
+        measure_type: additive
+        data_type: bigint
+        nullable: false
+
+      - name: total_pdf_count
+        column_type: measure
+        measure_type: additive
+        data_type: integer
+        nullable: false
+
+# ── Redis Cache Schema ────────────────────────────────────────────────────────
+# Deterministic key topology — derived from URL, never guessed.
+# All TTLs in milliseconds.
+
+redis_cache:
+  version: "1.0.0"
+  key_prefix: "e2m:crawl"
+  bloom_filters:
+    - name: "e2m:crawl:seen:{site}"
+      purpose: "Deduplicate crawl attempts by URL"
+      error_rate: 0.001
+      capacity: 50000
+
+  keys:
+    - pattern: "e2m:crawl:sitemap:{site}"
+      description: "Cached sitemap XML"
+      ttl_ms: 3600000      # 1h
+      value_type: string
+
+    - pattern: "e2m:crawl:html:{site}:{url_path_colon_separated}"
+      description: "Raw HTML — ephemeral, converted to markdown then discarded"
+      ttl_ms: 3600000      # 1h — just enough to survive a run
+      value_type: string
+
+    - pattern: "e2m:crawl:{site}:md:{url_path_colon_separated}"
+      description: "CommonMark markdown — source of truth for page content"
+      ttl_ms: 604800000    # 7d
+      value_type: string
+
+    - pattern: "e2m:crawl:{site}:meta:{url_path_colon_separated}"
+      description: "PageMeta JSON (Zod-validated)"
+      ttl_ms: 604800000    # 7d
+      value_type: json
+
+    - pattern: "e2m:crawl:pdf:{base64url_of_pdf_url_48chars}"
+      description: "PDF extracted text as CommonMark markdown"
+      ttl_ms: 2592000000   # 30d — PDFs change rarely
+      value_type: string

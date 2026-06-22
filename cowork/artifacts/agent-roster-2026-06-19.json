@@ -1,0 +1,99 @@
+{
+  "audit": "agent-resources-coworker bootstrap",
+  "audited_at": "2026-06-19T04:00:00Z",
+  "manifest_version": "0.2.0",
+  "total": 11,
+  "healthy": 11,
+  "missing_skill": 0,
+  "missing_mailbox": 0,
+  "missing_queue": 0,
+  "coworkers": [
+    {
+      "id": "product-management-coworker",
+      "skill_exists": true,
+      "mailbox_exists": true,
+      "queue_exists": true,
+      "status": "healthy"
+    },
+    {
+      "id": "design-coworker",
+      "skill_exists": true,
+      "mailbox_exists": true,
+      "queue_exists": true,
+      "status": "healthy"
+    },
+    {
+      "id": "engineering-coworker",
+      "skill_exists": true,
+      "mailbox_exists": true,
+      "queue_exists": true,
+      "status": "healthy"
+    },
+    {
+      "id": "data-coworker",
+      "skill_exists": true,
+      "mailbox_exists": true,
+      "queue_exists": true,
+      "status": "healthy"
+    },
+    {
+      "id": "sales-coworker",
+      "skill_exists": true,
+      "mailbox_exists": true,
+      "queue_exists": true,
+      "status": "healthy"
+    },
+    {
+      "id": "operations-coworker",
+      "skill_exists": true,
+      "mailbox_exists": true,
+      "queue_exists": true,
+      "status": "healthy"
+    },
+    {
+      "id": "finance-coworker",
+      "skill_exists": true,
+      "mailbox_exists": true,
+      "queue_exists": true,
+      "status": "healthy"
+    },
+    {
+      "id": "legal-coworker",
+      "skill_exists": true,
+      "mailbox_exists": true,
+      "queue_exists": true,
+      "status": "healthy"
+    },
+    {
+      "id": "marketing-coworker",
+      "skill_exists": true,
+      "mailbox_exists": true,
+      "queue_exists": true,
+      "status": "healthy"
+    },
+    {
+      "id": "agent-resources-coworker",
+      "skill_exists": true,
+      "mailbox_exists": true,
+      "queue_exists": true,
+      "status": "healthy"
+    },
+    {
+      "id": "human-resources-coworker",
+      "skill_exists": true,
+      "mailbox_exists": true,
+      "queue_exists": true,
+      "status": "healthy"
+    }
+  ],
+  "notes": {
+    "legacy_mailboxes": [
+      "product-management-agent.jsonl",
+      "design-agent.jsonl",
+      "engineering-agent.jsonl",
+      "data-agent.jsonl",
+      "sales-agent.jsonl"
+    ],
+    "legacy_note": "Pre-coworker naming convention. Active mailboxes use -coworker.jsonl suffix."
+  }
+}

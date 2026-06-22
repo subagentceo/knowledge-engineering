@@ -1,0 +1,29 @@
+# AlloyDB Omni — Official Registration Data
+# Source: Google AlloyDB Omni registration email (received 2026-06-08)
+# Contact: alloydb-omni-contact@google.com
+
+images:
+  postgresql_18:
+    debian: gcr.io/alloydb-omni/alloydbomni:18
+    ubi9:   gcr.io/alloydb-omni/alloydbomni:18-ubi9
+  standalone_ui:
+    # Exact image tag in Container UI user guide PDF
+    container: gcr.io/alloydb-omni/alloydbomni-ui:latest
+
+docs:
+  quickstart:    https://docs.cloud.google.com/alloydb/omni/containers/current/docs/quickstart
+  overview:      https://docs.cloud.google.com/alloydb/omni/docs/overview
+  deployment:    https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment
+  ui_container:  https://services.google.com/fh/files/misc/alloydbomni_standalone_ui_userguide_container.pdf
+  ui_k8s:        https://services.google.com/fh/files/misc/alloydbomni_standalone_ui_userguide_k8s_operator.pdf
+
+local_stack:
+  # Running in Docker — confirmed healthy 2026-06-08
+  container:  e2m-alloydb
+  image:      gcr.io/alloydb-omni/alloydbomni:18
+  port:       5432
+  databases:
+    - e2m   # e2m envelope/task schema
+    - oma   # Open Managed Agents (migrated)
+  ui_port:    8080  # alloydb-ui profile: docker compose --profile ui up
+  redis_insight: 8001  # RedisInsight (redis-stack)

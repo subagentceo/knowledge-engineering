@@ -1,0 +1,11 @@
+{
+  "name": "support-claude-docs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local stdio MCP server over the vendor/support-claude-sitemap mirror (packaged as a .mcpb).",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.23.0"
+  }
+}

@@ -1,0 +1,34 @@
+# Manager tier — 12 managers above the coworkers. Generated → cowork/coworkers/skills/<id>/SKILL.md
+# via cowork/managers/scripts/gen_managers.py (template: cowork/managers/manager.template.md).
+# @cite cowork/standards/agent-hierarchy.md  @cite cowork/standards/operator-routing.md
+
+default_router: project-manager   # operator requests not attached to a coworker route here
+
+managers:
+  - { id: product-manager,         display: "Product",          domain: product-management, coworker: product-management-coworker, queue: product-management, model: claude-sonnet-4-6, charter: "own product outcomes — roadmap, specs, prioritization" }
+  - { id: project-manager,         display: "Project",          domain: project-management, coworker: project-management-coworker, queue: project-management, model: claude-opus-4-6, router: true, charter: "the cross-domain ROUTER + delivery tracker — triage operator requests not attached to a domain and route them; own delivery across all coworkers" }
+  - { id: compliance-manager,      display: "Compliance",       domain: compliance,         coworker: legal-coworker,                queue: legal,               model: claude-sonnet-4-6, charter: "own compliance outcomes — policy, audit, regulatory" }
+  - { id: data-manager,            display: "Data",             domain: data,               coworker: data-coworker,                 queue: data,                model: claude-sonnet-4-6, charter: "own data/warehouse outcomes — models, loads, freshness" }
+  - { id: design-manager,          display: "Design",           domain: design,             coworker: design-coworker,               queue: design,              model: claude-sonnet-4-6, charter: "own design-system outcomes — token compliance, artifacts" }
+  - { id: operations-manager,      display: "Operations",       domain: operations,         coworker: operations-coworker,           queue: operations,          model: claude-sonnet-4-6, charter: "own ops outcomes — deploys, runbooks, uptime" }
+  - { id: human-resources-manager, display: "Human Resources",  domain: human-resources,    coworker: human-resources-coworker,      queue: human-resources,     model: claude-sonnet-4-6, charter: "own people outcomes — hiring, onboarding, reviews" }
+  - { id: agent-resources-manager, display: "Agent Resources",  domain: agent-resources,    coworker: agent-resources-coworker,      queue: agent-resources,     model: claude-sonnet-4-6, charter: "own agent-lifecycle outcomes — provisioning, skills, evals" }
+  - { id: sales-manager,           display: "Sales",            domain: sales,              coworker: sales-coworker,                queue: sales,               model: claude-sonnet-4-6, charter: "own sales outcomes — pipeline, outreach" }
+  - { id: engineering-manager,     display: "Engineering",      domain: engineering,        coworker: engineering-coworker,          queue: engineering,         model: claude-sonnet-4-6, charter: "own engineering outcomes — features, PRs, CI; via the engineering-subagents team" }
+  - { id: finance-manager,         display: "Finance",          domain: finance,            coworker: finance-coworker,              queue: finance,             model: claude-sonnet-4-6, charter: "own finance outcomes — cost, spend, close" }
+  - { id: legal-manager,           display: "Legal",            domain: legal,              coworker: legal-coworker,                queue: legal,               model: claude-sonnet-4-6, charter: "own legal outcomes — contracts, NDAs, risk" }
+
+# project-manager triage: intent keyword → target manager (operator-routing.md)
+routing:
+  design-manager:          [design, token, css, html, artifact, ui]
+  engineering-manager:     [typescript, rust, code, pr, bug, feature, ci, build, mcp]
+  data-manager:            [warehouse, sql, model, dw, kimball, alloydb, dataset]
+  legal-manager:           [contract, nda, legal, risk, terms]
+  compliance-manager:      [compliance, audit, policy, regulatory, sox]
+  finance-manager:         [cost, budget, spend, invoice, close, vendor]
+  human-resources-manager: [hire, onboard, review, people, comp, headcount]
+  agent-resources-manager: [agent, skill, provision, eval, lifecycle]
+  operations-manager:      [deploy, runbook, uptime, ops, worker, incident]
+  sales-manager:           [pipeline, outreach, lead, sales, prospect]
+  product-manager:         [roadmap, spec, prioritize, product, prd]
+  project-manager:         [status, rollup, plan, schedule, blocked, cross-domain]

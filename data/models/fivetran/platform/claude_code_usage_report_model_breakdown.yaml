@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../../../schemas/fivetran-table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: FivetranTableSemantics
+table_kind: usage
+
+metadata:
+  name: claude_code_usage_report_model_breakdown
+  labels:
+    connector: platform
+
+spec:
+  version: 1.0.0
+  schema: anthropic_claude
+  grain: "one row per (cc report, model)"
+  primary_key: [index, claude_code_usage_report_fivetran_id]
+  load_type: incremental
+  codeowners:
+    - data-coworker
+  columns:
+    - name: index
+      kind: dimension
+      sql_type: bigint
+    - name: claude_code_usage_report_fivetran_id
+      kind: dimension
+      sql_type: text
+    - name: estimated_cost_amount
+      kind: measure
+      sql_type: numeric
+    - name: estimated_cost_currency
+      kind: dimension
+      sql_type: text
+    - name: model
+      kind: dimension
+      sql_type: text
+    - name: tokens_cache_creation
+      kind: measure
+      sql_type: bigint
+    - name: tokens_cache_read
+      kind: measure
+      sql_type: bigint
+    - name: tokens_input
+      kind: measure
+      sql_type: bigint
+    - name: tokens_output
+      kind: measure
+      sql_type: bigint
+  ddl: |
+    CREATE TABLE IF NOT EXISTS anthropic_claude.claude_code_usage_report_model_breakdown (
+        index BIGINT NOT NULL,
+        claude_code_usage_report_fivetran_id TEXT NOT NULL,
+        estimated_cost_amount NUMERIC,
+        estimated_cost_currency TEXT,
+        model TEXT,
+        tokens_cache_creation BIGINT,
+        tokens_cache_read BIGINT,
+        tokens_input BIGINT,
+        tokens_output BIGINT,
+        PRIMARY KEY (index, claude_code_usage_report_fivetran_id)
+    );
+
+# @cite Fivetran ERD: Claude Platform (Admin/API)
+# @cite uploads/Claude Platform_diagram.pdf
+# @cite https://fivetran.com/docs/connectors/applications/claude-platform/api-configuration

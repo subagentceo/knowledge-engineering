@@ -1,0 +1,104 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: dim
+scd_type: 1
+grain: one row per agent-native template slug
+
+metadata:
+  name: dim_agent_templates
+  labels:
+    domain: product
+    platform: cowork
+    source: agent-native-marketplace
+
+spec:
+  version: 0.1.0
+  schema: dw
+  description: >-
+    Agent-Native template catalog (BuilderIO/agent-native). Each row is one
+    installable app template — analytics, plan, brain, calendar, etc. — with
+    metadata tracking its domain fit for the knowledge-engineering chassis,
+    adoption status, and recommended connector pairings.
+    SCD-1: rows overwrite in place; cowork/artifacts/product_vision.html
+    renders current state.
+  codeowners:
+    - admin@jadecli.com
+  sla_policy: weekly
+  data_start_date: "2026-06-18"
+  load_type: full
+  allowed_operations:
+    - read
+    - scd1_overwrite
+  columns:
+    - name: surrogate_key
+      kind: dimension
+      sql_type: BIGINT GENERATED ALWAYS AS IDENTITY
+      description: Warehouse surrogate key.
+    - name: slug
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        Kebab-case template identifier matching the agent-native URL segment
+        (e.g. "analytics", "plan", "brain"). Stable; never changes.
+    - name: display_name
+      kind: dimension
+      sql_type: TEXT
+      description: Human-readable template name (e.g. "Agent-Native Analytics").
+    - name: tagline
+      kind: dimension
+      sql_type: TEXT
+      description: One-line description of what the template does.
+    - name: template_url
+      kind: dimension
+      sql_type: TEXT
+      description: Canonical agent-native.com/templates/<slug> URL.
+    - name: live_demo_url
+      kind: dimension
+      sql_type: TEXT
+      description: Live hosted demo URL (e.g. https://analytics.agent-native.com).
+    - name: install_cmd
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        npx @agent-native/core@latest create or skills add command for this
+        template.
+    - name: domain_fit
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        Which product discipline this template primarily serves.
+        One of: analytics | plan | content | communication | productivity |
+                knowledge | dispatch | design.
+    - name: pm_relevance
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        Relevance to product-management cowork/ focus.
+        One of: high | medium | low.
+    - name: ke_fit_score
+      kind: measure
+      sql_type: SMALLINT
+      measure_type: score
+      description: >-
+        1–5 score: how well this template fits the knowledge-engineering chassis
+        (multi-agent, 25+ vendor surfaces, Kimball DW, CloudFlare Workers).
+    - name: install_status
+      kind: dimension
+      sql_type: TEXT
+      description: >-
+        Whether this template is installed in the repo.
+        One of: installed | recommended | consider | skip.
+    - name: connector_deps
+      kind: dimension
+      sql_type: TEXT[]
+      description: Array of connector slugs this template works best with.
+    - name: source_repo
+      kind: dimension
+      sql_type: TEXT
+      description: GitHub source URL for this template.
+    - name: updated_at
+      kind: time_dimension
+      sql_type: TIMESTAMPTZ
+      description: Last time this row was overwritten (SCD-1).

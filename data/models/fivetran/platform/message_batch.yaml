@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../../../../schemas/fivetran-table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: FivetranTableSemantics
+table_kind: entity
+
+metadata:
+  name: message_batch
+  labels:
+    connector: platform
+
+spec:
+  version: 1.0.0
+  schema: anthropic_claude
+  grain: "one row per message batch"
+  primary_key: [id]
+  load_type: incremental
+  codeowners:
+    - data-coworker
+  columns:
+    - name: id
+      kind: dimension
+      sql_type: text
+    - name: workspace_id
+      kind: dimension
+      sql_type: text
+    - name: archived_at
+      kind: time_dimension
+      sql_type: timestamptz
+    - name: created_at
+      kind: time_dimension
+      sql_type: timestamptz
+    - name: ended_at
+      kind: time_dimension
+      sql_type: timestamptz
+    - name: expires_at
+      kind: time_dimension
+      sql_type: timestamptz
+    - name: processing_status
+      kind: dimension
+      sql_type: text
+    - name: type
+      kind: dimension
+      sql_type: text
+  ddl: |
+    CREATE TABLE IF NOT EXISTS anthropic_claude.message_batch (
+        id TEXT PRIMARY KEY,
+        workspace_id TEXT,
+        archived_at TIMESTAMPTZ,
+        created_at TIMESTAMPTZ,
+        ended_at TIMESTAMPTZ,
+        expires_at TIMESTAMPTZ,
+        processing_status TEXT,
+        type TEXT
+    );
+
+# @cite Fivetran ERD: Claude Platform (Admin/API)
+# @cite uploads/Claude Platform_diagram.pdf
+# @cite https://fivetran.com/docs/connectors/applications/claude-platform/api-configuration

@@ -1,0 +1,5 @@
+# cp to terraform.tfvars (gitignored) and fill in. Token comes from the env:
+#   export CLOUDFLARE_API_TOKEN=...
+account_id = "e6294e3ea89f8207af387d459824aaae"
+zone_id    = "3f820e0424fd375d5b6f86acaad0d5d7"
+domain     = "subagentknowledge.com"

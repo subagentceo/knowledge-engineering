@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../../../schemas/fivetran-table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: FivetranTableSemantics
+table_kind: entity
+
+metadata:
+  name: workspace
+  labels:
+    connector: platform
+
+spec:
+  version: 1.0.0
+  schema: anthropic_claude
+  grain: "one row per workspace"
+  primary_key: [id]
+  load_type: incremental
+  codeowners:
+    - data-coworker
+  columns:
+    - name: id
+      kind: dimension
+      sql_type: text
+    - name: archived_at
+      kind: time_dimension
+      sql_type: timestamptz
+    - name: created_at
+      kind: time_dimension
+      sql_type: timestamptz
+    - name: data_residency_allowed_inference_geo
+      kind: dimension
+      sql_type: text
+    - name: data_residency_default_inference_geo
+      kind: dimension
+      sql_type: text
+    - name: data_residency_workspace_geo
+      kind: dimension
+      sql_type: text
+    - name: display_color
+      kind: dimension
+      sql_type: text
+    - name: name
+      kind: dimension
+      sql_type: text
+    - name: type
+      kind: dimension
+      sql_type: text
+  ddl: |
+    CREATE TABLE IF NOT EXISTS anthropic_claude.workspace (
+        id TEXT PRIMARY KEY,
+        archived_at TIMESTAMPTZ,
+        created_at TIMESTAMPTZ,
+        data_residency_allowed_inference_geo TEXT,
+        data_residency_default_inference_geo TEXT,
+        data_residency_workspace_geo TEXT,
+        display_color TEXT,
+        name TEXT,
+        type TEXT
+    );
+
+# @cite Fivetran ERD: Claude Platform (Admin/API)
+# @cite uploads/Claude Platform_diagram.pdf
+# @cite https://fivetran.com/docs/connectors/applications/claude-platform/api-configuration

@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "organization": {
+    "name": "opencoworkers",
+    "allowedProviders": ["anthropic", "openai", "google", "mistral", "groq", "ollama"]
+  },
+  "teams": [
+    {
+      "name": "e2m-core",
+      "allowedProviders": ["anthropic"],
+      "mcpPolicies": {
+        "allow": ["*"],
+        "requireApproval": []
+      },
+      "rateLimits": {
+        "rpm": 100
+      }
+    }
+  ],
+  "vaults": {
+    "encryption": "aes-256-gcm",
+    "note": "Keys stored in OMA_VAULT_ENCRYPTION_KEY / VAULT_ENCRYPTION_KEY env var"
+  }
+}

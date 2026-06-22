@@ -1,0 +1,798 @@
+version: 1
+id: docker_mcptoolkit__macos__claude_code
+name: docker_mcptoolkit__macos__claude_code
+servers:
+    - type: image
+      config:
+        database_url: postgresql+asyncpg://postgres:postgres@127.0.0.1:5432/e2m
+      secrets: default
+      image: souhardyak/mcp-db-server@sha256:0c530cfd08ac28a497e8ccd6365b2e1ca87f7fc3676b3175235d0e301da25d17
+      snapshot:
+        server:
+            name: database-server
+            type: server
+            image: souhardyak/mcp-db-server@sha256:0c530cfd08ac28a497e8ccd6365b2e1ca87f7fc3676b3175235d0e301da25d17
+            description: Comprehensive database server supporting PostgreSQL, MySQL, and SQLite with natural language SQL query capabilities. Enables AI agents to interact with databases through both direct SQL and natural language queries.
+            title: MCP Database Server
+            icon: https://avatars.githubusercontent.com/u/182288589?s=200&v=4
+            readme: http://desktop.docker.com/mcp/catalog/v3/readme/database-server.md
+            remote: {}
+            env:
+                - name: DATABASE_URL
+                  value: '{{database-server.database_url}}'
+            tools:
+                - name: query_database
+                  description: Execute natural language queries against the database and convert them to SQL
+                  arguments:
+                    - name: query
+                      type: string
+                      desc: Natural language description of what you want to query from the database
+                - name: list_tables
+                  description: List all available tables in the current database
+                  arguments: []
+                - name: describe_table
+                  description: Get detailed schema information for a specific table including columns, types, and constraints
+                  arguments:
+                    - name: table_name
+                      type: string
+                      desc: Name of the table to describe
+                - name: execute_sql
+                  description: Execute raw SQL queries with safety checks and validation
+                  arguments:
+                    - name: query
+                      type: string
+                      desc: SQL query to execute
+                - name: connect_to_database
+                  description: Connect to a new database using provided connection details
+                  arguments:
+                    - name: connection_string
+                      type: string
+                      desc: Database connection string (e.g., postgresql://user:pass@host:port/db)
+                - name: get_connection_examples
+                  description: Get example connection strings for different database types (SQLite, PostgreSQL, MySQL)
+                  arguments: []
+                - name: get_current_database_info
+                  description: Get information about the currently connected database including type, version, and connection status
+                  arguments: []
+            config:
+                - description: Configure the database connection. Supports SQLite, PostgreSQL, and MySQL databases with comprehensive querying capabilities.
+                  name: database-server
+                  properties:
+                    database_url:
+                        description: 'Connection string for your database. Examples: SQLite: sqlite+aiosqlite:///data/mydb.db, PostgreSQL: postgresql+asyncpg://user:password@localhost:5432/mydb, MySQL: mysql+aiomysql://user:password@localhost:3306/mydb'
+                        type: string
+                  required:
+                    - database_url
+                  type: object
+            metadata:
+                githubStars: 17
+                category: database
+                tags:
+                    - database
+                    - sql
+                    - postgresql
+                    - mysql
+                    - sqlite
+                    - natural-language
+                    - ai-assistant
+                license: Other
+                owner: Souhar-dya
+    - type: image
+      config:
+        redis:
+            host: 127.0.0.1
+            port: 6379
+      secrets: default
+      image: mcp/redis@sha256:a787c20d4c32f6620094325000d95f20467c62c9dc2ead19a34dbc086724f09b
+      snapshot:
+        server:
+            name: redis
+            type: server
+            image: mcp/redis@sha256:a787c20d4c32f6620094325000d95f20467c62c9dc2ead19a34dbc086724f09b
+            description: Access to Redis database operations.
+            title: Redis
+            icon: https://avatars.githubusercontent.com/u/1529926?v=4
+            readme: http://desktop.docker.com/mcp/catalog/v3/readme/redis.md
+            remote: {}
+            secrets:
+                - name: redis.password
+                  env: REDIS_PWD
+            env:
+                - name: REDIS_HOST
+                  value: '{{redis.host}}'
+                - name: REDIS_PORT
+                  value: '{{redis.port}}'
+                - name: REDIS_USERNAME
+                  value: '{{redis.username}}'
+                - name: REDIS_SSL
+                  value: '{{redis.ssl}}'
+                - name: REDIS_CA_PATH
+                  value: '{{redis.ca_path}}'
+                - name: REDIS_SSL_KEYFILE
+                  value: '{{redis.ssl_keyfile}}'
+                - name: REDIS_SSL_CERTFILE
+                  value: '{{redis.ssl_certfile}}'
+                - name: REDIS_CERT_REQS
+                  value: '{{redis.cert_reqs}}'
+                - name: REDIS_CA_CERTS
+                  value: '{{redis.ca_certs}}'
+                - name: REDIS_CLUSTER_MODE
+                  value: '{{redis.cluster_mode}}'
+            tools:
+                - name: client_list
+                  description: Get a list of connected clients to the Redis server.
+                  arguments: []
+                - name: create_vector_index_hash
+                  description: |-
+                    Create a Redis 8 vector similarity index using HNSW on a Redis hash.
+
+                    This function sets up a Redis index for approximate nearest neighbor (ANN)
+                    search using the HNSW algorithm and float32 vector embeddings.
+                  arguments:
+                    - name: dim
+                      type: integer
+                      desc: The dimensionality of the vectors stored under the vector_field.
+                      optional: true
+                    - name: distance_metric
+                      type: string
+                      desc: The distance function to use (e.g., 'COSINE', 'L2', 'IP').
+                      optional: true
+                    - name: index_name
+                      type: string
+                      desc: The name of the Redis index to create. Unless specifically required, use the default name for the index.
+                      optional: true
+                    - name: prefix
+                      type: string
+                      desc: The key prefix used to identify documents to index (e.g., 'doc:'). Unless specifically required, use the default prefix.
+                      optional: true
+                    - name: vector_field
+                      type: string
+                      desc: The name of the vector field to be indexed for similarity search. Unless specifically required, use the default field name
+                      optional: true
+                - name: dbsize
+                  description: Get the number of keys stored in the Redis database
+                  arguments: []
+                - name: delete
+                  description: Delete a Redis key.
+                  arguments:
+                    - name: key
+                      type: string
+                      desc: ""
+                - name: expire
+                  description: Set an expiration time for a Redis key.
+                  arguments:
+                    - name: expire_seconds
+                      type: integer
+                      desc: Time in seconds after which the key should expire.
+                    - name: name
+                      type: string
+                      desc: The Redis key.
+                - name: get
+                  description: Get a Redis string value.
+                  arguments:
+                    - name: key
+                      type: string
+                      desc: ""
+                - name: get_index_info
+                  description: Retrieve schema and information about a specific Redis index using FT.INFO.
+                  arguments:
+                    - name: index_name
+                      type: string
+                      desc: ""
+                - name: get_indexed_keys_number
+                  description: Retrieve the number of indexed keys by the index
+                  arguments:
+                    - name: index_name
+                      type: string
+                      desc: ""
+                - name: get_indexes
+                  description: |-
+                    List of indexes in the Redis database
+
+                    Returns:
+                        str: A JSON string containing the list of indexes or an error message.
+                  arguments: []
+                - name: get_vector_from_hash
+                  description: Retrieve a vector from a Redis hash and convert it back from binary blob.
+                  arguments:
+                    - name: name
+                      type: string
+                      desc: The Redis hash key.
+                    - name: vector_field
+                      type: string
+                      desc: The field name inside the hash. Unless specifically required, use the default field name
+                      optional: true
+                - name: hdel
+                  description: Delete a field from a Redis hash.
+                  arguments:
+                    - name: key
+                      type: string
+                      desc: The field name inside the hash.
+                    - name: name
+                      type: string
+                      desc: The Redis hash key.
+                - name: hexists
+                  description: Check if a field exists in a Redis hash.
+                  arguments:
+                    - name: key
+                      type: string
+                      desc: The field name inside the hash.
+                    - name: name
+                      type: string
+                      desc: The Redis hash key.
+                - name: hget
+                  description: Get the value of a field in a Redis hash.
+                  arguments:
+                    - name: key
+                      type: string
+                      desc: The field name inside the hash.
+                    - name: name
+                      type: string
+                      desc: The Redis hash key.
+                - name: hgetall
+                  description: Get all fields and values from a Redis hash.
+                  arguments:
+                    - name: name
+                      type: string
+                      desc: The Redis hash key.
+                - name: hset
+                  description: Set a field in a hash stored at key with an optional expiration time.
+                  arguments:
+                    - name: key
+                      type: string
+                      desc: The field name inside the hash.
+                    - name: name
+                      type: string
+                      desc: The Redis hash key.
+                    - name: value
+                      type: string
+                      desc: The value to set.
+                    - name: expire_seconds
+                      type: string
+                      desc: Optional; time in seconds after which the key should expire.
+                      optional: true
+                - name: hybrid_search
+                  description: |-
+                    Perform a hybrid search combining a Redis filter expression with KNN vector similarity.
+
+                    Hybrid search pre-filters documents by metadata before ranking by vector similarity —
+                    the standard pattern for production RAG and semantic search pipelines.
+
+                    Filter expression examples:
+                        "*"                              → no filter, pure vector search (same as vector_search_hash)
+                        "@category:{news}"              → tag filter
+                        "@year:[2020 2024]"             → numeric range
+                        "@lang:{en} @year:[2022 +inf]"  → combined tag + range
+                        "@title:redis"                  → full-text match on a text field
+
+                    Full filter syntax: https://redis.io/docs/latest/develop/interact/search-and-query/query/
+                  arguments:
+                    - name: query_vector
+                      type: array
+                      items:
+                        type: number
+                      desc: List of floats to use as the query vector.
+                    - name: filter_expression
+                      type: string
+                      desc: Redis filter expression to restrict candidates before KNN ranking.
+                      optional: true
+                    - name: index_name
+                      type: string
+                      desc: 'Name of the Redis index (default: ''vector_index'').'
+                      optional: true
+                    - name: k
+                      type: integer
+                      desc: Number of nearest neighbors to return.
+                      optional: true
+                    - name: return_fields
+                      type: string
+                      desc: Additional fields to include in results (optional).
+                      optional: true
+                    - name: vector_field
+                      type: string
+                      desc: 'Name of the indexed vector field (default: ''vector'').'
+                      optional: true
+                - name: info
+                  description: Get Redis server information and statistics.
+                  arguments:
+                    - name: section
+                      type: string
+                      desc: The section of the info command (default, memory, cpu, etc.).
+                      optional: true
+                - name: json_del
+                  description: Delete a JSON value from Redis at a given path.
+                  arguments:
+                    - name: name
+                      type: string
+                      desc: The Redis key where the JSON document is stored.
+                    - name: path
+                      type: string
+                      desc: 'The JSON path to delete (default: root ''$'').'
+                      optional: true
+                - name: json_get
+                  description: Retrieve a JSON value from Redis at a given path.
+                  arguments:
+                    - name: name
+                      type: string
+                      desc: The Redis key where the JSON document is stored.
+                    - name: path
+                      type: string
+                      desc: 'The JSON path to retrieve (default: root ''$'').'
+                      optional: true
+                - name: json_set
+                  description: Set a JSON value in Redis at a given path with an optional expiration time.
+                  arguments:
+                    - name: name
+                      type: string
+                      desc: The Redis key where the JSON document is stored.
+                    - name: path
+                      type: string
+                      desc: The JSON path where the value should be set.
+                    - name: value
+                      type: string
+                      desc: The JSON value to store (as JSON string, or will be auto-converted).
+                    - name: expire_seconds
+                      type: string
+                      desc: Optional; time in seconds after which the key should expire.
+                      optional: true
+                - name: llen
+                  description: Get the length of a Redis list.
+                  arguments:
+                    - name: name
+                      type: string
+                      desc: ""
+                - name: lpop
+                  description: Remove and return the first element from a Redis list.
+                  arguments:
+                    - name: name
+                      type: string
+                      desc: ""
+                - name: lpush
+                  description: Push a value onto the left of a Redis list and optionally set an expiration time.
+                  arguments:
+                    - name: name
+                      type: string
+                      desc: ""
+                    - name: value
+                      type: string
+                      desc: ""
+                    - name: expire
+                      type: string
+                      desc: ""
+                      optional: true
+                - name: lrange
+                  description: |-
+                    Get elements from a Redis list within a specific range.
+
+                    Returns:
+                    str: A JSON string containing the list of elements or an error message.
+                  arguments:
+                    - name: name
+                      type: string
+                      desc: ""
+                    - name: start
+                      type: integer
+                      desc: ""
+                    - name: stop
+                      type: integer
+                      desc: ""
+                - name: lrem
+                  description: Remove elements from a Redis list.
+                  arguments:
+                    - name: count
+                      type: integer
+                      desc: Number of elements to remove (0 = all, positive = from head, negative = from tail)
+                    - name: element
+                      type: string
+                      desc: The element value to remove
+                    - name: name
+                      type: string
+                      desc: The name of the list
+                - name: publish
+                  description: Publish a message to a Redis channel.
+                  arguments:
+                    - name: channel
+                      type: string
+                      desc: The Redis channel to publish to.
+                    - name: message
+                      type: string
+                      desc: The message to send.
+                - name: rename
+                  description: Renames a Redis key from old_key to new_key.
+                  arguments:
+                    - name: new_key
+                      type: string
+                      desc: ""
+                    - name: old_key
+                      type: string
+                      desc: ""
+                - name: rpop
+                  description: Remove and return the last element from a Redis list.
+                  arguments:
+                    - name: name
+                      type: string
+                      desc: ""
+                - name: rpush
+                  description: Push a value onto the right of a Redis list and optionally set an expiration time.
+                  arguments:
+                    - name: name
+                      type: string
+                      desc: ""
+                    - name: value
+                      type: string
+                      desc: ""
+                    - name: expire
+                      type: string
+                      desc: ""
+                      optional: true
+                - name: sadd
+                  description: Add a value to a Redis set with an optional expiration time.
+                  arguments:
+                    - name: name
+                      type: string
+                      desc: The Redis set key.
+                    - name: value
+                      type: string
+                      desc: The value to add to the set.
+                    - name: expire_seconds
+                      type: string
+                      desc: Optional; time in seconds after which the set should expire.
+                      optional: true
+                - name: scan_all_keys
+                  description: |-
+                    Scan and return ALL keys matching a pattern using multiple SCAN iterations.
+
+                    This function automatically handles the SCAN cursor iteration to collect all matching keys.
+                    It's safer than KEYS * for large databases but will still collect all results in memory.
+
+                    ⚠️  WARNING: With very large datasets (millions of keys), this may consume significant memory.
+                    For large-scale operations, consider using scan_keys() with manual iteration instead.
+                  arguments:
+                    - name: batch_size
+                      type: integer
+                      desc: Number of keys to scan per iteration (default 100).
+                      optional: true
+                    - name: pattern
+                      type: string
+                      desc: Pattern to match keys against (default is "*" for all keys).
+                      optional: true
+                - name: scan_keys
+                  description: |-
+                    Scan keys in the Redis database using the SCAN command (non-blocking, production-safe).
+
+                    ⚠️  IMPORTANT: This returns PARTIAL results from one iteration. Use scan_all_keys()
+                    to get ALL matching keys, or call this function multiple times with the returned cursor
+                    until cursor becomes 0.
+
+                    The SCAN command iterates through the keyspace in small chunks, making it safe to use
+                    on large databases without blocking other operations.
+                  arguments:
+                    - name: count
+                      type: integer
+                      desc: Hint for the number of keys to return per iteration (default 100).
+                      optional: true
+                    - name: cursor
+                      type: integer
+                      desc: The cursor position to start scanning from (0 to start from beginning).
+                      optional: true
+                    - name: pattern
+                      type: string
+                      desc: Pattern to match keys against (default is "*" for all keys).
+                      optional: true
+                - name: search_redis_documents
+                  description: |-
+                    Search Redis documentation and knowledge base to learn about Redis concepts and use cases.
+
+                    This tool exposes updated and curated documentation, and must be invoked every time the user wants to learn more in areas including:
+
+                    **Common Use Cases:**
+                    - Session Management: User session storage and management
+                    - Caching: Application-level and database query caching
+                    - Rate Limiting: API throttling and request limiting
+                    - Leaderboards: Gaming and ranking systems
+                    - Semantic Search: AI-powered similarity search
+                    - Agentic Workflows: AI agent state and memory management
+                    - RAG (Retrieval-Augmented Generation): Vector storage for AI applications
+                    - Real-time Analytics: Counters, metrics, and time-series data
+                    - Message Queues: Task queues and job processing
+                    - Geospatial: Location-based queries and proximity search
+                  arguments:
+                    - name: question
+                      type: string
+                      desc: The question about Redis concepts, data structures, features, or use cases
+                - name: set
+                  description: Set a Redis string value with an optional expiration time.
+                  arguments:
+                    - name: key
+                      type: string
+                      desc: ""
+                    - name: value
+                      type: string
+                      desc: ""
+                    - name: expiration
+                      type: string
+                      desc: ""
+                      optional: true
+                - name: set_vector_in_hash
+                  description: Store a vector as a field in a Redis hash.
+                  arguments:
+                    - name: name
+                      type: string
+                      desc: The Redis hash key.
+                    - name: vector
+                      type: array
+                      items:
+                        type: number
+                      desc: The vector (list of numbers) to store in the hash.
+                    - name: vector_field
+                      type: string
+                      desc: The field name inside the hash. Unless specifically required, use the default field name
+                      optional: true
+                - name: smembers
+                  description: Get all members of a Redis set.
+                  arguments:
+                    - name: name
+                      type: string
+                      desc: The Redis set key.
+                - name: srem
+                  description: Remove a value from a Redis set.
+                  arguments:
+                    - name: name
+                      type: string
+                      desc: The Redis set key.
+                    - name: value
+                      type: string
+                      desc: The value to remove from the set.
+                - name: subscribe
+                  description: Subscribe to a Redis channel.
+                  arguments:
+                    - name: channel
+                      type: string
+                      desc: The Redis channel to subscribe to.
+                - name: type
+                  description: Returns the string representation of the type of the value stored at key
+                  arguments:
+                    - name: key
+                      type: string
+                      desc: ""
+                - name: unsubscribe
+                  description: Unsubscribe from a Redis channel.
+                  arguments:
+                    - name: channel
+                      type: string
+                      desc: The Redis channel to unsubscribe from.
+                - name: vector_search_hash
+                  description: Perform a KNN vector similarity search using Redis 8 or later version on vectors stored in hash data structures.
+                  arguments:
+                    - name: query_vector
+                      type: array
+                      items:
+                        type: number
+                      desc: List of floats to use as the query vector.
+                    - name: index_name
+                      type: string
+                      desc: Name of the Redis index. Unless specifically specified, use the default index name.
+                      optional: true
+                    - name: k
+                      type: integer
+                      desc: Number of nearest neighbors to return.
+                      optional: true
+                    - name: return_fields
+                      type: string
+                      desc: List of fields to return (optional).
+                      optional: true
+                    - name: vector_field
+                      type: string
+                      desc: Name of the indexed vector field. Unless specifically required, use the default field name
+                      optional: true
+                - name: xack
+                  description: Acknowledge entries that were processed by a consumer group.
+                  arguments:
+                    - name: entry_ids
+                      type: array
+                      items:
+                        type: string
+                      desc: ""
+                    - name: group_name
+                      type: string
+                      desc: ""
+                    - name: key
+                      type: string
+                      desc: ""
+                - name: xadd
+                  description: Add an entry to a Redis stream with an optional expiration time.
+                  arguments:
+                    - name: fields
+                      type: object
+                      desc: ""
+                    - name: key
+                      type: string
+                      desc: ""
+                    - name: expiration
+                      type: string
+                      desc: ""
+                      optional: true
+                - name: xdel
+                  description: Delete an entry from a Redis stream.
+                  arguments:
+                    - name: entry_id
+                      type: string
+                      desc: ""
+                    - name: key
+                      type: string
+                      desc: ""
+                - name: xgroup_create
+                  description: Create a consumer group for a Redis stream.
+                  arguments:
+                    - name: group_name
+                      type: string
+                      desc: ""
+                    - name: key
+                      type: string
+                      desc: ""
+                    - name: mkstream
+                      type: boolean
+                      desc: ""
+                      optional: true
+                    - name: start_id
+                      type: string
+                      desc: ""
+                      optional: true
+                - name: xgroup_destroy
+                  description: Destroy a consumer group for a Redis stream.
+                  arguments:
+                    - name: group_name
+                      type: string
+                      desc: ""
+                    - name: key
+                      type: string
+                      desc: ""
+                - name: xrange
+                  description: Read entries from a Redis stream.
+                  arguments:
+                    - name: key
+                      type: string
+                      desc: ""
+                    - name: count
+                      type: integer
+                      desc: ""
+                      optional: true
+                - name: xreadgroup
+                  description: Read entries from a Redis stream using a consumer group.
+                  arguments:
+                    - name: consumer_name
+                      type: string
+                      desc: ""
+                    - name: group_name
+                      type: string
+                      desc: ""
+                    - name: key
+                      type: string
+                      desc: ""
+                    - name: block_ms
+                      type: string
+                      desc: ""
+                      optional: true
+                    - name: count
+                      type: integer
+                      desc: ""
+                      optional: true
+                    - name: stream_id
+                      type: string
+                      desc: ""
+                      optional: true
+                - name: zadd
+                  description: Add a member to a Redis sorted set with an optional expiration time.
+                  arguments:
+                    - name: key
+                      type: string
+                      desc: ""
+                    - name: member
+                      type: string
+                      desc: ""
+                    - name: score
+                      type: number
+                      desc: ""
+                    - name: expiration
+                      type: string
+                      desc: ""
+                      optional: true
+                - name: zrange
+                  description: Retrieve a range of members from a Redis sorted set.
+                  arguments:
+                    - name: end
+                      type: integer
+                      desc: ""
+                    - name: key
+                      type: string
+                      desc: ""
+                    - name: start
+                      type: integer
+                      desc: ""
+                    - name: with_scores
+                      type: boolean
+                      desc: ""
+                      optional: true
+                - name: zrem
+                  description: Remove a member from a Redis sorted set.
+                  arguments:
+                    - name: key
+                      type: string
+                      desc: ""
+                    - name: member
+                      type: string
+                      desc: ""
+            config:
+                - description: Configure the connection to Redis
+                  name: redis
+                  properties:
+                    ca_certs:
+                        type: string
+                    ca_path:
+                        type: string
+                    cert_reqs:
+                        type: string
+                    cluster_mode:
+                        type: boolean
+                    host:
+                        type: string
+                    port:
+                        type: integer
+                    ssl:
+                        type: boolean
+                    ssl_certfile:
+                        type: string
+                    ssl_keyfile:
+                        type: string
+                    username:
+                        type: string
+                  type: object
+            metadata:
+                pulls: 89235
+                stars: 14
+                githubStars: 511
+                category: database
+                tags:
+                    - redis
+                    - database
+                license: MIT License
+                owner: redis
+    - type: image
+      config:
+        tailscale_api_key: ""
+        tailscale_tailnet: "-"
+      secrets: default
+      image: e2m/tailscale-mcp@sha256:291f5b97f56c09e2b6d6e40e6fabe970cd104394f461b9c9dc646abf5b20a349
+      snapshot:
+        server:
+            name: tailscale
+            type: server
+            image: e2m/tailscale-mcp@sha256:291f5b97f56c09e2b6d6e40e6fabe970cd104394f461b9c9dc646abf5b20a349
+            description: Tailscale network tools — list devices, ping peers, inspect routes, and fetch ACL policy via the Tailscale REST API.
+            title: Tailscale MCP
+            remote: {}
+            env:
+                - name: TAILSCALE_API_KEY
+                  value: '{{tailscale.tailscale_api_key}}'
+                - name: TAILSCALE_TAILNET
+                  value: '{{tailscale.tailscale_tailnet}}'
+            tools:
+                - name: tailscale_devices
+                  description: List all devices in the Tailscale network with hostnames, IPs, OS, and last-seen time.
+                  arguments: []
+                - name: tailscale_ping
+                  description: Look up a Tailscale device by hostname and return its IPs, OS, and last-seen.
+                  arguments:
+                    - name: hostname
+                      type: string
+                      desc: Partial or full hostname to search for (e.g. desktop-ufngrm3)
+                - name: tailscale_routes
+                  description: List subnet routes advertised on this tailnet.
+                  arguments: []
+                - name: tailscale_acl
+                  description: Fetch the current ACL policy JSON for the tailnet.
+                  arguments: []
+
+secrets:
+    default:
+        provider: docker-desktop-store

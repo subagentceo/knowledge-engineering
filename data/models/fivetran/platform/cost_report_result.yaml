@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../../../schemas/fivetran-table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: FivetranTableSemantics
+table_kind: usage
+
+metadata:
+  name: cost_report_result
+  labels:
+    connector: platform
+
+spec:
+  version: 1.0.0
+  schema: anthropic_claude
+  grain: "one row per cost report line"
+  primary_key: [index, cost_report_fivetran_id]
+  load_type: incremental
+  codeowners:
+    - data-coworker
+  columns:
+    - name: index
+      kind: dimension
+      sql_type: bigint
+    - name: cost_report_fivetran_id
+      kind: dimension
+      sql_type: text
+    - name: workspace_id
+      kind: dimension
+      sql_type: text
+    - name: amount
+      kind: dimension
+      sql_type: numeric
+    - name: context_window
+      kind: dimension
+      sql_type: text
+    - name: cost_type
+      kind: dimension
+      sql_type: text
+    - name: currency
+      kind: dimension
+      sql_type: text
+    - name: description
+      kind: dimension
+      sql_type: text
+    - name: inference_geo
+      kind: dimension
+      sql_type: text
+    - name: model
+      kind: dimension
+      sql_type: text
+    - name: service_tier
+      kind: dimension
+      sql_type: text
+    - name: speed
+      kind: dimension
+      sql_type: text
+    - name: token_type
+      kind: dimension
+      sql_type: text
+  ddl: |
+    CREATE TABLE IF NOT EXISTS anthropic_claude.cost_report_result (
+        index BIGINT NOT NULL,
+        cost_report_fivetran_id TEXT NOT NULL,
+        workspace_id TEXT,
+        amount NUMERIC,
+        context_window TEXT,
+        cost_type TEXT,
+        currency TEXT,
+        description TEXT,
+        inference_geo TEXT,
+        model TEXT,
+        service_tier TEXT,
+        speed TEXT,
+        token_type TEXT,
+        PRIMARY KEY (index, cost_report_fivetran_id)
+    );
+
+# @cite Fivetran ERD: Claude Platform (Admin/API)
+# @cite uploads/Claude Platform_diagram.pdf
+# @cite https://fivetran.com/docs/connectors/applications/claude-platform/api-configuration

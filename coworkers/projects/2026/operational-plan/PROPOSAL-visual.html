@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposal — design-manager + cowork-linux devcontainer</title>
+<style>
+:root{
+  --bg:#FBFAF7; --surface:#FFFFFF; --surface2:#F6F4EE; --ink:#2C2C2A; --ink2:#5F5E5A; --line:rgba(0,0,0,.14);
+  --pu1:#EEEDFE; --pu2:#AFA9EC; --pu-ink:#3C3489; --pu-ink2:#26215C;
+  --te1:#E1F5EE; --te2:#5DCAA5; --te-ink:#0F6E56; --te-ink2:#04342C;
+  --gy1:#F1EFE8; --gy2:#D3D1C7; --gy-ink:#444441;
+  --am1:#FAEEDA; --am2:#EF9F27; --am-ink:#854F0B;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#1B1B19; --surface:#232320; --surface2:#2A2A27; --ink:#ECEAE2; --ink2:#B4B2A9; --line:rgba(255,255,255,.16); }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;padding:28px}
+.wrap{max-width:1060px;margin:0 auto}
+h1{font-size:22px;font-weight:500;margin:0 0 4px}
+h2{font-size:16px;font-weight:500;margin:0 0 10px}
+.sub{color:var(--ink2);font-size:14px;margin:0 0 18px}
+.gate{display:flex;gap:10px;align-items:center;background:var(--am1);border:1px solid var(--am2);color:var(--am-ink);border-radius:12px;padding:10px 14px;font-size:14px;margin:0 0 20px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:820px){.cols{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.tag{display:inline-block;font-size:12px;font-weight:500;padding:2px 9px;border-radius:999px;margin-bottom:10px}
+.tagA{background:var(--pu1);color:var(--pu-ink2);border:1px solid var(--pu2)}
+.tagB{background:var(--te1);color:var(--te-ink2);border:1px solid var(--te2)}
+.flow{display:flex;flex-direction:column;gap:7px;margin:4px 0 12px}
+.node{border-radius:10px;padding:9px 12px;font-size:13px}
+.node b{font-weight:500}
+.node span{display:block;font-size:12px;opacity:.85}
+.nA{background:var(--pu1);border:1px solid var(--pu2);color:var(--pu-ink2)}
+.nB{background:var(--te1);border:1px solid var(--te2);color:var(--te-ink2)}
+.nN{background:var(--gy1);border:1px solid var(--gy2);color:var(--gy-ink)}
+.arrow{text-align:center;color:var(--ink2);font-size:12px;line-height:1;margin:-2px 0}
+.lane{margin:10px 0 0}
+.lane h3{font-size:12px;font-weight:500;color:var(--ink2);margin:0 0 6px;text-transform:uppercase;letter-spacing:.04em}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;border-radius:8px;padding:4px 9px;background:var(--pu1);color:var(--pu-ink);border:1px solid var(--pu2)}
+.chipB{background:var(--te1);color:var(--te-ink);border:1px solid var(--te2)}
+.note{font-size:12px;color:var(--ink2);margin-top:12px;padding-top:10px;border-top:1px dashed var(--line)}
+.note code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;background:var(--surface2);padding:1px 5px;border-radius:5px}
+.files{margin-top:18px}
+.files .card{display:block}
+.flist{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:820px){.flist{grid-template-columns:1fr}}
+.flist ul{margin:6px 0 0;padding-left:0;list-style:none}
+.flist li{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;padding:4px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+.flist li b{color:var(--ink);font-weight:500}
+.new{color:var(--te-ink);font-weight:500}
+.edit{color:var(--am-ink);font-weight:500}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Proposed build — review before execution</h1>
+  <p class="sub">What gets created if you approve. Two deliverables, output to <code style="font-family:ui-monospace,monospace;font-size:12px">coworkers/projects/2026/operational-plan</code> and <code style="font-family:ui-monospace,monospace;font-size:12px">apps/claude-cowork-linux</code>.</p>
+
+  <div class="gate">
+    <span>&#9209;</span>
+    <span><b style="font-weight:500">Awaiting your approval.</b> Nothing is written yet. Figma Dev Mode MCP is not enabled (and is read-only), so this visual stands in for the Figma mock.</span>
+  </div>
+
+  <div class="cols">
+    <!-- A -->
+    <div class="card">
+      <span class="tag tagA">Deliverable A</span>
+      <h2>design-manager, grounded in the 7 design:* skills</h2>
+      <div class="flow">
+        <div class="node nN"><b>operator</b><span>states a design outcome</span></div>
+        <div class="arrow">&#8595;</div>
+        <div class="node nA"><b>design-manager</b><span>owns outcomes · decomposes · dispatches · gates</span></div>
+        <div class="arrow">&#8595;</div>
+        <div class="node nA"><b>design-coworker</b><span>executes the outcome via the skills below</span></div>
+        <div class="arrow">&#8595;</div>
+        <div class="node nA"><b>design-subagent</b><span>deterministic pieces · one task in, one out</span></div>
+      </div>
+      <div class="lane">
+        <h3>Discover</h3>
+        <div class="chips"><span class="chip">user-research</span><span class="chip">research-synthesis</span></div>
+      </div>
+      <div class="lane">
+        <h3>Make</h3>
+        <div class="chips"><span class="chip">design-system</span><span class="chip">design-critique</span><span class="chip">ux-copy</span></div>
+      </div>
+      <div class="lane">
+        <h3>Ship</h3>
+        <div class="chips"><span class="chip">accessibility-review</span><span class="chip">design-handoff</span></div>
+      </div>
+      <div class="note">
+        Durable e2m loop over JSONL: wake &#8594; intake &#8594; decompose &#8594; dispatch &#8594; await &#8594; gate &#8594; report.<br>
+        Registry: <code>e2m-mcp/agents.ts</code> gains a 6th function <code>design</code> &#8594; 18 agents.<br>
+        Gate: ci-cd rubric — XML-free SKILL.md, frontmatter parses, outcome contract present.
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="card">
+      <span class="tag tagB">Deliverable B</span>
+      <h2>claude-cowork-linux devcontainer + MCP_DOCKER profile</h2>
+      <div class="flow">
+        <div class="node nN"><b>Linux host</b><span>Docker / Podman · VS Code or CLI</span></div>
+        <div class="arrow">&#8595;</div>
+        <div class="node nB"><b>devcontainer</b><span>node 18 · electron · asar · p7zip · bubblewrap · zstd · dbus</span></div>
+        <div class="arrow">&#8595;</div>
+        <div class="node nB"><b>stubs &#8594; repacked app.asar</b><span>@ant/claude-swift · @ant/claude-native</span></div>
+        <div class="arrow">&#8595;</div>
+        <div class="node nB"><b>Cowork on Linux</b><span>Electron · /sessions path translation</span></div>
+      </div>
+      <div class="lane">
+        <h3>MCP_DOCKER profile &#8220;cowork&#8221;</h3>
+        <div class="chips">
+          <span class="chip chipB">GitHub</span><span class="chip chipB">Cloudflare</span><span class="chip chipB">Atlassian / Jira</span>
+          <span class="chip chipB">Stripe</span><span class="chip chipB">Redis</span><span class="chip chipB">Box / Drive</span><span class="chip chipB">Brave search</span>
+        </div>
+      </div>
+      <div class="note">
+        Dependencies mirror the existing <code>flake.nix</code> devShell, so the container matches the tested Nix path.<br>
+        OAuth-only invariant preserved: <code>ANTHROPIC_API_KEY</code> is never set in the image or profile.<br>
+        Connectors activated via <code>mcp-create-profile</code> / <code>mcp-add</code>, persisted as a JSON profile.
+      </div>
+    </div>
+  </div>
+
+  <div class="files">
+    <div class="card">
+      <h2>Files this will create or edit</h2>
+      <div class="flist">
+        <ul>
+          <li><b>Deliverable A</b></li>
+          <li><span class="edit">edit</span> &nbsp;e2m-mcp/agents.ts <span style="color:var(--ink2)">(+ design function)</span></li>
+          <li><span class="new">new</span> &nbsp;skills/design-manager/SKILL.md</li>
+          <li><span class="new">new</span> &nbsp;handoffs/design-manager.md</li>
+          <li><span class="new">new</span> &nbsp;handoffs/design-coworker.md</li>
+          <li><span class="new">new</span> &nbsp;handoffs/design-subagent.md</li>
+          <li><span class="new">new</span> &nbsp;agents/design/ (manager·coworker·subagent)</li>
+        </ul>
+        <ul>
+          <li><b>Deliverable B</b></li>
+          <li><span class="new">new</span> &nbsp;apps/claude-cowork-linux/.devcontainer/devcontainer.json</li>
+          <li><span class="new">new</span> &nbsp;apps/claude-cowork-linux/.devcontainer/Dockerfile</li>
+          <li><span class="new">new</span> &nbsp;apps/claude-cowork-linux/.devcontainer/mcp-docker-profile.json</li>
+          <li><span class="new">new</span> &nbsp;apps/claude-cowork-linux/.devcontainer/post-create.sh</li>
+          <li><span class="new">new</span> &nbsp;apps/claude-cowork-linux/.devcontainer/README.md</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

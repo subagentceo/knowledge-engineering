@@ -5,6 +5,32 @@ description: Append-only log of decisions the orchestrator made, with date + tic
 
 # Decisions log
 
+## 2026-06-19 — coworker naming canonicalization (kill `pm-agent` / `product-management-agent`)
+
+### Canonical rule
+
+There are exactly **two** product/project coworker identities. Never use the `pm` shorthand or the legacy `-agent` suffix for either:
+
+- **`project-management-coworker`** — execution tracker (nightly review, queue/type-safety audits, dependency tracking). Reports to product-management. Trigger `/project-management-coworker`.
+- **`product-management-coworker`** — lead PM / chief-of-staff (roadmap, specs, prioritization, routing). Trigger `/product-management-coworker`.
+
+Banned aliases: `pm-coworker`, `pm-agent`, `/pm-agent`, `product-management-agent`, `/product-management-agent`, and bare `pm` as a role.
+
+### What was changed (this tick)
+
+- Removed the `/pm-agent` shorthand + `pm-agent (queue reader/claimer)` from `dispatch-coworker/SKILL.md` (both `.claude/` and `cowork/skills/claude/` copies) → `/product-management-coworker`.
+- Renamed `product-management-agent` → `product-management-coworker` across active identity/trigger/reference text: the product-management-coworker SKILL.md frontmatter (`name`, `Trigger`, inbox) — which still carried a stale `product-management-agent` name and a `# TODO rename` — plus the legacy agents-tier skill, sibling agent ROUTE targets (sales/design/data), `apps/mail/AGENTS.md`, `contracts.ts` comments, and the operations negative-trigger line.
+- `cowork/agents/manifest.json`: logical `id` + `trigger_phrase` → `product-management-coworker`.
+- Completed earlier in the same session: eliminated all `pm-coworker` aliases in scheduled-task prompts, `dispatch-coworker`, a stale skill copy, and `data`/`finance` queue `from` fields.
+
+### Deliberately left as provenance / unavoidable
+
+- Immutable completed-transition `owner` fields and the dead `product-management-agent.jsonl` / `pm-coworker.jsonl` history in queues/mailboxes — they record what actually happened; rewriting them falsifies provenance.
+- Two **path** fields in `agents/manifest.json` (`skill`, `test`) still name the physical `product-management-agent/` dir + test file. The sandbox mount allows create but **not delete**, so the dir cannot be renamed; the paths resolve to real files and the coworkers/ tier is the canonical surface regardless.
+- `pm_room` (Zoom scope), `pm_relevance` (SQL column), third-party `/pm-tool` URLs, and `<pm_agent_identity>` in the user `structured-prompt-*` skills (that skill's own internal tag) — not aliases of these coworkers.
+
+**Reversible:** Yes — all string edits; no data deleted.
+
 ## 2026-05-18 — tick 16 (instrumentation + roving reviewer + submodule discard)
 
 - 2026-05-18 — ORC3 roving-reviewer skill landed as cf7aa6d (#241). Superseded source PR #225 (3 merge-noise commits dropped).

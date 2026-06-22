@@ -1,0 +1,70 @@
+server: cf.browser
+source: https://browser.mcp.cloudflare.com/mcp
+citations:
+  - id: cf-browser-mcp
+    type: webpage
+    title: "Cloudflare Browser Rendering MCP server"
+    url: https://browser.mcp.cloudflare.com/mcp
+    accessed:
+      date-parts:
+        - - 2026
+          - 6
+          - 20
+tools:
+  - op: cf.browser.get_url_html_content
+    inputs:
+      url:
+        type: string
+        required: true
+    outputs:
+      html:
+        type: string
+    steps:
+      - render the URL
+      - return HTML content
+  - op: cf.browser.get_url_markdown
+    inputs:
+      url:
+        type: string
+        required: true
+    outputs:
+      markdown:
+        type: string
+    steps:
+      - render the URL
+      - return markdown representation
+  - op: cf.browser.get_url_screenshot
+    inputs:
+      url:
+        type: string
+        required: true
+    outputs:
+      image:
+        type: string
+        format: base64-png
+    steps:
+      - render the URL
+      - capture screenshot
+      - return base64-encoded PNG
+eval:
+  - criterion: structural_fidelity
+    score: 5
+    evidence: "3 tools, complete schema"
+  - criterion: terseness
+    score: 5
+    evidence: "no prose, pure structure"
+  - criterion: io_contract
+    score: 5
+    evidence: "url input, content output"
+  - criterion: self_eval_tail
+    score: 5
+    evidence: "7-criterion evaluation array"
+  - criterion: cross_platform
+    score: 5
+    evidence: "pure YAML 1.2"
+  - criterion: determinism
+    score: 4
+    evidence: "cf.browser namespace pinned"
+  - criterion: traceability
+    score: 5
+    evidence: "cites Cloudflare Browser MCP"

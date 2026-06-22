@@ -1,0 +1,15 @@
+{
+  "_comment": "Paste this entry into .claude/plugins.json install[] array to wire e2m-mcp into cowork sessions.",
+  "_task": "a1b2c3d4-0004-4000-8000-000000000004",
+  "kind": "mcp-server",
+  "name": "e2m-mcp",
+  "transport": "stdio",
+  "command": "node",
+  "args": ["cowork/mcp/e2m-mcp/dist/server.js"],
+  "env": {
+    "E2M_QUEUE_DIR": "cowork/data/queues",
+    "E2M_MAILBOX_DIR": "cowork/data/mailbox"
+  },
+  "stage": "declared",
+  "comment": "Envelope-to-mailbox MCP server. 7 tools: envelope_write, envelope_read, task_transition, mailbox_send, mailbox_recv, mailbox_ack, queue_status. Append-only JSONL per domain (design | engineering | product-management | data | sales | finance). Source: cowork/mcp/e2m-mcp/server.ts. Build: cd cowork/mcp/e2m-mcp && npm ci && npm run build."
+}

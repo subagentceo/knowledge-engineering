@@ -1,0 +1,20 @@
+[package]
+name    = "cache-bench"
+version.workspace = true
+edition.workspace = true
+
+[[bench]]
+name    = "rerank_bench"
+harness = false
+
+[dependencies]
+serde.workspace      = true
+serde_json.workspace = true
+uuid.workspace       = true
+chrono.workspace     = true
+lru.workspace        = true
+ahash.workspace      = true
+priority-queue       = { path = "../priority-queue" }
+
+[dev-dependencies]
+criterion.workspace = true

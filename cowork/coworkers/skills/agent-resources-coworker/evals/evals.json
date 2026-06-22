@@ -1,0 +1,23 @@
+{
+  "skill_name": "agent-resources-coworker",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "/agent-resources-coworker — audit the agent roster and tell me if anything is broken",
+      "expected_output": "Reads manifest.json, cross-checks filesystem for all 11 coworkers, writes agent-roster artifact, transitions queue entry to completed",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I want to add a new qa-coworker to the system. It should handle test automation and quality gates. Use claude-haiku, protocols a2a and e2m-mcp, peers with engineering-coworker and product-management-coworker.",
+      "expected_output": "Creates SKILL.md for qa-coworker following the engineering-coworker pattern, adds manifest entry, creates empty mailbox and queue files, sends welcome task, routes outcome to product-management-coworker",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Check the agent-resources mailbox for pending work and process whatever's there",
+      "expected_output": "Reads mailbox JSONL, identifies pending messages, claims highest-priority task, executes it, writes transition, acks the mailbox message",
+      "files": []
+    }
+  ]
+}

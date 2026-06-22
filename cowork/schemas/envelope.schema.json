@@ -1,0 +1,264 @@
+{
+  "$ref": "#/definitions/E2MRecord",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DurableTask": {
+      "additionalProperties": false,
+      "description": "DurableTask — queued work items in cowork/data/queues/<domain>.jsonl Separate from Envelope: tasks are claimed by coworkers, envelopes are messages between them.",
+      "properties": {
+        "_type": {
+          "const": "task",
+          "type": "string"
+        },
+        "blocks": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "depends_on": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "error": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "ke_fit_score": {
+          "enum": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "type": "number"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": {},
+          "type": "object"
+        },
+        "queue": {
+          "type": "string"
+        },
+        "result": {
+          "additionalProperties": {},
+          "type": "object"
+        },
+        "state": {
+          "enum": [
+            "pending",
+            "in_progress",
+            "completed",
+            "blocked",
+            "failed"
+          ],
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "_type",
+        "id",
+        "queue",
+        "subject",
+        "state",
+        "created_at",
+        "updated_at"
+      ],
+      "type": "object"
+    },
+    "E2MRecord": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Envelope"
+        },
+        {
+          "$ref": "#/definitions/DurableTask"
+        },
+        {
+          "$ref": "#/definitions/Transition"
+        }
+      ],
+      "description": "Any e2m record."
+    },
+    "Envelope": {
+      "additionalProperties": false,
+      "properties": {
+        "_type": {
+          "const": "envelope",
+          "type": "string"
+        },
+        "ack_required": {
+          "type": "boolean"
+        },
+        "at": {
+          "type": "string"
+        },
+        "decision_options": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "envelope_type": {
+          "$ref": "#/definitions/EnvelopeType"
+        },
+        "expires_at": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": {},
+          "type": "object"
+        },
+        "priority": {
+          "enum": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "type": "number"
+        },
+        "reply_to": {
+          "type": "string"
+        },
+        "requires_decision": {
+          "type": "boolean"
+        },
+        "state": {
+          "$ref": "#/definitions/EnvelopeState"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "thread_id": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "_type",
+        "id",
+        "envelope_type",
+        "from",
+        "to",
+        "subject",
+        "at",
+        "state"
+      ],
+      "type": "object"
+    },
+    "EnvelopeState": {
+      "enum": [
+        "pending",
+        "read",
+        "actioned",
+        "archived"
+      ],
+      "type": "string"
+    },
+    "EnvelopeType": {
+      "description": "CANONICAL SCHEMA SOURCE for the e2m (envelope-to-mailbox) protocol.\n\nThis file is the SINGLE SOURCE OF TRUTH. All other bindings are GENERATED, never hand-edited:   ts-to-zod              envelope.ts  → envelope.zod.ts     (runtime validation)   zod-to-json-schema     *.zod.ts     → envelope.schema.json (interlingua)   datamodel-code-gen     *.schema.json→ envelope.py          (Python · pydantic v2)   typify / quicktype     *.schema.json→ envelope.rs          (Rust · serde) Regenerate with: npm run schema:gen   (see cowork/schemas/E2M-PROTOCOL.md)\n\nThree record kinds live in the JSONL files, discriminated by `_type`:   \"envelope\"   — a message between coworkers (cowork/data/mailbox/<id>.jsonl)   \"task\"       — a DurableTask queue item   (cowork/data/queues/<domain>.jsonl)   \"transition\" — a state-change / ack row appended after an envelope or task\n\nCoworkers MUST emit these typed records, never raw JSON blobs. The `payload` field is the only open schema — everything else is typed.",
+      "enum": [
+        "task",
+        "ack",
+        "result",
+        "escalate",
+        "notify",
+        "summary",
+        "operator"
+      ],
+      "type": "string"
+    },
+    "Transition": {
+      "additionalProperties": false,
+      "description": "Transition — an append-only state-change row for a task or envelope. The id matches the task/envelope it transitions; latest-line-wins on read.",
+      "properties": {
+        "_type": {
+          "const": "transition",
+          "type": "string"
+        },
+        "acked_by": {
+          "type": "string"
+        },
+        "at": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        },
+        "event": {
+          "$ref": "#/definitions/TransitionEvent"
+        },
+        "id": {
+          "type": "string"
+        },
+        "new_state": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "prior_state": {
+          "type": "string"
+        },
+        "read_by": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "_type",
+        "id",
+        "at"
+      ],
+      "type": "object"
+    },
+    "TransitionEvent": {
+      "enum": [
+        "claim",
+        "complete",
+        "block",
+        "unblock",
+        "fail",
+        "retry",
+        "ack",
+        "read"
+      ],
+      "type": "string"
+    }
+  }
+}

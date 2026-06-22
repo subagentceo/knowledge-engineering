@@ -1,0 +1,156 @@
+# E2M (Envelope2Mailbox) - Core Envelope Schema
+# Protocol: io.e2m/envelope
+# Version: draft
+# Type-safety cascade: YAML (this) → TypeScript/Zod → Rust/serde → Python/Pydantic
+#
+# An Envelope is the universal wrapper for all e2m messages between agents.
+# A Mailbox is a named, addressable endpoint that receives Envelopes.
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://e2m.dev/schema/draft/envelope.json"
+title: E2M Envelope
+description: >
+  The Envelope is the atomic unit of inter-agent communication in e2m.
+  It wraps a typed payload with routing metadata, provenance, and
+  protocol versioning — enabling type-safe, multi-platform agent messaging.
+
+$defs:
+
+  # ── Primitives ──────────────────────────────────────────────────────────────
+
+  EnvelopeId:
+    type: string
+    format: uuid
+    description: Globally unique envelope identifier (UUIDv7 recommended for sortability)
+
+  MailboxAddress:
+    type: object
+    required: [protocol, host, name]
+    additionalProperties: false
+    properties:
+      protocol:
+        type: string
+        enum: [e2m, mcp, a2a, acp]
+        description: Which agent protocol this mailbox speaks
+      host:
+        type: string
+        description: >
+          Runtime host identifier. For Anthropic model runtime: "anthropic:{model_id}".
+          For MCP server: "mcp:{server_name}". For local agent: "local:{agent_id}".
+      name:
+        type: string
+        description: Named mailbox within the host (e.g. "tasks", "oauth", "inbox")
+      version:
+        type: string
+        description: Optional semver of the mailbox's schema contract
+
+  EnvelopeStatus:
+    type: string
+    enum:
+      - pending      # Created, not yet delivered
+      - delivered    # Accepted by destination mailbox
+      - processing   # Mailbox is actively handling the payload
+      - completed    # Payload processed successfully
+      - failed       # Processing failed; see error field
+      - cancelled    # Cancelled before completion
+      - expired      # TTL elapsed before delivery or completion
+
+  PayloadKind:
+    type: string
+    enum:
+      - task         # A unit of work (maps to ext-yaml-tasks)
+      - oauth        # An auth credential/token exchange (maps to ext-yaml-oauth)
+      - event        # A fire-and-forget notification
+      - query        # A request expecting a reply envelope
+      - reply        # A response to a prior query envelope
+      - error        # A structured error response
+
+  # ── Envelope Header ─────────────────────────────────────────────────────────
+
+  EnvelopeHeader:
+    type: object
+    required: [envelopeId, protocol, version, sentAt, from, to, payloadKind]
+    additionalProperties: false
+    properties:
+      envelopeId:
+        $ref: "#/$defs/EnvelopeId"
+      protocol:
+        type: string
+        const: "io.e2m/envelope"
+      version:
+        type: string
+        const: "draft"
+      sentAt:
+        type: string
+        format: date-time
+        description: ISO 8601 timestamp when the envelope was created/sent
+      from:
+        $ref: "#/$defs/MailboxAddress"
+        description: Sending mailbox address
+      to:
+        $ref: "#/$defs/MailboxAddress"
+        description: Destination mailbox address
+      replyTo:
+        $ref: "#/$defs/MailboxAddress"
+        description: Optional override mailbox for replies (defaults to `from`)
+      correlationId:
+        $ref: "#/$defs/EnvelopeId"
+        description: Links reply/error envelopes back to their originating query
+      payloadKind:
+        $ref: "#/$defs/PayloadKind"
+      ttlMs:
+        type: [integer, "null"]
+        description: Time-to-live in milliseconds from sentAt. null = unlimited.
+      traceId:
+        type: string
+        description: Optional distributed trace ID for observability (W3C traceparent compatible)
+
+  # ── Envelope Body ────────────────────────────────────────────────────────────
+
+  EnvelopeError:
+    type: object
+    required: [code, message]
+    additionalProperties: false
+    properties:
+      code:
+        type: integer
+        description: >
+          JSON-RPC compatible error code.
+          -32700 Parse error, -32600 Invalid request, -32601 Method not found,
+          -32602 Invalid params, -32603 Internal error.
+          E2M-specific range: -33000 to -33999.
+      message:
+        type: string
+      data:
+        description: Optional structured error context
+        type: [object, "null"]
+
+  # ── Top-Level Envelope ───────────────────────────────────────────────────────
+
+  Envelope:
+    type: object
+    required: [header, status, payload]
+    additionalProperties: false
+    properties:
+      header:
+        $ref: "#/$defs/EnvelopeHeader"
+      status:
+        $ref: "#/$defs/EnvelopeStatus"
+      payload:
+        description: >
+          The typed payload. Shape is determined by header.payloadKind.
+          Validated against the payloadKind-specific schema at runtime.
+        type: object
+        additionalProperties: true
+      error:
+        $ref: "#/$defs/EnvelopeError"
+        description: Present when status is "failed". Null otherwise.
+      meta:
+        type: object
+        additionalProperties: true
+        description: >
+          Arbitrary key-value metadata. Not validated by core schema.
+          Use for runtime tags, routing hints, etc.
+
+# Root: an Envelope is the top-level document
+$ref: "#/$defs/Envelope"

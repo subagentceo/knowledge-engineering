@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../../../schemas/fivetran-table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: FivetranTableSemantics
+table_kind: compliance
+
+metadata:
+  name: activity
+  labels:
+    connector: compliance
+
+spec:
+  version: 1.0.0
+  schema: claude_ai
+  grain: "one row per claude.ai compliance activity"
+  primary_key: [id]
+  load_type: incremental
+  codeowners:
+    - data-coworker
+  columns:
+    - name: id
+      kind: dimension
+      sql_type: text
+    - name: organization_uuid
+      kind: dimension
+      sql_type: text
+    - name: actor_api_key_id
+      kind: dimension
+      sql_type: text
+    - name: actor_email_address
+      kind: dimension
+      sql_type: text
+    - name: actor_ip_address
+      kind: dimension
+      sql_type: text
+    - name: actor_type
+      kind: dimension
+      sql_type: text
+    - name: actor_unauthenticated_email_address
+      kind: dimension
+      sql_type: text
+    - name: actor_user_agent
+      kind: dimension
+      sql_type: text
+    - name: actor_user_id
+      kind: dimension
+      sql_type: text
+    - name: created_at
+      kind: time_dimension
+      sql_type: timestamptz
+    - name: organization_id
+      kind: dimension
+      sql_type: text
+    - name: type
+      kind: dimension
+      sql_type: text
+  ddl: |
+    CREATE TABLE IF NOT EXISTS claude_ai.activity (
+        id TEXT PRIMARY KEY,
+        organization_uuid TEXT,
+        actor_api_key_id TEXT,
+        actor_email_address TEXT,
+        actor_ip_address TEXT,
+        actor_type TEXT,
+        actor_unauthenticated_email_address TEXT,
+        actor_user_agent TEXT,
+        actor_user_id TEXT,
+        created_at TIMESTAMPTZ,
+        organization_id TEXT,
+        type TEXT
+    );
+
+# @cite Fivetran ERD: Claude Compliance (claude.ai export)
+# @cite uploads/Claude Compliance_diagram.pdf

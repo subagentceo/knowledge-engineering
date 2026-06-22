@@ -1,0 +1,42 @@
+{
+  "$schema": "https://raw.githubusercontent.com/anthropics/mcpb/main/schemas/mcpb-manifest-v0.4.schema.json",
+  "manifest_version": "0.4",
+  "name": "support-claude-docs",
+  "display_name": "Claude Support Docs (offline mirror)",
+  "version": "0.1.0",
+  "description": "Browse and read the support.claude.com /en/ help center from a local per-collection markdown mirror — no network, token-cheap.",
+  "long_description": "Exposes the vendor/support-claude-sitemap mirror (16 collections of coworker-optimized .md) as MCP tools: list_collections, list_articles, read_article. Reads only local files under the configured mirror directory; nothing leaves the machine.",
+  "author": { "name": "subagentceo", "url": "https://subagentknowledge.com" },
+  "repository": { "type": "git", "url": "https://github.com/subagentceo/knowledge-engineering" },
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.mjs"],
+      "env": { "MIRROR_DIR": "${user_config.mirror_dir}" }
+    }
+  },
+  "tools": [
+    { "name": "list_collections", "description": "List the support collections in the local mirror" },
+    { "name": "list_articles", "description": "List article .md files in a collection" },
+    { "name": "read_article", "description": "Read one article's markdown" }
+  ],
+  "tools_generated": false,
+  "keywords": ["claude", "support", "docs", "markdown", "offline"],
+  "license": "MIT",
+  "compatibility": {
+    "claude_desktop": ">=1.0.0",
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": { "node": ">=18.0.0" }
+  },
+  "user_config": {
+    "mirror_dir": {
+      "type": "directory",
+      "title": "Support mirror directory",
+      "description": "Path to vendor/support-claude-sitemap (the per-collection .md mirror).",
+      "default": "${HOME}/knowledge-engineering/vendor/support-claude-sitemap",
+      "required": true
+    }
+  }
+}

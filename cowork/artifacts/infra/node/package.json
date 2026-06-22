@@ -1,0 +1,63 @@
+{
+  "name": "@e2m/infra",
+  "version": "1.0.0",
+  "description": "E2M local infra — AlloyDB Omni + ioredis cache layer",
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./alloydb": "./dist/alloydb/client.js",
+    "./redis": "./dist/redis/client.js",
+    "./cache": "./dist/cache/alloydb-redis.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "NODE_PATH=./node_modules tsx watch debug.ts",
+    "debug": "NODE_OPTIONS='--inspect' NODE_PATH=./node_modules tsx debug.ts",
+    "debug:break": "NODE_OPTIONS='--inspect-brk' NODE_PATH=./node_modules tsx debug.ts",
+    "smoke": "DEBUG=e2m:* NODE_PATH=./node_modules tsx debug.ts",
+    "type-check": "tsc --noEmit",
+    "redis:ping": "NODE_PATH=./node_modules tsx -e \"import {createE2MRedis} from '../redis/client.ts'; const r=createE2MRedis(); console.log(await r.client.ping()); r.client.disconnect()\"",
+    "db:ping": "NODE_PATH=./node_modules tsx -e \"import {pool} from '../alloydb/pool.ts'; const r=await pool.query('SELECT NOW()'); console.log(r.rows[0]); pool.end()\"",
+    "stack:up": "docker compose -f ../docker/docker-compose.yml up -d",
+    "stack:down": "docker compose -f ../docker/docker-compose.yml down",
+    "stack:logs": "docker compose -f ../docker/docker-compose.yml logs -f",
+    "stack:ps": "docker compose -f ../docker/docker-compose.yml ps",
+    "redis:insight": "open http://localhost:8001"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@opentelemetry/auto-instrumentations-node": "^0.76.0",
+    "@types/debug": "^4.1.13",
+    "@types/node": "^22.0.0",
+    "@types/pg": "^8.11.0",
+    "ts-to-zod": "^5.1.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "@google-cloud/alloydb": "^2.5.1",
+    "@openfeature/flagd-provider": "^0.16.0",
+    "@openfeature/server-sdk": "^1.21.0",
+    "@opentelemetry/api": "^1.9.1",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.218.0",
+    "@opentelemetry/instrumentation-pg": "^0.50.0",
+    "@opentelemetry/redis-common": "^0.38.3",
+    "@opentelemetry/sdk-node": "^0.218.0",
+    "@opentelemetry/sdk-trace-node": "^2.7.1",
+    "@redis/bloom": "^6.0.0",
+    "@redis/client": "^6.0.0",
+    "@types/turndown": "^5.0.6",
+    "cheerio": "^1.2.0",
+    "commonmark": "^0.31.2",
+    "debug": "^4.4.0",
+    "ioredis": "^5.11.1",
+    "pg": "^8.13.0",
+    "pg-pool": "^3.7.0",
+    "redis": "^6.0.0",
+    "turndown": "^7.2.4",
+    "zod": "^3.25.0"
+  }
+}

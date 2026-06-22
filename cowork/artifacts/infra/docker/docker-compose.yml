@@ -1,0 +1,80 @@
+# E2M Local Infra Stack
+# AlloyDB Omni PostgreSQL 18 + Redis Stack + flagd + OTel collector + AlloyDB UI
+#
+# Images (verified from official AlloyDB Omni registration):
+#   Debian: gcr.io/alloydb-omni/alloydbomni:18
+#   UBI:    gcr.io/alloydb-omni/alloydbomni:18-ubi9
+# Docs:
+#   Quickstart:   https://docs.cloud.google.com/alloydb/omni/containers/current/docs/quickstart
+#   Overview:     https://docs.cloud.google.com/alloydb/omni/docs/overview
+#   Container UI: https://services.google.com/fh/files/misc/alloydbomni_standalone_ui_userguide_container.pdf
+#
+# Auth: egress proxy session for Anthropic API | ALLOYDB_PASSWORD for postgres
+
+services:
+  alloydb-omni:
+    image: gcr.io/alloydb-omni/alloydbomni:18
+    container_name: e2m-alloydb
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${ALLOYDB_PASSWORD:-postgres}
+      POSTGRES_DB: e2m
+    ports: ["5432:5432"]
+    volumes:
+      - alloydb-data:/var/lib/postgresql/data
+      - ../alloydb/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d e2m"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  # AlloyDB Omni Standalone UI
+  # User guide: https://services.google.com/fh/files/misc/alloydbomni_standalone_ui_userguide_container.pdf
+  alloydb-ui:
+    image: gcr.io/alloydb-omni/alloydbomni-ui:latest
+    container_name: e2m-alloydb-ui
+    restart: unless-stopped
+    environment:
+      ALLOYDB_HOST: alloydb-omni
+      ALLOYDB_PORT: "5432"
+      ALLOYDB_USER: postgres
+      ALLOYDB_PASSWORD: ${ALLOYDB_PASSWORD:-postgres}
+      ALLOYDB_DB: e2m
+    ports: ["8080:8080"]
+    depends_on:
+      alloydb-omni:
+        condition: service_healthy
+    profiles: ["ui"]
+
+  redis:
+    image: redis/redis-stack:latest
+    container_name: e2m-redis
+    restart: unless-stopped
+    ports: ["6379:6379", "8001:8001"]
+    volumes: [redis-data:/data]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  flagd:
+    image: ghcr.io/open-feature/flagd:latest
+    container_name: e2m-flagd
+    restart: unless-stopped
+    ports: ["8013:8013"]
+    volumes: [../openfeature/flags.json:/etc/flagd/flags.json]
+    command: start --uri file:/etc/flagd/flags.json
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    container_name: e2m-otel
+    restart: unless-stopped
+    ports: ["4318:4318", "4317:4317"]
+    volumes: [../otel/collector.yaml:/etc/otelcol-contrib/config.yaml]
+
+volumes:
+  alloydb-data:
+  redis-data:

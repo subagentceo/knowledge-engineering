@@ -1,0 +1,125 @@
+# local-model-policy.yaml
+# @cite seeds/references/agent-native-links.yaml
+# @cite cowork/scripts/ollama-healthcheck.py
+#
+# Routing policy: which coworker task types go to local Ollama vs Anthropic API.
+# Decision criterion: local for deterministic/low-creativity tasks; Anthropic for
+# high-stakes orchestration, new architecture, or when output quality is customer-facing.
+#
+# Estimated token savings: ~15,000–22,000 Anthropic tokens per nightly session
+# (3 scripts × avg 5–7k tokens each if run on Anthropic).
+
+version: "1.0.0"
+policy_id: "cowork-local-routing-v1"
+updated_at: "2026-06-19"
+
+# ── Local Ollama (zero Anthropic cost) ────────────────────────────────────────
+local:
+  # RTX 2080 (11GB VRAM) — verified by Parallel research 2026-06-19
+  # glm-4.7-flash is 30B MoE (~24GB VRAM) — does NOT fit. Use qwen2.5-coder.
+  preferred_model: "qwen2.5-coder:7b"           # ~5GB VRAM, 45-70 t/s, solid tool-calling
+  fallback_model:  "qwen2.5-coder:14b-q4_k_m"  # ~9GB VRAM, higher quality if speed ok
+  backend_check:   "cowork/scripts/ollama-healthcheck.py"
+  tailscale_env:   "OLLAMA_TAILSCALE_IP"        # set to WSL machine Tailscale IP
+
+  task_types:
+    # Deterministic pattern-matching — no creativity needed
+    - type: "type-safety-audit"
+      description: "Scan mailbox JSONL for missing required fields"
+      script: "cowork/scripts/type-safety-audit.py"
+      scheduled: "06:00 PST daily"
+      rationale: "Purely structural validation; local model handles regex-like checks fine"
+
+    - type: "nightly-queue-review"
+      description: "Aggregate queue state counts across all coworkers"
+      script: "cowork/scripts/nightly-review.py"
+      scheduled: "00:00 PST daily"
+      rationale: "JSON aggregation + terse summary; no reasoning depth required"
+
+    - type: "morning-html-report"
+      description: "Generate HTML morning summary with queue stats + git log"
+      script: "cowork/scripts/morning-summary.py"
+      scheduled: "07:00 PST daily"
+      rationale: "Templated HTML output with one narrative paragraph; local handles well"
+
+    - type: "jsonl-schema-validation"
+      description: "Validate DurableTask envelopes against required field schema"
+      rationale: "Field presence checks; 100% structural, zero ambiguity"
+
+    - type: "queue-state-transition"
+      description: "Write pending→in_progress or in_progress→completed transitions"
+      rationale: "Appending typed JSONL lines; trivial for any capable model"
+
+    - type: "mailbox-dispatch"
+      description: "Route messages between coworker mailboxes per manifest.json routing"
+      rationale: "Lookup + write operation; deterministic"
+
+    - type: "git-log-parse"
+      description: "Extract recent commits for morning summary"
+      rationale: "Pure shell command + string formatting"
+
+    - type: "artifact-html-update"
+      description: "Update cowork/artifacts/*.html with new queue stats"
+      rationale: "Template fill-in; local model handles HTML generation reliably"
+
+# ── Anthropic API (high-value tasks only) ────────────────────────────────────
+anthropic:
+  models:
+    orchestration: "claude-sonnet-4-6"     # product-management-coworker: low latency, high interaction
+    implementation: "claude-opus-4-6"      # engineering, legal: high effort
+    budget_tasks: "claude-haiku-4-5"       # data, finance: cost-sensitive
+
+  task_types:
+    - type: "new-architecture-decision"
+      description: "Design new coworker, phase, or system component"
+      rationale: "Requires deep reasoning and cross-system knowledge"
+
+    - type: "cf-worker-codegen"
+      description: "Generate or modify Cloudflare Worker JS/TS"
+      rationale: "Complex ES module constraints, multipart upload format, DO bindings"
+
+    - type: "cross-coworker-orchestration"
+      description: "product-management-coworker directing multiple coworkers in a single session"
+      rationale: "High-context multi-agent coordination"
+
+    - type: "pr-creation"
+      description: "Create GitHub PR with description, labels, automerge"
+      rationale: "Requires git context + GitHub MCP + quality description"
+
+    - type: "legal-compliance-review"
+      description: "NDA, TOS, contract triage"
+      rationale: "High-stakes, requires legal reasoning depth (opus-4-6)"
+
+    - type: "sales-outreach-draft"
+      description: "Draft external communications"
+      rationale: "Customer-facing quality bar; local models may hallucinate names/facts"
+
+    - type: "new-skill-creation"
+      description: "Write SKILL.md for a new cowork skill"
+      rationale: "Creative + structural; benefits from Anthropic model quality"
+
+    - type: "phase-rubric-grading"
+      description: "Grade a phase rubric (rubrics/phase-N.md)"
+      rationale: "Requires understanding of codebase conventions and phase goals"
+
+    - type: "emergency-escalation"
+      description: "Any task marked escalate=true in DurableTask payload"
+      rationale: "Human-in-the-loop moments need best available model"
+
+# ── Routing logic ─────────────────────────────────────────────────────────────
+routing:
+  algorithm: "type_match_first"
+  # 1. Check task.payload.task_type against local.task_types
+  # 2. If match → check Ollama health → use local if available
+  # 3. If no local match or Ollama down → use Anthropic
+  # 4. If task has ke_fit_score >= 5 AND is not in local list → always Anthropic
+
+  fallback_behavior: "anthropic"   # never fail silently
+  log_routing: true                # log which backend was chosen per task
+
+# ── Cost estimates ────────────────────────────────────────────────────────────
+cost_model:
+  nightly_scripts_on_anthropic_tokens: 18000   # if all 3 nightly scripts used Anthropic
+  nightly_scripts_on_local_tokens: 0           # local = $0 Anthropic cost
+  monthly_savings_estimate_usd: "~$5–15"       # at $15/M tokens for sonnet
+  note: "Savings scale with nightly session frequency and task complexity"

@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../../../schemas/fivetran-table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: FivetranTableSemantics
+table_kind: usage
+
+metadata:
+  name: message_usage_report_result
+  labels:
+    connector: platform
+
+spec:
+  version: 1.0.0
+  schema: anthropic_claude
+  grain: "one row per usage report row"
+  primary_key: [index, message_usage_report_fivetran_id]
+  load_type: incremental
+  codeowners:
+    - data-coworker
+  columns:
+    - name: index
+      kind: dimension
+      sql_type: bigint
+    - name: message_usage_report_fivetran_id
+      kind: dimension
+      sql_type: text
+    - name: api_key_id
+      kind: dimension
+      sql_type: text
+    - name: workspace_id
+      kind: dimension
+      sql_type: text
+    - name: cache_creation_ephemeral_1_h_input_token
+      kind: measure
+      sql_type: bigint
+    - name: cache_creation_ephemeral_5_m_input_token
+      kind: measure
+      sql_type: bigint
+    - name: cache_read_input_token
+      kind: measure
+      sql_type: bigint
+    - name: context_window
+      kind: dimension
+      sql_type: text
+    - name: model
+      kind: dimension
+      sql_type: text
+    - name: output_token
+      kind: measure
+      sql_type: bigint
+    - name: server_tool_use_web_search_request
+      kind: measure
+      sql_type: bigint
+    - name: service_tier
+      kind: dimension
+      sql_type: text
+    - name: uncached_input_token
+      kind: measure
+      sql_type: bigint
+  ddl: |
+    CREATE TABLE IF NOT EXISTS anthropic_claude.message_usage_report_result (
+        index BIGINT NOT NULL,
+        message_usage_report_fivetran_id TEXT NOT NULL,
+        api_key_id TEXT,
+        workspace_id TEXT,
+        cache_creation_ephemeral_1_h_input_token BIGINT,
+        cache_creation_ephemeral_5_m_input_token BIGINT,
+        cache_read_input_token BIGINT,
+        context_window TEXT,
+        model TEXT,
+        output_token BIGINT,
+        server_tool_use_web_search_request BIGINT,
+        service_tier TEXT,
+        uncached_input_token BIGINT,
+        PRIMARY KEY (index, message_usage_report_fivetran_id)
+    );
+
+# @cite Fivetran ERD: Claude Platform (Admin/API)
+# @cite uploads/Claude Platform_diagram.pdf
+# @cite https://fivetran.com/docs/connectors/applications/claude-platform/api-configuration

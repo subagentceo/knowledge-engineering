@@ -1,0 +1,10 @@
+{
+  // Coworkers OP1 — static HTML operational plan served as a Cloudflare Worker.
+  // Simulate locally with miniflare:  npx wrangler dev   (workerd/miniflare under the hood)
+  // @cite uploads: cloudflare-wrangler.md, cloudflare-miniflare-getting-started.md
+  "name": "coworkers-op1",
+  "compatibility_date": "2026-06-19",
+  "assets": {
+    "directory": "."
+  }
+}

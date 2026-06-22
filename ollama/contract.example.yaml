@@ -1,0 +1,18 @@
+# contract.example.yaml — reference instance of the durability contract (#522).
+# autoresolve.py writes the LIVE observed state to ollama/contract.yaml (gitignored),
+# so tracked files never churn on every run. Copy this to contract.yaml to seed, or
+# just run `python3 ollama/autoresolve.py` which writes it for you.
+#
+# Validate:  python3 ollama/contract.py ollama/contract.yaml
+# This example shows the DURABLE end-state (post `sudo durable-ollama harden`).
+
+tailscale_ip: "100.112.152.5"   # node-stable; reachable via MagicDNS host `wsl-ubuntu2604-jadecli`
+port: 11434
+bind_address: "0.0.0.0"         # systemd OLLAMA_HOST=0.0.0.0 — also relaxes Ollama's Host-rebind check
+model: "qwen2.5-coder:7b"        # fits 11GB VRAM (glm-4.7-flash 24GB does not)
+persistent_override: true        # systemd drop-in survives restart + `wsl --shutdown`
+get_reachable: true              # GET / -> "Ollama is running"
+post_inference_ok: true          # POST /api/chat -> 200 + non-empty content
+cold_load_timeout_s: 120         # first POST loads ~5GB VRAM (~88s cold on RTX 2080 Ti)
+warm_response_s: 0.43
+survives_wsl_shutdown: true

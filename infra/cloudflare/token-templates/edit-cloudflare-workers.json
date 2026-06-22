@@ -18,7 +18,10 @@
         "Workers Builds Configuration Write",
         "Workers AI Write",
         "Workers Observability Write",
-        "Containers Write"
+        "Containers Write",
+        "Account Tag Write",
+        "Email Routing Rules Write",
+        "Email Routing Addresses Write"
       ]
     },
     {

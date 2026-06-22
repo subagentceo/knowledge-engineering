@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=../../../../schemas/fivetran-table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: FivetranTableSemantics
+table_kind: compliance
+
+metadata:
+  name: groups
+  labels:
+    connector: compliance
+
+spec:
+  version: 1.0.0
+  schema: claude_ai
+  grain: "one row per claude.ai group"
+  primary_key: [id]
+  load_type: incremental
+  codeowners:
+    - data-coworker
+  columns:
+    - name: id
+      kind: dimension
+      sql_type: text
+    - name: created_at
+      kind: time_dimension
+      sql_type: timestamptz
+    - name: description
+      kind: dimension
+      sql_type: text
+    - name: name
+      kind: dimension
+      sql_type: text
+    - name: source_type
+      kind: dimension
+      sql_type: text
+    - name: updated_at
+      kind: time_dimension
+      sql_type: timestamptz
+  ddl: |
+    CREATE TABLE IF NOT EXISTS claude_ai.groups (
+        id TEXT PRIMARY KEY,
+        created_at TIMESTAMPTZ,
+        description TEXT,
+        name TEXT,
+        source_type TEXT,
+        updated_at TIMESTAMPTZ
+    );
+
+# @cite Fivetran ERD: Claude Compliance (claude.ai export)
+# @cite uploads/Claude Compliance_diagram.pdf

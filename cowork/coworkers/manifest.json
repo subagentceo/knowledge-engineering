@@ -1,33 +1,62 @@
 {
   "$schema": "https://schemas.anthropic.com/cowork-coworkers.schema.json",
   "version": "0.2.0",
-  "description": "Cowork multi-coworker manifest. Coworkers are protocol-native: they communicate via four peer protocols — a2a, acp, mcp, and e2m-mcp. Unlike simple 'agents', coworkers have peer relationships, shared context, and can initiate work — not just receive it.",
+  "description": "Cowork multi-coworker manifest. Coworkers are protocol-native: they communicate via four peer protocols \u2014 a2a, acp, mcp, and e2m-mcp. Unlike simple 'agents', coworkers have peer relationships, shared context, and can initiate work \u2014 not just receive it.",
   "protocols": {
-    "a2a":     { "full": "agent-to-agent", "description": "Direct peer invocation — coworkers call each other by id without a broker." },
-    "acp":     { "full": "agent-client-protocol", "description": "HTTP REST — coworkers expose /run endpoints consumed by external clients." },
-    "mcp":     { "full": "model-context-protocol", "description": "Tool surfaces — coworkers expose typed MCP tools to models and other coworkers." },
-    "e2m-mcp": { "full": "envelope-to-mailbox-mcp", "description": "JSONL durable queue — coworkers write/read typed DurableTask envelopes via cowork/mcp/e2m-mcp/server.ts. First-class peer protocol, not a transport wrapper.", "server": "cowork/mcp/e2m-mcp/server.ts" }
+    "a2a": {
+      "full": "agent-to-agent",
+      "description": "Direct peer invocation \u2014 coworkers call each other by id without a broker."
+    },
+    "acp": {
+      "full": "agent-client-protocol",
+      "description": "HTTP REST \u2014 coworkers expose /run endpoints consumed by external clients."
+    },
+    "mcp": {
+      "full": "model-context-protocol",
+      "description": "Tool surfaces \u2014 coworkers expose typed MCP tools to models and other coworkers."
+    },
+    "e2m-mcp": {
+      "full": "envelope-to-mailbox-mcp",
+      "description": "JSONL durable queue \u2014 coworkers write/read typed DurableTask envelopes via cowork/mcp/e2m-mcp/server.ts. First-class peer protocol, not a transport wrapper.",
+      "server": "cowork/mcp/e2m-mcp/server.ts"
+    }
   },
   "session_model": {
     "mechanical": "claude-haiku-4-5-20251001",
-    "review":     "claude-sonnet-4-6",
-    "planning":   "claude-sonnet-4-6"
+    "review": "claude-sonnet-4-6",
+    "planning": "claude-sonnet-4-6"
   },
   "coworkers": [
     {
-      "id": "pm-coworker",
+      "id": "product-management-coworker",
       "display_name": "Product Management",
       "domain": "product-management",
       "queue": "cowork/data/queues/product-management.jsonl",
-      "mailbox": "cowork/data/mailbox/pm-coworker.jsonl",
-      "skill": "cowork/coworkers/skills/pm-coworker/SKILL.md",
+      "mailbox": "cowork/data/mailbox/product-management-coworker.jsonl",
+      "skill": "cowork/coworkers/skills/product-management-coworker/SKILL.md",
       "model": "claude-sonnet-4-6",
-      "trigger_phrase": "/pm-coworker",
-      "protocols": ["a2a", "e2m-mcp", "mcp"],
-      "peers": ["design-coworker", "engineering-coworker", "data-coworker", "sales-coworker", "operations-coworker", "finance-coworker"],
+      "trigger_phrase": "/product-management-coworker",
+      "protocols": [
+        "a2a",
+        "e2m-mcp",
+        "mcp"
+      ],
+      "peers": [
+        "design-coworker",
+        "engineering-coworker",
+        "data-coworker",
+        "sales-coworker",
+        "operations-coworker",
+        "finance-coworker"
+      ],
       "description": "Lead PM. Routes work, manages priority-rerank cadence, maintains product-management queue. Orchestrates peer coworkers via e2m-mcp mailbox_send.",
       "subdomain_surface": "coworkers.subagentknowledge.com/product-management",
-      "test": "cowork/coworkers/tests/pm-coworker.test.ts"
+      "test": "cowork/coworkers/tests/product-management-coworker.test.ts",
+      "role": "chief-of-staff",
+      "direct_reports": [
+        "project-management-coworker"
+      ],
+      "notes": "TODO: rename id\u2192product-management-coworker once routing stable"
     },
     {
       "id": "design-coworker",
@@ -38,8 +67,14 @@
       "skill": "cowork/coworkers/skills/design-coworker/SKILL.md",
       "model": "claude-sonnet-4-6",
       "trigger_phrase": "/design-coworker",
-      "protocols": ["a2a", "e2m-mcp"],
-      "peers": ["pm-coworker", "engineering-coworker"],
+      "protocols": [
+        "a2a",
+        "e2m-mcp"
+      ],
+      "peers": [
+        "product-management-coworker",
+        "engineering-coworker"
+      ],
       "description": "Design token + HTML artifact coworker. Owns cowork/artifacts/ and the 8-token design system.",
       "subdomain_surface": "coworkers.subagentknowledge.com/design",
       "test": "cowork/coworkers/tests/design-coworker.test.ts"
@@ -53,8 +88,15 @@
       "skill": "cowork/coworkers/skills/engineering-coworker/SKILL.md",
       "model": "claude-haiku-4-5-20251001",
       "trigger_phrase": "/engineering-coworker",
-      "protocols": ["a2a", "e2m-mcp", "mcp"],
-      "peers": ["pm-coworker", "data-coworker"],
+      "protocols": [
+        "a2a",
+        "e2m-mcp",
+        "mcp"
+      ],
+      "peers": [
+        "product-management-coworker",
+        "data-coworker"
+      ],
       "description": "TypeScript + Rust implementation coworker. Owns cowork/mcp/, cowork/templates/, src/.",
       "subdomain_surface": "coworkers.subagentknowledge.com/engineering",
       "test": "cowork/coworkers/tests/engineering-coworker.test.ts"
@@ -68,8 +110,14 @@
       "skill": "cowork/coworkers/skills/data-coworker/SKILL.md",
       "model": "claude-haiku-4-5-20251001",
       "trigger_phrase": "/data-coworker",
-      "protocols": ["a2a", "e2m-mcp"],
-      "peers": ["pm-coworker", "engineering-coworker"],
+      "protocols": [
+        "a2a",
+        "e2m-mcp"
+      ],
+      "peers": [
+        "product-management-coworker",
+        "engineering-coworker"
+      ],
       "description": "AlloyDB / Kimball DW coworker. Owns dw.* schema, dim_agent_templates, fact tables.",
       "subdomain_surface": "coworkers.subagentknowledge.com/data",
       "test": "cowork/coworkers/tests/data-coworker.test.ts"
@@ -83,8 +131,14 @@
       "skill": "cowork/coworkers/skills/sales-coworker/SKILL.md",
       "model": "claude-haiku-4-5-20251001",
       "trigger_phrase": "/sales-coworker",
-      "protocols": ["a2a", "e2m-mcp"],
-      "peers": ["pm-coworker", "finance-coworker"],
+      "protocols": [
+        "a2a",
+        "e2m-mcp"
+      ],
+      "peers": [
+        "product-management-coworker",
+        "finance-coworker"
+      ],
       "description": "Outreach + mail coworker. Owns cowork/apps/mail/, sales queue, finance cost tracking.",
       "subdomain_surface": "coworkers.subagentknowledge.com/sales",
       "test": "cowork/coworkers/tests/sales-coworker.test.ts"
@@ -98,8 +152,16 @@
       "skill": "cowork/coworkers/skills/operations-coworker/SKILL.md",
       "model": "claude-haiku-4-5-20251001",
       "trigger_phrase": "/operations-coworker",
-      "protocols": ["a2a", "e2m-mcp", "acp"],
-      "peers": ["pm-coworker", "finance-coworker", "engineering-coworker"],
+      "protocols": [
+        "a2a",
+        "e2m-mcp",
+        "acp"
+      ],
+      "peers": [
+        "product-management-coworker",
+        "finance-coworker",
+        "engineering-coworker"
+      ],
       "description": "Infrastructure + process coworker. Manages Cloudflare Workers, scheduled tasks, deploy pipelines, subdomain provisioning.",
       "subdomain_surface": "coworkers.subagentknowledge.com/operations",
       "test": "cowork/coworkers/tests/operations-coworker.test.ts"
@@ -113,65 +175,184 @@
       "skill": "cowork/coworkers/skills/finance-coworker/SKILL.md",
       "model": "claude-haiku-4-5-20251001",
       "trigger_phrase": "/finance-coworker",
-      "protocols": ["a2a", "e2m-mcp"],
-      "peers": ["pm-coworker", "sales-coworker", "operations-coworker"],
+      "protocols": [
+        "a2a",
+        "e2m-mcp"
+      ],
+      "peers": [
+        "product-management-coworker",
+        "sales-coworker",
+        "operations-coworker"
+      ],
       "description": "Cost tracking + vendor spend coworker. Owns finance.jsonl, cost approval gates, third-party spend tracking.",
       "subdomain_surface": "coworkers.subagentknowledge.com/finance",
       "test": "cowork/coworkers/tests/finance-coworker.test.ts"
+    },
+    {
+      "id": "legal-coworker",
+      "display_name": "Legal",
+      "domain": "legal",
+      "queue": "cowork/data/queues/legal.jsonl",
+      "mailbox": "cowork/data/mailbox/legal-coworker.jsonl",
+      "skill": "cowork/coworkers/skills/legal-coworker/SKILL.md",
+      "model": "claude-sonnet-4-6",
+      "trigger_phrase": "/legal-coworker",
+      "protocols": [
+        "a2a",
+        "e2m-mcp"
+      ],
+      "peers": [
+        "product-management-coworker",
+        "sales-coworker",
+        "engineering-coworker"
+      ],
+      "description": "Legal review, compliance, NDA triage, contract review, vendor checks. Queues all external correspondence \u2014 never sends without operator approval.",
+      "subdomain_surface": "coworkers.subagentknowledge.com/legal",
+      "skill_plugins": [
+        "legal:brief",
+        "legal:compliance-check",
+        "legal:legal-response",
+        "legal:legal-risk-assessment",
+        "legal:meeting-briefing",
+        "legal:review-contract",
+        "legal:signature-request",
+        "legal:triage-nda",
+        "legal:vendor-check"
+      ],
+      "test": "cowork/coworkers/tests/legal-coworker.test.ts"
+    },
+    {
+      "id": "marketing-coworker",
+      "display_name": "Marketing",
+      "domain": "marketing",
+      "queue": "cowork/data/queues/marketing.jsonl",
+      "mailbox": "cowork/data/mailbox/marketing-coworker.jsonl",
+      "skill": "cowork/coworkers/skills/marketing-coworker/SKILL.md",
+      "model": "claude-sonnet-4-6",
+      "trigger_phrase": "/marketing-coworker",
+      "protocols": [
+        "a2a",
+        "e2m-mcp"
+      ],
+      "peers": [
+        "product-management-coworker",
+        "sales-coworker",
+        "legal-coworker"
+      ],
+      "description": "Brand, content, SEO, campaigns, competitive intelligence. Queues all content \u2014 never publishes without operator approval.",
+      "subdomain_surface": "coworkers.subagentknowledge.com/marketing",
+      "skill_plugins": [
+        "marketing:brand-review",
+        "marketing:campaign-plan",
+        "marketing:competitive-brief",
+        "marketing:content-creation",
+        "marketing:draft-content",
+        "marketing:email-sequence",
+        "marketing:performance-report",
+        "marketing:seo-audit"
+      ],
+      "test": "cowork/coworkers/tests/marketing-coworker.test.ts"
+    },
+    {
+      "id": "agent-resources-coworker",
+      "display_name": "Agent Resources",
+      "domain": "agent-resources",
+      "queue": "cowork/data/queues/agent-resources.jsonl",
+      "mailbox": "cowork/data/mailbox/agent-resources-coworker.jsonl",
+      "skill": "cowork/coworkers/skills/agent-resources-coworker/SKILL.md",
+      "model": "claude-sonnet-4-6",
+      "trigger_phrase": "/agent-resources-coworker",
+      "protocols": [
+        "a2a",
+        "e2m-mcp"
+      ],
+      "peers": [
+        "product-management-coworker",
+        "engineering-coworker",
+        "human-resources-coworker"
+      ],
+      "description": "Agent lifecycle: onboard new coworkers, upgrade skills, track performance (ke_fit_score), manage cost, retire agents. The HR layer for agents.",
+      "subdomain_surface": "coworkers.subagentknowledge.com/agent-resources",
+      "test": "cowork/coworkers/tests/agent-resources-coworker.test.ts"
+    },
+    {
+      "id": "human-resources-coworker",
+      "display_name": "Human Resources",
+      "domain": "human-resources",
+      "queue": "cowork/data/queues/human-resources.jsonl",
+      "mailbox": "cowork/data/mailbox/human-resources-coworker.jsonl",
+      "skill": "cowork/coworkers/skills/human-resources-coworker/SKILL.md",
+      "model": "claude-sonnet-4-6",
+      "trigger_phrase": "/human-resources-coworker",
+      "protocols": [
+        "a2a",
+        "e2m-mcp"
+      ],
+      "peers": [
+        "product-management-coworker",
+        "legal-coworker",
+        "finance-coworker",
+        "agent-resources-coworker"
+      ],
+      "description": "People ops for humans: recruiting, onboarding, performance, comp, org planning. All correspondence status=draft \u2014 never sends without operator approval.",
+      "subdomain_surface": "coworkers.subagentknowledge.com/human-resources",
+      "skill_plugins": [
+        "human-resources:comp-analysis",
+        "human-resources:draft-offer",
+        "human-resources:interview-prep",
+        "human-resources:onboarding",
+        "human-resources:org-planning",
+        "human-resources:people-report",
+        "human-resources:performance-review",
+        "human-resources:policy-lookup",
+        "human-resources:recruiting-pipeline"
+      ],
+      "test": "cowork/coworkers/tests/human-resources-coworker.test.ts"
+    },
+    {
+      "id": "project-management-coworker",
+      "display_name": "Project Management",
+      "domain": "project-management",
+      "queue": "project-management",
+      "mailbox": "cowork/data/mailbox/project-management-coworker.jsonl",
+      "skill": "cowork/coworkers/skills/project-management-coworker/SKILL.md",
+      "model": "claude-opus-4-6",
+      "model_budget": "claude-opus-4-8",
+      "trigger_phrase": "/project-management-coworker",
+      "protocols": [
+        "a2a",
+        "e2m-mcp"
+      ],
+      "peers": [
+        "product-management-coworker",
+        "engineering-coworker",
+        "agent-resources-coworker"
+      ],
+      "reports_to": "product-management-coworker",
+      "description": "Execution tracker, nightly review, type-safety auditor. Reports to product-management."
     }
   ],
-  "plugins": {
-    "enterprise-search": {
-      "skills": ["digest", "knowledge-synthesis", "search", "search-strategy", "source-management"],
-      "coworker_affinity": ["pm-coworker", "data-coworker", "engineering-coworker"],
-      "description": "Cross-vendor doc search across 25 vendor surfaces in vendor/. Powers the enterprise knowledge surface."
-    },
-    "productivity": {
-      "skills": ["memory-management", "start", "task-management", "update"],
-      "coworker_affinity": ["pm-coworker"],
-      "description": "Session continuity, heartbeat, task routing. Extends structured-prompt-resume."
-    },
-    "skill-ci-cd": {
-      "skills": ["durable-agent-ci-cd-rubrics", "durable-agent-ci-cd-evals", "durable-agent-ci-cd-outcomes"],
-      "skill_paths": [
-        ".claude/skills/durable-agent-ci-cd-rubrics/SKILL.md",
-        ".claude/skills/durable-agent-ci-cd-evals/SKILL.md",
-        ".claude/skills/durable-agent-ci-cd-outcomes/SKILL.md"
-      ],
-      "coworker_affinity": ["engineering-coworker", "pm-coworker"],
-      "description": "Merge gate for .claude/skills/. rubrics defines scoring (D1 type-safety, D2 durability, D3 agent-reuse, D4 packaging). evals runs the harness and writes cowork/data/queues/skill-grades.jsonl. outcomes reads grades, emits verdict per skill, and writes blocking DurableTasks to engineering.jsonl.",
-      "protocols": ["e2m-mcp"],
-      "cite": [
-        ".claude/skills/durable-agent-ci-cd-rubrics/SKILL.md",
-        "cowork/templates/task-state-machine.ts",
-        "cowork/mcp/e2m-mcp/server.ts",
-        "cowork/data/queues/skill-grades.jsonl",
-        "cowork/data/queues/skill-outcomes.jsonl"
-      ]
-    },
-    "durable-memory": {
-      "skills": ["durable-lru-dreams", "durable-pg-memory-store"],
-      "skill_paths": [
-        ".claude/skills/durable-lru-dreams/SKILL.md",
-        ".claude/skills/durable-pg-memory-store/SKILL.md"
-      ],
-      "coworker_affinity": ["pm-coworker", "engineering-coworker", "data-coworker"],
-      "description": "Redis LRU + postgres durable memory layer. durable-lru-dreams owns the Dreams API lifecycle and dream_consolidation task pipeline. durable-pg-memory-store owns memory store CRUD, memory version history, PII redact, and cache hit/miss telemetry. Both write DurableTask envelopes to engineering.jsonl via e2m-mcp.",
-      "protocols": ["e2m-mcp"],
-      "cite": [
-        "platform.claude.com/docs/en/managed-agents/dreams.md",
-        "platform.claude.com/docs/en/managed-agents/memory.md",
-        "cowork/templates/task-state-machine.ts",
-        ".claude/skills/durable-lru-dreams/references/durable-dreams-memory-tasks.sql"
+  "plugins": [
+    {
+      "id": "project-management",
+      "skills": [
+        "nightly-review",
+        "type-safety-audit",
+        "morning-summary",
+        "output-schema-codify",
+        "pr-recap",
+        "queue-health-report",
+        "schedule-review",
+        "standard-enforcement"
       ]
     }
-  },
+  ],
   "continuity": {
-    "queue_dir":   "cowork/data/queues",
+    "queue_dir": "cowork/data/queues",
     "mailbox_dir": "cowork/data/mailbox",
     "resume_skill": "cowork/skills/user/structured-prompt-resume/SKILL.md",
     "test_runner": "cowork/coworkers/tests/run-all.ts",
-    "session_break_protocol": "read mailbox → read queue → claim highest_priority pending → execute → write transition"
+    "session_break_protocol": "read mailbox \u2192 read queue \u2192 claim highest_priority pending \u2192 execute \u2192 write transition"
   },
   "cite": [
     "cowork/mcp/e2m-mcp/server.ts",

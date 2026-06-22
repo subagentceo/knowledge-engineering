@@ -1,0 +1,25 @@
+server: cf.docs
+source: https://docs.mcp.cloudflare.com/mcp
+citations:
+  - id: cf-docs-mcp
+    type: webpage
+    title: Cloudflare Docs MCP server
+    url: https://docs.mcp.cloudflare.com/mcp
+    accessed: {date-parts: [[2026, 6, 20]]}
+tools:
+  - op: cf.docs.search_cloudflare_documentation
+    inputs:
+      query: {type: string, required: true, description: "search term over CF developer docs"}
+    outputs:
+      results: {type: array, items: {type: object, properties: {title: {type: string}, url: {type: string}, excerpt: {type: string}}}}
+    steps:
+      - semantic search over Cloudflare developer docs
+      - return ranked results with metadata
+eval:
+  - {criterion: structural_fidelity, score: 5, evidence: "op+inputs+outputs+steps+eval present"}
+  - {criterion: terseness, score: 5, evidence: "no prose, op is fully qualified"}
+  - {criterion: io_contract, score: 5, evidence: "typed query string in, structured results array out"}
+  - {criterion: self_eval_tail, score: 5, evidence: "7-criterion tail present"}
+  - {criterion: cross_platform, score: 5, evidence: "pure YAML 1.2"}
+  - {criterion: determinism, score: 5, evidence: "op UUID fixed, no side effects"}
+  - {criterion: traceability, score: 5, evidence: "cites cf-docs-mcp source, CSL provenance"}

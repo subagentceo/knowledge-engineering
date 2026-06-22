@@ -1,0 +1,49 @@
+# Agent-Native template links — saved by product-management-coworker 2026-06-18
+# @cite https://www.agent-native.com/templates
+# @cite https://raw.githubusercontent.com/BuilderIO/agent-native/refs/heads/main/README.md
+# Use: fetch <url>.md suffix for markdown-friendly docs
+
+links:
+  # Agent-Native Docs
+  - [https://www.agent-native.com/templates, https://www.agent-native.com/templates.md]
+  - [https://www.agent-native.com/docs/template-dispatch, https://www.agent-native.com/docs/template-dispatch.md]
+  - [https://www.agent-native.com/docs/template-design, https://www.agent-native.com/docs/template-design.md]
+  - [https://www.agent-native.com/docs/template-assets, https://www.agent-native.com/docs/template-assets.md]
+  - [https://www.agent-native.com/docs/template-clips, https://www.agent-native.com/docs/template-clips.md]
+  - [https://www.agent-native.com/docs/template-brain, https://www.agent-native.com/docs/template-brain.md]
+  - [https://www.agent-native.com/docs/template-forms, https://www.agent-native.com/docs/template-forms.md]
+  - [https://www.agent-native.com/docs/template-mail, https://www.agent-native.com/docs/template-mail.md]
+  - [https://www.agent-native.com/docs/template-slides, https://www.agent-native.com/docs/template-slides.md]
+  - [https://www.agent-native.com/docs/template-analytics, https://www.agent-native.com/docs/template-analytics.md]
+  - [https://www.agent-native.com/docs/template-plan, https://www.agent-native.com/docs/template-plan.md]
+  - [https://www.agent-native.com/docs/template-content, https://www.agent-native.com/docs/template-content.md]
+  - [https://www.agent-native.com/docs/template-chat, https://www.agent-native.com/docs/template-chat.md]
+  - [https://www.agent-native.com/docs/template-calendar, https://www.agent-native.com/docs/template-calendar.md]
+
+  # GitHub Repository Docs
+  - [https://raw.githubusercontent.com/BuilderIO/agent-native/refs/heads/main/README.md]
+  - [https://raw.githubusercontent.com/BuilderIO/agent-native/refs/heads/main/AGENTS.md]
+  - [https://raw.githubusercontent.com/BuilderIO/agent-native/refs/heads/main/CLAUDE.md]
+  - [https://raw.githubusercontent.com/BuilderIO/agent-native/refs/heads/main/DEVELOPMENT.md]
+
+  # Wrangler Configs
+  - [https://raw.githubusercontent.com/BuilderIO/agent-native/refs/heads/main/wrangler-analytics.toml]
+  - [https://raw.githubusercontent.com/BuilderIO/agent-native/refs/heads/main/wrangler-calendar.toml]
+  - [https://raw.githubusercontent.com/BuilderIO/agent-native/refs/heads/main/wrangler-chat.toml]
+  - [https://raw.githubusercontent.com/BuilderIO/agent-native/refs/heads/main/wrangler-clips.toml]
+  - [https://raw.githubusercontent.com/BuilderIO/agent-native/refs/heads/main/wrangler-dispatch.toml]
+  - [https://raw.githubusercontent.com/BuilderIO/agent-native/refs/heads/main/wrangler-forms.toml]
+  - [https://raw.githubusercontent.com/BuilderIO/agent-native/refs/heads/main/wrangler-mail.toml]
+  - [https://raw.githubusercontent.com/BuilderIO/agent-native/refs/heads/main/wrangler-slides.toml]
+  - [https://raw.githubusercontent.com/BuilderIO/agent-native/refs/heads/main/wrangler-content.toml]
+  - [https://raw.githubusercontent.com/BuilderIO/agent-native/refs/heads/main/wrangler-videos.toml]
+
+usage:
+  fetch_markdown: "curl -s <url>.md  # or without .md for the raw URL"
+  local_cache: "seeds/references/agent-native/"
+  primary_templates_for_cowork:
+    - template-plan      # visual plan board — cowork.subagentknowledge.com
+    - template-dispatch  # task dispatch UI
+    - template-calendar  # scheduled task view
+    - template-analytics # metrics / scorecard view
+    - template-chat      # coworker message feed
