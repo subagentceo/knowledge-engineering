@@ -1,0 +1,95 @@
+name: e2m-unblock (apply · tag · deploy)
+
+# Resolves blockers KAN-55 (B1 terraform apply), KAN-56 (B3 tags), KAN-57 (B5 worker deploys)
+# in one run, gated on a single scoped Cloudflare API token.
+# Operator action: Settings → Secrets → Actions → add CLOUDFLARE_API_TOKEN
+#   (scopes: Workers Scripts:Edit, Workers Routes:Edit, Email Routing:Edit, Account Tags:Write).
+# Then run this workflow (Actions tab → Run workflow). No raw token ever touches chat.
+#
+# NOTE: e2m-tf-apply.yml was removed — it triggered on the same paths and ran
+# terraform apply concurrently, risking state-lock races. This is the single
+# canonical deploy workflow.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "coworkers/organizations/github/e2m-tf/**"
+      - "coworkers/organizations/cloudflare/resources.yaml"
+      - "frontend/**/src/**"
+
+permissions:
+  contents: read
+
+env:
+  CLOUDFLARE_ACCOUNT_ID: e6294e3ea89f8207af387d459824aaae
+
+jobs:
+  terraform-apply: # B1 — Terraform is the only creation path; adopts live resources + creates operator emails + plan-frontend
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+      - name: terraform apply (e2m-tf)
+        working-directory: coworkers/organizations/github/e2m-tf
+        run: |
+          terraform init -input=false
+          terraform plan -input=false
+          terraform apply -auto-approve -input=false
+
+  tag-resources: # B3 — apply + verify the e2m-tf tag taxonomy (needs Tags:Write scope)
+    runs-on: ubuntu-latest
+    needs: terraform-apply
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: apply tags
+        working-directory: coworkers/organizations/cloudflare
+        run: python3 tagging/apply_tags.py
+      - name: verify tags (compliance gate)
+        working-directory: coworkers/organizations/cloudflare
+        run: python3 tagging/verify_tags.py
+
+  typecheck-workers: # Gate: typecheck + test before deploy
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        worker: [agent-inbox-worker, mail-worker, calendar-worker, cowork-worker, coworkers-worker]
+    defaults:
+      run:
+        working-directory: frontend/${{ matrix.worker }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm ci --no-audit --no-fund || npm install --no-audit --no-fund --legacy-peer-deps
+      - run: npx tsc --noEmit
+      - run: npx vitest run
+
+  deploy-workers: # B5 — promote the 5 McpAgent frontends to live /mcp + /sse
+    runs-on: ubuntu-latest
+    needs: [terraform-apply, typecheck-workers]
+    strategy:
+      matrix:
+        worker: [agent-inbox-worker, mail-worker, calendar-worker, cowork-worker, coworkers-worker]
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: deploy ${{ matrix.worker }}
+        working-directory: frontend/${{ matrix.worker }}
+        run: |
+          npm ci --no-audit --no-fund || npm install --no-audit --no-fund --legacy-peer-deps
+          npx wrangler deploy
