@@ -46,12 +46,12 @@ export default {
     if (url.pathname === "/api/manifest")
       return secure(Response.json({ app: "calendar", template: "agent-native/calendar", protocol: "e2m", actions: ACTIONS, version: "0.1.0" }));
     if (url.pathname === "/" || url.pathname === "")
-      return secure(new Response(calendarShell(env.COWORKERS_HOST), { headers: { "content-type": "text/html; charset=utf-8" } }));
+      return secure(new Response(calendarShell(), { headers: { "content-type": "text/html; charset=utf-8" } }));
     return secure(new Response("Not found", { status: 404 }));
   },
 };
 
-function calendarShell(coworkersHost: string): string {
+function calendarShell(): string {
   return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>calendar — subagentknowledge</title><style>
 *{box-sizing:border-box}html,body{margin:0;height:100%;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#0a0a0a;color:#d4d4d4;font-size:13px}
@@ -62,14 +62,14 @@ nav{display:flex;align-items:center;border-bottom:1px solid #1f1f1f;padding:0 12
 .ev{background:#111;border:1px solid #2a2a2a;border-left:2px solid #51c4ff;padding:3px 6px;font-size:10.5px;color:#d4d4d4}.ev.op{border-left-color:#e6b455}.ev.gr{border-left-color:#7bd88f}.slot{min-height:26px}
 footer{padding:12px 16px;font-size:11px;color:#6a6a6a;border-top:1px solid #1f1f1f}a{color:#51c4ff;text-decoration:none}
 </style></head><body>
-<nav><a href="/" class="active">calendar/</a><a href="https://${coworkersHost}">coworkers/</a><a href="/mcp">mcp</a><a href="/api/manifest">manifest</a><div class="spacer"></div><a href="https://subagentknowledge.com">subagentknowledge.com ↗</a></nav>
+<nav><a href="/" class="active">calendar/</a><a href="https://coworkers.subagentknowledge.com">coworkers/</a><a href="/mcp">mcp</a><a href="/api/manifest">manifest</a><div class="spacer"></div><a href="https://subagentknowledge.com">subagentknowledge.com ↗</a></nav>
 <div class="hero"><h1>Calendar — agent-native over e2m</h1><p>An agent-powered calendar where an <b>event = a scheduled DurableTask</b> (due_date) on a domain queue. This is the OP1 cadence surface — the WBR / MBR / QBR rhythm and the milestone calendar.</p>
 <div class="mcp"><div class="l">MCP endpoint — paste into Claude connectors</div><code>https://calendar.subagentknowledge.com/mcp</code></div></div>
 <div class="cal" id="cal"></div>
 <footer>calendar.subagentknowledge.com · actions: list_events · check_availability · create_event · template: agent-native/calendar</footer>
 <script>
 var days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],times=['09','11','13','15'];
-var EV={'09-0':['Eng standup','gr'],'09-1':['Eng standup','gr'],'09-4':['WBR / morning summary','op'],'11-0':['OP1 review','op'],'11-3':['Roadmap',''],'13-1':['1:1',''],'15-3':['Skip-level','']};
+var EV={'09-0':['Morning summary','gr'],'09-2':['Priority rerank','gr'],'09-4':['WBR (weekly)','op'],'11-0':['OP1 review','op'],'11-3':['Roadmap sync',''],'13-2':['Deploy window','gr'],'15-4':['Nightly review','op']};
 var cal=document.getElementById('cal');var html='<div class="h"></div>'+days.map(function(d){return '<div class="h">'+d+'</div>';}).join('');
 times.forEach(function(t,ti){html+='<div class="t">'+t+':00</div>';for(var d=0;d<7;d++){var k=t+'-'+d,ev=EV[k];html+='<div class="slot">'+(ev?'<div class="ev '+ev[1]+'">'+ev[0]+'</div>':'')+'</div>';}});
 cal.innerHTML=html;
