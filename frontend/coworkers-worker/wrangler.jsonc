@@ -35,6 +35,10 @@
   "migrations": [
     {
       "tag": "v1",
+      "new_sqlite_classes": ["CoworkersMcp"]
+    },
+    {
+      "tag": "v2",
       "new_sqlite_classes": ["CoworkersMcpApp"]
     }
   ]
