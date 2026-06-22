@@ -22,101 +22,19 @@
 import { McpAgent } from "agents/mcp";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
+import { COWORKERS, PROTOCOLS, findCoworker, protocolMatrix, secure, HSTS, type Coworker, type Protocol } from "./manifest.js";
+
+export { COWORKERS, PROTOCOLS, findCoworker, protocolMatrix, secure, HSTS, type Coworker, type Protocol } from "./manifest.js";
+
+import { CoworkersMcpApp } from "./coworkers.app.js";
+export { CoworkersMcpApp };
 
 export interface Env {
   MCP_OBJECT: DurableObjectNamespace;
+  COWORKERS_MCP_APP: DurableObjectNamespace;
   COWORK_HOST: string;
   SITE_NAME: string;
 }
-
-// ── Coworker directory ────────────────────────────────────────────────────────
-
-interface Coworker {
-  id: string;
-  display_name: string;
-  domain: string;
-  trigger_phrase: string;
-  protocols: string[];
-  peers: string[];
-  description: string;
-  model: string;
-}
-
-const COWORKERS: Coworker[] = [
-  {
-    id: "pm-coworker",
-    display_name: "Product Management",
-    domain: "product-management",
-    trigger_phrase: "/pm-coworker",
-    protocols: ["a2a", "e2m-mcp", "mcp"],
-    peers: ["design-coworker", "engineering-coworker", "data-coworker", "sales-coworker", "operations-coworker", "finance-coworker"],
-    description: "Lead PM. Routes work, manages priority-rerank cadence, orchestrates peer coworkers via e2m-mcp mailbox.",
-    model: "claude-sonnet-4-6",
-  },
-  {
-    id: "design-coworker",
-    display_name: "Design",
-    domain: "design",
-    trigger_phrase: "/design-coworker",
-    protocols: ["a2a", "e2m-mcp"],
-    peers: ["pm-coworker", "engineering-coworker"],
-    description: "Design token + HTML artifact coworker. Owns cowork/artifacts/ and the 8-token design system.",
-    model: "claude-sonnet-4-6",
-  },
-  {
-    id: "engineering-coworker",
-    display_name: "Engineering",
-    domain: "engineering",
-    trigger_phrase: "/engineering-coworker",
-    protocols: ["a2a", "e2m-mcp", "mcp"],
-    peers: ["pm-coworker", "data-coworker"],
-    description: "TypeScript + Rust coworker. Owns cowork/mcp/, cowork/templates/, src/. OAuth-only, no API keys.",
-    model: "claude-haiku-4-5-20251001",
-  },
-  {
-    id: "data-coworker",
-    display_name: "Data",
-    domain: "data",
-    trigger_phrase: "/data-coworker",
-    protocols: ["a2a", "e2m-mcp"],
-    peers: ["pm-coworker", "engineering-coworker"],
-    description: "AlloyDB / Kimball DW coworker. Owns dw.* schema, dim_agent_templates, fact tables.",
-    model: "claude-haiku-4-5-20251001",
-  },
-  {
-    id: "sales-coworker",
-    display_name: "Sales",
-    domain: "sales",
-    trigger_phrase: "/sales-coworker",
-    protocols: ["a2a", "e2m-mcp"],
-    peers: ["pm-coworker", "finance-coworker"],
-    description: "Outreach + mail coworker. Queue-first drafts only. Finance gate before spend.",
-    model: "claude-haiku-4-5-20251001",
-  },
-  {
-    id: "operations-coworker",
-    display_name: "Operations",
-    domain: "operations",
-    trigger_phrase: "/operations-coworker",
-    protocols: ["a2a", "e2m-mcp", "acp"],
-    peers: ["pm-coworker", "finance-coworker", "engineering-coworker"],
-    description: "Infrastructure + process coworker. Manages CF Workers, scheduled tasks, deploy pipelines, subdomain provisioning.",
-    model: "claude-haiku-4-5-20251001",
-  },
-  {
-    id: "finance-coworker",
-    display_name: "Finance",
-    domain: "finance",
-    trigger_phrase: "/finance-coworker",
-    protocols: ["a2a", "e2m-mcp"],
-    peers: ["pm-coworker", "sales-coworker", "operations-coworker"],
-    description: "Cost tracking + vendor spend coworker. Owns finance.jsonl, cost approval gates.",
-    model: "claude-haiku-4-5-20251001",
-  },
-];
-
-const PROTOCOLS = ["a2a", "e2m-mcp", "mcp", "acp"] as const;
-type Protocol = typeof PROTOCOLS[number];
 
 // ── McpAgent ──────────────────────────────────────────────────────────────────
 
@@ -149,7 +67,7 @@ export class CoworkersMcp extends McpAgent<Env> {
       {
         description: "Get full detail for one coworker by id or trigger phrase.",
         inputSchema: {
-          id: z.string().describe("Coworker id (e.g. pm-coworker) or trigger phrase (e.g. /pm-coworker)"),
+          id: z.string().describe("Coworker id (e.g. product-management-coworker) or trigger phrase (e.g. /product-management-coworker)"),
         },
         annotations: { readOnlyHint: true },
       },
@@ -182,7 +100,7 @@ export class CoworkersMcp extends McpAgent<Env> {
       {
         description: "Draft a DurableTask envelope to send to a coworker's e2m-mcp mailbox. Returns the envelope JSON — write it via the e2m-mcp bridge server.",
         inputSchema: {
-          to:      z.string().describe("Coworker id, e.g. pm-coworker"),
+          to:      z.string().describe("Coworker id, e.g. product-management-coworker"),
           subject: z.string().describe("Task subject line (imperative, <80 chars)"),
           ke_fit_score: z.number().int().min(1).max(5).default(3).describe("KE fit score 1-5"),
           depends_on: z.array(z.string()).optional().describe("Task IDs this depends on"),
@@ -214,15 +132,6 @@ export class CoworkersMcp extends McpAgent<Env> {
 
 // ── Worker fetch handler ───────────────────────────────────────────────────────
 
-const HSTS = "max-age=31536000; includeSubDomains";
-
-function secure(r: Response): Response {
-  const out = new Response(r.body, r);
-  out.headers.set("strict-transport-security", HSTS);
-  out.headers.set("x-site", "coworkers.subagentknowledge.com");
-  return out;
-}
-
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
@@ -232,8 +141,14 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
+    // SSE transport (Claude Desktop / legacy clients)
+    if (url.pathname === "/sse" || url.pathname.startsWith("/sse/")) {
+      return CoworkersMcpApp.serveSSE("/sse").fetch(request, env, ctx);
+    }
+
+    // Streamable-HTTP transport (MCP 2025-03-26+)
     if (url.pathname === "/mcp" || url.pathname.startsWith("/mcp/")) {
-      return CoworkersMcp.serve("/mcp").fetch(request, env, ctx);
+      return CoworkersMcpApp.serve("/mcp").fetch(request, env, ctx);
     }
 
     if (url.pathname === "/" || url.pathname === "") {

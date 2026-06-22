@@ -1,10 +1,10 @@
 {
-  "name": "@subagentceo/coworkers-worker",
-  "version": "0.2.0",
+  "name": "agent-inbox-worker",
+  "version": "0.1.0",
   "private": true,
+  "description": "Email for the e2m manager roles on Cloudflare Email Service (Email Routing + Email Sending + Agents SDK).",
   "type": "module",
   "scripts": {
-    "build": "wrangler deploy --dry-run --outdir dist",
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
     "typecheck": "tsc --noEmit",
@@ -13,13 +13,15 @@
   "dependencies": {
     "agents": "^0.15.0",
     "@modelcontextprotocol/sdk": "^1.12.0",
-    "zod": "^3.25.0"
+    "zod": "^3.25.0",
+    "postal-mime": "^2.3.2",
+    "@coworkers/e2m-ts": "file:../../coworkers/organizations/github/e2m-ts"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260101.0",
     "@types/node": "^26.0.0",
     "typescript": "^5.6.0",
     "vitest": "^4.1.8",
-    "wrangler": "^3.114.17"
+    "wrangler": "^4.0.0"
   }
 }
