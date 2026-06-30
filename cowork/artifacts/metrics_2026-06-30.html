@@ -1,0 +1,160 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="theme-color" content="#0a0a0a"/>
+<title>metrics review — 2026-06-30</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#0a0a0a;color:#d4d4d4;
+ font-family:ui-monospace,SFMono-Regular,"Menlo","Monaco","Consolas","Liberation Mono","Courier New",monospace;
+ -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-size:13px;line-height:1.5}
+a{color:#51c4ff;text-decoration:none}
+#header{padding:14px 18px 14px;border-bottom:1px solid #2a2a2a}
+#header h1{margin:0;font-size:15px;font-weight:600;letter-spacing:1px;color:#f4f4f4;text-transform:uppercase}
+#header .meta{margin-top:5px;font-size:11px;color:#6a6a6a}
+.sowhat{margin:12px 18px;border:1px solid #2a2a2a;border-left:3px solid #e6b455;
+ background:#111;padding:10px 13px;font-size:12.5px;color:#e6e6e6}
+.sowhat b{color:#f4f4f4}
+.banner{margin:12px 18px;border:1px solid #2a2a2a;border-left:3px solid #51c4ff;
+ background:#111;padding:9px 13px;font-size:11.5px;color:#9a9a9a}
+.banner b{color:#e6e6e6}
+main{padding:6px 18px 40px}
+.section{margin-bottom:24px}
+.sh{display:flex;align-items:baseline;gap:10px;padding:6px 0;border-bottom:1px solid #2a2a2a;margin-bottom:11px}
+.sn{font-size:10px;color:#6a6a6a;font-weight:600}
+.st{font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:600;color:#f4f4f4}
+.ssub{font-size:11px;color:#6a6a6a;margin-left:auto;text-align:right}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;font-weight:600;color:#6a6a6a;font-size:10px;text-transform:uppercase;letter-spacing:.5px;
+ padding:5px 8px;border-bottom:1px solid #2a2a2a}
+td{padding:5px 8px;border-bottom:1px solid #1a1a1a;vertical-align:middle}
+tr:hover td{background:#141414}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:7px;margin-bottom:13px}
+.kpi{border:1px solid #2a2a2a;background:#111;padding:9px 11px;border-left:3px solid #6a6a6a}
+.kpi .v{font-size:21px;font-weight:600;color:#f4f4f4;font-variant-numeric:tabular-nums}
+.kpi .l{font-size:10px;color:#6a6a6a;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.kpi.g{border-left-color:#7bd88f} .kpi.a{border-left-color:#e6b455} .kpi.r{border-left-color:#ff6b6b} .kpi.b{border-left-color:#51c4ff}
+.pill{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.4px;padding:1px 6px;border:1px solid #2a2a2a}
+.g{color:#7bd88f} .a{color:#e6b455} .r{color:#ff6b6b} .b{color:#51c4ff} .mut{color:#6a6a6a}
+.dot{display:inline-block;width:7px;height:7px;margin-right:5px;vertical-align:middle}
+.b-g{background:#7bd88f} .b-a{background:#e6b455} .b-r{background:#ff6b6b} .b-m{background:#6a6a6a}
+.note{font-size:11px;color:#6a6a6a;margin-top:8px;border-left:2px solid #2a2a2a;padding-left:9px}
+footer{padding:14px 18px;border-top:1px solid #2a2a2a;font-size:10.5px;color:#6a6a6a;line-height:1.7}
+.acts{counter-reset:a}
+.act{display:flex;gap:10px;border:1px solid #2a2a2a;background:#111;padding:9px 12px;margin-bottom:6px;border-left:3px solid #e6b455}
+.act .i{color:#e6b455;font-weight:600;font-size:12px;min-width:18px}
+.act.r{border-left-color:#ff6b6b} .act.r .i{color:#ff6b6b}
+.act.g{border-left-color:#7bd88f} .act.g .i{color:#7bd88f}
+.act .x{font-size:12px;color:#e6e6e6}
+.act .x b{color:#f4f4f4}
+</style></head><body>
+<header id="header">
+<h1>metrics review · knowledge-engineering</h1>
+<div class="meta">generated 2026-06-30T20:46Z · review period (this week): 2026-06-18 → 2026-06-24 (7d ending most recent Wed 10:00 UTC) · model: Claude Opus 4.8 · agent: pm-agent</div>
+</header>
+<div class="sowhat">⚑ <b>So what:</b> The cowork task loop <b class="r">stalled</b> — 0 queue writes in the last 7 days (last write 2026-06-22, 8 days ago). Of <b>285</b> tasks, <b class="r">230 (80%) sit in <span class="mut">pending</span></b> and only <b>16 (5.6%)</b> have completed. The dominant drag is a <b class="r">34-row engineering skill-gate block</b>. North-Star templates (analytics·plan·brain) remain <b class="a">available</b>, not yet installed — 0/3 of the Q3 OKR.</div>
+<div class="banner"><b>Data coverage:</b> queue ledgers (17 domain queues, 285 tasks / 57 transitions) span 2026-06-18 → 2026-06-22 (chassis data_start_date 2026-06-18). "Last week" (2026-06-11→06-17) predates the data → no comparison rows. <b>fact_connectors is unpopulated</b> (table defined, no collector snapshot loaded), so connector approval-rate telemetry is unavailable this run — surfaced as a gap below, not estimated.</div>
+<main>
+<div class="section"><div class="sh"><span class="sn">M3</span><span class="st">task state machine — dim_cowork_tasks</span><span class="ssub">285 tasks · 57 transitions · grain: latest-line-wins</span></div>
+<div class="kpis">
+<div class="kpi"><div class="v">285</div><div class="l">total tasks</div></div>
+<div class="kpi a"><div class="v a">230</div><div class="l">pending · 80%</div></div>
+<div class="kpi"><div class="v">0</div><div class="l">in&nbsp;progress</div></div>
+<div class="kpi r"><div class="v r">36</div><div class="l">blocked · 12%</div></div>
+<div class="kpi g"><div class="v g">16</div><div class="l">completed · 5%</div></div>
+<div class="kpi"><div class="v mut">3</div><div class="l">superseded/cancelled</div></div>
+</div>
+<table><thead><tr><th>state</th><th class="num">count</th><th>share of 285</th><th>transition events (period)</th></tr></thead><tbody>
+<tr><td>pending</td><td class="num">230</td><td><span style="display:inline-block;width:160px;height:9px;background:#1c1c1c;border:1px solid #2a2a2a;vertical-align:middle"><span style="display:block;height:9px;width:129px;background:#e6b455"></span></span> <span class="mut">80.7%</span></td><td></td></tr>
+<tr><td>in_progress</td><td class="num">0</td><td><span style="display:inline-block;width:160px;height:9px;background:#1c1c1c;border:1px solid #2a2a2a;vertical-align:middle"><span style="display:block;height:9px;width:0px;background:#6a6a6a"></span></span> <span class="mut">0.0%</span></td><td></td></tr>
+<tr><td>blocked</td><td class="num">36</td><td><span style="display:inline-block;width:160px;height:9px;background:#1c1c1c;border:1px solid #2a2a2a;vertical-align:middle"><span style="display:block;height:9px;width:20px;background:#ff6b6b"></span></span> <span class="mut">12.6%</span></td><td></td></tr>
+<tr><td>completed</td><td class="num">16</td><td><span style="display:inline-block;width:160px;height:9px;background:#1c1c1c;border:1px solid #2a2a2a;vertical-align:middle"><span style="display:block;height:9px;width:9px;background:#7bd88f"></span></span> <span class="mut">5.6%</span></td><td></td></tr>
+<tr><td>other (superseded·cancelled)</td><td class="num">3</td><td><span style="display:inline-block;width:160px;height:9px;background:#1c1c1c;border:1px solid #2a2a2a;vertical-align:middle"><span style="display:block;height:9px;width:2px;background:#6a6a6a"></span></span> <span class="mut">1.1%</span></td><td></td></tr>
+</tbody></table>
+<div class="note">Funnel (period flow): <b>claim</b> 7 → <b>complete</b> 10 · <b>block</b> 34 · <b>note</b> 5 · <b>cancel</b> 1. Pass-through rate pending→done = <b class="g">5.6%</b>; block rate = <b class="r">12.6%</b>; WIP (in_progress now) = <b>0</b> → nothing is mid-flight, the loop is idle rather than churning.</div>
+</div>
+<div class="section"><div class="sh"><span class="sn">M6</span><span class="st">e2m-mcp queue summary — per domain</span><span class="ssub">queue_status tool · pending / in_progress / blocked / completed</span></div>
+<table><thead><tr><th>domain queue</th><th class="num">pending</th><th class="num">in_prog</th><th class="num">blocked</th><th class="num">done</th><th class="num">other</th><th class="num">total</th><th>health</th></tr></thead><tbody>
+<tr><td>engineering</td><td class="num">93</td><td class="num"></td><td class="num"><span class=r>34</span></td><td class="num"><span class=g>2</span></td><td class="num"></td><td class="num">129</td><td><span class="dot" style="background:#ff6b6b"></span><span class="mut">blocked</span></td></tr>
+<tr><td>data</td><td class="num">26</td><td class="num"></td><td class="num"><span class=r>1</span></td><td class="num"><span class=g>1</span></td><td class="num">2</td><td class="num">30</td><td><span class="dot" style="background:#ff6b6b"></span><span class="mut">blocked</span></td></tr>
+<tr><td>product-management</td><td class="num">23</td><td class="num"></td><td class="num"></td><td class="num"><span class=g>4</span></td><td class="num"></td><td class="num">27</td><td><span class="dot" style="background:#e6b455"></span><span class="mut">mixed</span></td></tr>
+<tr><td>project-management</td><td class="num">19</td><td class="num"></td><td class="num"><span class=r>1</span></td><td class="num"><span class=g>1</span></td><td class="num"></td><td class="num">21</td><td><span class="dot" style="background:#ff6b6b"></span><span class="mut">blocked</span></td></tr>
+<tr><td>design</td><td class="num">16</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">16</td><td><span class="dot" style="background:#6a6a6a"></span><span class="mut">idle/pending</span></td></tr>
+<tr><td>operations</td><td class="num">6</td><td class="num"></td><td class="num"></td><td class="num"><span class=g>3</span></td><td class="num"></td><td class="num">9</td><td><span class="dot" style="background:#e6b455"></span><span class="mut">mixed</span></td></tr>
+<tr><td>sales</td><td class="num">8</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">1</td><td class="num">9</td><td><span class="dot" style="background:#6a6a6a"></span><span class="mut">idle/pending</span></td></tr>
+<tr><td>finance</td><td class="num">7</td><td class="num"></td><td class="num"></td><td class="num"><span class=g>1</span></td><td class="num"></td><td class="num">8</td><td><span class="dot" style="background:#e6b455"></span><span class="mut">mixed</span></td></tr>
+<tr><td>legal</td><td class="num">7</td><td class="num"></td><td class="num"></td><td class="num"><span class=g>1</span></td><td class="num"></td><td class="num">8</td><td><span class="dot" style="background:#e6b455"></span><span class="mut">mixed</span></td></tr>
+<tr><td>agent-resources</td><td class="num">6</td><td class="num"></td><td class="num"></td><td class="num"><span class=g>1</span></td><td class="num"></td><td class="num">7</td><td><span class="dot" style="background:#e6b455"></span><span class="mut">mixed</span></td></tr>
+<tr><td>marketing</td><td class="num">6</td><td class="num"></td><td class="num"></td><td class="num"><span class=g>1</span></td><td class="num"></td><td class="num">7</td><td><span class="dot" style="background:#e6b455"></span><span class="mut">mixed</span></td></tr>
+<tr><td>human-resources</td><td class="num">6</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">6</td><td><span class="dot" style="background:#6a6a6a"></span><span class="mut">idle/pending</span></td></tr>
+<tr><td>operator</td><td class="num">5</td><td class="num"></td><td class="num"></td><td class="num"><span class=g>1</span></td><td class="num"></td><td class="num">6</td><td><span class="dot" style="background:#e6b455"></span><span class="mut">mixed</span></td></tr>
+<tr><td>product</td><td class="num">1</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">1</td><td><span class="dot" style="background:#6a6a6a"></span><span class="mut">idle/pending</span></td></tr>
+<tr><td>project</td><td class="num">1</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">1</td><td><span class="dot" style="background:#6a6a6a"></span><span class="mut">idle/pending</span></td></tr>
+<tr style="border-top:1px solid #2a2a2a"><td><b>ALL</b></td><td class="num"><b>230</b></td><td class="num"><b>0</b></td><td class="num"><b class="r">36</b></td><td class="num"><b class="g">16</b></td><td class="num"><b>3</b></td><td class="num"><b>285</b></td><td></td></tr>
+</tbody></table></div>
+<div class="section"><div class="sh"><span class="sn">M4</span><span class="st">top tasks completed — engineering + product-management</span><span class="ssub">6 eng+pm done · 16 org-wide · most recent first</span></div>
+<table><thead><tr><th class="num">#</th><th>completed</th><th>queue</th><th class="num">ke</th><th>task</th></tr></thead><tbody>
+<tr><td class="num mut">1</td><td class="b">2026-06-20</td><td><span class="pill">engineering</span></td><td class="num">5</td><td>Get the e2m-ts naming convention right — scaffold @coworkers/e2m-ts</td></tr>
+<tr><td class="num mut">2</td><td class="b">2026-06-19</td><td><span class="pill">engineering</span></td><td class="num">4</td><td>issue #522: make Ollama bind durable (0.0.0.0 + origins) for WSL operator</td></tr>
+<tr><td class="num mut">3</td><td class="b">2026-06-19</td><td><span class="pill">product-management</span></td><td class="num">4</td><td>Initialize operations.jsonl and verify finance.jsonl for new coworkers</td></tr>
+<tr><td class="num mut">4</td><td class="b">2026-06-18</td><td><span class="pill">product-management</span></td><td class="num">5</td><td>Register Wednesday 10:00 UTC metrics-review scheduled task (cron 0 10 * * 3)</td></tr>
+<tr><td class="num mut">5</td><td class="b">2026-06-18</td><td><span class="pill">product-management</span></td><td class="num">5</td><td>Register Wednesday 09:00 UTC priority-rerank scheduled task (cron 0 9 * * 3)</td></tr>
+</tbody></table>
+<div class="note">These are the 5 most-recent eng+pm completions; all landed 2026-06-18→06-20 (none within the trailing 7 days, consistent with the stall). Org-wide completions this period = 16.</div></div>
+<div class="section"><div class="sh"><span class="sn">M5</span><span class="st">top open blockers — by staleness</span><span class="ssub">36 blocked rows · 3 distinct themes</span></div>
+<table><thead><tr><th class="num">#</th><th>queue</th><th class="num">blocked since</th><th class="num">stale</th><th class="num">ke</th><th class="num">vol</th><th>blocker</th></tr></thead><tbody>
+<tr><td class="num r">1</td><td><span class="pill">data</span></td><td class="num">2026-06-19</td><td class="num r">11d</td><td class="num">2</td><td class="num mut">1 row</td><td>PR #502 rebase to origin/main — BLOCKED on operator go-ahead</td></tr>
+<tr><td class="num r">2</td><td><span class="pill">project-management</span></td><td class="num">2026-06-19</td><td class="num r">11d</td><td class="num">3</td><td class="num mut">1 row</td><td>Slice 4: resolve the honest gaps (compliance + marketing mismatch)</td></tr>
+<tr><td class="num r">3</td><td><span class="pill">engineering</span></td><td class="num">2026-06-22</td><td class="num r">8d</td><td class="num">5</td><td class="num mut">34 rows</td><td>Skill-gate batch: 7 toolchain skills fail D1_type_safety / D2_durability thresholds (durable-agent-ci-cd-outcomes)</td></tr>
+</tbody></table>
+<div class="note">The engineering theme is 34 ledger rows from one durable-agent-ci-cd-outcomes batch (toolchain doctor/install skills below D1_type_safety=2 and D2_durability=2 thresholds) — it is the single largest lever on throughput.</div></div>
+<div class="section"><div class="sh"><span class="sn">M2</span><span class="st">template adoption — dim_agent_templates</span><span class="ssub">12 templates · SCD-1 current install_status</span></div>
+<div class="kpis">
+<div class="kpi"><div class="v">0</div><div class="l">installed</div></div>
+<div class="kpi b"><div class="v b">11</div><div class="l">available</div></div>
+<div class="kpi a"><div class="v a">1</div><div class="l">consider</div></div>
+<div class="kpi"><div class="v">0</div><div class="l">skip</div></div>
+</div>
+<table><thead><tr><th>slug</th><th>display name</th><th>domain</th><th class="num">ke_fit</th><th>catalog tier</th><th>current status</th></tr></thead><tbody>
+<tr><td class="b">analytics <span class="g">★ OKR</span></td><td>Agent-Native Analytics</td><td class="mut">analytics</td><td class="num">5</td><td><span style="color:#7bd88f">recommended</span></td><td><span class="pill" style="border-color:#51c4ff">available</span></td></tr>
+<tr><td class="b">plan <span class="g">★ OKR</span></td><td>Agent-Native Plans</td><td class="mut">plan</td><td class="num">5</td><td><span style="color:#7bd88f">recommended</span></td><td><span class="pill" style="border-color:#51c4ff">available</span></td></tr>
+<tr><td class="b">brain <span class="g">★ OKR</span></td><td>Agent-Native Brain</td><td class="mut">knowledge</td><td class="num">5</td><td><span style="color:#7bd88f">recommended</span></td><td><span class="pill" style="border-color:#51c4ff">available</span></td></tr>
+<tr><td class="b">dispatch</td><td>Agent-Native Dispatch</td><td class="mut">dispatch</td><td class="num">4</td><td><span style="color:#7bd88f">recommended</span></td><td><span class="pill" style="border-color:#51c4ff">available</span></td></tr>
+<tr><td class="b">calendar</td><td>Agent-Native Calendar</td><td class="mut">productivity</td><td class="num">3</td><td><span style="color:#e6b455">consider</span></td><td><span class="pill" style="border-color:#51c4ff">available</span></td></tr>
+<tr><td class="b">content</td><td>Agent-Native Content</td><td class="mut">content</td><td class="num">3</td><td><span style="color:#e6b455">consider</span></td><td><span class="pill" style="border-color:#51c4ff">available</span></td></tr>
+<tr><td class="b">clips</td><td>Agent-Native Clips</td><td class="mut">knowledge</td><td class="num">3</td><td><span style="color:#e6b455">consider</span></td><td><span class="pill" style="border-color:#51c4ff">available</span></td></tr>
+<tr><td class="b">slides</td><td>Agent-Native Slides</td><td class="mut">communication</td><td class="num">3</td><td><span style="color:#e6b455">consider</span></td><td><span class="pill" style="border-color:#51c4ff">available</span></td></tr>
+<tr><td class="b">design</td><td>Agent-Native Design</td><td class="mut">design</td><td class="num">3</td><td><span style="color:#e6b455">consider</span></td><td><span class="pill" style="border-color:#51c4ff">available</span></td></tr>
+<tr><td class="b">mail</td><td>Agent-Native Mail</td><td class="mut">communication</td><td class="num">2</td><td><span style="color:#6a6a6a">skip</span></td><td><span class="pill" style="border-color:#51c4ff">available</span></td></tr>
+<tr><td class="b">forms</td><td>Agent-Native Forms</td><td class="mut">productivity</td><td class="num">2</td><td><span style="color:#6a6a6a">skip</span></td><td><span class="pill" style="border-color:#51c4ff">available</span></td></tr>
+<tr><td class="b">assets</td><td>Agent-Native Assets</td><td class="mut">design</td><td class="num">2</td><td><span style="color:#e6b455">consider</span></td><td><span class="pill" style="border-color:#2a2a2a">consider</span></td></tr>
+</tbody></table>
+<div class="note">All 11 cowork templates are <b>available</b> but <b>0 installed</b>. The Q3 North-Star OKR requires analytics·plan·brain <b>installed &amp; active</b> → currently 0/3. Catalog tier reflects upstream recommendation; current status reflects the cowork SCD-1 load (data-agent task 0006).</div></div>
+<div class="section"><div class="sh"><span class="sn">M1</span><span class="st">connector approval rate — this week vs last week</span><span class="ssub">target ≥ 0.85</span></div>
+<table><thead><tr><th>connector (live)</th><th>publisher</th><th class="num">ro tools</th><th class="num">write tools</th><th class="num">approval rate (this wk)</th><th class="num">last wk</th></tr></thead><tbody>
+<tr><td class="b">Macos</td><td class="mut">Anthropic</td><td class="num">3</td><td class="num">7</td><td class="num a">— <span class="mut" style="font-size:10px">no telemetry</span></td><td class="num mut">—</td></tr>
+<tr><td class="b">Filesystem</td><td class="mut">Anthropic</td><td class="num">5</td><td class="num">2</td><td class="num a">— <span class="mut" style="font-size:10px">no telemetry</span></td><td class="num mut">—</td></tr>
+<tr><td class="b">Word (By Anthropic)</td><td class="mut">Anthropic</td><td class="num">7</td><td class="num">2</td><td class="num a">— <span class="mut" style="font-size:10px">no telemetry</span></td><td class="num mut">—</td></tr>
+<tr><td class="b">Control Chrome</td><td class="mut">Community</td><td class="num">3</td><td class="num">4</td><td class="num a">— <span class="mut" style="font-size:10px">no telemetry</span></td><td class="num mut">—</td></tr>
+</tbody></table>
+<div class="note"><span class="r">⚠ Data gap:</span> <b>dw.fact_connectors has 0 rows</b> for both weeks — the connector-usage collector has not written a session snapshot (table created in alloydb_connectors_ddl.sql, never loaded). 4 connectors are confirmed installed &amp; live (macos · filesystem · word-by-anthropic · control-chrome), all <b>require_approval = TRUE</b>, but per-session approval_prompts/granted/denied are uncaptured. Approval-rate KPI cannot be computed until the collector runs.</div></div>
+<div class="section"><div class="sh"><span class="sn">▸</span><span class="st">highlights</span></div>
+<div style="font-size:12.5px;color:#e6e6e6;line-height:1.65">
+<p style="margin:0 0 8px"><span class="g">▲ Improved:</span> scheduling backbone shipped — both cadence tasks (priority-rerank 09:00 UTC, metrics-review 10:00 UTC) completed, and this very run is the first <b>unattended</b> metrics review firing. The e2m-ts naming convention and durable Ollama bind also closed.</p>
+<p style="margin:0 0 8px"><span class="r">▼ Regressed:</span> throughput collapsed after 2026-06-22 — <b>0 completions and 0 transitions in the trailing 7 days</b>. 81% of the backlog is untouched <span class="mut">pending</span>, and a 34-row skill-gate block is wedged in the engineering queue.</p>
+<p style="margin:0"><span class="a">◆ Investigate:</span> (1) why no agent has drained the queues in 8 days — is the heartbeat/dispatch loop down? (2) the unpopulated <b>fact_connectors</b> pipeline, which blinds the connector KPIs; (3) the two ke≥3 blockers (PR #502, Slice 4 compliance/marketing) that have idled 11 days awaiting operator go-ahead.</p>
+</div></div>
+<div class="section"><div class="sh"><span class="sn">▸</span><span class="st">recommended actions</span><span class="ssub">priority order</span></div>
+<div class="acts">
+<div class="act r"><span class="i">1</span><span class="x"><b>Restart the dispatch/heartbeat loop.</b> 0 queue writes for 8 days is the headline risk — verify the Wednesday 09:00 priority-rerank task fired and that a coworker session is draining queues. Unblocks everything else.</span></div>
+<div class="act r"><span class="i">2</span><span class="x"><b>Clear the engineering skill-gate block (34 rows).</b> Raise D1_type_safety / D2_durability on the 7 toolchain skills (alpine·ubuntu-2004·ubuntu-2204·web doctor+install) to ≥ their thresholds, then re-run durable-agent-ci-cd-outcomes to unblock.</span></div>
+<div class="act"><span class="i">3</span><span class="x"><b>Run the fact_connectors collector.</b> Land at least one session snapshot so next week's approval-rate KPI (target ≥0.85) is computable for the 4 live connectors.</span></div>
+<div class="act g"><span class="i">4</span><span class="x"><b>Advance the North-Star templates.</b> Install analytics·plan·brain (currently <span class="b">available</span>) and flip install_status → installed via SCD-1 overwrite — moves the Q3 OKR from 0/3.</span></div>
+<div class="act"><span class="i">5</span><span class="x"><b>Escalate the two 11-day operator blockers.</b> PR #502 rebase and Slice-4 compliance/marketing both wait on operator go-ahead — decide or delegate to release the project-management + data queues.</span></div>
+</div></div>
+</main>
+<footer>
+metrics_2026-06-30.html · knowledge-engineering weekly cadence (Wed 10:00 UTC) · pm-agent · Claude Opus 4.8<br>
+sources: cowork/data/queues/*.jsonl (285 tasks · 57 transitions) · data/models/alloydb/{dim_cowork_tasks,fact_connectors,dim_agent_templates,dim_desktop}.yaml · data/models/alloydb/seeds/dim_agent_templates_cowork.sql · data/models/alloydb_connectors_ddl.sql<br>
+@cite cowork/mcp/e2m-mcp/server.ts (TaskStateEnum: pending·in_progress·blocked·completed·failed) · @cite cowork/skills/plugins/product-management:priority-rerank/SKILL.md · @cite cowork/artifacts/connector_audit_94.html (design system)
+</footer></body></html>
