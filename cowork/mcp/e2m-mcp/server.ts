@@ -403,8 +403,12 @@ server.tool(
     for (const domain of DOMAINS) {
       const rows    = readLines(queuePath(domain)) as Envelope[];
       const current = collapseById(rows.filter(r => (r as any)._type !== "transition"));
-      const counts  = { pending: 0, in_progress: 0, blocked: 0, completed: 0, failed: 0 };
-      for (const t of current) counts[t.state as keyof typeof counts]++;
+      const counts: Record<string, number> = { pending: 0, in_progress: 0, blocked: 0, completed: 0, failed: 0 };
+      for (const t of current) {
+        // readLines skips schema validation — guard against unexpected/missing state instead of silently NaN-ing a new key
+        if (TaskStateEnum.safeParse(t.state).success) counts[t.state]++;
+        else counts.unknown = (counts.unknown ?? 0) + 1;
+      }
       summary[domain] = counts;
     }
     return {
