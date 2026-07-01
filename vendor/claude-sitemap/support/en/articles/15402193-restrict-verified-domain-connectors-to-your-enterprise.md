@@ -32,8 +32,6 @@ Before you can turn on this setting, your Enterprise organization must verify yo
 
 You can turn off this setting at any time. It's separate from domain capture, which can't be reversed once enabled.
 
-**Note:** If you’re unable to turn off this setting because your toggle is disabled, **[contact our Support team](https://support.claude.com/en/articles/9015913-how-to-get-support)**.
-
 ---
 
 ## What people see when a connection is restricted

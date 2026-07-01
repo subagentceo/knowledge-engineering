@@ -1,8 +1,8 @@
 # Palo Alto Networks accelerates secure software development with Claude and Google Cloud
 
-Palo Alto Networks, the world's largest cybersecurity company, uses Claude on Google Cloud's Vertex AI to enhance developer productivity while maintaining their stringent security standards across their global engineering organization.
+Palo Alto Networks, the world's largest cybersecurity company, uses Claude on Google Cloud to enhance developer productivity while maintaining their stringent security standards across their global engineering organization.
 
-With Claude on Vertex AI, Palo Alto Networks achieved:
+With Claude on Google Cloud, Palo Alto Networks achieved:
 
 *   20-30% increase in feature development velocity
 *   Reduction in new developer onboarding time from months to weeks
@@ -14,11 +14,11 @@ Palo Alto Networks saw a powerful opportunity: using generative AI to stay ahead
 
 Before evaluating AI solutions, the engineering team at Palo Alto Networks mapped the entire software delivery process to identify where developers spent most of their time and where errors were most likely to occur. Their analysis revealed that while developers spent 30-35% of their time in initial development, this phase was also where the most critical issues emerged. "If a bug is found later, that's what costs money and reputation and customers are not happy," said Gunjan Patel, Director of Engineering at Palo Alto Networks. This insight guided them to focus their AI implementation on early development stages for maximum impact.
 
-## Why Claude on Google Cloud's Vertex AI
+## Why Claude on Google Cloud
 
-After evaluating multiple AI solutions, Patel's team chose Claude on Google Cloud's Vertex AI platform for several key reasons. Claude consistently demonstrated superior performance in coding tasks while maintaining high accuracy and security standards. "Anthropic prioritized safety and security a lot more than other LLMs. They discuss security and safety implications in every meeting. As the largest cybersecurity company, that's a big deal for us," said Patel.
+After evaluating multiple AI solutions, Patel's team chose Claude on Google Cloud for several key reasons. Claude consistently demonstrated superior performance in coding tasks while maintaining high accuracy and security standards. "Anthropic prioritized safety and security a lot more than other LLMs. They discuss security and safety implications in every meeting. As the largest cybersecurity company, that's a big deal for us," said Patel.
 
-Using Google Cloud's Vertex AI provided significant advantages. Patel said, "Google has nailed the unit measurement with GSU (Generative Service Units). They're granular, usage-based, with flexible commitment periods and pricing structures." Combined with provisioned throughput capabilities, this enabled Palo Alto Networks to scale their AI implementation efficiently. The seamless SDK integration was crucial for deployment. "The SDK to integrate provision throughput was seamless. We just changed the endpoint and it just worked," said Patel.
+Using Google Cloud provided significant advantages. Patel said, "Google has nailed the unit measurement with GSU (Generative Service Units). They're granular, usage-based, with flexible commitment periods and pricing structures." Combined with provisioned throughput capabilities, this enabled Palo Alto Networks to scale their AI implementation efficiently. The seamless SDK integration was crucial for deployment. "The SDK to integrate provision throughput was seamless. We just changed the endpoint and it just worked," said Patel.
 
 ## Transforming the developer experience with specialized Claude models
 

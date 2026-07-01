@@ -1,4 +1,4 @@
-SCIM provisioning keeps your Enterprise organization's membership and groups in sync with your identity provider. This article covers what gets synced, how syncs are triggered, and what to watch for when resyncing.
+SCIM provisioning keeps your Enterprise organization's membership and groups in sync with your identity provider. This article covers what gets synced, how syncs are triggered, how to preview a sync before it applies, and what to watch for when resyncing.
 
 Available on the Enterprise plan. For setup instructions, see **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)**.
 
@@ -48,7 +48,7 @@ You can trigger a manual sync from two places in your admin settings.
 
 2. Click "Check for updates" under **SCIM sync**:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1781870400&amp;signature=d42f5a7704f09612500055f64753cc98f8df67924d3679e07a47b334925e65b8&amp;req=diMmFM9%2FnoRbUfMW3nq%2Bgagh6LSUTKvKbvL4knc3ZiS0VbK5sy5z%2FerI8xoM%0AajN69Cv4%2BIo5V5o%2F4aFEbrUi6BA%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1782913500&amp;signature=e0917370365abe3927575089ea1b9c8305e0bb6e753b77da1bd5da2b838ad482&amp;req=diMmFM9%2FnoRbUfMW1HO4zW4gbDekNM6xrgfl7PnOiun11pq%2FrpBKR7CeEc14%0AvXGr%0A)
 
 3. Select whether to sync members, groups, or both.
 
@@ -60,9 +60,17 @@ You can trigger a manual sync from two places in your admin settings.
 
 3. Select whether to sync members, groups, or both:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1781870400&amp;signature=841e9484d2cac051eeebdba19eaf5ec288db0df7a0571e4ed3c8972a3dccfc8a&amp;req=diMmFM9%2BlYBeUPMW3nq%2BgVEwMWRqZSlx13vyLxrNCaQ4LEIpvZG3Kpw5L8EE%0AiS2jObzL4uwuwlVWYxpaK9YxNOI%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1782913500&amp;signature=77674f191738276bd8fb4509656ec4ec438a619d5d864791e8f4545b3d070410&amp;req=diMmFM9%2BlYBeUPMW1HO4zX%2F4frj5yjga43OpyTHzM9QKlF6KX9lA%2Bdq31aAy%0A65Wg%0A)
 
 **Note:** If you trigger a manual sync while background changes are processing, your organization takes the most recent change for each member or group. If multiple changes are queued for the same member or group, you may need to resync again to make sure everything applies correctly.
+
+## Preview a sync before it applies
+
+When you run a manual resync, the admin console shows a preview of what the sync will do before anything applies. The preview appears automatically in the sync flow and shows how many members the sync will add, remove, or modify, along with how recent the directory data is.
+
+Review the preview before you confirm. If the numbers don't match what you expect (for example, far more removals than people who actually left) cancel the sync and check your IdP directory and group mappings before continuing.
+
+If a sync would remove an unusually large share of your members, the preview shows a warning. This helps you catch a misconfigured mapping before it removes people who should keep access. When you see this warning, stop and confirm the change is intentional before continuing.
 
 ## Member sync vs. group sync
 

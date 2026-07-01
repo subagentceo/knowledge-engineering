@@ -1,20 +1,27 @@
 # Figma
 
-Pull in Figma context and generate high-quality code that aligns with your codebase and design intent. Use the connector to retrieve code resources from Figma Design or Make files, turn your ideas into production apps, and visualize flows as diagrams in FigJam.
+Connect Claude and Claude Code to the Figma canvas as you build prototypes and production apps. Send your product screens to Figma, where they become editable layers using your design system components. Share these designs and collaborate with your team, or send them back to Claude Code to implement the designs in your codebase.
 
-You can use Figma in Claude to:  
-‍  
-Map your flows with diagrams:  
-Turn your prompts into flow charts, Gantt charts, or diagrams in FigJam  
   
-Implement designs as websites:  
-"Help me implement my Figma design as a website in HTML and CSS"
+The Figma connector works bidirectionally to:  
+‍
 
-Generate code from selections with annotations:  
-"Get code from the Figma selection and make sure to take into account my annotations"
+Turn production code into editable designs:
 
-Check variables for issues:  
-"Get the variables used in my Figma selection, and tell me if there are any issues"
+"Capture my homepage and bring it into this Figma file as layers using my design system components with /figma-use"
 
-Implement components following codebase standards:  
-"Help me fetch the navbar behavior from my Figma Make file and implement it following my codebase standards"
+Generate code from designs:
+
+"Implement the selected Figma component as React code following my codebase standards and annotations"
+
+Build and maintain your design system:
+
+"Generate Figma components and variables from my codebase, then audit the file for design system drift"
+
+Create diagrams in FigJam:
+
+"Turn this system architecture description into a flowchart in FigJam"
+
+Build decks in Figma Slides:
+
+“Create a post-launch presentation in Figma Slides from this attached report”

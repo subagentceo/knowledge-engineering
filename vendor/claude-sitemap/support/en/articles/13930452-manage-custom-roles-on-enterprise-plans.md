@@ -1,4 +1,4 @@
-Custom roles are available for Enterprise plan organizations. Owners, Primary Owners, and custom roles with the Identity & Access permission set to Manage can manage custom roles in **[Organization settings > Roles](https://claude.ai/admin-settings/roles)**.
+Custom roles are available for Enterprise plan organizations. Owners, Primary Owners, and custom roles with the **Identity & Access** permission set to "Can manage" can go to **[Organization settings > Roles](https://claude.ai/admin-settings/roles)** to manage custom roles.
 
 ## What are custom roles?
 
@@ -46,15 +46,16 @@ Each custom role can grant or restrict access to the following capabilities:
 | Fast mode                               | Access to faster model options for Claude Code.                                                                                                                                                                                                          |
 | Claude Code dynamic workflows\*         | Access to dynamic workflows in Claude Code, which let Claude run large engineering tasks—migrations, audits, codebase-wide bug hunts—from start to finish in a single session. These runs can last for hours and use more tokens than a typical session. |
 | Claude Security                         | Find and fix security vulnerabilities in your code with Claude.                                                                                                                                                                                          |
+| Claude Code artifacts                   | Ability to create artifacts in Claude Code, which turn a session's work into a live, shareable page built from the session's context.                                                                                                                    |
 | Claude Design                           | Access to Claude Design to generate design artifacts.                                                                                                                                                                                                    |
 | Claude Cowork                           | Access to Claude Cowork.                                                                                                                                                                                                                                 |
 | Claude for Chrome                       | Access to Claude for Chrome, the browser extension that lets Claude browse and act on web pages on the user's behalf.                                                                                                                                    |
 
-*Claude Code dynamic workflows turn on for your whole organization by default on June 8, 2026. Because a single run can last for hours and use more tokens than a typical session, decide who should have access before that date. For members on custom roles, this capability follows the additive model like any other—a role must grant it for those members to use it. To restrict a specific group, leave this capability off in their role.
+*Claude Code dynamic workflows are on for your whole organization by default. Because a single run can last for hours and use more tokens than a typical session, decide which roles should have access. For members on custom roles, this capability follows the additive model like any other—a role must grant it for those members to use it. To restrict a specific group, leave this capability off in their role.
 
-This can be disabled organization-wide via `managed-settings.json` by adding `"disableWorkflows": true` to your managed settings. This holds before and after June 8.
+This can be disabled organization-wide via `managed-settings.json` by adding `"disableWorkflows": true` to your managed settings.
 
-Once this goes live on June 8, an owner can turn it off across your entire organization by going to **[Organization settings > Claude Code](https://claude.ai/admin-settings/claude-code)** and toggling **Workflows** off.
+An owner can turn it off across your entire organization by going to **[Organization settings > Claude Code](https://claude.ai/admin-settings/claude-code)** and toggling **Workflows** off.
 
 Custom roles also govern access to admin permissions and connectors, which are configured on separate **Permissions** and **Connectors** tabs in the role editor. See **[Admin permissions](#h_fde60b08bd)** and **[Connector permissions](#h_979e558d00)** below.
 
@@ -76,7 +77,7 @@ Custom roles also govern access to admin permissions and connectors, which are c
 
 6. Configure permissions. You can choose No access, Can view, and Can manage for each admin setting.
 
-7. Configure connectors. You can choose Always allowed, Ask, and Blocked for all connectors, or customize per connector or connector tool.
+7. Configure connectors. You can choose Always allow, Needs approval, or Blocked for all connectors, or customize per connector or connector tool.
 
 8. Click “Save role.”
 
@@ -90,7 +91,7 @@ Custom roles also govern access to admin permissions and connectors, which are c
 
 4. Click “Save role” to save your changes.
 
-Capability and connector changes take effect within one minute. Admin permission changes can take up to 15 minutes, and members may need to refresh their browser. All members in groups assigned to this role are affected.
+Role changes may take up to 15 minutes to take effect, and members may need to refresh their browser. All members in groups assigned to this role are affected.
 
 ## Delete a custom role
 
@@ -124,13 +125,37 @@ This means you can't use one role to remove a permission granted by another role
 
 ---
 
+## See a member or group's effective role
+
+When a member belongs to several groups whose roles grant different capabilities, it can be hard to tell what they can actually do. The "View effective role" option shows the combined result: every capability, admin permission, and connector the member has, with the role that grants each one.
+
+1. Navigate to **[Organization settings > Members](https://claude.ai/admin-settings/members)** (or **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**).
+
+2. Find the member or group and open the "⋮" menu on the right side of their row.
+
+3. Select "View effective role."
+
+The modal lists the member's assigned roles and three tabs:
+
+- **Capabilities:** each capability with a "Granted by *[role name]*" label showing which role turned it on.
+
+- **Permissions:** each admin permission area with its effective level (No access, Can view, or Can manage) and which role grants it.
+
+- **Connectors:** each connector's effective permission level and which role grants it.
+
+This view is read-only. To change what a member can do, edit the roles assigned to their groups.
+
+**Note:** "View effective role" appears only for members whose role is set to "Custom" and who have at least one custom role assigned through a group. Members with a built-in role (User, Admin, Owner, or Primary Owner) get their permissions from that role directly, so there's nothing to compute.
+
+---
+
 ## Admin permissions
 
 Custom roles can grant admin permissions in addition to capabilities and connector permissions. Admin permissions give members access to specific administrative areas, like billing or privacy, without making them Owners. You can configure admin permissions in the **Permissions** tab of the role editor.
 
 **Note:** Admin permissions only apply to members whose role is set to "Custom." Members with the User, Admin, Owner, or Primary Owner roles keep the access those roles grant.
 
-### **Admin permission levels**
+### Admin permission levels
 
 On the **Permissions** tab, you set each permission area to one of three levels:
 
@@ -142,7 +167,7 @@ On the **Permissions** tab, you set each permission area to one of three levels:
 
 Within an area, you grant all of View or all of Manage. You can't grant or restrict individual pages or settings.
 
-### **Available admin permissions**
+### Available admin permissions
 
 There are seven admin permission areas:
 
@@ -156,9 +181,9 @@ There are seven admin permission areas:
 | Libraries            | Not available                                                                                                                                                    | Add, edit, and remove organization-shared skills, plugins, and connectors. Also includes directory management.                       |
 | Directory management | Not available                                                                                                                                                    | Submit and manage directory listings, and view observability for listings your organization has published                            |
 
-**Note:** A role with Identity & Access set to Manage can create and edit groups and roles, including its own role definition. Members with this permission can expand their own access, so reserve it for trusted security and IT administrators.
+**Note:** A role with **Identity & Access** set to "Can manage" can create and edit groups and roles, including its own role definition. Members with this permission can expand their own access, so reserve it for trusted security and IT administrators.
 
-### **Available organization settings pages for each permission**
+### Available organization settings pages for each permission
 
 | **Organization settings page**    | **Required permission**            | **Notes**                                                                                                                                                                                                                                                                                                                                                               |
 | --------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -264,7 +289,7 @@ Members can’t tell which layer restricted a tool. The message is the same whet
 
 ## What members see when capability access is restricted
 
-When a capability is restricted, here’s what members see. For connector and tool restrictions, see **Connector permissions** above.
+When a capability is restricted, here’s what members see. For connector and tool restrictions, see **[Connector permissions](#h_979e558d00)** above.
 
 | **Reason**                                    | **What the member sees**                                                                                           |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |

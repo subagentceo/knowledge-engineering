@@ -1,4 +1,4 @@
-*This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see[here](https://privacy.claude.com/en/collections/10663362-consumers).*
+*This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see **[here](https://privacy.claude.com/en/collections/10663362-consumers)**.*
 
 *For Claude Enterprise features to be covered under a BAA, an administrator must activate HIPAA compliance in the HIPAA-ready Claude Enterprise admin settings under “Data & Privacy” and sign Anthropic's BAA. Standard Claude Enterprise plans do not include BAA coverage without action from an administrator.*
 
@@ -8,7 +8,7 @@ To use the 1P API with PHI, your organization’s administrator will need to sig
 
 For clarity, the BAA does not cover Workbench and Console, Claude Free, Pro, Max, or Team plans, Cowork, or features currently in beta such as Claude in Office and Claude Design. As part of the BAA, customers of Anthropic’s HIPAA-ready services are subject to certain configuration requirements and limitations on what features/integrations are available.
 
-Not all API features are covered; see the [Implementation Guide](https://trust.anthropic.com/resources?s=2zblcrsgb00l3x9l2tpjf&name=[anthropic]-2025-type-1-hipaa-report-(-1-p-api).pdf) for the full list of eligible and non-eligible features.
+Not all API features are covered; see the **[Implementation Guide](https://trust.anthropic.com/resources?s=2zblcrsgb00l3x9l2tpjf&name=[anthropic]-2025-type-1-hipaa-report-(-1-p-api).pdf)** for the full list of eligible and non-eligible features.
 
 **Important: [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)** require 30-day data retention and aren't available with zero data retention (ZDR) enabled. Some services, like Claude Code, are only covered under the BAA when ZDR is enabled, which means those services can't use Covered Models under the BAA. See **[Covered Models under Anthropic’s BAA](https://support.claude.com/en/articles/15455031)** for details.
 

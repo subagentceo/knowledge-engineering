@@ -1,3 +1,3 @@
 # Claude Marketplace
 
-Tap into your firm's institutional knowledge to make the best decisions on deals and investments. Run complex financial workflows, from research to reports, slides, and models, powered by Claude.
+The Claude Marketplace features Claude-powered tools for enterprise customers. It lets organizations use some of their existing Anthropic commitment to purchase solutions from our customers to simplify procurement and consolidate AI spend.

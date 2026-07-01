@@ -36,7 +36,9 @@ Each model has a recommended effort level, marked as "Default" in the menu:
 
 - **High** offers the best overall balance of quality and speed.
 
-- **Max** is the most thorough option, best for difficult tasks and longer-running work.
+- **Extra high** (xhigh) is designed for long-running coding and agentic tasks, offering deeper reasoning than high without the full token cost of max. Available on Opus 4.7 and newer models.
+
+- **Max** is the most thorough option, best for tasks requiring the deepest possible reasoning and most thorough analysis.
 
 Learn more about **[how usage and length limits work](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)**.
 
@@ -98,6 +100,6 @@ For complex tasks, raise the effort level, turn on thinking, or both. These sett
 
 - Multi-step technical problems
 
-For the most difficult, correctness-critical work, choose Max effort and expect longer response times.
+For complex coding and agentic tasks on Opus 4.7 or newer, try Extra high (xhigh) first. For the most difficult, correctness-critical work, choose Max effort and expect longer response times.
 
 Whichever settings you choose, be specific about your problem or question. Clear prompts help Claude use its effort and thinking time effectively.

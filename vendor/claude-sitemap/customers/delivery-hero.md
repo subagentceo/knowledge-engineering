@@ -1,6 +1,6 @@
 # How Delivery Hero's agent merges 100+ pull requests a day with Claude
 
-Delivery Hero operates in about 65 countries, connecting customers with restaurants, grocery stores, and shops through local brands. The company's tech teams are spread across dozens of these regional operations, many of which were independent startups before being acquired, each with its own cloud providers, programming languages, and engineering culture. When Delivery Hero centralized its developer platform, it needed a way to give thousands of engineers access to the best AI models without months of procurement delays. Google Cloud's Vertex AI provided that path, and Claude quickly became the model of choice.
+Delivery Hero operates in about 65 countries, connecting customers with restaurants, grocery stores, and shops through local brands. The company's tech teams are spread across dozens of these regional operations, many of which were independent startups before being acquired, each with its own cloud providers, programming languages, and engineering culture. When Delivery Hero centralized its developer platform, it needed a way to give thousands of engineers access to the best AI models without months of procurement delays. Google Cloud provided that path, and Claude quickly became the model of choice.
 
 ## With Claude, Delivery Hero achieved:
 

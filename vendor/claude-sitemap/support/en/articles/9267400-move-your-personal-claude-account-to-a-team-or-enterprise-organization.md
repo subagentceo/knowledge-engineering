@@ -16,9 +16,9 @@ If you have a personal Claude account on the same email address as your organiza
 
 ### How to start a migration
 
-On a Team plan, you'll be prompted to choose when you accept an invite to your organization. If you don't pick an option right away, you'll see a reminder banner for about seven days. You can also go to **[Settings > Account](https://claude.ai/settings/account)** at any time to initiate the migration.
+On a Team plan, you'll be prompted to choose when you accept an invite to your organization. If you don't pick an option right away, you'll see a reminder banner for about seven days. You can also go to **[Settings > Account > Close your personal account](https://claude.ai/settings/account)** at any time to initiate the migration.
 
-On an Enterprise plan, you won't see a prompt when you join. To start the migration, go to **[Settings > Account](https://claude.ai/settings/account)**.
+On an Enterprise plan, you won't see a prompt when you join. To start the migration, go to **[Settings > Account > Close your personal account](https://claude.ai/settings/account)**.
 
 **Important:** Bringing your work into a Team or Enterprise workspace is one-way. Once content has been moved, it can't be moved back to a personal account.
 
@@ -38,7 +38,7 @@ For the full walkthrough of your options, deadlines, and what happens to your su
 
 You may have both a personal account and an organization account tied to the same email address. You can switch between them by clicking your initials or name in the lower left corner of the screen.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1781748900&amp;signature=bf04fff13320cb518bf35785370c9a2506d34d2f85b847f4a1056a42f0eb09f7&amp;req=diMmFMh3noJbXvMW1HO4zXhPndExzBdoufhmlOXMdYYUxQxmR0q0onNOHE%2BE%0Aa1ciJ9Jsos964FnrKR4%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1782913500&amp;signature=d770d1ece4205af16c9f551360eef90a1ce35a130567a5623af1237e7239c2d2&amp;req=diMmFMh3noJbXvMW1HO4zXhPndI%2FyRxkufhmlOXMdYbPfiyYQU%2FSAGi3oSN7%0AyAMc0qEmND07ggiGiLc%3D%0A)
 
 A blue checkmark shows which account you're currently using. Click the other account to switch to it and access its separate conversations and projects.
 

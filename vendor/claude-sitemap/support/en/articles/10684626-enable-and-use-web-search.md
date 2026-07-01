@@ -1,5 +1,7 @@
 You can have Claude search the internet to provide you with up-to-date information and insights when using the following models:
 
+- Sonnet 5
+
 - Fable 5
 
 - Opus 4.8
@@ -18,7 +20,7 @@ Web search expands Claude's knowledge with real-time data, helping you make bett
 
 An Owner or Primary Owner must first enable web search for the entire workspace. This can be found in **[Admin settings > Capabilities](https://claude.ai/admin-settings/capabilities)**:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2032032614/ad907328c4d9a26ee4bd9ca27a52/CleanShot+2026-02-05+at+09_01_42%402x.png?expires=1781748900&amp;signature=cda3cb68e0a6d5c6f2af9477db8559cc345bbd38acfac01c7b78723bbc090da7&amp;req=diAkFMl9n4deXfMW1HO4zetvyrO9HMZZUJIbgsqS2%2BO98thoaXXz0IPW%2BXZS%0APun0%2FqyHJwf%2Bd3rmB9Q%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2032032614/ad907328c4d9a26ee4bd9ca27a52/CleanShot+2026-02-05+at+09_01_42%402x.png?expires=1782972000&amp;signature=730ed952b002d9ffa3c5a56da3c29634e2e9cb6f125a7e8ba9c169b00fa789a7&amp;req=diAkFMl9n4deXfMW3nq%2BgTh6y0oUvtJ6%2BCPTuOwGpPk8nHjnNOaty3ei%2FhKx%0A0FLEFeqIRKS5jmosWOPU7FIgjFo%3D%0A)
 
 Once this is enabled at the workspace level, any member of the organization can switch it on while starting a chat by clicking the “+” button in the lower left corner of the chat window and selecting “Web search." Users can toggle this off for chats that don’t require web search capabilities.
 

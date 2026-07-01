@@ -40,7 +40,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 **Note:** Most functionality described below is not compatible with our voice mode beta feature at this time. For more information, see **[Use voice mode](https://support.claude.com/en/articles/11101966-)**.
 
-### Sending texts and emails with Messages and Mail
+### Send texts and emails with Messages and Mail
 
 1. Ask Claude to help draft a message or email (for example: "Help me write a text to my team about tomorrow's meeting").
 
@@ -56,7 +56,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 **Example:** "Draft an email to my manager explaining that I'll be late to the morning meeting due to a doctor's appointment."
 
-### Using location for contextual suggestions
+### Use location for contextual suggestions
 
 1. Ask Claude for location-based recommendations (for example: "What's nearby for dinner?").
 
@@ -68,7 +68,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 **Example:** "Find good restaurants near me that are open now."
 
-### Displaying locations with Maps
+### Display locations with Maps
 
 1. When Claude suggests locations, they can be displayed on an interactive map.
 
@@ -80,7 +80,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 **Example:** "Show me coffee shops within walking distance on a map."
 
-### Managing your calendar
+### Manage your calendar
 
 1. Ask Claude to check your schedule or create events.
 
@@ -100,7 +100,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 - "Add a weekly team standup every Monday at 9 AM."
 
-### Creating and managing reminders
+### Create and manage reminders
 
 1. Ask Claude to create reminders or add items to lists.
 
@@ -124,7 +124,7 @@ Note that when Claude uses tools to take these actions, their use is preserved i
 
 ---
 
-## Accessing and analyzing your health data
+## Access and analyze your health data
 
 **Note:** Health features are available in beta on Pro and Max plans only, and currently limited to users in the US.
 
