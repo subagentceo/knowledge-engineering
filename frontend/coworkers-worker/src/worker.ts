@@ -5,16 +5,21 @@
  *
  * Surfaces:
  *   GET /      → coworker directory (HTML)
- *   GET /mcp   → McpAgent streamable-HTTP endpoint
+ *   GET /mcp   → CoworkersMcpApp (e2m coordination) McpAgent streamable-HTTP endpoint
+ *   GET /sse   → CoworkersMcpApp (e2m coordination) McpAgent SSE endpoint
  *   GET *      → 404
  *
- * MCP tools exposed (connectable from Claude):
- *   - list_coworkers     : full directory with protocols, peers, descriptions
- *   - get_coworker       : detail for one coworker
- *   - get_protocol_matrix: table of which coworkers support which protocols
- *   - send_to_coworker   : draft a mailbox message envelope
+ * MCP tools exposed at /mcp and /sse (connectable from Claude) — see coworkers.app.ts:
+ *   - agent_directory : the 15-agent registry (5 functions × 3 tiers) + teams
+ *   - team_dispatch    : fan an Envelope to all members of a named team
+ *   - mailbox_send     : send a typed Envelope to an agent's mailbox
+ *   - mailbox_recv     : read an agent's envelopes
  *
- * @cite github.com/cloudflare/agents                (McpAgent pattern)
+ * CoworkersMcp (list_coworkers/get_coworker/get_protocol_matrix/send_to_coworker)
+ * is the DO bound to MCP_OBJECT but is not served on any route — retained for the
+ * pre-existing namespace_id, not reachable via HTTP.
+ *
+ * @cite github.com/cloudflare/agents                (McpAgent pattern — serve()/serveSSE() default binding="MCP_OBJECT")
  * @cite plugins/mcp-server-dev/references/deploy-cloudflare-workers.md
  * @cite cowork/coworkers/manifest.json              (source of truth)
  */
@@ -141,13 +146,16 @@ export default {
     }
 
     // SSE transport (Claude Desktop / legacy clients)
+    // binding must be explicit: McpAgent.serve() defaults to "MCP_OBJECT"
+    // regardless of which class it's called on (agents/dist/mcp/index.js),
+    // which would silently serve CoworkersMcp instead of CoworkersMcpApp.
     if (url.pathname === "/sse" || url.pathname.startsWith("/sse/")) {
-      return CoworkersMcpApp.serveSSE("/sse").fetch(request, env, ctx);
+      return CoworkersMcpApp.serveSSE("/sse", { binding: "COWORKERS_MCP_APP" }).fetch(request, env, ctx);
     }
 
     // Streamable-HTTP transport (MCP 2025-03-26+)
     if (url.pathname === "/mcp" || url.pathname.startsWith("/mcp/")) {
-      return CoworkersMcpApp.serve("/mcp").fetch(request, env, ctx);
+      return CoworkersMcpApp.serve("/mcp", { binding: "COWORKERS_MCP_APP" }).fetch(request, env, ctx);
     }
 
     if (url.pathname === "/" || url.pathname === "") {
