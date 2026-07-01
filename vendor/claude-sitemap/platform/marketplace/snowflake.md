@@ -1,0 +1,3 @@
+# Snowflake
+
+Snowflake is a data and AI platform used by developers, analysts, and business teams to build AI applications, automate workflows, and answer questions from data. Claude powers Snowflake CoCo, Snowflake CoWork, and Cortex Agents, giving every role AI tools purpose-built for their governed enterprise data. Everything runs in Snowflake, where data, context, and security policies already live.

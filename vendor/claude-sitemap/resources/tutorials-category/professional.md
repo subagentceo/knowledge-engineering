@@ -10,18 +10,25 @@
         
     *   Claude Cowork
         
-    *   Claude Security
+    *   @Claude
         
     
     Features
     
     *   Claude for Chrome
         
-    *   Claude for Slack
-        
     *   Claude for Microsoft 365
         
     *   Skills
+        
+    
+    Claude apps built for
+    
+    *   Design
+        
+    *   Science
+        
+    *   Security
         
     
     Models
@@ -39,14 +46,26 @@
     
 *   Platform
     
+    Build on Claude
+    
     *   Overview
-        
-    *   Developer docs
         
     *   Pricing
         
-    
+    *   Developer docs
+        
     *   Console login
+        
+    
+    Works with Claude
+    
+    *   Ecosystem
+        
+    *   Marketplace
+        
+    *   Connectors
+        
+    *   Plugins
         
     
 *   Solutions
@@ -116,13 +135,6 @@
     *   Tutorials
         
     *   Use cases
-        
-    
-    Tools
-    
-    *   Connectors
-        
-    *   Plugins
         
     
     Connect
@@ -179,18 +191,25 @@
         
     *   Claude Cowork
         
-    *   Claude Security
+    *   @Claude
         
     
     Features
     
     *   Claude for Chrome
         
-    *   Claude for Slack
-        
     *   Claude for Microsoft 365
         
     *   Skills
+        
+    
+    Claude apps built for
+    
+    *   Design
+        
+    *   Science
+        
+    *   Security
         
     
     Models
@@ -208,14 +227,26 @@
     
 *   Platform
     
+    Build on Claude
+    
     *   Overview
-        
-    *   Developer docs
         
     *   Pricing
         
-    
+    *   Developer docs
+        
     *   Console login
+        
+    
+    Works with Claude
+    
+    *   Ecosystem
+        
+    *   Marketplace
+        
+    *   Connectors
+        
+    *   Plugins
         
     
 *   Solutions
@@ -287,13 +318,6 @@
     *   Use cases
         
     
-    Tools
-    
-    *   Connectors
-        
-    *   Plugins
-        
-    
     Connect
     
     *   Events
@@ -339,6 +363,8 @@ Category
 
 AI Fluency
 
+Claude Science
+
 Education
 
 Engineering
@@ -375,6 +401,8 @@ Skills
 
 Product
 
+Claude Science
+
 Claude Security
 
 Claude Design
@@ -405,6 +433,8 @@ Thank you! Your submission has been received!
 Oops! Something went wrong while submitting the form.
 
 Professional
+
+Claude Science
 
 Small Business
 
@@ -476,6 +506,86 @@ Product
 
 Features
 
+![Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b07c298f5447ab02125e60_Screenshot%202026-03-10%20at%201.16.31%E2%80%AFPM.png)
+
+Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable
+
+Professional
+
+Author
+
+Professional
+
+Author
+
+Claude.ai
+
+Author
+
+No items found.
+
+Read use case
+
+Read use caseRead use case
+
+Choosing the right Claude model: Haiku, Sonnet, Opus, or FableChoosing the right Claude model: Haiku, Sonnet, Opus, or Fable
+
+Text Link
+
+Professional
+
+![Best practices for using @Claude](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3a96e8b83ee41b3d6b473a_design-crit-jun-23-7-23-am.png)
+
+Best practices for using @Claude
+
+Professional
+
+Author
+
+Professional
+
+Author
+
+Author
+
+No items found.
+
+Read use case
+
+Read use caseRead use case
+
+Best practices for using @ClaudeBest practices for using @Claude
+
+Text Link
+
+Professional
+
+![Tasks to try with @Claude in your workspace](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3ab2da4e9a585023120337_what-customers-keep-asking-for%20\(2\).png)
+
+Tasks to try with @Claude in your workspace
+
+Professional
+
+Author
+
+Professional
+
+Author
+
+Author
+
+No items found.
+
+Read use case
+
+Read use caseRead use case
+
+Tasks to try with @Claude in your workspaceTasks to try with @Claude in your workspace
+
+Text Link
+
+Professional
+
 ![Customize Claude Cowork](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f20fbd94c0c5ae1f42dcfc_Screenshot%202026-04-29%20at%207.03.33%E2%80%AFAM.png)
 
 Customize Claude Cowork
@@ -507,34 +617,6 @@ Read use case
 Read use caseRead use case
 
 Customize Claude CoworkCustomize Claude Cowork
-
-Text Link
-
-Professional
-
-![Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b07c298f5447ab02125e60_Screenshot%202026-03-10%20at%201.16.31%E2%80%AFPM.png)
-
-Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable
-
-Professional
-
-Author
-
-Professional
-
-Author
-
-Claude.ai
-
-Author
-
-No items found.
-
-Read use case
-
-Read use caseRead use case
-
-Choosing the right Claude model: Haiku, Sonnet, Opus, or FableChoosing the right Claude model: Haiku, Sonnet, Opus, or Fable
 
 Text Link
 
@@ -880,62 +962,6 @@ Finance
 
 Sales
 
-![Navigating the Claude desktop app: Chat, Claude Cowork, Claude Code](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699e2a825db36326599a999e_Screenshot%202026-02-24%20at%202.47.24%E2%80%AFPM.png)
-
-Navigating the Claude desktop app: Chat, Claude Cowork, Claude Code
-
-Professional
-
-Author
-
-Professional
-
-Author
-
-Claude.ai
-
-Author
-
-Cowork
-
-Read use case
-
-Read use caseRead use case
-
-Navigating the Claude desktop app: Chat, Claude Cowork, Claude CodeNavigating the Claude desktop app: Chat, Claude Cowork, Claude Code
-
-Text Link
-
-Professional
-
-![Claude Cowork, a research preview](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984d91363e8d0c7f3b9debe_Screenshot%202026-02-05%20at%209.53.16%E2%80%AFAM.png)
-
-Claude Cowork, a research preview
-
-Professional
-
-Author
-
-Professional
-
-Author
-
-Claude Cowork
-
-Author
-
-No items found.
-
-Read use case
-
-Read use caseRead use case
-
-Claude Cowork, a research previewClaude Cowork, a research preview
-
-Text Link
-
-Professional
-
 View more
 
 No posts for those filters
@@ -1080,6 +1106,18 @@ Products
     
     Claude CoworkClaude Cowork
     
+*   @Claude
+    
+    @Claude@Claude
+    
+*   Claude Design
+    
+    Claude DesignClaude Design
+    
+*   Claude Science
+    
+    Claude ScienceClaude Science
+    
 *   Claude Security
     
     Claude SecurityClaude Security
@@ -1102,10 +1140,6 @@ Features
 *   Claude for Chrome
     
     Claude for ChromeClaude for Chrome
-    
-*   Claude for Slack
-    
-    Claude for SlackClaude for Slack
     
 *   Claude for Microsoft 365
     
@@ -1215,6 +1249,10 @@ Claude Platform
 *   Pricing
     
     PricingPricing
+    
+*   Ecosystem
+    
+    EcosystemEcosystem
     
 *   Marketplace
     
@@ -1424,3 +1462,5 @@ Deutsch (Germany)
 Français (France)
 
 한국어 (South Korea)
+
+Italian (Italy)

@@ -42,7 +42,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 **Note:** Setting alarms and timers works with voice mode beta. Other features like drafting messages and calendar events are not supported when using voice mode. For more information, see **[Use voice mode](https://support.claude.com/en/articles/11101966-)**.
 
-### Sending texts and emails with Messages and Mail
+### Send texts and emails with Messages and Mail
 
 1. Ask Claude to help draft a message or email (for example: "Draft an email to my supervisor about the project update").
 
@@ -56,7 +56,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 **Example:** "Draft a message to my study group about canceling tonight's session."
 
-### Using location for contextual suggestions
+### Use location for contextual suggestions
 
 1. Ask Claude for location-based recommendations (for example: "What restaurants are near me?").
 
@@ -68,7 +68,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 **Example:** "Find nearby parks for jogging."
 
-### Displaying locations with Maps
+### Display locations with Maps
 
 1. When Claude suggests locations, they can be displayed on an interactive map.
 
@@ -80,7 +80,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 **Example:** "Show me hardware stores within five miles on a map."
 
-### Managing your calendar
+### Manage your calendar
 
 1. Ask Claude to check your schedule or create events.
 
@@ -100,7 +100,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 - "Create a recurring workout session every Tuesday and Thursday at 6 AM."
 
-### Setting alarms and timers using Clock apps
+### Set alarms and timers using Clock apps
 
 1. Ask Claude to set an alarm or timer.
 
@@ -118,7 +118,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 ---
 
-## Accessing and analyzing your health data
+## Access and analyze your health data
 
 **Note:** Health features are available in beta on Pro and Max plans only, require Android 14 or later, and are limited to users in the US.
 
@@ -222,7 +222,7 @@ Permission requirements vary by feature:
 
 For features requiring permissions (like location or calendar access), Claude will request permission contextually with clear explanations of why the access is needed. You’ll be prompted to approve the action with three options: Allow once, Always allow, or Don't allow.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1781748900&amp;signature=02cad0ec6673d406fd3ef1e07a7f0d917cfbbdfa6ae75aa2c1fd4272738fd91c&amp;req=dScnEcp7nIdeXfMW1HO4zQe5Gl6I3y39S5x65TIld%2FCAarS3RGnnwMwqshrz%0ApUQRYs6r44jqVyrZgVs%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1782913500&amp;signature=47f036fcead5552985997b6eabd46348313b562f6732e2b069df5410ee471fd2&amp;req=dScnEcp7nIdeXfMW1HO4zQe5Gl2G2ibxS5x65TIld%2FChz%2BBrdcM9wOJ5BKAc%0AEUcBet4mah9to%2FztChk%3D%0A)
 
 These permissions can be managed at any time in your device settings by going to Settings > Apps > Claude > Permissions. Click into each permission listed under **Allowed** and **Not allowed** to make changes. You can toggle between “Allow only while using the app” or “Ask every time” to change Claude’s access, or remove permissions by choosing “Don’t allow.” Claude will only request permissions if needed for specific features, and you can always choose to decline while still using other capabilities.
 

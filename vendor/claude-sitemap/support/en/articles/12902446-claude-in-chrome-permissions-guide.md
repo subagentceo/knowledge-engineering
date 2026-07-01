@@ -12,7 +12,7 @@ Claude in Chrome uses a multi-layered permission system to give you control over
 
 - **Act without asking:** Claude takes actions without asking for permission.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843322018/f8c0ae21b449f32e71696c76a17a/7656f295-e802-4a72-9e60-94611501f920?expires=1781748900&amp;signature=b3cc029d904e9955426c80481d0d7398154c52faaf8347a7cd2537cc52ee0157&amp;req=dSgjFcp8n4FeUfMW1HO4zQ5tySYL8XC%2BhD0gAzkS2hxsfuCqzZkgMyLKwljZ%0Ag%2B8Jtz87N8xXXLpKebs%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843322018/f8c0ae21b449f32e71696c76a17a/7656f295-e802-4a72-9e60-94611501f920?expires=1782913500&amp;signature=7d4afff98f9c03f1b2e00acd6eb3af933e689644c773f082e772e6874a1274b2&amp;req=dSgjFcp8n4FeUfMW1HO4zQ5tySUF9HuyhD0gAzkS2hxBP2jHIR410%2Fju8g8V%0AqezrvtJ%2BgGlKHryy56s%3D%0A)
 
 ---
 
@@ -20,7 +20,7 @@ Claude in Chrome uses a multi-layered permission system to give you control over
 
 Choose “Ask before acting” to have Claude create a plan from your prompt, which you can approve and allow Claude to execute. The plan will specify which websites you’re allowing Claude to access, as well as the approach it will follow:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1781748900&amp;signature=85f261a56ba2a570f48e7b795f4e3763cfbd398aff81c11195bc93c06ea1d0d8&amp;req=dSgjFcp8nYZdXvMW1HO4zYqyZcNK%2BIq%2BgN0ADj5oqFA9WNN8MHChNw3b%2Ffc1%0ARAfOUvKNDkoQnUYKf24%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1782913500&amp;signature=bd1001fce6590209c667bfffa23e5283dc02492362b06d12a913bb10c88262b8&amp;req=dSgjFcp8nYZdXvMW1HO4zYqyZcBE%2FYGygN0ADj5oqFAjNNDgbIdwytT0dY9y%0AcTbegUNZX1aVV4AaZqc%3D%0A)
 
 Note that Claude will only use the websites listed in the plan, so you’ll need to manually approve any additional access requests.
 
@@ -58,7 +58,7 @@ You remain fully responsible for all actions Claude takes when using this mode.
 
 There are some websites on which Claude requires approval for every action. If you navigate to one of these sites, a **Permission required** prompt will appear in the extension side panel where Claude will ask for permission before accessing the page or taking any action.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1847222875/162eb012ebe473ed2b852b97e223/0209db51-6057-4ec4-a9b7-8358287d46a3?expires=1781748900&amp;signature=fe49795e194ad08e52551010820c89a13ddb258fe704004d015830d59f5cfd1a&amp;req=dSgjEct8n4lYXPMW1HO4zeoCY8csp3x2JCxYSFHKWIi5qx%2BajOERc3ihjFrL%0AJIqbLmfyOCxdOQbMK20%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1847222875/162eb012ebe473ed2b852b97e223/0209db51-6057-4ec4-a9b7-8358287d46a3?expires=1782913500&amp;signature=a2b54f4c40b0fda521827c62dbdd4dbd3dfc06701680f886e329f587669d06cc&amp;req=dSgjEct8n4lYXPMW1HO4zeoCY8Qiond6JCxYSFHKWIhM4jFw6ukGzePFgvEc%0AVNqfa%2FPFa60PGyJW7R4%3D%0A)
 
 ### Permission options
 

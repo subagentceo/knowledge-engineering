@@ -26,11 +26,27 @@ Additionally, all invoices are automatically emailed to your billing email addre
 
 6. Your updated payment method will be charged the next time your subscription renews.
 
+## How can I change or remove the card on my Pro or Max subscription?
+
+To change the card on your Pro or Max subscription:
+
+1. Navigate to **[Settings > Billing](https://claude.ai/settings/billing)**.
+
+2. Click the “Update” button next to your payment method.
+
+3. Enter your new card details.
+
+4. Click “Update” to save your changes.
+
+The new card becomes your default payment method, and all future subscription renewals are charged to it. Your previous card is no longer billed.
+
+There's no separate option to remove a card, and updating to a new card replaces the old one for billing purposes. The billing page only shows your current default card. Previously used cards are no longer charged, but they may remain stored with our payment processor. If you need a previous card fully removed from your account, please contact **[our support team](https://support.claude.com/en/articles/9015913-how-to-get-support)**.
+
 ## How can I use a different name on my invoices?
 
 If you want to use a name other than the one tied to your payment method, check the "Use a different name on invoices" box when adding or updating your payment method in [Settings > Billing](http://claude.ai/settings/billing).
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1781748900&amp;signature=3cc1f183e705aefb41a1cc6eb5abbe832887d4ee1a0016254b23fe41b19bc8e0&amp;req=dSklFMh6nIZXXPMW1HO4zVXW8GysbzvFQoNvNFTb5cclG9O2yRGbUB7c1%2BPS%0AuZNB7Kzb4BGpIEifQGY%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1782972000&amp;signature=af0e47f3d0d3f07cc579c7d6458e6707dfdd2135e4352797ec7044a5fb318413&amp;req=dSklFMh6nIZXXPMW3nq%2BgWIvYv5MdNXubJOMNUDbBxOT4S%2BsnuENF%2Fmohfrm%0A07I6iJNavPyergtnuIkxh4m1yHI%3D%0A)
 
 ## How can I edit a paid invoice?
 

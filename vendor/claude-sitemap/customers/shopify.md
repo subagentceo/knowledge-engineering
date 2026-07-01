@@ -1,12 +1,12 @@
-# How Shopify uses Anthropic’s Claude on Google Cloud’s Vertex AI to supercharge Sidekick
+# How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
 
 Shopify powers commerce for millions of businesses worldwide, from first-time entrepreneurs to enterprise brands. The platform makes it simple for anyone to start, run, and grow a business through online stores, brick-and-mortar locations, and everything in between.
 
 They built Sidekick, an AI-enabled commerce assistant, to make it easier for merchants of all sizes to get more done faster. Sidekick draws on comprehensive Shopify knowledge, context, and data to provide highly personalized support across a wide range of tasks. It uses conversational AI with advanced reasoning capabilities to bring expert-level commercial guidance.
 
-## A look at Claude on Vertex AI for conversational commerce
+## A look at Claude on Google Cloud for conversational commerce
 
-Claude's advanced reasoning capabilities paired with Google Cloud's infrastructure helps ensure that merchants have access to expert-level guidance around the clock. Vertex AI, part of Google Cloud, hosts multiple Anthropic models, which helps ensure Sidekick remains available 24/7. The combination delivers sophisticated multi-step analysis while maintaining the sub-second response times essential for natural conversation. "The reasoning capabilities are great and the trade-off between latency and quality is the perfect sweet spot for us," said Andrew McNamara, Director of Applied AI at Shopify. 
+Claude's advanced reasoning capabilities paired with Google Cloud's infrastructure helps ensure that merchants have access to expert-level guidance around the clock. Google Cloud hosts multiple Anthropic models, which helps ensure Sidekick remains available 24/7. The combination delivers sophisticated multi-step analysis while maintaining the sub-second response times essential for natural conversation. "The reasoning capabilities are great and the trade-off between latency and quality is the perfect sweet spot for us," said Andrew McNamara, Director of Applied AI at Shopify. 
 
 ## The merchant support challenge
 
@@ -32,13 +32,13 @@ When merchants log into their dashboard, they discover a knowledgeable partner w
 
 The transformation extends beyond analytics. “There’s been a lot of merchants that we’ve talked to that say Sidekick ‘feels like a lifeline for small businesses’ and helps them ‘come out on top’” McNamara shared. These merchants aren’t just reaching their first sale faster—they’re building sustainable businesses with AI-powered expertise from day one.
 
-When a merchant asks a question requiring multiple pieces of information, Sidekick orchestrates parallel and sequential tool calls, each benefiting from Vertex AI's reduced latency. Every hundred milliseconds saved per tool call compounds into natural, flowing conversations that keep merchants productive.
+When a merchant asks a question requiring multiple pieces of information, Sidekick orchestrates parallel and sequential tool calls, each benefiting from Google Cloud's reduced latency. Every hundred milliseconds saved per tool call compounds into natural, flowing conversations that keep merchants productive.
 
 ## The outcome
 
 Sidekick has fundamentally changed how merchants run and scale their businesses. Complex data analysis that once required technical training now happens through natural conversation. New entrepreneurs can achieve their first sales in days rather than weeks.
 
-"Resiliency and uptime are so critical," McNamara emphasized. "If we're delaying a merchant's first sale because Sidekick isn't there for them, we take that very seriously." The strong combination of Claude's capabilities and Vertex AI's infrastructure is critical toward ensuring Sidekick maintains the availability merchants depend on while continuously improving through rapid model updates.
+"Resiliency and uptime are so critical," McNamara emphasized. "If we're delaying a merchant's first sale because Sidekick isn't there for them, we take that very seriously." The strong combination of Claude's capabilities and Google Cloud's infrastructure is critical toward ensuring Sidekick maintains the availability merchants depend on while continuously improving through rapid model updates.
 
 For millions of merchants worldwide, Sidekick represents more than technological progress—it's the trusted partner they never had, available any time to help them build their business.
 

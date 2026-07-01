@@ -1,0 +1,13 @@
+# Quantium scales Claude across Australia's largest enterprises
+
+Quantium is an AI and data analytics company headquartered in Australia, with more than 23 years of experience building AI and data solutions for retail, consumer, financial services, government, and health organizations. The firm designs, builds, and deploys AI agents for a client portfolio of large-scale enterprise clients. We sat down with Justin Spratt, Head of Executive Partnerships at Quantium, to talk about how enterprises are deploying Claude, what's blocking them, and how Quantium's own development culture has shifted.   
+
+## Anthropic: There's a lot of noise about AI disrupting consulting. What's your read on what's actually changing?
+
+**Justin Spratt, Quantium:** Firms do face a workforce-retooling challenge. We believe there is still significant skills uplift required from the consulting firms and systems integrators to build full agentic workloads. On our side, demand for AI-native engineers and the consultants who can pair with them is increasing, not decreasing. Traditional software engineering is giving way to AI-native engineering, where engineers can spec, build, and deploy agents in days. The demand for agents over the next two to three years appears to be exponential, and someone must build and manage them to ensure economic value is delivered to the client. That's a much bigger opportunity space than the one we were operating in two years ago. The constraint isn't demand. It's change management. 
+
+## Quantium has over twenty years of data science work behind it. How does that legacy show up in your AI consulting today, and where do you see the biggest pull right now?
+
+**Spratt:** The data science work is what gets us into the room. We've spent two decades building data assets for banks, governments, retailers, and health organizations. When AI showed up as a real category, we had the data foundation, the customer relationships, and the operational track record already in place. That mattered, because the conversations we're having now are about acting on data that we in many cases architected, built or managed. 
+
+The pull is across more verticals than people assume. Retail and financial services are the usual suspects, but mining is a meaningful growth area too. The operational safety work in remote sites is checklist-heavy and investment-rich, and it's the kind of work where careful augmentation can move the needle. The bottleneck today is actually hiring. We're bringing on roughly 100 new AI-skilled people into a 1,200+ person organization just to keep pace with what's in front of us.

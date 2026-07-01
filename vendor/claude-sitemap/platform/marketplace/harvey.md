@@ -1,0 +1,3 @@
+# Harvey
+
+Harvey is the operating system for legal and professional services. It is used by global law firms and Fortune 500 enterprises for contract analysis, due diligence, compliance, and litigation. Powered by Claude, Harvey gives your team a direct path to handling complex legal workflows with purpose-built AI. Everything stays grounded in your firm's documents, precedents, and trusted legal sources.

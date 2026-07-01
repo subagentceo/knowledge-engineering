@@ -1,7 +1,7 @@
 ---
 vendor: claude-sitemap
 llms_txt: https://www.claude.com/llms.txt
-count: 1830
+count: 1915
 transform: html-extract
 ---
 
@@ -13,11 +13,12 @@ transform: html-extract
 | https://claude.com/blog/1m-context-ga | `vendor/claude-sitemap/blog/1m-context-ga.md` |
 | https://claude.com/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code | `vendor/claude-sitemap/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code.md` |
 | https://claude.com/blog/agent-capabilities-api | `vendor/claude-sitemap/blog/agent-capabilities-api.md` |
+| https://claude.com/blog/agent-identity-access-model | `vendor/claude-sitemap/blog/agent-identity-access-model.md` |
 | https://claude.com/blog/agent-view-in-claude-code | `vendor/claude-sitemap/blog/agent-view-in-claude-code.md` |
 | https://claude.com/blog/amazon-bedrock-general-availability | `vendor/claude-sitemap/blog/amazon-bedrock-general-availability.md` |
 | https://claude.com/blog/analysis-tool | `vendor/claude-sitemap/blog/analysis-tool.md` |
 | https://claude.com/blog/android-app | `vendor/claude-sitemap/blog/android-app.md` |
-| https://claude.com/blog/artifacts | `vendor/claude-sitemap/blog/artifacts.md` |
+| https://claude.com/blog/artifacts-in-claude-code | `vendor/claude-sitemap/blog/artifacts-in-claude-code.md` |
 | https://claude.com/blog/auto-mode | `vendor/claude-sitemap/blog/auto-mode.md` |
 | https://claude.com/blog/automate-security-reviews-with-claude-code | `vendor/claude-sitemap/blog/automate-security-reviews-with-claude-code.md` |
 | https://claude.com/blog/behind-model-launch-what-customers-discovered-testing-claude-opus-4-6-early | `vendor/claude-sitemap/blog/behind-model-launch-what-customers-discovered-testing-claude-opus-4-6-early.md` |
@@ -36,6 +37,7 @@ transform: html-extract
 | https://claude.com/blog/building-ai-agents-in-financial-services | `vendor/claude-sitemap/blog/building-ai-agents-in-financial-services.md` |
 | https://claude.com/blog/building-ai-agents-in-healthcare-and-life-sciences | `vendor/claude-sitemap/blog/building-ai-agents-in-healthcare-and-life-sciences.md` |
 | https://claude.com/blog/building-companies-with-claude-code | `vendor/claude-sitemap/blog/building-companies-with-claude-code.md` |
+| https://claude.com/blog/building-effective-human-agent-teams | `vendor/claude-sitemap/blog/building-effective-human-agent-teams.md` |
 | https://claude.com/blog/building-multi-agent-systems-when-and-how-to-use-them | `vendor/claude-sitemap/blog/building-multi-agent-systems-when-and-how-to-use-them.md` |
 | https://claude.com/blog/building-with-claude-managed-agents | `vendor/claude-sitemap/blog/building-with-claude-managed-agents.md` |
 | https://claude.com/blog/carta-healthcare-clinical-abstractor | `vendor/claude-sitemap/blog/carta-healthcare-clinical-abstractor.md` |
@@ -56,6 +58,7 @@ transform: html-extract
 | https://claude.com/blog/claude-for-enterprise | `vendor/claude-sitemap/blog/claude-for-enterprise.md` |
 | https://claude.com/blog/claude-for-foundation-models | `vendor/claude-sitemap/blog/claude-for-foundation-models.md` |
 | https://claude.com/blog/claude-for-the-legal-industry | `vendor/claude-sitemap/blog/claude-for-the-legal-industry.md` |
+| https://claude.com/blog/claude-in-microsoft-foundry | `vendor/claude-sitemap/blog/claude-in-microsoft-foundry.md` |
 | https://claude.com/blog/claude-managed-agents | `vendor/claude-sitemap/blog/claude-managed-agents.md` |
 | https://claude.com/blog/claude-managed-agents-memory | `vendor/claude-sitemap/blog/claude-managed-agents-memory.md` |
 | https://claude.com/blog/claude-managed-agents-updates | `vendor/claude-sitemap/blog/claude-managed-agents-updates.md` |
@@ -88,10 +91,12 @@ transform: html-extract
 | https://claude.com/blog/dispatch-and-computer-use | `vendor/claude-sitemap/blog/dispatch-and-computer-use.md` |
 | https://claude.com/blog/driving-ai-transformation-with-claude | `vendor/claude-sitemap/blog/driving-ai-transformation-with-claude.md` |
 | https://claude.com/blog/eight-trends-defining-how-software-gets-built-in-2026 | `vendor/claude-sitemap/blog/eight-trends-defining-how-software-gets-built-in-2026.md` |
+| https://claude.com/blog/enterprise-managed-auth | `vendor/claude-sitemap/blog/enterprise-managed-auth.md` |
 | https://claude.com/blog/evaluate-prompts | `vendor/claude-sitemap/blog/evaluate-prompts.md` |
 | https://claude.com/blog/extending-claude-capabilities-with-skills-mcp-servers | `vendor/claude-sitemap/blog/extending-claude-capabilities-with-skills-mcp-servers.md` |
 | https://claude.com/blog/fine-tune-claude-3-haiku | `vendor/claude-sitemap/blog/fine-tune-claude-3-haiku.md` |
 | https://claude.com/blog/fix-software-bugs-faster-with-claude | `vendor/claude-sitemap/blog/fix-software-bugs-faster-with-claude.md` |
+| https://claude.com/blog/getting-started-with-loops | `vendor/claude-sitemap/blog/getting-started-with-loops.md` |
 | https://claude.com/blog/harnessing-claudes-intelligence | `vendor/claude-sitemap/blog/harnessing-claudes-intelligence.md` |
 | https://claude.com/blog/how-a-non-technical-project-manager-built-and-shipped-a-stress-management-app-with-claude-code-in-six-weeks | `vendor/claude-sitemap/blog/how-a-non-technical-project-manager-built-and-shipped-a-stress-management-app-with-claude-code-in-six-weeks.md` |
 | https://claude.com/blog/how-ai-helps-break-cost-barrier-cobol-modernization | `vendor/claude-sitemap/blog/how-ai-helps-break-cost-barrier-cobol-modernization.md` |
@@ -121,14 +126,15 @@ transform: html-extract
 | https://claude.com/blog/introducing-citations-api | `vendor/claude-sitemap/blog/introducing-citations-api.md` |
 | https://claude.com/blog/introducing-dynamic-workflows-in-claude-code | `vendor/claude-sitemap/blog/introducing-dynamic-workflows-in-claude-code.md` |
 | https://claude.com/blog/introducing-routines-in-claude-code | `vendor/claude-sitemap/blog/introducing-routines-in-claude-code.md` |
+| https://claude.com/blog/introducing-the-claude-apps-gateway | `vendor/claude-sitemap/blog/introducing-the-claude-apps-gateway.md` |
 | https://claude.com/blog/introduction-to-agentic-coding | `vendor/claude-sitemap/blog/introduction-to-agentic-coding.md` |
 | https://claude.com/blog/key-benefits-transitioning-agentic-coding | `vendor/claude-sitemap/blog/key-benefits-transitioning-agentic-coding.md` |
 | https://claude.com/blog/lessons-from-building-claude-code-how-we-use-skills | `vendor/claude-sitemap/blog/lessons-from-building-claude-code-how-we-use-skills.md` |
 | https://claude.com/blog/lessons-from-building-claude-code-prompt-caching-is-everything | `vendor/claude-sitemap/blog/lessons-from-building-claude-code-prompt-caching-is-everything.md` |
 | https://claude.com/blog/making-claude-a-better-electrical-engineer | `vendor/claude-sitemap/blog/making-claude-a-better-electrical-engineer.md` |
-| https://claude.com/blog/max-plan | `vendor/claude-sitemap/blog/max-plan.md` |
 | https://claude.com/blog/meet-the-winners-of-built-with-opus-4-7-claude-code-hackathon | `vendor/claude-sitemap/blog/meet-the-winners-of-built-with-opus-4-7-claude-code-hackathon.md` |
 | https://claude.com/blog/meet-the-winners-of-our-built-with-opus-4-6-claude-code-hackathon | `vendor/claude-sitemap/blog/meet-the-winners-of-our-built-with-opus-4-6-claude-code-hackathon.md` |
+| https://claude.com/blog/meet-the-winners-of-our-claude-opus-4-8-build-day-hackathon | `vendor/claude-sitemap/blog/meet-the-winners-of-our-claude-opus-4-8-build-day-hackathon.md` |
 | https://claude.com/blog/memory | `vendor/claude-sitemap/blog/memory.md` |
 | https://claude.com/blog/message-batches-api | `vendor/claude-sitemap/blog/message-batches-api.md` |
 | https://claude.com/blog/multi-agent-coordination-patterns | `vendor/claude-sitemap/blog/multi-agent-coordination-patterns.md` |
@@ -154,12 +160,14 @@ transform: html-extract
 | https://claude.com/blog/self-serve-enterprise | `vendor/claude-sitemap/blog/self-serve-enterprise.md` |
 | https://claude.com/blog/skills | `vendor/claude-sitemap/blog/skills.md` |
 | https://claude.com/blog/skills-explained | `vendor/claude-sitemap/blog/skills-explained.md` |
+| https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more | `vendor/claude-sitemap/blog/steering-claude-code-skills-hooks-rules-subagents-and-more.md` |
 | https://claude.com/blog/structured-outputs-on-the-claude-developer-platform | `vendor/claude-sitemap/blog/structured-outputs-on-the-claude-developer-platform.md` |
 | https://claude.com/blog/subagents-in-claude-code | `vendor/claude-sitemap/blog/subagents-in-claude-code.md` |
 | https://claude.com/blog/team-plan-and-ios | `vendor/claude-sitemap/blog/team-plan-and-ios.md` |
 | https://claude.com/blog/the-advisor-strategy | `vendor/claude-sitemap/blog/the-advisor-strategy.md` |
 | https://claude.com/blog/the-claude-cowork-product-guide | `vendor/claude-sitemap/blog/the-claude-cowork-product-guide.md` |
 | https://claude.com/blog/the-founders-playbook | `vendor/claude-sitemap/blog/the-founders-playbook.md` |
+| https://claude.com/blog/the-full-claude-desktop-experience-on-aws-google-cloud-and-microsoft-foundry | `vendor/claude-sitemap/blog/the-full-claude-desktop-experience-on-aws-google-cloud-and-microsoft-foundry.md` |
 | https://claude.com/blog/token-saving-updates | `vendor/claude-sitemap/blog/token-saving-updates.md` |
 | https://claude.com/blog/tool-use-ga | `vendor/claude-sitemap/blog/tool-use-ga.md` |
 | https://claude.com/blog/trainium2-and-distillation | `vendor/claude-sitemap/blog/trainium2-and-distillation.md` |
@@ -178,7 +186,6 @@ transform: html-extract
 | https://claude.com/blog/zero-trust-for-ai-agents | `vendor/claude-sitemap/blog/zero-trust-for-ai-agents.md` |
 | https://claude.com/claude-for-chrome | `vendor/claude-sitemap/claude-for-chrome.md` |
 | https://claude.com/claude-for-microsoft-365 | `vendor/claude-sitemap/claude-for-microsoft-365.md` |
-| https://claude.com/claude-for-slack | `vendor/claude-sitemap/claude-for-slack.md` |
 | https://claude.com/code-with-claude/code-of-conduct | `vendor/claude-sitemap/code-with-claude/code-of-conduct.md` |
 | https://claude.com/code-with-claude/london | `vendor/claude-sitemap/code-with-claude/london.md` |
 | https://claude.com/code-with-claude/london-extended | `vendor/claude-sitemap/code-with-claude/london-extended.md` |
@@ -338,6 +345,7 @@ transform: html-extract
 | https://claude.com/connectors/adobe-journey-optimizer | `vendor/claude-sitemap/connectors/adobe-journey-optimizer.md` |
 | https://claude.com/connectors/adobe-marketing-agent | `vendor/claude-sitemap/connectors/adobe-marketing-agent.md` |
 | https://claude.com/connectors/adobe-workfront | `vendor/claude-sitemap/connectors/adobe-workfront.md` |
+| https://claude.com/connectors/affinity | `vendor/claude-sitemap/connectors/affinity.md` |
 | https://claude.com/connectors/ahrefs | `vendor/claude-sitemap/connectors/ahrefs.md` |
 | https://claude.com/connectors/aiera | `vendor/claude-sitemap/connectors/aiera.md` |
 | https://claude.com/connectors/airops | `vendor/claude-sitemap/connectors/airops.md` |
@@ -346,8 +354,10 @@ transform: html-extract
 | https://claude.com/connectors/aiwyn-tax | `vendor/claude-sitemap/connectors/aiwyn-tax.md` |
 | https://claude.com/connectors/alltrails | `vendor/claude-sitemap/connectors/alltrails.md` |
 | https://claude.com/connectors/alma | `vendor/claude-sitemap/connectors/alma.md` |
+| https://claude.com/connectors/alphaxiv | `vendor/claude-sitemap/connectors/alphaxiv.md` |
 | https://claude.com/connectors/amplitude | `vendor/claude-sitemap/connectors/amplitude.md` |
 | https://claude.com/connectors/apollo | `vendor/claude-sitemap/connectors/apollo.md` |
+| https://claude.com/connectors/appfolio-realm-x | `vendor/claude-sitemap/connectors/appfolio-realm-x.md` |
 | https://claude.com/connectors/asana | `vendor/claude-sitemap/connectors/asana.md` |
 | https://claude.com/connectors/atlassian | `vendor/claude-sitemap/connectors/atlassian.md` |
 | https://claude.com/connectors/attention | `vendor/claude-sitemap/connectors/attention.md` |
@@ -362,17 +372,21 @@ transform: html-extract
 | https://claude.com/connectors/benevity | `vendor/claude-sitemap/connectors/benevity.md` |
 | https://claude.com/connectors/bigdata | `vendor/claude-sitemap/connectors/bigdata.md` |
 | https://claude.com/connectors/bigquery | `vendor/claude-sitemap/connectors/bigquery.md` |
+| https://claude.com/connectors/biomni-lab | `vendor/claude-sitemap/connectors/biomni-lab.md` |
 | https://claude.com/connectors/biorender | `vendor/claude-sitemap/connectors/biorender.md` |
 | https://claude.com/connectors/biorxiv | `vendor/claude-sitemap/connectors/biorxiv.md` |
 | https://claude.com/connectors/bitly | `vendor/claude-sitemap/connectors/bitly.md` |
 | https://claude.com/connectors/blackbaud | `vendor/claude-sitemap/connectors/blackbaud.md` |
 | https://claude.com/connectors/blockscout | `vendor/claude-sitemap/connectors/blockscout.md` |
 | https://claude.com/connectors/boardwise | `vendor/claude-sitemap/connectors/boardwise.md` |
+| https://claude.com/connectors/boltz-api | `vendor/claude-sitemap/connectors/boltz-api.md` |
 | https://claude.com/connectors/booking | `vendor/claude-sitemap/connectors/booking.md` |
 | https://claude.com/connectors/box | `vendor/claude-sitemap/connectors/box.md` |
 | https://claude.com/connectors/braze | `vendor/claude-sitemap/connectors/braze.md` |
+| https://claude.com/connectors/brevo | `vendor/claude-sitemap/connectors/brevo.md` |
 | https://claude.com/connectors/brex | `vendor/claude-sitemap/connectors/brex.md` |
 | https://claude.com/connectors/brighthire | `vendor/claude-sitemap/connectors/brighthire.md` |
+| https://claude.com/connectors/brisk-teaching | `vendor/claude-sitemap/connectors/brisk-teaching.md` |
 | https://claude.com/connectors/calendly | `vendor/claude-sitemap/connectors/calendly.md` |
 | https://claude.com/connectors/campfire | `vendor/claude-sitemap/connectors/campfire.md` |
 | https://claude.com/connectors/canary-data | `vendor/claude-sitemap/connectors/canary-data.md` |
@@ -405,6 +419,7 @@ transform: html-extract
 | https://claude.com/connectors/consensus | `vendor/claude-sitemap/connectors/consensus.md` |
 | https://claude.com/connectors/contentsquare | `vendor/claude-sitemap/connectors/contentsquare.md` |
 | https://claude.com/connectors/context7 | `vendor/claude-sitemap/connectors/context7.md` |
+| https://claude.com/connectors/coralogix | `vendor/claude-sitemap/connectors/coralogix.md` |
 | https://claude.com/connectors/cortellis-regulatory | `vendor/claude-sitemap/connectors/cortellis-regulatory.md` |
 | https://claude.com/connectors/coupler-io | `vendor/claude-sitemap/connectors/coupler-io.md` |
 | https://claude.com/connectors/coursera | `vendor/claude-sitemap/connectors/coursera.md` |
@@ -422,10 +437,12 @@ transform: html-extract
 | https://claude.com/connectors/datasite | `vendor/claude-sitemap/connectors/datasite.md` |
 | https://claude.com/connectors/dataverse | `vendor/claude-sitemap/connectors/dataverse.md` |
 | https://claude.com/connectors/day-ai | `vendor/claude-sitemap/connectors/day-ai.md` |
+| https://claude.com/connectors/dbt | `vendor/claude-sitemap/connectors/dbt.md` |
 | https://claude.com/connectors/definely | `vendor/claude-sitemap/connectors/definely.md` |
 | https://claude.com/connectors/descript | `vendor/claude-sitemap/connectors/descript.md` |
 | https://claude.com/connectors/descrybe-legal-engine | `vendor/claude-sitemap/connectors/descrybe-legal-engine.md` |
 | https://claude.com/connectors/devrev | `vendor/claude-sitemap/connectors/devrev.md` |
+| https://claude.com/connectors/dhs-program | `vendor/claude-sitemap/connectors/dhs-program.md` |
 | https://claude.com/connectors/dice | `vendor/claude-sitemap/connectors/dice.md` |
 | https://claude.com/connectors/digits | `vendor/claude-sitemap/connectors/digits.md` |
 | https://claude.com/connectors/directbooker | `vendor/claude-sitemap/connectors/directbooker.md` |
@@ -435,7 +452,10 @@ transform: html-extract
 | https://claude.com/connectors/doordash | `vendor/claude-sitemap/connectors/doordash.md` |
 | https://claude.com/connectors/dovetail | `vendor/claude-sitemap/connectors/dovetail.md` |
 | https://claude.com/connectors/dremio-cloud | `vendor/claude-sitemap/connectors/dremio-cloud.md` |
+| https://claude.com/connectors/dropbox | `vendor/claude-sitemap/connectors/dropbox.md` |
+| https://claude.com/connectors/eden-basecamp-research | `vendor/claude-sitemap/connectors/eden-basecamp-research.md` |
 | https://claude.com/connectors/egnyte | `vendor/claude-sitemap/connectors/egnyte.md` |
+| https://claude.com/connectors/embat | `vendor/claude-sitemap/connectors/embat.md` |
 | https://claude.com/connectors/enterpret | `vendor/claude-sitemap/connectors/enterpret.md` |
 | https://claude.com/connectors/era-context | `vendor/claude-sitemap/connectors/era-context.md` |
 | https://claude.com/connectors/eraser | `vendor/claude-sitemap/connectors/eraser.md` |
@@ -447,12 +467,16 @@ transform: html-extract
 | https://claude.com/connectors/factset | `vendor/claude-sitemap/connectors/factset.md` |
 | https://claude.com/connectors/fathom | `vendor/claude-sitemap/connectors/fathom.md` |
 | https://claude.com/connectors/fellow-ai | `vendor/claude-sitemap/connectors/fellow-ai.md` |
+| https://claude.com/connectors/felt-maps | `vendor/claude-sitemap/connectors/felt-maps.md` |
 | https://claude.com/connectors/fever-event-discovery | `vendor/claude-sitemap/connectors/fever-event-discovery.md` |
 | https://claude.com/connectors/figma | `vendor/claude-sitemap/connectors/figma.md` |
 | https://claude.com/connectors/fireflies | `vendor/claude-sitemap/connectors/fireflies.md` |
 | https://claude.com/connectors/fiscal-ai | `vendor/claude-sitemap/connectors/fiscal-ai.md` |
+| https://claude.com/connectors/fitch-solutions | `vendor/claude-sitemap/connectors/fitch-solutions.md` |
 | https://claude.com/connectors/fmp | `vendor/claude-sitemap/connectors/fmp.md` |
+| https://claude.com/connectors/freshservice | `vendor/claude-sitemap/connectors/freshservice.md` |
 | https://claude.com/connectors/function | `vendor/claude-sitemap/connectors/function.md` |
+| https://claude.com/connectors/fyxer | `vendor/claude-sitemap/connectors/fyxer.md` |
 | https://claude.com/connectors/g2 | `vendor/claude-sitemap/connectors/g2.md` |
 | https://claude.com/connectors/gainsight-cs | `vendor/claude-sitemap/connectors/gainsight-cs.md` |
 | https://claude.com/connectors/gainsight-staircase-ai | `vendor/claude-sitemap/connectors/gainsight-staircase-ai.md` |
@@ -481,6 +505,7 @@ transform: html-extract
 | https://claude.com/connectors/harness | `vendor/claude-sitemap/connectors/harness.md` |
 | https://claude.com/connectors/harvey | `vendor/claude-sitemap/connectors/harvey.md` |
 | https://claude.com/connectors/healthex | `vendor/claude-sitemap/connectors/healthex.md` |
+| https://claude.com/connectors/helix-genosphere | `vendor/claude-sitemap/connectors/helix-genosphere.md` |
 | https://claude.com/connectors/hex | `vendor/claude-sitemap/connectors/hex.md` |
 | https://claude.com/connectors/highspot | `vendor/claude-sitemap/connectors/highspot.md` |
 | https://claude.com/connectors/honeycomb | `vendor/claude-sitemap/connectors/honeycomb.md` |
@@ -494,6 +519,8 @@ transform: html-extract
 | https://claude.com/connectors/imanage | `vendor/claude-sitemap/connectors/imanage.md` |
 | https://claude.com/connectors/incident-io | `vendor/claude-sitemap/connectors/incident-io.md` |
 | https://claude.com/connectors/indeed | `vendor/claude-sitemap/connectors/indeed.md` |
+| https://claude.com/connectors/inductive-bio | `vendor/claude-sitemap/connectors/inductive-bio.md` |
+| https://claude.com/connectors/insider-one | `vendor/claude-sitemap/connectors/insider-one.md` |
 | https://claude.com/connectors/instacart | `vendor/claude-sitemap/connectors/instacart.md` |
 | https://claude.com/connectors/instrumentl | `vendor/claude-sitemap/connectors/instrumentl.md` |
 | https://claude.com/connectors/intapp-celeste | `vendor/claude-sitemap/connectors/intapp-celeste.md` |
@@ -513,12 +540,15 @@ transform: html-extract
 | https://claude.com/connectors/kpler | `vendor/claude-sitemap/connectors/kpler.md` |
 | https://claude.com/connectors/krisp | `vendor/claude-sitemap/connectors/krisp.md` |
 | https://claude.com/connectors/lastminute-com | `vendor/claude-sitemap/connectors/lastminute-com.md` |
+| https://claude.com/connectors/latchbio | `vendor/claude-sitemap/connectors/latchbio.md` |
 | https://claude.com/connectors/lawve-ai | `vendor/claude-sitemap/connectors/lawve-ai.md` |
 | https://claude.com/connectors/learning-commons-knowledge-graph | `vendor/claude-sitemap/connectors/learning-commons-knowledge-graph.md` |
 | https://claude.com/connectors/legal-data-hunter | `vendor/claude-sitemap/connectors/legal-data-hunter.md` |
 | https://claude.com/connectors/legalzoom | `vendor/claude-sitemap/connectors/legalzoom.md` |
+| https://claude.com/connectors/lightfield | `vendor/claude-sitemap/connectors/lightfield.md` |
 | https://claude.com/connectors/lilt | `vendor/claude-sitemap/connectors/lilt.md` |
 | https://claude.com/connectors/linear | `vendor/claude-sitemap/connectors/linear.md` |
+| https://claude.com/connectors/listen-labs | `vendor/claude-sitemap/connectors/listen-labs.md` |
 | https://claude.com/connectors/lloyd | `vendor/claude-sitemap/connectors/lloyd.md` |
 | https://claude.com/connectors/local-falcon | `vendor/claude-sitemap/connectors/local-falcon.md` |
 | https://claude.com/connectors/london-stock-exchange-group | `vendor/claude-sitemap/connectors/london-stock-exchange-group.md` |
@@ -585,14 +615,17 @@ transform: html-extract
 | https://claude.com/connectors/planetscale | `vendor/claude-sitemap/connectors/planetscale.md` |
 | https://claude.com/connectors/playmcp | `vendor/claude-sitemap/connectors/playmcp.md` |
 | https://claude.com/connectors/polar-analytics | `vendor/claude-sitemap/connectors/polar-analytics.md` |
+| https://claude.com/connectors/pophive | `vendor/claude-sitemap/connectors/pophive.md` |
 | https://claude.com/connectors/port-io | `vendor/claude-sitemap/connectors/port-io.md` |
 | https://claude.com/connectors/posthog | `vendor/claude-sitemap/connectors/posthog.md` |
 | https://claude.com/connectors/postman | `vendor/claude-sitemap/connectors/postman.md` |
 | https://claude.com/connectors/privacy | `vendor/claude-sitemap/connectors/privacy.md` |
 | https://claude.com/connectors/process-street | `vendor/claude-sitemap/connectors/process-street.md` |
+| https://claude.com/connectors/profound | `vendor/claude-sitemap/connectors/profound.md` |
 | https://claude.com/connectors/pubmed | `vendor/claude-sitemap/connectors/pubmed.md` |
 | https://claude.com/connectors/pylon | `vendor/claude-sitemap/connectors/pylon.md` |
 | https://claude.com/connectors/qlik | `vendor/claude-sitemap/connectors/qlik.md` |
+| https://claude.com/connectors/qonto | `vendor/claude-sitemap/connectors/qonto.md` |
 | https://claude.com/connectors/quartr | `vendor/claude-sitemap/connectors/quartr.md` |
 | https://claude.com/connectors/quicknode | `vendor/claude-sitemap/connectors/quicknode.md` |
 | https://claude.com/connectors/quo | `vendor/claude-sitemap/connectors/quo.md` |
@@ -604,6 +637,7 @@ transform: html-extract
 | https://claude.com/connectors/replit | `vendor/claude-sitemap/connectors/replit.md` |
 | https://claude.com/connectors/resy | `vendor/claude-sitemap/connectors/resy.md` |
 | https://claude.com/connectors/retool | `vendor/claude-sitemap/connectors/retool.md` |
+| https://claude.com/connectors/revvity-signals-ai | `vendor/claude-sitemap/connectors/revvity-signals-ai.md` |
 | https://claude.com/connectors/rillet | `vendor/claude-sitemap/connectors/rillet.md` |
 | https://claude.com/connectors/s-p-global | `vendor/claude-sitemap/connectors/s-p-global.md` |
 | https://claude.com/connectors/salesloft | `vendor/claude-sitemap/connectors/salesloft.md` |
@@ -621,6 +655,7 @@ transform: html-extract
 | https://claude.com/connectors/similarweb | `vendor/claude-sitemap/connectors/similarweb.md` |
 | https://claude.com/connectors/sketchup | `vendor/claude-sitemap/connectors/sketchup.md` |
 | https://claude.com/connectors/slack | `vendor/claude-sitemap/connectors/slack.md` |
+| https://claude.com/connectors/slidesgpt | `vendor/claude-sitemap/connectors/slidesgpt.md` |
 | https://claude.com/connectors/smartsheet | `vendor/claude-sitemap/connectors/smartsheet.md` |
 | https://claude.com/connectors/snowflake | `vendor/claude-sitemap/connectors/snowflake.md` |
 | https://claude.com/connectors/solve-intelligence | `vendor/claude-sitemap/connectors/solve-intelligence.md` |
@@ -654,6 +689,7 @@ transform: html-extract
 | https://claude.com/connectors/tines | `vendor/claude-sitemap/connectors/tines.md` |
 | https://claude.com/connectors/tldv | `vendor/claude-sitemap/connectors/tldv.md` |
 | https://claude.com/connectors/todoist | `vendor/claude-sitemap/connectors/todoist.md` |
+| https://claude.com/connectors/tomtom-maps | `vendor/claude-sitemap/connectors/tomtom-maps.md` |
 | https://claude.com/connectors/tool-universe | `vendor/claude-sitemap/connectors/tool-universe.md` |
 | https://claude.com/connectors/topcounsel | `vendor/claude-sitemap/connectors/topcounsel.md` |
 | https://claude.com/connectors/tray-ai | `vendor/claude-sitemap/connectors/tray-ai.md` |
@@ -662,11 +698,13 @@ transform: html-extract
 | https://claude.com/connectors/trivago | `vendor/claude-sitemap/connectors/trivago.md` |
 | https://claude.com/connectors/tropic | `vendor/claude-sitemap/connectors/tropic.md` |
 | https://claude.com/connectors/turkish-airlines | `vendor/claude-sitemap/connectors/turkish-airlines.md` |
+| https://claude.com/connectors/turquoise | `vendor/claude-sitemap/connectors/turquoise.md` |
 | https://claude.com/connectors/twilio | `vendor/claude-sitemap/connectors/twilio.md` |
 | https://claude.com/connectors/uber | `vendor/claude-sitemap/connectors/uber.md` |
 | https://claude.com/connectors/uber-eats | `vendor/claude-sitemap/connectors/uber-eats.md` |
 | https://claude.com/connectors/udemy-business | `vendor/claude-sitemap/connectors/udemy-business.md` |
 | https://claude.com/connectors/unthread | `vendor/claude-sitemap/connectors/unthread.md` |
+| https://claude.com/connectors/unwrap | `vendor/claude-sitemap/connectors/unwrap.md` |
 | https://claude.com/connectors/upwork | `vendor/claude-sitemap/connectors/upwork.md` |
 | https://claude.com/connectors/vani | `vendor/claude-sitemap/connectors/vani.md` |
 | https://claude.com/connectors/vercel | `vendor/claude-sitemap/connectors/vercel.md` |
@@ -687,6 +725,7 @@ transform: html-extract
 | https://claude.com/connectors/wrike | `vendor/claude-sitemap/connectors/wrike.md` |
 | https://claude.com/connectors/wyndham-hotels | `vendor/claude-sitemap/connectors/wyndham-hotels.md` |
 | https://claude.com/connectors/xero | `vendor/claude-sitemap/connectors/xero.md` |
+| https://claude.com/connectors/yardi-matrix | `vendor/claude-sitemap/connectors/yardi-matrix.md` |
 | https://claude.com/connectors/yardi-virtuoso | `vendor/claude-sitemap/connectors/yardi-virtuoso.md` |
 | https://claude.com/connectors/zapier | `vendor/claude-sitemap/connectors/zapier.md` |
 | https://claude.com/connectors/ziprecruiter | `vendor/claude-sitemap/connectors/ziprecruiter.md` |
@@ -725,10 +764,12 @@ transform: html-extract
 | https://claude.com/customers/binti | `vendor/claude-sitemap/customers/binti.md` |
 | https://claude.com/customers/biomni | `vendor/claude-sitemap/customers/biomni.md` |
 | https://claude.com/customers/bito | `vendor/claude-sitemap/customers/bito.md` |
+| https://claude.com/customers/blank-metal-qa | `vendor/claude-sitemap/customers/blank-metal-qa.md` |
 | https://claude.com/customers/block | `vendor/claude-sitemap/customers/block.md` |
 | https://claude.com/customers/blueflame | `vendor/claude-sitemap/customers/blueflame.md` |
 | https://claude.com/customers/bluenote | `vendor/claude-sitemap/customers/bluenote.md` |
 | https://claude.com/customers/bolt | `vendor/claude-sitemap/customers/bolt.md` |
+| https://claude.com/customers/box | `vendor/claude-sitemap/customers/box.md` |
 | https://claude.com/customers/brainlabs | `vendor/claude-sitemap/customers/brainlabs.md` |
 | https://claude.com/customers/braintrust | `vendor/claude-sitemap/customers/braintrust.md` |
 | https://claude.com/customers/brand-ai | `vendor/claude-sitemap/customers/brand-ai.md` |
@@ -757,6 +798,7 @@ transform: html-extract
 | https://claude.com/customers/copy-ai | `vendor/claude-sitemap/customers/copy-ai.md` |
 | https://claude.com/customers/cove | `vendor/claude-sitemap/customers/cove.md` |
 | https://claude.com/customers/cox-automotive | `vendor/claude-sitemap/customers/cox-automotive.md` |
+| https://claude.com/customers/cox-communications-qa | `vendor/claude-sitemap/customers/cox-communications-qa.md` |
 | https://claude.com/customers/cred | `vendor/claude-sitemap/customers/cred.md` |
 | https://claude.com/customers/crunched | `vendor/claude-sitemap/customers/crunched.md` |
 | https://claude.com/customers/cubic | `vendor/claude-sitemap/customers/cubic.md` |
@@ -813,6 +855,7 @@ transform: html-extract
 | https://claude.com/customers/jetbrains-2 | `vendor/claude-sitemap/customers/jetbrains-2.md` |
 | https://claude.com/customers/jumpcut | `vendor/claude-sitemap/customers/jumpcut.md` |
 | https://claude.com/customers/juno | `vendor/claude-sitemap/customers/juno.md` |
+| https://claude.com/customers/kai | `vendor/claude-sitemap/customers/kai.md` |
 | https://claude.com/customers/kindora | `vendor/claude-sitemap/customers/kindora.md` |
 | https://claude.com/customers/kodif | `vendor/claude-sitemap/customers/kodif.md` |
 | https://claude.com/customers/law-and-company | `vendor/claude-sitemap/customers/law-and-company.md` |
@@ -866,6 +909,7 @@ transform: html-extract
 | https://claude.com/customers/qodo | `vendor/claude-sitemap/customers/qodo.md` |
 | https://claude.com/customers/qualified-health | `vendor/claude-sitemap/customers/qualified-health.md` |
 | https://claude.com/customers/quantium | `vendor/claude-sitemap/customers/quantium.md` |
+| https://claude.com/customers/quantium-qa | `vendor/claude-sitemap/customers/quantium-qa.md` |
 | https://claude.com/customers/quillit | `vendor/claude-sitemap/customers/quillit.md` |
 | https://claude.com/customers/rakuten | `vendor/claude-sitemap/customers/rakuten.md` |
 | https://claude.com/customers/rakuten-qa | `vendor/claude-sitemap/customers/rakuten-qa.md` |
@@ -916,10 +960,10 @@ transform: html-extract
 | https://claude.com/customers/triple-whale | `vendor/claude-sitemap/customers/triple-whale.md` |
 | https://claude.com/customers/try | `vendor/claude-sitemap/customers/try.md` |
 | https://claude.com/customers/twilio-qa | `vendor/claude-sitemap/customers/twilio-qa.md` |
-| https://claude.com/customers/university-of-sydney | `vendor/claude-sitemap/customers/university-of-sydney.md` |
 | https://claude.com/customers/vambe | `vendor/claude-sitemap/customers/vambe.md` |
 | https://claude.com/customers/vanta | `vendor/claude-sitemap/customers/vanta.md` |
 | https://claude.com/customers/vapi | `vendor/claude-sitemap/customers/vapi.md` |
+| https://claude.com/customers/vercel-qa | `vendor/claude-sitemap/customers/vercel-qa.md` |
 | https://claude.com/customers/vibecode | `vendor/claude-sitemap/customers/vibecode.md` |
 | https://claude.com/customers/warp | `vendor/claude-sitemap/customers/warp.md` |
 | https://claude.com/customers/wedia-group | `vendor/claude-sitemap/customers/wedia-group.md` |
@@ -950,6 +994,17 @@ transform: html-extract
 | https://claude.com/partners/services | `vendor/claude-sitemap/partners/services.md` |
 | https://claude.com/platform/api | `vendor/claude-sitemap/platform/api.md` |
 | https://claude.com/platform/marketplace | `vendor/claude-sitemap/platform/marketplace.md` |
+| https://claude.com/platform/marketplace/augment | `vendor/claude-sitemap/platform/marketplace/augment.md` |
+| https://claude.com/platform/marketplace/base44 | `vendor/claude-sitemap/platform/marketplace/base44.md` |
+| https://claude.com/platform/marketplace/coderabbit | `vendor/claude-sitemap/platform/marketplace/coderabbit.md` |
+| https://claude.com/platform/marketplace/gitlab | `vendor/claude-sitemap/platform/marketplace/gitlab.md` |
+| https://claude.com/platform/marketplace/harvey | `vendor/claude-sitemap/platform/marketplace/harvey.md` |
+| https://claude.com/platform/marketplace/hebbia | `vendor/claude-sitemap/platform/marketplace/hebbia.md` |
+| https://claude.com/platform/marketplace/legora | `vendor/claude-sitemap/platform/marketplace/legora.md` |
+| https://claude.com/platform/marketplace/lovable | `vendor/claude-sitemap/platform/marketplace/lovable.md` |
+| https://claude.com/platform/marketplace/replit | `vendor/claude-sitemap/platform/marketplace/replit.md` |
+| https://claude.com/platform/marketplace/rogo | `vendor/claude-sitemap/platform/marketplace/rogo.md` |
+| https://claude.com/platform/marketplace/snowflake | `vendor/claude-sitemap/platform/marketplace/snowflake.md` |
 | https://claude.com/plugins/42crunch-api-security-testing | `vendor/claude-sitemap/plugins/42crunch-api-security-testing.md` |
 | https://claude.com/plugins/adlc | `vendor/claude-sitemap/plugins/adlc.md` |
 | https://claude.com/plugins/adobe-for-creativity | `vendor/claude-sitemap/plugins/adobe-for-creativity.md` |
@@ -961,6 +1016,7 @@ transform: html-extract
 | https://claude.com/plugins/aikido | `vendor/claude-sitemap/plugins/aikido.md` |
 | https://claude.com/plugins/airtable | `vendor/claude-sitemap/plugins/airtable.md` |
 | https://claude.com/plugins/airwallex | `vendor/claude-sitemap/plugins/airwallex.md` |
+| https://claude.com/plugins/airwallex-agentos | `vendor/claude-sitemap/plugins/airwallex-agentos.md` |
 | https://claude.com/plugins/aiven | `vendor/claude-sitemap/plugins/aiven.md` |
 | https://claude.com/plugins/alloydb | `vendor/claude-sitemap/plugins/alloydb.md` |
 | https://claude.com/plugins/alloydb-omni | `vendor/claude-sitemap/plugins/alloydb-omni.md` |
@@ -978,12 +1034,14 @@ transform: html-extract
 | https://claude.com/plugins/auth0 | `vendor/claude-sitemap/plugins/auth0.md` |
 | https://claude.com/plugins/autofix-bot | `vendor/claude-sitemap/plugins/autofix-bot.md` |
 | https://claude.com/plugins/aws-agents | `vendor/claude-sitemap/plugins/aws-agents.md` |
+| https://claude.com/plugins/aws-agents-for-devsecops | `vendor/claude-sitemap/plugins/aws-agents-for-devsecops.md` |
 | https://claude.com/plugins/aws-amplify | `vendor/claude-sitemap/plugins/aws-amplify.md` |
 | https://claude.com/plugins/aws-core | `vendor/claude-sitemap/plugins/aws-core.md` |
 | https://claude.com/plugins/aws-data-analytics | `vendor/claude-sitemap/plugins/aws-data-analytics.md` |
 | https://claude.com/plugins/aws-dev-toolkit | `vendor/claude-sitemap/plugins/aws-dev-toolkit.md` |
 | https://claude.com/plugins/aws-serverless | `vendor/claude-sitemap/plugins/aws-serverless.md` |
 | https://claude.com/plugins/aws-startup-advisor | `vendor/claude-sitemap/plugins/aws-startup-advisor.md` |
+| https://claude.com/plugins/aws-transform | `vendor/claude-sitemap/plugins/aws-transform.md` |
 | https://claude.com/plugins/azure | `vendor/claude-sitemap/plugins/azure.md` |
 | https://claude.com/plugins/azure-cosmos-db-assistant | `vendor/claude-sitemap/plugins/azure-cosmos-db-assistant.md` |
 | https://claude.com/plugins/azure-skills | `vendor/claude-sitemap/plugins/azure-skills.md` |
@@ -991,11 +1049,13 @@ transform: html-extract
 | https://claude.com/plugins/bigdata-com | `vendor/claude-sitemap/plugins/bigdata-com.md` |
 | https://claude.com/plugins/bigquery-data-analytics | `vendor/claude-sitemap/plugins/bigquery-data-analytics.md` |
 | https://claude.com/plugins/bio-research | `vendor/claude-sitemap/plugins/bio-research.md` |
+| https://claude.com/plugins/boltz | `vendor/claude-sitemap/plugins/boltz.md` |
 | https://claude.com/plugins/box | `vendor/claude-sitemap/plugins/box.md` |
 | https://claude.com/plugins/brand-voice | `vendor/claude-sitemap/plugins/brand-voice.md` |
 | https://claude.com/plugins/brightdata-plugin | `vendor/claude-sitemap/plugins/brightdata-plugin.md` |
 | https://claude.com/plugins/build-with-wordpress | `vendor/claude-sitemap/plugins/build-with-wordpress.md` |
 | https://claude.com/plugins/buildkite | `vendor/claude-sitemap/plugins/buildkite.md` |
+| https://claude.com/plugins/canva | `vendor/claude-sitemap/plugins/canva.md` |
 | https://claude.com/plugins/carta-cap-table | `vendor/claude-sitemap/plugins/carta-cap-table.md` |
 | https://claude.com/plugins/carta-crm | `vendor/claude-sitemap/plugins/carta-crm.md` |
 | https://claude.com/plugins/carta-investors | `vendor/claude-sitemap/plugins/carta-investors.md` |
@@ -1021,6 +1081,7 @@ transform: html-extract
 | https://claude.com/plugins/codspeed | `vendor/claude-sitemap/plugins/codspeed.md` |
 | https://claude.com/plugins/commit-commands | `vendor/claude-sitemap/plugins/commit-commands.md` |
 | https://claude.com/plugins/common-room | `vendor/claude-sitemap/plugins/common-room.md` |
+| https://claude.com/plugins/confidence | `vendor/claude-sitemap/plugins/confidence.md` |
 | https://claude.com/plugins/context7 | `vendor/claude-sitemap/plugins/context7.md` |
 | https://claude.com/plugins/convex | `vendor/claude-sitemap/plugins/convex.md` |
 | https://claude.com/plugins/convex-backend | `vendor/claude-sitemap/plugins/convex-backend.md` |
@@ -1034,6 +1095,7 @@ transform: html-extract
 | https://claude.com/plugins/data-agent-kit-starter-pack | `vendor/claude-sitemap/plugins/data-agent-kit-starter-pack.md` |
 | https://claude.com/plugins/data-engineering | `vendor/claude-sitemap/plugins/data-engineering.md` |
 | https://claude.com/plugins/databases-on-aws | `vendor/claude-sitemap/plugins/databases-on-aws.md` |
+| https://claude.com/plugins/databricks | `vendor/claude-sitemap/plugins/databricks.md` |
 | https://claude.com/plugins/datadog | `vendor/claude-sitemap/plugins/datadog.md` |
 | https://claude.com/plugins/datahub-skills | `vendor/claude-sitemap/plugins/datahub-skills.md` |
 | https://claude.com/plugins/dataproc | `vendor/claude-sitemap/plugins/dataproc.md` |
@@ -1044,6 +1106,7 @@ transform: html-extract
 | https://claude.com/plugins/desktop-commander | `vendor/claude-sitemap/plugins/desktop-commander.md` |
 | https://claude.com/plugins/discord | `vendor/claude-sitemap/plugins/discord.md` |
 | https://claude.com/plugins/dominodatalab | `vendor/claude-sitemap/plugins/dominodatalab.md` |
+| https://claude.com/plugins/dropbox | `vendor/claude-sitemap/plugins/dropbox.md` |
 | https://claude.com/plugins/duckdb-skills | `vendor/claude-sitemap/plugins/duckdb-skills.md` |
 | https://claude.com/plugins/duende-skills | `vendor/claude-sitemap/plugins/duende-skills.md` |
 | https://claude.com/plugins/elixir-ls-lsp | `vendor/claude-sitemap/plugins/elixir-ls-lsp.md` |
@@ -1087,8 +1150,10 @@ transform: html-extract
 | https://claude.com/plugins/jfrog | `vendor/claude-sitemap/plugins/jfrog.md` |
 | https://claude.com/plugins/knowledge-catalog | `vendor/claude-sitemap/plugins/knowledge-catalog.md` |
 | https://claude.com/plugins/kotlin-lsp | `vendor/claude-sitemap/plugins/kotlin-lsp.md` |
+| https://claude.com/plugins/langfuse | `vendor/claude-sitemap/plugins/langfuse.md` |
 | https://claude.com/plugins/langfuse-observability | `vendor/claude-sitemap/plugins/langfuse-observability.md` |
 | https://claude.com/plugins/laravel-boost | `vendor/claude-sitemap/plugins/laravel-boost.md` |
+| https://claude.com/plugins/learn-with-coursera | `vendor/claude-sitemap/plugins/learn-with-coursera.md` |
 | https://claude.com/plugins/learning-output-style | `vendor/claude-sitemap/plugins/learning-output-style.md` |
 | https://claude.com/plugins/legal | `vendor/claude-sitemap/plugins/legal.md` |
 | https://claude.com/plugins/legalzoom | `vendor/claude-sitemap/plugins/legalzoom.md` |
@@ -1096,7 +1161,9 @@ transform: html-extract
 | https://claude.com/plugins/liquid-lsp | `vendor/claude-sitemap/plugins/liquid-lsp.md` |
 | https://claude.com/plugins/liquid-skills | `vendor/claude-sitemap/plugins/liquid-skills.md` |
 | https://claude.com/plugins/logfire | `vendor/claude-sitemap/plugins/logfire.md` |
+| https://claude.com/plugins/logrocket | `vendor/claude-sitemap/plugins/logrocket.md` |
 | https://claude.com/plugins/looker | `vendor/claude-sitemap/plugins/looker.md` |
+| https://claude.com/plugins/lovable | `vendor/claude-sitemap/plugins/lovable.md` |
 | https://claude.com/plugins/lseg | `vendor/claude-sitemap/plugins/lseg.md` |
 | https://claude.com/plugins/lua-lsp | `vendor/claude-sitemap/plugins/lua-lsp.md` |
 | https://claude.com/plugins/lumen | `vendor/claude-sitemap/plugins/lumen.md` |
@@ -1112,6 +1179,7 @@ transform: html-extract
 | https://claude.com/plugins/migration-to-aws | `vendor/claude-sitemap/plugins/migration-to-aws.md` |
 | https://claude.com/plugins/mintlify | `vendor/claude-sitemap/plugins/mintlify.md` |
 | https://claude.com/plugins/miro | `vendor/claude-sitemap/plugins/miro.md` |
+| https://claude.com/plugins/monday-crm | `vendor/claude-sitemap/plugins/monday-crm.md` |
 | https://claude.com/plugins/mongodb | `vendor/claude-sitemap/plugins/mongodb.md` |
 | https://claude.com/plugins/neon | `vendor/claude-sitemap/plugins/neon.md` |
 | https://claude.com/plugins/netlify-skills | `vendor/claude-sitemap/plugins/netlify-skills.md` |
@@ -1123,6 +1191,8 @@ transform: html-extract
 | https://claude.com/plugins/operations | `vendor/claude-sitemap/plugins/operations.md` |
 | https://claude.com/plugins/opsera-devsecops | `vendor/claude-sitemap/plugins/opsera-devsecops.md` |
 | https://claude.com/plugins/optibot | `vendor/claude-sitemap/plugins/optibot.md` |
+| https://claude.com/plugins/oracle-ai-data-platform-workbench-databricks-migrator | `vendor/claude-sitemap/plugins/oracle-ai-data-platform-workbench-databricks-migrator.md` |
+| https://claude.com/plugins/oracle-ai-data-platform-workbench-engineer-agent | `vendor/claude-sitemap/plugins/oracle-ai-data-platform-workbench-engineer-agent.md` |
 | https://claude.com/plugins/oracle-ai-data-platform-workbench-spark-connectors | `vendor/claude-sitemap/plugins/oracle-ai-data-platform-workbench-spark-connectors.md` |
 | https://claude.com/plugins/oracledb | `vendor/claude-sitemap/plugins/oracledb.md` |
 | https://claude.com/plugins/outputai | `vendor/claude-sitemap/plugins/outputai.md` |
@@ -1143,6 +1213,7 @@ transform: html-extract
 | https://claude.com/plugins/product-management | `vendor/claude-sitemap/plugins/product-management.md` |
 | https://claude.com/plugins/product-tracking-skills | `vendor/claude-sitemap/plugins/product-tracking-skills.md` |
 | https://claude.com/plugins/productivity | `vendor/claude-sitemap/plugins/productivity.md` |
+| https://claude.com/plugins/project-artifact | `vendor/claude-sitemap/plugins/project-artifact.md` |
 | https://claude.com/plugins/pydantic-ai | `vendor/claude-sitemap/plugins/pydantic-ai.md` |
 | https://claude.com/plugins/pyright-lsp | `vendor/claude-sitemap/plugins/pyright-lsp.md` |
 | https://claude.com/plugins/qdrant-skills | `vendor/claude-sitemap/plugins/qdrant-skills.md` |
@@ -1157,6 +1228,7 @@ transform: html-extract
 | https://claude.com/plugins/remember | `vendor/claude-sitemap/plugins/remember.md` |
 | https://claude.com/plugins/resend | `vendor/claude-sitemap/plugins/resend.md` |
 | https://claude.com/plugins/revenuecat | `vendor/claude-sitemap/plugins/revenuecat.md` |
+| https://claude.com/plugins/rill | `vendor/claude-sitemap/plugins/rill.md` |
 | https://claude.com/plugins/rootly | `vendor/claude-sitemap/plugins/rootly.md` |
 | https://claude.com/plugins/ruby-lsp | `vendor/claude-sitemap/plugins/ruby-lsp.md` |
 | https://claude.com/plugins/runway-api | `vendor/claude-sitemap/plugins/runway-api.md` |
@@ -1166,6 +1238,7 @@ transform: html-extract
 | https://claude.com/plugins/sanity | `vendor/claude-sitemap/plugins/sanity.md` |
 | https://claude.com/plugins/sap-cds-mcp | `vendor/claude-sitemap/plugins/sap-cds-mcp.md` |
 | https://claude.com/plugins/sap-fiori-mcp-server | `vendor/claude-sitemap/plugins/sap-fiori-mcp-server.md` |
+| https://claude.com/plugins/sap-hana-cli | `vendor/claude-sitemap/plugins/sap-hana-cli.md` |
 | https://claude.com/plugins/sap-mdk-server | `vendor/claude-sitemap/plugins/sap-mdk-server.md` |
 | https://claude.com/plugins/save-to-spotify | `vendor/claude-sitemap/plugins/save-to-spotify.md` |
 | https://claude.com/plugins/searchfit-seo | `vendor/claude-sitemap/plugins/searchfit-seo.md` |
@@ -1176,7 +1249,6 @@ transform: html-extract
 | https://claude.com/plugins/serena | `vendor/claude-sitemap/plugins/serena.md` |
 | https://claude.com/plugins/servicenow-sdk | `vendor/claude-sitemap/plugins/servicenow-sdk.md` |
 | https://claude.com/plugins/session-report | `vendor/claude-sitemap/plugins/session-report.md` |
-| https://claude.com/plugins/shopify | `vendor/claude-sitemap/plugins/shopify.md` |
 | https://claude.com/plugins/shopify-ai-toolkit | `vendor/claude-sitemap/plugins/shopify-ai-toolkit.md` |
 | https://claude.com/plugins/skill-creator | `vendor/claude-sitemap/plugins/skill-creator.md` |
 | https://claude.com/plugins/slack | `vendor/claude-sitemap/plugins/slack.md` |
@@ -1196,6 +1268,7 @@ transform: html-extract
 | https://claude.com/plugins/supabase | `vendor/claude-sitemap/plugins/supabase.md` |
 | https://claude.com/plugins/superpowers | `vendor/claude-sitemap/plugins/superpowers.md` |
 | https://claude.com/plugins/swift-lsp | `vendor/claude-sitemap/plugins/swift-lsp.md` |
+| https://claude.com/plugins/tavily | `vendor/claude-sitemap/plugins/tavily.md` |
 | https://claude.com/plugins/teamcity-cli | `vendor/claude-sitemap/plugins/teamcity-cli.md` |
 | https://claude.com/plugins/telegram | `vendor/claude-sitemap/plugins/telegram.md` |
 | https://claude.com/plugins/terraform | `vendor/claude-sitemap/plugins/terraform.md` |
@@ -1203,7 +1276,9 @@ transform: html-extract
 | https://claude.com/plugins/twilio-developer-kit | `vendor/claude-sitemap/plugins/twilio-developer-kit.md` |
 | https://claude.com/plugins/typescript-lsp | `vendor/claude-sitemap/plugins/typescript-lsp.md` |
 | https://claude.com/plugins/ui5 | `vendor/claude-sitemap/plugins/ui5.md` |
+| https://claude.com/plugins/ui5-modernization | `vendor/claude-sitemap/plugins/ui5-modernization.md` |
 | https://claude.com/plugins/ui5-typescript-conversion | `vendor/claude-sitemap/plugins/ui5-typescript-conversion.md` |
+| https://claude.com/plugins/unreal-engine-skills-for-claude-code | `vendor/claude-sitemap/plugins/unreal-engine-skills-for-claude-code.md` |
 | https://claude.com/plugins/vals | `vendor/claude-sitemap/plugins/vals.md` |
 | https://claude.com/plugins/valtown | `vendor/claude-sitemap/plugins/valtown.md` |
 | https://claude.com/plugins/vanta | `vendor/claude-sitemap/plugins/vanta.md` |
@@ -1229,12 +1304,17 @@ transform: html-extract
 | https://claude.com/problem-solvers | `vendor/claude-sitemap/problem-solvers.md` |
 | https://claude.com/product/claude-code | `vendor/claude-sitemap/product/claude-code.md` |
 | https://claude.com/product/claude-code/enterprise | `vendor/claude-sitemap/product/claude-code/enterprise.md` |
+| https://claude.com/product/claude-science | `vendor/claude-sitemap/product/claude-science.md` |
 | https://claude.com/product/claude-security | `vendor/claude-sitemap/product/claude-security.md` |
 | https://claude.com/product/cowork | `vendor/claude-sitemap/product/cowork.md` |
+| https://claude.com/product/design | `vendor/claude-sitemap/product/design.md` |
 | https://claude.com/product/overview | `vendor/claude-sitemap/product/overview.md` |
+| https://claude.com/product/tag | `vendor/claude-sitemap/product/tag.md` |
 | https://claude.com/programs/campus | `vendor/claude-sitemap/programs/campus.md` |
+| https://claude.com/programs/claude-team-plan-for-research-labs | `vendor/claude-sitemap/programs/claude-team-plan-for-research-labs.md` |
 | https://claude.com/programs/startups | `vendor/claude-sitemap/programs/startups.md` |
 | https://claude.com/resources/tutorials-category/ai-fluency | `vendor/claude-sitemap/resources/tutorials-category/ai-fluency.md` |
+| https://claude.com/resources/tutorials-category/claude-science | `vendor/claude-sitemap/resources/tutorials-category/claude-science.md` |
 | https://claude.com/resources/tutorials-category/education | `vendor/claude-sitemap/resources/tutorials-category/education.md` |
 | https://claude.com/resources/tutorials-category/engineering | `vendor/claude-sitemap/resources/tutorials-category/engineering.md` |
 | https://claude.com/resources/tutorials-category/finance | `vendor/claude-sitemap/resources/tutorials-category/finance.md` |
@@ -1248,6 +1328,7 @@ transform: html-extract
 | https://claude.com/resources/tutorials-category/small-business | `vendor/claude-sitemap/resources/tutorials-category/small-business.md` |
 | https://claude.com/resources/tutorials/a-discussion-guide-for-the-ai-fluency-index | `vendor/claude-sitemap/resources/tutorials/a-discussion-guide-for-the-ai-fluency-index.md` |
 | https://claude.com/resources/tutorials/applying-claude-opus-4-5s-strengths-to-your-everyday-work | `vendor/claude-sitemap/resources/tutorials/applying-claude-opus-4-5s-strengths-to-your-everyday-work.md` |
+| https://claude.com/resources/tutorials/best-practices-using-claude-tag | `vendor/claude-sitemap/resources/tutorials/best-practices-using-claude-tag.md` |
 | https://claude.com/resources/tutorials/building-a-powerpoint-with-claude | `vendor/claude-sitemap/resources/tutorials/building-a-powerpoint-with-claude.md` |
 | https://claude.com/resources/tutorials/choosing-between-claude-cowork-or-chat | `vendor/claude-sitemap/resources/tutorials/choosing-between-claude-cowork-or-chat.md` |
 | https://claude.com/resources/tutorials/choosing-the-right-claude-model | `vendor/claude-sitemap/resources/tutorials/choosing-the-right-claude-model.md` |
@@ -1270,6 +1351,7 @@ transform: html-extract
 | https://claude.com/resources/tutorials/create-professional-results-across-tools-with-claude-sonnet-4-5 | `vendor/claude-sitemap/resources/tutorials/create-professional-results-across-tools-with-claude-sonnet-4-5.md` |
 | https://claude.com/resources/tutorials/creating-your-first-skill | `vendor/claude-sitemap/resources/tutorials/creating-your-first-skill.md` |
 | https://claude.com/resources/tutorials/customize-claude-cowork | `vendor/claude-sitemap/resources/tutorials/customize-claude-cowork.md` |
+| https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork | `vendor/claude-sitemap/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork.md` |
 | https://claude.com/resources/tutorials/delegating-your-first-task-in-claude-cowork | `vendor/claude-sitemap/resources/tutorials/delegating-your-first-task-in-claude-cowork.md` |
 | https://claude.com/resources/tutorials/dispatch-in-claude-cowork | `vendor/claude-sitemap/resources/tutorials/dispatch-in-claude-cowork.md` |
 | https://claude.com/resources/tutorials/financial-analysis-workflows-with-claude | `vendor/claude-sitemap/resources/tutorials/financial-analysis-workflows-with-claude.md` |
@@ -1278,9 +1360,9 @@ transform: html-extract
 | https://claude.com/resources/tutorials/getting-good-at-claude-a-research-backed-curriculum | `vendor/claude-sitemap/resources/tutorials/getting-good-at-claude-a-research-backed-curriculum.md` |
 | https://claude.com/resources/tutorials/getting-started-with-claude-ai | `vendor/claude-sitemap/resources/tutorials/getting-started-with-claude-ai.md` |
 | https://claude.com/resources/tutorials/getting-started-with-claude-for-financial-services | `vendor/claude-sitemap/resources/tutorials/getting-started-with-claude-for-financial-services.md` |
-| https://claude.com/resources/tutorials/getting-started-with-claude-for-life-sciences | `vendor/claude-sitemap/resources/tutorials/getting-started-with-claude-for-life-sciences.md` |
 | https://claude.com/resources/tutorials/getting-started-with-claude-for-nonprofits | `vendor/claude-sitemap/resources/tutorials/getting-started-with-claude-for-nonprofits.md` |
 | https://claude.com/resources/tutorials/getting-started-with-claude-in-excel | `vendor/claude-sitemap/resources/tutorials/getting-started-with-claude-in-excel.md` |
+| https://claude.com/resources/tutorials/getting-started-with-claude-science | `vendor/claude-sitemap/resources/tutorials/getting-started-with-claude-science.md` |
 | https://claude.com/resources/tutorials/getting-started-with-claude-security | `vendor/claude-sitemap/resources/tutorials/getting-started-with-claude-security.md` |
 | https://claude.com/resources/tutorials/getting-started-with-connectors | `vendor/claude-sitemap/resources/tutorials/getting-started-with-connectors.md` |
 | https://claude.com/resources/tutorials/getting-the-most-out-of-sonnet-4-5-in-claude-ai | `vendor/claude-sitemap/resources/tutorials/getting-the-most-out-of-sonnet-4-5-in-claude-ai.md` |
@@ -1311,6 +1393,7 @@ transform: html-extract
 | https://claude.com/resources/tutorials/scaling-workflows-with-claude-cowork-at-your-organization | `vendor/claude-sitemap/resources/tutorials/scaling-workflows-with-claude-cowork-at-your-organization.md` |
 | https://claude.com/resources/tutorials/sharing-skills | `vendor/claude-sitemap/resources/tutorials/sharing-skills.md` |
 | https://claude.com/resources/tutorials/simplify-your-browsing-experience-with-claude-for-chrome | `vendor/claude-sitemap/resources/tutorials/simplify-your-browsing-experience-with-claude-for-chrome.md` |
+| https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace | `vendor/claude-sitemap/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace.md` |
 | https://claude.com/resources/tutorials/teach-claude-your-way-of-working-using-skills | `vendor/claude-sitemap/resources/tutorials/teach-claude-your-way-of-working-using-skills.md` |
 | https://claude.com/resources/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators | `vendor/claude-sitemap/resources/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators.md` |
 | https://claude.com/resources/tutorials/the-4-properties-of-ai | `vendor/claude-sitemap/resources/tutorials/the-4-properties-of-ai.md` |
@@ -1485,11 +1568,13 @@ transform: html-extract
 | https://claude.com/solutions/coding | `vendor/claude-sitemap/solutions/coding.md` |
 | https://claude.com/solutions/customer-support | `vendor/claude-sitemap/solutions/customer-support.md` |
 | https://claude.com/solutions/education | `vendor/claude-sitemap/solutions/education.md` |
+| https://claude.com/solutions/enterprise | `vendor/claude-sitemap/solutions/enterprise.md` |
 | https://claude.com/solutions/financial-services | `vendor/claude-sitemap/solutions/financial-services.md` |
 | https://claude.com/solutions/government | `vendor/claude-sitemap/solutions/government.md` |
 | https://claude.com/solutions/healthcare | `vendor/claude-sitemap/solutions/healthcare.md` |
 | https://claude.com/solutions/legal | `vendor/claude-sitemap/solutions/legal.md` |
 | https://claude.com/solutions/life-sciences | `vendor/claude-sitemap/solutions/life-sciences.md` |
+| https://claude.com/solutions/life-sciences/ai-adoption-index | `vendor/claude-sitemap/solutions/life-sciences/ai-adoption-index.md` |
 | https://claude.com/solutions/nonprofits | `vendor/claude-sitemap/solutions/nonprofits.md` |
 | https://claude.com/solutions/security | `vendor/claude-sitemap/solutions/security.md` |
 | https://claude.com/solutions/small-business | `vendor/claude-sitemap/solutions/small-business.md` |
@@ -1513,7 +1598,7 @@ transform: html-extract
 | https://support.claude.com/en/articles/10302511-accessing-claude-app-on-ios-lock-screen-control-center-and-action-button | `vendor/claude-sitemap/support/en/articles/10302511-accessing-claude-app-on-ios-lock-screen-control-center-and-action-button.md` |
 | https://support.claude.com/en/articles/10310342-how-do-i-log-out-of-all-active-sessions | `vendor/claude-sitemap/support/en/articles/10310342-how-do-i-log-out-of-all-active-sessions.md` |
 | https://support.claude.com/en/articles/10366376-how-can-i-delete-my-claude-console-account | `vendor/claude-sitemap/support/en/articles/10366376-how-can-i-delete-my-claude-console-account.md` |
-| https://support.claude.com/en/articles/10366389-how-can-i-advance-my-claude-api-usage-to-tier-2 | `vendor/claude-sitemap/support/en/articles/10366389-how-can-i-advance-my-claude-api-usage-to-tier-2.md` |
+| https://support.claude.com/en/articles/10366389-how-can-i-get-higher-rate-limits-on-the-claude-api | `vendor/claude-sitemap/support/en/articles/10366389-how-can-i-get-higher-rate-limits-on-the-claude-api.md` |
 | https://support.claude.com/en/articles/10366421-how-does-claude-handle-mathematical-equations-and-calculations | `vendor/claude-sitemap/support/en/articles/10366421-how-does-claude-handle-mathematical-equations-and-calculations.md` |
 | https://support.claude.com/en/articles/10366432-i-m-getting-an-api-connection-error-how-can-i-fix-it | `vendor/claude-sitemap/support/en/articles/10366432-i-m-getting-an-api-connection-error-how-can-i-fix-it.md` |
 | https://support.claude.com/en/articles/10366473-where-can-i-find-full-receipts-and-invoices-for-my-claude-api-and-console-payments | `vendor/claude-sitemap/support/en/articles/10366473-where-can-i-find-full-receipts-and-invoices-for-my-claude-api-and-console-payments.md` |
@@ -1577,7 +1662,7 @@ transform: html-extract
 | https://support.claude.com/en/articles/12123587-import-and-export-your-memory-from-claude | `vendor/claude-sitemap/support/en/articles/12123587-import-and-export-your-memory-from-claude.md` |
 | https://support.claude.com/en/articles/12138966-release-notes | `vendor/claude-sitemap/support/en/articles/12138966-release-notes.md` |
 | https://support.claude.com/en/articles/12157520-claude-code-usage-analytics | `vendor/claude-sitemap/support/en/articles/12157520-claude-code-usage-analytics.md` |
-| https://support.claude.com/en/articles/12260368-using-incognito-chats | `vendor/claude-sitemap/support/en/articles/12260368-using-incognito-chats.md` |
+| https://support.claude.com/en/articles/12260368-use-incognito-chats | `vendor/claude-sitemap/support/en/articles/12260368-use-incognito-chats.md` |
 | https://support.claude.com/en/articles/12293051-use-claude-in-xcode | `vendor/claude-sitemap/support/en/articles/12293051-use-claude-in-xcode.md` |
 | https://support.claude.com/en/articles/12304248-manage-api-key-environment-variables-in-claude-code | `vendor/claude-sitemap/support/en/articles/12304248-manage-api-key-environment-variables-in-claude-code.md` |
 | https://support.claude.com/en/articles/12326764-can-i-use-my-outputs-to-train-an-ai-model | `vendor/claude-sitemap/support/en/articles/12326764-can-i-use-my-outputs-to-train-an-ai-model.md` |
@@ -1648,8 +1733,6 @@ transform: html-extract
 | https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization | `vendor/claude-sitemap/support/en/articles/13566435-find-and-join-a-team-or-enterprise-organization.md` |
 | https://support.claude.com/en/articles/13641943-visual-and-interactive-content | `vendor/claude-sitemap/support/en/articles/13641943-visual-and-interactive-content.md` |
 | https://support.claude.com/en/articles/13663666-use-visual-and-interactive-content-on-team-and-enterprise-plans | `vendor/claude-sitemap/support/en/articles/13663666-use-visual-and-interactive-content-on-team-and-enterprise-plans.md` |
-| https://support.claude.com/en/articles/13694757-get-started-with-the-claude-enterprise-analytics-api | `vendor/claude-sitemap/support/en/articles/13694757-get-started-with-the-claude-enterprise-analytics-api.md` |
-| https://support.claude.com/en/articles/13703965-claude-enterprise-analytics-api-reference-guide | `vendor/claude-sitemap/support/en/articles/13703965-claude-enterprise-analytics-api-reference-guide.md` |
 | https://support.claude.com/en/articles/13704655-unauthorized-anthropic-stock-sales-and-investment-scams | `vendor/claude-sitemap/support/en/articles/13704655-unauthorized-anthropic-stock-sales-and-investment-scams.md` |
 | https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access | `vendor/claude-sitemap/support/en/articles/13730515-manage-claude-s-tool-access.md` |
 | https://support.claude.com/en/articles/13756069-public-sector-faqs | `vendor/claude-sitemap/support/en/articles/13756069-public-sector-faqs.md` |
@@ -1716,7 +1799,6 @@ transform: html-extract
 | https://support.claude.com/en/articles/14625619-claim-and-migrate-accounts-on-your-domain | `vendor/claude-sitemap/support/en/articles/14625619-claim-and-migrate-accounts-on-your-domain.md` |
 | https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account | `vendor/claude-sitemap/support/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account.md` |
 | https://support.claude.com/en/articles/14661296-use-claude-security | `vendor/claude-sitemap/support/en/articles/14661296-use-claude-security.md` |
-| https://support.claude.com/en/articles/14667344-claude-design-subscription-usage-and-pricing | `vendor/claude-sitemap/support/en/articles/14667344-claude-design-subscription-usage-and-pricing.md` |
 | https://support.claude.com/en/articles/14729249-use-live-artifacts-in-claude-cowork | `vendor/claude-sitemap/support/en/articles/14729249-use-live-artifacts-in-claude-cowork.md` |
 | https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link | `vendor/claude-sitemap/support/en/articles/14729294-open-claude-desktop-with-a-link.md` |
 | https://support.claude.com/en/articles/14729354-use-analytics-chat-to-ask-claude-about-usage | `vendor/claude-sitemap/support/en/articles/14729354-use-analytics-chat-to-ask-claude-about-usage.md` |
@@ -1740,6 +1822,9 @@ transform: html-extract
 | https://support.claude.com/en/articles/15425996-data-retention-practices-for-mythos-class-models | `vendor/claude-sitemap/support/en/articles/15425996-data-retention-practices-for-mythos-class-models.md` |
 | https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa | `vendor/claude-sitemap/support/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa.md` |
 | https://support.claude.com/en/articles/15505325-what-are-customer-managed-encryption-keys-cmek | `vendor/claude-sitemap/support/en/articles/15505325-what-are-customer-managed-encryption-keys-cmek.md` |
+| https://support.claude.com/en/articles/15537633-authorize-mcp-connectors-for-your-entire-organization | `vendor/claude-sitemap/support/en/articles/15537633-authorize-mcp-connectors-for-your-entire-organization.md` |
+| https://support.claude.com/en/articles/15591275-child-safety-guidance-for-developers | `vendor/claude-sitemap/support/en/articles/15591275-child-safety-guidance-for-developers.md` |
+| https://support.claude.com/en/articles/15594475-what-is-claude-tag | `vendor/claude-sitemap/support/en/articles/15594475-what-is-claude-tag.md` |
 | https://support.claude.com/en/articles/7996845-what-are-some-things-i-can-use-claude-for | `vendor/claude-sitemap/support/en/articles/7996845-what-are-some-things-i-can-use-claude-for.md` |
 | https://support.claude.com/en/articles/7996853-introduction-to-prompt-design | `vendor/claude-sitemap/support/en/articles/7996853-introduction-to-prompt-design.md` |
 | https://support.claude.com/en/articles/7996857-my-prompt-isn-t-giving-me-a-helpful-answer | `vendor/claude-sitemap/support/en/articles/7996857-my-prompt-isn-t-giving-me-a-helpful-answer.md` |

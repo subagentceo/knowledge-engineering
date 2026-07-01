@@ -1,0 +1,3 @@
+# GitLab
+
+GitLab is a unified DevSecOps platform used by developers, security teams, and platform teams to plan, build, secure, and ship software. GitLab Duo Agent Platform lets teams orchestrate Claude-powered AI agents across the full lifecycle, while GitLab Orbit keeps those agents grounded in your repo data, dependencies, and current project context so their actions stay accurate. Everything runs inside your GitLab environment, against your code and your controls.
