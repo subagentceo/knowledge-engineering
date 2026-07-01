@@ -31,6 +31,7 @@ export { COWORKERS, DOMAINS, findCoworker, secure, HSTS, type CoworkerEntry } fr
 export interface Env {
   MCP_OBJECT: DurableObjectNamespace;
   COWORKERS_HOST: string;
+  QUEUE_SNAPSHOTS_KV: KVNamespace;
 }
 
 // ── McpAgent ──────────────────────────────────────────────────────────────────
