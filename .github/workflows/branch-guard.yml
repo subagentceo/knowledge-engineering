@@ -29,7 +29,7 @@ jobs:
           esac
 
       - name: Checkout
-        uses: actions/checkout@v6 # @sha-exempt actions/* first-party, tag-pinned per ADR 2026-05-18
+        uses: actions/checkout@v7 # @sha-exempt actions/* first-party, tag-pinned per ADR 2026-05-18
       - name: Setup Node
         uses: actions/setup-node@v6 # @sha-exempt actions/* first-party, tag-pinned per ADR 2026-05-18
         with:
