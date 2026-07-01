@@ -48,10 +48,8 @@ describe("COWORKERS manifest", () => {
 
   test("models are valid Claude model IDs", () => {
     const valid = new Set([
-      "claude-sonnet-4-6",
+      "claude-sonnet-5",
       "claude-haiku-4-5-20251001",
-      "claude-opus-4-6",
-      "claude-opus-4-7",
       "claude-opus-4-8",
     ]);
     for (const cw of COWORKERS) {
