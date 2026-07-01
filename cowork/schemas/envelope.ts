@@ -66,14 +66,22 @@ export interface DurableTask {
   id: string
   queue: string                        // domain queue name (NOT "domain" — that key is invalid)
   subject: string
+  description?: string                 // longer free-text description of the work
   state: "pending" | "in_progress" | "completed" | "blocked" | "failed"
   created_at: string
   updated_at: string
   from?: string                        // who dispatched this task
   ke_fit_score?: 1 | 2 | 3 | 4 | 5   // knowledge-engineering fit score; 5=highest priority
   owner?: string                       // coworker that claimed it
+  estimated_hours?: number             // rough sizing estimate
+  due_date?: string                    // ISO-8601 date (YYYY-MM-DD)
+  jira_key?: string                    // linked Jira issue key, e.g. "KAN-25"
   depends_on?: string[]                // task ids that must complete first
   blocks?: string[]                    // task ids this one blocks
+  evaluator?: {                        // pass/fail criteria for the durability gate
+    pass_if: string[]
+    fail_if: string[]
+  }
   payload?: Record<string, unknown>
   result?: Record<string, unknown>     // set on completion
   error?: string                       // set on block/fail

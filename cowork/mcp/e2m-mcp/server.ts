@@ -34,6 +34,11 @@ import { randomUUID } from "node:crypto";
 import { McpServer }   from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z }           from "zod";
+import {
+  durableTaskSchema,
+  transitionSchema as canonicalTransitionSchema,
+  envelopeSchema as canonicalEnvelopeSchema,
+} from "../../schemas/envelope.zod.js";
 
 // ── Domain queue config ───────────────────────────────────────────────────────
 
@@ -53,7 +58,10 @@ function ensureDirs(): void {
   fs.mkdirSync(MAILBOX_DIR, { recursive: true });
 }
 
-function queuePath(domain: Domain): string {
+// Accepts `string` (not just `Domain`) because the canonical durableTaskSchema's
+// `queue` field is z.string() — the enum check happens at the MCP tool-input
+// boundary (DomainEnum), not in the schema itself.
+function queuePath(domain: Domain | string): string {
   return path.join(QUEUE_DIR, `${domain}.jsonl`);
 }
 function mailboxPath(agentId: string): string {
@@ -108,50 +116,24 @@ function collapseByIdRecency<T extends { id: string; at?: string }>(rows: T[]): 
   return collapseById(sorted);
 }
 
-// ── QueueTask schema (local queue item; NOT the canonical Envelope in
-//    cowork/schemas/envelope.ts, which is the agent-to-agent message type) ────
-
-const EvaluatorBlock = z.object({
-  pass_if: z.array(z.string()).min(1),
-  fail_if: z.array(z.string()).min(1),
-});
+// ── QueueTask schema (canonical DurableTask, imported from envelope.zod.ts) ───
 
 const TaskStateEnum = z.enum(["pending", "in_progress", "blocked", "completed", "failed"]);
 const DomainEnum    = z.enum(DOMAINS);
 const TaskEventEnum = z.enum(["claim", "complete", "block", "unblock", "fail", "retry"]);
 
-export const QueueTask = z.object({
-  _type:           z.literal("task").default("task"),   // required by DurableTask canon (envelope.ts)
-  id:              z.string().uuid().default(() => randomUUID()),
-  queue:           DomainEnum,
-  subject:         z.string().min(1).max(80),
-  description:     z.string().max(200).optional(),
-  state:           TaskStateEnum.default("pending"),
-  owner:           z.string().optional(),
-  ke_fit_score:    z.number().int().min(1).max(5).optional(),
-  estimated_hours: z.number().positive().optional(),
-  due_date:        z.string().optional(),        // YYYY-MM-DD
-  depends_on:      z.array(z.string().uuid()).default([]),
-  blocks:          z.array(z.string().uuid()).default([]),
-  jira_key:        z.string().regex(/^[A-Z]+-\d+$/).optional(),
-  evaluator:       EvaluatorBlock.optional(),
-  created_at:      z.string().default(() => new Date().toISOString()),
-  updated_at:      z.string().default(() => new Date().toISOString()),
-  result:          z.record(z.string(), z.unknown()).optional(),
-  error:           z.string().optional(),
-});
-export type QueueTask = z.infer<typeof QueueTask>;
+// durableTaskSchema (canonical) has no .default() calls — this server sets
+// _type/id/state/created_at/updated_at explicitly before parsing.
+export const QueueTask = durableTaskSchema;
+export type QueueTask = z.infer<typeof durableTaskSchema>;
 
-// Transition row — appended on every state change
-const TransitionRow = z.object({
-  id:          z.string().uuid(),               // same as task id
-  _type:       z.literal("transition"),
+// Transition row — appended on every state change. canonical transitionSchema
+// only requires _type/id/at; narrow event/prior_state/new_state to the task
+// lifecycle enums this server actually appends.
+const TransitionRow = canonicalTransitionSchema.extend({
   event:       TaskEventEnum,
   prior_state: TaskStateEnum,
   new_state:   TaskStateEnum,
-  owner:       z.string().optional(),
-  error:       z.string().optional(),
-  at:          z.string().default(() => new Date().toISOString()),
 });
 type TransitionRow = z.infer<typeof TransitionRow>;
 
@@ -167,22 +149,11 @@ const ENVELOPE_TYPE_OF: Record<string, string> = {
   dispatch: "task", routine: "task", ping: "notify", ack: "ack",
 };
 
-// Canonical mailbox envelope shape (cowork/schemas/envelope.ts). Named distinctly
-// from the `QueueTask` local schema above to avoid a collision.
-type MailboxEnvelopeType = "task" | "ack" | "result" | "escalate" | "notify" | "summary" | "operator";
-interface MailboxEnvelope {
-  _type: "envelope";
-  id: string;
-  envelope_type: MailboxEnvelopeType;
-  from: string;
-  to: string;
-  subject: string;
-  at: string;
-  state: "pending" | "read" | "actioned" | "archived";
-  thread_id?: string;
-  payload?: Record<string, unknown>;
-  ack_required?: boolean;
-}
+// Canonical mailbox envelope shape, imported from envelope.zod.ts (canonicalEnvelopeSchema)
+// rather than hand-rolled — named distinctly from the `QueueTask` local binding
+// above to avoid a collision.
+type MailboxEnvelope = z.infer<typeof canonicalEnvelopeSchema>;
+type MailboxEnvelopeType = MailboxEnvelope["envelope_type"];
 
 const MailboxMessage = z.object({
   id:          z.string().uuid().default(() => randomUUID()),
@@ -224,7 +195,19 @@ server.tool(
       .describe("DurableTask envelope object (will be validated against QueueTask schema)"),
   },
   ({ envelope }) => {
-    const parsed = QueueTask.parse(envelope);
+    // Canonical durableTaskSchema has no .default() calls (unlike the retired
+    // hand-rolled schema) — this handler must set _type/id/state/timestamps
+    // explicitly before parsing.
+    const now = new Date().toISOString();
+    const withDefaults = {
+      _type: "task" as const,
+      id: randomUUID(),
+      state: "pending" as const,
+      created_at: now,
+      updated_at: now,
+      ...envelope,
+    };
+    const parsed = QueueTask.parse(withDefaults);
     appendLine(queuePath(parsed.queue), parsed);
     return {
       content: [{ type: "text", text: JSON.stringify({ ok: true, id: parsed.id, queue: parsed.queue }) }],
@@ -320,9 +303,11 @@ server.tool(
   ({ from, to, type, subject, body, payload, ack_required, thread_id }) => {
     const msg = MailboxMessage.parse({ from, to, type, subject, body, payload, ack_required, thread_id });
     const dest = to === "broadcast" ? "_broadcast" : to;
-    // Canonical Envelope only (cowork/schemas/envelope.ts, additionalProperties:false) —
-    // no legacy MailboxMessage fields (type/body/status/sent_at) on the wire.
-    const envelope: MailboxEnvelope = {
+    // Canonical envelopeSchema (additionalProperties:false, no legacy
+    // MailboxMessage fields like type/body/status/sent_at on the wire) — has
+    // no .default() calls, so _type/envelope_type/at/state are set explicitly
+    // before validating against it.
+    const envelope: MailboxEnvelope = canonicalEnvelopeSchema.parse({
       _type: "envelope",
       id: msg.id,
       envelope_type: (ENVELOPE_TYPE_OF[type] ?? "notify") as MailboxEnvelopeType,
@@ -336,7 +321,7 @@ server.tool(
         ? { payload: { ...(msg.payload ?? {}), ...(msg.body ? { body: msg.body } : {}) } }
         : {}),
       ...(msg.ack_required ? { ack_required: msg.ack_required } : {}),
-    };
+    });
     appendLine(mailboxPath(dest), envelope);
     return {
       content: [{ type: "text", text: JSON.stringify({ ok: true, message_id: msg.id, to: dest }) }],
