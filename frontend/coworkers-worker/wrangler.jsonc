@@ -15,6 +15,15 @@
   "vars": {
     "COWORK_HOST": "cowork.subagentknowledge.com"
   },
+  // KAN-31: queue snapshot cache written by cowork/scripts/queue-snapshot.ts (KAN-32).
+  // id is a placeholder — real namespace must be created via `wrangler kv namespace create
+  // QUEUE_SNAPSHOTS_KV` and this id swapped in before deploy (see PR body manual follow-up).
+  "kv_namespaces": [
+    {
+      "binding": "QUEUE_SNAPSHOTS_KV",
+      "id": "REPLACE_WITH_REAL_KV_NAMESPACE_ID"
+    }
+  ],
   // ── Durable Objects ────────────────────────────────────────────────────────
   "durable_objects": {
     "bindings": [

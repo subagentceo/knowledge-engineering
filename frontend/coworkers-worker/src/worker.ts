@@ -38,6 +38,7 @@ export interface Env {
   MCP_OBJECT: DurableObjectNamespace;
   COWORKERS_MCP_APP: DurableObjectNamespace;
   COWORK_HOST: string;
+  QUEUE_SNAPSHOTS_KV: KVNamespace;
 }
 
 // ── McpAgent ──────────────────────────────────────────────────────────────────
