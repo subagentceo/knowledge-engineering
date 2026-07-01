@@ -114,9 +114,26 @@ Ties into the durable CI primitives: `/durable-agent-ci-cd-evals` →
 
 ## Open / next (tracked as DurableTasks, not promises)
 
-1. Generate `envelope.py` (pydantic v2) and `envelope.rs` (serde) from `envelope.schema.json`.
-2. Refactor `e2m-mcp/server.ts` to import the generated `envelope.zod.ts` instead
-   of its own hand-rolled `Envelope`/`MailboxMessage` zod (collapse the last duplicate).
-3. Normalize the queue JSONL (294 legacy records missing `_type`) the same
-   red/green way the mailbox was done.
+1. **Closed** (KAN-27). Generate `envelope.py` (pydantic v2, via datamodel-code-generator)
+   and `envelope.rs` (serde, via quicktype) from `envelope.schema.json` — wired into
+   `npm run schema:gen` via `scripts/schema-gen-py-rs.ts`. `envelope.py` imports cleanly
+   as pydantic v2 `BaseModel` classes and is deterministic across reruns. `envelope.rs`
+   compiles but quicktype has no `serde(tag = "_type")` support for Rust, so it flattens
+   the `Envelope | DurableTask | Transition` union into one struct with every field
+   `Option<...>` — flagged with a `// TODO: verify serde tagging...` header in the file
+   for manual follow-up (typify or a hand-written tagged enum).
+2. **Closed** (KAN-28). Refactored `e2m-mcp/server.ts` to import `durableTaskSchema` /
+   `transitionSchema` / `envelopeSchema` from the generated `envelope.zod.ts` instead of
+   its own hand-rolled `QueueTask`/`EvaluatorBlock` zod (the hand-rolled `MailboxMessage`
+   tool-input schema is retained — it's a distinct legacy-shape validator, mapped into
+   the canonical envelope before being written to JSONL).
+3. **Closed** (KAN-29). The "294 legacy records missing `_type`" figure was stale —
+   `npm run schema:validate` now reports `scanned: 534, violations: 0` across
+   `cowork/data/mailbox/*.jsonl` + `cowork/data/queues/*.jsonl` (verified 2026-07-01,
+   post-12-domain expansion). Regression guard added in
+   `cowork/scripts/test_mailbox_validate.py` (`TestTypeCoverageRegression`): a synthetic
+   missing-`_type` fixture line asserts `check_record()` flags it, and
+   `migrate-add-type.py`'s `infer_type()` is asserted against both a queue-context task
+   row and a mailbox-context envelope row (plus their transition-signal variants) so a
+   future edit can't silently reopen the gap.
 4. Add `schema:gen` drift-check + `schema:validate` to `npm run verify`.
