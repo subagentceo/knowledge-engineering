@@ -74,6 +74,19 @@ describe("COWORKERS directory", () => {
     const json = JSON.stringify(COWORKERS);
     assert.ok(!json.includes("ANTHROPIC_API_KEY"), "OAuth-only invariant violation");
   });
+
+  test("models are valid Claude model IDs", () => {
+    const valid = new Set([
+      "claude-sonnet-5",
+      "claude-haiku-4-5-20251001",
+      "claude-opus-4-6",
+      "claude-opus-4-7",
+      "claude-opus-4-8",
+    ]);
+    for (const cw of COWORKERS) {
+      assert.ok(valid.has(cw.model), `${cw.id} has unknown model: ${cw.model}`);
+    }
+  });
 });
 
 describe("findCoworker", () => {

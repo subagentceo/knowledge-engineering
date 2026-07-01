@@ -24,7 +24,7 @@ export const COWORKERS: Coworker[] = [
     protocols: ["a2a", "e2m-mcp", "mcp"],
     peers: ["design-coworker", "engineering-coworker", "data-coworker", "sales-coworker", "operations-coworker", "finance-coworker"],
     description: "Lead PM. Routes work, manages priority-rerank cadence, orchestrates peer coworkers via e2m-mcp mailbox.",
-    model: "claude-sonnet-4-6",
+    model: "claude-sonnet-5",
   },
   {
     id: "design-coworker",
@@ -34,7 +34,7 @@ export const COWORKERS: Coworker[] = [
     protocols: ["a2a", "e2m-mcp"],
     peers: ["product-management-coworker", "engineering-coworker"],
     description: "Design token + HTML artifact coworker. Owns cowork/artifacts/ and the 8-token design system.",
-    model: "claude-sonnet-4-6",
+    model: "claude-sonnet-5",
   },
   {
     id: "engineering-coworker",
@@ -94,7 +94,7 @@ export const COWORKERS: Coworker[] = [
     protocols: ["a2a", "e2m-mcp"],
     peers: ["product-management-coworker", "sales-coworker", "engineering-coworker"],
     description: "Legal review, compliance, NDA triage, contract review. Queues all correspondence — never sends without operator approval.",
-    model: "claude-sonnet-4-6",
+    model: "claude-sonnet-5",
   },
   {
     id: "marketing-coworker",
@@ -104,7 +104,7 @@ export const COWORKERS: Coworker[] = [
     protocols: ["a2a", "e2m-mcp"],
     peers: ["product-management-coworker", "sales-coworker", "legal-coworker"],
     description: "Brand, content, SEO, campaigns, competitive intelligence. Queues all content — never publishes without operator approval.",
-    model: "claude-sonnet-4-6",
+    model: "claude-sonnet-5",
   },
   {
     id: "agent-resources-coworker",
@@ -114,7 +114,7 @@ export const COWORKERS: Coworker[] = [
     protocols: ["a2a", "e2m-mcp"],
     peers: ["product-management-coworker", "engineering-coworker", "human-resources-coworker"],
     description: "Agent lifecycle: onboard new coworkers, upgrade skills, track performance (ke_fit_score), manage cost, retire agents.",
-    model: "claude-sonnet-4-6",
+    model: "claude-sonnet-5",
   },
   {
     id: "human-resources-coworker",
@@ -124,7 +124,7 @@ export const COWORKERS: Coworker[] = [
     protocols: ["a2a", "e2m-mcp"],
     peers: ["product-management-coworker", "legal-coworker", "finance-coworker", "agent-resources-coworker"],
     description: "People ops for humans: recruiting, onboarding, performance, comp, org planning. All correspondence status=draft — never sends without operator approval.",
-    model: "claude-sonnet-4-6",
+    model: "claude-sonnet-5",
   },
   {
     id: "project-management-coworker",
@@ -134,7 +134,7 @@ export const COWORKERS: Coworker[] = [
     protocols: ["a2a", "e2m-mcp"],
     peers: ["product-management-coworker", "engineering-coworker", "agent-resources-coworker"],
     description: "Execution tracker, nightly review, type-safety auditor. Reports to product-management.",
-    model: "claude-opus-4-6",
+    model: "claude-opus-4-8",
   },
 ];
 
