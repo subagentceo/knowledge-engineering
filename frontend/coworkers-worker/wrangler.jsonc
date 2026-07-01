@@ -13,7 +13,6 @@
     }
   ],
   "vars": {
-    "SITE_NAME": "coworkers",
     "COWORK_HOST": "cowork.subagentknowledge.com"
   },
   // ── Durable Objects ────────────────────────────────────────────────────────
