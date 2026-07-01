@@ -136,4 +136,15 @@ Ties into the durable CI primitives: `/durable-agent-ci-cd-evals` →
    `migrate-add-type.py`'s `infer_type()` is asserted against both a queue-context task
    row and a mailbox-context envelope row (plus their transition-signal variants) so a
    future edit can't silently reopen the gap.
-4. Add `schema:gen` drift-check + `schema:validate` to `npm run verify`.
+4. **Closed** (KAN-30). Added `npm run verify:schema`: runs `schema:gen`, then
+   `git diff --exit-code` against the 4 generated files (`envelope.zod.ts`,
+   `envelope.schema.json`, `envelope.py`, `envelope.rs`) to catch drift between
+   `envelope.ts` and its generated bindings, then runs `schema:validate`
+   propagating its exit code. Wired into the `npm run verify` chain (after
+   `verify:mcp`, before `verify:tf`). Verified idempotent: two consecutive runs
+   on a clean git tree both exit 0; a deliberate drift (editing `envelope.ts`
+   without regenerating) correctly fails with exit 1 and a readable diff.
+   CI wiring for the Python codegen step (`actions/setup-python` + `pip install
+   -r cowork/schemas/requirements-codegen.txt` in `.github/workflows/verify.yml`)
+   is deferred to a follow-up PR — this session's push token lacks the
+   `workflow` scope needed to modify workflow files.
