@@ -1,0 +1,30 @@
+[shell_environment_policy]
+inherit = "core"
+
+[shell_environment_policy.set]
+CLOUDFLARE_ACCOUNT_ID = "e6294e3ea89f8207af387d459824aaae"
+CLOUDFLARE_WORKER_NAME = "ke-cloud-agent"
+IS_SANDBOX = "0"
+KE_VENDOR_DIR = "vendor"
+KE_SERVERS_DIR = ".claude/servers"
+KE_PLANNER_MODE = "default"
+CLAUDE_CODE_ENABLE_TELEMETRY = "1"
+CLAUDE_CODE_ENHANCED_TELEMETRY_BETA = "1"
+OTEL_LOG_TOOL_DETAILS = "1"
+OTEL_METRICS_EXPORTER = "otlp"
+OTEL_LOGS_EXPORTER = "otlp"
+OTEL_EXPORTER_OTLP_ENDPOINT = "https://claude-telemetry.subagentceo.workers.dev"
+OTEL_EXPORTER_OTLP_PROTOCOL = "http/json"
+OTEL_METRIC_EXPORT_INTERVAL = "10000"
+OTEL_LOGS_EXPORT_INTERVAL = "5000"
+OTEL_RESOURCE_ATTRIBUTES = "org.id=c38224f8-0e34-45c0-abee-739f89331d6a,service.name=claude-code"
+
+[mcp_servers.MCP_DOCKER]
+command = "docker"
+args = [
+    "mcp",
+    "gateway",
+    "run",
+    "--profile",
+    "platform_engineering",
+]

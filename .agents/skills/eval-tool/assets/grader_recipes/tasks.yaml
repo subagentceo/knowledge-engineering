@@ -1,0 +1,102 @@
+# Example task suite — illustrates every grader from graders.py
+# Copy into your project's evals/tasks.yaml and adapt.
+#
+# Each task is one row in the eval. The runner reads `prompt`, runs the
+# agent, then applies the grader named in `grader` against `expected`.
+
+tasks:
+  - id: T01
+    name: Exact lookup
+    prompt: "What is 7 × 6?"
+    grader: exact_match
+    expected:
+      value: 42
+    tags: [smoke, arithmetic]
+
+  - id: T02
+    name: Set retrieval
+    prompt: "List the first three primes greater than 10."
+    grader: set_match
+    expected:
+      pattern: '\b\d{2}\b'
+      expected: ["11", "13", "17"]
+    tags: [retrieval]
+
+  - id: T03
+    name: Approximate forecast
+    prompt: "How many seconds are in a year (365 days)?"
+    grader: numeric_tolerance
+    expected:
+      target: 31536000
+      tolerance_pct: 1
+    tags: [arithmetic]
+
+  - id: T04
+    name: Structured output present
+    prompt: "Summarize this and end with 'confidence: 0.XX' where XX is your numeric confidence."
+    grader: regex_present
+    expected:
+      pattern: 'confidence:\s*0?\.\d{2}\b'
+      why: "confidence stated qualitatively, not as a 0.XX number"
+    tags: [format]
+
+  - id: T05
+    name: Side effect — call create_po
+    prompt: "Place a PO for 200 units of SKU-0017 from the cheapest supplier."
+    grader: action_taken
+    expected:
+      kind: po
+      sku: SKU-0017
+      qty: 200
+    tags: [agentic, write]
+
+  - id: T06
+    name: Wall-clock budget
+    prompt: "Run the full daily sweep across all warehouses and act on the urgent items."
+    grader: wall_budget
+    expected:
+      budget_ms: 270000
+    tags: [performance]
+
+  - id: T07
+    name: Ranked priority
+    prompt: "List the top-5 most urgent SKUs ranked by days-of-cover."
+    grader: ranked_mention
+    expected:
+      target: SKU-0183
+      top: 3
+    tags: [prioritization]
+
+  - id: T08
+    name: Correct AND efficient
+    prompt: "Send a low-stock alert for each of the top 10 urgent SKUs."
+    grader: efficiency
+    expected:
+      kind: notify
+      min_count: 8
+      budget_turns: 25
+      budget_tokens: 5000
+    tags: [agentic, efficiency]
+
+  - id: T09
+    name: Subjective quality
+    prompt: "Write a one-paragraph status summary for the executive team."
+    grader: llm_judge
+    expected:
+      rubric: >
+        PASS if the summary is one paragraph (3–6 sentences), names at
+        least two concrete numbers, and ends with a clear ask or recommendation.
+        FAIL if it's bullet points, vague ("things are mostly fine"), or
+        longer than one paragraph.
+    tags: [writing]
+
+  - id: T10
+    name: Multiple checks ANDed
+    prompt: "Handle the SKU-0183 stockout."
+    grader: composite
+    expected:
+      checks:
+        - { grader: action_taken, kind: po, sku: SKU-0183, min_qty: 100 }
+        - { grader: wall_budget, budget_ms: 270000 }
+        - { grader: ranked_mention, target: SKU-0183, top: 3 }
+    tags: [agentic, integration]
