@@ -1,7 +1,7 @@
 /**
  * cowork-worker/src/manifest.ts — pure data + helpers, no Worker runtime deps.
  *
- * @cite cowork/coworkers/manifest.json (7 coworker definitions)
+ * @cite cowork/coworkers/manifest.json (12 coworker definitions)
  */
 
 export interface CoworkerEntry {

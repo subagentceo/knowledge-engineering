@@ -11,7 +11,7 @@
  *
  * MCP tools exposed (connectable from Claude):
  *   - get_queue_status   : read domain queue states from KV
- *   - list_coworkers     : return 7-coworker manifest
+ *   - list_coworkers     : return 12-coworker manifest
  *   - get_coworker       : detail for one coworker by id
  *   - send_envelope      : write a DurableTask envelope to a mailbox
  *
