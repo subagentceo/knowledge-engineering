@@ -108,7 +108,8 @@ function collapseByIdRecency<T extends { id: string; at?: string }>(rows: T[]): 
   return collapseById(sorted);
 }
 
-// ── Envelope schema (canonical DurableTask + evaluator) ───────────────────────
+// ── QueueTask schema (local queue item; NOT the canonical Envelope in
+//    cowork/schemas/envelope.ts, which is the agent-to-agent message type) ────
 
 const EvaluatorBlock = z.object({
   pass_if: z.array(z.string()).min(1),
@@ -119,7 +120,7 @@ const TaskStateEnum = z.enum(["pending", "in_progress", "blocked", "completed", 
 const DomainEnum    = z.enum(DOMAINS);
 const TaskEventEnum = z.enum(["claim", "complete", "block", "unblock", "fail", "retry"]);
 
-export const Envelope = z.object({
+export const QueueTask = z.object({
   _type:           z.literal("task").default("task"),   // required by DurableTask canon (envelope.ts)
   id:              z.string().uuid().default(() => randomUUID()),
   queue:           DomainEnum,
@@ -139,7 +140,7 @@ export const Envelope = z.object({
   result:          z.record(z.string(), z.unknown()).optional(),
   error:           z.string().optional(),
 });
-export type Envelope = z.infer<typeof Envelope>;
+export type QueueTask = z.infer<typeof QueueTask>;
 
 // Transition row — appended on every state change
 const TransitionRow = z.object({
@@ -167,7 +168,7 @@ const ENVELOPE_TYPE_OF: Record<string, string> = {
 };
 
 // Canonical mailbox envelope shape (cowork/schemas/envelope.ts). Named distinctly
-// from the `Envelope` DurableTask type above (line 91) to avoid a collision.
+// from the `QueueTask` local schema above to avoid a collision.
 type MailboxEnvelopeType = "task" | "ack" | "result" | "escalate" | "notify" | "summary" | "operator";
 interface MailboxEnvelope {
   _type: "envelope";
@@ -220,10 +221,10 @@ server.tool(
   "Validate and append a DurableTask envelope to its domain JSONL queue.",
   {
     envelope: z.record(z.string(), z.unknown())
-      .describe("DurableTask envelope object (will be validated against Envelope schema)"),
+      .describe("DurableTask envelope object (will be validated against QueueTask schema)"),
   },
   ({ envelope }) => {
-    const parsed = Envelope.parse(envelope);
+    const parsed = QueueTask.parse(envelope);
     appendLine(queuePath(parsed.queue), parsed);
     return {
       content: [{ type: "text", text: JSON.stringify({ ok: true, id: parsed.id, queue: parsed.queue }) }],
@@ -242,7 +243,7 @@ server.tool(
     limit:  z.number().int().min(1).max(500).default(50).describe("Max rows to return"),
   },
   ({ domain, state, limit }) => {
-    const rows = readLines(queuePath(domain)) as Envelope[];
+    const rows = readLines(queuePath(domain)) as QueueTask[];
     // collapse to latest state per id (transitions overwrite)
     const collapsed = collapseById(rows.filter(r => (r as any)._type !== "transition"));
     const filtered  = state ? collapsed.filter(r => r.state === state) : collapsed;
@@ -268,12 +269,12 @@ server.tool(
   },
   ({ domain, task_id, event, owner, error, result }) => {
     // Find current state
-    const rows = readLines(queuePath(domain)) as (Envelope | TransitionRow)[];
+    const rows = readLines(queuePath(domain)) as (QueueTask | TransitionRow)[];
     // Last row for this id is current
     const taskRows = rows.filter(r => r.id === task_id);
     if (taskRows.length === 0) throw new Error(`task ${task_id} not found in ${domain}`);
     const last = taskRows[taskRows.length - 1];
-    const currentState = (last as any).new_state ?? (last as Envelope).state ?? "pending";
+    const currentState = (last as any).new_state ?? (last as QueueTask).state ?? "pending";
 
     const t = VALID_TRANSITIONS[event];
     if (!t) throw new Error(`unknown event: ${event}`);
@@ -289,7 +290,7 @@ server.tool(
     appendLine(queuePath(domain), row);
 
     // Also write updated envelope row so collapse works cleanly
-    const envelope = rows.find(r => r.id === task_id && (r as any)._type !== "transition") as Envelope;
+    const envelope = rows.find(r => r.id === task_id && (r as any)._type !== "transition") as QueueTask;
     if (envelope) {
       const updated = { ...envelope, state: t.to, owner: owner ?? envelope.owner, error, result, updated_at: new Date().toISOString() };
       appendLine(queuePath(domain), updated);
@@ -401,7 +402,7 @@ server.tool(
     ensureDirs();
     const summary: Record<string, Record<string, number>> = {};
     for (const domain of DOMAINS) {
-      const rows    = readLines(queuePath(domain)) as Envelope[];
+      const rows    = readLines(queuePath(domain)) as QueueTask[];
       const current = collapseById(rows.filter(r => (r as any)._type !== "transition"));
       const counts: Record<string, number> = { pending: 0, in_progress: 0, blocked: 0, completed: 0, failed: 0 };
       for (const t of current) {
