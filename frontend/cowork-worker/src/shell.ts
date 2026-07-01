@@ -1,13 +1,19 @@
 /**
  * cowork-worker/src/shell.ts
  *
- * Pure HTML-shell renderer for cowork.subagentknowledge.com's root route.
+ * Pure HTML-shell renderers for cowork.subagentknowledge.com:
+ *   coworkShell()    — root route ("/")
+ *   renderQueuesPage() — live /queues panel (KAN-36), replacing the stale
+ *                        hardcoded MORNING_SUMMARY_HTML snapshot in worker.ts
+ *                        with a per-request render from getQueueSnapshot(env).
+ *
  * Deliberately split out of worker.ts (which imports `agents/mcp` → transitive
  * `cloudflare:*` scheme imports unresolvable under plain vitest/node) so this
  * module — and its render tests — can run without a Workers runtime shim.
  *
  * @cite frontend/cowork-worker/src/manifest.ts        (COWORKERS, CoworkerEntry)
  * @cite frontend/cowork-worker/src/queue-snapshot.ts   (QueueSnapshot shape)
+ * @cite frontend/cowork-worker/src/worker.ts           (MORNING_SUMMARY_HTML CSS, reused verbatim)
  */
 
 import { COWORKERS } from "./manifest.js";
@@ -209,6 +215,7 @@ export function coworkShell(env: CoworkShellEnv, snapshot: QueueSnapshot | null)
   <nav>
     <a href="/" class="active">cowork/</a>
     <a href="https://${coworkersHost}">coworkers/</a>
+    <a href="/queues">queues</a>
     <a href="/mcp">mcp</a>
     <a href="/api/manifest">manifest</a>
     <div class="spacer"></div>
@@ -280,4 +287,65 @@ export function coworkShell(env: CoworkShellEnv, snapshot: QueueSnapshot | null)
 </div>
 </body>
 </html>`;
+}
+
+// ── /queues live panel (KAN-36) ─────────────────────────────────────────────
+
+const DOMAIN_ROW_COLOR = (counts: QueueSnapshot["domains"][string]): string =>
+  counts.blocked > 0 ? "#f47067" : counts.completed > 0 ? "#7bd88f" : "#51c4ff";
+
+// Pure render fn, same split rationale as coworkShell above. Reuses
+// MORNING_SUMMARY_HTML's CSS (frontend/cowork-worker/src/worker.ts) verbatim
+// so /queues matches the existing /summary artifact's look, but renders from
+// a live getQueueSnapshot(env) read instead of a hardcoded HTML string.
+export function renderQueuesPage(snapshot: QueueSnapshot | null): string {
+  const entries = snapshot
+    ? Object.entries(snapshot.domains).sort(([a], [b]) => a.localeCompare(b))
+    : [];
+  const domains = entries.map(([domain]) => domain);
+  const rows = entries.map(([domain, counts]) => {
+    const color = DOMAIN_ROW_COLOR(counts);
+    return `<tr><td style="color:${color}">${domain}</td><td style="color:#51c4ff">${counts.pending}</td><td style="color:#7bd88f">${counts.in_progress}</td><td style="color:#f47067">${counts.blocked}</td><td style="color:#6a6a6a">${counts.completed}</td><td style="color:#6a6a6a">${counts.failed}</td></tr>`;
+  }).join("");
+
+  const body = snapshot
+    ? `<div class="note">Live snapshot @ ${snapshot.at} — ${domains.length} domains — read via getQueueSnapshot(env) from QUEUE_SNAPSHOTS_KV.</div>
+<div class="section">
+  <div class="section-header"><span class="section-label lbl-cyan">queue health</span></div>
+  <table><thead><tr><th>domain</th><th>pending</th><th>in_progress</th><th>blocked</th><th>completed</th><th>failed</th></tr></thead>
+  <tbody>${rows}</tbody></table>
+</div>`
+    : `<div class="note">no snapshot yet — the scheduled queue-snapshot job (cowork/scripts/queue-snapshot.ts, KAN-32) has not published to QUEUE_SNAPSHOTS_KV yet.</div>`;
+
+  return `<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Queues — live</title>
+<style>
+* { box-sizing: border-box; }
+html,body { margin:0;padding:0;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#0a0a0a;color:#d4d4d4;font-size:13px; }
+#header { padding:10px 16px 12px;border-bottom:1px solid #1f1f1f;display:flex;align-items:baseline;gap:16px; }
+#header h1 { margin:0;font-size:15px;font-weight:600;letter-spacing:1px;color:#f4f4f4; }
+#header .meta { font-size:11px;color:#6a6a6a; }
+#header .badge { margin-left:auto;font-size:10px;text-transform:uppercase;letter-spacing:1px;border:1px solid #2a2a2a;padding:2px 8px;color:#7bd88f; }
+main { padding:12px 16px 40px; }
+.section { margin-bottom:24px; }
+.section-header { display:flex;align-items:baseline;gap:10px;padding:6px 0;border-bottom:1px solid #1f1f1f;margin-bottom:10px; }
+.section-label { font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:600; }
+.lbl-cyan { color:#51c4ff; } .lbl-green { color:#7bd88f; } .lbl-amber { color:#f4a73b; }
+table { border-collapse:collapse;width:100%;font-size:12px; }
+th,td { padding:.35rem .7rem;border:1px solid #1f1f1f;text-align:left; }
+th { background:#111;color:#9a9a9a;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.5px; }
+tr:hover { background:#111; }
+.commit { font-size:11px;padding:4px 8px;border-left:2px solid #51c4ff;margin-bottom:4px;color:#9a9a9a; }
+.note { margin:12px 0;border:1px solid #2a2a2a;border-left:3px solid #7bd88f;padding:8px 12px;background:#111;font-size:11px;color:#9a9a9a; }
+</style></head><body>
+<div id="header">
+  <h1>queues</h1>
+  <span class="meta">cowork.subagentknowledge.com/queues</span>
+  <span class="badge">live</span>
+</div>
+<main>
+${body}
+</main></body></html>`;
 }
