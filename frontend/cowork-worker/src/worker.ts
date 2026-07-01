@@ -26,11 +26,11 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { COWORKERS, DOMAINS, findCoworker, secure, HSTS, type CoworkerEntry } from "./manifest.js";
 import { getQueueSnapshot, type QueueSnapshot } from "./queue-snapshot.js";
-import { coworkShell } from "./shell.js";
+import { coworkShell, renderQueuesPage } from "./shell.js";
 
 export { COWORKERS, DOMAINS, findCoworker, secure, HSTS, type CoworkerEntry } from "./manifest.js";
 export { getQueueSnapshot, type QueueSnapshot } from "./queue-snapshot.js";
-export { coworkShell } from "./shell.js";
+export { coworkShell, renderQueuesPage } from "./shell.js";
 
 export interface Env {
   MCP_OBJECT: DurableObjectNamespace;
@@ -207,9 +207,18 @@ export default {
       }));
     }
 
-    // Morning summary artifact (latest)
+    // Morning summary artifact (latest, static — refreshed by project-management-coworker)
     if (url.pathname === "/summary" || url.pathname === "/morning-summary") {
       return secure(new Response(MORNING_SUMMARY_HTML, {
+        headers: { "content-type": "text/html; charset=utf-8" },
+      }));
+    }
+
+    // Live queues panel (KAN-36) — per-request render from getQueueSnapshot(env),
+    // not a hardcoded artifact like MORNING_SUMMARY_HTML above.
+    if (url.pathname === "/queues") {
+      const snapshot = await getQueueSnapshot(env);
+      return secure(new Response(renderQueuesPage(snapshot), {
         headers: { "content-type": "text/html; charset=utf-8" },
       }));
     }
