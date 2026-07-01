@@ -135,6 +135,23 @@ const ENVELOPE_TYPE_OF: Record<string, string> = {
   dispatch: "task", routine: "task", ping: "notify", ack: "ack",
 };
 
+// Canonical mailbox envelope shape (cowork/schemas/envelope.ts). Named distinctly
+// from the `Envelope` DurableTask type above (line 91) to avoid a collision.
+type MailboxEnvelopeType = "task" | "ack" | "result" | "escalate" | "notify" | "summary" | "operator";
+interface MailboxEnvelope {
+  _type: "envelope";
+  id: string;
+  envelope_type: MailboxEnvelopeType;
+  from: string;
+  to: string;
+  subject: string;
+  at: string;
+  state: "pending" | "read" | "actioned" | "archived";
+  thread_id?: string;
+  payload?: Record<string, unknown>;
+  ack_required?: boolean;
+}
+
 const MailboxMessage = z.object({
   id:          z.string().uuid().default(() => randomUUID()),
   from:        z.string(),
@@ -271,14 +288,22 @@ server.tool(
   ({ from, to, type, subject, body, payload, ack_required, thread_id }) => {
     const msg = MailboxMessage.parse({ from, to, type, subject, body, payload, ack_required, thread_id });
     const dest = to === "broadcast" ? "_broadcast" : to;
-    // Emit canonical envelope: _type discriminator + envelope_type + at, while
-    // retaining legacy fields so mailbox_recv stays backward-compatible.
-    const envelope = {
-      _type: "envelope" as const,
-      envelope_type: ENVELOPE_TYPE_OF[type] ?? "notify",
+    // Canonical Envelope only (cowork/schemas/envelope.ts, additionalProperties:false) —
+    // no legacy MailboxMessage fields (type/body/status/sent_at) on the wire.
+    const envelope: MailboxEnvelope = {
+      _type: "envelope",
+      id: msg.id,
+      envelope_type: (ENVELOPE_TYPE_OF[type] ?? "notify") as MailboxEnvelopeType,
+      from: msg.from,
+      to: dest,
+      subject: msg.subject,
       at: msg.sent_at,
-      state: "pending" as const,
-      ...msg,
+      state: "pending",
+      ...(thread_id ? { thread_id } : {}),
+      ...(msg.payload || msg.body
+        ? { payload: { ...(msg.payload ?? {}), ...(msg.body ? { body: msg.body } : {}) } }
+        : {}),
+      ...(msg.ack_required ? { ack_required: msg.ack_required } : {}),
     };
     appendLine(mailboxPath(dest), envelope);
     return {
@@ -298,11 +323,12 @@ server.tool(
     type:     MailboxMessageTypeEnum.optional().describe("Filter by message type"),
   },
   ({ agent_id, limit, type }) => {
-    const msgs  = readLines(mailboxPath(agent_id)) as MailboxMessage[];
-    const bcast = readLines(mailboxPath("_broadcast")) as MailboxMessage[];
+    const msgs  = readLines(mailboxPath(agent_id)) as MailboxEnvelope[];
+    const bcast = readLines(mailboxPath("_broadcast")) as MailboxEnvelope[];
     const all   = collapseById([...msgs, ...bcast]);
+    const envelopeType = type ? ENVELOPE_TYPE_OF[type] : undefined;
     const pending = all
-      .filter(m => m.status === "pending" && (!type || m.type === type))
+      .filter(m => m.state === "pending" && (!envelopeType || m.envelope_type === envelopeType))
       .slice(0, limit);
     return {
       content: [{ type: "text", text: JSON.stringify({ agent_id, count: pending.length, messages: pending }) }],
