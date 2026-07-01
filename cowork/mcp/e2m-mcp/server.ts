@@ -5,7 +5,8 @@
  *   - Typed DurableTask envelope writing to per-domain JSONL queues
  *   - Agent-to-agent mailbox routing (cowork/data/mailbox/<agent>.jsonl)
  *   - State machine transition appending (dogfoods task-state-machine.ts)
- *   - Domain queues: design | engineering | product-management | data | sales | finance
+ *   - Domain queues: design | engineering | product-management | project-management | data |
+ *     sales | finance | legal | marketing | operations | human-resources | agent-resources
  *
  * Storage: append-only JSONL. Last line per task_id = current state.
  * Version-controllable: all files are plain text, git-diffable.
@@ -41,7 +42,10 @@ const QUEUE_DIR   = process.env.E2M_QUEUE_DIR
 const MAILBOX_DIR = process.env.E2M_MAILBOX_DIR
   ?? path.join(process.cwd(), "cowork", "data", "mailbox");
 
-const DOMAINS = ["design", "engineering", "product-management", "data", "sales", "finance"] as const;
+const DOMAINS = [
+  "design", "engineering", "product-management", "project-management", "data",
+  "sales", "finance", "legal", "marketing", "operations", "human-resources", "agent-resources",
+] as const;
 export type Domain = typeof DOMAINS[number];
 
 function ensureDirs(): void {
