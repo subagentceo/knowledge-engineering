@@ -28,7 +28,6 @@ METADATA=$(cat <<'JSON'
     { "pattern": "coworkers.subagentknowledge.com", "custom_domain": true }
   ],
   "vars": {
-    "SITE_NAME": "coworkers",
     "COWORK_HOST": "cowork.subagentknowledge.com"
   }
 }

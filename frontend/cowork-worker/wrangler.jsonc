@@ -11,6 +11,10 @@
       "custom_domain": true
     }
   ],
+  // Matches deploy.sh's ad-hoc CF API vars payload so `wrangler dev`/`deploy` and deploy.sh agree
+  "vars": {
+    "COWORKERS_HOST": "coworkers.subagentknowledge.com"
+  },
   // Durable Object binding for CoworkMcp (McpAgent pattern)
   // @cite github.com/cloudflare/agents (McpAgent DO binding)
   "durable_objects": {

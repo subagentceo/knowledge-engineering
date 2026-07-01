@@ -26,8 +26,6 @@ import { z } from "zod";
 
 export interface Env {
   COWORKERS_MCP_APP: DurableObjectNamespace;
-  COWORK_HOST: string;
-  SITE_NAME: string;
 }
 
 // ── 15-agent registry (5 functions × 3 tiers) ───────────────────────────────

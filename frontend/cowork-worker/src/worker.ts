@@ -31,7 +31,6 @@ export { COWORKERS, DOMAINS, findCoworker, secure, HSTS, type CoworkerEntry } fr
 export interface Env {
   MCP_OBJECT: DurableObjectNamespace;
   COWORKERS_HOST: string;
-  SITE_NAME: string;
 }
 
 // ── McpAgent ──────────────────────────────────────────────────────────────────
@@ -197,7 +196,7 @@ export default {
 
     // Root → app shell
     if (url.pathname === "/" || url.pathname === "") {
-      return secure(new Response(coworkShell(), {
+      return secure(new Response(coworkShell(env), {
         headers: { "content-type": "text/html; charset=utf-8" },
       }));
     }
@@ -215,7 +214,8 @@ export default {
 
 // ── HTML shell ────────────────────────────────────────────────────────────────
 
-function coworkShell(): string {
+function coworkShell(env: Env): string {
+  const coworkersHost = env.COWORKERS_HOST || "coworkers.subagentknowledge.com";
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -385,7 +385,7 @@ function coworkShell(): string {
 
   <nav>
     <a href="/" class="active">cowork/</a>
-    <a href="https://coworkers.subagentknowledge.com">coworkers/</a>
+    <a href="https://${coworkersHost}">coworkers/</a>
     <a href="/mcp">mcp</a>
     <a href="/api/manifest">manifest</a>
     <div class="spacer"></div>

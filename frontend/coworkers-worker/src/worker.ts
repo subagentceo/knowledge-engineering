@@ -33,7 +33,6 @@ export interface Env {
   MCP_OBJECT: DurableObjectNamespace;
   COWORKERS_MCP_APP: DurableObjectNamespace;
   COWORK_HOST: string;
-  SITE_NAME: string;
 }
 
 // ── McpAgent ──────────────────────────────────────────────────────────────────
@@ -152,7 +151,7 @@ export default {
     }
 
     if (url.pathname === "/" || url.pathname === "") {
-      return secure(new Response(coworkersPage(), {
+      return secure(new Response(coworkersPage(env), {
         headers: { "content-type": "text/html; charset=utf-8" },
       }));
     }
@@ -180,7 +179,8 @@ const DOMAIN_COLORS: Record<string, string> = {
   "finance":            "#a8e063",
 };
 
-function coworkersPage(): string {
+function coworkersPage(env: Env): string {
+  const coworkHost = env.COWORK_HOST || "cowork.subagentknowledge.com";
   const cards = COWORKERS.map(cw => {
     const domainColor = DOMAIN_COLORS[cw.domain] ?? "#d4d4d4";
     const protocolBadges = cw.protocols.map(p => {
@@ -379,7 +379,7 @@ function coworkersPage(): string {
   </script>
 
   <nav>
-    <a href="https://cowork.subagentknowledge.com">cowork/</a>
+    <a href="https://${coworkHost}">cowork/</a>
     <a href="/" class="active">coworkers/</a>
     <a href="/mcp">mcp</a>
     <div class="spacer"></div>
