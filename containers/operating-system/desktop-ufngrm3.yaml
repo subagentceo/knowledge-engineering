@@ -1,0 +1,85 @@
+---
+# @cite infra/postgres/init/05-prompt-context.sql (dw.dim_device, dw.dim_os)
+# @cite data/models/alloydb/dim_device.yaml
+# @cite data/models/alloydb/dim_os.yaml
+# @cite docs/tailscale/wsl-ubuntu-26-setup.md
+apiVersion: anthropic.com/v1
+kind: OperatingSystemNode
+
+metadata:
+  name: desktop-ufngrm3
+  tailscale_id: nSQkJ8V4fz11CNTRL
+  tailnet: taile5fcbd.ts.net
+  role: windows-dev-wsl
+
+spec:
+  device:
+    hostname: DESKTOP-UFNGRM3
+    dns_name: desktop-ufngrm3.taile5fcbd.ts.net
+    tailscale_ip_v4: "100.64.140.40"
+    tailscale_ip_v6: "fd7a:115c:a1e0::fd01:8ccc"
+    relay: null
+    taildrop_target: true
+    key_expiry: "2026-12-07T21:26:01Z"
+    created: "2026-06-10T21:26:01Z"
+
+  os:
+    platform: windows
+    os: windows
+    arch: x86_64
+
+  tailscale:
+    user: admin-jadecli@github
+    user_id: 5656583463882696
+    online: true
+    active: false
+    peer_api_urls:
+      - "http://100.64.140.40:43887"
+      - "http://[fd7a:115c:a1e0::fd01:8ccc]:60153"
+
+  wsl:
+    default_distro: Ubuntu-26.04
+    arch: x86_64
+    systemd: true
+    persistence: wsl-vhdx
+
+  docker:
+    provider: docker-desktop
+    wsl_integration: true
+    containers:
+      - name: ke-alloydb
+        image: "gcr.io/alloydb-omni/alloydbomni:18"
+        port: 5432
+        volume: ke_alloydb_data
+        tailscale_tag: tag:container
+        restart: unless-stopped
+      - name: ke-redis
+        image: "redis:7.0"
+        port: 6379
+        volume: ke_redis_data
+        tailscale_tag: tag:container
+        restart: unless-stopped
+        config:
+          persistence: aof+rdb
+          maxmemory: 512mb
+          maxmemory_policy: allkeys-lru
+
+  a2a_gate:
+    issue: 503
+    queue: wsl:tailscale:setup
+    tasks:
+      - id: T1
+        skill: tailscale-install
+        status: pending
+      - id: T2
+        skill: docker-persist
+        status: pending
+      - id: T3
+        skill: redis-persist
+        status: pending
+      - id: T4
+        skill: postgres-persist
+        status: pending
+      - id: T5
+        skill: verify-mesh
+        status: pending

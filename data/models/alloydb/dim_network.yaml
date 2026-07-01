@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: dim
+scd_type: 1
+
+metadata:
+  name: dim_network
+  labels:
+    lane: session-context
+    source: infra/tailscale/tailnet-policy.hujson
+
+spec:
+  version: 1.0.0
+  schema: dw
+  codeowners:
+    - admin-jadecli
+    - alex-jadecli
+  sla_policy: upsert on tailnet topology change
+  data_start_date: "2026-06-17"
+  allowed_operations:
+    - read
+    - scd1_overwrite
+  description: >-
+    Tailscale tailnet network context. SCD Type I. Describes the active
+    mesh topology: tailnet ts.subagentceo.io, provider Tailscale, CGNAT
+    range 100.64.0.0/10. One row per (tailnet, tailscale_tag, provider).
+  load_type: incremental
+  columns:
+    - name: network_sk
+      kind: dimension
+      sql_type: bigint
+      description: surrogate key (GENERATED ALWAYS AS IDENTITY)
+    - name: tailnet
+      kind: dimension
+      sql_type: text
+      description: "Tailscale tailnet domain (ts.subagentceo.io)"
+    - name: provider
+      kind: dimension
+      sql_type: text
+      description: "Network provider: tailscale | cloudflare | local"
+    - name: tailscale_tag
+      kind: dimension
+      sql_type: text
+      description: "ACL tag for this network segment: tag:dev | tag:container | tag:server"
+    - name: ip_range
+      kind: dimension
+      sql_type: text
+      description: "IP CIDR range (100.64.0.0/10 for Tailscale CGNAT)"
+    - name: dns_suffix
+      kind: dimension
+      sql_type: text
+      description: "MagicDNS suffix (ts.subagentceo.io)"
+    - name: network_count
+      kind: measure
+      measure_type: count
+      sql_type: bigint
+      description: total network segment rows
+    - name: updated_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: last SCD-1 overwrite timestamp

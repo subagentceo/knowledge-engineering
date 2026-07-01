@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: dim
+scd_type: 1
+
+metadata:
+  name: dim_tailscale_node
+  labels:
+    lane: session-context
+    source: src/lib/tailscale-pr-context.ts
+
+spec:
+  version: 1.0.0
+  schema: dw
+  codeowners:
+    - admin-jadecli
+    - alex-jadecli
+  sla_policy: upsert on node heartbeat or tailnet topology change
+  data_start_date: "2026-06-17"
+  allowed_operations:
+    - read
+    - scd1_overwrite
+  description: >-
+    Tailscale node inventory. SCD Type I — IP, tag, status overwrite in place.
+    DDL in infra/postgres/init/04-tailscale-pr-context.sql.
+    TypeScript writer: src/lib/tailscale-pr-context.ts#recordTailscaleNode.
+    Nodes: wsl2-dev, macbook-m5 (tag:dev); ke-alloydb, ke-redis, ke-cloud-agent (tag:container).
+  load_type: incremental
+  columns:
+    - name: hostname
+      kind: dimension
+      sql_type: text
+      description: MagicDNS short name (primary key in dw.dim_tailscale_node)
+    - name: tailnet
+      kind: dimension
+      sql_type: text
+      description: "Tailscale tailnet domain (ts.subagentceo.io)"
+    - name: ts_ip
+      kind: dimension
+      sql_type: text
+      description: "100.x.y.z Tailscale CGNAT IP"
+    - name: tag
+      kind: dimension
+      sql_type: text
+      description: "ACL tag: tag:dev | tag:container | tag:server"
+    - name: os
+      kind: dimension
+      sql_type: text
+      description: "OS: ubuntu-24.04 | macos-arm64 | docker"
+    - name: status
+      kind: dimension
+      sql_type: text
+      description: "Node status: active | inactive | ephemeral"
+    - name: metadata
+      kind: dimension
+      sql_type: jsonb
+      description: "Additional metadata JSONB (ports, image, capabilities)"
+    - name: node_count
+      kind: measure
+      measure_type: count
+      sql_type: bigint
+      description: total nodes registered in the tailnet
+    - name: active_count
+      kind: measure
+      measure_type: count
+      sql_type: bigint
+      description: nodes with status = active
+    - name: last_seen_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: most recent heartbeat timestamp

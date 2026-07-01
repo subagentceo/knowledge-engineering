@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: dim
+scd_type: 1
+
+metadata:
+  name: dim_os
+  labels:
+    lane: session-context
+    source: src/lib/tailscale-pr-context.ts
+
+spec:
+  version: 1.0.0
+  schema: dw
+  codeowners:
+    - admin-jadecli
+    - alex-jadecli
+  sla_policy: upsert on session start or device registration
+  data_start_date: "2026-06-17"
+  allowed_operations:
+    - read
+    - scd1_overwrite
+  description: >-
+    OS context dimension. SCD Type I. Captures platform, version, and WSL
+    distro. macOS arm64 (macbook-m5), Ubuntu-26.04 WSL (wsl2-dev/Windows),
+    and Docker containers are the three primary environments in this tailnet.
+  load_type: incremental
+  columns:
+    - name: os_sk
+      kind: dimension
+      sql_type: bigint
+      description: surrogate key (GENERATED ALWAYS AS IDENTITY)
+    - name: platform
+      kind: dimension
+      sql_type: text
+      description: "OS family: macos | windows | linux | docker"
+    - name: os
+      kind: dimension
+      sql_type: text
+      description: "OS name: darwin | ubuntu | windows-server-2022"
+    - name: os_version
+      kind: dimension
+      sql_type: text
+      description: "OS version string: 26.04 | 15.x | 2022"
+    - name: wsl_distro
+      kind: dimension
+      sql_type: text
+      description: "WSL distro name when running under WSL (Ubuntu-26.04); NULL otherwise"
+    - name: arch
+      kind: dimension
+      sql_type: text
+      description: "CPU architecture: arm64 | x86_64 | amd64"
+    - name: os_count
+      kind: measure
+      measure_type: count
+      sql_type: bigint
+      description: number of distinct OS configurations registered
+    - name: updated_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: last SCD-1 overwrite timestamp

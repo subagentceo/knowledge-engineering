@@ -1,0 +1,80 @@
+---
+# @cite infra/postgres/init/05-prompt-context.sql (dw.dim_device, dw.dim_os)
+# @cite data/models/alloydb/dim_device.yaml
+# @cite data/models/alloydb/dim_os.yaml
+apiVersion: anthropic.com/v1
+kind: OperatingSystemNode
+
+metadata:
+  name: alexs-macbook-pro
+  tailscale_id: n7DkRho2Yd11CNTRL
+  tailnet: taile5fcbd.ts.net
+  role: primary-dev
+
+spec:
+  device:
+    hostname: alexs-macbook-pro
+    dns_name: alexs-macbook-pro.taile5fcbd.ts.net
+    tailscale_ip_v4: "100.71.204.112"
+    tailscale_ip_v6: "fd7a:115c:a1e0::9839:cc71"
+    relay: sfo
+    derp_latency_ms: 42.3
+    taildrop_target: false
+    key_expiry: "2026-12-07T23:00:09Z"
+    created: "2026-06-10T22:58:57Z"
+
+  os:
+    platform: macos
+    os: darwin
+    os_version: "26.5.1"
+    build: "25F80"
+    kernel: "Darwin 25.5.0"
+    arch: arm64
+
+  hardware:
+    cpu: "Apple M5"
+    memory_gb: 16
+    network:
+      ipv4: "172.56.109.234"
+      ipv6: "2607:fb90:b201:15c3:d495:6a00:bc7c:22fe"
+      local_ip: "192.168.12.114"
+
+  tailscale:
+    user: admin-jadecli@github
+    user_id: 5656583463882696
+    is_admin: true
+    is_owner: true
+    capabilities:
+      - ssh
+      - file-sharing
+      - tailnet-lock
+      - default-auto-update
+    tailnet_display_name: subagentceo.org.github
+    online: true
+    active: false
+    peer_api_urls:
+      - "http://100.71.204.112:43817"
+      - "http://[fd7a:115c:a1e0::9839:cc71]:57061"
+
+  applications:
+    - name: Claude
+      kind: claude-desktop
+      vendor: anthropic
+    - name: Google Chrome Dev
+      kind: browser-dev
+      vendor: google
+      channel: dev
+    - name: Google Chrome
+      kind: browser
+      vendor: google
+    - name: Code - Insiders
+      kind: editor
+      vendor: microsoft
+      variant: vscode-insiders
+    - name: ghostty
+      kind: terminal
+      vendor: mitchellh
+    - name: Tailscale
+      kind: vpn-mesh
+      vendor: tailscale
+      tailnet: taile5fcbd.ts.net

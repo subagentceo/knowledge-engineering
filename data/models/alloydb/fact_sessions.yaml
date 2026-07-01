@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: fact
+grain: one row per agent session (session_id; branch-YYYY-MM-DD slug)
+
+metadata:
+  name: fact_sessions
+  labels:
+    lane: session-context
+    source: infra/postgres/init/05-prompt-context.sql
+
+spec:
+  version: 1.0.0
+  schema: dw
+  codeowners:
+    - admin-jadecli
+    - alex-jadecli
+  sla_policy: append on session open; update status on session close/merge
+  data_start_date: "2026-06-17"
+  allowed_operations:
+    - read
+    - append
+    - scd1_overwrite
+  description: >-
+    Session fact table. One row per Claude Code agent session. Links
+    dim_user, dim_device, dim_os, dim_network for full context. Duration
+    computed from started_at → closed_at. Status lifecycle: open → closed | merged.
+  load_type: incremental
+  columns:
+    - name: session_sk
+      kind: dimension
+      sql_type: bigint
+      description: surrogate key (GENERATED ALWAYS AS IDENTITY)
+    - name: session_id
+      kind: dimension
+      sql_type: text
+      description: "natural key slug: branch-YYYY-MM-DD (e.g. claude-subdomain-workers-2026-06-17)"
+    - name: branch
+      kind: dimension
+      sql_type: text
+      description: "git branch name (claude/* convention)"
+    - name: user_sk
+      kind: dimension
+      sql_type: bigint
+      description: "FK → dw.dim_user.user_sk"
+    - name: device_sk
+      kind: dimension
+      sql_type: bigint
+      description: "FK → dw.dim_device.device_sk"
+    - name: os_sk
+      kind: dimension
+      sql_type: bigint
+      description: "FK → dw.dim_os.os_sk"
+    - name: network_sk
+      kind: dimension
+      sql_type: bigint
+      description: "FK → dw.dim_network.network_sk"
+    - name: status
+      kind: dimension
+      sql_type: text
+      description: "session lifecycle: open | closed | merged"
+    - name: started_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: session wall-clock start
+    - name: closed_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: session close timestamp (NULL when status=open)
+    - name: session_count
+      kind: measure
+      measure_type: count
+      sql_type: bigint
+      description: total sessions
+    - name: duration_seconds
+      kind: measure
+      measure_type: avg
+      sql_type: numeric
+      description: average session duration in seconds (closed_at - started_at)
+      calculation:
+        expression: "AVG(EXTRACT(EPOCH FROM (closed_at - started_at)))"
+        inherits:
+          - fact_sessions.session_count
+        result_type: numeric
