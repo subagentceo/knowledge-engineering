@@ -89,12 +89,12 @@ const DomainEnum    = z.enum(DOMAINS);
 const TaskEventEnum = z.enum(["claim", "complete", "block", "unblock", "fail", "retry"]);
 
 export const Envelope = z.object({
+  _type:           z.literal("task").default("task"),   // required by DurableTask canon (envelope.ts)
   id:              z.string().uuid().default(() => randomUUID()),
   queue:           DomainEnum,
   subject:         z.string().min(1).max(80),
   description:     z.string().max(200).optional(),
   state:           TaskStateEnum.default("pending"),
-  domain:          DomainEnum,
   owner:           z.string().optional(),
   ke_fit_score:    z.number().int().min(1).max(5).optional(),
   estimated_hours: z.number().positive().optional(),
