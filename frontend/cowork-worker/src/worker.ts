@@ -130,7 +130,6 @@ export class CoworkMcp extends McpAgent<Env> {
 
 // @generated morning-summary route — refreshed by project-management-coworker 07:00 PST
 // @cite cowork/scripts/morning-summary.py
-const MORNING_SUMMARY_DATE = "2026-06-19";
 const MORNING_SUMMARY_HTML = `<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">

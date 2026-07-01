@@ -16,17 +16,12 @@
   "durable_objects": {
     "bindings": [
       {
-        "name": "COWORK_MCP",
-        "class_name": "CoworkMcp"
-      },
-      // Keep existing MCP_OBJECT binding used by worker.ts CoworkMcp
-      {
         "name": "MCP_OBJECT",
         "class_name": "CoworkMcp"
       }
     ]
   },
-  // v1 sqlite migration — creates artifacts table for list_artifacts / get_artifact
+  // v1 sqlite migration for the McpAgent-backed CoworkMcp Durable Object
   "migrations": [
     {
       "tag": "v1",
