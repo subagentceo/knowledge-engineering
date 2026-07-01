@@ -140,11 +140,29 @@ if (isMain()) {
 
   const shouldPublish = process.argv.includes("--publish") || process.env.QUEUE_SNAPSHOT_PUBLISH === "1";
   if (shouldPublish) {
-    const namespace = process.env.QUEUE_SNAPSHOT_KV_BINDING ?? "QUEUE_SNAPSHOTS_KV";
-    console.error(`[queue-snapshot] publishing to KV binding ${namespace} via wrangler kv key put...`);
+    // `wrangler kv key put --binding <name>` resolves the binding from a
+    // wrangler.jsonc in the CURRENT WORKING DIRECTORY. This script runs from
+    // repo root by default, where no wrangler config defines QUEUE_SNAPSHOTS_KV,
+    // so --binding alone fails there — you'd need to `cd frontend/cowork-worker`
+    // first. --namespace-id is cwd-independent and preferred; set
+    // QUEUE_SNAPSHOT_KV_NAMESPACE_ID to the real (non-placeholder) id from
+    // wrangler.jsonc once the KV namespace has been created (see KAN-31).
+    const namespaceId = process.env.QUEUE_SNAPSHOT_KV_NAMESPACE_ID;
+    const binding = process.env.QUEUE_SNAPSHOT_KV_BINDING ?? "QUEUE_SNAPSHOTS_KV";
+    const target = namespaceId
+      ? ["--namespace-id", namespaceId]
+      : ["--binding", binding];
+    if (!namespaceId) {
+      console.error(
+        `[queue-snapshot] WARNING: no QUEUE_SNAPSHOT_KV_NAMESPACE_ID set — falling back to ` +
+        `--binding ${binding}, which requires running this from a worker directory ` +
+        `(e.g. frontend/cowork-worker) with a wrangler.jsonc defining that binding.`,
+      );
+    }
+    console.error(`[queue-snapshot] publishing to KV via wrangler kv key put (${target.join(" ")})...`);
     execFileSync(
       "wrangler",
-      ["kv", "key", "put", "--binding", namespace, "queues:latest", json, "--remote"],
+      ["kv", "key", "put", ...target, "queues:latest", json, "--remote"],
       { stdio: "inherit" },
     );
   }
