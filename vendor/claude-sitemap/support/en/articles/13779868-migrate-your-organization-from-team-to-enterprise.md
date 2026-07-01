@@ -1,4 +1,4 @@
-When upgrading from a Team plan to an Enterprise plan, we recommend you keep the same Team organization and follow the upgrade path to change it to Enterprise. This will allow you to preserve your data (memberships/roles, conversations and projects) and some of the settings from your Team plan organization. If you create a brand new Enterprise organization, then you'll need to set up everything from scratch.
+When upgrading from a Team plan to an Enterprise plan, we recommend you keep the same Team organization and follow the upgrade path to change it to Enterprise. This will allow you to preserve your data (memberships/roles, conversations, and projects) and some of the settings from your Team plan organization. If you create a brand new Enterprise organization, then you'll need to set up everything from scratch.
 
 There are two ways to upgrade: upgrade using the self-serve flow, or follow the sales-assisted flow if you’re working with an Anthropic account executive on an invoiced or contracted agreement. The steps and timing differ, so use the section that matches your situation.
 
@@ -28,7 +28,7 @@ You can migrate from a Team plan to a self-serve Enterprise plan by following th
 
 5. Your payment information will be saved from previous Team plan payments, but you can click the pencil icon to change it if needed.
 
-  1. We only support credit card payments for self-serve Enterprise plans. For more information, see **[Self-serve vs. sales-assisted Enterprise](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan#h_3058c781c5)**.
+  1. When you migrate from a Team to a self-serve Enterprise plan, we only support credit card payments. After you migrate to a self-serve Enterprise plan, you can choose to use a credit card, debit card, or bank transfer. For more information, see **[Self-serve vs. sales-assisted Enterprise](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan#h_3058c781c5)**.
 
 6. Review your order summary and click "Confirm upgrade."
 
@@ -66,11 +66,11 @@ The following capabilities are default-off for Enterprise plans:
 
 ### Per-user spend limits
 
-Go to **Organization settings > Usage** and review per-user spend limits for all members. Clear or adjust any that are no longer appropriate for your Enterprise plan configuration.
+Go to **[Organization settings > Usage](https://claude.ai/admin-settings/usage)** and review per-user spend limits for all members. Clear or adjust any that are no longer appropriate for your Enterprise plan configuration.
 
 ### Seat assignments
 
-During migration, some users may appear as "Unassigned" rather than being automatically mapped to seat tiers. Admins should verify all users have correct seat assignments after the cutover. Pay attention to your highest-usage members, and note that users who appear as unassigned won’t have access until an admin corrects their seat assignment.
+During migration, some users may appear as **No seat assigned** rather than being automatically mapped to seat tiers. Admins should verify all users have correct seat assignments after the cutover. Pay attention to your highest-usage members, and note that users without a seat won't have access until an admin corrects their seat assignment.
 
 For detailed guidance, refer to **[Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991)**.
 
@@ -106,7 +106,7 @@ If you had purchased usage credits for your Team plan, any unused balance will r
 
 ### Provisioning process
 
-On the start date, you'll be provisioned and able to use the new features by the end of the day. After initial setup, Owners and Primary Owners can self-serve additional seats by navigating to **[Organization settings > Organization](https://claude.ai/admin-settings/organization)** and clicking "Manage" under **Total seats**.
+On the start date, you'll be provisioned and able to use the new features by the end of the day. After initial setup, Owners and Primary Owners can self-serve additional seats by navigating to **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)** and clicking "Manage" under **Total seats**.
 
 ---
 

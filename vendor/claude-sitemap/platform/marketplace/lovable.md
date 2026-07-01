@@ -1,0 +1,3 @@
+# Lovable
+
+Lovable is a software creation platform that empowers anyone to build full-stack apps and websites through conversation. Simply describe what you want to make, and Lovable creates and iterates with you as your technical partner. Claude brings reasoning to Lovable's chat mode, where users plan projects before creating. With Lovable now connected to Claude.ai natively, you can go from idea to a deployed app - ideating, building, and shipping in one motion.

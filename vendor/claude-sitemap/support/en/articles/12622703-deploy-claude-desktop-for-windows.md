@@ -1,8 +1,8 @@
-Administrators on Team or Enterprise plans can deploy Claude Desktop automatically across their organization to manage installations and updates centrally. We offer MSIX packages for Windows deployments via Microsoft Intune, SCCM, Group Policy, or PowerShell, enabling secure, scalable distribution.
+Administrators on Team or Enterprise plans can deploy Claude Desktop automatically across their organization to manage installations and updates centrally. We offer MSIX packages for Windows deployments via Microsoft Intune, SCCM, Group Policy, or PowerShell.
 
 ## Installation requirements
 
-- For individual installations with full feature support including Cowork, administrator privileges are required. Users will see a Windows UAC prompt during installation. Users without admin access can still install Claude, but Cowork will not be available. Access the user-friendly installer from **[our download page](https://claude.com/download)**.
+- For individual installations with full feature support including Claude Cowork, administrator privileges are required. Users will see a Windows UAC prompt during installation. Users without admin access can still install Claude, but Cowork will not be available. Access the user-friendly installer from **[our download page](https://claude.com/download)**.
 
 - For silent deployment without user interaction, use the MSIX package directly with your enterprise management tool.
 
@@ -58,12 +58,26 @@ Claude Desktop can be deployed through various enterprise software distribution 
 
 - **[PowerShell Scripts](https://learn.microsoft.com/en-us/windows/msix/desktop/powershell-msix-cmdlets)**
 
+### Manage auto-updates alongside your MDM
+
+By default, Claude Desktop checks for updates approximately every four hours and applies them automatically—independent of the version your MDM has assigned. To keep the in-app updater and your MDM from conflicting, choose one of these approaches before you deploy:
+
+**Option 1: Your MDM manages versions.** Set the `disableAutoUpdates` policy to `1` and push new MSIX builds through your MDM on your own schedule. See **[Enterprise configuration for Claude Desktop](https://support.claude.com/en/articles/12622667-enterprise-configuration-for-claude-desktop)** for the policy location.
+
+**Option 2: Claude Desktop manages versions.** Leave `disableAutoUpdates` unset. Deploy the MSIX once via a Win32-wrapped `Add-AppxProvisionedPackage` install, then use a custom detection script that checks `Get-AppxPackage -Name Claude` for a version greater than or equal to the one you provisioned. This keeps your MDM reporting **Installed** after the app self-updates.
+
 ## Configuration
 
 To configure Claude Desktop settings such as auto-updates, extensions, and MCP servers, see **[Enterprise configuration](https://support.claude.com/en/articles/12622667-enterprise-configuration)**.
+
+---
 
 ## Troubleshooting
 
 ### MSIX package not working with AppLocker?
 
 By default, packaged apps may be restricted by AppLocker policies. Ensure your AppLocker rules allow MSIX packages, or add Claude Desktop to your allowed applications list. Consult your organization's security policies before making changes.
+
+### "The parameter is incorrect" after MDM deployment
+
+This usually means the in-app updater and your MDM have both registered the package, leaving duplicate entries under the `Claude` package family. Pick a single update owner using the guidance in **[Manage auto-updates alongside your MDM](#h_1297fb34f3)** above.

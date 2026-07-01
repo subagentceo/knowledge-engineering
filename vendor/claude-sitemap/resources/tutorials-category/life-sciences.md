@@ -10,18 +10,25 @@
         
     *   Claude Cowork
         
-    *   Claude Security
+    *   @Claude
         
     
     Features
     
     *   Claude for Chrome
         
-    *   Claude for Slack
-        
     *   Claude for Microsoft 365
         
     *   Skills
+        
+    
+    Claude apps built for
+    
+    *   Design
+        
+    *   Science
+        
+    *   Security
         
     
     Models
@@ -39,14 +46,26 @@
     
 *   Platform
     
+    Build on Claude
+    
     *   Overview
-        
-    *   Developer docs
         
     *   Pricing
         
-    
+    *   Developer docs
+        
     *   Console login
+        
+    
+    Works with Claude
+    
+    *   Ecosystem
+        
+    *   Marketplace
+        
+    *   Connectors
+        
+    *   Plugins
         
     
 *   Solutions
@@ -116,13 +135,6 @@
     *   Tutorials
         
     *   Use cases
-        
-    
-    Tools
-    
-    *   Connectors
-        
-    *   Plugins
         
     
     Connect
@@ -179,18 +191,25 @@
         
     *   Claude Cowork
         
-    *   Claude Security
+    *   @Claude
         
     
     Features
     
     *   Claude for Chrome
         
-    *   Claude for Slack
-        
     *   Claude for Microsoft 365
         
     *   Skills
+        
+    
+    Claude apps built for
+    
+    *   Design
+        
+    *   Science
+        
+    *   Security
         
     
     Models
@@ -208,14 +227,26 @@
     
 *   Platform
     
+    Build on Claude
+    
     *   Overview
-        
-    *   Developer docs
         
     *   Pricing
         
-    
+    *   Developer docs
+        
     *   Console login
+        
+    
+    Works with Claude
+    
+    *   Ecosystem
+        
+    *   Marketplace
+        
+    *   Connectors
+        
+    *   Plugins
         
     
 *   Solutions
@@ -287,13 +318,6 @@
     *   Use cases
         
     
-    Tools
-    
-    *   Connectors
-        
-    *   Plugins
-        
-    
     Connect
     
     *   Events
@@ -339,6 +363,8 @@ Category
 
 AI Fluency
 
+Claude Science
+
 Education
 
 Engineering
@@ -375,6 +401,8 @@ Skills
 
 Product
 
+Claude Science
+
 Claude Security
 
 Claude Design
@@ -405,6 +433,8 @@ Thank you! Your submission has been received!
 Oops! Something went wrong while submitting the form.
 
 Life Sciences
+
+Claude Science
 
 Small Business
 
@@ -476,29 +506,157 @@ Product
 
 Features
 
-![Getting Started with Claude for Life Sciences](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694466fa7daaf2b5ae3e89d0_Claude%20for%20Life%20Sciences_171.png)
+![How to use the Nextflow Deployment agent skill with Claude Code](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
-Getting Started with Claude for Life Sciences
-
-Life Sciences
-
-Author
+How to use the Nextflow Deployment agent skill with Claude Code
 
 Life Sciences
 
 Author
 
-Claude.ai
+Life Sciences
 
 Author
 
-No items found.
+Author
+
+Skills
 
 Read use case
 
 Read use caseRead use case
 
-Getting Started with Claude for Life SciencesGetting Started with Claude for Life Sciences
+How to use the Nextflow Deployment agent skill with Claude CodeHow to use the Nextflow Deployment agent skill with Claude Code
+
+Text Link
+
+Life Sciences
+
+![How to use the Instrument Data to Allotrope Skill with Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+How to use the Instrument Data to Allotrope Skill with Claude
+
+Life Sciences
+
+Author
+
+Life Sciences
+
+Author
+
+Author
+
+Skills
+
+Read use case
+
+Read use caseRead use case
+
+How to use the Instrument Data to Allotrope Skill with ClaudeHow to use the Instrument Data to Allotrope Skill with Claude
+
+Text Link
+
+Life Sciences
+
+![How to use the Scientific Problem Selection Skill with Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+How to use the Scientific Problem Selection Skill with Claude
+
+Life Sciences
+
+Author
+
+Life Sciences
+
+Author
+
+Author
+
+Skills
+
+Read use case
+
+Read use caseRead use case
+
+How to use the Scientific Problem Selection Skill with ClaudeHow to use the Scientific Problem Selection Skill with Claude
+
+Text Link
+
+Life Sciences
+
+![How to use the scVI-Tools bioinformatics skill bundle with Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+How to use the scVI-Tools bioinformatics skill bundle with Claude
+
+Life Sciences
+
+Author
+
+Life Sciences
+
+Author
+
+Author
+
+Skills
+
+Read use case
+
+Read use caseRead use case
+
+How to use the scVI-Tools bioinformatics skill bundle with ClaudeHow to use the scVI-Tools bioinformatics skill bundle with Claude
+
+Text Link
+
+Life Sciences
+
+![Using the ClinicalTrials.gov Connector in Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+Using the ClinicalTrials.gov Connector in Claude
+
+Life Sciences
+
+Author
+
+Life Sciences
+
+Author
+
+Author
+
+Connectors
+
+Read use case
+
+Read use caseRead use case
+
+Using the ClinicalTrials.gov Connector in ClaudeUsing the ClinicalTrials.gov Connector in Claude
+
+Text Link
+
+Life Sciences
+
+![Using the ToolUniverse Extension in Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+Using the ToolUniverse Extension in Claude
+
+Life Sciences
+
+Author
+
+Life Sciences
+
+Author
+
+Author
+
+Connectors
+
+Read use case
+
+Read use caseRead use case
+
+Using the ToolUniverse Extension in ClaudeUsing the ToolUniverse Extension in Claude
 
 Text Link
 
@@ -556,9 +714,9 @@ Text Link
 
 Life Sciences
 
-![Using the ToolUniverse Extension in Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+![Using the Owkin Connector in Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
-Using the ToolUniverse Extension in Claude
+Using the Owkin Connector in Claude
 
 Life Sciences
 
@@ -576,25 +734,23 @@ Read use case
 
 Read use caseRead use case
 
-Using the ToolUniverse Extension in ClaudeUsing the ToolUniverse Extension in Claude
+Using the Owkin Connector in ClaudeUsing the Owkin Connector in Claude
 
 Text Link
 
 Life Sciences
 
-![Using the BioRender Connector in Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+![Using the Open Targets Connector in Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
-Using the BioRender Connector in Claude
-
-Life Sciences
-
-Author
+Using the Open Targets Connector in Claude
 
 Life Sciences
 
 Author
 
-Claude.ai
+Life Sciences
+
+Author
 
 Author
 
@@ -604,7 +760,59 @@ Read use case
 
 Read use caseRead use case
 
-Using the BioRender Connector in ClaudeUsing the BioRender Connector in Claude
+Using the Open Targets Connector in ClaudeUsing the Open Targets Connector in Claude
+
+Text Link
+
+Life Sciences
+
+![How to use the Clinical Trial Protocol Draft Generation sample skill with Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+How to use the Clinical Trial Protocol Draft Generation sample skill with Claude
+
+Life Sciences
+
+Author
+
+Life Sciences
+
+Author
+
+Author
+
+Skills
+
+Read use case
+
+Read use caseRead use case
+
+How to use the Clinical Trial Protocol Draft Generation sample skill with ClaudeHow to use the Clinical Trial Protocol Draft Generation sample skill with Claude
+
+Text Link
+
+Life Sciences
+
+![Using the Medidata Connector in Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+Using the Medidata Connector in Claude
+
+Life Sciences
+
+Author
+
+Life Sciences
+
+Author
+
+Author
+
+Connectors
+
+Read use case
+
+Read use caseRead use case
+
+Using the Medidata Connector in ClaudeUsing the Medidata Connector in Claude
 
 Text Link
 
@@ -638,79 +846,29 @@ Text Link
 
 Life Sciences
 
-![How to use the Nextflow Deployment agent skill with Claude Code](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+![Using the Synapse.org Connector in Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
-How to use the Nextflow Deployment agent skill with Claude Code
-
-Life Sciences
-
-Author
+Using the Synapse.org Connector in Claude
 
 Life Sciences
 
 Author
 
+Life Sciences
+
 Author
 
-Skills
+Claude.ai
+
+Author
+
+No items found.
 
 Read use case
 
 Read use caseRead use case
 
-How to use the Nextflow Deployment agent skill with Claude CodeHow to use the Nextflow Deployment agent skill with Claude Code
-
-Text Link
-
-Life Sciences
-
-![How to use the Instrument Data to Allotrope Skill with Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-How to use the Instrument Data to Allotrope Skill with Claude
-
-Life Sciences
-
-Author
-
-Life Sciences
-
-Author
-
-Author
-
-Skills
-
-Read use case
-
-Read use caseRead use case
-
-How to use the Instrument Data to Allotrope Skill with ClaudeHow to use the Instrument Data to Allotrope Skill with Claude
-
-Text Link
-
-Life Sciences
-
-![Using the ClinicalTrials.gov Connector in Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Using the ClinicalTrials.gov Connector in Claude
-
-Life Sciences
-
-Author
-
-Life Sciences
-
-Author
-
-Author
-
-Connectors
-
-Read use case
-
-Read use caseRead use case
-
-Using the ClinicalTrials.gov Connector in ClaudeUsing the ClinicalTrials.gov Connector in Claude
+Using the Synapse.org Connector in ClaudeUsing the Synapse.org Connector in Claude
 
 Text Link
 
@@ -739,140 +897,6 @@ Read use case
 Read use caseRead use case
 
 Using the PubMed Connector in ClaudeUsing the PubMed Connector in Claude
-
-Text Link
-
-Life Sciences
-
-![How to use the Clinical Trial Protocol Draft Generation sample skill with Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-How to use the Clinical Trial Protocol Draft Generation sample skill with Claude
-
-Life Sciences
-
-Author
-
-Life Sciences
-
-Author
-
-Author
-
-Skills
-
-Read use case
-
-Read use caseRead use case
-
-How to use the Clinical Trial Protocol Draft Generation sample skill with ClaudeHow to use the Clinical Trial Protocol Draft Generation sample skill with Claude
-
-Text Link
-
-Life Sciences
-
-![How to use the single-cell-rna-qc skill with Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-How to use the single-cell-rna-qc skill with Claude
-
-Life Sciences
-
-Author
-
-Life Sciences
-
-Author
-
-Claude.ai
-
-Author
-
-Skills
-
-Read use case
-
-Read use caseRead use case
-
-How to use the single-cell-rna-qc skill with ClaudeHow to use the single-cell-rna-qc skill with Claude
-
-Text Link
-
-Life Sciences
-
-![Using the Benchling connector in Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Using the Benchling connector in Claude
-
-Life Sciences
-
-Author
-
-Life Sciences
-
-Author
-
-Claude.ai
-
-Author
-
-No items found.
-
-Read use case
-
-Read use caseRead use case
-
-Using the Benchling connector in ClaudeUsing the Benchling connector in Claude
-
-Text Link
-
-Life Sciences
-
-![How to use the Scientific Problem Selection Skill with Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-How to use the Scientific Problem Selection Skill with Claude
-
-Life Sciences
-
-Author
-
-Life Sciences
-
-Author
-
-Author
-
-Skills
-
-Read use case
-
-Read use caseRead use case
-
-How to use the Scientific Problem Selection Skill with ClaudeHow to use the Scientific Problem Selection Skill with Claude
-
-Text Link
-
-Life Sciences
-
-![How to use the scVI-Tools bioinformatics skill bundle with Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-How to use the scVI-Tools bioinformatics skill bundle with Claude
-
-Life Sciences
-
-Author
-
-Life Sciences
-
-Author
-
-Author
-
-Skills
-
-Read use case
-
-Read use caseRead use case
-
-How to use the scVI-Tools bioinformatics skill bundle with ClaudeHow to use the scVI-Tools bioinformatics skill bundle with Claude
 
 Text Link
 
@@ -1022,6 +1046,18 @@ Products
     
     Claude CoworkClaude Cowork
     
+*   @Claude
+    
+    @Claude@Claude
+    
+*   Claude Design
+    
+    Claude DesignClaude Design
+    
+*   Claude Science
+    
+    Claude ScienceClaude Science
+    
 *   Claude Security
     
     Claude SecurityClaude Security
@@ -1044,10 +1080,6 @@ Features
 *   Claude for Chrome
     
     Claude for ChromeClaude for Chrome
-    
-*   Claude for Slack
-    
-    Claude for SlackClaude for Slack
     
 *   Claude for Microsoft 365
     
@@ -1157,6 +1189,10 @@ Claude Platform
 *   Pricing
     
     PricingPricing
+    
+*   Ecosystem
+    
+    EcosystemEcosystem
     
 *   Marketplace
     
@@ -1366,3 +1402,5 @@ Deutsch (Germany)
 Français (France)
 
 한국어 (South Korea)
+
+Italian (Italy)

@@ -1,5 +1,23 @@
 ## June 2026
 
+### June 30, 2026
+
+**Claude Sonnet 5 launch**
+
+We launched Claude Sonnet 5, our most agentic Sonnet model yet, with substantial improvements over Sonnet 4.6 in reasoning, tool use, coding, and knowledge work. For more information, see our blog post: **[Introducing Claude Sonnet 5](https://www.anthropic.com/news/claude-sonnet-5)**.
+
+### June 25, 2026
+
+**Enable Trusted Devices for Remote Control**
+
+Admins for Team and Enterprise plans can now require members to verify their device before viewing or steering local Claude Code sessions remotely. For more information, see **[Trusted Devices](https://code.claude.com/docs/en/remote-control#trusted-devices)**.
+
+### June 23, 2026
+
+**Delegate work to Claude in Slack with Claude Tag**
+
+Team and Enterprise plans can now tag Claude directly in Slack conversations and delegate tasks to it while they focus on other work. For more information, see our blog post: **[Introducing Claude Tag](https://www.anthropic.com/news/introducing-claude-tag)**.
+
 ### June 12, 2026
 
 We've suspended access to Claude Fable 5 and Claude Mythos 5. We aim to return access as quickly as we can. See **[our statement](https://anthropic.com/news/fable-mythos-access)** for more information.

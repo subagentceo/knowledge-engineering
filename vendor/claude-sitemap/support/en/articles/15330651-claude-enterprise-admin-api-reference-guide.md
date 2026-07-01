@@ -1,6 +1,6 @@
 This guide covers **spend limits** and **spend limit increase requests** for your Claude Enterprise organization using the Claude Enterprise Admin API. Spend limits let you cap each member's usage credit spending over a recurring period, see where each member's limit is inherited from, and review or act on members' requests for a higher limit.
 
-For per-user and time-bucketed usage and cost reporting, see the **[Claude Enterprise Analytics API reference guide](https://support.claude.com/en/articles/13703965)**.
+For per-user and time-bucketed usage and cost reporting, see the **[Analytics API reference guide](https://platform.claude.com/docs/en/api/admin/analytics)**.
 
 Claude Enterprise Admin API is currently in public beta and available to organizations on Enterprise plans with usage credits enabled.
 
@@ -30,6 +30,16 @@ Use the **spend limits** endpoints to answer, “What limit applies to each memb
 Pass the key in the **`x-api-key`** header on every request.
 
 **Important:** Don't share API keys publicly or check them into source control.
+
+## Create an Admin API key for your Claude Enterprise organization
+
+1. **Sign in as the Primary Owner**—Only the Primary Owner of your Claude Enterprise parent organization can create these keys.
+
+2. **Open API settings**—Go to **[Organization settings > API](https://claude.ai/admin-settings/api-access)** and find the **Keys** section.
+
+3. **Click and create key**—Name the key and select the scopes you need from the **[scopes table](https://platform.claude.com/docs/en/manage-claude/admin-api-keys#choose-scopes-for-a-claude-enterprise-key)**. You can combine scopes from different APIs (for example, `read:analytics` and `read:spend_limits`) on a single key.
+
+4. **Copy and store the secret**—Copy the displayed secret (starting with `sk-ant-api01-`) and store it in your secrets manager. The full secret is shown only once.
 
 ## Base URL
 

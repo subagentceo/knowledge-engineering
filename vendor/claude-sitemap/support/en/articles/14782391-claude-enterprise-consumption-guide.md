@@ -74,7 +74,7 @@ Note the following precedence rules:
 
 - **Individual limits always override group limits**, regardless of which is higher.
 
-- **If a user belongs to multiple groups with different limits**, the org can either apply the lowest or highest spend limit. Use the dropdown under “Spending defaults” to determine the precedence you want to apply. Note that the seat-type default limit is also included in this comparison.
+- **If a user belongs to multiple groups with different limits**, the **Multi-group spend limit** setting under **Spending defaults** controls whether the higher or lower limit applies. The seat-type default limit is included in this comparison.
 
 - **Org-wide limits remain the hard ceiling.**
 
@@ -100,9 +100,9 @@ User-level caps let you set consumption limits for individual accounts. These ar
 
 | **User type**   | **Code** | **Cowork** | **Chat** |
 | --------------- | -------- | ---------- | -------- |
-| Power (Top 10%) | $200     | $100       | $50      |
-| Typical (Mean)  | $85      | $50        | $20      |
-| Light (Median)  | $25      | $20        | $5       |
+| Power (Top 10%) | $500     | $100       | $90      |
+| Typical (Mean)  | $215     | $40        | $30      |
+| Light (Median)  | $40      | $10        | $5       |
 
 **These figures are rough planning estimates. Actual consumption will vary based on your team's size, workflows, and usage patterns.*
 
@@ -112,7 +112,7 @@ User-level caps let you set consumption limits for individual accounts. These ar
 
 One of the most impactful things an admin can do is set clear guidance for users on which model to use for which tasks. Model choice has a direct and significant impact on token consumption—Opus can consume several times more tokens than Sonnet for the same task.
 
-Effort level is a second consumption lever. Users can choose how much thinking Claude applies to each response, and higher effort levels consume more tokens than lower ones. Encourage users to reserve Max effort for more complex work and to use lower effort for routine tasks.
+Effort level is a second consumption lever. Users can choose how much thinking Claude applies to each response, and higher effort levels consume more tokens than lower ones. Encourage users to reserve Max effort for only the most demanding tasks and to use lower effort for routine tasks.
 
 ### The right model for the right task
 
@@ -190,7 +190,7 @@ Use this when you have a specific question and don't want to navigate the dashbo
 
 For programmatic access, use the Claude Enterprise Analytics API. Pull a ranked list of users by tokens used or dollars spent, or look at usage and cost trends over time broken down by product, model, context window, or region. Each request is capped at 31 days wide, starting within the last 365 days, and no earlier than Jan 1, 2026.
 
-Your Primary Owner can generate an admin API key. Data refreshes every four hours; for invoicing-grade totals, query dates 30+ days in the past so late events have time to reconcile. **[Learn more](https://support.claude.com/en/articles/13694757-get-started-with-the-claude-enterprise-analytics-api)** and review the **[API reference guide](https://support.claude.com/en/articles/13703965-claude-enterprise-analytics-api-reference-guide)**.
+Your Primary Owner can generate an admin API key. Data refreshes every four hours; for invoicing-grade totals, query dates 30+ days in the past so late events have time to reconcile. **[Learn more](https://platform.claude.com/docs/en/manage-claude/analytics-api)** and review the **[API reference guide](https://platform.claude.com/docs/en/api/admin/analytics)**.
 
 ---
 

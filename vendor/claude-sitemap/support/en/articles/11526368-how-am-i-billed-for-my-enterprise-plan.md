@@ -46,9 +46,15 @@ Usage is purchased **upfront in credits**. Your credits draw down as your team u
 
 **Note:** If you purchased your Enterprise plan through AWS Marketplace, billing works like sales-assisted plans. You're billed monthly in arrears based on your organization's consumption rather than purchasing credits upfront.
 
+**Changing your payment method**
+
+Self-serve Enterprise organizations can pay by credit card, debit card, or ACH bank transfer. An Owner or Primary Owner can switch between payment methods at any time in **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**. For details on ACH, including activation timing and auto-reload, see **[What is the Enterprise plan?](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)**
+
 ### Sales-assisted Enterprise
 
 Usage is **billed monthly in arrears** based on your organization's actual consumption during each billing period. You'll receive a monthly invoice reflecting usage for that period. Speak with your account manager for questions about your usage invoices.
+
+**Note:** Invoices of $50,000 or more can only be paid by bank transfer (ACH or wire). The credit card option won't appear on the payment page for invoices at or above this amount. To pay a specific invoice by card, reach out to your Anthropic Contact to request an exception.
 
 ---
 
@@ -68,25 +74,25 @@ There's no balance to deplete. Everyone's usage is metered and added to the same
 
 ---
 
-## Spend controls
+## Spend limits
 
-Owners and Primary Owners can set spending caps to manage your organization's consumption. This applies to both self-serve and sales-assisted plans.
+Owners and Primary Owners can set spend limits to manage your organization's consumption. This applies to both self-serve and sales-assisted plans.
 
-To configure spend controls, sign in as an Owner or Primary Owner and navigate to **[Organization](https://claude.ai/admin-settings/organization)****[settings > Usage](https://claude.ai/admin-settings/usage)**.
+To configure spend limits, sign in as an Owner or Primary Owner and navigate to **[Organization](https://claude.ai/admin-settings/organization)****[settings > Usage](https://claude.ai/admin-settings/usage)**.
 
-You can set caps at two levels:
+You can set limits at two levels:
 
 - **Organization level:** Maximum spend for all usage across your organization.
 
 - **Individual level:** Maximum spend for a specific user.
 
-These limits work hierarchically — a user cannot exceed their individual limit or the organization limit, whichever is lower.
+These limits work hierarchically, so a user cannot exceed their individual limit or the organization limit, whichever is lower.
 
-On **self-serve plans**, spend caps work alongside your credit balance. If a user hits their individual cap or the organization cap, their usage will stop even if credits remain. Owners can adjust caps at any time.
+On **self-serve plans**, spend limits work alongside your credit balance. If a user hits their individual limit or the organization limit, their usage will stop even if credits remain. Owners can adjust limits at any time.
 
-On **sales-assisted plans**, spend caps prevent usage from continuing past the cap threshold. If a cap is reached, usage stops until the next billing period begins or an owner raises the limit.
+On **sales-assisted plans**, spend limits prevent usage from continuing past the limit threshold. If a limit is reached, usage stops until the next billing period begins or an owner raises the limit.
 
-**Owners can set limits to "unlimited,"** but consumption will still be billed. You cannot disable billing for usage — usage-based pricing is a core part of the Enterprise plan.
+**Owners can set limits to "unlimited,"** but consumption will still be billed. You cannot disable billing for usage—usage-based pricing is a core part of the Enterprise plan.
 
 ---
 
@@ -94,7 +100,7 @@ On **sales-assisted plans**, spend caps prevent usage from continuing past the c
 
 You can track your organization's usage and spending in a few places:
 
-- **Organization** **settings > Usage:** View month-to-date spending for each member, current spend cap status, and credit balance (self-serve plans).
+- **Organization** **settings > Usage:** View month-to-date spending for each member, current spend limit status, and credit balance (self-serve plans).
 
 - **Monthly invoices:** Detailed usage per user for the billing period (sales-assisted plans).
 
@@ -106,9 +112,9 @@ You can track your organization's usage and spending in a few places:
 
 If usage stops on your Enterprise plan, here's how to resume:
 
-- **Self-serve plans:** If credits run out or a spend cap is reached, an Owner or Primary Owner can purchase additional credits or raise the spend cap from **[Organization](https://claude.ai/admin-settings/organization)****[settings > Usage](https://claude.ai/admin-settings/usage)**.
+- **Self-serve plans:** If credits run out or a spend limit is reached, an Owner or Primary Owner can purchase additional credits or raise the spend limit from **[Organization](https://claude.ai/admin-settings/organization)****[settings > Usage](https://claude.ai/admin-settings/usage)**.
 
-- **Sales-assisted plans:** If a spend cap is reached, an Owner or Primary Owner can raise the cap, or usage will resume at the start of the next billing period. Contact your account manager with questions.
+- **Sales-assisted plans:** If a spend limit is reached, an Owner or Primary Owner can raise the limit, or usage will resume at the start of the next billing period. Contact your account manager with questions.
 
 ---
 

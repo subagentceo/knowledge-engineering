@@ -1,0 +1,13 @@
+# How Blank Metal, a lean professional services firm, runs on Claude Cowork
+
+Blank Metal is an AI-native engineering firm that helps enterprises take AI from pilot to production. Founded in 2025, the team of 30 runs its own operations on Claude before deploying anything for a client. We spoke with Elli Rader, Chief Revenue Officer, about how the team uses Claude Cowork and Claude Code to handle business development, scheduling, and the day-to-day work of getting a company off the ground. 
+
+## Anthropic: How central is Claude to the way Blank Metal operates day to day, and which products is your team actually using?
+
+**Elli Rader, Blank Metal:** All of us at Blank Metal are superpowered by Claude. The primary tool is Claude Cowork, which is where the team handles everything from client-facing deliverables to internal workflows to daily tasks. On the engineering side, Claude Code is where our developers live. Every engineer is fully committed to it, and it powers around 90% of the work we do across internal projects and client builds. The API is what gets deployed for client implementations.
+
+For a small company, Claude is a structural advantage. Work that used to take days, whether that's data analysis, forecasting, or research, now gets done in minutes, and repetitive tasks that used to require someone's full attention can run in the background, which frees people up for higher-leverage work. We've built a set of internal skills to eliminate the friction points that would otherwise slow the team down, and anything that can be packaged into a reusable skill gets shared across the org, so the whole team gets faster every time someone solves a problem once. Even our brand voice and visual guidelines are embedded through skills, so everything that comes out of Cowork, such as decks, docs, and deliverables, aligns automatically rather than being applied individually. The team also builds artifacts, dashboards, and HTML-based visualizations for client presentations. At the end of the day Claude isn't just a tool we use, it's how we scale, build, and grow in a leaner way. Every person on the team is more capable because of it, and that's the whole point.
+
+## For a while you were essentially a one-person business development operation. What was at stake as the leads started coming in?
+
+**Rader:** We just simply wouldn't have been able to handle the volume of leads. Clients would have been very frustrated at not getting a fast response, and they would have gone elsewhere. As a new company, it's vital that we build strong relationships with the people coming to us to grow our business and theirs, so we can't afford to slip in BD operations. Claude has been an absolute lifesaver.

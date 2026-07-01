@@ -1,6 +1,6 @@
 Seat management allows Team plan owners to control their organization's seat allocation, assign users to different seat types, and manage billing. For pricing and billing details, see **[How is my Team plan bill calculated?](https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated)**
 
-**Permissions note:** Only Owners and Primary Owners can purchase seats and access **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**. Admins and above can reassign seat types for members in **[Organization](https://claude.ai/admin-settings/billing)[settings > Organization](https://claude.ai/admin-settings/organization)**.
+**Permissions note:** Only Owners and Primary Owners can purchase seats and access **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**. Admins and above can reassign seat types for members in **[Organization settings > Members](https://claude.ai/admin-settings/members)**.
 
 For information on adding and removing members from your organization, see **[Managing members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-managing-members-on-team-and-enterprise-plans)**.
 
@@ -23,19 +23,19 @@ Your plan has a total seat allocation (e.g., 30 Standard seats and 10 Premium se
 
 ## Purchasing new seats
 
-**Important:** If you want to upgrade an existing member from Standard to Premium, you don't need to purchase a new seat. Use the seat tier reassignment in **[Organization](https://claude.ai/admin-settings/billing)[settings > Organization](https://claude.ai/admin-settings/organization)** instead — see **[Upgrading a Standard seat to Premium](#h_e7a7f4f396)** below.
+**Important:** If you want to upgrade an existing member from Standard to Premium, you don't need to purchase a new seat. Use the seat tier reassignment in **[Organization settings > Members](https://claude.ai/admin-settings/members)** instead — see **[Upgrading a Standard seat to Premium](#h_e7a7f4f396)** below.
 
 Follow these steps to add seats to your plan's total allocation:
 
 1. Log in with your Owner or Primary Owner account.
 
-2. Navigate to **[Organization](https://claude.ai/admin-settings/billing)[settings > Organization](https://claude.ai/admin-settings/organization)**.
+2. Navigate to **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**.
 
 3. Click "Manage" under "Total seats."
 
 4. In the "Seat breakdown" modal, click "Add or change seats."
 
-5. Click the "**+**" next to the seat type you want to add (Standard or Premium).
+5. Click the "+" next to the seat type you want to add (Standard or Premium).
 
 6. Click "Next" to review your purchase details and confirm the billing impact.
 
@@ -53,7 +53,7 @@ You can reduce the total number of seats on your Team plan:
 
 1. Log in with your Owner or Primary Owner account.
 
-2. Navigate to **[Organization](https://claude.ai/admin-settings/billing)[settings > Organization](https://claude.ai/admin-settings/organization)**.
+2. Navigate to **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**.
 
 3. If needed, remove members or reassign them to free up the seats you want to eliminate.
 
@@ -75,13 +75,13 @@ You can move users between Standard and Premium seats within your existing alloc
 
 To reassign a user's seat type:
 
-1. Go to **[Organization](https://claude.ai/admin-settings/billing)[settings > Organization](https://claude.ai/admin-settings/organization)**.
+1. Go to **[Organization settings > Members](https://claude.ai/admin-settings/members)**.
 
 2. Find the member you want to reassign.
 
-3. Click the dropdown under **Seat Tier**.
+3. Click the dropdown under **Tier**.
 
-4. Select Standard or Premium.
+4. Select "Standard" or "Premium."
 
 Members moved from Premium to Standard will have lower usage limits, and vice versa.
 
@@ -89,11 +89,11 @@ Members moved from Premium to Standard will have lower usage limits, and vice ve
 
 Upgrading a member from Standard to Premium is a reassignment, not a new purchase. You don't need to buy an additional seat unless your Premium allocation is already full.
 
-1. Go to **[Organization](https://claude.ai/admin-settings/billing)[settings > Organization](https://claude.ai/admin-settings/organization)**.
+1. Go to **[Organization settings > Members](https://claude.ai/admin-settings/members)**.
 
 2. Find the member assigned to a Standard seat you want to upgrade.
 
-3. Click the dropdown under **Seat Tier**.
+3. Click the dropdown under **Tier**.
 
 4. Select "Premium."
 
@@ -105,15 +105,15 @@ The upgrade is prorated based on your billing cycle, and you'll be charged the p
 
 If you try to reassign a user to Premium but don't have any available Premium seats, you'll then be prompted to purchase an additional Premium seat.
 
-## Using "unassigned" to swap users between seat types
+## Swap users between seat types
 
-The unassigned option allows you to temporarily remove a user from a seat without removing them from your organization. This is useful when you need to swap people between seat types within your existing allocation.
+Selecting **No seat assigned** lets you temporarily remove a user from a seat without removing them from your organization. This is useful when you need to swap people between seat types within your existing allocation.
 
 **Example:** You have five Premium seats, all assigned. You want to move User A (currently on Premium) to Standard, and move User B (currently on Standard) to Premium—without purchasing an additional seat.
 
-1. Go to **[Organization](https://claude.ai/admin-settings/billing)[settings > Organization](https://claude.ai/admin-settings/organization)**.
+1. Go to **[Organization settings > Members](https://claude.ai/admin-settings/members)**.
 
-2. Find User A and change their seat tier to "Unassigned." This frees up one Premium seat.
+2. Find User A and change their seat tier to "No seat assigned." This frees up one Premium seat.
 
 3. Find User B and change their seat tier to "Premium." They now occupy the available Premium seat.
 
@@ -123,7 +123,7 @@ The unassigned option allows you to temporarily remove a user from a seat withou
 
 ## Seat assignment with JIT or SCIM provisioning
 
-**[Users provisioned via JIT or SCIM](https://support.claude.com/en/articles/13133195-setting-up-jit-or-scim-provisioning-to-manage-user-assignments-on-team-or-enterprise-plans)** are automatically assigned to the highest-available seat type when they're added. Admins and above can manually reassign seat types afterward in **[Organization](https://claude.ai/admin-settings/billing)[settings > Organization](https://claude.ai/admin-settings/organization)**.
+**[Users provisioned via JIT or SCIM](https://support.claude.com/en/articles/13133195-setting-up-jit-or-scim-provisioning-to-manage-user-assignments-on-team-or-enterprise-plans)** are automatically assigned to the highest-available seat type when they're added. Admins and above can manually reassign seat types afterward in **[Organization settings > Members](https://claude.ai/admin-settings/members)**.
 
 You can also enable group mappings with JIT or SCIM to provision users directly to a specific seat type.
 

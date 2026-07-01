@@ -1,3 +1,3 @@
 # Claude in Microsoft Foundry
 
-Anthropic's expanded partnership with Microsoft brings Claude to Azure customers through serverless deployment in Microsoft Foundry. Developers can build production applications and enterprise agents using Claude within Azure, all reflected through Azure billing. With Claude's advanced capabilities for coding, agents, and complex reasoning, teams can move from prototype to production within the ecosystem they already use.
+Claude is now generally available in Microsoft Foundry. Build production applications and enterprise agents with Claude using the Azure authentication, billing, and governance you already have. Usage appears on your Azure invoice and, for customers with a Microsoft Azure commitment, counts toward your MACC. New with general availability, inference can run on Azure infrastructure in a US data zone, operated by Anthropic.

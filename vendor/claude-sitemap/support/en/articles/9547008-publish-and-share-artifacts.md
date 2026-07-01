@@ -1,4 +1,6 @@
-Artifacts are a powerful way to create content within Claude. You can take your creations further by sharing them so others can engage with and customize them. Similarly, if you see an artifact you like, you can customize it to make it your own. This article covers how to publish artifacts publicly, share them within your organization, and discover artifacts created by others.
+Artifacts are a powerful way to create content within Claude. You can take your creations further by sharing them so others can engage with and customize them. Similarly, if you see an artifact you like, you can customize it to make it your own. This article covers how to publish artifacts publicly and share them within your organization.
+
+**Important:** We no longer support artifacts without **Code execution and file creation** enabled in **[Settings > Capabilities](https://claude.ai/settings/capabilities)** (Free, Pro, Max) or **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)** (Team, Enterprise).
 
 ---
 
@@ -9,26 +11,6 @@ Claude uses different terms depending on your plan:
 - **Publishing** (Free, Pro, Max): Makes your artifact publicly available. Anyone with the link can view and interact with it.
 
 - **Sharing** (Team, Enterprise): Makes your artifact available within your organization only. Viewers must be logged into your Team or Enterprise account to access it.
-
----
-
-## Discover artifacts
-
-Discovering and browsing artifacts is available on Free, Pro, Max, Team, and Enterprise plans on web, Claude for iOS and Android, and Claude Desktop.
-
-Access a curated collection of artifacts directly from the artifacts space in your Claude sidebar by clicking **[Artifacts > Inspiration](http://claude.ai/artifacts)** (or the "Get inspired" banner on mobile).
-
-The Inspiration tab features:
-
-- High-quality, useful artifacts across various categories
-
-- Examples to inspire your own creations
-
-- One-click access to try any artifact immediately
-
-- Easy customization of existing artifacts to make them your own
-
-Artifacts are organized into categories such as Learn something, Life hacks, and Be creative.
 
 ---
 
@@ -45,6 +27,8 @@ Publishing is available on Free, Pro, and Max plans.
 3. Click the “Publish” button.
 
 4. Copy the public link to share with others.
+
+Publishing also adds the artifact to the **[Artifacts](https://claude.ai/artifacts)** section in your sidebar so you can find it again outside the original conversation.
 
 ### Who can access published artifacts
 
@@ -68,11 +52,11 @@ Publishing is available on Free, Pro, and Max plans.
 
 After publishing, you'll see a “Get embed code” button.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951684960/0cd917c4455b31e86b70a97f8234/image.png?expires=1781748900&amp;signature=80016e5775ee422dd5c9a444745e4b34669188eba2abe6e263a71705ddd70d11&amp;req=dSkiF892mYhZWfMW1HO4zdcpD1dV4QuIR8xgMH3ra8juTdzbsNNdk%2FwKXxnz%0AhwXIyJBP%2Fh1ecomfyhU%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951684960/0cd917c4455b31e86b70a97f8234/image.png?expires=1782913500&amp;signature=a480927e6d828bc98e65215eece518eca7a94dfab07785d5cf4bc0d543077713&amp;req=dSkiF892mYhZWfMW1HO4zdcpD1Rb5ACER8xgMH3ra8gEB6Ni2SbYXbj0c39a%0A0L%2Ba2uzKyR9FXhJ0lZQ%3D%0A)
 
 Click it to open a modal with automatically generated code you can copy and paste to embed your artifact on another website.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951685860/6bf1aa2c57d6ff95804797779e9c/image.png?expires=1781748900&amp;signature=d1a77524bb567bb7a0202ea90556a60bee4769ca9fa081a7caeeacf531137cb7&amp;req=dSkiF892mIlZWfMW1HO4zcqH79iEzYxkf3CUbx4Ru6V%2F7wjfoHUtuqQJm84Y%0AbOdQsgkNtF0nrRdS9G8%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951685860/6bf1aa2c57d6ff95804797779e9c/image.png?expires=1782913500&amp;signature=2e5420671edf998b99cbb191aadd6cc80273432ab1611b33d6503832e61681bf&amp;req=dSkiF892mIlZWfMW1HO4zcqH79uKyIdof3CUbx4Ru6UMk6iqC5d%2FOu3cgeU8%0ANdAo4SM2dmEt7WmAfV0%3D%0A)
 
 You must specify which websites can embed your artifact by entering URLs in the **Allowed domains** field, separated by commas.
 
@@ -100,7 +84,7 @@ Artifacts created on Team or Enterprise accounts can only be shared within your 
 
 4. Click “Share & copy link” to make this version shareable.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951680160/d5a38784df4c6d0cc55eda339279/Screenshot%2B2025-10-28%2Bat%2B2_00_15-E2-80-AFPM.png?expires=1781748900&amp;signature=4be4fd7462d9d11d704223f5b3d0b5d8ff42279054fb1de3ca755a29f79038dd&amp;req=dSkiF892nYBZWfMW1HO4zbvYOlDiKXGaK6hAzMpXfmNr2O3KXPG%2Bn5IHSxm6%0AVR84IJqyD6z7byvK6qM%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951680160/d5a38784df4c6d0cc55eda339279/Screenshot%2B2025-10-28%2Bat%2B2_00_15-E2-80-AFPM.png?expires=1782913500&amp;signature=ede8b698d1d9175b3f6106aef2435fa6b2d8283368ab581e52a555eec5b95c3a&amp;req=dSkiF892nYBZWfMW1HO4zbvYOlPsLHqWK6hAzMpXfmNNB17lEUH4rftZirFZ%0AA4Z0Gd33i9XFewWu0FM%3D%0A)
 
 ### Who can access shared artifacts
 
@@ -122,7 +106,7 @@ When you share an artifact, viewers also gain access to any attachments and file
 
 2. In the **Artifact shared** modal, click “Unshare.”
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951676927/c66153a2c075c6a64404306aefd0/Screenshot%2B2025-10-28%2Bat%2B1_58_24-E2-80-AFPM.png?expires=1781748900&amp;signature=76f0be77130e20f6a222b1261b3dfa195d8bbb3017ca8054c89ae888986e8c59&amp;req=dSkiF895m4hdXvMW1HO4zW9Ewgi6%2FXy6gj8mTHivCKbiSAsfV9VWfDk99yEM%0APae6NxRipCF1DH2h2wc%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951676927/c66153a2c075c6a64404306aefd0/Screenshot%2B2025-10-28%2Bat%2B1_58_24-E2-80-AFPM.png?expires=1782913500&amp;signature=efaa344722aef0d9f8830f07c3165289f53c3168c3050ad379b935fa05db96e2&amp;req=dSkiF895m4hdXvMW1HO4zW9Ewgu0%2BHe2gj8mTHivCKacJCIcaiq%2FP9Tte0Hc%0AZTLgsd8vgmFGlf%2FlGWg%3D%0A)
 
 ---
 
@@ -130,13 +114,15 @@ When you share an artifact, viewers also gain access to any attachments and file
 
 Customizing is available on all plans: Free, Pro, Max, Team, and Enterprise.
 
-Customizing allows you to build upon and modify artifacts created by others:
+Customizing allows you to build upon and modify artifacts created and shared by others:
 
 1. When viewing an artifact, look for the "Customize" button.
 
 2. Click the button to start a new Claude conversation with the artifact's content.
 
 3. You'll be redirected to Claude, where you can modify and interact with the artifact.
+
+4. If you don't have a Claude account, you'll be prompted to sign up.
 
 ### What happens when you customize
 
@@ -147,8 +133,6 @@ Customizing allows you to build upon and modify artifacts created by others:
 - You can modify, expand upon, or use the artifact as inspiration
 
 - Your changes don't affect the original—you're working on your own copy
-
-**Note:** If you haven't used artifacts before, clicking "Customize" will automatically enable the feature for your account. If you don't have a Claude account, you'll be prompted to sign up.
 
 ---
 

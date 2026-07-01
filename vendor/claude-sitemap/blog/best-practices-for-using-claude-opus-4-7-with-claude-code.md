@@ -26,7 +26,7 @@ The default effort level for Opus 4.7 in Claude Code is now `xhigh`. This is a n
 Here’s some additional guidance for each effort level:
 
 *   **`medium` and `low`**: Available for cost-sensitive, latency-sensitive, or tightly scoped work. The model will be less capable on harder tasks than it would be at higher effort levels, but it still outperforms Opus 4.6 running at the same effort level—sometimes with fewer tokens.
-*   **`high`**: Balances intelligence and cost. Choose high if you’re running concurrent sessions or want to spend less without a large quality drop. 
+*   **`high:`**: Balances intelligence and cost. Choose high if you’re running concurrent sessions or want to spend less without a large quality drop. 
 *   **`xhigh` (default, recommended)**: The best setting for most coding and agentic uses. It has strong autonomy and intelligence without the runaway token usage that max can produce on long agentic runs.
 *   **`max`**: Squeezes out additional performance on genuinely hard problems, but shows diminishing returns and is more prone to overthinking. Use it deliberately for tasks like testing the model’s maximum ceiling in evals and for extremely intelligence-sensitive and non-cost-sensitive uses. 
 
