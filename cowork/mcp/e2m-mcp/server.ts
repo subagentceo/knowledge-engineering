@@ -77,6 +77,23 @@ function collapseById<T extends { id: string }>(rows: T[]): T[] {
   return [...map.values()];
 }
 
+/**
+ * Recency-ordered collapse: sorts by `at` before collapsing so callers that
+ * merge rows from multiple files (e.g. mailbox_recv's own-mailbox + broadcast
+ * streams) get true latest-wins instead of last-array-position-wins. Falls
+ * back to stable array order when `at` is absent/equal.
+ */
+function collapseByIdRecency<T extends { id: string; at?: string }>(rows: T[]): T[] {
+  const sorted = rows
+    .map((row, index) => ({ row, index }))
+    .sort((a, b) => {
+      const at = (a.row.at ?? "").localeCompare(b.row.at ?? "");
+      return at !== 0 ? at : a.index - b.index;
+    })
+    .map(({ row }) => row);
+  return collapseById(sorted);
+}
+
 // ── Envelope schema (canonical DurableTask + evaluator) ───────────────────────
 
 const EvaluatorBlock = z.object({
@@ -325,7 +342,7 @@ server.tool(
   ({ agent_id, limit, type }) => {
     const msgs  = readLines(mailboxPath(agent_id)) as MailboxEnvelope[];
     const bcast = readLines(mailboxPath("_broadcast")) as MailboxEnvelope[];
-    const all   = collapseById([...msgs, ...bcast]);
+    const all   = collapseByIdRecency([...msgs, ...bcast]);
     const envelopeType = type ? ENVELOPE_TYPE_OF[type] : undefined;
     const pending = all
       .filter(m => m.state === "pending" && (!envelopeType || m.envelope_type === envelopeType))
