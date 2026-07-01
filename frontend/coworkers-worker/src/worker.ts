@@ -187,6 +187,18 @@ const DOMAIN_COLORS: Record<string, string> = {
   "finance":            "#a8e063",
 };
 
+const MODEL_COLORS: Record<string, string> = {
+  "opus":   "#f4a73b",
+  "haiku":  "#e6b455",
+  "sonnet": "#51c4ff",
+};
+
+function modelTier(model: string): "opus" | "haiku" | "sonnet" {
+  if (model.includes("opus")) return "opus";
+  if (model.includes("haiku")) return "haiku";
+  return "sonnet";
+}
+
 function coworkersPage(env: Env): string {
   const coworkHost = env.COWORK_HOST || "cowork.subagentknowledge.com";
   const cards = COWORKERS.map(cw => {
@@ -195,8 +207,8 @@ function coworkersPage(env: Env): string {
       const color = PROTOCOL_COLORS[p] ?? "#d4d4d4";
       return `<span class="proto-pill" style="border-color:${color}20;color:${color};background:${color}12">${p}</span>`;
     }).join("");
-    const modelBadge = cw.model.includes("haiku") ? "haiku" : "sonnet";
-    const modelColor = cw.model.includes("haiku") ? "#e6b455" : "#51c4ff";
+    const modelBadge = modelTier(cw.model);
+    const modelColor = MODEL_COLORS[modelBadge];
     const peerList = cw.peers.slice(0, 3).map(p => `<span class="peer">${p.replace("-coworker","")}</span>`).join("");
     const morePeers = cw.peers.length > 3 ? `<span class="peer">+${cw.peers.length - 3}</span>` : "";
     return `
@@ -439,7 +451,7 @@ function coworkersPage(env: Env): string {
           <td>${cw.protocols.includes("e2m-mcp") ? "✓" : "—"}</td>
           <td>${cw.protocols.includes("mcp")     ? "✓" : "—"}</td>
           <td>${cw.protocols.includes("acp")     ? "✓" : "—"}</td>
-          <td style="opacity:0.6">${cw.model.includes("haiku") ? "haiku" : "sonnet"}</td>
+          <td style="opacity:0.6">${modelTier(cw.model)}</td>
         </tr>`).join("")}
       </tbody>
     </table>

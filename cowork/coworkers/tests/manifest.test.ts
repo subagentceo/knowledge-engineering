@@ -15,7 +15,7 @@ const coworkers: Array<Record<string, unknown>> = manifest.coworkers;
 
 const VALID_PROTOCOLS = new Set(["a2a", "e2m-mcp", "mcp", "acp"]);
 const VALID_MODELS = new Set([
-  "claude-sonnet-4-6",
+  "claude-sonnet-5",
   "claude-haiku-4-5-20251001",
   "claude-opus-4-6",
   "claude-opus-4-7",

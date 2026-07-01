@@ -23,8 +23,8 @@
   },
   "session_model": {
     "mechanical": "claude-haiku-4-5-20251001",
-    "review": "claude-sonnet-4-6",
-    "planning": "claude-sonnet-4-6"
+    "review": "claude-sonnet-5",
+    "planning": "claude-sonnet-5"
   },
   "coworkers": [
     {
@@ -34,7 +34,7 @@
       "queue": "cowork/data/queues/product-management.jsonl",
       "mailbox": "cowork/data/mailbox/product-management-coworker.jsonl",
       "skill": "cowork/coworkers/skills/product-management-coworker/SKILL.md",
-      "model": "claude-sonnet-4-6",
+      "model": "claude-sonnet-5",
       "trigger_phrase": "/product-management-coworker",
       "protocols": [
         "a2a",
@@ -65,7 +65,7 @@
       "queue": "cowork/data/queues/design.jsonl",
       "mailbox": "cowork/data/mailbox/design-coworker.jsonl",
       "skill": "cowork/coworkers/skills/design-coworker/SKILL.md",
-      "model": "claude-sonnet-4-6",
+      "model": "claude-sonnet-5",
       "trigger_phrase": "/design-coworker",
       "protocols": [
         "a2a",
@@ -195,7 +195,7 @@
       "queue": "cowork/data/queues/legal.jsonl",
       "mailbox": "cowork/data/mailbox/legal-coworker.jsonl",
       "skill": "cowork/coworkers/skills/legal-coworker/SKILL.md",
-      "model": "claude-sonnet-4-6",
+      "model": "claude-sonnet-5",
       "trigger_phrase": "/legal-coworker",
       "protocols": [
         "a2a",
@@ -228,7 +228,7 @@
       "queue": "cowork/data/queues/marketing.jsonl",
       "mailbox": "cowork/data/mailbox/marketing-coworker.jsonl",
       "skill": "cowork/coworkers/skills/marketing-coworker/SKILL.md",
-      "model": "claude-sonnet-4-6",
+      "model": "claude-sonnet-5",
       "trigger_phrase": "/marketing-coworker",
       "protocols": [
         "a2a",
@@ -260,7 +260,7 @@
       "queue": "cowork/data/queues/agent-resources.jsonl",
       "mailbox": "cowork/data/mailbox/agent-resources-coworker.jsonl",
       "skill": "cowork/coworkers/skills/agent-resources-coworker/SKILL.md",
-      "model": "claude-sonnet-4-6",
+      "model": "claude-sonnet-5",
       "trigger_phrase": "/agent-resources-coworker",
       "protocols": [
         "a2a",
@@ -282,7 +282,7 @@
       "queue": "cowork/data/queues/human-resources.jsonl",
       "mailbox": "cowork/data/mailbox/human-resources-coworker.jsonl",
       "skill": "cowork/coworkers/skills/human-resources-coworker/SKILL.md",
-      "model": "claude-sonnet-4-6",
+      "model": "claude-sonnet-5",
       "trigger_phrase": "/human-resources-coworker",
       "protocols": [
         "a2a",
@@ -316,7 +316,7 @@
       "queue": "project-management",
       "mailbox": "cowork/data/mailbox/project-management-coworker.jsonl",
       "skill": "cowork/coworkers/skills/project-management-coworker/SKILL.md",
-      "model": "claude-opus-4-6",
+      "model": "claude-opus-4-8",
       "model_budget": "claude-opus-4-8",
       "trigger_phrase": "/project-management-coworker",
       "protocols": [
