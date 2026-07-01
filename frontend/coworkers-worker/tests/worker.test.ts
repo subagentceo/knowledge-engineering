@@ -1,8 +1,13 @@
 /**
  * @cite frontend/coworkers-worker/src/manifest.ts
  * @cite frontend/coworkers-worker/src/worker.ts
+ * @cite frontend/coworkers-worker/src/coworkers.app.ts
+ * @cite frontend/coworkers-worker/wrangler.jsonc
  */
 import { strict as assert } from "node:assert";
+import { readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { describe, test } from "vitest";
 import {
   COWORKERS,
@@ -13,6 +18,8 @@ import {
   HSTS,
   type Coworker,
 } from "../src/manifest.js";
+
+const workerSrc = readFileSync(join(dirname(fileURLToPath(import.meta.url)), "../src/worker.ts"), "utf8");
 
 describe("COWORKERS directory", () => {
   test("has exactly 12 coworkers", () => {
@@ -105,6 +112,31 @@ describe("protocolMatrix", () => {
     const data = matrix.find(r => r.id === "data-coworker");
     assert.ok(data !== undefined);
     assert.equal(data?.mcp, false);
+  });
+});
+
+describe("/mcp and /sse routing (McpAgent binding)", () => {
+  // McpAgent.serve()/.serveSSE() default `binding` to "MCP_OBJECT" regardless
+  // of which class they're called on — the returned fetch closure reads
+  // env[binding], not `this`. wrangler.jsonc binds MCP_OBJECT to CoworkersMcp,
+  // not CoworkersMcpApp, so calling CoworkersMcpApp.serve(path) without an
+  // explicit binding silently serves the wrong DO (CoworkersMcp's directory
+  // tools instead of CoworkersMcpApp's e2m mailbox tools).
+  test("/mcp route passes the COWORKERS_MCP_APP binding explicitly", () => {
+    const mcpCall = workerSrc.match(/CoworkersMcpApp\.serve\(\s*"\/mcp"\s*,\s*\{[^}]*\}\s*\)/);
+    assert.ok(mcpCall, "CoworkersMcpApp.serve(\"/mcp\", ...) call not found in worker.ts");
+    assert.match(mcpCall![0], /binding:\s*["']COWORKERS_MCP_APP["']/);
+  });
+
+  test("/sse route passes the COWORKERS_MCP_APP binding explicitly", () => {
+    const sseCall = workerSrc.match(/CoworkersMcpApp\.serveSSE\(\s*"\/sse"\s*,\s*\{[^}]*\}\s*\)/);
+    assert.ok(sseCall, "CoworkersMcpApp.serveSSE(\"/sse\", ...) call not found in worker.ts");
+    assert.match(sseCall![0], /binding:\s*["']COWORKERS_MCP_APP["']/);
+  });
+
+  test("worker.ts never calls .serve()/.serveSSE() without an explicit binding", () => {
+    const bareCalls = workerSrc.match(/\.serve(?:SSE)?\(\s*"\/(?:mcp|sse)"\s*\)/g);
+    assert.equal(bareCalls, null, `found .serve()/.serveSSE() call(s) missing explicit binding: ${bareCalls}`);
   });
 });
 

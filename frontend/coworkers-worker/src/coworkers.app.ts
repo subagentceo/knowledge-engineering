@@ -12,8 +12,11 @@
  *   mailbox_recv      — read an agent's envelopes
  *
  * Routes (handled in worker.ts fetch):
- *   /sse  → CoworkersMcpApp.serveSSE("/sse")
- *   /mcp  → CoworkersMcpApp.serve("/mcp")   (replaces CoworkersMcp.serve)
+ *   /sse  → CoworkersMcpApp.serveSSE("/sse", { binding: "COWORKERS_MCP_APP" })
+ *   /mcp  → CoworkersMcpApp.serve("/mcp", { binding: "COWORKERS_MCP_APP" })
+ * binding must be explicit — McpAgent.serve()/.serveSSE() default to
+ * binding="MCP_OBJECT" regardless of the class, which is bound to CoworkersMcp
+ * in wrangler.jsonc, not CoworkersMcpApp.
  *
  * @cite github.com/cloudflare/agents                (McpAgent pattern)
  * @cite coworkers/projects/2026/operational-plan/mcpb/e2m/server/index.mjs
