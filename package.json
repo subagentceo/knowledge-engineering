@@ -67,7 +67,7 @@
     "crawl:pypi": "tsx scripts/crawl-registries.ts pypi",
     "crawl:crates": "tsx scripts/crawl-registries.ts crates",
     "crawl:all": "npm run crawl:vendors && npm run crawl:github && npm run crawl:registries",
-    "schema:gen": "ts-to-zod cowork/schemas/envelope.ts cowork/schemas/envelope.zod.ts && ts-json-schema-generator --path cowork/schemas/envelope.ts --type E2MRecord --no-type-check --out cowork/schemas/envelope.schema.json",
+    "schema:gen": "ts-to-zod cowork/schemas/envelope.ts cowork/schemas/envelope.zod.ts && ts-json-schema-generator --path cowork/schemas/envelope.ts --type E2MRecord --no-type-check --out cowork/schemas/envelope.schema.json && tsx scripts/schema-gen-py-rs.ts",
     "schema:validate": "python3 cowork/scripts/mailbox-schema-validate.py mailbox queues",
     "gen:servers": "tsx scripts/generate-server-tree.ts",
     "gen:pr-queue": "tsx scripts/gen-pr-queue.ts",
