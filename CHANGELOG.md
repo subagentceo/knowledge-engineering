@@ -4,6 +4,35 @@ All notable changes to this project are tracked here. This file is maintained
 automatically by [release-please](https://github.com/googleapis/release-please)
 from [Conventional Commits](https://www.conventionalcommits.org/) on `main`.
 
+## [0.6.0](https://github.com/subagentceo/knowledge-engineering/compare/knowledge-engineering-v0.5.0...knowledge-engineering-v0.6.0) (2026-06-18)
+
+
+### Features
+
+* **anduril-www:** deterministic sha256 incremental mirror of 288 marketing pages (O1) ([7962768](https://github.com/subagentceo/knowledge-engineering/commit/7962768a390cee3942ff570a0545ed90f689ca5e))
+* **anduril:** mirror developer.anduril.com Lattice SDK docs via append-md (O1) ([8e3510e](https://github.com/subagentceo/knowledge-engineering/commit/8e3510ec6673a67f2779711bb0d59bfe6242b1fe))
+* **anduril:** uncap link pool + parse llms.txt links alongside sitemap (O1) ([ad0b95b](https://github.com/subagentceo/knowledge-engineering/commit/ad0b95b19d507071308ee8efe6b9dcbac613c469))
+* **coding-plugins:** add knowledge-coding marketplace + anduril-crawl-plugin (O1) ([51ee52c](https://github.com/subagentceo/knowledge-engineering/commit/51ee52c0f52d13cdab6790461786cb89680a2dfc))
+* **infra:** WSL persistent backend for AlloyDB Omni + Redis (OWSL1) ([ada0116](https://github.com/subagentceo/knowledge-engineering/commit/ada0116feb9fe32a8f6663162eed527853720432))
+
+
+### Bug Fixes
+
+* **coding-plugins:** eliminate ReDoS in incremental-crawl regexes (O1) ([ceba8d7](https://github.com/subagentceo/knowledge-engineering/commit/ceba8d7b7251fe9166e5b5b8aed57c06205d6bc0))
+* **coding-plugins:** harden incremental-crawl against CodeQL dataflow alerts (O1) ([566a509](https://github.com/subagentceo/knowledge-engineering/commit/566a509d1a0ebdfd232ef95ba165dcfaed3dba05))
+* **infra:** restore PG16/Redis bridge fallback in start_services.sh (OWSL1) ([8acec41](https://github.com/subagentceo/knowledge-engineering/commit/8acec418dc24e107d4c660a0931b816d4ccae4ad))
+
+
+### Documentation
+
+* **container:** add setup.sh, doctor.sh, and web/mobile VM references (O1) ([57bd7fd](https://github.com/subagentceo/knowledge-engineering/commit/57bd7fd770b67aeb2a67bc93820daff421ebbd14))
+
+
+### Chores
+
+* gitignore redis appendonlydir runtime data (O1) ([7f5235d](https://github.com/subagentceo/knowledge-engineering/commit/7f5235d7893720b3ecac9de5b02ab44e7dde7f2d))
+* **vendor:** refresh anthropics + anthropic-sitemap + claude-sitemap mirrors ([131a8e8](https://github.com/subagentceo/knowledge-engineering/commit/131a8e845ef090c857b681e3fb576a9b91ce25c6))
+
 ## [0.5.0](https://github.com/subagentceo/knowledge-engineering/compare/knowledge-engineering-v0.4.0...knowledge-engineering-v0.5.0) (2026-06-16)
 
 
