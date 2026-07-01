@@ -66,12 +66,22 @@ function appendLine(filePath: string, obj: unknown): void {
   fs.appendFileSync(filePath, JSON.stringify(obj) + "\n", "utf8");
 }
 
+/** @cite cowork/scripts/mailbox-schema-validate.py (scan() — per-line JSONDecodeError isolation, not a crash) */
 function readLines(filePath: string): unknown[] {
   if (!fs.existsSync(filePath)) return [];
   const text = fs.readFileSync(filePath, "utf8");
-  return text.split("\n")
-    .filter(l => l.trim())
-    .map(l => JSON.parse(l));
+  const rows: unknown[] = [];
+  const lines = text.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (!line.trim()) continue;
+    try {
+      rows.push(JSON.parse(line));
+    } catch (err) {
+      console.error(`[readLines] skipping malformed JSON at ${filePath}:${i + 1}: ${(err as Error).message}`);
+    }
+  }
+  return rows;
 }
 
 /** Latest-line-wins collapse: for each task_id, keep only the last row. */
