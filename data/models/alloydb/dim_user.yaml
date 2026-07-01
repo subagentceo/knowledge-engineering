@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: dim
+scd_type: 1
+
+metadata:
+  name: dim_user
+  labels:
+    lane: session-context
+    source: src/lib/tailscale-pr-context.ts
+
+spec:
+  version: 1.0.0
+  schema: dw
+  codeowners:
+    - admin-jadecli
+    - alex-jadecli
+  sla_policy: upsert on session start via SessionStart hook
+  data_start_date: "2026-06-17"
+  allowed_operations:
+    - read
+    - scd1_overwrite
+  description: >-
+    User identity dimension. SCD Type I — last-write wins. One row per
+    (operator_email, github_login) pair. Maps to the human operating the
+    Claude Code session on the Tailscale mesh (ts.subagentceo.io).
+  load_type: incremental
+  columns:
+    - name: user_sk
+      kind: dimension
+      sql_type: bigint
+      description: surrogate key (GENERATED ALWAYS AS IDENTITY)
+    - name: operator_email
+      kind: dimension
+      sql_type: text
+      description: "operator email address (admin@jadecli.com | alex@jadecli.com)"
+    - name: github_login
+      kind: dimension
+      sql_type: text
+      description: "GitHub username (admin-jadecli | alex-jadecli | alex-osa)"
+    - name: tailscale_host
+      kind: dimension
+      sql_type: text
+      description: "Tailscale MagicDNS hostname of the initiating device (macbook-m5 | wsl2-dev)"
+    - name: tailnet
+      kind: dimension
+      sql_type: text
+      description: "Tailscale tailnet domain (ts.subagentceo.io)"
+    - name: os_type
+      kind: dimension
+      sql_type: text
+      description: "Platform category: macos | windows | linux | wsl"
+    - name: user_count
+      kind: measure
+      measure_type: count
+      sql_type: bigint
+      description: total user identity rows (one per unique operator_email+github_login)
+    - name: updated_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: last SCD-1 overwrite timestamp

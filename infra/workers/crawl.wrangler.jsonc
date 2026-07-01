@@ -1,0 +1,63 @@
+// infra/workers/crawl.wrangler.jsonc
+// crawl.subagentknowledge.com — cheerio crawl job API
+//
+// @cite infra/containers/cloudflare/subdomains-plan.md
+// @cite infra/containers/cloudflare/cloudflare-claude-code-index.md
+// @cite src/mcp/ext-tasks/index.ts  (pg_durable queue: subagentknowledge:crawl:job)
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "subagentknowledge-crawl",
+  "main": "../../src/subdomains/crawl/worker.ts",
+  "compatibility_date": "2026-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "account_id": "e6294e3ea89f8207af387d459824aaae",
+
+  "routes": [
+    { "pattern": "crawl.subagentknowledge.com", "custom_domain": true },
+    { "pattern": "crawl.subagentknowledge.com/*", "custom_domain": true }
+  ],
+
+  "kv_namespaces": [
+    { "binding": "CRAWL_STATE", "id": "PLACEHOLDER_KV_CRAWL_STATE" }
+  ],
+
+  "queues": {
+    "producers": [
+      { "binding": "CRAWL_QUEUE", "queue": "subagentknowledge-crawl-jobs" }
+    ],
+    "consumers": [
+      {
+        "queue": "subagentknowledge-crawl-jobs",
+        "max_batch_size": 5,
+        "max_batch_timeout": 10,
+        "max_retries": 3,
+        "dead_letter_queue": "subagentknowledge-crawl-dlq"
+      }
+    ]
+  },
+
+  "browser": { "binding": "BROWSER" },
+
+  "r2_buckets": [
+    { "binding": "SNAPSHOTS", "bucket_name": "subagentknowledge-crawl" }
+  ],
+
+  "hyperdrive": [
+    { "binding": "DB", "id": "PLACEHOLDER_HYPERDRIVE_ID" }
+  ],
+
+  "secrets_store_secrets": [
+    {
+      "binding": "CF_API_TOKEN",
+      "store_id": "BOOTSTRAP_PLACEHOLDER",
+      "secret_name": "CLOUDFLARE_API_TOKEN"
+    }
+  ],
+
+  "vars": {
+    "SITE_NAME": "subagentknowledge-crawl",
+    "PG_DURABLE_QUEUE": "subagentknowledge:crawl:job",
+    "REDIS_KEY_PREFIX": "crawl",
+    "PAGE_CAP_DEFAULT": "500"
+  }
+}

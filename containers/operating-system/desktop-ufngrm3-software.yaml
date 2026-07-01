@@ -1,0 +1,185 @@
+---
+# @cite containers/operating-system/homebrew.yaml
+# @cite containers/operating-system/desktop-ufngrm3.yaml
+# Windows 11 software inventory for DESKTOP-UFNGRM3 (admin-jadecli)
+# Windows peer of alexs-macbook-pro on taile5fcbd.ts.net
+apiVersion: anthropic.com/v1
+kind: WindowsSoftwareInventory
+
+metadata:
+  device: DESKTOP-UFNGRM3
+  tailscale_ip: "100.64.140.40"
+  tailnet: taile5fcbd.ts.net
+  os: Windows 11
+  arch: x86_64
+  user: admin-jadecli
+  captured_at: "2026-06-17"
+
+# ── System ────────────────────────────────────────────────────────────────────
+system:
+  - { name: Windows 11,              channel: stable,             kind: os,              package_manager: builtin }
+  - { name: winget,                  version: "1.x",              kind: package-manager,  package_manager: builtin }
+  - { name: Scoop,                   version: "latest",           kind: package-manager,  package_manager: builtin }
+  - { name: Chocolatey,              version: "2.x",              kind: package-manager,  package_manager: builtin }
+  - { name: PowerShell 7,            version: "7.x",              kind: shell,            package_manager: winget,  id: Microsoft.PowerShell }
+  - { name: Windows Terminal,        version: "1.x",              kind: terminal,         package_manager: winget,  id: Microsoft.WindowsTerminal }
+  - { name: OpenSSH Client,          version: "builtin",          kind: ssh,              package_manager: builtin }
+  - { name: OpenSSH Server,          version: "builtin",          kind: ssh-server,       package_manager: builtin }
+
+# ── Tailscale ─────────────────────────────────────────────────────────────────
+tailscale:
+  - { name: Tailscale,               version: "1.x",              kind: vpn-mesh,         package_manager: winget,  id: Tailscale.Tailscale }
+  tailscale_id: nSQkJ8V4fz11CNTRL
+  dns_name: desktop-ufngrm3.taile5fcbd.ts.net
+
+# ── WSL ───────────────────────────────────────────────────────────────────────
+wsl:
+  - { name: WSL2,                    version: "2.x",              kind: wsl-kernel,       package_manager: builtin }
+  - { name: Ubuntu-26.04,            version: "26.04",            kind: wsl-distro,       package_manager: builtin,  default: true }
+  systemd: true
+  persistence: wsl-vhdx
+  arch: x86_64
+  wsl_packages:
+    # mirrors homebrew formulae — installed inside Ubuntu-26.04
+    - { name: build-essential,       kind: build-tools,           package_manager: apt }
+    - { name: git,                   version: "2.54.x",           kind: vcs,              package_manager: apt }
+    - { name: git-lfs,               version: "3.7.x",            kind: git-extension,    package_manager: apt }
+    - { name: curl,                  kind: http-client,           package_manager: apt }
+    - { name: wget,                  kind: downloader,            package_manager: apt }
+    - { name: ripgrep,               version: "15.x",             kind: grep,             package_manager: apt }
+    - { name: fd-find,               version: "10.x",             kind: find,             package_manager: apt }
+    - { name: jq,                    version: "1.8.x",            kind: json-processor,   package_manager: apt }
+    - { name: tmux,                  version: "3.6.x",            kind: multiplexer,      package_manager: apt }
+    - { name: zsh,                   kind: shell,                 package_manager: apt }
+    - { name: starship,              version: "1.25.x",           kind: prompt,           package_manager: builtin }  # curl installer
+    - { name: atuin,                 version: "18.x",             kind: shell-history,    package_manager: builtin }  # cargo install
+    - { name: zoxide,                version: "0.9.x",            kind: cd-replacement,   package_manager: builtin }  # cargo install
+    - { name: fzf,                   version: "0.73.x",           kind: fuzzy-finder,     package_manager: apt }
+    - { name: bat,                   version: "0.26.x",           kind: cat-viewer,       package_manager: apt }
+    - { name: eza,                   version: "0.23.x",           kind: ls-replacement,   package_manager: builtin }  # cargo install
+    - { name: direnv,                version: "2.37.x",           kind: env-manager,      package_manager: apt }
+    - { name: pre-commit,            version: "4.x",              kind: git-hooks,        package_manager: builtin }  # pip install
+    - { name: gnupg,                 kind: gpg,                   package_manager: apt }
+    - { name: gitleaks,              version: "8.x",              kind: secrets-scanner,  package_manager: builtin }  # binary release
+
+# ── Docker ────────────────────────────────────────────────────────────────────
+docker:
+  - { name: Docker Desktop,          version: "4.x",              kind: container-runtime, package_manager: winget, id: Docker.DockerDesktop }
+  wsl_integration: true
+  containers:
+    - name: ke-alloydb
+      image: "gcr.io/alloydb-omni/alloydbomni:18"
+      port: 5432
+      volume: ke_alloydb_data
+      restart: unless-stopped
+    - name: ke-redis
+      image: "redis:7.0"
+      port: 6379
+      volume: ke_redis_data
+      restart: unless-stopped
+      config:
+        persistence: aof+rdb
+        maxmemory: 512mb
+        maxmemory_policy: allkeys-lru
+
+# ── Dev Tools ─────────────────────────────────────────────────────────────────
+dev_tools:
+  # VCS
+  - { name: Git for Windows,         version: "2.54.x",           kind: vcs,              package_manager: winget,  id: Git.Git }
+  - { name: GitHub CLI,              version: "2.94.x",           kind: github-cli,       package_manager: winget,  id: GitHub.cli }
+  - { name: lazygit,                 version: "0.62.x",           kind: git-tui,          package_manager: scoop,   bucket: main }
+  # Cloud / IaC
+  - { name: Terraform,               version: "1.15.x",           kind: iac,              package_manager: winget,  id: Hashicorp.Terraform }
+  - { name: cloudflared,             version: "2026.6.x",         kind: cloudflare-tunnel, package_manager: winget, id: Cloudflare.cloudflared }
+  - { name: Helm,                    version: "4.2.x",            kind: k8s-package-manager, package_manager: scoop, bucket: main }
+  - { name: k9s,                     version: "0.51.x",           kind: k8s-tui,          package_manager: scoop,   bucket: main }
+  - { name: sops,                    version: "3.13.x",           kind: secrets-management, package_manager: scoop, bucket: main }
+  - { name: age,                     version: "1.3.x",            kind: encryption,       package_manager: scoop,   bucket: main }
+  - { name: rclone,                  version: "1.74.x",           kind: cloud-sync,       package_manager: scoop,   bucket: main }
+  - { name: act,                     version: "0.2.x",            kind: github-actions-local, package_manager: scoop, bucket: main }
+  # Databases
+  - { name: pgcli,                   version: "4.5.x",            kind: postgres-cli,     package_manager: scoop,   bucket: main }
+  - { name: neonctl,                 version: "2.26.x",           kind: neon-db-cli,      package_manager: winget,  id: neon.neonctl }
+  - { name: sqlite,                  version: "3.53.x",           kind: embedded-db,      package_manager: scoop,   bucket: main }
+  # Data / text processing
+  - { name: jq,                      version: "1.8.x",            kind: json-processor,   package_manager: winget,  id: jqlang.jq }
+  - { name: yq,                      version: "4.53.x",           kind: yaml-processor,   package_manager: scoop,   bucket: main }
+  - { name: ripgrep,                 version: "15.x",             kind: grep,             package_manager: winget,  id: BurntSushi.ripgrep.MSVC }
+  - { name: fd,                      version: "10.x",             kind: find,             package_manager: winget,  id: sharkdp.fd }
+  - { name: fzf,                     version: "0.73.x",           kind: fuzzy-finder,     package_manager: scoop,   bucket: main }
+  - { name: bat,                     version: "0.26.x",           kind: cat-viewer,       package_manager: scoop,   bucket: main }
+  - { name: eza,                     version: "0.23.x",           kind: ls-replacement,   package_manager: scoop,   bucket: extras }
+  - { name: zoxide,                  version: "0.9.x",            kind: cd-replacement,   package_manager: winget,  id: ajeetdsouza.zoxide }
+  - { name: dust,                    version: "1.2.x",            kind: du-replacement,   package_manager: scoop,   bucket: main }
+  - { name: duf,                     version: "0.9.x",            kind: df-replacement,   package_manager: scoop,   bucket: main }
+  - { name: bottom,                  version: "0.12.x",           kind: system-monitor,   package_manager: scoop,   bucket: main }
+  - { name: procs,                   version: "0.14.x",           kind: ps-replacement,   package_manager: scoop,   bucket: main }
+  - { name: hyperfine,               version: "1.20.x",           kind: benchmarking,     package_manager: scoop,   bucket: main }
+  - { name: tokei,                   version: "14.x",             kind: code-counter,     package_manager: scoop,   bucket: main }
+  - { name: just,                    version: "1.52.x",           kind: task-runner,      package_manager: scoop,   bucket: main }
+  - { name: glow,                    version: "2.1.x",            kind: markdown-renderer, package_manager: scoop,  bucket: main }
+  - { name: lazydocker,              version: "0.25.x",           kind: docker-tui,       package_manager: scoop,   bucket: extras }
+  - { name: dive,                    version: "0.13.x",           kind: docker-image-explorer, package_manager: scoop, bucket: main }
+  - { name: pandoc,                  version: "3.10",             kind: document-converter, package_manager: winget, id: JohnMacFarlane.Pandoc }
+  - { name: ffmpeg,                  version: "8.x",              kind: media-processor,  package_manager: scoop,   bucket: main }
+  # MCP servers
+  - { name: github-mcp-server,       version: "1.3.x",            kind: mcp-server,       package_manager: winget,  id: GitHub.github-mcp-server }
+
+# ── Editors ───────────────────────────────────────────────────────────────────
+editors:
+  - { name: Visual Studio Code,      version: "latest",           kind: editor,           package_manager: winget,  id: Microsoft.VisualStudioCode }
+  - { name: Cursor,                  version: "latest",           kind: editor,           package_manager: winget,  id: Anysphere.Cursor }
+  - { name: Neovim,                  version: "0.12.x",           kind: editor,           package_manager: scoop,   bucket: main }
+  - { name: JetBrains Toolbox,       version: "latest",           kind: ide-manager,      package_manager: winget,  id: JetBrains.Toolbox }
+  - { name: PyCharm Community,       version: "latest",           kind: ide,              package_manager: winget,  id: JetBrains.PyCharm.Community }
+  - { name: DBeaver Community,       version: "latest",           kind: database-gui,     package_manager: winget,  id: dbeaver.dbeaver }
+
+# ── Terminals ─────────────────────────────────────────────────────────────────
+terminals:
+  - { name: Windows Terminal,        version: "1.x",              kind: terminal,         package_manager: winget,  id: Microsoft.WindowsTerminal }
+  - { name: Zellij,                  version: "0.44.x",           kind: multiplexer,      package_manager: scoop,   bucket: main }  # via WSL
+  - { name: tmux,                    version: "3.6.x",            kind: multiplexer,      package_manager: builtin }                 # via WSL apt
+  - { name: starship,                version: "1.25.x",           kind: prompt,           package_manager: winget,  id: Starship.Starship }
+  - { name: PowerShell 7,            version: "7.x",              kind: shell,            package_manager: winget,  id: Microsoft.PowerShell }
+
+# ── Languages / Runtimes ──────────────────────────────────────────────────────
+languages:
+  - { name: Node.js,                 version: "26.x",             kind: js-runtime,       package_manager: winget,  id: OpenJS.NodeJS }
+  - { name: fnm,                     version: "1.39.x",           kind: node-version-manager, package_manager: winget, id: Schniz.fnm }
+  - { name: Bun,                     version: "1.3.x",            kind: js-runtime,       package_manager: scoop,   bucket: main }
+  - { name: Deno,                    version: "2.8.x",            kind: js-runtime,       package_manager: winget,  id: DenoLand.Deno }
+  - { name: Python,                  version: "3.14.x",           kind: python-runtime,   package_manager: winget,  id: Python.Python.3.14 }
+  - { name: uv,                      version: "0.11.x",           kind: python-package-manager, package_manager: winget, id: astral-sh.uv }
+  - { name: Ruby,                    version: "4.0.x",            kind: ruby-runtime,     package_manager: winget,  id: RubyInstallerTeam.RubyWithDevKit.4.0 }
+  - { name: .NET SDK,                version: "10.0.x",           kind: dotnet-runtime,   package_manager: winget,  id: Microsoft.DotNet.SDK.10 }
+  - { name: .NET SDK 9,              version: "9.0.x",            kind: dotnet-runtime,   package_manager: winget,  id: Microsoft.DotNet.SDK.9 }
+  - { name: OpenJDK,                 version: "26.x",             kind: jvm,              package_manager: winget,  id: Microsoft.OpenJDK.26 }
+  - { name: OpenJDK 21,              version: "21.x",             kind: jvm,              package_manager: winget,  id: Microsoft.OpenJDK.21 }
+  - { name: PHP,                     version: "8.5.x",            kind: php-runtime,      package_manager: scoop,   bucket: main }
+  - { name: Rust / rustup,           version: "stable",           kind: systems-lang,     package_manager: winget,  id: Rustlang.Rustup }
+  - { name: mise,                    version: "2026.6.x",         kind: runtime-version-manager, package_manager: scoop, bucket: main }
+
+# ── Cloud CLI ─────────────────────────────────────────────────────────────────
+cloud_cli:
+  - { name: AWS CLI v2,              version: "2.x",              kind: aws-cli,          package_manager: winget,  id: Amazon.AWSCLI }
+  - { name: Google Cloud SDK,        version: "latest",           kind: gcp-cli,          package_manager: winget,  id: Google.CloudSDK }
+  - { name: Azure CLI,               version: "latest",           kind: azure-cli,        package_manager: winget,  id: Microsoft.AzureCLI }
+  - { name: Terraform,               version: "1.15.x",           kind: iac,              package_manager: winget,  id: Hashicorp.Terraform }
+  - { name: cloudflared,             version: "2026.6.x",         kind: cloudflare-tunnel, package_manager: winget, id: Cloudflare.cloudflared }
+  - { name: Stripe CLI,              version: "latest",           kind: stripe-cli,       package_manager: scoop,   bucket: main }
+  - { name: Supabase CLI,            version: "2.x",              kind: supabase-cli,     package_manager: scoop,   bucket: main }
+
+# ── Security ──────────────────────────────────────────────────────────────────
+security:
+  - { name: Gpg4win,                 version: "4.x",              kind: gpg,              package_manager: winget,  id: GnuPG.Gpg4win }
+  - { name: gitleaks,                version: "8.x",              kind: secrets-scanner,  package_manager: scoop,   bucket: main }
+  - { name: mkcert,                  version: "1.4.x",            kind: local-tls,        package_manager: scoop,   bucket: main }
+
+# ── GUI / Productivity ────────────────────────────────────────────────────────
+gui:
+  - { name: Google Drive,            version: "latest",           kind: cloud-storage,    package_manager: winget,  id: Google.GoogleDrive }
+  - { name: Slack,                   version: "latest",           kind: messaging,        package_manager: winget,  id: SlackTechnologies.Slack }
+  - { name: Claude for Desktop,      version: "latest",           kind: ai-tools,         package_manager: winget,  id: Anthropic.Claude }
+  - { name: JetBrains Toolbox,       version: "latest",           kind: ide-manager,      package_manager: winget,  id: JetBrains.Toolbox }
+  - { name: Font FiraCode Nerd Font, version: "latest",           kind: font,             package_manager: scoop,   bucket: nerd-fonts }
+  - { name: Font JetBrains Mono NF,  version: "latest",           kind: font,             package_manager: scoop,   bucket: nerd-fonts }

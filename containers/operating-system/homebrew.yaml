@@ -1,0 +1,228 @@
+---
+# @cite containers/operating-system/alexs-macbook-pro.yaml
+# Homebrew formulae + casks on alexs-macbook-pro (macOS 26.5.1 arm64, Apple M5)
+# Generated: 2026-06-17 via `brew list --versions && brew list --cask && brew tap`
+apiVersion: anthropic.com/v1
+kind: HomebrewInventory
+
+metadata:
+  device: alexs-macbook-pro
+  os: macOS 26.5.1 (darwin 25.5.0)
+  arch: arm64
+  captured_at: "2026-06-17"
+
+taps:
+  - atomicjar/tap
+  - cloudflare/cloudflare
+  - databricks/tap
+  - daytonaio/cli
+  - hashicorp/tap
+  - kreulenk/brew
+  - manaflow-ai/cmux
+  - oven-sh/bun
+  - pchalasani/tap
+  - sidequery/tap
+  - stainless-api/tap
+  - stripe/stripe-cli
+  - supabase/tap
+  - timescale/tap
+  - withgraphite/tap
+
+casks:
+  - name: basictex
+    kind: latex
+  - name: chromedriver
+    kind: browser-driver
+  - name: claude-devtools
+    kind: ai-tools
+    vendor: anthropic
+  - name: cursor
+    kind: editor
+    vendor: anysphere
+  - name: dbeaver-community
+    kind: database-gui
+  - name: docker-desktop
+    kind: container-runtime
+    vendor: docker
+  - name: font-fira-code-nerd-font
+    kind: font
+  - name: font-jetbrains-mono
+    kind: font
+  - name: font-jetbrains-mono-nerd-font
+    kind: font
+  - name: ghostree
+    kind: git-tree-viewer
+  - name: ghostty
+    kind: terminal
+    vendor: mitchellh
+  - name: google-drive
+    kind: cloud-storage
+    vendor: google
+  - name: jetbrains-toolbox
+    kind: ide-manager
+    vendor: jetbrains
+  - name: pycharm
+    kind: ide
+    vendor: jetbrains
+  - name: slack-cli
+    kind: messaging-cli
+    vendor: slack
+  - name: stats
+    kind: system-monitor
+  - name: testcontainers-desktop
+    kind: container-testing
+    vendor: atomicjar
+  - name: visual-studio-code
+    kind: editor
+    vendor: microsoft
+
+formulae:
+  # — AI / LLM
+  - { name: aichat-search,        version: "0.3.1",            kind: ai-search }
+  - { name: llm,                  version: "0.31_1",           kind: ai-cli }
+  - { name: ollama,               version: "0.30.8",           kind: local-llm }
+  - { name: mlx,                  version: "0.31.2",           kind: apple-ml-framework }
+  - { name: mlx-c,                version: "0.6.0_2",          kind: apple-ml-framework }
+
+  # — Cloud / Infrastructure
+  - { name: cloudflared,          version: "2026.6.0",         kind: cloudflare-tunnel }
+  - { name: cf-terraforming,      version: "0.25.0",           kind: cloudflare-iac }
+  - { name: terraform,            version: "1.15.1",           kind: iac }
+  - { name: helm,                 version: "4.2.1",            kind: k8s-package-manager }
+  - { name: k9s,                  version: "0.51.0",           kind: k8s-tui }
+  - { name: ansible,              version: "14.0.0",           kind: config-management }
+  - { name: dagger,               version: "0.21.6",           kind: ci-cd }
+  - { name: colima,               version: "0.10.3",           kind: container-runtime }
+  - { name: podman,               version: "5.8.3",            kind: container-runtime }
+  - { name: lima,                 version: "2.1.2",            kind: linux-vm }
+  - { name: daytona,              version: "v0.182.0",         kind: dev-environment }
+  - { name: sops,                 version: "3.13.1",           kind: secrets-management }
+  - { name: age,                  version: "1.3.1",            kind: encryption }
+  - { name: mkcert,               version: "1.4.4",            kind: local-tls }
+
+  # — Databases / Data
+  - { name: postgresql@18,        version: "18.4",             kind: database }
+  - { name: redis,                version: "8.8.0",            kind: cache-db }
+  - { name: pgvector,             version: "0.8.2",            kind: postgres-extension }
+  - { name: pgcli,                version: "4.5.0",            kind: postgres-cli }
+  - { name: libpq,                version: "18.4",             kind: postgres-client-lib }
+  - { name: neonctl,              version: "2.26.2",           kind: neon-db-cli }
+  - { name: supabase,             version: "2.95.4",           kind: supabase-cli }
+  - { name: lazysql,              version: "0.5.4",            kind: sql-tui }
+  - { name: sqlite,               version: "3.53.2",           kind: embedded-db }
+
+  # — Languages / Runtimes
+  - { name: node,                 version: "26.3.0",           kind: js-runtime }
+  - { name: bun,                  version: "1.3.13",           kind: js-runtime }
+  - { name: deno,                 version: "2.8.3",            kind: js-runtime }
+  - { name: python@3.14,          version: "3.14.6",           kind: python-runtime }
+  - { name: ruby,                 version: "4.0.5",            kind: ruby-runtime }
+  - { name: dotnet,               version: "10.0.301",         kind: dotnet-runtime }
+  - { name: dotnet@9,             version: "9.0.117",          kind: dotnet-runtime }
+  - { name: openjdk,              version: "26.0.1",           kind: jvm }
+  - { name: openjdk@21,           version: "21.0.11",          kind: jvm }
+  - { name: php,                  version: "8.5.7",            kind: php-runtime }
+  - { name: lua,                  version: "5.5.0",            kind: scripting }
+  - { name: fnm,                  version: "1.39.0",           kind: node-version-manager }
+  - { name: mise,                 version: "2026.6.10",        kind: runtime-version-manager }
+  - { name: uv,                   version: "0.11.21",          kind: python-package-manager }
+
+  # — CLI DevTools
+  - { name: gh,                   version: "2.94.0",           kind: github-cli }
+  - { name: git,                  version: "2.54.0",           kind: vcs }
+  - { name: git-lfs,              version: "3.7.1",            kind: git-extension }
+  - { name: git-absorb,           version: "0.9.0",            kind: git-extension }
+  - { name: git-delta,            version: "0.19.2",           kind: git-diff }
+  - { name: git-cliff,            version: "2.13.1",           kind: changelog-generator }
+  - { name: git-filter-repo,      version: "2.47.0",           kind: git-history }
+  - { name: lazygit,              version: "0.62.2",           kind: git-tui }
+  - { name: graphite,             version: "1.8.5",            kind: stacked-pr-cli }
+  - { name: github-mcp-server,    version: "1.3.0",            kind: mcp-server }
+  - { name: slack-mcp-server,     version: "1.3.0",            kind: mcp-server }
+  - { name: fzf,                  version: "0.73.1",           kind: fuzzy-finder }
+  - { name: ripgrep,              version: "15.1.0",           kind: grep }
+  - { name: fd,                   version: "10.4.2",           kind: find }
+  - { name: bat,                  version: "0.26.1",           kind: cat-viewer }
+  - { name: eza,                  version: "0.23.4",           kind: ls-replacement }
+  - { name: zoxide,               version: "0.9.9",            kind: cd-replacement }
+  - { name: difftastic,           version: "0.69.0",           kind: diff }
+  - { name: glow,                 version: "2.1.2",            kind: markdown-renderer }
+  - { name: jq,                   version: "1.8.1",            kind: json-processor }
+  - { name: jnv,                  version: "0.7.1",            kind: json-tui }
+  - { name: yq,                   version: "4.53.3",           kind: yaml-processor }
+  - { name: taplo,                version: "0.10.0",           kind: toml-cli }
+  - { name: gum,                  version: "0.17.0",           kind: shell-scripts }
+  - { name: just,                 version: "1.52.0",           kind: task-runner }
+  - { name: task,                 version: "3.4.2",            kind: task-runner }
+  - { name: hyperfine,            version: "1.20.0",           kind: benchmarking }
+  - { name: tokei,                version: "14.0.0",           kind: code-counter }
+  - { name: dust,                 version: "1.2.4",            kind: du-replacement }
+  - { name: dua-cli,              version: "2.34.0",           kind: disk-usage }
+  - { name: duf,                  version: "0.9.1",            kind: df-replacement }
+  - { name: bottom,               version: "0.12.3",           kind: system-monitor }
+  - { name: htop,                 version: "3.5.1",            kind: process-monitor }
+  - { name: procs,                version: "0.14.11",          kind: ps-replacement }
+  - { name: ctop,                 version: "0.7.7",            kind: container-monitor }
+  - { name: lazydocker,           version: "0.25.2",           kind: docker-tui }
+  - { name: dive,                 version: "0.13.1",           kind: docker-image-explorer }
+  - { name: yazi,                 version: "26.5.6",           kind: file-manager-tui }
+  - { name: atuin,                version: "18.16.1",          kind: shell-history }
+  - { name: direnv,               version: "2.37.1",           kind: env-manager }
+  - { name: act,                  version: "0.2.89",           kind: github-actions-local }
+  - { name: pre-commit,           version: "4.6.0",            kind: git-hooks }
+  - { name: rclone,               version: "1.74.3",           kind: cloud-sync }
+
+  # — Build / Compilers
+  - { name: cmake,                version: "4.3.1",            kind: build-system }
+  - { name: ninja,                version: "1.13.2",           kind: build-system }
+  - { name: gradle,               version: "9.5.1",            kind: build-tool }
+  - { name: maven,                version: "3.9.16",           kind: build-tool }
+  - { name: sbt,                  version: "2.0.0",            kind: scala-build }
+  - { name: conan,                version: "2.29.1",           kind: c-package-manager }
+  - { name: rust-analyzer,        version: "2026-06-15",       kind: lsp }
+
+  # — Editors / LSPs
+  - { name: neovim,               version: "0.12.3",           kind: editor }
+  - { name: lua-language-server,  version: "3.18.2",           kind: lsp }
+  - { name: kotlin-language-server, version: "1.3.13",         kind: lsp }
+  - { name: marksman,             version: "2026-02-08",       kind: lsp }
+  - { name: gopls,                version: "0.22.0",           kind: lsp }
+  - { name: jdtls,                version: "1.58.0",           kind: lsp }
+  - { name: biome,                version: "2.5.0",            kind: js-linter-formatter }
+  - { name: ruff,                 version: "0.15.17",          kind: python-linter }
+  - { name: black,                version: "26.5.1_1",         kind: python-formatter }
+  - { name: oxlint,               version: "1.70.0",           kind: js-linter }
+  - { name: shellcheck,           version: "0.11.0",           kind: shell-linter }
+  - { name: shfmt,                version: "3.13.1",           kind: shell-formatter }
+  - { name: harper,               version: "2.5.0",            kind: grammar-lsp }
+  - { name: pandoc,               version: "3.10",             kind: document-converter }
+
+  # — Terminal / Shell
+  - { name: tmux,                 version: "3.6b",             kind: multiplexer }
+  - { name: zellij,               version: "0.44.3",           kind: multiplexer }
+  - { name: starship,             version: "1.25.1",           kind: prompt }
+  - { name: spaceship,            version: "4.22.3",           kind: prompt }
+  - { name: bash,                 version: "5.3.15",           kind: shell }
+  - { name: zsh,                  version: "5.9.1",            kind: shell }
+  - { name: zsh-autosuggestions,  version: "0.7.1",            kind: zsh-plugin }
+  - { name: zsh-syntax-highlighting, version: "0.8.0",         kind: zsh-plugin }
+  - { name: zsh-completions,      version: "0.36.0",           kind: zsh-plugin }
+  - { name: antidote,             version: "2.1.0",            kind: zsh-plugin-manager }
+  - { name: coreutils,            version: "9.11",             kind: gnu-utils }
+  - { name: gnu-getopt,           version: "2.42.1",           kind: gnu-utils }
+  - { name: screen,               version: "5.0.1",            kind: multiplexer }
+  - { name: tree,                 version: "2.3.2",            kind: directory-tree }
+  - { name: wget,                 version: "1.25.0",           kind: downloader }
+  - { name: curl,                 version: "8.20.0",           kind: http-client }
+  - { name: mtr,                  version: "0.96",             kind: network-diagnostic }
+  - { name: nmap,                 version: "7.99",             kind: network-scanner }
+
+  # — Security
+  - { name: gnupg,                version: "2.5.20",           kind: gpg }
+  - { name: pass,                 version: "1.7.4",            kind: password-manager }
+  - { name: gitleaks,             version: "8.30.1",           kind: secrets-scanner }
+  - { name: tailscale,            version: "1.98.5",           kind: vpn-mesh }
+
+  # — Media
+  - { name: ffmpeg,               version: "8.1.1",            kind: media-processor }
+  - { name: imagemagick,          version: "",                 kind: image-processor }
