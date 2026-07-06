@@ -19,7 +19,7 @@ You can:
 
 ### Finding connectors
 
-Browse the [Connectors Directory](/connectors/directory) to discover verified and reviewed third-party MCP servers that are ready to use across all Claude products.
+Browse the [Connectors Directory](/connectors/directory) to discover third-party MCP servers that are ready to use across all Claude products. Some are verified by Anthropic and others are community connectors; see [connector verification](/connectors/verification).
 
 ## Adding custom connectors
 
@@ -110,5 +110,9 @@ Report malicious MCP servers to [Anthropic's Bug Bounty Program](https://www.ant
 
   <Card title="Desktop Extensions" icon="desktop" href="/connectors/custom/desktop-extensions">
     Deploy enterprise-grade MCP servers.
+  </Card>
+
+  <Card title="MCP in Claude Code" icon="terminal" href="https://code.claude.com/docs/en/mcp-quickstart">
+    Add the same server to Claude Code from the command line.
   </Card>
 </Columns>

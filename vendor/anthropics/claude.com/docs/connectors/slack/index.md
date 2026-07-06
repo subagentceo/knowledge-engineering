@@ -8,7 +8,11 @@
 
 Integrate Claude and Slack in two ways: add Claude directly to your Slack workspace, or enable the Slack connector for your Claude apps.
 
-## Claude in Slack
+<Note>
+  This page covers the earlier per-user Claude in Slack app. The current product is [Claude Tag](/claude-tag/overview), which gives your team one Claude identity set up by an admin. If your organization used the earlier app, see [Migrate from the earlier Claude in Slack](/claude-tag/admins/migrate-from-earlier).
+</Note>
+
+## Claude in Slack (earlier app)
 
 Claude is available to paid Slack plan users. Slack admins must approve the app before individual users can access it.
 

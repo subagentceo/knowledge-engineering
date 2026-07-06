@@ -6,7 +6,7 @@
 
 > Track Cowork usage and activity across your organization with OpenTelemetry
 
-Track Cowork usage and activity across your organization by exporting events through [OpenTelemetry](https://opentelemetry.io/) (OTel). Cowork exports events via the OTel logs/events protocol, giving you visibility into user prompts, API requests, tool usage, and errors.
+Track Cowork usage and activity across your organization by exporting events through [OpenTelemetry](https://opentelemetry.io/) (OTel). Cowork exports events via the OTel logs/events protocol, giving you visibility into user prompts, model responses, API requests, tool usage, and errors.
 
 <Note>
   Monitoring is available for Team and Enterprise plans. OTel monitoring requires Claude desktop app version 1.1.4173 or later.
@@ -36,7 +36,7 @@ Configure monitoring from the Cowork admin settings:
 
 ## Events
 
-Cowork exports the following events to your OTel collector. User prompt content and tool details are always included in events.
+Cowork exports the following events to your OTel collector. By default, events include metadata only. User prompt content, model response text, and tool details are included only when you enable them with the [`otlpContentCapture`](/third-party/claude-desktop/telemetry#content-capture) setting.
 
 ### Event correlation
 
@@ -79,6 +79,27 @@ All [standard attributes](#standard-attributes), plus:
 | `event.sequence`  | Monotonically increasing counter for ordering events within a session |
 | `prompt_length`   | Length of the prompt                                                  |
 | `prompt`          | Prompt content                                                        |
+
+### Model response event
+
+Logged when the model completes a response that includes text output. Requires Claude desktop app version 1.17377 or later.
+
+**Event name**: `assistant_response`
+
+**Attributes**:
+
+All [standard attributes](#standard-attributes), plus:
+
+| Attribute         | Description                                                                                                                                                                              |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `event.timestamp` | ISO 8601 timestamp                                                                                                                                                                       |
+| `event.sequence`  | Monotonically increasing counter for ordering events within a session                                                                                                                    |
+| `model`           | Model that produced the response                                                                                                                                                         |
+| `request_id`      | API request identifier                                                                                                                                                                   |
+| `response_length` | Length of the response                                                                                                                                                                   |
+| `response`        | Model response text. Includes text output only; thinking content is excluded. Truncated to 60 KB. When model response capture is disabled, the value is the literal string `<REDACTED>`. |
+
+Model responses are captured when [`otlpContentCapture`](/third-party/claude-desktop/telemetry#content-capture) includes `assistantResponses`, and also whenever user prompts are captured.
 
 ### Tool result event
 
@@ -204,6 +225,7 @@ All events are exported with the following resource attributes:
 ## Security and privacy
 
 * Events are only exported when an admin configures the OTLP endpoint
-* User prompt content is included in events — configure your telemetry backend to filter or redact if needed
-* Tool execution events include the `tool_input` attribute with file paths, URLs, search patterns, and other arguments — configure your telemetry backend to filter or redact `tool_input` if these may contain sensitive values
-* `user.email` is included in event attributes — work with your telemetry backend to filter or redact if this is a concern
+* User prompt content is included only when you enable `userPrompts` in [`otlpContentCapture`](/third-party/claude-desktop/telemetry#content-capture)
+* On Claude desktop app version 1.17377 or later, model response text is included when you enable `assistantResponses` in `otlpContentCapture`, and also whenever user prompt content is included
+* The `tool_input` attribute (file paths, URLs, search patterns, and other arguments) is included only when you enable `toolDetails` in `otlpContentCapture`
+* `user.email` is always included in event attributes, so configure your telemetry backend to filter or redact it if this is a concern

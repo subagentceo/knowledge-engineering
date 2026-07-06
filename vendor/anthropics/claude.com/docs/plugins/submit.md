@@ -73,7 +73,10 @@ Before submitting, run `claude plugin validate` to check formatting and structur
 
 ### Before you start
 
-Submitting through Claude.ai requires a Team or Enterprise organization and directory management access (organization Owners by default; on Enterprise, an Owner can delegate it through a custom role, as described in [Before you start](/connectors/building/submission#before-you-start)). Individual authors who aren't part of a Team or Enterprise organization can use the Console form below instead.
+Both submission forms require you to be signed in with sufficient permissions:
+
+* **claude.ai** requires a Team or Enterprise organization and directory management access. Organization Owners have this by default; on Enterprise, an Owner can delegate it through a custom role, as described in the [connector submission access requirements](/connectors/building/submission#before-you-start).
+* **Console** requires a Developer, Admin, or Owner role on a Console organization. Individual authors who aren't part of a claude.ai Team or Enterprise organization can sign up for Console at [platform.claude.com](https://platform.claude.com) and submit there.
 
 To submit please use one of our in-app submission forms:
 

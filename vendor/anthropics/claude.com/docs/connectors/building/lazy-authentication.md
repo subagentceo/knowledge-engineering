@@ -10,6 +10,10 @@ Not every tool on an MCP server needs the user's identity. A product catalog can
 
 In Claude, the challenge surfaces as an inline **Connect** card in the conversation. The user authenticates in a popup, Claude retries the same tool call automatically with the new token, and the turn continues — no context is lost.
 
+<Note>
+  If the user's organization has [Enterprise Managed Auth](/connectors/building/enterprise-managed-auth) configured for your connector, the `401` triggers a silent token exchange instead of the **Connect** card. The tool call is retried automatically and the user sees no prompt.
+</Note>
+
 The examples below are drawn from a single-file Express app using `@modelcontextprotocol/sdk` over Streamable HTTP.
 
 ## Return 401, not a tool error

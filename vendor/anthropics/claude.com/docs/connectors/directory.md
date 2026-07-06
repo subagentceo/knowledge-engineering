@@ -4,11 +4,11 @@
 
 # Connectors directory
 
-> Browse verified MCP integrations for Claude
+> Browse verified and community MCP integrations for Claude
 
-The Connectors Directory is a catalog of verified and reviewed [MCP](/connectors/building/mcp) servers that work across all Claude products — Claude.ai, Claude Desktop, Claude Mobile, Claude Code, and Cowork.
+The Connectors Directory is a catalog of [MCP](/connectors/building/mcp) servers that work across all Claude products — Claude.ai, Claude Desktop, Claude Mobile, Claude Code, and Cowork.
 
-Every integration in the directory is vetted by Anthropic for security, reliability, and compatibility before being made available to users.
+The directory contains both verified connectors and community connectors. Verified connectors are reviewed by Anthropic for security, reliability, and compatibility. Community connectors pass Anthropic's automated checks but are not reviewed in depth by Anthropic. See [connector verification](/connectors/verification) to learn what each label means.
 
 <Note>
   All connectors in the directory are subject to the [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy) and the [Anthropic Software Directory Terms](https://support.claude.com/en/articles/13145338-anthropic-software-directory-terms).

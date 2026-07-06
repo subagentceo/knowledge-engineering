@@ -28,16 +28,17 @@ Update work item metadata with merge semantics.
 
 ### Returns
 
-- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 9 more }`
+- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 10 more }`
 
   Work resource representing a unit of work in a self-hosted environment.
 
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -50,9 +51,10 @@ Update work item metadata with merge semantics.
   - `data: object { id, type }`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
@@ -70,6 +72,10 @@ Update work item metadata with merge semantics.
 
     User-provided metadata key-value pairs associated with this work item
 
+  - `secret: string`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
   - `started_at: string`
 
     RFC 3339 timestamp when work execution started
@@ -77,6 +83,7 @@ Update work item metadata with merge semantics.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -125,6 +132,7 @@ ant beta:environments:work update \
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",

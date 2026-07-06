@@ -23,8 +23,6 @@ Remote MCP server submissions happen inside Claude.ai, in the [submission portal
 * **A Team or Enterprise organization.** Admin settings aren't available on individual plans.
 * **Directory management access.** By default, only organization Owners and Primary owners can submit and manage directory listings. On Enterprise, an Owner can delegate this to other members by creating a custom role in **Admin settings > Roles** with either the **Directory management** permission (directory submissions only) or the **Libraries** permission (broader: it also covers managing the organization's plugins, connectors, and skills), and assigning that role. Team plans don't have custom roles, so on Team this stays with Owners.
 
-If you can't access the portal (for example, your organization isn't on a Team or Enterprise plan), submit through the [MCP directory submission form](https://clau.de/mcp-directory-submission) instead.
-
 Desktop extensions (MCPB) use a separate [submission form](https://clau.de/desktop-extention-submission) and don't require the portal.
 
 ## Directory terms & conditions
@@ -131,7 +129,7 @@ The portal walks you through the following steps. Your progress saves automatica
 
 <Steps>
   <Step title="Introduction">
-    Explains what a directory listing does and doesn't do: inclusion doesn't change how your connector works, it just makes it discoverable. The portal accepts remote MCP servers only. Local servers are distributed as [desktop extensions](https://clau.de/desktop-extention-submission) or [plugins](/plugins/submit) instead.
+    Explains what a directory listing does and doesn't do: inclusion makes your connector discoverable but doesn't change the tools it exposes. The portal accepts remote MCP servers only. Local servers are distributed as [desktop extensions](https://clau.de/desktop-extention-submission) or [plugins](/plugins/submit) instead.
   </Step>
 
   <Step title="Connection">

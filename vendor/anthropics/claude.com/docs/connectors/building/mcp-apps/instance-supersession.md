@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -47,9 +46,7 @@ registerAppTool(
     const seq = ++callSeq;
     const createdAt = Date.now();
     return {
-      content: [
-        { type: "text", text: `Cart rendered with ${list.length} item(s).` },
-      ],
+      content: [{ type: "text", text: `Cart rendered with ${list.length} item(s).` }],
       // The election key travels with the tool result in the transcript,
       // so rehydrated widgets on any device recover the same ordering.
       structuredContent: { items: list, seq, createdAt },
@@ -105,20 +102,12 @@ Broadcast the key and compare against every sibling you hear from. The compariso
 
 ```ts theme={null}
 const channel = new BroadcastChannel("my-app-cart-supersede");
-const peers = new Map<
-  string,
-  { orderKey: number; seq?: number; instanceId: string }
->();
+const peers = new Map<string, { orderKey: number; seq?: number; instanceId: string }>();
 
-function isYounger(other: {
-  orderKey: number;
-  seq?: number;
-  instanceId: string;
-}) {
+function isYounger(other: { orderKey: number; seq?: number; instanceId: string }) {
   // keyFinalized guards every call site, so orderKey is set by the time this runs.
   if (other.orderKey !== orderKey) return other.orderKey > orderKey!;
-  if (other.seq != null && seq != null && other.seq !== seq)
-    return other.seq > seq;
+  if (other.seq != null && seq != null && other.seq !== seq) return other.seq > seq;
   return String(other.instanceId) > String(instanceId);
 }
 
@@ -155,12 +144,7 @@ The election only matters if superseded instances actually stop talking to Claud
 function updateModelContext() {
   if (superseded) return;
   app.updateModelContext({
-    content: [
-      {
-        type: "text",
-        text: `Cart has ${items.length} item(s): ${items.join(", ")}.`,
-      },
-    ],
+    content: [{ type: "text", text: `Cart has ${items.length} item(s): ${items.join(", ")}.` }],
   });
 }
 
@@ -192,8 +176,8 @@ The election above covers the common case. A production widget should also handl
 
 `BroadcastChannel` is same-origin only. How far that origin extends depends on whether you set [`_meta.ui.domain`](https://modelcontextprotocol.github.io/ext-apps/api/interfaces/app.McpUiResourceMeta.html#domain) on your resource:
 
-- **Without `ui.domain`** (the default), Claude derives the iframe origin from the conversation and connector, so the broadcast is scoped to a single conversation.
-- **With a fixed `ui.domain`**, the origin is shared across every conversation and tab for your connector. A fixed channel name would let a widget in one conversation supersede a widget in another. Neither `hostContext` nor the tool-call arguments include a Claude-provided conversation ID, so if you need both a fixed domain and per-conversation elections, generate your own scope key on the server (for example, a UUID minted once per client connection) and return it in `structuredContent` for the widget to append to the channel name.
+* **Without `ui.domain`** (the default), Claude derives the iframe origin from the conversation and connector, so the broadcast is scoped to a single conversation.
+* **With a fixed `ui.domain`**, the origin is shared across every conversation and tab for your connector. A fixed channel name would let a widget in one conversation supersede a widget in another. Neither `hostContext` nor the tool-call arguments include a Claude-provided conversation ID, so if you need both a fixed domain and per-conversation elections, generate your own scope key on the server (for example, a UUID minted once per client connection) and return it in `structuredContent` for the widget to append to the channel name.
 
 ### Fall back if the server key is delayed
 
@@ -236,17 +220,11 @@ This applies only if you implemented the fallback above. If you fall back to a c
 type KeySource = "server" | "client";
 let keySource: KeySource = "client";
 
-function isYounger(other: {
-  orderKey: number;
-  seq?: number;
-  instanceId: string;
-  keySource: KeySource;
-}) {
+function isYounger(other: { orderKey: number; seq?: number; instanceId: string; keySource: KeySource }) {
   if ((other.keySource === "server") !== (keySource === "server")) return false;
   // keyFinalized guards every call site, so orderKey is set by the time this runs.
   if (other.orderKey !== orderKey) return other.orderKey > orderKey!;
-  if (other.seq != null && seq != null && other.seq !== seq)
-    return other.seq > seq;
+  if (other.seq != null && seq != null && other.seq !== seq) return other.seq > seq;
   return String(other.instanceId) > String(instanceId);
 }
 ```
@@ -259,9 +237,9 @@ Treat this as an optimization rather than a correctness guarantee. On Claude iOS
 
 ### If you bypass the SDK `App` class
 
-The snippets on this page use the SDK's [`App`](https://modelcontextprotocol.github.io/ext-apps/api/classes/app.App.html) class. If you instead hand-roll a minimal `postMessage` bridge, it will silently drop requests sent from the host to the widget, such as `ping` (a liveness check) and [`ui/resource-teardown`](https://modelcontextprotocol.github.io/ext-apps/api/types/app.McpUiResourceTeardownRequest.html) (the host asking the widget to clean up before unmount). Claude.ai web does not currently send either to widgets, and Claude iOS sends `ui/resource-teardown` only when the user navigates away from the conversation, so ignoring them is harmless today. The `App` class handles the full request surface and is recommended for production.
+The snippets on this page use the SDK's [`App`](https://modelcontextprotocol.github.io/ext-apps/api/classes/app.App.html) class. If you instead hand-roll a minimal `postMessage` bridge, it will silently drop requests sent from the host to the widget, such as `ping` (a liveness check) and [`ui/resource-teardown`](https://apps.extensions.modelcontextprotocol.io/api/interfaces/app.McpUiResourceTeardownRequest.html) (the host asking the widget to clean up before unmount). Claude.ai web does not currently send either to widgets, and Claude iOS sends `ui/resource-teardown` only when the user navigates away from the conversation, so ignoring them is harmless today. The `App` class handles the full request surface and is recommended for production.
 
 ## Related topics
 
-- [Cross-platform compatibility](/connectors/building/mcp-apps/cross-compatibility#domain-handling) for how `_meta.ui.domain` is computed on Claude.
-- [SDK API reference](https://modelcontextprotocol.github.io/ext-apps/api/index.html) for `registerAppTool`, `App`, and `McpUiResourceMeta`.
+* [Cross-platform compatibility](/connectors/building/mcp-apps/cross-compatibility#domain-handling) for how `_meta.ui.domain` is computed on Claude.
+* [SDK API reference](https://modelcontextprotocol.github.io/ext-apps/api/index.html) for `registerAppTool`, `App`, and `McpUiResourceMeta`.

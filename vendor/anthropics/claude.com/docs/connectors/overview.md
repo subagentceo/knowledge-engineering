@@ -45,7 +45,7 @@ Local MCP servers distributed through third-party package registries like npm or
 
 ### Connectors directory
 
-The [Connectors Directory](/connectors/directory) is an open catalog of verified and reviewed MCP servers from third-party developers. These integrations are vetted by Anthropic and available across all Claude products.
+The [Connectors Directory](/connectors/directory) is an open catalog of MCP servers from Anthropic and third-party developers, available across all Claude products. It includes both connectors that Anthropic has verified and community connectors; see [connector verification](/connectors/verification) to learn what each label means.
 
 ### Third-party connectors
 
@@ -75,7 +75,7 @@ Prebuilt integrations and directory connectors work across all Claude products:
   </Card>
 
   <Card title="Connectors directory" icon="grid-2" href="/connectors/directory">
-    Browse verified integrations.
+    Browse verified and community integrations.
   </Card>
 
   <Card title="Build a connector" icon="code" href="/connectors/building/index">
@@ -84,5 +84,13 @@ Prebuilt integrations and directory connectors work across all Claude products:
 
   <Card title="MCP Apps" icon="window" href="/connectors/building/mcp-apps/getting-started">
     Build UI components for Claude.
+  </Card>
+
+  <Card title="MCP in Claude Code" icon="terminal" href="https://code.claude.com/docs/en/mcp-quickstart">
+    Add an MCP server to Claude Code from the command line.
+  </Card>
+
+  <Card title="Claude Code documentation" icon="terminal" href="https://code.claude.com/docs">
+    Install, configure, and use the Claude Code CLI.
   </Card>
 </Columns>

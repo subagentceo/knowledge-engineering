@@ -23,9 +23,10 @@ Retrieve detailed information about a specific work item.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -50,6 +51,10 @@ Retrieve detailed information about a specific work item.
   - `array<string,string> metadata`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `?string secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `?string startedAt`
 
@@ -105,6 +110,7 @@ var_dump($betaSelfHostedWork);
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -146,9 +152,10 @@ Long poll for work items in the queue.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -173,6 +180,10 @@ Long poll for work items in the queue.
   - `array<string,string> metadata`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `?string secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `?string startedAt`
 
@@ -230,6 +241,7 @@ var_dump($betaSelfHostedWork);
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -261,9 +273,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -288,6 +301,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `array<string,string> metadata`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `?string secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `?string startedAt`
 
@@ -343,6 +360,7 @@ var_dump($betaSelfHostedWork);
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -382,6 +400,7 @@ Record a heartbeat for a work item to maintain the lease.
 ### Returns
 
 - `SelfHostedWorkHeartbeatResponse`
+
   - `string lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -465,9 +484,10 @@ Stop a work item, initiating graceful or forced shutdown.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -492,6 +512,10 @@ Stop a work item, initiating graceful or forced shutdown.
   - `array<string,string> metadata`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `?string secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `?string startedAt`
 
@@ -548,6 +572,7 @@ var_dump($betaSelfHostedWork);
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -585,9 +610,10 @@ List work items in an environment.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -612,6 +638,10 @@ List work items in an environment.
   - `array<string,string> metadata`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `?string secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `?string startedAt`
 
@@ -670,6 +700,7 @@ var_dump($page);
       "metadata": {
         "foo": "string"
       },
+      "secret": "secret",
       "started_at": "started_at",
       "state": "queued",
       "stop_requested_at": "stop_requested_at",
@@ -708,9 +739,10 @@ Update work item metadata with merge semantics.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -735,6 +767,10 @@ Update work item metadata with merge semantics.
   - `array<string,string> metadata`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `?string secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `?string startedAt`
 
@@ -791,6 +827,7 @@ var_dump($betaSelfHostedWork);
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -818,6 +855,7 @@ Get statistics about the work queue for an environment.
 ### Returns
 
 - `SelfHostedWorkQueueStats`
+
   - `int depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -871,9 +909,10 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -899,6 +938,10 @@ var_dump($betaSelfHostedWorkQueueStats);
 
     User-provided metadata key-value pairs associated with this work item
 
+  - `?string secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
   - `?string startedAt`
 
     RFC 3339 timestamp when work execution started
@@ -922,6 +965,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work Heartbeat Response
 
 - `SelfHostedWorkHeartbeatResponse`
+
   - `string lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -945,6 +989,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work List Response
 
 - `SelfHostedWorkListResponse`
+
   - `list<SelfHostedWork> data`
 
     List of work items
@@ -956,6 +1001,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work Queue Stats
 
 - `SelfHostedWorkQueueStats`
+
   - `int depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -979,6 +1025,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work Stop Request
 
 - `SelfHostedWorkStopRequest`
+
   - `?bool force`
 
     If true, immediately stop work without graceful shutdown
@@ -986,6 +1033,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work Update Request
 
 - `SelfHostedWorkUpdateRequest`
+
   - `array<string,string> metadata`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
@@ -993,9 +1041,10 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Session Work Data
 
 - `SessionWorkData`
+
   - `string id`
 
-    Session identifier (e.g., 'session\_...')
+    Session identifier (e.g., 'session_...')
 
   - `"session" type`
 

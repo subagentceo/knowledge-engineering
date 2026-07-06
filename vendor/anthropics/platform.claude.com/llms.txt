@@ -12,18 +12,18 @@ https://platform.claude.com
 
 The full documentation is available in the following languages on https://platform.claude.com/docs:
 
-- English (en) - 1751 pages - /docs - Content included below
-- German (Deutsch) (de) - 133 pages - /docs/de - Visit website for content
-- Spanish (Español) (es) - 133 pages - /docs/es - Visit website for content
-- French (Français) (fr) - 133 pages - /docs/fr - Visit website for content
-- Italian (Italiano) (it) - 133 pages - /docs/it - Visit website for content
-- Japanese (日本語) (ja) - 133 pages - /docs/ja - Visit website for content
-- Korean (한국어) (ko) - 133 pages - /docs/ko - Visit website for content
-- Portuguese (Português) (pt-BR) - 133 pages - /docs/pt-BR - Visit website for content
-- Russian (Русский) (ru) - 133 pages - /docs/ru - Visit website for content
-- Chinese Simplified (简体中文) (zh-CN) - 133 pages - /docs/zh-CN - Visit website for content
-- Chinese Traditional (繁體中文) (zh-TW) - 133 pages - /docs/zh-TW - Visit website for content
-- Indonesian (Bahasa Indonesia) (id) - 133 pages - /docs/id - Visit website for content
+- English (en) - 1877 pages - /docs - Content included below
+- German (Deutsch) (de) - 137 pages - /docs/de - Visit website for content
+- Spanish (Español) (es) - 137 pages - /docs/es - Visit website for content
+- French (Français) (fr) - 137 pages - /docs/fr - Visit website for content
+- Italian (Italiano) (it) - 137 pages - /docs/it - Visit website for content
+- Japanese (日本語) (ja) - 137 pages - /docs/ja - Visit website for content
+- Korean (한국어) (ko) - 137 pages - /docs/ko - Visit website for content
+- Portuguese (Português) (pt-BR) - 137 pages - /docs/pt-BR - Visit website for content
+- Russian (Русский) (ru) - 137 pages - /docs/ru - Visit website for content
+- Chinese Simplified (简体中文) (zh-CN) - 137 pages - /docs/zh-CN - Visit website for content
+- Chinese Traditional (繁體中文) (zh-TW) - 137 pages - /docs/zh-TW - Visit website for content
+- Indonesian (Bahasa Indonesia) (id) - 137 pages - /docs/id - Visit website for content
 
 ---
 
@@ -45,24 +45,25 @@ The full documentation is available in the following languages on https://platfo
 - [Bash tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/bash-tool.md)
 - [Batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing.md)
 - [Build an orchestration mode](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-effort-example.md)
-- [Extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking.md) - Building with extended thinking
 - [Cache diagnostics (beta)](https://platform.claude.com/docs/en/build-with-claude/cache-diagnostics.md) - Cache diagnostics
 - [Citations](https://platform.claude.com/docs/en/build-with-claude/citations.md)
 - [Amazon Bedrock](https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock.md) - Claude in Amazon Bedrock
 - [Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry.md) - Claude in Microsoft Foundry
 - [Amazon Bedrock (legacy)](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy.md) - Claude on Amazon Bedrock (legacy)
-- [Vertex AI](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai.md) - Claude on Vertex AI
+- [Google Cloud](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai.md) - Claude on Google Cloud
 - [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws.md)
 - [Code execution tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool.md)
 - [Compaction](https://platform.claude.com/docs/en/build-with-claude/compaction.md)
 - [Computer use tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool.md)
 - [Context editing](https://platform.claude.com/docs/en/build-with-claude/context-editing.md)
 - [Context windows](https://platform.claude.com/docs/en/build-with-claude/context-windows.md)
+- [Coordinates and bounding boxes](https://platform.claude.com/docs/en/build-with-claude/vision-coordinates.md)
 - [Define tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools.md)
 - [Deploy with Docker Compose](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/deploy-compose.md) - Deploy MCP tunnels with Docker Compose
 - [Deploy with Helm](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/deploy-helm.md) - Deploy MCP tunnels with Helm
 - [Effort](https://platform.claude.com/docs/en/build-with-claude/effort.md)
 - [Embeddings](https://platform.claude.com/docs/en/build-with-claude/embeddings.md)
+- [Extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking.md)
 - [Fallback credit](https://platform.claude.com/docs/en/build-with-claude/fallback-credit.md)
 - [Fast mode (research preview)](https://platform.claude.com/docs/en/build-with-claude/fast-mode.md)
 - [Files API](https://platform.claude.com/docs/en/build-with-claude/files.md)
@@ -98,14 +99,14 @@ The full documentation is available in the following languages on https://platfo
 - [Tool combinations](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-combinations.md)
 - [Tool reference](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-reference.md)
 - [Tool Runner (SDK)](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-runner.md)
-- [Tool search](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool.md) - Tool search tool
+- [Tool search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool.md)
 - [Tool use with prompt caching](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-use-with-prompt-caching.md)
 - [Troubleshooting](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/troubleshooting.md) - Troubleshoot MCP tunnels
 - [Troubleshooting](https://platform.claude.com/docs/en/agents-and-tools/tool-use/troubleshooting-tool-use.md) - Troubleshooting tool use
 - [Tutorial: Build a tool-using agent](https://platform.claude.com/docs/en/agents-and-tools/tool-use/build-a-tool-using-agent.md)
 - [Skills in the API](https://platform.claude.com/docs/en/build-with-claude/skills-guide.md) - Using Agent Skills with the API
 - [Using the Messages API](https://platform.claude.com/docs/en/build-with-claude/working-with-messages.md)
-- [Images and vision](https://platform.claude.com/docs/en/build-with-claude/vision.md) - Vision
+- [Overview](https://platform.claude.com/docs/en/build-with-claude/vision.md) - Vision
 - [Web fetch tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool.md)
 - [Web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool.md)
 
@@ -122,7 +123,7 @@ The full documentation is available in the following languages on https://platfo
 - [Agent setup](https://platform.claude.com/docs/en/managed-agents/agent-setup.md) - Define your agent
 - [Dreams](https://platform.claude.com/docs/en/managed-agents/dreams.md)
 - [MCP connector](https://platform.claude.com/docs/en/managed-agents/mcp-connector.md)
-- [Multiagent sessions](https://platform.claude.com/docs/en/managed-agents/multi-agent.md)
+- [Multi-agent sessions](https://platform.claude.com/docs/en/managed-agents/multi-agent.md)
 - [Permission policies](https://platform.claude.com/docs/en/managed-agents/permission-policies.md)
 - [Prototype in Console](https://platform.claude.com/docs/en/managed-agents/onboarding.md)
 - [Managed Agents reference](https://platform.claude.com/docs/en/managed-agents/reference.md) - Reference
@@ -150,6 +151,7 @@ The full documentation is available in the following languages on https://platfo
 - [AWS KMS](https://platform.claude.com/docs/en/manage-claude/cmek-aws-kms.md) - Configure AWS KMS for CMEK
 - [Azure Key Vault](https://platform.claude.com/docs/en/manage-claude/cmek-azure-key-vault.md) - Configure Azure Key Vault for CMEK
 - [Google Cloud KMS](https://platform.claude.com/docs/en/manage-claude/cmek-google-cloud-kms.md) - Configure Google Cloud KMS for CMEK
+- [Create an Admin API key](https://platform.claude.com/docs/en/manage-claude/admin-api-keys.md)
 - [Overview](https://platform.claude.com/docs/en/manage-claude/cmek.md) - Customer-managed encryption keys
 - [Data residency](https://platform.claude.com/docs/en/manage-claude/data-residency.md)
 - [Design your integration](https://platform.claude.com/docs/en/manage-claude/compliance-integration-patterns.md) - Design your compliance integration
@@ -287,7 +289,27 @@ The full documentation is available in the following languages on https://platfo
 - [Archive Session Thread (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/sessions/threads/archive.md)
 - [Archive Session Thread (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/sessions/threads/archive.md)
 - [Archive Tunnel](https://platform.claude.com/docs/en/api/admin/mcp_tunnels/archive.md)
+- [Archive Tunnel (Beta)](https://platform.claude.com/docs/en/api/beta/tunnels/archive.md)
+- [Archive Tunnel (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/tunnels/archive.md)
+- [Archive Tunnel (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/tunnels/archive.md)
+- [Archive Tunnel (Beta) (Go)](https://platform.claude.com/docs/en/api/go/beta/tunnels/archive.md)
+- [Archive Tunnel (Beta) (Java)](https://platform.claude.com/docs/en/api/java/beta/tunnels/archive.md)
+- [Archive Tunnel (Beta) (php)](https://platform.claude.com/docs/en/api/php/beta/tunnels/archive.md)
+- [Archive Tunnel (Beta) (Python)](https://platform.claude.com/docs/en/api/python/beta/tunnels/archive.md)
+- [Archive Tunnel (Beta) (Ruby)](https://platform.claude.com/docs/en/api/ruby/beta/tunnels/archive.md)
+- [Archive Tunnel (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/tunnels/archive.md)
+- [Archive Tunnel (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/tunnels/archive.md)
 - [Archive Tunnel Certificate](https://platform.claude.com/docs/en/api/admin/mcp_tunnels/tunnel_certificates/archive.md)
+- [Archive Tunnel Certificate (Beta)](https://platform.claude.com/docs/en/api/beta/tunnels/certificates/archive.md)
+- [Archive Tunnel Certificate (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/tunnels/certificates/archive.md)
+- [Archive Tunnel Certificate (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/tunnels/certificates/archive.md)
+- [Archive Tunnel Certificate (Beta) (Go)](https://platform.claude.com/docs/en/api/go/beta/tunnels/certificates/archive.md)
+- [Archive Tunnel Certificate (Beta) (Java)](https://platform.claude.com/docs/en/api/java/beta/tunnels/certificates/archive.md)
+- [Archive Tunnel Certificate (Beta) (php)](https://platform.claude.com/docs/en/api/php/beta/tunnels/certificates/archive.md)
+- [Archive Tunnel Certificate (Beta) (Python)](https://platform.claude.com/docs/en/api/python/beta/tunnels/certificates/archive.md)
+- [Archive Tunnel Certificate (Beta) (Ruby)](https://platform.claude.com/docs/en/api/ruby/beta/tunnels/certificates/archive.md)
+- [Archive Tunnel Certificate (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/tunnels/certificates/archive.md)
+- [Archive Tunnel Certificate (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/tunnels/certificates/archive.md)
 - [Archive Vault (Beta)](https://platform.claude.com/docs/en/api/beta/vaults/archive.md)
 - [Archive Vault (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/vaults/archive.md)
 - [Archive Vault (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/vaults/archive.md)
@@ -299,6 +321,7 @@ The full documentation is available in the following languages on https://platfo
 - [Archive Vault (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/vaults/archive.md)
 - [Archive Vault (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/vaults/archive.md)
 - [Archive Workspace](https://platform.claude.com/docs/en/api/admin/workspaces/archive.md)
+- [Artifacts](https://platform.claude.com/docs/en/api/admin/analytics/artifacts.md)
 - [Artifacts](https://platform.claude.com/docs/en/api/compliance/apps/artifacts.md)
 - [Artifacts](https://platform.claude.com/docs/en/api/compliance/code/artifacts.md)
 - [Attachments](https://platform.claude.com/docs/en/api/compliance/apps/projects/attachments.md)
@@ -352,6 +375,16 @@ The full documentation is available in the following languages on https://platfo
 - [Cancel a Message Batch (Ruby)](https://platform.claude.com/docs/en/api/ruby/messages/batches/cancel.md)
 - [Cancel a Message Batch (terraform)](https://platform.claude.com/docs/en/api/terraform/messages/batches/cancel.md)
 - [Cancel a Message Batch (TypeScript)](https://platform.claude.com/docs/en/api/typescript/messages/batches/cancel.md)
+- [Certificates (Beta)](https://platform.claude.com/docs/en/api/beta/tunnels/certificates.md)
+- [Certificates (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/tunnels/certificates.md)
+- [Certificates (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/tunnels/certificates.md)
+- [Certificates (Beta) (Go)](https://platform.claude.com/docs/en/api/go/beta/tunnels/certificates.md)
+- [Certificates (Beta) (Java)](https://platform.claude.com/docs/en/api/java/beta/tunnels/certificates.md)
+- [Certificates (Beta) (php)](https://platform.claude.com/docs/en/api/php/beta/tunnels/certificates.md)
+- [Certificates (Beta) (Python)](https://platform.claude.com/docs/en/api/python/beta/tunnels/certificates.md)
+- [Certificates (Beta) (Ruby)](https://platform.claude.com/docs/en/api/ruby/beta/tunnels/certificates.md)
+- [Certificates (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/tunnels/certificates.md)
+- [Certificates (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/tunnels/certificates.md)
 - [Chat Projects](https://platform.claude.com/docs/en/api/admin/analytics/chat_projects.md)
 - [Chats](https://platform.claude.com/docs/en/api/compliance/apps/chats.md)
 - [Code](https://platform.claude.com/docs/en/api/compliance/code.md)
@@ -546,7 +579,27 @@ The full documentation is available in the following languages on https://platfo
 - [Create Skill Version (Beta) (Ruby)](https://platform.claude.com/docs/en/api/ruby/beta/skills/versions/create.md)
 - [Create Skill Version (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/skills/versions/create.md)
 - [Create Skill Version (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/skills/versions/create.md)
+- [Create Tunnel (Beta)](https://platform.claude.com/docs/en/api/beta/tunnels/create.md)
+- [Create Tunnel (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/tunnels/create.md)
+- [Create Tunnel (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/tunnels/create.md)
+- [Create Tunnel (Beta) (Go)](https://platform.claude.com/docs/en/api/go/beta/tunnels/create.md)
+- [Create Tunnel (Beta) (Java)](https://platform.claude.com/docs/en/api/java/beta/tunnels/create.md)
+- [Create Tunnel (Beta) (php)](https://platform.claude.com/docs/en/api/php/beta/tunnels/create.md)
+- [Create Tunnel (Beta) (Python)](https://platform.claude.com/docs/en/api/python/beta/tunnels/create.md)
+- [Create Tunnel (Beta) (Ruby)](https://platform.claude.com/docs/en/api/ruby/beta/tunnels/create.md)
+- [Create Tunnel (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/tunnels/create.md)
+- [Create Tunnel (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/tunnels/create.md)
 - [Create Tunnel Certificate](https://platform.claude.com/docs/en/api/admin/mcp_tunnels/tunnel_certificates/create.md)
+- [Create Tunnel Certificate (Beta)](https://platform.claude.com/docs/en/api/beta/tunnels/certificates/create.md)
+- [Create Tunnel Certificate (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/tunnels/certificates/create.md)
+- [Create Tunnel Certificate (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/tunnels/certificates/create.md)
+- [Create Tunnel Certificate (Beta) (Go)](https://platform.claude.com/docs/en/api/go/beta/tunnels/certificates/create.md)
+- [Create Tunnel Certificate (Beta) (Java)](https://platform.claude.com/docs/en/api/java/beta/tunnels/certificates/create.md)
+- [Create Tunnel Certificate (Beta) (php)](https://platform.claude.com/docs/en/api/php/beta/tunnels/certificates/create.md)
+- [Create Tunnel Certificate (Beta) (Python)](https://platform.claude.com/docs/en/api/python/beta/tunnels/certificates/create.md)
+- [Create Tunnel Certificate (Beta) (Ruby)](https://platform.claude.com/docs/en/api/ruby/beta/tunnels/certificates/create.md)
+- [Create Tunnel Certificate (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/tunnels/certificates/create.md)
+- [Create Tunnel Certificate (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/tunnels/certificates/create.md)
 - [Create User Profile (Beta)](https://platform.claude.com/docs/en/api/beta/user_profiles/create.md)
 - [Create User Profile (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/user_profiles/create.md)
 - [Create User Profile (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/user_profiles/create.md)
@@ -832,6 +885,7 @@ The full documentation is available in the following languages on https://platfo
 - [Get Agent (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/agents/retrieve.md)
 - [Get Agent (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/agents/retrieve.md)
 - [Get API Key](https://platform.claude.com/docs/en/api/admin/api_keys/retrieve.md)
+- [Get Artifact Activity](https://platform.claude.com/docs/en/api/admin/analytics/artifacts/list.md)
 - [Get artifact metadata](https://platform.claude.com/docs/en/api/compliance/apps/artifacts/retrieve.md)
 - [Get chat messages](https://platform.claude.com/docs/en/api/compliance/apps/chats/messages/list.md)
 - [Get Chat Project Usage](https://platform.claude.com/docs/en/api/admin/analytics/chat_projects/list.md)
@@ -902,6 +956,7 @@ The full documentation is available in the following languages on https://platfo
 - [Get Messages Usage Report](https://platform.claude.com/docs/en/api/admin/usage_report/retrieve_messages.md)
 - [Get Per-User Cost](https://platform.claude.com/docs/en/api/admin/analytics/cost/list_by_user.md)
 - [Get Per-User Token Usage](https://platform.claude.com/docs/en/api/admin/analytics/usage/list_by_user.md)
+- [Get Plugin Usage](https://platform.claude.com/docs/en/api/admin/analytics/plugins/list.md)
 - [Get project details](https://platform.claude.com/docs/en/api/compliance/apps/projects/retrieve.md)
 - [Get project document content](https://platform.claude.com/docs/en/api/compliance/apps/projects/documents/retrieve.md)
 - [Get project document metadata](https://platform.claude.com/docs/en/api/compliance/apps/projects/documents/metadata.md)
@@ -972,7 +1027,27 @@ The full documentation is available in the following languages on https://platfo
 - [Get Spend Limit Increase Request](https://platform.claude.com/docs/en/api/admin/spend_limits/increase_requests/retrieve.md)
 - [Get Token Usage Over Time](https://platform.claude.com/docs/en/api/admin/analytics/usage/list.md)
 - [Get Tunnel](https://platform.claude.com/docs/en/api/admin/mcp_tunnels/retrieve.md)
+- [Get Tunnel (Beta)](https://platform.claude.com/docs/en/api/beta/tunnels/retrieve.md)
+- [Get Tunnel (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/tunnels/retrieve.md)
+- [Get Tunnel (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/tunnels/retrieve.md)
+- [Get Tunnel (Beta) (Go)](https://platform.claude.com/docs/en/api/go/beta/tunnels/retrieve.md)
+- [Get Tunnel (Beta) (Java)](https://platform.claude.com/docs/en/api/java/beta/tunnels/retrieve.md)
+- [Get Tunnel (Beta) (php)](https://platform.claude.com/docs/en/api/php/beta/tunnels/retrieve.md)
+- [Get Tunnel (Beta) (Python)](https://platform.claude.com/docs/en/api/python/beta/tunnels/retrieve.md)
+- [Get Tunnel (Beta) (Ruby)](https://platform.claude.com/docs/en/api/ruby/beta/tunnels/retrieve.md)
+- [Get Tunnel (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/tunnels/retrieve.md)
+- [Get Tunnel (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/tunnels/retrieve.md)
 - [Get Tunnel Certificate](https://platform.claude.com/docs/en/api/admin/mcp_tunnels/tunnel_certificates/retrieve.md)
+- [Get Tunnel Certificate (Beta)](https://platform.claude.com/docs/en/api/beta/tunnels/certificates/retrieve.md)
+- [Get Tunnel Certificate (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/tunnels/certificates/retrieve.md)
+- [Get Tunnel Certificate (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/tunnels/certificates/retrieve.md)
+- [Get Tunnel Certificate (Beta) (Go)](https://platform.claude.com/docs/en/api/go/beta/tunnels/certificates/retrieve.md)
+- [Get Tunnel Certificate (Beta) (Java)](https://platform.claude.com/docs/en/api/java/beta/tunnels/certificates/retrieve.md)
+- [Get Tunnel Certificate (Beta) (php)](https://platform.claude.com/docs/en/api/php/beta/tunnels/certificates/retrieve.md)
+- [Get Tunnel Certificate (Beta) (Python)](https://platform.claude.com/docs/en/api/python/beta/tunnels/certificates/retrieve.md)
+- [Get Tunnel Certificate (Beta) (Ruby)](https://platform.claude.com/docs/en/api/ruby/beta/tunnels/certificates/retrieve.md)
+- [Get Tunnel Certificate (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/tunnels/certificates/retrieve.md)
+- [Get Tunnel Certificate (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/tunnels/certificates/retrieve.md)
 - [Get User](https://platform.claude.com/docs/en/api/admin/users/retrieve.md)
 - [Get User Profile (Beta)](https://platform.claude.com/docs/en/api/beta/user_profiles/retrieve.md)
 - [Get User Profile (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/user_profiles/retrieve.md)
@@ -1242,7 +1317,27 @@ The full documentation is available in the following languages on https://platfo
 - [List Skills (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/skills/list.md)
 - [List Spend Limit Increase Requests](https://platform.claude.com/docs/en/api/admin/spend_limits/increase_requests/list.md)
 - [List Tunnel Certificates](https://platform.claude.com/docs/en/api/admin/mcp_tunnels/tunnel_certificates/list.md)
+- [List Tunnel Certificates (Beta)](https://platform.claude.com/docs/en/api/beta/tunnels/certificates/list.md)
+- [List Tunnel Certificates (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/tunnels/certificates/list.md)
+- [List Tunnel Certificates (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/tunnels/certificates/list.md)
+- [List Tunnel Certificates (Beta) (Go)](https://platform.claude.com/docs/en/api/go/beta/tunnels/certificates/list.md)
+- [List Tunnel Certificates (Beta) (Java)](https://platform.claude.com/docs/en/api/java/beta/tunnels/certificates/list.md)
+- [List Tunnel Certificates (Beta) (php)](https://platform.claude.com/docs/en/api/php/beta/tunnels/certificates/list.md)
+- [List Tunnel Certificates (Beta) (Python)](https://platform.claude.com/docs/en/api/python/beta/tunnels/certificates/list.md)
+- [List Tunnel Certificates (Beta) (Ruby)](https://platform.claude.com/docs/en/api/ruby/beta/tunnels/certificates/list.md)
+- [List Tunnel Certificates (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/tunnels/certificates/list.md)
+- [List Tunnel Certificates (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/tunnels/certificates/list.md)
 - [List Tunnels](https://platform.claude.com/docs/en/api/admin/mcp_tunnels/list.md)
+- [List Tunnels (Beta)](https://platform.claude.com/docs/en/api/beta/tunnels/list.md)
+- [List Tunnels (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/tunnels/list.md)
+- [List Tunnels (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/tunnels/list.md)
+- [List Tunnels (Beta) (Go)](https://platform.claude.com/docs/en/api/go/beta/tunnels/list.md)
+- [List Tunnels (Beta) (Java)](https://platform.claude.com/docs/en/api/java/beta/tunnels/list.md)
+- [List Tunnels (Beta) (php)](https://platform.claude.com/docs/en/api/php/beta/tunnels/list.md)
+- [List Tunnels (Beta) (Python)](https://platform.claude.com/docs/en/api/python/beta/tunnels/list.md)
+- [List Tunnels (Beta) (Ruby)](https://platform.claude.com/docs/en/api/ruby/beta/tunnels/list.md)
+- [List Tunnels (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/tunnels/list.md)
+- [List Tunnels (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/tunnels/list.md)
 - [List User Activity](https://platform.claude.com/docs/en/api/admin/analytics/users/list.md)
 - [List User Profiles (Beta)](https://platform.claude.com/docs/en/api/beta/user_profiles/list.md)
 - [List User Profiles (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/user_profiles/list.md)
@@ -1366,6 +1461,7 @@ The full documentation is available in the following languages on https://platfo
 - [Pause Deployment (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/deployments/pause.md)
 - [Pause Deployment (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/deployments/pause.md)
 - [Permissions](https://platform.claude.com/docs/en/api/compliance/organizations/roles/permissions.md)
+- [Plugins](https://platform.claude.com/docs/en/api/admin/analytics/plugins.md)
 - [Poll for Work (Beta)](https://platform.claude.com/docs/en/api/beta/environments/work/poll.md)
 - [Poll for Work (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/environments/work/poll.md)
 - [Poll for Work (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/environments/work/poll.md)
@@ -1484,8 +1580,28 @@ The full documentation is available in the following languages on https://platfo
 - [Retrieve Message Batch results (terraform)](https://platform.claude.com/docs/en/api/terraform/messages/batches/results.md)
 - [Retrieve Message Batch results (TypeScript)](https://platform.claude.com/docs/en/api/typescript/messages/batches/results.md)
 - [Reveal Tunnel Token](https://platform.claude.com/docs/en/api/admin/mcp_tunnels/reveal_token.md)
+- [Reveal Tunnel Token (Beta)](https://platform.claude.com/docs/en/api/beta/tunnels/reveal_token.md)
+- [Reveal Tunnel Token (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/tunnels/reveal_token.md)
+- [Reveal Tunnel Token (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/tunnels/reveal_token.md)
+- [Reveal Tunnel Token (Beta) (Go)](https://platform.claude.com/docs/en/api/go/beta/tunnels/reveal_token.md)
+- [Reveal Tunnel Token (Beta) (Java)](https://platform.claude.com/docs/en/api/java/beta/tunnels/reveal_token.md)
+- [Reveal Tunnel Token (Beta) (php)](https://platform.claude.com/docs/en/api/php/beta/tunnels/reveal_token.md)
+- [Reveal Tunnel Token (Beta) (Python)](https://platform.claude.com/docs/en/api/python/beta/tunnels/reveal_token.md)
+- [Reveal Tunnel Token (Beta) (Ruby)](https://platform.claude.com/docs/en/api/ruby/beta/tunnels/reveal_token.md)
+- [Reveal Tunnel Token (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/tunnels/reveal_token.md)
+- [Reveal Tunnel Token (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/tunnels/reveal_token.md)
 - [Roles](https://platform.claude.com/docs/en/api/compliance/organizations/roles.md)
 - [Rotate Tunnel Token](https://platform.claude.com/docs/en/api/admin/mcp_tunnels/rotate_token.md)
+- [Rotate Tunnel Token (Beta)](https://platform.claude.com/docs/en/api/beta/tunnels/rotate_token.md)
+- [Rotate Tunnel Token (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/tunnels/rotate_token.md)
+- [Rotate Tunnel Token (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/tunnels/rotate_token.md)
+- [Rotate Tunnel Token (Beta) (Go)](https://platform.claude.com/docs/en/api/go/beta/tunnels/rotate_token.md)
+- [Rotate Tunnel Token (Beta) (Java)](https://platform.claude.com/docs/en/api/java/beta/tunnels/rotate_token.md)
+- [Rotate Tunnel Token (Beta) (php)](https://platform.claude.com/docs/en/api/php/beta/tunnels/rotate_token.md)
+- [Rotate Tunnel Token (Beta) (Python)](https://platform.claude.com/docs/en/api/python/beta/tunnels/rotate_token.md)
+- [Rotate Tunnel Token (Beta) (Ruby)](https://platform.claude.com/docs/en/api/ruby/beta/tunnels/rotate_token.md)
+- [Rotate Tunnel Token (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/tunnels/rotate_token.md)
+- [Rotate Tunnel Token (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/tunnels/rotate_token.md)
 - [Run Deployment Now (Beta)](https://platform.claude.com/docs/en/api/beta/deployments/run.md)
 - [Run Deployment Now (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/deployments/run.md)
 - [Run Deployment Now (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/deployments/run.md)
@@ -1573,6 +1689,16 @@ The full documentation is available in the following languages on https://platfo
 - [Threads (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/sessions/threads.md)
 - [Threads (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/sessions/threads.md)
 - [Tunnel Certificates](https://platform.claude.com/docs/en/api/admin/mcp_tunnels/tunnel_certificates.md)
+- [Tunnels (Beta)](https://platform.claude.com/docs/en/api/beta/tunnels.md)
+- [Tunnels (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/tunnels.md)
+- [Tunnels (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/tunnels.md)
+- [Tunnels (Beta) (Go)](https://platform.claude.com/docs/en/api/go/beta/tunnels.md)
+- [Tunnels (Beta) (Java)](https://platform.claude.com/docs/en/api/java/beta/tunnels.md)
+- [Tunnels (Beta) (php)](https://platform.claude.com/docs/en/api/php/beta/tunnels.md)
+- [Tunnels (Beta) (Python)](https://platform.claude.com/docs/en/api/python/beta/tunnels.md)
+- [Tunnels (Beta) (Ruby)](https://platform.claude.com/docs/en/api/ruby/beta/tunnels.md)
+- [Tunnels (Beta) (terraform)](https://platform.claude.com/docs/en/api/terraform/beta/tunnels.md)
+- [Tunnels (Beta) (TypeScript)](https://platform.claude.com/docs/en/api/typescript/beta/tunnels.md)
 - [Unpause Deployment (Beta)](https://platform.claude.com/docs/en/api/beta/deployments/unpause.md)
 - [Unpause Deployment (Beta) (cli)](https://platform.claude.com/docs/en/api/cli/beta/deployments/unpause.md)
 - [Unpause Deployment (Beta) (csharp)](https://platform.claude.com/docs/en/api/csharp/beta/deployments/unpause.md)

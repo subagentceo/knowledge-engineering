@@ -26,16 +26,17 @@ Retrieve detailed information about a specific work item.
 
 ### Returns
 
-- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 9 more }`
+- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 10 more }`
 
   Work resource representing a unit of work in a self-hosted environment.
 
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -48,9 +49,10 @@ Retrieve detailed information about a specific work item.
   - `data: object { id, type }`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
@@ -68,6 +70,10 @@ Retrieve detailed information about a specific work item.
 
     User-provided metadata key-value pairs associated with this work item
 
+  - `secret: string`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
   - `started_at: string`
 
     RFC 3339 timestamp when work execution started
@@ -75,6 +81,7 @@ Retrieve detailed information about a specific work item.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -122,6 +129,7 @@ ant beta:environments:work retrieve \
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -164,16 +172,17 @@ Long poll for work items in the queue.
 
 ### Returns
 
-- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 9 more }`
+- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 10 more }`
 
   Work resource representing a unit of work in a self-hosted environment.
 
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -186,9 +195,10 @@ Long poll for work items in the queue.
   - `data: object { id, type }`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
@@ -206,6 +216,10 @@ Long poll for work items in the queue.
 
     User-provided metadata key-value pairs associated with this work item
 
+  - `secret: string`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
   - `started_at: string`
 
     RFC 3339 timestamp when work execution started
@@ -213,6 +227,7 @@ Long poll for work items in the queue.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -259,6 +274,7 @@ ant beta:environments:work poll \
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -293,16 +309,17 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
 ### Returns
 
-- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 9 more }`
+- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 10 more }`
 
   Work resource representing a unit of work in a self-hosted environment.
 
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -315,9 +332,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `data: object { id, type }`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
@@ -335,6 +353,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     User-provided metadata key-value pairs associated with this work item
 
+  - `secret: string`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
   - `started_at: string`
 
     RFC 3339 timestamp when work execution started
@@ -342,6 +364,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -389,6 +412,7 @@ ant beta:environments:work ack \
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -434,6 +458,7 @@ Record a heartbeat for a work item to maintain the lease.
 - `beta_self_hosted_work_heartbeat_response: object { last_heartbeat, lease_extended, state, 2 more }`
 
   Response after recording a heartbeat for a work item.
+
   - `last_heartbeat: string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -445,6 +470,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item (active/stopping/stopped)
+
     - `"queued"`
 
     - `"starting"`
@@ -514,16 +540,17 @@ Stop a work item, initiating graceful or forced shutdown.
 
 ### Returns
 
-- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 9 more }`
+- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 10 more }`
 
   Work resource representing a unit of work in a self-hosted environment.
 
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -536,9 +563,10 @@ Stop a work item, initiating graceful or forced shutdown.
   - `data: object { id, type }`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
@@ -556,6 +584,10 @@ Stop a work item, initiating graceful or forced shutdown.
 
     User-provided metadata key-value pairs associated with this work item
 
+  - `secret: string`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
   - `started_at: string`
 
     RFC 3339 timestamp when work execution started
@@ -563,6 +595,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -610,6 +643,7 @@ ant beta:environments:work stop \
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -651,12 +685,14 @@ List work items in an environment.
 - `beta_self_hosted_work_list_response: object { data, next_page }`
 
   Response when listing work items with cursor-based pagination.
+
   - `data: array of BetaSelfHostedWork`
 
     List of work items
+
     - `id: string`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `acknowledged_at: string`
 
@@ -669,9 +705,10 @@ List work items in an environment.
     - `data: object { id, type }`
 
       The actual work to be performed
+
       - `id: string`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `type: "session"`
 
@@ -689,6 +726,10 @@ List work items in an environment.
 
       User-provided metadata key-value pairs associated with this work item
 
+    - `secret: string`
+
+      Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
     - `started_at: string`
 
       RFC 3339 timestamp when work execution started
@@ -696,6 +737,7 @@ List work items in an environment.
     - `state: "queued" or "starting" or "active" or 2 more`
 
       Current state of the work item
+
       - `"queued"`
 
       - `"starting"`
@@ -748,6 +790,7 @@ ant beta:environments:work list \
       "metadata": {
         "foo": "string"
       },
+      "secret": "secret",
       "started_at": "started_at",
       "state": "queued",
       "stop_requested_at": "stop_requested_at",
@@ -789,16 +832,17 @@ Update work item metadata with merge semantics.
 
 ### Returns
 
-- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 9 more }`
+- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 10 more }`
 
   Work resource representing a unit of work in a self-hosted environment.
 
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -811,9 +855,10 @@ Update work item metadata with merge semantics.
   - `data: object { id, type }`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
@@ -831,6 +876,10 @@ Update work item metadata with merge semantics.
 
     User-provided metadata key-value pairs associated with this work item
 
+  - `secret: string`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
   - `started_at: string`
 
     RFC 3339 timestamp when work execution started
@@ -838,6 +887,7 @@ Update work item metadata with merge semantics.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -886,6 +936,7 @@ ant beta:environments:work update \
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -917,6 +968,7 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `depth: number`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -961,16 +1013,17 @@ ant beta:environments:work stats \
 
 ### Beta Self Hosted Work
 
-- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 9 more }`
+- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 10 more }`
 
   Work resource representing a unit of work in a self-hosted environment.
 
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -983,9 +1036,10 @@ ant beta:environments:work stats \
   - `data: object { id, type }`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
@@ -1003,6 +1057,10 @@ ant beta:environments:work stats \
 
     User-provided metadata key-value pairs associated with this work item
 
+  - `secret: string`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
   - `started_at: string`
 
     RFC 3339 timestamp when work execution started
@@ -1010,6 +1068,7 @@ ant beta:environments:work stats \
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -1037,6 +1096,7 @@ ant beta:environments:work stats \
 - `beta_self_hosted_work_heartbeat_response: object { last_heartbeat, lease_extended, state, 2 more }`
 
   Response after recording a heartbeat for a work item.
+
   - `last_heartbeat: string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -1048,6 +1108,7 @@ ant beta:environments:work stats \
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item (active/stopping/stopped)
+
     - `"queued"`
 
     - `"starting"`
@@ -1071,12 +1132,14 @@ ant beta:environments:work stats \
 - `beta_self_hosted_work_list_response: object { data, next_page }`
 
   Response when listing work items with cursor-based pagination.
+
   - `data: array of BetaSelfHostedWork`
 
     List of work items
+
     - `id: string`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `acknowledged_at: string`
 
@@ -1089,9 +1152,10 @@ ant beta:environments:work stats \
     - `data: object { id, type }`
 
       The actual work to be performed
+
       - `id: string`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `type: "session"`
 
@@ -1109,6 +1173,10 @@ ant beta:environments:work stats \
 
       User-provided metadata key-value pairs associated with this work item
 
+    - `secret: string`
+
+      Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
     - `started_at: string`
 
       RFC 3339 timestamp when work execution started
@@ -1116,6 +1184,7 @@ ant beta:environments:work stats \
     - `state: "queued" or "starting" or "active" or 2 more`
 
       Current state of the work item
+
       - `"queued"`
 
       - `"starting"`
@@ -1149,6 +1218,7 @@ ant beta:environments:work stats \
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `depth: number`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -1174,6 +1244,7 @@ ant beta:environments:work stats \
 - `beta_self_hosted_work_stop_request: object { force }`
 
   Request to stop a work item.
+
   - `force: optional boolean`
 
     If true, immediately stop work without graceful shutdown
@@ -1183,6 +1254,7 @@ ant beta:environments:work stats \
 - `beta_self_hosted_work_update_request: object { metadata }`
 
   Request to update work item metadata.
+
   - `metadata: map[string]`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
@@ -1195,9 +1267,10 @@ ant beta:environments:work stats \
 
   This resource type is used when work represents a session that needs to be executed
   in a self-hosted environment.
+
   - `id: string`
 
-    Session identifier (e.g., 'session\_...')
+    Session identifier (e.g., 'session_...')
 
   - `type: "session"`
 
