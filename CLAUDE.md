@@ -88,6 +88,7 @@ If you see code that wants `ANTHROPIC_API_KEY`, it's a bug or a leak. Fix it; do
 - **25 vendor doc mirrors** under `vendor/`:
   - **First-party Anthropic surfaces:** `anthropics/` (code.claude.com + platform.claude.com + claude.com/docs), `claude-sitemap/` (claude.com blog + connectors + customers + plugins + resources + solutions + code-with-claude + support.claude.com EN articles), `anthropic-sitemap/` (anthropic.com engineering + news + research + learn + product + features + economic-futures + claude)
   - **Ecosystem & subprocessors:** cloudflare, neon, stripe, twilio, workos, elevenlabs, aws, gcp, sentry, intercom, brave-search, sift, arkose-labs, modelcontextprotocol, openfeature, opentelemetry, parallel-web, turbopuffer, spotify-confidence, nimble, iterable, osv-scanner
+  - **Developer tooling:** docker (docs.docker.com, `docker-md`), lmstudio (lmstudio.ai/docs, `append-md-and-accept`), vscode (code.visualstudio.com, `html-extract`), swift (curated: swift.org install + sourcekit-lsp)
 - **2 MCP servers**: `src/mcp/bridge-server.ts` (the knowledge bridge) and `src/mcp/npm-registry/server.ts` (npm-research lane)
 
 ## Citation discipline
