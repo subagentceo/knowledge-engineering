@@ -2,33 +2,43 @@
 
 ## Fivetran ↔ Claude fact-check (before trusting the rest of this doc)
 
-Verified as real, as of 2026-07-06:
+**Correction to my previous message:** you were right and I was wrong — there *is* a real, separate "Claude
+Compliance" connector with its own ERD. I'd only found the "Claude Platform" connector on the first pass and
+incorrectly concluded the Compliance surface wasn't connector-ized. Re-pulled both docs directly from the two
+URLs you gave (their Next.js SSG payload, `props.pageProps.article.content` / `pageDefinition`, since the
+rendered HTML is client-hydrated and a plain fetch shows only nav chrome) to get ground truth:
+
+- **Claude Platform connector** (`https://fivetran.com/docs/connectors/applications/claude-platform`,
+  connector id `anthropic_claude`, GA/Beta) — broader than I first said. Tables:
+  `CLAUDE_CODE_USAGE_REPORT`, `COST_REPORT`, `MESSAGE_USAGE_REPORT`, `API_KEY`, `FILE_METADATA`, `FILE`,
+  `INVITE`, `MESSAGE_BATCH`, `MESSAGE_BATCH_RESULT`, `MODEL`, `ORGANIZATION`, `SKILL`, `SKILL_VERSION`,
+  `USERS`, `WORKSPACE`, `WORKSPACE_MEMBER` — i.e. Admin API (usage/cost reports, org, users, workspaces,
+  API keys, invites, models) **plus** Files API and Skills API, not just the latter two.
+  Interactive ERD: **https://fivetran.com/connector-erd/anthropic_claude**
+- **Claude Compliance connector** (`https://fivetran.com/docs/connectors/applications/claude-compliance`,
+  connector id `claude_compliance`, **Private Preview**) — this is the one you pointed me at. It syncs
+  Anthropic's Compliance API. Incrementally synced: `ACTIVITY`, `CHAT`, `CHAT_MESSAGE`, `PROJECT`.
+  Re-imported every sync: `COMPLIANCE_ROLE`, `COMPLIANCE_ROLE_PERMISSION`, `GROUP`, `GROUP_MEMBER`,
+  `ORGANIZATION`, `ORGANIZATION_USER` — a direct table-for-entity mapping of the Compliance API's Activity
+  Feed + directory objects (@cite `vendor/anthropics/platform.claude.com/docs/en/manage-claude/compliance-api.md`).
+  Supports capture-deletes and column-level data blocking/hashing; SaaS + Hybrid deployment.
+  Interactive ERD: **https://fivetran.com/connector-erd/claude_compliance**
+
+Both ERD pages are client-side-rendered widgets (empty on a plain HTML fetch, populated after JS runs) — I
+extracted the underlying table lists from the page's SSG JSON rather than screenshotting the diagram, so treat
+the table names above as the authoritative source of truth for anyone comparing rendering packages against it.
+(Headless-browser screenshotting was attempted via the pre-installed Chromium/Playwright but hit a proxy
+networking issue in this sandbox unrelated to the two connectors — the JSON extraction above is unaffected and
+more precise for this purpose than an image would be anyway.)
+
+Also still real, unchanged from before:
 - **Fivetran Connector SDK Claude Code plugin** — shipped 2026-04-24, adds a `fivetran` CLI + `fivetran ai bootstrap`
   command that configures Claude Code with the plugin/skills for building custom connectors.
   (@cite https://www.claudepluginhub.com/plugins/fivetran-fivetran-connector-sdk-coding-agents-claude-code)
 - **Official `fivetran/fivetran-mcp`** — a Model Context Protocol server, installable via
   `uvx --from git+https://github.com/fivetran/fivetran-mcp fivetran-mcp`. Read-only by default;
-  `FIVETRAN_ALLOW_WRITES=true` unlocks POST/PATCH/DELETE (create/modify/delete connections, trigger
-  syncs, edit schema/column config) and the server confirms before executing a write.
+  `FIVETRAN_ALLOW_WRITES=true` unlocks POST/PATCH/DELETE and the server confirms before executing a write.
   (@cite https://github.com/fivetran/fivetran-mcp)
-- **Fivetran "Claude Platform" data connector** — a pre-built Fivetran connector (not a Claude-side tool) that
-  syncs Anthropic's **Files API** and **Skills API** into your warehouse, using an Admin API key (org-level) and
-  a Workspace API key (workspace-scoped data). Currently Beta. It has a documented, clickable ERD in the
-  Fivetran dashboard for that schema.
-  (@cite https://fivetran.com/docs/connectors/applications/claude-platform)
-
-**Correction to your framing — please read before deciding anything downstream:**
-There is **no "Claude compliance API ERD" from Fivetran**. The Fivetran Claude Platform connector's schema/ERD
-covers **Files API + Skills API only**. Anthropic's separate **Compliance API**
-(`/v1/compliance/*` — Activity Feed, Organizations/Users/Roles/Groups, Chats/Files/Projects for claude.ai orgs;
-@cite `vendor/anthropics/platform.claude.com/docs/en/manage-claude/compliance-api.md`) is a real, distinct
-Anthropic surface, but Fivetran does not currently connector-ize or ERD it. If you need that data warehoused,
-today's path is: pull it yourself via the Compliance API (rate-limited to 600 req/min/org) and land it with a
-custom Fivetran Connector SDK connector (the same SDK the Claude Code plugin builds), or a plain script — there
-is no pre-built ERD to inherit for that specific surface yet.
-
-I did not fabricate an ERD for it; flagging this now so it doesn't get treated as an existing artifact later in
-this project.
 
 ## Top 5 packages overall (cross-language shortlist)
 
@@ -45,22 +55,29 @@ in that priority order, since the ask is "Claude manages this," not "a human dra
 
 ## Per-language verdict (where the full breakdown lives in `research/<lang>/research.jsonl`)
 
-- **typescript** — Best overall bench depth. React Flow for an interactive wireframe app; Mermaid/`quick-erd`
-  if you want plain-text CRUD instead.
-- **javascript** — Same Mermaid option (no build step) plus JointJS/Cytoscape.js/GoJS for canvas/SVG widgets.
+- **typescript** (5 candidates) — Best overall bench depth. React Flow for an interactive wireframe app;
+  Mermaid/`quick-erd` if you want plain-text CRUD instead.
+- **javascript** (5 candidates) — Mermaid (no build step), JointJS/Cytoscape.js/GoJS for canvas/SVG widgets, plus
+  `@antv/g6`/`x6` (actively released 2026-05-08, GPU/Rust-accelerated layouts, X6 explicitly targets ER diagrams).
   GoJS is powerful but commercial-licensed — a real cost to weigh before committing.
-- **html** — Mermaid and D2 both drop into a static page with zero build tooling; best pick if you want the
-  lowest-friction embed.
-- **python** — eralchemy2 > erdantic > paracelsus for this use case, in that order, all Graphviz/Mermaid-backed.
-  Best match to a data-engineering background.
-- **nodejs** — `mermaid-cli` is the standout: the only entry that scores 5 on every dimension except aesthetic,
-  and it's the piece that makes "headless, CI-driven rendering" possible for every other language too (several
-  other languages' best option is literally "shell out to mermaid-cli").
-- **java** — Weakest first-party story. SchemaSpy/PlantUML are read-only/generator-pattern tools with dated
-  default aesthetics; the realistic best option is shelling out to `mermaid-cli` from the JVM.
-- **rust** — No purpose-built ERD package exists. `sea-orm`/`diesel` generate code, not diagrams. Realistic
-  path is emitting Mermaid/D2 text from Rust structs and invoking the CLI as a subprocess. Rank this language
-  last if "package quality for this specific job" is a deciding factor.
+- **html** (5 candidates) — Mermaid and D2 drop into a static page with zero build tooling; Kroki goes further —
+  one `<img>` tag, zero client-side JS at all, and it unifies Mermaid/D2/PlantUML/DBML/Graphviz behind one API.
+  Best pick if you want the lowest-friction embed.
+- **python** (5 candidates) — eralchemy2 > erdantic > paracelsus > PyDBML for this use case, all
+  Graphviz/Mermaid/DBML-backed. Best match to a data-engineering background; PyDBML is the pick if you want the
+  DBML ecosystem (dbdiagram.io-compatible) instead of Graphviz's.
+- **nodejs** (5 candidates) — `mermaid-cli` is the standout: the only entry that scores 5 on every dimension
+  except aesthetic, and it's the piece that makes "headless, CI-driven rendering" possible for every other
+  language too (several other languages' best option is literally "shell out to mermaid-cli"). `@dbml/core` +
+  `dbml-renderer` is the close second if you want direct DB-schema introspection into the mix.
+- **java** (5 candidates) — Weakest first-party story of the mainstream languages. SchemaSpy/PlantUML are
+  read-only/generator-pattern tools with dated default aesthetics; SchemaCrawler (actively maintained, updated
+  2026-05-10) is the best native option since it targets DBML/PlantUML output directly instead of just
+  Graphviz — still, the realistic ceiling is shelling out to `mermaid-cli` from the JVM.
+- **rust** (5 candidates) — No purpose-built ERD package exists. `sea-orm`/`diesel` generate code, not diagrams;
+  `dot-writer` is a nice type-safe DOT-text emitter but still just DOT, not ERD-aware. Realistic path is
+  emitting Mermaid/D2/DBML text from Rust structs and invoking a CLI as a subprocess. Rank this language last if
+  "package quality for this specific job" is a deciding factor.
 
 ## What I did *not* do
 
