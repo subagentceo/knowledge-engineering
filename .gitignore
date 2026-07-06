@@ -37,6 +37,10 @@ third_party/
 # Ephemeral; never tracked. Branches pushed separately via PR flow.
 .claude/worktrees/
 
+# Per-session hook runtime state (explore_fanout_guidance.py counters). Ephemeral, never commit.
+.claude/state/
+.claude/hooks/__pycache__/
+
 # Local claude-in-chrome / scratch output — never deliverables, never committed.
 screenshots/
 webpages/
