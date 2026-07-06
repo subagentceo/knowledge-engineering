@@ -78,10 +78,10 @@ export type PrMergeEvent = z.infer<typeof PrMergeEventSchema>;
 // ── Redis key helpers ─────────────────────────────────────────────────────────
 // Convention: "<namespace>:<id>" from src/cache/lru-bm25.ts
 
-export function prMergeCacheKey(pr_number: number)      { return `pr:merge:${pr_number}`; }
-export function prMergesByDateKey(semvar_date: string)  { return `pr:merged:${semvar_date}`; }
-export function tailscaleNodeKey(hostname: string)      { return `ts:node:${hostname}`; }
-export function tailscaleNodesByTagKey(tag: string)     { return `ts:nodes:tag:${encodeURIComponent(tag)}`; }
+export function prMergeCacheKey(pr_number: number): string { return `pr:merge:${pr_number}`; }
+export function prMergesByDateKey(semvar_date: string): string { return `pr:merged:${semvar_date}`; }
+export function tailscaleNodeKey(hostname: string): string { return `ts:node:${hostname}`; }
+export function tailscaleNodesByTagKey(tag: string): string { return `ts:nodes:tag:${encodeURIComponent(tag)}`; }
 
 // ── AlloyDB SQL ───────────────────────────────────────────────────────────────
 

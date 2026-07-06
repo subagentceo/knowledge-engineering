@@ -4,8 +4,6 @@
  * @cite data/models/alloydb/events_pr_merge.yaml
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
  */
-import assert from "node:assert/strict";
-import { test } from "node:test";
 import {
   toUtcBounds,
   prMergeCacheKey,
@@ -23,48 +21,97 @@ import {
 } from "./tailscale-pr-context.js";
 import type { RedisLike } from "../cache/lru-bm25.js";
 
+let passed = 0;
+let failed = 0;
+
+function check(name: string, fn: () => void | Promise<void>): Promise<void> {
+  return Promise.resolve()
+    .then(fn)
+    .then(() => {
+      passed += 1;
+      console.log(`  ✓ ${name}`);
+    })
+    .catch((err) => {
+      failed += 1;
+      console.error(`  ✗ ${name}`);
+      console.error(`    ${(err as Error).message}`);
+    });
+}
+
+function assertEqual(actual: unknown, expected: unknown, msg?: string): void {
+  if (actual !== expected) {
+    throw new Error(msg ?? `expected ${JSON.stringify(expected)}, got ${JSON.stringify(actual)}`);
+  }
+}
+
+function assertOk(value: unknown, msg?: string): void {
+  if (!value) {
+    throw new Error(msg ?? `expected truthy value, got ${JSON.stringify(value)}`);
+  }
+}
+
+function assertDeepEqual(actual: unknown, expected: unknown, msg?: string): void {
+  const a = JSON.stringify(actual);
+  const e = JSON.stringify(expected);
+  if (a !== e) {
+    throw new Error(msg ?? `expected ${e}, got ${a}`);
+  }
+}
+
+function assertThrows(fn: () => unknown, re: RegExp = /./s): void {
+  try {
+    fn();
+  } catch (err) {
+    if (!re.test((err as Error).message)) {
+      throw new Error(`error message ${JSON.stringify((err as Error).message)} did not match ${re}`);
+    }
+    return;
+  }
+  throw new Error(`expected throw matching ${re}, but no error was raised`);
+}
+
 // ── toUtcBounds ───────────────────────────────────────────────────────────────
 
-test("toUtcBounds: 2026.06.16 PDT (UTC-7) → T07:00:00Z window", () => {
+await check("toUtcBounds: 2026.06.16 PDT (UTC-7) → T07:00:00Z window", () => {
   const b = toUtcBounds("2026.06.16");
-  assert.equal(b.semvarDate, "2026.06.16");
-  assert.equal(b.start, "2026-06-16T07:00:00.000Z");
-  assert.equal(b.end, "2026-06-17T07:00:00.000Z");
+  assertEqual(b.semvarDate, "2026.06.16");
+  assertEqual(b.start, "2026-06-16T07:00:00.000Z");
+  assertEqual(b.end, "2026-06-17T07:00:00.000Z");
 });
 
-test("toUtcBounds: 2026.11.01 PST (UTC-8) → T08:00:00Z window", () => {
+await check("toUtcBounds: 2026.11.01 PST (UTC-8) → T08:00:00Z window", () => {
   const b = toUtcBounds("2026.11.01", -8);
-  assert.equal(b.start, "2026-11-01T08:00:00.000Z");
-  assert.equal(b.end, "2026-11-02T08:00:00.000Z");
+  assertEqual(b.start, "2026-11-01T08:00:00.000Z");
+  assertEqual(b.end, "2026-11-02T08:00:00.000Z");
 });
 
-test("toUtcBounds: window is exactly 24 hours", () => {
+await check("toUtcBounds: window is exactly 24 hours", () => {
   const b = toUtcBounds("2026.06.17");
   const diff = new Date(b.end).getTime() - new Date(b.start).getTime();
-  assert.equal(diff, 86_400_000);
+  assertEqual(diff, 86_400_000);
 });
 
 // ── key helpers ───────────────────────────────────────────────────────────────
 
-test("prMergeCacheKey: returns pr:merge:<n>", () => {
-  assert.equal(prMergeCacheKey(502), "pr:merge:502");
+await check("prMergeCacheKey: returns pr:merge:<n>", () => {
+  assertEqual(prMergeCacheKey(502), "pr:merge:502");
 });
 
-test("prMergesByDateKey: returns pr:merged:<date>", () => {
-  assert.equal(prMergesByDateKey("2026.06.16"), "pr:merged:2026.06.16");
+await check("prMergesByDateKey: returns pr:merged:<date>", () => {
+  assertEqual(prMergesByDateKey("2026.06.16"), "pr:merged:2026.06.16");
 });
 
-test("tailscaleNodeKey: returns ts:node:<host>", () => {
-  assert.equal(tailscaleNodeKey("alexs-macbook-pro"), "ts:node:alexs-macbook-pro");
+await check("tailscaleNodeKey: returns ts:node:<host>", () => {
+  assertEqual(tailscaleNodeKey("alexs-macbook-pro"), "ts:node:alexs-macbook-pro");
 });
 
-test("tailscaleNodesByTagKey: encodes tag URI component", () => {
-  assert.equal(tailscaleNodesByTagKey("tag:dev"), "ts:nodes:tag:tag%3Adev");
+await check("tailscaleNodesByTagKey: encodes tag URI component", () => {
+  assertEqual(tailscaleNodesByTagKey("tag:dev"), "ts:nodes:tag:tag%3Adev");
 });
 
 // ── schema validation ─────────────────────────────────────────────────────────
 
-test("TailscaleNodeSchema: accepts valid node", () => {
+await check("TailscaleNodeSchema: accepts valid node", () => {
   const n = TailscaleNodeSchema.parse({
     hostname: "wsl-ubuntu2604-jadecli",
     tailnet: "taile5fcbd.ts.net",
@@ -74,23 +121,23 @@ test("TailscaleNodeSchema: accepts valid node", () => {
     status: "active",
     metadata: { alloydb_port: 5432 },
   });
-  assert.equal(n.hostname, "wsl-ubuntu2604-jadecli");
-  assert.equal(n.tailnet, "taile5fcbd.ts.net");
-  assert.equal(n.tag, "tag:server");
-  assert.equal(n.status, "active");
+  assertEqual(n.hostname, "wsl-ubuntu2604-jadecli");
+  assertEqual(n.tailnet, "taile5fcbd.ts.net");
+  assertEqual(n.tag, "tag:server");
+  assertEqual(n.status, "active");
 });
 
-test("TailscaleNodeSchema: defaults status=active, tailnet", () => {
+await check("TailscaleNodeSchema: defaults status=active, tailnet", () => {
   const n = TailscaleNodeSchema.parse({ hostname: "test", tag: "tag:dev" });
-  assert.equal(n.status, "active");
-  assert.equal(n.tailnet, "ts.subagentceo.io");
+  assertEqual(n.status, "active");
+  assertEqual(n.tailnet, "ts.subagentceo.io");
 });
 
-test("TailscaleNodeSchema: rejects unknown tag", () => {
-  assert.throws(() => TailscaleNodeSchema.parse({ hostname: "x", tag: "tag:admin" }));
+await check("TailscaleNodeSchema: rejects unknown tag", () => {
+  assertThrows(() => TailscaleNodeSchema.parse({ hostname: "x", tag: "tag:admin" }));
 });
 
-test("PrMergeEventSchema: accepts valid event", () => {
+await check("PrMergeEventSchema: accepts valid event", () => {
   const ev = PrMergeEventSchema.parse({
     pr_number: 515,
     title: "feat(infra): WSL backend (OWSL1)",
@@ -103,13 +150,13 @@ test("PrMergeEventSchema: accepts valid event", () => {
     initiating_node: "wsl-ubuntu2604-jadecli",
     initiating_tag: "tag:server",
   });
-  assert.equal(ev.pr_number, 515);
-  assert.equal(ev.repo, "subagentceo/knowledge-engineering");
-  assert.equal(ev.files_changed, 12);
+  assertEqual(ev.pr_number, 515);
+  assertEqual(ev.repo, "subagentceo/knowledge-engineering");
+  assertEqual(ev.files_changed, 12);
 });
 
-test("PrMergeEventSchema: rejects non-positive pr_number", () => {
-  assert.throws(() => PrMergeEventSchema.parse({
+await check("PrMergeEventSchema: rejects non-positive pr_number", () => {
+  assertThrows(() => PrMergeEventSchema.parse({
     pr_number: 0,
     title: "x",
     branch: "b",
@@ -120,35 +167,35 @@ test("PrMergeEventSchema: rejects non-positive pr_number", () => {
 
 // ── seed data integrity ───────────────────────────────────────────────────────
 
-test("MERGED_2026_06_16_PST: 3 events, all semvar_date=2026.06.16", () => {
-  assert.equal(MERGED_2026_06_16_PST.length, 3);
+await check("MERGED_2026_06_16_PST: 3 events, all semvar_date=2026.06.16", () => {
+  assertEqual(MERGED_2026_06_16_PST.length, 3);
   for (const ev of MERGED_2026_06_16_PST) {
-    assert.equal(ev.semvar_date, "2026.06.16");
+    assertEqual(ev.semvar_date, "2026.06.16");
     PrMergeEventSchema.parse(ev);
   }
 });
 
-test("MERGED_2026_06_16_PST: hostnames are taile5fcbd.ts.net nodes", () => {
+await check("MERGED_2026_06_16_PST: hostnames are taile5fcbd.ts.net nodes", () => {
   const nodes = new Set(MERGED_2026_06_16_PST.map((ev) => ev.initiating_node));
-  assert.ok(nodes.has("alexs-macbook-pro"), "initiating node should be alexs-macbook-pro");
+  assertOk(nodes.has("alexs-macbook-pro"), "initiating node should be alexs-macbook-pro");
 });
 
-test("MERGED_2026_06_17_PST: 2 events including OWSL1 + vendor-crawl", () => {
-  assert.equal(MERGED_2026_06_17_PST.length, 2);
+await check("MERGED_2026_06_17_PST: 2 events including OWSL1 + vendor-crawl", () => {
+  assertEqual(MERGED_2026_06_17_PST.length, 2);
   for (const ev of MERGED_2026_06_17_PST) {
-    assert.equal(ev.semvar_date, "2026.06.17");
+    assertEqual(ev.semvar_date, "2026.06.17");
     PrMergeEventSchema.parse(ev);
   }
   const prNums = MERGED_2026_06_17_PST.map((ev) => ev.pr_number);
-  assert.ok(prNums.includes(515), "OWSL1 (#515) must be in 2026-06-17 seed");
-  assert.ok(prNums.includes(516), "vendor-crawl (#516) must be in 2026-06-17 seed");
+  assertOk(prNums.includes(515), "OWSL1 (#515) must be in 2026-06-17 seed");
+  assertOk(prNums.includes(516), "vendor-crawl (#516) must be in 2026-06-17 seed");
 });
 
-test("MERGED_2026_06_17_PST: #515 initiated from wsl-ubuntu2604-jadecli", () => {
+await check("MERGED_2026_06_17_PST: #515 initiated from wsl-ubuntu2604-jadecli", () => {
   const owsl = MERGED_2026_06_17_PST.find((ev) => ev.pr_number === 515);
-  assert.ok(owsl, "PR #515 not found in seed");
-  assert.equal(owsl.initiating_node, "wsl-ubuntu2604-jadecli");
-  assert.equal(owsl.initiating_tag, "tag:server");
+  assertOk(owsl, "PR #515 not found in seed");
+  assertEqual(owsl!.initiating_node, "wsl-ubuntu2604-jadecli");
+  assertEqual(owsl!.initiating_tag, "tag:server");
 });
 
 // ── in-memory mocks for writer functions ─────────────────────────────────────
@@ -172,7 +219,7 @@ function makePg(): StoreOpts["pg"] {
   } as unknown as StoreOpts["pg"];
 }
 
-test("recordTailscaleNode: writes to redis + pg without throwing", async () => {
+await check("recordTailscaleNode: writes to redis + pg without throwing", async () => {
   const redis = makeRedis();
   const pg = makePg();
   await recordTailscaleNode({
@@ -186,16 +233,16 @@ test("recordTailscaleNode: writes to redis + pg without throwing", async () => {
   }, { redis, pg });
 
   const nodeKey = tailscaleNodeKey("wsl-ubuntu2604-jadecli");
-  assert.ok(redis.store.has(nodeKey), "node key written to redis");
+  assertOk(redis.store.has(nodeKey), "node key written to redis");
 
   const tagKey = tailscaleNodesByTagKey("tag:server");
-  assert.ok(redis.store.has(tagKey), "tag membership written to redis");
+  assertOk(redis.store.has(tagKey), "tag membership written to redis");
 
   const hostnames = JSON.parse(redis.store.get(tagKey)!.toString()) as string[];
-  assert.ok(hostnames.includes("wsl-ubuntu2604-jadecli"));
+  assertOk(hostnames.includes("wsl-ubuntu2604-jadecli"));
 });
 
-test("recordTailscaleNode: deduplicates tag membership on second call", async () => {
+await check("recordTailscaleNode: deduplicates tag membership on second call", async () => {
   const redis = makeRedis();
   const pg = makePg();
   const node = { hostname: "alexs-macbook-pro", tag: "tag:dev" as const, metadata: {} };
@@ -204,26 +251,26 @@ test("recordTailscaleNode: deduplicates tag membership on second call", async ()
 
   const tagKey = tailscaleNodesByTagKey("tag:dev");
   const hostnames = JSON.parse(redis.store.get(tagKey)!.toString()) as string[];
-  assert.equal(hostnames.filter((h) => h === "alexs-macbook-pro").length, 1);
+  assertEqual(hostnames.filter((h) => h === "alexs-macbook-pro").length, 1);
 });
 
-test("recordPrMerge: writes pr lookup + dated list to redis", async () => {
+await check("recordPrMerge: writes pr lookup + dated list to redis", async () => {
   const redis = makeRedis();
   const pg = makePg();
   const ev = MERGED_2026_06_17_PST.find((e) => e.pr_number === 515)!;
   await recordPrMerge(ev, { redis, pg });
 
   const prKey = prMergeCacheKey(515);
-  assert.ok(redis.store.has(prKey), "per-PR key written");
+  assertOk(redis.store.has(prKey), "per-PR key written");
 
   const listKey = prMergesByDateKey("2026.06.17");
-  assert.ok(redis.store.has(listKey), "dated list key written");
+  assertOk(redis.store.has(listKey), "dated list key written");
 
   const list = JSON.parse(redis.store.get(listKey)!.toString());
-  assert.equal(list[0].pr_number, 515);
+  assertEqual(list[0].pr_number, 515);
 });
 
-test("getPrMergesByDate: L2 hit returns cached events without pg query", async () => {
+await check("getPrMergesByDate: L2 hit returns cached events without pg query", async () => {
   const redis = makeRedis();
   const pgCallCount = { n: 0 };
   const pg: StoreOpts["pg"] = {
@@ -237,12 +284,12 @@ test("getPrMergesByDate: L2 hit returns cached events without pg query", async (
   await recordPrMerge(ev, { redis, pg: makePg() });
 
   const result = await getPrMergesByDate("2026.06.17", { redis, pg });
-  assert.equal(result.length, 1);
-  assert.equal(result[0].pr_number, 516);
-  assert.equal(pgCallCount.n, 0, "pg should not be queried when redis has data");
+  assertEqual(result.length, 1);
+  assertEqual(result[0].pr_number, 516);
+  assertEqual(pgCallCount.n, 0, "pg should not be queried when redis has data");
 });
 
-test("getPrMergesByDate: L3 fallback queries pg when redis is empty", async () => {
+await check("getPrMergesByDate: L3 fallback queries pg when redis is empty", async () => {
   const redis = makeRedis();
   const pgRows = [MERGED_2026_06_16_PST[0]];
   const pg: StoreOpts["pg"] = {
@@ -252,16 +299,19 @@ test("getPrMergesByDate: L3 fallback queries pg when redis is empty", async () =
   } as unknown as StoreOpts["pg"];
 
   const result = await getPrMergesByDate("2026.06.16", { redis, pg });
-  assert.equal(result.length, 1);
-  assert.equal(result[0].pr_number, 499);
+  assertEqual(result.length, 1);
+  assertEqual(result[0].pr_number, 499);
   // Should now be cached in redis
   const listKey = prMergesByDateKey("2026.06.16");
-  assert.ok(redis.store.has(listKey), "pg results written back to redis");
+  assertOk(redis.store.has(listKey), "pg results written back to redis");
 });
 
-test("getPrMergesByDate: returns empty array when both redis and pg are empty", async () => {
+await check("getPrMergesByDate: returns empty array when both redis and pg are empty", async () => {
   const redis = makeRedis();
   const pg = makePg();
   const result = await getPrMergesByDate("2026.01.01", { redis, pg });
-  assert.deepEqual(result, []);
+  assertDeepEqual(result, []);
 });
+
+console.log(`\n${passed} passed, ${failed} failed`);
+if (failed > 0) process.exit(1);
