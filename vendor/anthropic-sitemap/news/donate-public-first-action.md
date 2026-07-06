@@ -39,16 +39,18 @@ The companies building AI have a responsibility to help ensure the technology se
 
 ## Related content
 
-### Anthropic opens Seoul office and announces new partnerships across the Korean AI ecosystem
+### More details on Fable 5’s cyber safeguards and our jailbreak framework
 
 Read more
 
-### Statement on the US government directive to suspend access to Fable 5 and Mythos 5
+### Introducing Claude Sonnet 5
 
-The US government has issued an export control directive to suspend all access to Fable 5 and Mythos 5.
+Sonnet 5 delivers frontier performance across coding, agents, and professional work at scale.
 
 Read more
 
-### Results from the first Anthropic Public Record
+### Redeploying Fable 5
+
+Fable 5 returns globally July 1. We're also proposing an industry-wide framework for scoring jailbreak severity, together with Amazon, Microsoft, Google, and other Glasswing partners.
 
 Read more

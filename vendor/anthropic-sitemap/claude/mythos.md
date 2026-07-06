@@ -8,9 +8,17 @@ Our most capable model for cybersecurity and biology research.
 
 ## Announcements
 
-*   Update
+*   UPDATE
     
-    Claude Mythos 5 is currently unavailable
+    Claude Mythos 5 export controls have been lifted
+    
+    Jul 1, 2026
+    
+    We have restored access to Mythos 5 for a set of US organizations, following the US government’s approval.
+    
+    Read more
+    
+*   Claude Mythos 5 is currently unavailable
     
     Jun 12, 2026
     
@@ -53,17 +61,19 @@ Our most capable model for cybersecurity and biology research.
 
 ## Availability and pricing
 
-Claude Mythos 5 and Claude Fable 5 access is currently unavailable for Glasswing partners. Learn more.
+Claude Mythos 5 is available to a small set of initial testing partners for cybersecurity, and soon, biology research. We aim to expand our trusted access programs to safely allow more organizations to secure their code and create life-changing research.
 
 Pricing for Claude Mythos 5 starts at $10 per million input tokens and $50 per million output tokens.
 
 ## Safeguards
 
-Because Mythos 5 is highly capable for cybersecurity and biology research, it could be used both for good and for harm. We currently only provide access to a small, but growing, set of customers through our trusted access programs. 
+Because Mythos 5 is highly capable for cybersecurity and biology research, it could be used both for good and for harm. We currently only provide access to a small, but growing, set of customers through our trusted access programs.
 
 In order to release Mythos-level capabilities for knowledge work, coding, and more broadly we’ve added additional safeguards.
 
-Claude Fable 5 is the same underlying model as Mythos 5 with robust safeguards for cybersecurity and biology. Queries in these domains are automatically routed to Opus 4.8. We extensively test and evaluate our models to ensure they meet Anthropic’s standards for safety, security, and reliability. The accompanying system card covers safety results in depth.
+Claude Fable 5 is the same underlying model as Mythos 5 with robust safeguards for cybersecurity and biology. Many queries in these domains are automatically routed to Opus 4.8. Learn more about how the fallback experience works.
+
+We extensively test and evaluate our models to ensure they meet Anthropic’s standards for safety, security, and reliability. The accompanying system card covers safety results in depth.
 
 ## Data retention
 
@@ -79,7 +89,7 @@ Claude Mythos 5 is state-of-the-art at cybersecurity, biology research, and heal
 
 ### Why did you create a new version of Mythos for general availability?
 
-Making a model as capable as Mythos 5 generally available comes with risks. The model’s capabilities in specific areas like cybersecurity and biology are advanced enough that they could be misused to create cyberattacks or dangerous weapons. To release Mythos-level capabilities more broadly, we developed Claude Fable 5 with safeguards that block its performance in risky areas.
+Making a model as capable as Mythos 5 generally available comes with risks. The model’s capabilities in specific areas like cybersecurity and biology are advanced enough that they could be misused to create cyberattacks or dangerous weapons. To release Mythos-level capabilities more broadly, we developed Claude Fable 5 with safeguards that block or limit its performance in risky areas.
 
 ### When can I get access to Mythos 5 for dual-use cybersecurity work and biology research?
 

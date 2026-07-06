@@ -6,7 +6,7 @@ Back to Overview
 
 Future AI systems will be even more powerful than today’s, likely in ways that break key assumptions behind current safety techniques. That’s why it’s important to develop sophisticated safeguards to ensure models remain helpful, honest, and harmless. The Alignment team works to understand the challenges ahead and create protocols to train, evaluate, and monitor highly-capable models safely.
 
-Research teams:AlignmentEconomic ResearchInterpretabilitySocietal Impacts
+Research teams:AlignmentEconomic ResearchInterpretabilitySocietal ImpactsFrontier Red Team
 
 ![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2Fc351e05137a3da7d475af1c36f705cb4ff4b2179-1440x810.png&w=3840&q=75)
 

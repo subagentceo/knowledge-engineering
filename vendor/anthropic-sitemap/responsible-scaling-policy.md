@@ -1,8 +1,4 @@
-# Anthropic's Responsible Scaling Policy
-
-![](https://www-cdn.anthropic.com/images/4zrzovbb/website/87fb2c684ff3d95b4fa9edf208af33f467a8af5b-1000x1000.svg)
-
-# Anthropic's Responsible Scaling Policy
+# Anthropic’s Responsible Scaling Policy
 
 Anticipating and securing against emerging threats that accompany increasingly powerful models
 

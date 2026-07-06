@@ -8,11 +8,15 @@ Jun 17, 2026
 
 ![Anthropic opens Seoul office and announces new partnerships across the Korean AI ecosystem](https://www-cdn.anthropic.com/images/4zrzovbb/website/ffc0d7957a232518519f13c0d64896921ea215e2-1000x1000.svg)
 
-Our Seoul office is now open. Alongside it, we are announcing new partnerships across the Korean AI ecosystem—with the enterprises, startups, and researchers behind some of the most ambitious deployments of Claude.
+We’ve just opened our Seoul office. Alongside it, we’re announcing new partnerships across the Korean AI ecosystem, with the enterprises, startups, and researchers behind some of the most ambitious uses of Claude. We’ve also signed a Memorandum of Understanding (MOU) with Korea’s Ministry of Science and ICT to advance AI safety.
 
 “What I see in Korea are teams who understand that innovation and safety are two sides of the same coin,” said KiYoung Choi, Representative Director of Korea at Anthropic. “Korean organizations are building with Claude to bring the benefits of AI to millions around the world. Opening an office in Seoul gives a long-term home to our work alongside the people shaping Korean leadership in AI.”
 
 This week, senior leaders from Anthropic traveled to Seoul to open the office and meet with partners, customers, and developers building with Claude.
+
+## Supporting Korea’s AI ambitions
+
+Anthropic has signed an MOU with Korea’s Ministry of Science and ICT to support the safe and responsible adoption of AI across the public sector. Together, we’ll collaborate on AI safety and cybersecurity, including evaluating model safety in the Korean language with the Korea AI Safety Institute, and exchanging information on AI-enabled cyber threats.
 
 ## Expanding our work with enterprises and startups
 
@@ -40,20 +44,22 @@ This week, we co-hosted Claude Build Day with BASS Ventures, bringing together m
 
 Our Seoul office—led by KiYoung Choi, who brings three decades of experience leading technology businesses across Korea—is now open and hiring across a range of roles. To learn more about joining the team, visit our careers page.
 
+_Updated June 18 to add details on MOU with the Korean government._
+
 ## Related content
 
-### Statement on the US government directive to suspend access to Fable 5 and Mythos 5
-
-The US government has issued an export control directive to suspend all access to Fable 5 and Mythos 5.
+### More details on Fable 5’s cyber safeguards and our jailbreak framework
 
 Read more
 
-### Results from the first Anthropic Public Record
+### Introducing Claude Sonnet 5
+
+Sonnet 5 delivers frontier performance across coding, agents, and professional work at scale.
 
 Read more
 
-### TCS and Anthropic partner to bring Claude to regulated industries
+### Redeploying Fable 5
 
-We’re announcing a partnership with Tata Consultancy Services (TCS). TCS will provide Claude to 50,000 of its own employees across 56 countries; build Claude-powered products for clients in financial services, healthcare, the public sector, and other regulated industries; and join the Claude Partner Network.
+Fable 5 returns globally July 1. We're also proposing an industry-wide framework for scoring jailbreak severity, together with Amazon, Microsoft, Google, and other Glasswing partners.
 
 Read more

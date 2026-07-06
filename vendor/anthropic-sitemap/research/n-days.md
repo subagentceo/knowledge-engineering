@@ -110,15 +110,21 @@ At Anthropic, we’re actively exploring several directions for how language mod
 
 ## Related content
 
-### Agentic coding and persistent returns to expertise
+### A global workspace in language models
+
+New interpretability research reveals an emergent mental workspace in Claude that holds internal thoughts that don’t appear in the model’s output.
 
 Read more
 
-### Paving the way for agents in biology
+### Anthropic Economic Index report: Cadences
+
+In our latest Economic Index report, we sample hourly for the first time to ask: When do people come to Claude? What do they produce with it? And how do they perceive AI's impact on their work?
 
 Read more
 
-### Making Claude a chemist
+### Project Fetch: Phase two
+
+We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
 
 Read more
 
