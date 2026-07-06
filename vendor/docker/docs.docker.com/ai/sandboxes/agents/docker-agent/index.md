@@ -1,0 +1,71 @@
+# Docker Agent
+
+
+Official documentation: [Docker Agent](/ai/docker-agent/)
+
+## Quick start
+
+Create a sandbox and run Docker Agent for a project directory:
+
+```console
+$ sbx run docker-agent ~/my-project
+```
+
+The workspace parameter defaults to the current directory, so
+`sbx run docker-agent` from inside your project works too.
+
+## Authentication
+
+Docker Agent supports multiple providers. Store keys for the providers you want
+to use with [stored secrets](/ai/sandboxes/security/credentials/#stored-secrets):
+
+```console
+$ sbx secret set -g openai
+$ sbx secret set -g anthropic
+$ sbx secret set -g google
+$ sbx secret set -g xai
+$ sbx secret set -g nebius
+$ sbx secret set -g mistral
+$ sbx secret set -g openrouter
+```
+
+You only need to configure the providers you want to use. Docker Agent detects
+available credentials and routes requests to the appropriate provider.
+
+Alternatively, export the environment variables (`OPENAI_API_KEY`,
+`ANTHROPIC_API_KEY`, `GOOGLE_API_KEY`, `XAI_API_KEY`, `NEBIUS_API_KEY`,
+`MISTRAL_API_KEY`, `OPENROUTER_API_KEY`) in your shell before running the
+sandbox. See
+[Credentials](/ai/sandboxes/security/credentials/) for details on both methods.
+
+## Configuration
+
+Sandboxes don't pick up user-level configuration from your host. Only
+project-level configuration in the working directory is available inside the
+sandbox. See
+[Why doesn't the sandbox use my user-level agent configuration?](/ai/sandboxes/faq/#why-doesnt-the-sandbox-use-my-user-level-agent-configuration)
+for workarounds.
+
+### Default startup command
+
+Without extra args, the sandbox runs:
+
+```text
+docker-agent run --yolo
+```
+
+Arguments after `--` are added after the default flags when the first one is
+itself a flag (begins with `-`). When the first argument is a bare word — such
+as the `run` subcommand or a config file — it replaces the defaults, so include
+`run --yolo` yourself:
+
+```console
+$ sbx run docker-agent -- run --yolo agent.yml
+```
+
+## Base image
+
+The sandbox uses `docker/sandbox-templates:docker-agent`. See
+[Templates](/ai/sandboxes/customize/templates/) to build your own image on top of
+this base.
+

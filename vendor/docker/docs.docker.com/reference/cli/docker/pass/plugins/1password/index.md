@@ -1,0 +1,60 @@
+# docker pass plugins 1password
+
+**Description:** Manage the 1Password SDK plugin.
+
+**Usage:** `docker pass plugins 1password`
+
+
+
+
+
+> [!NOTE]
+> **Experimental**
+>
+> This command is experimental. Experimental features are intended for testing and feedback as their functionality or design may change between releases without warning or can be removed entirely in a future release.
+
+
+
+
+
+## Description
+
+Manage the `1password-sdk` plugin, which resolves secret references against 1Password through the official 1Password SDK.
+
+The plugin authenticates with a [service account token](https://developer.1password.com/docs/service-accounts/get-started/) scoped to the vaults you want to expose. The token is stored in the local OS keychain. Use the subcommands to install the token (and enable the plugin) or to remove it (and disable the plugin).
+
+Items reachable through this plugin are matched under any of:
+
+- the raw 1Password item ID,
+- `<vault-id>/<title>`,
+- `<vault-name>/<title>`,
+- a native 1Password secret-reference path (`<vault>/<item>/<field>` or `<vault>/<item>/<section>/<field>`), resolved directly via the SDK as if prefixed with `op://`.
+
+Matching for the title-based forms follows 1Password's normalization rules and is case-insensitive, so existing `op://` references can be reused as-is.
+
+
+
+
+## Examples
+
+Install the service account token and enable the plugin:
+
+```sh
+echo "$OP_SERVICE_ACCOUNT_TOKEN" | docker pass plugins 1password setup
+```
+
+Remove the token and disable the plugin:
+
+```sh
+docker pass plugins 1password purge
+```
+
+
+## Subcommands
+
+| Command | Description |
+|---------|-------------|
+| [`docker pass plugins 1password purge`](https://docs.docker.com/reference/cli/docker/pass/plugins/1password/purge/) | Disable the plugin and remove the stored 1Password service account token. |
+| [`docker pass plugins 1password setup`](https://docs.docker.com/reference/cli/docker/pass/plugins/1password/setup/) | Set the 1Password service account token and enable the plugin. |
+
+
