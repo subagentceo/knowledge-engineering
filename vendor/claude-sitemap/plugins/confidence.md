@@ -1,0 +1,7 @@
+# Confidence
+
+Manage Spotify Confidence feature flags, experiments, and A/B testing directly from your editor. The plugin connects to the Confidence platform via MCP servers, giving you tools to create, list, update, resolve, target, and archive feature flags — plus search Confidence documentation and SDK integration guides without leaving your workflow.
+
+Migrate feature flags from other platforms with dedicated migration skills for PostHog, Eppo, Statsig, and Optimizely. Each migration follows a three-step workflow: plan flags, plan code changes, then execute — so you can review every step before committing. The plugin also provides guided onboarding for new Confidence accounts, including user invitations, SDK client setup, and data warehouse configuration for Snowflake, BigQuery, Databricks, and Redshift.
+
+**How to use:** Ask Claude to work with your feature flags naturally — "create a feature flag for the new checkout flow", "list all active flags", or "resolve flag values for user segment X". For migrations, use slash commands like `/confidence:migrate-posthog`, `/confidence:migrate-statsig`, `/confidence:migrate-eppo`, or `/confidence:migrate-optimizely`. To set up a new Confidence account, run `/confidence:onboard-confidence` and follow the setup wizard.

@@ -26,6 +26,8 @@ Attend virtually
 
 Attend virtuallyAttend virtually
 
+# Code with Claude London — May 19, 2026
+
 19 May 2026
 
 London

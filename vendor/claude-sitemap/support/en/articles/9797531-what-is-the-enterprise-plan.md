@@ -74,12 +74,14 @@ Both self-serve and sales-assisted Enterprise plans include the same features an
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **How to purchase**         | **[Online](https://claude.ai/create/enterprise?utm_source=support&utm_medium=article&utm_content=enterprise-plan_self-serve_intro)** | Through our **[Sales team](https://claude.com/contact-sales?utm_source=support&utm_medium=article&utm_content=enterprise-plan_contact-sales_intro)** |
 | **Minimum number of seats** | 20                                                                                                                                   | 50                                                                                                                                                   |
-| **Payment methods**         | Credit card, ACH\*                                                                                                                   | Credit card, ACH, invoicing                                                                                                                          |
+| **Payment methods**         | Credit card, ACH\*                                                                                                                   | Credit card†, ACH, invoicing                                                                                                                         |
 | **Accepted currency**       | USD only                                                                                                                             | Multi-currency supported                                                                                                                             |
 | **Usage billing**           | Credits purchased upfront                                                                                                            | Billed monthly in arrears                                                                                                                            |
 | **HIPAA-readiness / BAA**   | Not available                                                                                                                        | Available                                                                                                                                            |
 
-*ACH bank transfers are only available when creating new self-serve Enterprise organizations, not when upgrading a Team organization to Enterprise.
+*New self-serve Enterprise organizations can choose ACH bank transfer, credit card, or debit card at signup. Organizations upgrading from a Team plan start on credit card and can switch to ACH bank transfer afterward in **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**.
+
+†For sales-assisted invoices of $50,000 or more, only bank transfer (ACH or wire) is available. Reach out to your Anthropic Contact to request a card-payment exception.
 
 **When to contact Sales:** If your organization needs invoicing, HIPAA-readiness and a Business Associate Agreement (BAA), dedicated customer success management, or to pay with a currency other than USD, reach out to our **[Sales team](https://claude.com/contact-sales)** to set up a sales-assisted Enterprise plan.
 
@@ -93,7 +95,7 @@ Visit **[claude.ai/create/enterprise](http://claude.ai/create/enterprise)** to p
 
 **About ACH bank transfers**
 
-New self-serve Enterprise organizations can choose to pay by ACH bank transfer instead of credit card. ACH is a push-based payment method, which means you initiate the transfer from your bank's interface to send funds to Anthropic's virtual bank account number (VBAN). You select your payment method when you create your organization.
+New self-serve Enterprise organizations can choose to pay by ACH bank transfer instead of credit card. ACH is a push-based payment method, which means you initiate the transfer from your bank's interface to send funds to Anthropic's virtual bank account number (VBAN). You select your payment method when you create your organization, and you can switch between ACH bank transfer, credit card, or debit card at any time in **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**.
 
 Here's what to know about ACH payments:
 
@@ -105,7 +107,7 @@ Here's what to know about ACH payments:
 
 - **Adding seats:** If you increase your seat count, we'll generate an invoice for the additional seats, but the new seats are available to use right away.
 
-- **Upgrading from Team:** ACH isn't currently supported for organizations upgrading from a Team plan to a self-serve Enterprise plan. ACH is only available for new self-serve Enterprise organizations.
+- **Upgrading from Team:** Organizations upgrading from a Team plan pay by credit card during the upgrade. Once the upgrade is complete, you can switch to ACH in **Organization settings > Billing**.
 
 ### Sales-assisted Enterprise plans
 

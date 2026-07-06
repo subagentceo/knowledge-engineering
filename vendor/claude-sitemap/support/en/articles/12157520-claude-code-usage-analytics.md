@@ -8,7 +8,7 @@ Claude Code usage analytics are available to:
 
 - **API Console:** Admin, Billing, and Developer roles
 
-## Accessing Claude Code analytics
+## Access Claude Code analytics
 
 ### Team and Enterprise plans
 
@@ -44,7 +44,7 @@ The Claude Code Usage page displays the following metrics for your organization:
 
 - **Lines accepted over time**: Daily breakdown of accepted code lines.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1781748900&amp;signature=93f88d8e9c68c30d2f5571203d26407f1abc0d3f1252df22ed2adc6b89c9585b&amp;req=dScmEcx5lINYXvMW1HO4zfiEP6dXi3HHCX9h5MbdDjOhOX%2FEZ7urF7zDKUvv%0AqI4pKuVsEI6kofWzSR8%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1782913500&amp;signature=7e68bc8ef7181c6c16c7da04e0661325b25d2a3e994a4d62114f2ec715c7de59&amp;req=dScmEcx5lINYXvMW1HO4zfiEP6RZjnrLCX9h5MbdDjN7NEl5XusS9UZWZVUI%0A8UBAK0KwlrADYsqlIcE%3D%0A)
 
 ### User-level metrics
 
@@ -68,7 +68,7 @@ Contribution metrics require GitHub Cloud and are not available to Console users
 
 For a more in-depth look at contribution metrics, see **[our Claude Code docs](https://code.claude.com/docs/en/analytics#enable-contribution-metrics)**.
 
-### Setting up contribution metrics
+### Set up contribution metrics
 
 Contribution metrics require a few steps beyond the base analytics setup:
 
@@ -106,7 +106,7 @@ Data is collected by correlating Claude Code session activity with GitHub commit
 
 Usage metrics display data for the current calendar month and reset at the beginning of each month. Historical data visualization shows daily granularity for tracking trends over time.
 
-## Using analytics to optimize Claude Code adoption
+## Use analytics to optimize Claude Code adoption
 
 Review your organization's code acceptance rate to understand if teams are finding Claude Code's suggestions valuable. If rates are lower than expected, consider providing additional training on effective prompting techniques.
 
@@ -122,7 +122,7 @@ Track activity trends to understand when your team uses Claude Code most effecti
 
 Claude Code usage analytics are not available to individual Pro or Max plans at this time.
 
-### I'm looking for specific user but they're missing from the reports.
+### I'm looking for a specific user but they're missing from the reports.
 
 If you notice that a specific user isn't showing up in your analytics, you should have them update Claude Code to the most recent version. The first Claude Code version to support this feature is **version 2.0.28**, so users should run `claude update` to manually update Claude Code if needed.
 

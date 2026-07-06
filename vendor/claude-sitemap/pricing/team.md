@@ -1,4 +1,4 @@
-# Plans & Pricing | Claude by Anthropic
+# Pricing
 
 *   Chat on web, iOS, Android, and on your desktop
 *   Generate code and visualize data

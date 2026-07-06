@@ -8,7 +8,7 @@ This capability is available in beta for Pro and Max plans on Claude Cowork. It 
 
 To use this capability, you need:
 
-- The most recent version of the **Claude Desktop app** installed and running on your computer (macOS or Windows x64). Your computer must be awake and the app must be open for Claude to work on tasks. Download or update at **[claude.com/download](http://claude.com/download)**.
+- The most recent version of the **Claude Desktop app** installed and running on your computer (macOS, Windows x64, or Linux). Your computer must be awake and the app must be open for Claude to work on tasks. Download or update at **[claude.com/download](http://claude.com/download)**.
 
 - The most recent version of the **Claude mobile app** installed on your phone. Existing mobile app users will need to update to the latest version before using this capability.
 
@@ -44,11 +44,11 @@ Follow these steps to get started:
 
 5. You’ll land on a page describing the functionality. Click “Get started”:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1781748900&amp;signature=95874eb22974068807a0e05b5d41fc24bb2e4053f6402dcd7ee9bf031fe049d2&amp;req=diEhH8B7mYFXX%2FMW1HO4zSZP0pOMEQb2B32drIe5EDnv%2BWa6Upq1sYd2Fbid%0AYPrj%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1782972000&amp;signature=b231f829f063c51e6425b970fc07a259cf5c98605fd08113d11e9c01ff699f61&amp;req=diEhH8B7mYFXX%2FMW3nq%2BgUgtmyeeXIA1A5S4NuMmOh6%2BQJ3PnvSyQ0qGRyM8%0AQ8nWj3%2FMMuAdzT4AVNNLOGk%2FhMs%3D%0A)
 
 6. On the next screen, you can give Claude access to your files and keep your computer awake by toggling those on:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1781748900&amp;signature=e1a08903b9d7359d3ce5952a188f6e164d0b76e64662f4a14e09e93a2a4580f1&amp;req=diEhH8B7mIFXW%2FMW1HO4zaZWs9ufWQkXepuGRb1rD3KIEvQYtWGeSlJoMWXb%0AP5K0%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1782972000&amp;signature=d27704ff2fb418f04b39f4c4f56581090e0062b451c82e9c9fc6ec9b6f3d2f0d&amp;req=diEhH8B7mIFXW%2FMW3nq%2BgctAEttDyvpqCPoGaHdOkUQdbK89l16IWaZnDKbe%0AKPUfW4Th0%2FFV7Qoyk2NWWsnTsQY%3D%0A)
 
 7. Click “Finish setup.”
 
@@ -94,6 +94,8 @@ Claude can use the apps on your computer to complete tasks you assign through Di
 
 For details on how computer use works, permissions, and safety guidance, see **[Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542-computer-use-safety)**.
 
+**Note:** Computer use isn't available in the Linux beta. On a Linux desktop, Dispatch still works with your files, connectors, and plugins, but it can't drive desktop apps through computer use.
+
 ---
 
 ## Safety considerations
@@ -125,3 +127,5 @@ The following limitations apply:
 - **Computer use has different safety properties than other Cowork tools.** Claude clicks, types, and navigates your screen directly rather than going through connectors or permission-gated file access. For details, see **[Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542-computer-use-safety)**.
 
 - **One continuous thread.** There's no way to start a new thread or manage multiple threads. All messages live in a single conversation.
+
+- **On Linux, tasks that rely on computer use aren't available**, since computer use isn't part of the Linux beta. File, connector, and plugin tasks work as normal.

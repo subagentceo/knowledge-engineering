@@ -16,7 +16,7 @@ Team and Enterprise plan admins can enable this organization-wide by following t
 
 2. Find the **Claude Design** toggle under **Anthropic Labs** and switch it on.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1781870400&amp;signature=4398d4af4992589ddfee38bc2e2243ef085c11314e51dedfabd68291ffd1a251&amp;req=diIvH8t6nYFdXPMW3nq%2BgfN19eUWlwuRL6iUW1g04y6APf5Rf7E35LdZqYf9%0AkMtp8ZxakLOImjtNAMlEszO8scE%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1782913500&amp;signature=dcb1001f8f13a0349d469f1fc286154f8559a4171f43d98b512f2d7b2cf65855&amp;req=diIvH8t6nYFdXPMW1HO4zahp3eABGOUgDIPtKBLQ9H9SFOSrY6MrozPykSd%2F%0A%2FOUwlujMX%2Bisa%2B8SLgw%3D%0A)
 
 ---
 
@@ -40,7 +40,51 @@ For best results, we recommend pulling in designers across both brand and produc
 
 4. Validate that Claude generates designs consistent with your brand.
 
-Access to design system setup is controlled separately from general Claude Design access via custom roles, as described above. This lets you grant design system editing permissions to your trusted designers while giving broader feature access to the rest of your team.
+Any member with Claude Design access can create and edit design systems. On the Enterprise plan, you can restrict who can publish design systems, set the organization default, and delete design systems.
+
+---
+
+## Restrict who can manage design systems
+
+The **Claude Design Admin** permission is available on the Enterprise plan through custom roles.
+
+By default, any member with access to Claude Design can publish a design system, set the organization default, and delete design systems. The **Claude Design Admin** permission lets you reserve these actions for specific members, giving your organization a single source of truth for its design systems.
+
+### What the permission controls
+
+Members with the permission set to "Can manage" can:
+
+- **Publish a design system:** Make it available across your organization so anyone can attach it to a project.
+
+- **Set the organization default:** Choose the design system new projects use automatically.
+
+- **Delete a design system:** Permanently remove it from your organization.
+
+Everyone else can still create, edit, and use any published design system. If a member without the permission tries to publish, set the default, or delete, they'll see a note directing them to contact their administrator.
+
+**Note:** If you don't assign this permission to anyone, nothing changes. All members keep the same access to design systems as before.
+
+### Grant the permission
+
+You'll need Owner access to configure roles.
+
+1. Go to **[Organization settings > Roles](https://claude.ai/admin-settings/roles)** and create or edit a custom role.
+
+2. In the **Permissions** tab, find **Claude Design Admin** under **In-app admin** and set it to **Can manage**.
+
+3. Assign the role to a group. Members of that group inherit the permission.
+
+4. Set each member's role to **Custom roles**.
+
+Permissions are additive. A member in multiple groups gets the union of what those groups' roles grant. Learn more about **[managing custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)**.
+
+### Verify access
+
+Permission changes can take up to 15 minutes to apply, and members may need to refresh their browser. There are two ways to confirm:
+
+- **Ask the member to check.** In admin settings, they'll see only the sections their permissions cover.
+
+- **Review as an Owner.** Check the member's groups on the **Members** page, then review those groups' roles on the **Roles** page.
 
 ---
 
@@ -52,7 +96,7 @@ A phased rollout lets you validate your design system and build internal experti
 
 - **Who:** 2–4 trusted designers and design leads across brand and product design.
 
-- **Goal:** Create and validate your organization’s design system.
+- **Goal:** Create and validate your organization’s design system, including product and slide deck templates everyone can use as a starting point.
 
 - **Checkpoint:** Review generated output for brand consistency before proceeding.
 
@@ -128,19 +172,29 @@ When your team uses Claude Design, they may upload design assets, brand guidelin
 
 - Claude Design doesn’t currently support data residency requirements.
 
+### Preview sandbox isolation
+
+Claude Design project previews run inside a sandboxed iframe on a separate content domain that Anthropic operates. These sandboxed iframes help each project preview stay in its own space, separate from others. The code in a preview can't reach your Claude account, your login, or the editor.
+​
+Access to a preview is controlled by signed tokens—short-lived passes that prove someone's allowed in. Claude re-checks these tokens against your sharing permissions every time someone opens the preview, so when you remove someone's access, they're locked out right away.
+
 ---
 
 ## Third-party platform availability
 
 Claude Design is currently available only through the web interface at claude.ai/design.
 
-If your organization requires Claude Design through your existing cloud provider agreements, reach out to your Anthropic Contact or our **[Sales team](https://claude.com/contact-sales)**.
+If your organization requires Claude Design through your existing cloud provider agreements, reach out to your Anthropic contact or our **[Sales team](https://claude.com/contact-sales)**.
 
 ---
 
-## Subscription usage and pricing
+## Usage and billing
 
-See here for more details: **[Claude Design subscription usage and pricing](https://support.claude.com/en/articles/14667344-claude-design-subscription-usage-and-pricing)**.
+Claude Design usage counts toward each member's existing usage limits, shared with chat, Claude Code, and Cowork. There's no separate Claude Design allowance to provision or manage.
+
+- **Team and seat-based Enterprise plans:** Claude Design draws from each member's seat usage limits, including both session and weekly limits. Admins can purchase **[usage credits](https://support.claude.com/en/articles/12005970-manage-extra-usage-for-team-and-seat-based-enterprise-plans)** for members who need more capacity.
+
+- **Usage-based Enterprise plans:** Claude Design usage bills from your organization's consumption at standard API rates, like every other surface. Organization, group, and per-user spend limits apply.
 
 ---
 
@@ -158,6 +212,10 @@ Yes. Organizations can have multiple design systems.
 
 They’ll get functional designs, but the designs won’t reflect your brand. We strongly recommend completing design system setup first for the best team experience.
 
+### Who can publish, set the default, or delete design systems?
+
+If you haven't assigned the **Claude Design Admin** permission to anyone, any member with Claude Design access can take these actions. On the Enterprise plan, you can reserve these actions for specific members. See **[Restrict who can manage design systems](#h_e24c8ef395)** above.
+
 ### Can I restrict Claude Design to specific departments?
 
 Yes. Use the RBAC controls to grant access to specific groups or departments rather than enabling it org-wide.
@@ -168,4 +226,4 @@ There are no strict limits, but we recommend the phased approach outlined above 
 
 ### Can we export or archive generated designs?
 
-Claude Design currently supports export to HTML bundles, PPTX, PDF, and hand-off to Claude Code. Additional export options will be added over time. Reach out to your sales contact if there’s a specific format or destination you need.
+Claude Design currently supports export to HTML bundles, PPTX, PDF, and hand-off to Claude Code or the following partners: Adobe, Base44, Canva, Gamma, Lovable, Miro, Replit, Vercel, or Wix. Reach out to your Anthropic Contact or our **[Sales team](https://claude.com/contact-sales)** if there’s a specific format or destination you need.

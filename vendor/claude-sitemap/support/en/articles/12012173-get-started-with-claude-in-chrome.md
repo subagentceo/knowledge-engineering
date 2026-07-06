@@ -34,7 +34,7 @@ Start a task in Claude Desktop and let it handle work in the browser without swi
 
 4. Toggle the connector on, then download and install the extension if you haven’t already.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1892696502/a23969725f631e99b9e4c47ec6e9/89803b8f-4f3c-4983-8b4d-63aec687ea1a?expires=1781748900&amp;signature=5abe3c9be5e68a56e66c2084d92200700ff92eaad16814bb3651d5acf8fec608&amp;req=dSguFM93m4RfW%2FMW1HO4zdOezIpb7Ltwhnw73Y7ib%2BdJHyfnVVnaDlYBOBDT%0Ak6lAUugWk0FZtdMYTA4%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1892696502/a23969725f631e99b9e4c47ec6e9/89803b8f-4f3c-4983-8b4d-63aec687ea1a?expires=1782913500&amp;signature=0bb8171fa56b36feeccbd5046dcab4f2c9cff48df3610edd04b8709185d2c39f&amp;req=dSguFM93m4RfW%2FMW1HO4zdOezIlV6bB8hnw73Y7ib%2BdL%2FIvmZcJUDqfwghwC%0Az2DiTRPlRSm6am1nqWc%3D%0A)
 
 Completing these steps will add Claude in Chrome to the “Connectors” drop-down on your chats with Claude. This is disabled by default, so you’ll need to enable it manually for each conversation.
 

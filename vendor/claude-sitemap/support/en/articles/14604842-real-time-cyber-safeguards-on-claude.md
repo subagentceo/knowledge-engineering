@@ -1,6 +1,8 @@
-As part of our ongoing safety commitments, we are rolling out new real-time cyber safeguards on our most capable Claude models. These safeguards are designed to automatically detect and block requests that may indicate prohibited or high-risk cybersecurity usage based on our Usage Policy.
+**Note**: This article applies only to Opus and Sonnet class models.
 
-We continuously evaluate our models against emerging threats and evolve our defenses accordingly. After extensive capability and safety testing, we believe a stronger, real-time layer of cyber defense is now warranted on our most capable models.
+As part of our ongoing safety commitments, we are rolling out new real-time cyber safeguards on Claude Opus and Sonnet models. These safeguards are designed to automatically detect and block requests that may indicate prohibited or high-risk cybersecurity usage based on our Usage Policy.
+
+We continuously evaluate our models against emerging threats and evolve our defenses accordingly. After extensive capability and safety testing, we believe a stronger, real-time layer of cyber defense is now warranted.
 
 This work is ongoing. We'll continue to test, refine, and evolve safeguards over time.
 
@@ -14,7 +16,7 @@ Our cyber safeguards currently block two categories of activities:
 
 ## Cyber Verification Program
 
-Many cybersecurity practitioners do legitimate work that overlaps with the dual use category above. The Cyber Verification Program (CVP) is a free application-based program for Opus models that is designed to enable professionals to continue working on legitimate dual use tasks safely while minimizing interruption.
+Many cybersecurity practitioners do legitimate work that overlaps with the dual use category above. The Cyber Verification Program (CVP) is a free application-based program for **Opus and Sonnet** that is designed to enable professionals to continue working on legitimate dual use tasks safely while minimizing interruption.
 
 If your use case has a legitimate defensive purpose and is being affected by these safeguards, we encourage you to apply for the CVP. See **How to apply** below for the right path based on how you access Claude.
 

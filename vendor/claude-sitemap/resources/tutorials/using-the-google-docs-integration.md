@@ -10,18 +10,25 @@
         
     *   Claude Cowork
         
-    *   Claude Security
+    *   @Claude
         
     
     Features
     
     *   Claude for Chrome
         
-    *   Claude for Slack
-        
     *   Claude for Microsoft 365
         
     *   Skills
+        
+    
+    Claude apps built for
+    
+    *   Design
+        
+    *   Science
+        
+    *   Security
         
     
     Models
@@ -39,14 +46,26 @@
     
 *   Platform
     
+    Build on Claude
+    
     *   Overview
-        
-    *   Developer docs
         
     *   Pricing
         
-    
+    *   Developer docs
+        
     *   Console login
+        
+    
+    Works with Claude
+    
+    *   Ecosystem
+        
+    *   Marketplace
+        
+    *   Connectors
+        
+    *   Plugins
         
     
 *   Solutions
@@ -116,13 +135,6 @@
     *   Tutorials
         
     *   Use cases
-        
-    
-    Tools
-    
-    *   Connectors
-        
-    *   Plugins
         
     
     Connect
@@ -179,18 +191,25 @@
         
     *   Claude Cowork
         
-    *   Claude Security
+    *   @Claude
         
     
     Features
     
     *   Claude for Chrome
         
-    *   Claude for Slack
-        
     *   Claude for Microsoft 365
         
     *   Skills
+        
+    
+    Claude apps built for
+    
+    *   Design
+        
+    *   Science
+        
+    *   Security
         
     
     Models
@@ -208,14 +227,26 @@
     
 *   Platform
     
+    Build on Claude
+    
     *   Overview
-        
-    *   Developer docs
         
     *   Pricing
         
-    
+    *   Developer docs
+        
     *   Console login
+        
+    
+    Works with Claude
+    
+    *   Ecosystem
+        
+    *   Marketplace
+        
+    *   Connectors
+        
+    *   Plugins
         
     
 *   Solutions
@@ -285,13 +316,6 @@
     *   Tutorials
         
     *   Use cases
-        
-    
-    Tools
-    
-    *   Connectors
-        
-    *   Plugins
         
     
     Connect
@@ -371,33 +395,33 @@ Learn how to connect and use the Google Docs integration to seamlessly incorpora
 
 ## Related tutorials
 
+Delegating and scheduling tasks in Claude CoworkDelegating and scheduling tasks in Claude Cowork
+
+Delegating and scheduling tasks in Claude Cowork
+
+Tutorial
+
+TutorialTutorial
+
+Tasks to try with @Claude in your workspaceTasks to try with @Claude in your workspace
+
+Tasks to try with @Claude in your workspace
+
+Tutorial
+
+TutorialTutorial
+
+Best practices for using @ClaudeBest practices for using @Claude
+
+Best practices for using @Claude
+
+Tutorial
+
+TutorialTutorial
+
 Using Claude Cowork for legal: answer fast questions on past decisionsUsing Claude Cowork for legal: answer fast questions on past decisions
 
 Using Claude Cowork for legal: answer fast questions on past decisions
-
-Tutorial
-
-TutorialTutorial
-
-Using Claude Cowork for marketing ops: run a weekly review that preps itselfUsing Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Tutorial
-
-TutorialTutorial
-
-Delegating your first task in Claude CoworkDelegating your first task in Claude Cowork
-
-Delegating your first task in Claude Cowork
-
-Tutorial
-
-TutorialTutorial
-
-Getting started with Claude SecurityGetting started with Claude Security
-
-Getting started with Claude Security
 
 Tutorial
 
@@ -525,6 +549,18 @@ Products
     
     Claude CoworkClaude Cowork
     
+*   @Claude
+    
+    @Claude@Claude
+    
+*   Claude Design
+    
+    Claude DesignClaude Design
+    
+*   Claude Science
+    
+    Claude ScienceClaude Science
+    
 *   Claude Security
     
     Claude SecurityClaude Security
@@ -547,10 +583,6 @@ Features
 *   Claude for Chrome
     
     Claude for ChromeClaude for Chrome
-    
-*   Claude for Slack
-    
-    Claude for SlackClaude for Slack
     
 *   Claude for Microsoft 365
     
@@ -660,6 +692,10 @@ Claude Platform
 *   Pricing
     
     PricingPricing
+    
+*   Ecosystem
+    
+    EcosystemEcosystem
     
 *   Marketplace
     
@@ -869,3 +905,5 @@ Deutsch (Germany)
 Français (France)
 
 한국어 (South Korea)
+
+Italian (Italy)

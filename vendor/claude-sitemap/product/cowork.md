@@ -1,4 +1,4 @@
-# Delegate to Claude, delight in the result
+# Claude Cowork
 
 Downloads/
 

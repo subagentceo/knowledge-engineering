@@ -8,6 +8,8 @@ Live artifacts are available on paid Claude plans (Pro, Max, Team, Enterprise) o
 
 - **Claude Desktop for Windows**
 
+- **Claude Desktop for Linux (beta)**
+
 Cowork requires the latest version of Claude Desktop. Download or update at **[claude.com/download](https://claude.com/download)**.
 
 ---

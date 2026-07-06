@@ -110,10 +110,6 @@ Read blog
 
 Read blogRead blog
 
-PrevPrev
-
-NextNext
-
 ### What customers are saying
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa4f49588bd5ac875956_deloitte_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa491a800b9e0c37fe24_deloitte_dark.svg)

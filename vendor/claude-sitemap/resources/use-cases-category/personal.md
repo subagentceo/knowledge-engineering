@@ -10,18 +10,25 @@
         
     *   Claude Cowork
         
-    *   Claude Security
+    *   @Claude
         
     
     Features
     
     *   Claude for Chrome
         
-    *   Claude for Slack
-        
     *   Claude for Microsoft 365
         
     *   Skills
+        
+    
+    Claude apps built for
+    
+    *   Design
+        
+    *   Science
+        
+    *   Security
         
     
     Models
@@ -39,14 +46,26 @@
     
 *   Platform
     
+    Build on Claude
+    
     *   Overview
-        
-    *   Developer docs
         
     *   Pricing
         
-    
+    *   Developer docs
+        
     *   Console login
+        
+    
+    Works with Claude
+    
+    *   Ecosystem
+        
+    *   Marketplace
+        
+    *   Connectors
+        
+    *   Plugins
         
     
 *   Solutions
@@ -116,13 +135,6 @@
     *   Tutorials
         
     *   Use cases
-        
-    
-    Tools
-    
-    *   Connectors
-        
-    *   Plugins
         
     
     Connect
@@ -179,18 +191,25 @@
         
     *   Claude Cowork
         
-    *   Claude Security
+    *   @Claude
         
     
     Features
     
     *   Claude for Chrome
         
-    *   Claude for Slack
-        
     *   Claude for Microsoft 365
         
     *   Skills
+        
+    
+    Claude apps built for
+    
+    *   Design
+        
+    *   Science
+        
+    *   Security
         
     
     Models
@@ -208,14 +227,26 @@
     
 *   Platform
     
+    Build on Claude
+    
     *   Overview
-        
-    *   Developer docs
         
     *   Pricing
         
-    
+    *   Developer docs
+        
     *   Console login
+        
+    
+    Works with Claude
+    
+    *   Ecosystem
+        
+    *   Marketplace
+        
+    *   Connectors
+        
+    *   Plugins
         
     
 *   Solutions
@@ -285,13 +316,6 @@
     *   Tutorials
         
     *   Use cases
-        
-    
-    Tools
-    
-    *   Connectors
-        
-    *   Plugins
         
     
     Connect
@@ -1147,6 +1171,18 @@ Products
     
     Claude CoworkClaude Cowork
     
+*   @Claude
+    
+    @Claude@Claude
+    
+*   Claude Design
+    
+    Claude DesignClaude Design
+    
+*   Claude Science
+    
+    Claude ScienceClaude Science
+    
 *   Claude Security
     
     Claude SecurityClaude Security
@@ -1169,10 +1205,6 @@ Features
 *   Claude for Chrome
     
     Claude for ChromeClaude for Chrome
-    
-*   Claude for Slack
-    
-    Claude for SlackClaude for Slack
     
 *   Claude for Microsoft 365
     
@@ -1282,6 +1314,10 @@ Claude Platform
 *   Pricing
     
     PricingPricing
+    
+*   Ecosystem
+    
+    EcosystemEcosystem
     
 *   Marketplace
     
@@ -1491,3 +1527,5 @@ Deutsch (Germany)
 Français (France)
 
 한국어 (South Korea)
+
+Italian (Italy)

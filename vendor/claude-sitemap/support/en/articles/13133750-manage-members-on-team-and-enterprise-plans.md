@@ -1,6 +1,6 @@
 This guide covers how to add, remove, and manage the people on your Team or Enterprise plan.
 
-**Permissions note:** Organization Admins can manage members in **[Organization settings > Members](http://claude.ai/admin-settings/members)**, but only Owners and Primary Owners can access[**Organization**](https://claude.ai/admin-settings/organization)**[settings > Billing](https://claude.ai/admin-settings/billing)**. For more information, see our article about[**roles and permissions**](https://support.claude.com/en/articles/9267276-roles-and-permissions).
+**Permissions note:** Organization Admins can manage members in **[Organization settings > Members](http://claude.ai/admin-settings/members)**, but only Owners and Primary Owners can access **[Organization](https://claude.ai/admin-settings/organization)****[settings > Billing](https://claude.ai/admin-settings/billing)**. For more information, see our article about **[roles and permissions](https://support.claude.com/en/articles/9267276-roles-and-permissions)**.
 
 For information on purchasing seats or adjusting your plan's seat allocation, see our guides for **[Team plans](https://support.claude.com/en/articles/12004354-purchasing-and-managing-seats)** and **[Enterprise plans](https://support.claude.com/en/articles/13393991-purchasing-and-managing-seats-on-enterprise-plans)**.
 
@@ -14,7 +14,7 @@ For information on purchasing seats or adjusting your plan's seat allocation, se
 
 Admins and above can add members by following these steps:
 
-1. Navigate to[https://claude.ai/admin-settings/organization](https://claude.ai/admin-settings/organization)**[Organization settings > Members](http://claude.ai/admin-settings/members)** and click “Add member.”
+1. Navigate to **[Organization settings > Members](http://claude.ai/admin-settings/members)** and click “Add member.”
 
 2. Enter the person's email address (it must use one of your organization's **[allowed email domains](https://support.claude.com/en/articles/13325567-account-management-faqs#h_b54c41c86c)**).
 
@@ -22,7 +22,7 @@ Admins and above can add members by following these steps:
 
 4. Set the role and permissions for the member.
 
-  1. **Note:** On Enterprise plans, you can also select “Custom roles” as a member’s role. Members set to this role have their access controlled through group memberships and custom roles. For additional details, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)**.
+  1. **Note:** On Enterprise plans, you can also select “Custom” as a member’s role. Members set to this role have their access controlled through group memberships and custom roles. To see exactly what a custom role member can access, open the “**⋮**” menu on the right side of their row and select "View effective role." For details, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)**.
 
 5. Click “Add members.”
 
@@ -48,7 +48,7 @@ Admins and above can generate a shareable invite link and distribute it to teamm
 
 - **SSO organizations:** Invite links are not available. Member provisioning is managed through your Identity Provider.
 
-To find and copy your invite link, navigate to[**Organization settings > Organization and access**](https://claude.ai/admin-settings/organization). New members who join via link are assigned to the lowest available seat tier, defaulting to a standard seat if none are available.
+To find and copy your invite link, navigate to **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**. New members who join via link are assigned to the lowest available seat tier, defaulting to a standard seat if none are available.
 
 Admins can disable the link at any time—this immediately invalidates all existing links. Regenerating the link also invalidates the previous one.
 
@@ -120,13 +120,11 @@ The export includes member details such as name, email address, role, and seat t
 
 To export:
 
-1. Navigate to[https://claude.ai/admin-settings/organization](https://claude.ai/admin-settings/organization)**[Organization settings > Members](http://claude.ai/admin-settings/members)**.
+1. Navigate to **[Organization settings > Members](http://claude.ai/admin-settings/members)**.
 
-2. Find the **Members** section.
+2. Click the "Export CSV" button at the top of the **Members** section.
 
-3. Click the "Export CSV" button.
-
-4. A CSV file will download to your device.
+3. A CSV file will download to your device.
 
 ---
 
@@ -134,11 +132,11 @@ To export:
 
 ### Resend an expired invitation
 
-You can resend an invite from[https://claude.ai/admin-settings/organization](https://claude.ai/admin-settings/organization)**[Organization settings > Members](http://claude.ai/admin-settings/members)**. Click the “Pending” tab, find the member, and select to resend the invite.
+You can resend an invite from **[Organization settings > Members](http://claude.ai/admin-settings/members)**. Click the “Pending” tab, find the member, and select to resend the invite.
 
 ### Revoke a pending invitation
 
-You can revoke a pending invite from[https://claude.ai/admin-settings/organization](https://claude.ai/admin-settings/organization)**[Organization settings > Members](http://claude.ai/admin-settings/members)**. Click the “Pending” tab, find the member, and select "Remove from team."
+You can revoke a pending invite from **[Organization settings > Members](http://claude.ai/admin-settings/members)**. Click the “Pending” tab, find the member, and select "Remove from team."
 
 ---
 
@@ -156,7 +154,7 @@ To add a member that you previously removed, follow the same steps as adding a n
 
 The current Primary Owner can transfer ownership by:
 
-1. Navigate to[https://claude.ai/admin-settings/organization](https://claude.ai/admin-settings/organization)**[Organization settings > Members](http://claude.ai/admin-settings/members)**.
+1. Navigate to **[Organization settings > Members](http://claude.ai/admin-settings/members)**.
 
 2. Click the Role dropdown next to the new user and select "Primary Owner."
 

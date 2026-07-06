@@ -1,14 +1,12 @@
-# Built for  developers
+# Claude Code
 
-◓Debugging...
+Claude Code is an agent that reads your codebase, edits files, and runs commands across your terminal, IDE, desktop app, and browser. Build, debug, and ship with natural language.
 
-# Built for developers
+Download for macOS
 
-Work with Claude directly in your codebase. Build, debug, and ship from your terminal, IDE, Slack, or the web. Describe what you need, and Claude handles the rest.
+Other ways to use
 
-Get Claude Code
-
-*   Desktop
+*   Terminal
 *   VS Code
     
 *   JetBrains
@@ -18,11 +16,117 @@ Get Claude Code
 *   Slack
     
 
-curl -fsSL https://claude.ai/install.sh | bash
+Available for macOS, Linux, and Windows. Read the documentation
 
-Or read the documentation
+Chat
 
-Try Claude Code (opens in new tab)Developer docs (opens in new tab)
+Cowork
+
+Code
+
+New session
+
+Routines
+
+Customize
+
+More
+
+Pinned
+
+Add a dark mode toggle to settings
+
+Scheduled
+
+Weekly dependency audit
+
+Recents
+
+Fix the double-charge bug in checkout
+
+Write tests for the payments module
+
+Explain what this repo does
+
+Layout's broken on mobile
+
+Debug flaky CI tests
+
+Susan Sample
+
+acme-dashboard/Add a dark mode toggle to settings
+
+Add a dark mode toggle to the settings page. Should remember the choice and follow the system default until they pick one.
+
+There's already a `ThemeProvider` wrapping the app but it's hard-wired to light. I'll lift the mode into context, persist it to `localStorage`, and add a Light / Dark segmented control under **Settings → Appearance**.
+
+just now
+
+Read 4 files, searched the codebase
+
+Edited **ThemeProvider.tsx** +18 -2
+
+src/theme/ThemeProvider.tsx
+
+10`export function ThemeProvider({children}: {children: ReactNode}) {`
+
+11+ `const prefersDark = useMediaQuery('(prefers-color-scheme: dark)')`
+
+12 `const stored = localStorage.getItem('theme')`
+
+13+ `const [mode, setMode] = useState(stored ?? (prefersDark ? 'dark' : 'light'))`
+
+14 
+
+15+ `useEffect(() => {`
+
+16+ `localStorage.setItem('theme', mode)`
+
+17+ `}, [mode])`
+
+18 
+
+19 `return (`
+
+20 `<ThemeContext.Provider value={{mode, setMode}}>`
+
+21 `{children}`
+
+Edited **settings.tsx** +21 -0
+
+Edited **tokens.css** +24 -0
+
+Ran 2 commands
+
+Done — the **Appearance** section now has the toggle. Preview's on the right; flip it and the whole app should follow. Reduce-motion and density rows are stubbed so the page doesn't look bare.
+
+just now
+
+#112acme-dashboardclaude/settings-dark-mode-Xk4fq CI
+
+Auto
+
+OpusExtra high
+
+localhost:5173/settings
+
+Appearance
+
+Theme
+
+Choose how the dashboard looks.
+
+LightDark
+
+Density
+
+Compact rows for power users.
+
+DefaultCompact
+
+Reduce motion
+
+Disable animations and transitions.
 
 *   ![Zapier](https://cdn.sanity.io/images/4zrzovbb/claude-com/45b28686c9eef050f33527795f492fe49d921709-103x28.svg)
     
@@ -60,18 +164,6 @@ Try Claude Code (opens in new tab)Developer docs (opens in new tab)
     
 *   ![Figma](https://cdn.sanity.io/images/4zrzovbb/claude-com/bd0bd7f83f4cd7a5d5d985a5b533d4b1ad8de917-128x35.svg)
     
-
-Use Claude Code where you work
-
-DesktopTerminalIDEWeb and iOSSlack
-
-![Claude Code desktop app](https://cdn.sanity.io/images/4zrzovbb/claude-com/e1f6dfe23221c0849b7c850cc0b73bf24ccbf2e9-2196x928.png)
-
-### Claude Code on desktop
-
-Run Claude Code in the desktop app. Manage multiple parallel tasks, review visual diffs, preview servers, and monitor PR status, all from one place.
-
-Download Claude for desktop
 
 ## Get started with Claude Code
 
@@ -111,23 +203,25 @@ Usage limits apply. Prices shown don't include applicable tax. Price and plans a
 
 Usage limits apply. Price and plans are subject to change at Anthropic's discretion.
 
-## Start a task from your phone, come back to a pull request
+## Latest feature announcements
 
-Route tasks to the desktop app from the Claude mobile app. Claude runs on your local machine and can open your apps, click through your UI, and test what it built. Now in research preview on Pro and Max plans.
+### Dynamic workflows: Tackle the most challenging tasks by executing across 10s to 100s of parallel subagents, and checking its work before anything reaches you.
 
-Pair with your phone
+BlogMay 28, 2026
 
-### Message Claude from your phone
+### Agent view: One place to manage all your Claude Code sessions.
 
-Describe the bug, the feature, or the refactor. Claude picks up your codebase context where you left off.
+BlogMay 11, 2026
 
-### Claude works on your local machine
+### Routines: Configure a routine once, and it can run on a schedule, from an API call, or in response to an event.
 
-It reads code in your local environment, writes changes, runs tests, and opens a PR. No setup or context files to select.
+BlogApr 14, 2026
 
-### You get a working pull request
+### Computer use: Claude now opens your apps, navigates your browser, and runs your dev tools to complete tasks.
 
-Not just a status update: a clean diff, passing tests, a ready-to-merge branch. You review, run CI, and decide what ships next.
+BlogMar 23, 2026
+
+View changelog(opens in new tab)
 
 ## What could you do with Claude Code?
 
@@ -229,24 +323,6 @@ The architecture allows for both using Excalidraw as a component in other applic
     Claude Code's understanding of your codebase and dependencies enables it to make powerful, multi-file edits that work.
     
 
-### Powerful intelligence
-
-*   Uses agentic search to understand your entire codebase without manual context selection
-*   Makes coordinated changes across multiple files
-*   Optimized specifically for code understanding and generation with Claude models
-
-### Works where you work
-
-*   Lives right inside your terminal—no context switching
-*   Integrates with VS Code / JetBrains IDEs
-*   Uses your test suites and build systems
-
-### You're in control
-
-*   Never modifies your files without explicit approval
-*   Adapts to your coding standards and patterns
-*   Configurable: Build on the SDK or run on GitHub Actions
-
 ## Meets you where you code
 
 ![Claude Code running in a terminal](https://cdn.sanity.io/images/4zrzovbb/claude-com/414e92e0a09c3fb2b45b93a9fcfaa8cb3531a341-920x920.webp)
@@ -280,26 +356,6 @@ Open in browser (opens in new tab)Download app
 ## Kick off coding tasks in Slack
 
 Add to Slack (opens in new tab)Learn more
-
-## Latest feature announcements
-
-### Dynamic workflows: Tackle the most challenging tasks by executing across 10s to 100s of parallel subagents, and checking its work before anything reaches you.
-
-BlogMay 28, 2026
-
-### Agent view: One place to manage all your Claude Code sessions.
-
-BlogMay 11, 2026
-
-### Routines: Configure a routine once, and it can run on a schedule, from an API call, or in response to an event.
-
-BlogApr 14, 2026
-
-### Computer use: Claude now opens your apps, navigates your browser, and runs your dev tools to complete tasks.
-
-BlogMar 23, 2026
-
-View changelog(opens in new tab)
 
 ## What developers are saying
 

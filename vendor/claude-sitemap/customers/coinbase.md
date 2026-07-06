@@ -18,7 +18,7 @@ Varsha Mahadevan, Senior Engineering Manager at Coinbase, explains, "The crypto 
 
 ## Selecting Claude for performance, flexibility, and security
 
-Coinbase chose Claude for its performance, multi-cloud flexibility, and robust security features. Varsha Mahadevan, Senior Engineering Manager at Coinbase, emphasizes, “Claude outperformed all competitors in our internal tests, making it the top choice for our needs. Its performance and availability in AWS Bedrock and Google Vertex AI were key in our decision.”
+Coinbase chose Claude for its performance, multi-cloud flexibility, and robust security features. Varsha Mahadevan, Senior Engineering Manager at Coinbase, emphasizes, “Claude outperformed all competitors in our internal tests, making it the top choice for our needs. Its performance and availability in AWS Bedrock and Google Cloud were key in our decision.”
 
 Coinbase's multi-cloud strategy with Claude addresses challenges in the volatile crypto market. Mahadevan explains, "In our industry, it's essential that customers have uninterrupted access to their funds. We're committed to achieving 99.9999% availability for near-constant uptime and reliability." This approach ensures high availability and effective load balancing, and enhances security through redundancy. The multi-cloud setup optimizes performance and cost by managing AI model quotas across different cloud platforms.
 

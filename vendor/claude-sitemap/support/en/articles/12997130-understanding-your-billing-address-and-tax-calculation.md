@@ -10,7 +10,7 @@ Your billing address is automatically set to match your payment method's billing
 
 You can update your billing address directly in Settings → Billing → Billing Addresses. Changes take effect immediately for future invoices.
 
-### API (usage tier 1-4 / self-serve)
+### API (usage tiers / self-serve)
 
 Your billing address is tied to your payment method. Update your payment method by navigating to [Settings > Billing in the Claude Console](https://platform.claude.com/settings/billing) and clicking the pencil icon to the right of your current card number to change your billing address.
 

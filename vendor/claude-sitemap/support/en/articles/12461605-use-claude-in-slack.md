@@ -1,3 +1,5 @@
+Claude in Slack will be switched over to the new Claude Tag experience on August 3, 2026. To integrate Claude and Slack, use Claude Tag instead. Learn more **[about Claude Tag](https://support.claude.com/en/articles/15594475)**.
+
 Claude in Slack gives you AI assistance right where your team collaborates. This article covers how to interact with Claude in Slack, which features are available, and tips for getting the most out of the integration.
 
 ## Send a direct message to Claude
@@ -24,7 +26,7 @@ Claude in Slack gives you AI assistance right where your team collaborates. This
 
 6. Access previous conversations by clicking the clock icon.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1781748900&amp;signature=449d72b7e82bfc3760e78cf191594f28644b698aac9d73a2ec1ec08c8f6bb98a&amp;req=dSciE8h7nYdZWPMW1HO4zXK26hBJ7DkXVfOC%2FRy97LXYK50cWj9FHKEd1MBc%0AUcBR%2FZVi5L26Q4YYzBc%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1782913500&amp;signature=fbea222a1c97b4748cf53f38343a93fa2e45fc520ead53ea44f123639c20c952&amp;req=dSciE8h7nYdZWPMW1HO4zXK26hNH6TIbVfOC%2FRy97LXzzs2ZVLvWuMLEUV%2F5%0AKCWQ2g0P%2F32j0hw%2BoBg%3D%0A)
 
 ## Mention @Claude in a thread or channel
 
