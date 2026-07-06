@@ -1,0 +1,26 @@
+# CODEOWNERS — knowledge-engineering
+# Collaborators: admin-jadecli, alex-jadecli, alex-osa
+# @cite: gh api repos/subagentceo/knowledge-engineering/collaborators
+
+# Global: all paths require admin-jadecli review
+* @admin-jadecli @alex-jadecli
+
+# Infrastructure & data contracts — admin-jadecli owns merge authority
+infra/                      @admin-jadecli
+data/models/                @admin-jadecli @alex-jadecli
+schemas/                    @admin-jadecli
+
+# Source code — all three collaborators
+src/                        @admin-jadecli @alex-jadecli @alex-osa
+scripts/                    @admin-jadecli @alex-jadecli
+
+# GitHub config — admin only
+.github/                    @admin-jadecli
+.github/CODEOWNERS          @admin-jadecli
+
+# Tailscale + infra docs
+docs/tailscale/             @admin-jadecli @alex-jadecli
+docs/                       @admin-jadecli @alex-jadecli
+
+# Vendor mirrors — CI-controlled, no human approval needed for pure mirror PRs
+vendor/                     @admin-jadecli

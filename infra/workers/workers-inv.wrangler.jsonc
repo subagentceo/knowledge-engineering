@@ -1,0 +1,44 @@
+// infra/workers/workers-inv.wrangler.jsonc
+// workers.subagentknowledge.com — tagged Workers inventory
+// (name suffix -inv avoids collision with wrangler's own "workers" concept)
+//
+// @cite infra/containers/cloudflare/subdomains-plan.md
+// @cite infra/postgres/init/02-cloudflare-agent.sql
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "subagentknowledge-workers",
+  "main": "../../src/subdomains/workers-inv/worker.ts",
+  "compatibility_date": "2026-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "account_id": "e6294e3ea89f8207af387d459824aaae",
+
+  "routes": [
+    { "pattern": "workers.subagentknowledge.com", "custom_domain": true },
+    { "pattern": "workers.subagentknowledge.com/*", "custom_domain": true }
+  ],
+
+  "kv_namespaces": [
+    { "binding": "WORKERS_CACHE", "id": "PLACEHOLDER_KV_WORKERS_CACHE" }
+  ],
+
+  "hyperdrive": [
+    { "binding": "DB", "id": "PLACEHOLDER_HYPERDRIVE_ID" }
+  ],
+
+  "secrets_store_secrets": [
+    {
+      "binding": "CF_API_TOKEN",
+      "store_id": "BOOTSTRAP_PLACEHOLDER",
+      "secret_name": "CLOUDFLARE_API_TOKEN"
+    }
+  ],
+
+  "vars": {
+    "SITE_NAME": "subagentknowledge-workers",
+    "CF_ACCOUNT_ID": "e6294e3ea89f8207af387d459824aaae",
+    "REDIS_KEY_PREFIX": "cf:workers",
+    "CACHE_TTL_SECONDS": "3600",
+    // Canonical tag keys enforced by the tagging convention
+    "REQUIRED_TAG_KEYS": "owner,product,surface,env,iac,tier"
+  }
+}

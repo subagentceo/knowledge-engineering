@@ -1,0 +1,104 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: fact
+grain: one prompt/response turn per session (session_sk × turn_number)
+
+metadata:
+  name: fact_prompts
+  labels:
+    lane: session-context
+    source: infra/postgres/init/05-prompt-context.sql
+
+spec:
+  version: 1.0.0
+  schema: dw
+  codeowners:
+    - admin-jadecli
+    - alex-jadecli
+  sla_policy: append on every prompt turn; never UPDATE or DELETE
+  data_start_date: "2026-06-17"
+  allowed_operations:
+    - read
+    - append
+  description: >-
+    Append-only prompt/response event log. One row per conversation turn.
+    payload is a JSONB object (orjson-compatible format) containing the full
+    prompt text, response, tool calls, and token counts. Serialized via
+    JSON.stringify in TypeScript; msgpack for the L2 Redis cache tier.
+    Dedup via prompt_hash (SHA256 of payload text).
+  load_type: append_only
+  columns:
+    - name: prompt_id
+      kind: dimension
+      sql_type: bigint
+      description: surrogate key (GENERATED ALWAYS AS IDENTITY)
+    - name: session_sk
+      kind: dimension
+      sql_type: bigint
+      description: "FK → dw.fact_sessions.session_sk"
+    - name: turn_number
+      kind: dimension
+      sql_type: integer
+      description: "1-indexed conversation turn within the session"
+    - name: role
+      kind: dimension
+      sql_type: text
+      description: "turn actor: user | assistant | tool_use | tool_result"
+    - name: model
+      kind: dimension
+      sql_type: text
+      description: "Claude model ID used for this turn (claude-sonnet-4-6 | claude-opus-4-8)"
+    - name: prompt_hash
+      kind: dimension
+      sql_type: text
+      description: "SHA256 hex digest of payload text for deduplication"
+    - name: payload
+      kind: dimension
+      sql_type: jsonb
+      description: >-
+        orjson-style JSONB: { prompt: string, response: string, tool_calls: [...],
+        input_tokens: number, output_tokens: number }. Serialized via JSON.stringify
+        (msgpack for L2 cache). Never PII-scrubbed — access restricted to codeowners.
+    - name: occurred_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: wall-clock timestamp of this turn
+    - name: prompt_count
+      kind: measure
+      measure_type: count
+      sql_type: bigint
+      description: total prompt turns across all sessions
+    - name: input_tokens
+      kind: measure
+      measure_type: sum
+      sql_type: bigint
+      description: sum of input tokens consumed across all turns
+    - name: output_tokens
+      kind: measure
+      measure_type: sum
+      sql_type: bigint
+      description: sum of output tokens generated across all turns
+    - name: avg_input_tokens
+      kind: measure
+      measure_type: avg
+      sql_type: numeric
+      description: average input tokens per turn
+      calculation:
+        expression: "SUM(input_tokens)::numeric / NULLIF(COUNT(*), 0)"
+        inherits:
+          - fact_prompts.input_tokens
+          - fact_prompts.prompt_count
+        result_type: numeric
+    - name: avg_output_tokens
+      kind: measure
+      measure_type: avg
+      sql_type: numeric
+      description: average output tokens per turn
+      calculation:
+        expression: "SUM(output_tokens)::numeric / NULLIF(COUNT(*), 0)"
+        inherits:
+          - fact_prompts.output_tokens
+          - fact_prompts.prompt_count
+        result_type: numeric
