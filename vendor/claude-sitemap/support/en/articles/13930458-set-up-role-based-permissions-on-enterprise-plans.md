@@ -50,7 +50,7 @@ Create roles that map to departments: "Engineering" with chat, Cowork, Claude Co
 
 ### Admin delegation roles
 
-Create roles that delegate parts of administration without granting the Owner role. A custom role with admin permissions does not need any user capabilities, and vice versa. You could create a "Finance" role that grants Billing access but no chat or Claude Code capability, or an "Engineering Lead" role that grants Claude Code plus Analytics view access.
+Create roles that delegate parts of administration without granting the Owner role. A custom role with admin permissions does not need any user capabilities, and vice versa. You could create a "Finance" role that grants Billing access but no chat or Claude Code capability, or an "Engineering Lead" role that grants Claude Code plus Analytics view access. Learn more **[about admin permissions for custom roles](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans#h_536123d968)**.
 
 ---
 
@@ -64,7 +64,7 @@ Create roles that delegate parts of administration without granting the Owner ro
 
 4. For each team or department, decide which features they need access to.
 
-![Image of the Organization settings page in Claude, with a box around the People section which contains three options: Members, Groups, and Roles.](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484535492/d17b343f54f754bb3af73fe880a9/Org+settings+-+People.png?expires=1782913500&amp;signature=bb72751e8e8d4f509812aef1caab42d5f97e74fd14cd340a8c4467aaccf35df0&amp;req=diQvEsx9mIVWW%2FMW1HO4zVA%2FMtiZLo6vvDbmWeIt%2FcQZeGal70%2Bz7EjXP3Xf%0AnAFWMkvSJhreAlCTCP8%3D%0A)
+![Image of the Organization settings page in Claude, with a box around the People section which contains three options: Members, Groups, and Roles.](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484535492/d17b343f54f754bb3af73fe880a9/Org+settings+-+People.png?expires=1783364400&amp;signature=c64d9286cb0b8d9b2d5e92577d8ea8f6a45bbe1106a33207406b91019a2cf840&amp;req=diQvEsx9mIVWW%2FMW1HO4zVA%2FMtmTKYmuvDbmWeIt%2FcSXb1tTFrIoCuon8CI3%0AtVWDa8k9ypb1IZ9kXRw%3D%0A)
 
 Remember: any feature you want to control per-group must be **enabled** at the organization level. If a feature is toggled off at the organization level, no custom role can grant access to it.
 
@@ -86,11 +86,13 @@ Create your custom roles before enabling any features or migrating members. This
 
 5. On the **Connectors** tab, set connector permissions for the role. See **Step 4**.
 
-6. Click "Save role."
+6. On the **Models** tab, set model access and a default model for the role. See **Step 5**.
 
-7. Repeat for each role in your plan.
+7. Click "Save role."
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484538135/3bb38b040a9aa2535770a7aa8f33/74ca013d-10c5-4430-9877-01db05f3a7f6?expires=1782913500&amp;signature=b95ffdbf500bc96d900dcc516c76840957b665a118f62c9b9c0d147fc984257a&amp;req=diQvEsx9lYBcXPMW1HO4zfPISfMKbbY%2FPA6fossz95I5vGSQGR0wXqVn5zpn%0Ae1pECEvToYGG6vZwFpM%3D%0A)
+8. Repeat for each role in your plan.
+
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484538135/3bb38b040a9aa2535770a7aa8f33/74ca013d-10c5-4430-9877-01db05f3a7f6?expires=1783364400&amp;signature=b0600f172844047294f74f76bfc94fe2a5fce46f9c9038d4e06505829ecef5ee&amp;req=diQvEsx9lYBcXPMW1HO4zfPISfIAarE%2BPA6fossz95IPEvn8FsPTqz9CnPQp%0Ab0PYC4O%2FQwj5QKgOoWI%3D%0A)
 
 Role changes may take up to 15 minutes to take effect. Members may need to refresh their browser to see updated access.
 
@@ -110,7 +112,7 @@ Set admin permissions on each role to delegate access to admin settings, like bi
 
 3. Select the **Permissions** tab, between **Capabilities** and **Connectors**.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484538453/66f52673b2d1fc7b0d4b48ed4ff6/fbf992ce-c4a1-402e-80cd-0c8449f916bd?expires=1782913500&amp;signature=1ba27e61ec4c5bd897a94ec798f1f7774bafd58c005000eb12beb4faa09c8036&amp;req=diQvEsx9lYVaWvMW1HO4za6MibCuXUGCJQR8u%2B9qQFnDz1mKl0YsNEobPtZX%0AC%2FlTkkPGXhIeyUioP7o%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484538453/66f52673b2d1fc7b0d4b48ed4ff6/fbf992ce-c4a1-402e-80cd-0c8449f916bd?expires=1783364400&amp;signature=82d7478f8dc4e18fb6553f6b76c2319969af5e277978bc9b73e70bfdd2e12e1a&amp;req=diQvEsx9lYVaWvMW1HO4za6MibGkWkaDJQR8u%2B9qQFm7%2Fa3exWncaSyOY0sz%0AIPCb%2BLwtuRAM8rjwR7U%3D%0A)
 
 ### **Set admin permissions**
 
@@ -128,7 +130,7 @@ Within an area, you grant all of View or all of Manage. You can't grant or restr
 
 ### **Verify enforcement**
 
-Verify admin permissions after you’ve migrated members to "Custom" roles (Step 7). See **Step 10: Verify and monitor**.
+Verify admin permissions after you’ve migrated members to "Custom" roles (Step 7). See **Step 11: Verify and monitor**.
 
 ---
 
@@ -150,7 +152,7 @@ Set connector permissions on each role to control which connectors, and which to
 
 The default settings for new roles are permissive. When creating or modifying a role, confirm the settings on each tab to avoid granting unintended permissions.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484539079/2325428311fffccd6951d5f2dc46/e4326a16-d44b-4e5d-9ecd-5c3dbbc7651a?expires=1782913500&amp;signature=c358ea13bba09250e9257bd16d3e400f33ec78830b9ea7ea1914fb5c69c64a30&amp;req=diQvEsx9lIFYUPMW1HO4zZGDXFuqCfV3HNJQDqL6ZaAbaTuRSqNAPCs6PuOA%0AjZIwuFvb4jDoo9%2FGPq0%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484539079/2325428311fffccd6951d5f2dc46/e4326a16-d44b-4e5d-9ecd-5c3dbbc7651a?expires=1783364400&amp;signature=8516c3550733bfabca545b45655ccd3e5812cb018714ac1aa89004a57d31a874&amp;req=diQvEsx9lIFYUPMW1HO4zZGDXFqgDvJ2HNJQDqL6ZaAbjwLaE4mN%2F%2B2UK4vS%0AjwOeP9SXiLiR8hYrS8k%3D%0A)
 
 ### Set connector-level permissions
 
@@ -166,7 +168,7 @@ The **Connectors** tab lists an **All connectors** row at the top, followed by e
 
 Choosing “Always allow,” “Needs approval,” or “Blocked” applies that level to every tool on the connector. The **All connectors** row works the same way one level up: it sets a baseline for every connector at once, including any connector you add later. Use it to set a role’s default, then override individual connectors.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484540660/36fd30e963d7881bbff5b85bdf32/cc91e30c-af8c-4271-bff4-b34393d6122e?expires=1782913500&amp;signature=5c69cf0a8265d88a8571aa729626624be5480ea744fb177a39baa544014419a4&amp;req=diQvEsx6nYdZWfMW1HO4za3dLASO3YUt%2B48W%2BGCIbmfvpAkC39n%2BrxZmqQ3I%0AeEOtw2grkMgEwaUP50M%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484540660/36fd30e963d7881bbff5b85bdf32/cc91e30c-af8c-4271-bff4-b34393d6122e?expires=1783364400&amp;signature=6a02d083c2025bfcdffdf392f6bd7d74e429ec57a049bbe84a436c5a7fa9e81d&amp;req=diQvEsx6nYdZWfMW1HO4za3dLAWE2oIs%2B48W%2BGCIbmf5DR1Vi%2FOnlhrb%2BBcb%0AdKdY7EI6KdOjjnDs01s%3D%0A)
 
 ### Set per-tool permissions
 
@@ -174,7 +176,7 @@ Set a connector to **Custom** to reveal its tools as individual rows. Each tool 
 
 Per-tool permissions let a role reach part of a connector. For example, with Jira set to **Custom**, its `search_issues` tool set to “Needs approval,” and every other Jira tool set to “Blocked,” members with the role can search Jira but nothing else. Claude only sees the tools you’ve granted, so asking it to create a ticket returns “I don’t have a tool for that” rather than an error.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484553274/3c0781dc9c7704a7b67d4858b88b/Screenshot+2026-06-17+at+4_28_45%E2%80%AFPM.png?expires=1782913500&amp;signature=28cb6b639717e36eb1adb05a5ca1fdf524663ff59450c664be94344048985d34&amp;req=diQvEsx7noNYXfMW1HO4zXcI%2BoVJBdxm1VjQ9K3ENRt%2FLRMtXrY7Fhneopm5%0Ao35AW2luV4X583ugtus%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484553274/3c0781dc9c7704a7b67d4858b88b/Screenshot+2026-06-17+at+4_28_45%E2%80%AFPM.png?expires=1783364400&amp;signature=40a28d79ce9b30fe8352924199cc8abe1b1572d515832889dc95ef78d32d88c7&amp;req=diQvEsx7noNYXfMW1HO4zXcI%2BoRDAttn1VjQ9K3ENRsZjDWThEehBg7%2BHIDR%0AHVXSQ4bf3jzBmFglB%2FQ%3D%0A)
 
 ### Review cross-role conflicts
 
@@ -182,17 +184,45 @@ Because connector permissions are additive across roles, blocking a connector in
 
 If you have unsaved edits when you open a linked role, you’re asked to discard them first.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484556183/b644bbfba5350ae2a460117f23e3/Screenshot+2026-06-17+at+4_31_03%E2%80%AFPM.png?expires=1782913500&amp;signature=d6baf324409515d8e2cfeea516518ac26da3af4b8bd292e0186b82c13b4ebe1e&amp;req=diQvEsx7m4BXWvMW1HO4zX8ytu8M4NfSGc8KkqwXsZ4LyIymEGsI3C5tVgvN%0AIgnFYfVGvg6n1j1mXYw%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484556183/b644bbfba5350ae2a460117f23e3/Screenshot+2026-06-17+at+4_31_03%E2%80%AFPM.png?expires=1783364400&amp;signature=240dfa6b16c14b786fea6a8f89713165d1fce17a0412a22a5e67012ae2084b03&amp;req=diQvEsx7m4BXWvMW1HO4zX8ytu4G59DTGc8KkqwXsZ4LEMOQ0tSE%2FD5oKZnk%0AaBFQIK5Zcvs9YyKGMF8%3D%0A)
 
 ### Verify enforcement
 
-Verify connector permissions after you’ve migrated members to "Custom" roles (Step 7). See **Step 10: Verify and monitor**.
+Verify connector permissions after you’ve migrated members to "Custom" roles (Step 7). See **Step 11: Verify and monitor**.
 
 **Important:** If your organization uses Claude Code, enabling connector permissions also applies your organization-wide tool policy to Claude Code. This can only narrow tool access there, never widen it, and it affects all members. Review your organization-wide tool policy before enablement if Claude Code is widely deployed. Connector permissions and Claude Code Managed Settings compose by most-restrictive. See **[Claude Code settings](https://code.claude.com/docs/en/settings#settings-files)**.
 
 ---
 
-## Step 5: Create groups and assign roles
+## Step 5: Configure model access (optional)
+
+Set model access on each role to control which Claude models the role can use, cap the maximum effort level per model, and choose the model new conversations start on. This step is optional; if you don't configure it, new roles can use every model that's enabled at the organization level, at any effort level, and start on the organization default model.
+
+For how the model access and default model settings work end to end, see **[Manage model access for your organization](https://support.claude.com/en/articles/15694740)** and **[Set a default model for your organization](https://support.claude.com/en/articles/15330088)**.
+
+### Locate the Models tab
+
+1. Navigate to **[Organization settings > Roles](https://claude.ai/admin-settings/roles)**.
+
+2. Open an existing role, or click "Add role" to create one.
+
+3. Select the **Models** tab, next to **Connectors**.
+
+### Set model access
+
+Under **Model access**, switch each model on or off for this role. Models disabled at the organization level appear but can't be enabled here until you turn them on for the organization in **[Organization settings > Models](http://claude.ai/admin-settings/models)**. Haiku models are always on and can't be disabled.
+
+To cap the effort level a role can select on a model, click the gear icon next to the model and choose a level.
+
+Under **Default model**, optionally select the model new conversations start on for this role. Only models the role has access to can be selected.
+
+### Verify enforcement
+
+Verify model access after you've migrated members to "Custom" roles. See **Step 11: Verify and monitor**.
+
+---
+
+## Step 6: Create groups and assign roles
 
 1. Navigate to **[Organization settings > Groups](http://claude.ai/admin-settings/groups)**.
 
@@ -202,13 +232,13 @@ Verify connector permissions after you’ve migrated members to "Custom" roles (
 
 4. Assign each group to the custom roles you created in step 2.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2260371973/b503c99ef71d8a89b7aff606511b/b1afd593-3b23-4fa9-8b9b-ee6beaf74fd7?expires=1782913500&amp;signature=b5a83869d1bdc4f7ba3bb2c5b86a08925f4f99d8c564e294f81f2c90896e5623&amp;req=diIhFsp5nIhYWvMW1HO4zdMu8WJ%2FGwpvKwlCydrbfL6jraAxJ6yk8bNcuKzL%0AL6a4cCoXJiubphU%2Bpbo%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2260371973/b503c99ef71d8a89b7aff606511b/b1afd593-3b23-4fa9-8b9b-ee6beaf74fd7?expires=1783364400&amp;signature=58b281183e6624fdbf031b4bb83209c6d12833ecafbcd336a3d005c05172eb21&amp;req=diIhFsp5nIhYWvMW1HO4zdMu8WN1HA1uKwlCydrbfL4gvjW%2BIAFHWWJg5oQU%0ABuq5BKt1BJB24968aY0%3D%0A)
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2260372813/83ccc4784bdfc8600101bc42ec4b/6e7456ac-9887-4e04-b757-3972110fbdce?expires=1782913500&amp;signature=f4a5cf52c67fd1fe5f4f00fdc825a9ddc45bd619d860ba2ff3f2cf5a6857b5f3&amp;req=diIhFsp5n4leWvMW1HO4zQetnyFeZaz9czQdKdGFNschEF%2BheSAbj9Mdjo3O%0ANshtgJzis2GeqarVcQs%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2260372813/83ccc4784bdfc8600101bc42ec4b/6e7456ac-9887-4e04-b757-3972110fbdce?expires=1783364400&amp;signature=77c8ea678a53e04823d43d4f4047277321547818d1da6a558d46e335c231fd10&amp;req=diIhFsp5n4leWvMW1HO4zQetnyBUYqv8czQdKdGFNsfKsMagTobHn6D0Ca3v%0AQP0nbeSvJWOR9wgdaGg%3D%0A)
 
 If you use SCIM directory sync, you can sync groups from your identity provider instead of creating them manually. For details on SCIM group sync, see **[Manage groups and group spend limits on Enterprise plans](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)**.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2260374677/5f9d8febb8ae25153a94d0b827b9/c8314b27-96c1-4743-ae8b-25e511181837?expires=1782913500&amp;signature=0bdd9bab17b28641c08a3258429c4e19d67f31070d2bac40d15016d1b9eef8f6&amp;req=diIhFsp5mYdYXvMW1HO4zXzl64186TifKYkQn0Dd8NUPA5hWg%2B9qygWigUVc%0AuDZhtr%2B2ary6daCSczE%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2260374677/5f9d8febb8ae25153a94d0b827b9/c8314b27-96c1-4743-ae8b-25e511181837?expires=1783364400&amp;signature=a0e2946283bfeb246ec13d3417dcfc5c47a0dcd271d99d3a05841b176fe91011&amp;req=diIhFsp5mYdYXvMW1HO4zXzl64x27j%2BeKYkQn0Dd8NXGqLeHhFR5CVH0CnfS%0AuvfgUUNIc3dVKFSW0dc%3D%0A)
 
 **Multiple organizations under the same parent organization:** Groups are managed at the parent organization level and propagate to all child organizations. You may see members from other organizations listed in a group—this doesn't mean they have access to your organization. Custom roles assigned to a group only grant capabilities to members who are part of your specific organization.
 
@@ -218,7 +248,7 @@ If you request to move an organization from one parent to another (this is rare 
 
 ---
 
-## Step 6: Verify group and role assignments
+## Step 7: Verify group and role assignments
 
 Before migrating members to custom roles, confirm that every member you plan to migrate is in at least one group assigned to a custom role. Members who are migrated without group or role coverage will lose access to all governed features.
 
@@ -232,7 +262,7 @@ Before migrating members to custom roles, confirm that every member you plan to 
 
 ---
 
-## Step 7: Migrate members to custom roles
+## Step 8: Migrate members to custom roles
 
 For custom role capabilities to take effect, members must have their role set to "Custom." Members with the User, Admin, or Owner roles get their permissions from those roles directly, not from custom roles.
 
@@ -250,7 +280,7 @@ Use this path only if your organization already enabled group mappings for role 
 
 3. Save your changes. Members in those IdP groups are migrated to "Custom" roles on the next sync.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2434934020/d154818947d8d84ebf1aec8d5462/image.png?expires=1782913500&amp;signature=4976f8895c5d89936e4cc9ab881c83bf7cb64ff31dc7e39cf208fc6c3f8a17d6&amp;req=diQkEsB9mYFdWfMW1HO4zQyCmE3qSEZtSnpHYy0fFQuQnuoAZ0gnDdSLReAK%0A4nD5vkixtI%2Bzpm6jpaI%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2434934020/d154818947d8d84ebf1aec8d5462/image.png?expires=1783364400&amp;signature=80d51f9919cb02a3ddc6e399e2b90eeb424ed39f62e3c33d5e4b27ebfe23a474&amp;req=diQkEsB9mYFdWfMW1HO4zQyCmEzgT0FsSnpHYy0fFQvFTfaW3lPcQLnAQPH0%0AKG19mghGrkww427nv%2Fw%3D%0A)
 
 Members in IdP groups mapped to "Custom" roles follow the permissions of the custom roles assigned to their groups in Claude. Members in IdP groups mapped to User follow the organization-level capability settings. If a member is in groups across both mappings, "Custom" roles take precedence.
 
@@ -266,11 +296,11 @@ Use this path if your organization hasn’t enabled group mappings.
 
 3. Use the bulk assignment tool in the Members table to change the selected members' role to "Custom."
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2260377969/ba3b7ba08518f0a50e2a84f82655/bdf1aea3-2fe7-4f3c-868b-cc35ae8b7d1d?expires=1782913500&amp;signature=8d1f3a85a6623989932465df14104524672e2ff4193d9188a025c3dd4a918fa7&amp;req=diIhFsp5mohZUPMW1HO4zYFuwIMrhMqJlPaXg%2F0URImjPyHlJUJdWZ8tGAbi%0AxARBq8AZ9I%2FCsWkd0vU%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2260377969/ba3b7ba08518f0a50e2a84f82655/bdf1aea3-2fe7-4f3c-868b-cc35ae8b7d1d?expires=1783364400&amp;signature=9cdc74f95ab6b9daf50b674137c9932973df0ae6354a4024e4ec316ce12abae1&amp;req=diIhFsp5mohZUPMW1HO4zYFuwIIhg82IlPaXg%2F0URIkH3s%2FZTv4LgmvkRupW%0AW3C28tih7YKYaQXJIJE%3D%0A)
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2260378309/abe25b6478c721a2f965b35361b7/beff124a-0a44-4f7f-97f8-391ce6e8c55b?expires=1782913500&amp;signature=46876f7868e3cf61077023af669d32a0dbbf814fc1d52e29dae4c5da49d44de8&amp;req=diIhFsp5lYJfUPMW1HO4zRgyEFrVUurTZ8KPhClFzQloVOsoOFG0iW68Z53G%0AAqP1msK4Fo6ETxhYFOU%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2260378309/abe25b6478c721a2f965b35361b7/beff124a-0a44-4f7f-97f8-391ce6e8c55b?expires=1783364400&amp;signature=470cc02a4461328286fd78ecd4269fdf5fbf07bf176fd36084ac2cdf671eb755&amp;req=diIhFsp5lYJfUPMW1HO4zRgyEFvfVe3SZ8KPhClFzQnQkfxOJM1aQXlmLPWO%0ACP%2BNrum3F9W1agXzFEE%3D%0A)
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484560173/7abf3438fa3d65afa03c4a99d4d4/Screenshot+2026-06-17+at+4_34_49%E2%80%AFPM.png?expires=1782913500&amp;signature=3b97b2dc2b6f3704ddaffc4618d08cbe8af6834e81c49b0103c20c7d6a107f87&amp;req=diQvEsx4nYBYWvMW1HO4zUXuwkx1KoBViQnXWL6R1K%2F2nV1ES646uaRjQl0I%0AT1PHfJTIndXnP8aO4XU%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2484560173/7abf3438fa3d65afa03c4a99d4d4/Screenshot+2026-06-17+at+4_34_49%E2%80%AFPM.png?expires=1783364400&amp;signature=5f35fe9bc0256e1e84b284acb049dbdcc2e9a89c21ad7ca3dc4ea585c1697130&amp;req=diQvEsx4nYBYWvMW1HO4zUXuwk1%2FLYdUiQnXWL6R1K9O7upGIbDWXABJ2OiN%0AJ4gVCFl4RmUf4wXRJv8%3D%0A)
 
 We recommend migrating a pilot group first—one team or department—and verifying their access is correct before expanding to the rest of the organization.
 
@@ -288,7 +318,7 @@ Whichever path you use, we recommend migrating in stages:
 
 ---
 
-## Step 8: Enable features at the organization level
+## Step 9: Enable features at the organization level
 
 Only enable organization-level features after roles, groups, and member migration are complete. This ensures custom role capabilities are already in place, with no window where unauthorized members could access a feature.
 
@@ -302,13 +332,13 @@ Enabling a feature at the organization level doesn't mean everyone gets it—cus
 
 ---
 
-## Step 9: Apply a group spend limit (usage-based orgs only)
+## Step 10: Apply a group spend limit (usage-based orgs only)
 
 Navigate to the “Usage” page to assign a per-user monthly spend limit to any group.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2260386576/377ac052069ff5a35b3023f50d12/dface609-9d85-4ee1-8ed3-bfe019a2bd0a?expires=1782913500&amp;signature=1c8652a1f3a07dde5319cbfd140b3009f95b0b9b97f0f7fb7450e466e4043348&amp;req=diIhFsp2m4RYX%2FMW1HO4zfvdi5WWRAWPBMkPcsY1DF6nWOjZPi%2Fjuy5cxNM%2B%0A%2BrXMZcak3rIkUsy2K8U%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2260386576/377ac052069ff5a35b3023f50d12/dface609-9d85-4ee1-8ed3-bfe019a2bd0a?expires=1783364400&amp;signature=50f4e187d3ebc7e0814b3d9d80bc2c8de7fcde140cac44528b39fb278e1d284f&amp;req=diIhFsp2m4RYX%2FMW1HO4zfvdi5ScQwKOBMkPcsY1DF4%2FxmcPjTpY4CjcFpOc%0ANIhDfzoXLSP7Mrm0lbk%3D%0A)
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2260386575/b9798bb7a2ab92024fa4d97f2ff4/7b2327e1-ab3f-41e5-8be0-77c0f35a4015?expires=1782913500&amp;signature=4c1d542f716aab1537ba8d9976f0189581f917e9f1bb75c536271344dd47a5bb&amp;req=diIhFsp2m4RYXPMW1HO4zW55wNOQwVI0JuVz%2B3EZKJ4KYk4qKW6qS6hwNkRv%0AhVlvF67MBq%2BXx0zyjtg%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2260386575/b9798bb7a2ab92024fa4d97f2ff4/7b2327e1-ab3f-41e5-8be0-77c0f35a4015?expires=1783364400&amp;signature=2322fe090d797f79841bc48fd752a94241a94d9033132f20289b4e087a86fc2a&amp;req=diIhFsp2m4RYXPMW1HO4zW55wNKaxlU1JuVz%2B3EZKJ4unZYrY3a%2ByiOjSlBs%0AG7e6FKbebkOaxM%2FW05w%3D%0A)
 
 Note the following precedence rules:
 
@@ -322,7 +352,7 @@ Membership changes take effect automatically—users inherit or lose limits as s
 
 ---
 
-## Step 10: Verify and monitor
+## Step 11: Verify and monitor
 
 1. **Spot-check access**: Open the "⋮" menu on a the right side of a member's row in **[Organization settings > Members](https://claude.ai/admin-settings/members)** and select "View effective role." The modal shows every capability, admin permission, and connector the member has across all their roles, with a "Granted by" label naming which role provides each one. You can do the same for a group from **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**. For details, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452)**.
 
@@ -347,6 +377,12 @@ Membership changes take effect automatically—users inherit or lose limits as s
 - **Connector settings:** blocked tools are grayed out with “This tool is not enabled for your role. Contact your administrator.” Tools capped at “Needs approval” show a personal approval menu limited to “Ask” and “Never.”
 
 - **In a conversation:** ask Claude to use a blocked tool, and it reports it has no tool for the task. Ask it to use a “Needs approval” tool, and the approval prompt appears without an “Always allow” option.
+
+**If you configured model access, also check:**
+
+- **Model picker:** disabled models don't appear, and the effort menu stops at the role's cap.
+
+- **In a conversation:** ask the member to switch to a disabled model. It shouldn't be listed, and in Claude Code CLI, /model <disabled-model> returns an error.
 
 Role changes may take up to 15 minutes to take effect across the platform. Members may need to refresh their browser to see updated access.
 
@@ -417,6 +453,10 @@ Yes. The organization-level toggle must be on for custom roles to control per-me
 ### What happens if a member whose role is set to "Custom" isn't in any groups?
 
 They have no custom role permissions, so all features that require permissions are greyed out or hidden. Make sure every member whose roles is set to "Custom" is in at least one group that's assigned to a custom role.
+
+### A model is missing from a member's model picker.
+
+Either the model is disabled at the organization level (**[Organization settings > Models](http://claude.ai/admin-settings/models)**) or none of the member's custom roles grant it. Org-level disables affect everyone, including Owners and Admins.
 
 ### What if a custom role doesn't grant chat access?
 

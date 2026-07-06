@@ -8,7 +8,7 @@ The plugin provides six tools: `list_organizations` and `list_projects` for disc
 
 *   "Find sessions where users hit errors on the checkout page in the last 24 hours"
 *   "What are the top issues affecting users this week?"
-*   "Watch the session for user [email protected] and tell me what went wrong"
+*   "Watch the session for user jane@example.com and tell me what went wrong"
 *   "Build a metric showing page load times for /dashboard over the past month"
 *   "Show me sessions with rage clicks on the signup form"
 

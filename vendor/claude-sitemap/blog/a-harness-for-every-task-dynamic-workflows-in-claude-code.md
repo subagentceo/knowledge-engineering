@@ -202,6 +202,6 @@ To share them via a skill, put your JavaScript workflow files in the skill and f
 
 Workflows are a helpful new way to extend Claude Code. I encourage you to think of them as a starting point to explore new ways to use Claude to help accomplish your tasks. There is still much to discover in how to use them best. Let me know what you find. 
 
-‍
+_For principles on what belongs in a harness in the first place, see our three_ _harness design patterns_ _for building with Claude._
 
 _This article was written by Thariq Shihipar and Sid Bidasaria, members of technical staff at Anthropic working on Claude Code._

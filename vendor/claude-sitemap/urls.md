@@ -1,7 +1,7 @@
 ---
 vendor: claude-sitemap
 llms_txt: https://www.claude.com/llms.txt
-count: 1915
+count: 1928
 transform: html-extract
 ---
 
@@ -797,6 +797,7 @@ transform: html-extract
 | https://claude.com/customers/coinbase | `vendor/claude-sitemap/customers/coinbase.md` |
 | https://claude.com/customers/copy-ai | `vendor/claude-sitemap/customers/copy-ai.md` |
 | https://claude.com/customers/cove | `vendor/claude-sitemap/customers/cove.md` |
+| https://claude.com/customers/cox-and-accenture | `vendor/claude-sitemap/customers/cox-and-accenture.md` |
 | https://claude.com/customers/cox-automotive | `vendor/claude-sitemap/customers/cox-automotive.md` |
 | https://claude.com/customers/cox-communications-qa | `vendor/claude-sitemap/customers/cox-communications-qa.md` |
 | https://claude.com/customers/cred | `vendor/claude-sitemap/customers/cred.md` |
@@ -1136,9 +1137,14 @@ transform: html-extract
 | https://claude.com/plugins/gitlab | `vendor/claude-sitemap/plugins/gitlab.md` |
 | https://claude.com/plugins/goodmem | `vendor/claude-sitemap/plugins/goodmem.md` |
 | https://claude.com/plugins/gopls-lsp | `vendor/claude-sitemap/plugins/gopls-lsp.md` |
+| https://claude.com/plugins/grafana-assistant | `vendor/claude-sitemap/plugins/grafana-assistant.md` |
+| https://claude.com/plugins/grafana-cloud-mcp | `vendor/claude-sitemap/plugins/grafana-cloud-mcp.md` |
+| https://claude.com/plugins/grafana-mcp | `vendor/claude-sitemap/plugins/grafana-mcp.md` |
 | https://claude.com/plugins/greptile | `vendor/claude-sitemap/plugins/greptile.md` |
 | https://claude.com/plugins/helius | `vendor/claude-sitemap/plugins/helius.md` |
+| https://claude.com/plugins/honeycomb | `vendor/claude-sitemap/plugins/honeycomb.md` |
 | https://claude.com/plugins/hookify | `vendor/claude-sitemap/plugins/hookify.md` |
+| https://claude.com/plugins/hostinger | `vendor/claude-sitemap/plugins/hostinger.md` |
 | https://claude.com/plugins/huggingface-skills | `vendor/claude-sitemap/plugins/huggingface-skills.md` |
 | https://claude.com/plugins/human-resources | `vendor/claude-sitemap/plugins/human-resources.md` |
 | https://claude.com/plugins/hunter | `vendor/claude-sitemap/plugins/hunter.md` |
@@ -1175,6 +1181,7 @@ transform: html-extract
 | https://claude.com/plugins/mcp-server-dev | `vendor/claude-sitemap/plugins/mcp-server-dev.md` |
 | https://claude.com/plugins/mcp-tunnels | `vendor/claude-sitemap/plugins/mcp-tunnels.md` |
 | https://claude.com/plugins/mercadopago | `vendor/claude-sitemap/plugins/mercadopago.md` |
+| https://claude.com/plugins/mergify | `vendor/claude-sitemap/plugins/mergify.md` |
 | https://claude.com/plugins/microsoft-docs | `vendor/claude-sitemap/plugins/microsoft-docs.md` |
 | https://claude.com/plugins/migration-to-aws | `vendor/claude-sitemap/plugins/migration-to-aws.md` |
 | https://claude.com/plugins/mintlify | `vendor/claude-sitemap/plugins/mintlify.md` |
@@ -1200,6 +1207,7 @@ transform: html-extract
 | https://claude.com/plugins/php-lsp | `vendor/claude-sitemap/plugins/php-lsp.md` |
 | https://claude.com/plugins/pigment | `vendor/claude-sitemap/plugins/pigment.md` |
 | https://claude.com/plugins/pinecone | `vendor/claude-sitemap/plugins/pinecone.md` |
+| https://claude.com/plugins/pixeltable | `vendor/claude-sitemap/plugins/pixeltable.md` |
 | https://claude.com/plugins/planetscale | `vendor/claude-sitemap/plugins/planetscale.md` |
 | https://claude.com/plugins/playground | `vendor/claude-sitemap/plugins/playground.md` |
 | https://claude.com/plugins/playwright | `vendor/claude-sitemap/plugins/playwright.md` |
@@ -1208,6 +1216,7 @@ transform: html-extract
 | https://claude.com/plugins/postiz | `vendor/claude-sitemap/plugins/postiz.md` |
 | https://claude.com/plugins/postman | `vendor/claude-sitemap/plugins/postman.md` |
 | https://claude.com/plugins/pr-review-toolkit | `vendor/claude-sitemap/plugins/pr-review-toolkit.md` |
+| https://claude.com/plugins/preset-cli-skills | `vendor/claude-sitemap/plugins/preset-cli-skills.md` |
 | https://claude.com/plugins/prisma | `vendor/claude-sitemap/plugins/prisma.md` |
 | https://claude.com/plugins/private-equity | `vendor/claude-sitemap/plugins/private-equity.md` |
 | https://claude.com/plugins/product-management | `vendor/claude-sitemap/plugins/product-management.md` |
@@ -1226,6 +1235,7 @@ transform: html-extract
 | https://claude.com/plugins/rc | `vendor/claude-sitemap/plugins/rc.md` |
 | https://claude.com/plugins/redis-development | `vendor/claude-sitemap/plugins/redis-development.md` |
 | https://claude.com/plugins/remember | `vendor/claude-sitemap/plugins/remember.md` |
+| https://claude.com/plugins/render | `vendor/claude-sitemap/plugins/render.md` |
 | https://claude.com/plugins/resend | `vendor/claude-sitemap/plugins/resend.md` |
 | https://claude.com/plugins/revenuecat | `vendor/claude-sitemap/plugins/revenuecat.md` |
 | https://claude.com/plugins/rill | `vendor/claude-sitemap/plugins/rill.md` |
@@ -1287,6 +1297,7 @@ transform: html-extract
 | https://claude.com/plugins/versori-skills | `vendor/claude-sitemap/plugins/versori-skills.md` |
 | https://claude.com/plugins/vibe-prospecting | `vendor/claude-sitemap/plugins/vibe-prospecting.md` |
 | https://claude.com/plugins/voila-api | `vendor/claude-sitemap/plugins/voila-api.md` |
+| https://claude.com/plugins/vsql-extension-builder | `vendor/claude-sitemap/plugins/vsql-extension-builder.md` |
 | https://claude.com/plugins/wealth-management | `vendor/claude-sitemap/plugins/wealth-management.md` |
 | https://claude.com/plugins/windsor-ai | `vendor/claude-sitemap/plugins/windsor-ai.md` |
 | https://claude.com/plugins/wix | `vendor/claude-sitemap/plugins/wix.md` |
@@ -1298,6 +1309,7 @@ transform: html-extract
 | https://claude.com/plugins/zoom-plugin | `vendor/claude-sitemap/plugins/zoom-plugin.md` |
 | https://claude.com/plugins/zoominfo | `vendor/claude-sitemap/plugins/zoominfo.md` |
 | https://claude.com/plugins/zscaler | `vendor/claude-sitemap/plugins/zscaler.md` |
+| https://claude.com/plugins/zyte-web-data | `vendor/claude-sitemap/plugins/zyte-web-data.md` |
 | https://claude.com/pricing/enterprise | `vendor/claude-sitemap/pricing/enterprise.md` |
 | https://claude.com/pricing/max | `vendor/claude-sitemap/pricing/max.md` |
 | https://claude.com/pricing/team | `vendor/claude-sitemap/pricing/team.md` |
@@ -1346,7 +1358,6 @@ transform: html-extract
 | https://claude.com/resources/tutorials/claude-for-sales | `vendor/claude-sitemap/resources/tutorials/claude-for-sales.md` |
 | https://claude.com/resources/tutorials/configuration-and-multi-file-skills | `vendor/claude-sitemap/resources/tutorials/configuration-and-multi-file-skills.md` |
 | https://claude.com/resources/tutorials/connect-your-tools-to-unlock-a-smarter-more-capable-ai-companion | `vendor/claude-sitemap/resources/tutorials/connect-your-tools-to-unlock-a-smarter-more-capable-ai-companion.md` |
-| https://claude.com/resources/tutorials/cowork-onboarding-guide | `vendor/claude-sitemap/resources/tutorials/cowork-onboarding-guide.md` |
 | https://claude.com/resources/tutorials/create-and-edit-files-with-claude-to-eliminate-hours-of-busy-work | `vendor/claude-sitemap/resources/tutorials/create-and-edit-files-with-claude-to-eliminate-hours-of-busy-work.md` |
 | https://claude.com/resources/tutorials/create-professional-results-across-tools-with-claude-sonnet-4-5 | `vendor/claude-sitemap/resources/tutorials/create-professional-results-across-tools-with-claude-sonnet-4-5.md` |
 | https://claude.com/resources/tutorials/creating-your-first-skill | `vendor/claude-sitemap/resources/tutorials/creating-your-first-skill.md` |
@@ -1795,7 +1806,7 @@ transform: html-extract
 | https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design | `vendor/claude-sitemap/support/en/articles/14604397-set-up-your-design-system-in-claude-design.md` |
 | https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans | `vendor/claude-sitemap/support/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans.md` |
 | https://support.claude.com/en/articles/14604416-get-started-with-claude-design | `vendor/claude-sitemap/support/en/articles/14604416-get-started-with-claude-design.md` |
-| https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude | `vendor/claude-sitemap/support/en/articles/14604842-real-time-cyber-safeguards-on-claude.md` |
+| https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet | `vendor/claude-sitemap/support/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet.md` |
 | https://support.claude.com/en/articles/14625619-claim-and-migrate-accounts-on-your-domain | `vendor/claude-sitemap/support/en/articles/14625619-claim-and-migrate-accounts-on-your-domain.md` |
 | https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account | `vendor/claude-sitemap/support/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account.md` |
 | https://support.claude.com/en/articles/14661296-use-claude-security | `vendor/claude-sitemap/support/en/articles/14661296-use-claude-security.md` |
@@ -1825,6 +1836,8 @@ transform: html-extract
 | https://support.claude.com/en/articles/15537633-authorize-mcp-connectors-for-your-entire-organization | `vendor/claude-sitemap/support/en/articles/15537633-authorize-mcp-connectors-for-your-entire-organization.md` |
 | https://support.claude.com/en/articles/15591275-child-safety-guidance-for-developers | `vendor/claude-sitemap/support/en/articles/15591275-child-safety-guidance-for-developers.md` |
 | https://support.claude.com/en/articles/15594475-what-is-claude-tag | `vendor/claude-sitemap/support/en/articles/15594475-what-is-claude-tag.md` |
+| https://support.claude.com/en/articles/15694740-manage-model-access-for-your-organization | `vendor/claude-sitemap/support/en/articles/15694740-manage-model-access-for-your-organization.md` |
+| https://support.claude.com/en/articles/15707726-using-claude-for-legal-work-privilege-confidentiality-and-how-to-think-about-configuration | `vendor/claude-sitemap/support/en/articles/15707726-using-claude-for-legal-work-privilege-confidentiality-and-how-to-think-about-configuration.md` |
 | https://support.claude.com/en/articles/7996845-what-are-some-things-i-can-use-claude-for | `vendor/claude-sitemap/support/en/articles/7996845-what-are-some-things-i-can-use-claude-for.md` |
 | https://support.claude.com/en/articles/7996853-introduction-to-prompt-design | `vendor/claude-sitemap/support/en/articles/7996853-introduction-to-prompt-design.md` |
 | https://support.claude.com/en/articles/7996857-my-prompt-isn-t-giving-me-a-helpful-answer | `vendor/claude-sitemap/support/en/articles/7996857-my-prompt-isn-t-giving-me-a-helpful-answer.md` |

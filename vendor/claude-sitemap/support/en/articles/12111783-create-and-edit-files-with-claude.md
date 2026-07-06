@@ -46,7 +46,7 @@ These capabilities make it easy to produce professional documents by simply chat
 
 To give Claude access to external data sources, toggle **Allow network egress** on:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1782913500&amp;signature=47db417add30c96ce096654784d1dd7b8fefc3bf135cbd08bc731c8dd0e37c32&amp;req=diAiEs55mYFfXPMW1HO4zYFJyw9MDZrLPQVowIiib2nK3cJfYYBG9ayx%2BRy6%0AnjI0s1JbbFs71uCGmoU%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1783364400&amp;signature=8da7fe916820010e62e08b0c6cd2def37cb3c958819ea67290469d582c745152&amp;req=diAiEs55mYFfXPMW1HO4zYFJyw5GCp3KPQVowIiib2kOE83hWVIu81Q9%2BTsw%0A0M72z0XUs%2BYiGufh8UI%3D%0A)
 
 ### Enabling on Claude Mobile
 
@@ -64,11 +64,11 @@ Team and Enterprise organization owners can control network access settings in *
 
 - **Allow network egress to package managers and specific domains:** Claude can access package managers plus additional domains you specify. Add domains individually to whitelist specific resources your organization needs:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1782913500&amp;signature=60ddac7994d1bd82eb46328a612c64281ab8086ef6dd16fe2f361bd8684bf97d&amp;req=dScvH8B6mIJZW%2FMW1HO4zXJcBm9KlCpOpMW6Iph6YZdEhm6S7w%2BYq67XUnpw%0AiaRQeEvLi8o2%2BmxJW9U%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1783364400&amp;signature=c3b1385a6c5ff3a8fe440e57c05fa9b4a20f82dd917b7556570d876424ee424a&amp;req=dScvH8B6mIJZW%2FMW1HO4zXJcBm5Aky1PpMW6Iph6YZd1mlruX5%2FB0QeocYVS%0AEg179TnECCfOxcwChwA%3D%0A)
 
 **All domains:** Claude has full internet access except for domains on Anthropic's legal blocklist. While this provides maximum flexibility for file creation and analysis tasks, it’s also the riskiest option. Please review the **[security considerations below](#h_0ee9d698a1)** before enabling “All domains”:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1782913500&amp;signature=81a081a33d62d803e9d600030fce817c17750d621a8d8fe59c010beb063da9cf&amp;req=dScvH8B6mIJZWPMW1HO4zdnseBab7zynqgKIA6CM1tpz6pSOQ8WGMmHX4iGP%0AqPhdK5bZMxKSPVM7Ebo%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1783364400&amp;signature=1657b21b7b96f3e08e9f5fd8df977bdd4254f66b5260d93f3539d74247615de3&amp;req=dScvH8B6mIJZWPMW1HO4zdnseBeR6DumqgKIA6CM1tph%2FHhR0tk4yA5NWfM%2B%0A7%2FPG8Eyr0dSkDPnGeVo%3D%0A)
 
 ---
 

@@ -870,34 +870,6 @@ Professional
 
 Sales
 
-![Set up Claude Cowork to work the way you do](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69bd76a4853b2b86baec9fde_Screenshot%202026-03-20%20at%209.32.27%E2%80%AFAM.png)
-
-Set up Claude Cowork to work the way you do
-
-Professional
-
-Author
-
-Professional
-
-Author
-
-Claude Cowork
-
-Author
-
-No items found.
-
-Read use case
-
-Read use caseRead use case
-
-Set up Claude Cowork to work the way you doSet up Claude Cowork to work the way you do
-
-Text Link
-
-Professional
-
 ![‍Dispatch in Claude Cowork: Assign tasks and operate your computer from mobile](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69dd766c757d26f6f5181b0a_Screenshot%202026-04-13%20at%204.04.04%E2%80%AFPM.png)
 
 ‍Dispatch in Claude Cowork: Assign tasks and operate your computer from mobile
@@ -961,6 +933,34 @@ Professional
 Finance
 
 Sales
+
+![Navigating the Claude desktop app: Chat, Claude Cowork, Claude Code](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699e2a825db36326599a999e_Screenshot%202026-02-24%20at%202.47.24%E2%80%AFPM.png)
+
+Navigating the Claude desktop app: Chat, Claude Cowork, Claude Code
+
+Professional
+
+Author
+
+Professional
+
+Author
+
+Claude.ai
+
+Author
+
+Cowork
+
+Read use case
+
+Read use caseRead use case
+
+Navigating the Claude desktop app: Chat, Claude Cowork, Claude CodeNavigating the Claude desktop app: Chat, Claude Cowork, Claude Code
+
+Text Link
+
+Professional
 
 View more
 
@@ -1231,10 +1231,6 @@ Solutions
     
     Small businessSmall business
     
-*   Startups
-    
-    StartupsStartups
-    
 
 Claude Platform
 
@@ -1375,6 +1371,17 @@ Company
 *   Transparency
     
     TransparencyTransparency
+    
+
+Programs
+
+*   Startups
+    
+    StartupsStartups
+    
+*   Research Labs
+    
+    Research LabsResearch Labs
     
 
 Help and security

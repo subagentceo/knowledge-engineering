@@ -57,7 +57,7 @@ This can be disabled organization-wide via `managed-settings.json` by adding `"d
 
 An owner can turn it off across your entire organization by going to **[Organization settings > Claude Code](https://claude.ai/admin-settings/claude-code)** and toggling **Workflows** off.
 
-Custom roles also govern access to admin permissions and connectors, which are configured on separate **Permissions** and **Connectors** tabs in the role editor. See **[Admin permissions](#h_fde60b08bd)** and **[Connector permissions](#h_979e558d00)** below.
+Custom roles also govern admin permissions, connectors, and model access, which are configured on separate **Permissions**, **Connectors**, and **Models** tabs in the role editor. See **[Admin permissions](#h_fde60b08bd)**, **[Connector permissions](#h_979e558d00)**, and **[Model access](#h_fca0f9a6b5)** below.
 
 **Note:** Chat is enabled by default for all custom roles, including ones created before this capability was added. If you want to restrict chat for a specific role, toggle it off when editing the role.
 
@@ -79,7 +79,9 @@ Custom roles also govern access to admin permissions and connectors, which are c
 
 7. Configure connectors. You can choose Always allow, Needs approval, or Blocked for all connectors, or customize per connector or connector tool.
 
-8. Click “Save role.”
+8. Configure models. Select which models this role can use, optionally set a maximum effort level per model, and optionally choose a default model for the role.
+
+9. Click “Save role.”
 
 ## Edit a custom role
 
@@ -87,7 +89,7 @@ Custom roles also govern access to admin permissions and connectors, which are c
 
 2. Click the role you want to edit.
 
-3. Update the name and groups, or toggle capabilities, permissions, and connectors as needed.
+3. Update the name and groups, or toggle capabilities, permissions, connectors, and models as needed.
 
 4. Click “Save role” to save your changes.
 
@@ -192,6 +194,7 @@ There are seven admin permission areas:
 | Members                           | User Management (Manage)           | No view-only mode                                                                                                                                                                                                                                                                                                                                                       |
 | Groups                            | Identity & Access (View or Manage) |                                                                                                                                                                                                                                                                                                                                                                         |
 | Roles                             | Identity & Access (View or Manage) |                                                                                                                                                                                                                                                                                                                                                                         |
+| Models                            | Identity & Access (View or Manage) | Default model and model access                                                                                                                                                                                                                                                                                                                                          |
 | Organization and access (partial) | Identity & Access (View or Manage) | Unlocks single sign-on (SSO/SAML, group mappings, provisioning), verified domains and domain memberships, IP allowlist, session settings, restrict organization creation, and organization merger requests. Other sections on this page, like the organization name, default capability settings, and the organization-wide system prompt, still require the Owner role |
 | Data and privacy                  | Privacy (View or Manage)           |                                                                                                                                                                                                                                                                                                                                                                         |
 | Analytics                         | Analytics (View)                   | Reached through Analytics in the user menu, not organization settings                                                                                                                                                                                                                                                                                                   |
@@ -284,6 +287,16 @@ Connector permissions govern connectors your organization has added under **[Org
 | Connector permissions can’t load briefly | A banner reports that connectors couldn’t load, with a retry. No blocked tool ever reaches the connected service. Access fails toward denying, never toward granting. |
 
 Members can’t tell which layer restricted a tool. The message is the same whether the limit comes from the organization-wide tool policy, a role grant, or both. To find the source, compare the organization-wide policy with the member’s role grants.
+
+---
+
+## Model access
+
+Custom roles also control which Claude models a role can use and the maximum effort level members can select on each one. You set these on the **Models** tab of the role editor, alongside the role's default model.
+
+The organization-level model setting is the ceiling. A role can't grant a model that's disabled at the organization level. Across a member's roles, model access is additive and effort limits take the highest cap any role allows. Haiku models are always available and can't be disabled.
+
+For setup steps and what members see, see **[Manage model access for your organization](https://support.claude.com/en/articles/15694740)**. For default model behavior, see **[Set a default model for your organization](https://support.claude.com/en/articles/15330088)**.
 
 ---
 

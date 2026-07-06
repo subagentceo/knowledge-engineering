@@ -16,7 +16,9 @@ Claude Code usage analytics are available to:
 
 2. Click your initials or name in the lower left corner.
 
-3. Navigate to **[Analytics > Claude Code](https://claude.ai/analytics/claude-code)** to view **Usage**.
+3. Navigate to **[Analytics > Claude Code](https://claude.ai/analytics/claude-code)**.
+
+4. Select the “Usage” or “Value”  tab.
 
 ### API Console users
 
@@ -30,9 +32,9 @@ Claude Code usage analytics are available to:
 
 ---
 
-## Available metrics
+## Usage tab
 
-The Claude Code Usage page displays the following metrics for your organization:
+The **Usage** tab displays the following metrics for your organization. Data on this tab refreshes daily.
 
 ### Organization-level metrics
 
@@ -44,19 +46,27 @@ The Claude Code Usage page displays the following metrics for your organization:
 
 - **Lines accepted over time**: Daily breakdown of accepted code lines.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1782913500&amp;signature=7e68bc8ef7181c6c16c7da04e0661325b25d2a3e994a4d62114f2ec715c7de59&amp;req=dScmEcx5lINYXvMW1HO4zfiEP6RZjnrLCX9h5MbdDjN7NEl5XusS9UZWZVUI%0A8UBAK0KwlrADYsqlIcE%3D%0A)
+- **Top commands**: The Claude Code commands used most often across your organization.
+
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1783364400&amp;signature=21c4e77e649d4b4b68af7491f66de0de9a4bb6b0a9692b6e5dbe964faaf5ac01&amp;req=dScmEcx5lINYXvMW1HO4zfiEP6VTiX3KCX9h5MbdDjMLSJce9074CtNsrJns%0AUc%2FL2wK1dcT9%2Bufnarc%3D%0A)
 
 ### User-level metrics
 
 **Individual usage**: View each team member's email address and their total lines of code accepted for the current month. You can search for specific users or click the “Export” button to generate a CSV of members’ email addresses and total lines of code.
 
-## Understanding the metrics
+---
 
-**Lines of code accepted** measures the actual code your team incorporates into their work from Claude Code suggestions, helping you understand the tool's practical impact on development productivity.
+## Value tab
 
-**Suggestion accept rate** indicates how relevant and useful Claude Code's suggestions are for your team's specific coding needs and practices.
+The **Value** tab summarizes usage and cost data to help you understand what Claude Code is returning to your organization at a glance.
 
-**Activity trends** show adoption patterns and help identify peak usage periods, allowing you to understand how Claude Code fits into your team's workflow.
+- **Estimated productivity lift**
+
+- **Cost per commit**
+
+- **Estimated annual value**
+
+Every formula used on this tab is shown inline. Click any input to adjust it to match your organization's assumptions, and the estimates recalculate.
 
 ---
 
@@ -76,7 +86,7 @@ Contribution metrics require a few steps beyond the base analytics setup:
 
 2. Log in with an Owner or Primary Owner account.
 
-3. Navigate to **[Admin settings > Claude Code](https://claude.ai/admin-settings/claude-code)**.
+3. Navigate to **[Organization settings > Claude Code](https://claude.ai/admin-settings/claude-code)**.
 
 4. Enable the Claude Code analytics feature if you haven't already.
 

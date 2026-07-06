@@ -12,6 +12,8 @@ The model menu next to the send button controls three settings: which Claude mod
 
 4. Click "More models" to view additional options.
 
+If you're on an Enterprise plan and a model or effort level you expect is missing, your administrator may have turned it off for your role.
+
 **Note:** You can change the model, effort level, or thinking setting at any point in a conversation. Changes apply starting with Claude's next response.
 
 ---

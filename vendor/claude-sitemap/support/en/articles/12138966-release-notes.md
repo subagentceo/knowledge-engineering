@@ -1,3 +1,16 @@
+## July 2026
+
+### July 1, 2026
+
+**Access to Claude Fable 5 and Claude Mythos 5 restored**
+We are restoring access to Claude Fable 5 and Claude Mythos 5. See **[our statement](https://www.anthropic.com/news/redeploying-fable-5)** for more information.
+
+**Model entitlements for Enterprise plans (beta)**
+
+Admins on Enterprise plans can now control what models their users have access to, and what effort level settings they can use. For more information, see **[Manage model access for your organization](https://support.claude.com/en/articles/15694740)**.
+
+---
+
 ## June 2026
 
 ### June 30, 2026
@@ -20,7 +33,13 @@ Team and Enterprise plans can now tag Claude directly in Slack conversations and
 
 ### June 12, 2026
 
+**Access to Claude Fable 5 and Claude Mythos 5 suspended**
+
 We've suspended access to Claude Fable 5 and Claude Mythos 5. We aim to return access as quickly as we can. See **[our statement](https://anthropic.com/news/fable-mythos-access)** for more information.
+
+**Edit Claude’s drafts in place**
+
+When Claude writes a draft in chat or Claude Cowork (a report, a plan, a brief), it opens right beside your chat. Highlight the part you want changed, type the change, and Claude makes the edit right where you marked it. No switching apps, no re-describing paragraphs in chat. For more information, see **[Work with artifacts](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them#h_9cbf05e668)**.
 
 ### June 9, 2026
 
@@ -33,6 +52,8 @@ We launched Claude Fable 5, a Mythos-class model that we’ve made safe for gene
 **Enterprise plans can manage admin permissions with custom roles**
 
 We extended the existing custom roles framework by adding admin permissions. Admin permissions give members access to specific administrative areas, like billing or privacy, without the need to make them Owners. For more information, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans#h_fde60b08bd)**.
+
+---
 
 ## May 2026
 
@@ -51,6 +72,8 @@ We added connector permissions to extend the existing custom roles framework and
 **Claude now works with more security and compliance tools**
 
 We introduced Claude Compliance API integrations with notable security and compliance tools. Now IT and security teams can govern Claude across our platform and suite of products, the same way they govern other applications in their stack. Learn how to **[get started with Claude Compliance API integrations](https://support.claude.com/en/articles/15167101-get-started-with-claude-compliance-api-integrations)**.
+
+---
 
 ## April 2026
 
@@ -81,6 +104,8 @@ Claude Cowork is now generally available on macOS and Windows through the Claude
 **Role-based access controls for Enterprise plans**
 
 Admins can now organize users into groups, manually or via SCIM from your identity provider, and assign each group a custom role defining which Claude capabilities its members can use. Turn Claude Cowork on for specific teams, restrict features by department and adjust as adoption grows. Learn more about **[setting up role-based permissions](https://support.claude.com/en/articles/13930458-set-up-role-based-entitlements-on-enterprise-plans)**, **[managing group spend limit](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)**[s](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans), and **[managing custom roles](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)**.
+
+---
 
 ## March 2026
 

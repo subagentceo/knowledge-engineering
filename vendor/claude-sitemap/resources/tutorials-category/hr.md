@@ -831,10 +831,6 @@ Solutions
     
     Small businessSmall business
     
-*   Startups
-    
-    StartupsStartups
-    
 
 Claude Platform
 
@@ -975,6 +971,17 @@ Company
 *   Transparency
     
     TransparencyTransparency
+    
+
+Programs
+
+*   Startups
+    
+    StartupsStartups
+    
+*   Research Labs
+    
+    Research LabsResearch Labs
     
 
 Help and security

@@ -48,7 +48,7 @@ You can trigger a manual sync from two places in your admin settings.
 
 2. Click "Check for updates" under **SCIM sync**:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1782913500&amp;signature=e0917370365abe3927575089ea1b9c8305e0bb6e753b77da1bd5da2b838ad482&amp;req=diMmFM9%2FnoRbUfMW1HO4zW4gbDekNM6xrgfl7PnOiun11pq%2FrpBKR7CeEc14%0AvXGr%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1783364400&amp;signature=1584372bde71465a93abdd1148eca56557c685d12b43902736072764e377e335&amp;req=diMmFM9%2FnoRbUfMW1HO4zW4gbDauM8mwrgfl7PnOiukF0GuaSaL2aZRSCALG%0AB83i%0A)
 
 3. Select whether to sync members, groups, or both.
 
@@ -60,13 +60,13 @@ You can trigger a manual sync from two places in your admin settings.
 
 3. Select whether to sync members, groups, or both:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1782913500&amp;signature=77674f191738276bd8fb4509656ec4ec438a619d5d864791e8f4545b3d070410&amp;req=diMmFM9%2BlYBeUPMW1HO4zX%2F4frj5yjga43OpyTHzM9QKlF6KX9lA%2Bdq31aAy%0A65Wg%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1783364400&amp;signature=f8f989436b600c5b3de4791d170a179de2ce4835916a956100ac1bd6415626e4&amp;req=diMmFM9%2BlYBeUPMW1HO4zX%2F4frnzzT8b43OpyTHzM9Q0C7385auCKmS8VErk%0AYbI3%0A)
 
 **Note:** If you trigger a manual sync while background changes are processing, your organization takes the most recent change for each member or group. If multiple changes are queued for the same member or group, you may need to resync again to make sure everything applies correctly.
 
 ## Preview a sync before it applies
 
-When you run a manual resync, the admin console shows a preview of what the sync will do before anything applies. The preview appears automatically in the sync flow and shows how many members the sync will add, remove, or modify, along with how recent the directory data is.
+When you run a sync—by resyncing manually or saving a mapping change—the admin console shows a preview of what the sync will do before anything applies. The preview appears automatically in the sync flow and shows how many members the sync will add, remove, or modify, along with how recent the directory data is.
 
 Review the preview before you confirm. If the numbers don't match what you expect (for example, far more removals than people who actually left) cancel the sync and check your IdP directory and group mappings before continuing.
 

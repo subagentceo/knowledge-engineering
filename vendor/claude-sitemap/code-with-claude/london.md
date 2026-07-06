@@ -22,9 +22,9 @@
         
     
 
-Attend virtually
+Watch recordings
 
-Attend virtuallyAttend virtually
+Watch recordingsWatch recordings
 
 # Code with Claude London — May 19, 2026
 
