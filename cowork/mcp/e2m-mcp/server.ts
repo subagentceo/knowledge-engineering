@@ -31,6 +31,7 @@ import * as fs   from "node:fs";
 import * as path from "node:path";
 import * as rl   from "node:readline";
 import { randomUUID } from "node:crypto";
+import { fileURLToPath } from "node:url";
 import { McpServer }   from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z }           from "zod";
@@ -61,10 +62,10 @@ function ensureDirs(): void {
 // Accepts `string` (not just `Domain`) because the canonical durableTaskSchema's
 // `queue` field is z.string() — the enum check happens at the MCP tool-input
 // boundary (DomainEnum), not in the schema itself.
-function queuePath(domain: Domain | string): string {
+export function queuePath(domain: Domain | string): string {
   return path.join(QUEUE_DIR, `${domain}.jsonl`);
 }
-function mailboxPath(agentId: string): string {
+export function mailboxPath(agentId: string): string {
   const safe = agentId.replace(/[^a-zA-Z0-9_-]/g, "_");
   return path.join(MAILBOX_DIR, `${safe}.jsonl`);
 }
@@ -93,7 +94,7 @@ function readLines(filePath: string): unknown[] {
 }
 
 /** Latest-line-wins collapse: for each task_id, keep only the last row. */
-function collapseById<T extends { id: string }>(rows: T[]): T[] {
+export function collapseById<T extends { id: string }>(rows: T[]): T[] {
   const map = new Map<string, T>();
   for (const row of rows) map.set(row.id, row);
   return [...map.values()];
@@ -105,7 +106,7 @@ function collapseById<T extends { id: string }>(rows: T[]): T[] {
  * streams) get true latest-wins instead of last-array-position-wins. Falls
  * back to stable array order when `at` is absent/equal.
  */
-function collapseByIdRecency<T extends { id: string; at?: string }>(rows: T[]): T[] {
+export function collapseByIdRecency<T extends { id: string; at?: string }>(rows: T[]): T[] {
   const sorted = rows
     .map((row, index) => ({ row, index }))
     .sort((a, b) => {
@@ -404,6 +405,10 @@ server.tool(
 );
 
 // ── Start ─────────────────────────────────────────────────────────────────────
+// Guarded so this module can be imported (e.g. by server.test.ts, for the pure
+// helpers above) without spinning up a live stdio MCP server as a side effect.
 
-const transport = new StdioServerTransport();
-await server.connect(transport);
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const transport = new StdioServerTransport();
+  await server.connect(transport);
+}

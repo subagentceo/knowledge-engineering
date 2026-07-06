@@ -25,10 +25,11 @@ const TEST_DIRS = [
   resolve(REPO_ROOT, "src", "lib"),
   resolve(REPO_ROOT, "src", "agent"),
   resolve(REPO_ROOT, "infra", "cloudflare", "src"),
-  // cowork/schemas is not under src|scripts|infra, so it needs an explicit
-  // entry — scoped to this subdir only, not the whole cowork/ tree, to
-  // avoid sweeping in unrelated cowork/data, cowork/artifacts, etc.
+  // cowork/schemas and cowork/mcp are not under src|scripts|infra, so they
+  // need explicit entries — scoped to these subdirs only, not the whole
+  // cowork/ tree, to avoid sweeping in unrelated cowork/data, cowork/artifacts, etc.
   resolve(REPO_ROOT, "cowork", "schemas"),
+  resolve(REPO_ROOT, "cowork", "mcp"),
 ];
 
 function listTests(dir: string): string[] {
