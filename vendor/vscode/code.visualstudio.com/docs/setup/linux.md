@@ -1,0 +1,353 @@
+# Installing Visual Studio Code on Linux
+
+Visual Studio Code is available on Linux through official Debian, RPM, and Snap packages. Community-maintained packages are also available for Arch Linux and Nix.
+
+## Install VS Code on Linux
+
+Choose the package method that matches your Linux distribution.
+
+Debian and Ubuntu-based distributions
+
+1.  Download the .deb package.
+    
+2.  Install the package with the graphical software center, or install it from the command line:
+    
+    ```
+    sudo apt install ./<file>.deb
+    
+    # On older Linux distributions, run these commands instead:
+    # sudo dpkg -i <file>.deb
+    # sudo apt-get install -f # Install dependencies
+    ```
+    
+    Note
+    
+    Other binaries are available on the VS Code download page.
+    
+
+The `.deb` package prompts to install the apt repository and signing key, which enables auto-update through the system package manager.
+
+For non-interactive installation, run this command before installing the `.deb` package to automatically install the apt repository and signing key:
+
+```
+echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections
+```
+
+To manually install the apt repository:
+
+1.  Install the signing key:
+    
+    ```
+    sudo apt install wget gpg &&
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft.gpg
+    ```
+    
+2.  Create a `/etc/apt/sources.list.d/vscode.sources` file with these contents:
+    
+    ```
+    Types: deb
+    URIs: https://packages.microsoft.com/repos/code
+    Suites: stable
+    Components: main
+    Architectures: amd64,arm64,armhf
+    Signed-By: /usr/share/keyrings/microsoft.gpg
+    ```
+    
+3.  Update the package cache and install the package:
+    
+    ```
+    sudo apt update &&
+    sudo apt install code # or code-insiders
+    ```
+    
+
+Note
+
+Due to the manual signing process and publishing system, the Debian repository could lag behind by up to three hours and not immediately contain the latest version of VS Code.
+
+RHEL, Fedora, and CentOS-based distributions
+
+Microsoft provides the stable 64-bit VS Code package for RHEL, Fedora, and CentOS-based distributions in a yum repository.
+
+1.  Install the key and yum repository:
+    
+    ```
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
+    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+    ```
+    
+2.  Update the package cache and install the package with `dnf` on Fedora 22 and later:
+    
+    ```
+    dnf check-update &&
+    sudo dnf install code # or code-insiders
+    ```
+    
+    On older versions, use `yum`:
+    
+    ```
+    yum check-update &&
+    sudo yum install code # or code-insiders
+    ```
+    
+
+Note
+
+Due to the manual signing process and publishing system, the yum repository could lag behind by up to three hours and not immediately contain the latest version of VS Code.
+
+Snap package
+
+VS Code is officially distributed as a Snap package in the Snap Store.
+
+![Get it from the Snap Store](/assets/docs/setup/linux/snap-store.png)
+
+Install the Snap package with this command:
+
+```
+sudo snap install --classic code # or code-insiders
+```
+
+Once installed, the Snap daemon automatically updates VS Code in the background. VS Code shows an in-product update notification whenever a new update is available.
+
+Note
+
+If `snap` isn't available in your Linux distribution, check the Installing snapd guide.
+
+Learn more about snaps from the official Snap documentation.
+
+openSUSE and SLE-based distributions
+
+The yum repository from the RHEL, Fedora, and CentOS panel also works for openSUSE and SLE-based systems.
+
+1.  Install the key and yum repository:
+    
+    ```
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
+    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/zypp/repos.d/vscode.repo > /dev/null
+    ```
+    
+2.  Update the package cache and install the package:
+    
+    ```
+    sudo zypper install code
+    ```
+Arch Linux AUR package
+
+The Arch User Repository package for VS Code is community maintained.
+
+For installation details, see the Arch Linux wiki article about installing AUR packages.
+
+Nix package
+
+The VS Code Nix package in the nixpkgs repository is community maintained.
+
+To install VS Code by using Nix:
+
+1.  Set the `allowUnfree` option to true in your `config.nix`.
+    
+2.  Run this command:
+    
+    ```
+    nix-env -i vscode
+    ```
+Manual RPM package
+
+Download and install the VS Code .rpm package manually when repository installation is not available. Auto-update does not work unless the repository is installed.
+
+Install the downloaded `.rpm` package with your package manager, for example with `dnf`:
+
+```
+sudo dnf install <file>.rpm
+```
+
+Note
+
+Other binaries are available on the VS Code download page.
+
+## Updates
+
+VS Code ships weekly releases. If the VS Code repository is installed correctly, the system package manager handles auto-update the same way it handles other packages on the system.
+
+Note
+
+Updates are automatic and run in the background for the Snap package.
+
+## Configure VS Code as the default text editor
+
+### xdg-open
+
+Set VS Code as the default text editor for text files, `text/plain`, used by `xdg-open`:
+
+```
+xdg-mime default code.desktop text/plain
+```
+
+### Debian alternatives system
+
+Debian-based distributions support setting a default **editor** through the Debian alternatives system, without concern for the MIME type. Set VS Code as the default editor with this command:
+
+```
+sudo update-alternatives --set editor /usr/bin/code
+```
+
+If VS Code was installed with the Snap package, use this command instead:
+
+```
+sudo update-alternatives --set editor /snap/bin/code
+```
+
+If VS Code doesn't show up as an alternative to the default `editor`, register it:
+
+```
+sudo update-alternatives --install /usr/bin/editor editor $(which code) 10
+```
+
+## Use the custom title bar
+
+The custom title bar provides theming support and better accessibility through keyboard navigation and screen readers. These benefits might not always translate as well to Linux because desktop environments and window managers vary. For this reason, the custom title bar isn't enabled by default on Linux.
+
+For accessibility improvements while using a screen reader, enable the custom title bar when running in accessibility mode.
+
+Configure the title bar with the **Window: Title Bar Style** ( window.titleBarStyle Open in VS Code Open in VS Code Insiders ) setting:
+
+*   `custom`: Use the custom title bar.
+*   `native`: Use the operating system title bar.
+
+## Develop on Linux with WSL
+
+Another option for Linux development with VS Code is to use a Windows machine with the Windows Subsystem for Linux (WSL).
+
+With WSL, install and run Linux distributions on Windows to develop and test source code on Linux while working locally on a Windows machine. WSL supports Linux distributions such as Ubuntu, Debian, SUSE, and Alpine from the Microsoft Store.
+
+When paired with the WSL extension, VS Code provides editing and debugging support while running in the context of a Linux distro on WSL.
+
+See the Developing in WSL documentation to learn more, or try the Working in WSL introductory tutorial.
+
+## After installation
+
+After you install VS Code, finish setup for your development workflow:
+
+*   Install additional components, including Git, Node.js, TypeScript, language runtimes, and command-line tools.
+*   Install extensions from the Visual Studio Marketplace to add themes, formatters, debuggers, and language support.
+*   Set up GitHub Copilot to use AI features in VS Code.
+*   Start the VS Code tutorial for a hands-on tour of the user interface and key features.
+
+## Common questions
+
+Package git is not installed
+
+This error can appear during installation when the package manager's lists are out of date. Update the package manager and install again:
+
+```
+# For .deb
+sudo apt-get update
+
+# For .rpm on Fedora 21 and earlier
+sudo yum check-update
+
+# For .rpm on Fedora 22 and later
+sudo dnf check-update
+```
+Conflicts with VS Code packages from other repositories
+
+Some distributions, such as Pop!_OS, provide their own `code` package. To ensure that the official VS Code repository is used, create a file named `/etc/apt/preferences.d/code` with this content:
+
+```
+Package: code
+Pin: origin "packages.microsoft.com"
+Pin-Priority: 9999
+```
+Debian and moving files to trash
+
+If deleting files from the VS Code Explorer fails on Debian, the trash implementation used by VS Code might be missing.
+
+Run this command to install the missing packages:
+
+```
+sudo apt-get install gvfs libglib2.0-bin
+```
+"Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)
+
+This notification indicates that the VS Code file watcher is running out of file handles. This often happens when opening a workspace that contains many files. Before adjusting platform limits, add large folders, such as Python `.venv`, to the files.watcherExclude Open in VS Code Open in VS Code Insiders setting. Other running applications might also consume file handles, so closing other applications might help.
+
+View the current limit by running:
+
+```
+cat /proc/sys/fs/inotify/max_user_watches
+```
+
+Increase the limit to the maximum by editing `/etc/sysctl.conf` and adding this line to the end of the file. Arch Linux and Ubuntu 24.10 and later use files in `/etc/sysctl.d/*.conf`.
+
+```
+fs.inotify.max_user_watches=524288
+```
+
+Load the new value:
+
+```
+sudo sysctl --system
+```
+
+Each file watch takes up 1,080 bytes. If all 524,288 watches are consumed, the upper bound is around 540 MiB. In memory-constrained environments, choose a lower value.
+
+Another option is to exclude specific workspace directories from the VS Code file watcher with the files.watcherExclude Open in VS Code Open in VS Code Insiders setting. The default files.watcherExclude Open in VS Code Open in VS Code Insiders value excludes `node_modules` and some folders under `.git`. Add other directories that VS Code should not track.
+
+```
+"files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true
+}
+```
+I can't see Chinese characters in Ubuntu
+
+Open the application menu, then choose **File** > **Preferences** > **Settings**. In the **Text Editor** > **Font** section, set **Font Family** to `Droid Sans Mono, Droid Sans Fallback`.
+
+To edit the `settings.json` file directly, set editor.fontFamily Open in VS Code Open in VS Code Insiders :
+
+```
+"editor.fontFamily": "Droid Sans Mono, Droid Sans Fallback"
+```
+The code bin command does not bring the window to the foreground on Ubuntu
+
+Running `code .` on Ubuntu when VS Code is already open in the current directory does not bring VS Code into the foreground. This is an operating system behavior that can be changed with `ccsm`.
+
+```
+# Install
+sudo apt-get update
+sudo apt-get install compizconfig-settings-manager
+
+# Run
+ccsm
+```
+
+Under **General** > **General Options** > **Focus & Raise Behavior**, set **Focus Prevention Level** to **Off**. This operating system setting applies to all applications, not only VS Code.
+
+Cannot install .deb package due to "/etc/apt/sources.list.d/vscode.list: No such file or directory"
+
+This error can occur when `sources.list.d` doesn't exist or the current user doesn't have access to create the file. Create the folder and an empty `vscode.list` file:
+
+```
+sudo mkdir /etc/apt/sources.list.d
+sudo touch /etc/apt/sources.list.d/vscode.list
+```
+Cannot move or resize the window while X forwarding a remote window
+
+If using X forwarding to use VS Code remotely, use the native title bar to manipulate the window. Set window.titleBarStyle Open in VS Code Open in VS Code Insiders to `native`.
+
+Repository changed its origin value
+
+If an error similar to the following appears:
+
+```
+E: Repository '...' changed its 'Origin' value from '...' to '...'
+N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.
+```
+
+Use `apt` instead of `apt-get` and accept the origin change when prompted:
+
+```
+sudo apt update
+```
+
+7/1/2026

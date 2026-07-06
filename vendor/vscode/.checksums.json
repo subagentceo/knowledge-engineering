@@ -1,0 +1,2268 @@
+{
+  "https://code.visualstudio.com/api/advanced-topics/extension-host": {
+    "sha256": "323d3fb294bede2106714842b08fec928aca09f4ebc3b5df7fe2c13cfa6d8cf0",
+    "lastStatus": 200,
+    "etag": "W/\"c2ac-vX99vik5QVWf4UO67FaVK+uGHVg\""
+  },
+  "https://code.visualstudio.com/api/advanced-topics/python-extension-template": {
+    "sha256": "fad4ce2e0564f15a748032ae00217244ed99029e3aef7a5b6876f5117d3a4527",
+    "lastStatus": 200,
+    "etag": "W/\"d036-ZlbozjHHAe4ySDhM0mXnpZm8N+4\""
+  },
+  "https://code.visualstudio.com/api/advanced-topics/remote-extensions": {
+    "sha256": "7293ec2f263e455f09713120638f8d2ed5956af0afa37c2f974ff1f82972fdf7",
+    "lastStatus": 200,
+    "etag": "W/\"2b1a8-WcXfyIS45a8YFRBWzZwsUpF0Ogc\""
+  },
+  "https://code.visualstudio.com/api/advanced-topics/tslint-eslint-migration": {
+    "sha256": "c0d5051bfe35b46977be6566601e8d411d8d2dddd63e8bc2032746fd5e2385d8",
+    "lastStatus": 200,
+    "etag": "W/\"c5e8-JtDsAXtgDbXkg7gwQA9wA0edhNI\""
+  },
+  "https://code.visualstudio.com/api/advanced-topics/using-proposed-api": {
+    "sha256": "e1a185b58e718aeb14962aa645597be7550d242ac88146ee9c395a5aee7381dc",
+    "lastStatus": 200,
+    "etag": "W/\"c4f6-1Xk9msW/SkMplhLEOFzOxXILTL0\""
+  },
+  "https://code.visualstudio.com/api/extension-capabilities/common-capabilities": {
+    "sha256": "f5a7466ca7d2d10def3d654d84813884389a32338e15dd2b2cff86cd05daccef",
+    "lastStatus": 200,
+    "etag": "W/\"d85d-kOCAFO+UeQGeXnP4MuuSVlC1ig8\""
+  },
+  "https://code.visualstudio.com/api/extension-capabilities/extending-workbench": {
+    "sha256": "355037f6bf65a68d8c161854db5c7481402cfa528dda4f78001a8bc315bbb527",
+    "lastStatus": 200,
+    "etag": "W/\"b52b-2cgVcNgknA06Gnnrqeg9D0B5M7Y\""
+  },
+  "https://code.visualstudio.com/api/extension-capabilities/overview": {
+    "sha256": "d15140e3844a08df08e3de2ed75ae1256f38397da9ae4119309621fa5ada6fc7",
+    "lastStatus": 200,
+    "etag": "W/\"cfc5-ikWB/LkDm/R7oiSvUvmNdPzljzk\""
+  },
+  "https://code.visualstudio.com/api/extension-capabilities/theming": {
+    "sha256": "d6436131c49245da242b6d1a629f149713bfe62d01cc392d0137ff99227e614c",
+    "lastStatus": 200,
+    "etag": "W/\"b36f-H384hEKBoRm6tte1MMhOsibkMcc\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/ai/ai-extensibility-overview": {
+    "sha256": "6bd83e3b69710e30ec858d588c9be3edfcffe5790e5cb5b9245b5534ed9a285f",
+    "lastStatus": 200,
+    "etag": "W/\"d039-WSNa1Eb1Pe73Uzbjj+e8aqV7ZDw\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/ai/chat": {
+    "sha256": "c5c4d92d81f258dd737ecb875f714cd8bf9f77059264d8ae80bd8689fedfbec7",
+    "lastStatus": 200,
+    "etag": "W/\"24ce9-LjXGQgzmgf2m9IItoy/BTO8I3sw\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/ai/chat-tutorial": {
+    "sha256": "7e1b9e32fba05acc256108d1552bf67fc50f43cbc932e6dd572ba3d10bc35632",
+    "lastStatus": 200,
+    "etag": "W/\"1ca1b-CR+8piI6YtKv5bfUr6n3oTE0UsM\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/ai/language-model": {
+    "sha256": "86c36d44d2ebffb678418724021e4ba8c8d2c4b68b361b902153fc61a8387711",
+    "lastStatus": 200,
+    "etag": "W/\"17ae8-M75zxsQpfqCOpq1ldmZWDB2frJg\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/ai/language-model-chat-provider": {
+    "sha256": "248bf6ea8b114afe14d6b991fd7a4bd3ff5d5d0d019ca70f7ce242690eecdb8b",
+    "lastStatus": 200,
+    "etag": "W/\"15128-6nNXpYZ2PGwg3LStImZcUP4Sruc\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/ai/language-model-tutorial": {
+    "sha256": "6977593196e9b783ce903974c5b4a50d99b83a697a6e4e588d330f029fbe64e1",
+    "lastStatus": 200,
+    "etag": "W/\"1b720-TBUELK/5LJmGWXC2KrrCjyMnZ+I\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/ai/mcp": {
+    "sha256": "74354778c6928103023ed753cbfc191f3a5abbae114b801a74a3a64db9e25089",
+    "lastStatus": 200,
+    "etag": "W/\"19eff-43EOw7UYug4Xlgi6NseyWSvYovI\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/ai/prompt-tsx": {
+    "sha256": "90b47d7db8cd6ec0e228e38c0fab3ce1d7e07ae5c19fafd9629de286e1212e87",
+    "lastStatus": 200,
+    "etag": "W/\"1ab34-0D+ErbWjGHdPG36q5qvLX/Hx0ks\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/ai/tools": {
+    "sha256": "8f45164f20cc87bfa0d9ec4c08253abf9e82d592d0aac9bffcdcc59c4e10099d",
+    "lastStatus": 200,
+    "etag": "W/\"1579a-W7xlTuaVFkMqNYlcy1Xh2X7/134\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/color-theme": {
+    "sha256": "edb167c095c0bc7d34d625548c107cbd0f5cda268391c53629a072c91210ce3d",
+    "lastStatus": 200,
+    "etag": "W/\"e3e5-XbL7Z0qMERh98t4nr77mtMVPfhA\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/command": {
+    "sha256": "d3c03ceff8f9b04d39a2092cbe9bbd35914ee36bdeea5c0b7f248361936aef53",
+    "lastStatus": 200,
+    "etag": "W/\"1597b-DyF3KueC24xpwN3WLf8L0mRyL94\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/custom-data-extension": {
+    "sha256": "e36842d5afcc317bc9607f15c6507391ed6ef99e1159290f48f5b382107699bc",
+    "lastStatus": 200,
+    "etag": "W/\"b1a5-yRCYXvYM3rVxANlfN4Jz2DwFC9c\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/custom-editors": {
+    "sha256": "c1f4feab94daba576edb537a1cc66db2a2008fe1c64ada0fcb9a55d53d1d0ec7",
+    "lastStatus": 200,
+    "etag": "W/\"13a0f-w8dRZG9IdfTKc8aVQZTE/ysctJY\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/debugger-extension": {
+    "sha256": "e34b9d9a894a8d491f88a479592cad77a8f33cb2458cd000a7cc9be53ce242e7",
+    "lastStatus": 200,
+    "etag": "W/\"18022-qhhQqb/Cpo56vUzmUjghhZf5NtE\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/file-icon-theme": {
+    "sha256": "e77ed16438def1bc44a6bdfd4546b9e1db869cdc5b3bbdc8aa68d99b73f9056a",
+    "lastStatus": 200,
+    "etag": "W/\"112a7-9uOIQ4sdsc2F1GZVZLTpzeijbqo\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/markdown-extension": {
+    "sha256": "631ee209ec96af93f1a5ece990ebe26f4a2d3895cf34a6f08595b28e9a1584c7",
+    "lastStatus": 200,
+    "etag": "W/\"d4b0-2Wj6/TCILzuFo5OBr9xrL7tnqNM\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/notebook": {
+    "sha256": "26286c5ec8e791278809322a068d11211b2cfb0c6568266bc512124133d56d67",
+    "lastStatus": 200,
+    "etag": "W/\"2fded-afY3htA0tzMIMgMTr/d5B0Gtf6M\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/overview": {
+    "sha256": "62fc1ca5df8c0bd85710266b723d59af1a6df0400593e3a54b4212a84f278e94",
+    "lastStatus": 200,
+    "etag": "W/\"f6e1-0wi4++Pd7TPvzgFKRW2cDNUHhyg\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/product-icon-theme": {
+    "sha256": "13ea4a02cd3f88cd518067878f48fa68380a48814dd0414b0b1083ff74a3dc53",
+    "lastStatus": 200,
+    "etag": "W/\"d782-Gk56e7VTohltivKYlF9wiVMRbaM\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/scm-provider": {
+    "sha256": "83bb51b62c5fd58959dcc3a3899212f92875cd8fc19cb6d8b85a92efd2c0be57",
+    "lastStatus": 200,
+    "etag": "W/\"12882-alhjdy4NrVX5apyAE0WHikx58Fo\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/task-provider": {
+    "sha256": "cc4e7d777acc5f92f6ceb6c7ad0e9940b5698e6c6f81a3c214a8c391d0ec72a5",
+    "lastStatus": 200,
+    "etag": "W/\"12a22-MO2gIGcvStxDbckat5h50IA3sIc\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/telemetry": {
+    "sha256": "1c923445fadbf3277a4a083cd3e2b91b32cbb59b076b7f740edbd1484ad25dbe",
+    "lastStatus": 200,
+    "etag": "W/\"bb1f-r0My50wXN7WGwbmigQ72rl5SVoE\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/testing": {
+    "sha256": "d87cde446d3ec26b414e00ea8b03f5c032c56f00992f677ef5e14b02a4bdae21",
+    "lastStatus": 200,
+    "etag": "W/\"26091-VDrv2XbzMyQjXatxHXl2YFPfmm0\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/tree-view": {
+    "sha256": "5c2f882386789356f0e412490f5410150acc354b47731eca35d12885da93c8aa",
+    "lastStatus": 200,
+    "etag": "W/\"234b0-h+MBu6dK1Av8U5a38tKrzCKslgI\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/virtual-documents": {
+    "sha256": "3fa34ccde72c375b21f9dcd964afee0bd135e9f8717663847e681d15aaecece4",
+    "lastStatus": 200,
+    "etag": "W/\"114d8-2KVwCWuIuQRlpOJbg/DuyfM8drI\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/virtual-workspaces": {
+    "sha256": "d06c855aeb6c4501aaeedacd71e7eee8931050f8b86377931c4152cf363c208b",
+    "lastStatus": 200,
+    "etag": "W/\"10a6e-Dg4uwh3DniIprJMyA/ZQkn8qy9c\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/web-extensions": {
+    "sha256": "a38091943688e0b3440bb1ecbf3fc6c79b44a6375f634bdc45a9f31ab7a75437",
+    "lastStatus": 200,
+    "etag": "W/\"2c382-YO2Ys3ySC1KEMZfRRHBPkBJ52wI\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/webview": {
+    "sha256": "f7b1f08c7ea719b53bcb98fb56ed5b0976ea00cb815a58f30b114fca009f6c2a",
+    "lastStatus": 200,
+    "etag": "W/\"3d97d-DwQKtCC2ODFCNLejcNubjMYy+5Q\""
+  },
+  "https://code.visualstudio.com/api/extension-guides/workspace-trust": {
+    "sha256": "4b5df00aaa309c38852b1db416c7e42bff3ac429f93bee9d3f71f20dcf19c86f",
+    "lastStatus": 200,
+    "etag": "W/\"e936-dGuYr76QjbUpbMEz+oy9NuZI+dY\""
+  },
+  "https://code.visualstudio.com/api/get-started/extension-anatomy": {
+    "sha256": "0521ce096b64229721747810808b697c5d9923889babae088316d02cacadfda2",
+    "lastStatus": 200,
+    "etag": "W/\"fb86-b+X6sr/cX4uLdecoXlQSPl9Do50\""
+  },
+  "https://code.visualstudio.com/api/get-started/wrapping-up": {
+    "sha256": "fa19fa1b4092fd5d3dfced3a24ce049927e18e166b963676fc0c84e401957759",
+    "lastStatus": 200,
+    "etag": "W/\"c185-51uX6WRP1Q1TAoVYgBlDZG6C1Ik\""
+  },
+  "https://code.visualstudio.com/api/get-started/your-first-extension": {
+    "sha256": "a586b2c1b29fb1788e9afa39fff37123e0cebabba6bc6c80c5b5ed4dd60e4ad4",
+    "lastStatus": 200,
+    "etag": "W/\"cd6c-CaGCnJ9X/QLD59bRnpHkDf5F52k\""
+  },
+  "https://code.visualstudio.com/api/language-extensions/embedded-languages": {
+    "sha256": "fd95f81aef87d633f1e0750b33d9fcf8976c88cd9e19cdf2a02500c6d94e7331",
+    "lastStatus": 200,
+    "etag": "W/\"1618e-qNQ0IeSDlggq7e5fCguyGvGuRmw\""
+  },
+  "https://code.visualstudio.com/api/language-extensions/language-configuration-guide": {
+    "sha256": "2ad870144ee4fbd7646c1be47797aefdd406fa630a17514adb3b249bf6937643",
+    "lastStatus": 200,
+    "etag": "W/\"1a311-lYKLy3EupSg1FXiCEeWdLhUmk7o\""
+  },
+  "https://code.visualstudio.com/api/language-extensions/language-server-extension-guide": {
+    "sha256": "9ec212e01950f337b5cbe2057f1699beb89e31a3e91749ea89770a72f5ef3461",
+    "lastStatus": 200,
+    "etag": "W/\"3b157-Ln/PCyYXw7WxzcWbom5vPFyynvw\""
+  },
+  "https://code.visualstudio.com/api/language-extensions/overview": {
+    "sha256": "d7dd7af38f283638a5444630aad105e48b0a44c4180db39ea5b914818771fbc2",
+    "lastStatus": 200,
+    "etag": "W/\"c27a-g1Dk0ZmEJoM3jGzD9LIw+EVUTK0\""
+  },
+  "https://code.visualstudio.com/api/language-extensions/programmatic-language-features": {
+    "sha256": "7f7dc058199ed208d796f6a740299ba1658f7099bf482df8df5aa3033c37d360",
+    "lastStatus": 200,
+    "etag": "W/\"3135d-OTiE3GEq1VslfGHIfTd7F0SpsPk\""
+  },
+  "https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide": {
+    "sha256": "8435d1d1bac454b5701b58d4cd5ada90b92109b7a9484b66a25ea6ba34fb9108",
+    "lastStatus": 200,
+    "etag": "W/\"144ef-bu59pxcVXXUoH/B1B1xpt/Y4XyM\""
+  },
+  "https://code.visualstudio.com/api/language-extensions/snippet-guide": {
+    "sha256": "8f42dddfc787f4d938b884e625624840dfd5062878242b0471fec4c95d0eae6d",
+    "lastStatus": 200,
+    "etag": "W/\"c0bd-3odiUZJaB2UA/28aGmmqwKYquBM\""
+  },
+  "https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide": {
+    "sha256": "ff0f8f5e665a374faacafd193c8f91b0f9b517a48d506331837386fa6c2da325",
+    "lastStatus": 200,
+    "etag": "W/\"15f29-3C0989e62xPLwpL9lbuW7EkL1O8\""
+  },
+  "https://code.visualstudio.com/api/references/activation-events": {
+    "sha256": "e2ca845c8354c4a78ff6bfa4d3faff62cbebc7dbba4c21946a6e945d86729d57",
+    "lastStatus": 200,
+    "etag": "W/\"134b1-Y8VtuH/vKZNIDgg0ql2bhmrnizI\""
+  },
+  "https://code.visualstudio.com/api/references/commands": {
+    "sha256": "6949cf1309d312cd29fcf8a985472f4918dda436424e52d3be7ae57b9dc3cdc7",
+    "lastStatus": 200,
+    "etag": "W/\"11e3d-tsoI+mq0iAyCuT5w1RcKTB5jzjE\""
+  },
+  "https://code.visualstudio.com/api/references/contribution-points": {
+    "sha256": "cd3c5701815d9d51b29703a91f1571da132f2717bf2ad6ffa9da13a0d742cefe",
+    "lastStatus": 200,
+    "etag": "W/\"45ce6-wOQ1jTbm9ZXUgfLEtPw0C1QehS4\""
+  },
+  "https://code.visualstudio.com/api/references/document-selector": {
+    "sha256": "3646ba64b1e5cdad29dac056368d804b3eda6ef0d3093365d79fcd11af43c106",
+    "lastStatus": 200,
+    "etag": "W/\"f369-B8YJrJnLmn/QCSZ8Hthz7kI4G3M\""
+  },
+  "https://code.visualstudio.com/api/references/extension-manifest": {
+    "sha256": "fe042459035bc8853218d647b8f0dc8d429f9694e3abfd30bf2ce5b9e4254ca7",
+    "lastStatus": 200,
+    "etag": "W/\"15a17-xRSuok1cMRC6r60ni+XNKvYiMfM\""
+  },
+  "https://code.visualstudio.com/api/references/icons-in-labels": {
+    "sha256": "4b7865f3b6ebfff4f62a97da36081b5c36be3ee2493fd2d2aae3c6689082a849",
+    "lastStatus": 200,
+    "etag": "W/\"20e7f-nWacNmii7uQ71oxlxa0dDxWUgy0\""
+  },
+  "https://code.visualstudio.com/api/references/theme-color": {
+    "sha256": "ac91830362c1c1a7b9a851507d0030af155c6cfc77e000325cd9a2fc658d4e95",
+    "lastStatus": 200,
+    "etag": "W/\"2aac1-+P2vHIWHxf8uEVJW5/qReipeokE\""
+  },
+  "https://code.visualstudio.com/api/references/vscode-api": {
+    "sha256": "ffa66d3765a6589e0024f10ad11ac428c2945a2a44516406a1e9cf874920c405",
+    "lastStatus": 200,
+    "etag": "W/\"25abd0-NSD9yq0RtnlsoWVIAWtiv+aKtb8\""
+  },
+  "https://code.visualstudio.com/api/references/when-clause-contexts": {
+    "sha256": "dd155b1114b9c96eed94650f52977baf5d042aa35e33f96a486191e135bacc11",
+    "lastStatus": 200,
+    "etag": "W/\"146bf-X6eTppqro3xLe1ral0SFERFV++s\""
+  },
+  "https://code.visualstudio.com/api/ux-guidelines/activity-bar": {
+    "sha256": "a2a7a3dfae6ba4095bb6e18c665c71997e683ce206bd126ddba95e0b9b9ede57",
+    "lastStatus": 200,
+    "etag": "W/\"abc6-6DqUNVWunbHj+UcYqHfAXZPsMsA\""
+  },
+  "https://code.visualstudio.com/api/ux-guidelines/command-palette": {
+    "sha256": "f03a85159e0f74b95181587f37e6bda08036ca4aab58e07b19df7f9b250924bf",
+    "lastStatus": 200,
+    "etag": "W/\"abaa-HYDXcOKnRWj1dCk9ZNAdy6GDr2A\""
+  },
+  "https://code.visualstudio.com/api/ux-guidelines/context-menus": {
+    "sha256": "63371b3cd0c03e9c0e67ad660600e0881f78cfa31e424a9e40957da8a1bedd38",
+    "lastStatus": 200,
+    "etag": "W/\"ab58-e1US7lnL1wJsCNXY+8P1j3h4DXQ\""
+  },
+  "https://code.visualstudio.com/api/ux-guidelines/editor-actions": {
+    "sha256": "bc47b1d5115d3ed69fbf29700dee945321bea6ddd421d51d309e559d71320782",
+    "lastStatus": 200,
+    "etag": "W/\"aca4-A5y8aAikhY6ouGTK0HSDjmsAQ74\""
+  },
+  "https://code.visualstudio.com/api/ux-guidelines/notifications": {
+    "sha256": "9248ec95f6ea0a176d123d50c724a03ae4927da3d4ea87fa1f03fef595db4523",
+    "lastStatus": 200,
+    "etag": "W/\"bda9-ISNl1qzQ48Sneb3f6N2jgtofbo8\""
+  },
+  "https://code.visualstudio.com/api/ux-guidelines/overview": {
+    "sha256": "a80126b0fca50936711911f858b724e33b17a4d6479c4bfc8a9c4f3ac4905e36",
+    "lastStatus": 200,
+    "etag": "W/\"c956-XwNLeB/55AnX01OWcV+u8mUa2D0\""
+  },
+  "https://code.visualstudio.com/api/ux-guidelines/panel": {
+    "sha256": "20163c1f56ec897bc90fc281b7e0ddb82b58caadf29160d8820405c9af864f60",
+    "lastStatus": 200,
+    "etag": "W/\"b1db-KONQhU6IM7qORWws1SddZsV8eo8\""
+  },
+  "https://code.visualstudio.com/api/ux-guidelines/quick-picks": {
+    "sha256": "72d58096ce6f387cf8e249160d31715bc63d87c90406f85423e87335f582440b",
+    "lastStatus": 200,
+    "etag": "W/\"b683-xoKQ5zpvoG3p6sz9J6k7OUlnMdE\""
+  },
+  "https://code.visualstudio.com/api/ux-guidelines/settings": {
+    "sha256": "abe148483e5caf5b9344d28b3d995920d8d3c6181dcc4e6197ce2eadc57f29ab",
+    "lastStatus": 200,
+    "etag": "W/\"abad-NwRFgzCrKRB2ji6lsvw2u/Ans88\""
+  },
+  "https://code.visualstudio.com/api/ux-guidelines/sidebars": {
+    "sha256": "0501990bed60c0330c47efb9516fd6a3a84c785e2c7c78f4b2174c8d53394387",
+    "lastStatus": 200,
+    "etag": "W/\"b835-6atpweWG1gVB5QkXO3DDOtiCUpU\""
+  },
+  "https://code.visualstudio.com/api/ux-guidelines/status-bar": {
+    "sha256": "5f87ec1ae7abecbb775dabd214ba0694680fc6d41fac0c19b32bf5b9e8a38118",
+    "lastStatus": 200,
+    "etag": "W/\"b44f-ry+6ia6sqx+MR4+YogfLHNgcTww\""
+  },
+  "https://code.visualstudio.com/api/ux-guidelines/views": {
+    "sha256": "fde9fa54687850581fe437534eb717f040534d6f3356c801b9fa1c0681d2b773",
+    "lastStatus": 200,
+    "etag": "W/\"c332-/sWT5biwlEks79U4B64oaOyOGM8\""
+  },
+  "https://code.visualstudio.com/api/ux-guidelines/walkthroughs": {
+    "sha256": "fe97bfa79de0838f0af3e5a1f958729eaa812ab5546953483e41fba30a5ee7f9",
+    "lastStatus": 200,
+    "etag": "W/\"ad75-mJUrlthdv+GNyQm2b238diZmUng\""
+  },
+  "https://code.visualstudio.com/api/ux-guidelines/webviews": {
+    "sha256": "5349ede97e3eb3c4d40b20327c11f26b8df5e0edbcfb8dcc565b8f2b77cede84",
+    "lastStatus": 200,
+    "etag": "W/\"b3f1-vr5KAHprRnxxM7TWpcgmwbuTa9A\""
+  },
+  "https://code.visualstudio.com/api/working-with-extensions/bundling-extension": {
+    "sha256": "046446a6557b4be33f15288fdd0af555f7ccea67d7b0c9b60d5f6f5159448f17",
+    "lastStatus": 200,
+    "etag": "W/\"1a89c-9RFZVT/1A4mYXr3s2ncvMUqeUZw\""
+  },
+  "https://code.visualstudio.com/api/working-with-extensions/continuous-integration": {
+    "sha256": "5063d1d85180c2e1c09ded36f18aafccbc4da0feac34f24e2a564cb0ca967173",
+    "lastStatus": 200,
+    "etag": "W/\"12a0f-QZqhyKJZ5yy7URPSpawdW9IXwb4\""
+  },
+  "https://code.visualstudio.com/api/working-with-extensions/publishing-extension": {
+    "sha256": "48d6d7232d5c4ae4e04f3305f5849f9551314b21255688abde5097fce2c1c6e9",
+    "lastStatus": 200,
+    "etag": "W/\"1c7a0-W9IQruaK689K9vZefyi/+7cK5aw\""
+  },
+  "https://code.visualstudio.com/api/working-with-extensions/testing-extension": {
+    "sha256": "a2d4f4bb231854cdbaf9f91122dff233cd22357347b30c308ec3bb4371ff4d73",
+    "lastStatus": 200,
+    "etag": "W/\"1ed82-em5u10cnFG3h/ijIXMlK/2RgGSw\""
+  },
+  "https://code.visualstudio.com/docs/agent-customization/agent-plugins": {
+    "sha256": "60f5afb5b5be5a00c28077774f7bc507c5953c4a956fde8eb0de282abacf5e64",
+    "lastStatus": 200,
+    "etag": "W/\"19345-tzoIyomGPTslI2uxC5g1ADpvQFg\""
+  },
+  "https://code.visualstudio.com/docs/agent-customization/agent-skills": {
+    "sha256": "5002e608b3f1269e0040335224dd73e12bca9e492c8d4a638f864c7578a8c873",
+    "lastStatus": 200,
+    "etag": "W/\"17405-JVtOh4lvV8avjMwwSONDW3aElwo\""
+  },
+  "https://code.visualstudio.com/docs/agent-customization/custom-agents": {
+    "sha256": "8f6094be5049e2983105df52089225767fc9259fa9823486e8849f3a6b5604aa",
+    "lastStatus": 200,
+    "etag": "W/\"193c2-7qDHHTZ+Sq3yFazQFqhCBJrCkCU\""
+  },
+  "https://code.visualstudio.com/docs/agent-customization/custom-instructions": {
+    "sha256": "6963c38b4b197d7a207ec6470885b6a5ac6e9fb3466722eee8dd23ee5ac134f6",
+    "lastStatus": 200,
+    "etag": "W/\"1bf63-VhzUc/zjYWr9JKKvnTU4NiYhnkY\""
+  },
+  "https://code.visualstudio.com/docs/agent-customization/hooks": {
+    "sha256": "dd5455e33687799ab073f70e5300aeb3277e8e0b604dd7eab1c8a286f107829d",
+    "lastStatus": 200,
+    "etag": "W/\"1f89e-3ra+3hKxdUP3Wviq0PIiDw101U8\""
+  },
+  "https://code.visualstudio.com/docs/agent-customization/language-models": {
+    "sha256": "29085d5f8ba5b4f2a65cb9ea834e6d7217f27e56a23b73b716592268b72b197a",
+    "lastStatus": 200,
+    "etag": "W/\"1aa2e-odXeyxCm3QWiCvhEpLG2Qjvu5IM\""
+  },
+  "https://code.visualstudio.com/docs/agent-customization/mcp-servers": {
+    "sha256": "395aff687d51cc76e8f28d138b4b0bc51617accf2b1a91322b4e251cce600ce2",
+    "lastStatus": 200,
+    "etag": "W/\"14d49-UOMJT/xvU+mQIevMD5zu6n1HKqQ\""
+  },
+  "https://code.visualstudio.com/docs/agent-customization/overview": {
+    "sha256": "814cdb90bc5a06f39b3d1af70f1ef5c0fb35c9f6ffad1f1bb2d0abd23b59db86",
+    "lastStatus": 200,
+    "etag": "W/\"11bd6-A0RYx1iuyUM0zVMKM5TM5h/afXk\""
+  },
+  "https://code.visualstudio.com/docs/agent-customization/prompt-files": {
+    "sha256": "863f651f34375008e70d476ba8e8d7444172e6f31aab66ba7cdbd7b1ecb84024",
+    "lastStatus": 200,
+    "etag": "W/\"13899-6Sd1j+5UGDc17+b/2LEWNvG7AQw\""
+  },
+  "https://code.visualstudio.com/docs/agents/agent-troubleshooting/cache-explorer": {
+    "sha256": "82d6302b2f50c13a51685aa637b1e2a875106cc977501f8565e59cc51f6e6492",
+    "lastStatus": 200,
+    "etag": "W/\"d154-YRnW4idGC/0RwR3por655gllB7g\""
+  },
+  "https://code.visualstudio.com/docs/agents/agent-troubleshooting/chat-debug-view": {
+    "sha256": "9f17403c3d0317c7c6bc8f411f3da8e422c2fde9a9d7c4c7c51795a6158f4315",
+    "lastStatus": 200,
+    "etag": "W/\"10327-+wFWV5QUlCVVMgTkE5Z8WFp60S8\""
+  },
+  "https://code.visualstudio.com/docs/agents/agent-troubleshooting/faq": {
+    "sha256": "3b74baa1c05717e095d38ca202cc60b0c1aa89717557fe779635ee302fb87002",
+    "lastStatus": 200,
+    "etag": "W/\"12bad-8Jh/+ZfgRWs11WyC+rJFUIdqx4c\""
+  },
+  "https://code.visualstudio.com/docs/agents/agent-troubleshooting/troubleshooting": {
+    "sha256": "727e984b194ee79534e456d9fe1bccd54476def662d9acd9b810d86d3e611688",
+    "lastStatus": 200,
+    "etag": "W/\"dd2d-qUDCRGJjW2pX6n+rihnVMn0McpU\""
+  },
+  "https://code.visualstudio.com/docs/agents/agent-types/cloud-agents": {
+    "sha256": "0381ae6178dda8dee98963eee4a1bc701f719b896481c0a751030ea951bce741",
+    "lastStatus": 200,
+    "etag": "W/\"e96e-OjURSoDrVqqs8e/yzurRD/+TtkM\""
+  },
+  "https://code.visualstudio.com/docs/agents/agent-types/copilot-cli": {
+    "sha256": "4418db56cff97b3f435c7a081bb299db1a1bd7e8fa251b83fc381e215b05b66b",
+    "lastStatus": 200,
+    "etag": "W/\"14275-hkVice8BnAF249rz8INX94N2w+o\""
+  },
+  "https://code.visualstudio.com/docs/agents/agent-types/local-agents": {
+    "sha256": "e03091e6d3ed16710f9d1722f64014e90eac385a2723d6e2b1c84179c60a7fd2",
+    "lastStatus": 200,
+    "etag": "W/\"fe07-ZMgXjgY/CTQ6MHWX5UKfo1QAmQw\""
+  },
+  "https://code.visualstudio.com/docs/agents/agent-types/third-party-agents": {
+    "sha256": "7a8dcdac39a0cd607151e4cdc764858e445d161cd437239f66d0a61dc8e6459a",
+    "lastStatus": 200,
+    "etag": "W/\"f84a-nU45I24UXrysFomeEMu15Rkkbiw\""
+  },
+  "https://code.visualstudio.com/docs/agents/agents-tutorial": {
+    "sha256": "850b5ae19303309e86d3cc0fafee10c11ffc72ebb67931a98d2c4789536c0b1d",
+    "lastStatus": 200,
+    "etag": "W/\"1079f-0MVBf6qgnyRSjirGmWawss/JJU0\""
+  },
+  "https://code.visualstudio.com/docs/agents/agents-window": {
+    "sha256": "71bdd6fb7310b2f77cb4719f45e3f66bcefc0eea0d0b05309fe6de454bf0b9e7",
+    "lastStatus": 200,
+    "etag": "W/\"1771d-19et1BxhBk6SsIjxF8GxHtwqAU4\""
+  },
+  "https://code.visualstudio.com/docs/agents/approvals": {
+    "sha256": "66eeb802f015aa284d0bf947fcf494bad811c7c3cb20981556cc56a7fdfeccc5",
+    "lastStatus": 200,
+    "etag": "W/\"1ef34-UxPj7U0Cl5e0BUAjXC2Mp2d50zE\""
+  },
+  "https://code.visualstudio.com/docs/agents/best-practices": {
+    "sha256": "c00fc85ebf4e34bddd3152348f187edf6593dc855b2ed23e7308d4acb3ae6c7d",
+    "lastStatus": 200,
+    "etag": "W/\"12743-Gp+TmOy6Z1kMUxhK6KctTD+M7o4\""
+  },
+  "https://code.visualstudio.com/docs/agents/chat-view": {
+    "sha256": "479994e6eaa39a03f0f3773457c77e11499353f7d1539a629a711e6bcc7b065b",
+    "lastStatus": 200,
+    "etag": "W/\"e905-LoHdcRMZ6D7zCZ66yVqxV/Uk3NA\""
+  },
+  "https://code.visualstudio.com/docs/agents/concepts/agents": {
+    "sha256": "e008bd5ed5498eaeeba6f424b270b8bc83d7d2523dd83e24552268b772aa9955",
+    "lastStatus": 200,
+    "etag": "W/\"f315-iBP3cFXzXXiXb6kPWIYSPHdczjo\""
+  },
+  "https://code.visualstudio.com/docs/agents/concepts/context": {
+    "sha256": "1ba9f2a612098c05c25868f6eed83c5a8b24ec7e5a95ec5a06ddd395fb5663e8",
+    "lastStatus": 200,
+    "etag": "W/\"d77c-7Y6eRkAlXVWFB/iTPaiyLQQ+9xE\""
+  },
+  "https://code.visualstudio.com/docs/agents/concepts/customization": {
+    "sha256": "5293c9dcb1c0fbad1933ef4659b79a977f80885606afb6040b5b4a20dce5413c",
+    "lastStatus": 200,
+    "etag": "W/\"d310-lmNryu6MBTy95AGBriFZfp/BLJY\""
+  },
+  "https://code.visualstudio.com/docs/agents/concepts/language-models": {
+    "sha256": "1eb82bf1f5e7f2cd4b45246f6c3088925f7ebabcc83fef228e4df33abceea4ee",
+    "lastStatus": 200,
+    "etag": "W/\"e64e-kya8LBqc4RWj9VOFwhyG3xFenu0\""
+  },
+  "https://code.visualstudio.com/docs/agents/concepts/overview": {
+    "sha256": "ce69509121198b148227c220a523084a85868f5bed85be7702baa1957252fc28",
+    "lastStatus": 200,
+    "etag": "W/\"d1a0-ayQNGoX5ghN3BNGxk80Gt9z6BZ4\""
+  },
+  "https://code.visualstudio.com/docs/agents/concepts/tools": {
+    "sha256": "d7a47d8bfa4fd5569d14b0a697134223a31012a4860d4a39cb0fd8af5dd6b08d",
+    "lastStatus": 200,
+    "etag": "W/\"ce00-aZI5IoXlDomDzC86o/F/P7OqipY\""
+  },
+  "https://code.visualstudio.com/docs/agents/concepts/trust-and-safety": {
+    "sha256": "60effac516f743f4174e847472b0a42b565ddc23ca3bb99a776735114c7e7238",
+    "lastStatus": 200,
+    "etag": "W/\"12965-NoqaMjfXRn0QD1tbgSfADmFdass\""
+  },
+  "https://code.visualstudio.com/docs/agents/guides/browser-agent-testing-guide": {
+    "sha256": "8c08994911d9fc8caebee256816c1b19404bce1e0873a24a8c628627dec06180",
+    "lastStatus": 200,
+    "etag": "W/\"10877-LlFzNsWodaOlK7sU8UFpZ3OEHyk\""
+  },
+  "https://code.visualstudio.com/docs/agents/guides/code-review-with-copilot": {
+    "sha256": "65959f468cbb657e3b387e216462f10b5e9827bf12db1d21f301bd33f262fb27",
+    "lastStatus": 200,
+    "etag": "W/\"af7b-h6kLk+buZw85zAqz0uEQB/J9Tfw\""
+  },
+  "https://code.visualstudio.com/docs/agents/guides/context-engineering-guide": {
+    "sha256": "37fa557be2151dbf1e293a6591194f63848a7816bb5c7529e03f71c79ce62e8f",
+    "lastStatus": 200,
+    "etag": "W/\"1667e-6ebyYVFueu2SlabusPuHY1neewU\""
+  },
+  "https://code.visualstudio.com/docs/agents/guides/customize-copilot-guide": {
+    "sha256": "d958977bd9e9195ea105863003d2986a2e701b5ca30c579be2289f0d3c6031ea",
+    "lastStatus": 200,
+    "etag": "W/\"10bb3-yTzH5ANxY1kKld0TPoXsICHuAOg\""
+  },
+  "https://code.visualstudio.com/docs/agents/guides/debug-with-copilot": {
+    "sha256": "b8b775126b7af74d224a7becf528cdb96957d933882fb9d012f0e5e9e08f5ffb",
+    "lastStatus": 200,
+    "etag": "W/\"d75c-w0sP8xK760KhWgnwztTxphbpgkk\""
+  },
+  "https://code.visualstudio.com/docs/agents/guides/mcp-developer-guide": {
+    "sha256": "6bd83e3b69710e30ec858d588c9be3edfcffe5790e5cb5b9245b5534ed9a285f",
+    "lastStatus": 200,
+    "etag": "W/\"d039-WSNa1Eb1Pe73Uzbjj+e8aqV7ZDw\""
+  },
+  "https://code.visualstudio.com/docs/agents/guides/monitoring-agents": {
+    "sha256": "c619ee80d1780274c0cea5feb199787f3ffad5ef1ad101e243125459d81742c5",
+    "lastStatus": 200,
+    "etag": "W/\"1a9d2-6FVsbcAZRAQCJrjTTPmmEGMQSVA\""
+  },
+  "https://code.visualstudio.com/docs/agents/guides/notebooks-with-ai": {
+    "sha256": "d9e6f0225002433efd89f0e0ef5c7aed2277571168e2c895cc804dbc6442c736",
+    "lastStatus": 200,
+    "etag": "W/\"de3f-iPV3C5CqG4W3dsRal/Y853W1N9k\""
+  },
+  "https://code.visualstudio.com/docs/agents/guides/optimize-usage": {
+    "sha256": "e9751c75bcfdd1f4b60446232b8e44b7a5faf2451cfad5b6dcebc7e95988edd9",
+    "lastStatus": 200,
+    "etag": "W/\"f448-pogYPKIRRhttEJItxmfX1ZJmiNU\""
+  },
+  "https://code.visualstudio.com/docs/agents/guides/prompt-engineering-guide": {
+    "sha256": "89bc2c7fcf38881c4ce3446c49a7496e43aff6896e896dd226429bf859b6db0f",
+    "lastStatus": 200,
+    "etag": "W/\"dafb-lV7fF8JojdHUy7u6HZsTjPmpC9o\""
+  },
+  "https://code.visualstudio.com/docs/agents/guides/prompt-examples": {
+    "sha256": "3ef64e089a71846c24af6f68dd68adc26b7ee8cf45a611f016c6dff3234e6667",
+    "lastStatus": 200,
+    "etag": "W/\"fec8-XVhwm3THLZyhCGdGd4J8sIaBNvg\""
+  },
+  "https://code.visualstudio.com/docs/agents/guides/test-driven-development-guide": {
+    "sha256": "6324e2cc7e1a32684a609fc1e5effdbe31f12a5b15d6737ad041f3d4d90b66b0",
+    "lastStatus": 200,
+    "etag": "W/\"138d4-9K5ckINu7535THBFXe6sZOKPDZo\""
+  },
+  "https://code.visualstudio.com/docs/agents/guides/test-with-copilot": {
+    "sha256": "740c0ecf907e17ea68720b38410cfd9592602a20295503239f14539c6c615a56",
+    "lastStatus": 200,
+    "etag": "W/\"dde8-JmX30hFKs99N3z2LYnqCiEUFz0Y\""
+  },
+  "https://code.visualstudio.com/docs/agents/memory": {
+    "sha256": "f88b792bbd4c5ebf79e378edccdc67ad8f45addc09f659b9a70c480e529e288f",
+    "lastStatus": 200,
+    "etag": "W/\"e88a-sNOIzXbj8vKdmS0KVGd4qia32sk\""
+  },
+  "https://code.visualstudio.com/docs/agents/overview": {
+    "sha256": "ee9246051be7e7b8583eb1a7660c949e030a270654ec0c2158137cded1fc5c52",
+    "lastStatus": 200,
+    "etag": "W/\"fabc-TWfSwVOWIiqP/kWRwcKLCDy+j0Q\""
+  },
+  "https://code.visualstudio.com/docs/agents/planning": {
+    "sha256": "72cae34e4df3861790dc69f276ba0da89a9e077b9a9323d4264cf298bb642f73",
+    "lastStatus": 200,
+    "etag": "W/\"e69a-Gf+9g85RXyXDaF/yM8zT69DyJGM\""
+  },
+  "https://code.visualstudio.com/docs/agents/reference/ai-features-cheat-sheet": {
+    "sha256": "030105ff54b6d96f68625d6afa6cdbdc97154bcac02e9acea23df68dffef9f00",
+    "lastStatus": 200,
+    "etag": "W/\"199a0-AS7p6xRSLIpLNTP6SwJRy/DaMNw\""
+  },
+  "https://code.visualstudio.com/docs/agents/reference/ai-settings": {
+    "sha256": "c297e72e5c8ab50f91268613489d5e365410b72598904056f0dc2a2d62227ced",
+    "lastStatus": 200,
+    "etag": "W/\"45d07-QS0gxXAUZ+49mnxXwT1xjZ+frag\""
+  },
+  "https://code.visualstudio.com/docs/agents/reference/hooks-reference": {
+    "sha256": "884a67b103c3e638004f10cc62eeb1ca6580ed55ebed30a44cec98eabd615e3b",
+    "lastStatus": 200,
+    "etag": "W/\"1305d-6rDE4pByklgo8dzqWFBydFblcSA\""
+  },
+  "https://code.visualstudio.com/docs/agents/reference/mcp-configuration": {
+    "sha256": "61c5fe8294a37fb44efa0db3aa07acf8d61acc5add8cd218efdda919718e88a7",
+    "lastStatus": 200,
+    "etag": "W/\"151a7-+OVKRfLRdoD/ms6O45Ga94LdXwU\""
+  },
+  "https://code.visualstudio.com/docs/agents/reference/workspace-context": {
+    "sha256": "e3e5d2a57b0c95a971938c60ac55fd948b6abcefabb99319f269d846c2d32396",
+    "lastStatus": 200,
+    "etag": "W/\"103b7-Tq0QsF1VWRtnwaMT+iH3ZJWitxc\""
+  },
+  "https://code.visualstudio.com/docs/agents/remote-agent-sessions": {
+    "sha256": "a6f78771b156882ee4027f6fb251dc0861b98e00d609e22f205af694ae09a4f1",
+    "lastStatus": 200,
+    "etag": "W/\"db73-98RfjDxmWsggDBiEu6l0e/4CM3M\""
+  },
+  "https://code.visualstudio.com/docs/agents/security": {
+    "sha256": "b68a97c495cdc9dc65d18a185007743728689e988b43aa3d27278deee5adced9",
+    "lastStatus": 200,
+    "etag": "W/\"13804-EdTdeiwqwoUUzKWWBndC1kSGEv4\""
+  },
+  "https://code.visualstudio.com/docs/agents/sessions/session-insights": {
+    "sha256": "de5083dfa58fc3b9746c82a28417bc406827ca135028bbfd688b6b9e0a07547e",
+    "lastStatus": 200,
+    "etag": "W/\"cf1b-+neF+4/rCOHl/zCbOMC8ZE2+qi4\""
+  },
+  "https://code.visualstudio.com/docs/agents/sessions/session-sync": {
+    "sha256": "6e1bbbd850b76bbf3e08bb2a611e7dc54a3b471025fe710012e926f89a2caf24",
+    "lastStatus": 200,
+    "etag": "W/\"fd49-YQQKWAcmyRyj0Ab1xjIw6cAsRYc\""
+  },
+  "https://code.visualstudio.com/docs/agents/subagents": {
+    "sha256": "39bcc1a4c553ca8ca71fa8bfaebd2f99617a5926b6966dabc5f0edaa16367b4f",
+    "lastStatus": 200,
+    "etag": "W/\"1681b-c8DPMGv0uWmcbrQWwuBDA+Fx2+U\""
+  },
+  "https://code.visualstudio.com/docs/azure/aksextensions": {
+    "sha256": "2b3565ff14663add30d9818c7fad3dfbdf3ace14c3838e7b9e799d7d0fd231eb",
+    "lastStatus": 200,
+    "etag": "W/\"fba4-m5fWugA+R9hJ8Rp9AknxfCtRCOk\""
+  },
+  "https://code.visualstudio.com/docs/azure/containers": {
+    "sha256": "7e529e7478c30da1fb66b7cee5e60b6909a6725436766038d425ea007e54b44a",
+    "lastStatus": 200,
+    "etag": "W/\"eb3a-Dw63r9ddtgtbpFjgwc/LwaloXFA\""
+  },
+  "https://code.visualstudio.com/docs/azure/deployment": {
+    "sha256": "1cd6745e993466d85baa5b87c1171d17e8bf95f96d6408643049b34cd2204f64",
+    "lastStatus": 200,
+    "etag": "W/\"c71f-voCgj5XHZOVzOYHIWixHHEFiuHE\""
+  },
+  "https://code.visualstudio.com/docs/azure/gettingstarted": {
+    "sha256": "66e720adeed7d48b4592266cd2718a750aaa9b01d8d6668febcebdeea358b66f",
+    "lastStatus": 200,
+    "etag": "W/\"d51b-LRsvGBFEfkLYWHynniOfbWWeukQ\""
+  },
+  "https://code.visualstudio.com/docs/azure/kubernetes": {
+    "sha256": "013ed0fbab6b46e64acb98ca48b2741a7b9cdb20b449be2e10c5242f3c43555c",
+    "lastStatus": 200,
+    "etag": "W/\"e1fe-uEZekEFS2VzpszTdv7zHrzgRqiw\""
+  },
+  "https://code.visualstudio.com/docs/azure/mongodb": {
+    "sha256": "61cc424369aa369394bd213d5de5084a13630ce5429026dd8ce4b0a2fb9134ae",
+    "lastStatus": 200,
+    "etag": "W/\"d6f6-6L7Tnoawqih9kGefiD9AuVfTLt4\""
+  },
+  "https://code.visualstudio.com/docs/azure/overview": {
+    "sha256": "3d3e753f87dff62d9613daffe39213f1e60ac8678c2b8a02a01426379d3c5ce1",
+    "lastStatus": 200,
+    "etag": "W/\"d8ed-lwEJ5ogTfleXhJmWnTTZDwB3r0k\""
+  },
+  "https://code.visualstudio.com/docs/azure/remote-debugging": {
+    "sha256": "bdd939c5ceb0e2f5c355088ad4c51d7b5a5cf4dad9bbb83cf1141ae5512fe825",
+    "lastStatus": 200,
+    "etag": "W/\"cfed-isNmyqkSIe03XuBnYMm2Rp37qGQ\""
+  },
+  "https://code.visualstudio.com/docs/azure/resourcesextension": {
+    "sha256": "db0445348ddc10f7f854b3154f2703ef6c4bf849780b63f0c0033503f7f1f0c3",
+    "lastStatus": 200,
+    "etag": "W/\"d9dc-4/Vw36EH0Glc3x2lyhGihX3i+Rw\""
+  },
+  "https://code.visualstudio.com/docs/azure/vscodeforweb": {
+    "sha256": "27af5d0f27f9673cd41273c4a8d7cf999a1eaee43f5a2367e72eaa6d778729ba",
+    "lastStatus": 200,
+    "etag": "W/\"fd92-9DBehx1ZNtMZ8l0WW8sUsAx53Iw\""
+  },
+  "https://code.visualstudio.com/docs/chat/chat-artifacts": {
+    "sha256": "7b3d3b34f6bef70a9d0b27caa505e07226a0c845b370f03641b71f2c9d3d1041",
+    "lastStatus": 200,
+    "etag": "W/\"e779-neKtbkhqopvwTioeHSi4pG4CWjU\""
+  },
+  "https://code.visualstudio.com/docs/chat/chat-checkpoints": {
+    "sha256": "35e1398da727949d5f4638582529ad4b9a08ebe90709e95c6cc1ea1783e27c6f",
+    "lastStatus": 200,
+    "etag": "W/\"e113-Ltt84tNYGmz93OmjoqjenPYcIcQ\""
+  },
+  "https://code.visualstudio.com/docs/chat/chat-overview": {
+    "sha256": "af70afff82fe6865b39a17ea0445d642b8da6c291c7e416f121c09052de52eb1",
+    "lastStatus": 200,
+    "etag": "W/\"1184d-GBJ2KIL1juwMXYJEBwPmfXJ9kAE\""
+  },
+  "https://code.visualstudio.com/docs/chat/chat-sessions": {
+    "sha256": "870eed4a87223ab6e2f0ae0c9e571562863e7e1dfd95cdf666c721c78dc58aad",
+    "lastStatus": 200,
+    "etag": "W/\"131e4-Y7pDPgm9lNQcw5DzcnAvms/Q7K0\""
+  },
+  "https://code.visualstudio.com/docs/chat/chat-tools": {
+    "sha256": "36acb08d44109c7adf2a252710bc6dc25c563b0c2a3ad46fa2bc6e31a737f56a",
+    "lastStatus": 200,
+    "etag": "W/\"124d3-9tMb54R5De5yfyxsIAb1OL1q06Y\""
+  },
+  "https://code.visualstudio.com/docs/chat/copilot-chat-context": {
+    "sha256": "826cb68ea64d46a3aac03c3cfa38dcbd56026e38e138bc57ff8aebfcc2f0da51",
+    "lastStatus": 200,
+    "etag": "W/\"10992-JDktuF/oaocXe63ogSXT8CNI0vQ\""
+  },
+  "https://code.visualstudio.com/docs/chat/inline-chat": {
+    "sha256": "f12b4be115c2c29335f6cd6523cab7cff76909dd5c752cb220ae11a1881aa941",
+    "lastStatus": 200,
+    "etag": "W/\"f621-15rDMBHFPZDrCHwHej2d73t493Y\""
+  },
+  "https://code.visualstudio.com/docs/chat/review-code-edits": {
+    "sha256": "4c101657b92ccf1cc1a5b702b6b2356262b01e0874cd77f8e37001dfe8849d2f",
+    "lastStatus": 200,
+    "etag": "W/\"10347-hGIC856HB0S4vReoz5+EzvVyX18\""
+  },
+  "https://code.visualstudio.com/docs/configure/accessibility/accessibility": {
+    "sha256": "d2c1e24df0b3560015f8a30a0d3eae90eb4ef067faa9c55fa6f1e8643ab63666",
+    "lastStatus": 200,
+    "etag": "W/\"13d5c-31OcEdE6xB1S3uXb8w3xod+cZ0w\""
+  },
+  "https://code.visualstudio.com/docs/configure/accessibility/voice": {
+    "sha256": "e1f5a50a988a9e5669de0c055e269e8e4b88bcd513945801de8c4de81d699b87",
+    "lastStatus": 200,
+    "etag": "W/\"c455-UINFlR2IkXBYf3/SDuoRVauY2MI\""
+  },
+  "https://code.visualstudio.com/docs/configure/command-line": {
+    "sha256": "3aa3a553c84636f8b5c6e9a127d8672ca3f191324655d1f4db264043e12447b9",
+    "lastStatus": 200,
+    "etag": "W/\"1051d-yzmuySI3AxRSo+08FOKk07fbRGU\""
+  },
+  "https://code.visualstudio.com/docs/configure/custom-layout": {
+    "sha256": "43e674ce91622060762fd985dfa4b129ad784e5f28616848ea61f222acd007b5",
+    "lastStatus": 200,
+    "etag": "W/\"15f4f-2exV6DHOxtRK095JOr3ueKwVoWw\""
+  },
+  "https://code.visualstudio.com/docs/configure/extensions/extension-marketplace": {
+    "sha256": "3e1db43717aba1ecac133fc6fd5a8c36981fd69200467dff902ea5ae6f013b6c",
+    "lastStatus": 200,
+    "etag": "W/\"17238-kSQbXZqlqixDPOdhChxjuVuVCPk\""
+  },
+  "https://code.visualstudio.com/docs/configure/extensions/extension-runtime-security": {
+    "sha256": "2b0d50c1aa542f80ab574373e0f1df92c2f96c9eebdbfa8a6313a50127cdab85",
+    "lastStatus": 200,
+    "etag": "W/\"b899-8sLX1nJY5IWghfBn7ZZrzoOJR+o\""
+  },
+  "https://code.visualstudio.com/docs/configure/extensions/extensions": {
+    "sha256": "ca7406655a4d6f0cb9f23f75337689db4e8c164532a3a6ba2f40775b69db1cfc",
+    "lastStatus": 200,
+    "etag": "W/\"ae91-QH0jrwka3txSpdjhRyzxsSTKiTs\""
+  },
+  "https://code.visualstudio.com/docs/configure/keybindings": {
+    "sha256": "46632233eb5586badb31ad771da4039e2cf8a76c1a94d0d492780ccf434f6c3d",
+    "lastStatus": 200,
+    "etag": "W/\"18cb4-em+KVhJB7bKfJ8mEC3GZINUA7Cw\""
+  },
+  "https://code.visualstudio.com/docs/configure/locales": {
+    "sha256": "396d3cf60c573dd62dd7f3c8fcbe8841b2dc4ddb68ff1979f4b9a2e91553d0a9",
+    "lastStatus": 200,
+    "etag": "W/\"aef0-YIGCDyj41QEpetoUwPRamVfn3JE\""
+  },
+  "https://code.visualstudio.com/docs/configure/profiles": {
+    "sha256": "2250facc7383815580576f4c6d91b2f684314e0fe840f471fdb1a74b91f36e92",
+    "lastStatus": 200,
+    "etag": "W/\"1721a-ViQ7SSvC0kF0NoWibTqbzf/6f2E\""
+  },
+  "https://code.visualstudio.com/docs/configure/settings": {
+    "sha256": "c436d9fdb249106c9ba4cc6bf1d861aa3abcfa1c9aec87218903e59909643d71",
+    "lastStatus": 200,
+    "etag": "W/\"180dc-LwdJD2VZY4HuBCvILNUTlqC+l2c\""
+  },
+  "https://code.visualstudio.com/docs/configure/settings-sync": {
+    "sha256": "378157686a941d631539b18a8ef63810cea9bfd2fce3273e8ef6b1a717c1587c",
+    "lastStatus": 200,
+    "etag": "W/\"101da-UKFlwBYpJDwioKxflXbzT6nKoks\""
+  },
+  "https://code.visualstudio.com/docs/configure/telemetry": {
+    "sha256": "9d2a409902cfcfadd884e36da9c8021211cb70e6f884702ada4eaf49e9d8576f",
+    "lastStatus": 200,
+    "etag": "W/\"10073-QyupgvJOOi5vYTJfnaFynreIwkM\""
+  },
+  "https://code.visualstudio.com/docs/configure/themes": {
+    "sha256": "bf14aa6299522d323ce92fb9a190ca9e3144cb7cc375fb0045c51059cff0c0a4",
+    "lastStatus": 200,
+    "etag": "W/\"12505-/0WNVD0oQ+mgkAFA8NQZTHBVhqQ\""
+  },
+  "https://code.visualstudio.com/docs/containers/app-service": {
+    "sha256": "e685721f7babda7791885d96b1e7bc89035944b1c8306f6c50ac8cd2870b6592",
+    "lastStatus": 200,
+    "etag": "W/\"e04a-pqDi2UVJ66Pu6Q7JdBC2qgVAgg4\""
+  },
+  "https://code.visualstudio.com/docs/containers/choosing-dev-environment": {
+    "sha256": "7a16a19e34d68895feefb1e4c5039f6107af619aaaa0e71ae2acaecb52fe0fac",
+    "lastStatus": 200,
+    "etag": "W/\"fe2a-4A+7uXGFsUkiOdIvHVw0C5WD+08\""
+  },
+  "https://code.visualstudio.com/docs/containers/debug-common": {
+    "sha256": "a212feec87a08be5abcecc80a40bee3bcee3a468671be2c3f1951a88081347de",
+    "lastStatus": 200,
+    "etag": "W/\"109cb-ntl0vIVxWnCF+ZelQDSgBmld0U8\""
+  },
+  "https://code.visualstudio.com/docs/containers/debug-netcore": {
+    "sha256": "9d0b54375d5d21cf5da17a3f81dc3338d1f3b4ea66bdf727b8b2553f5dbce0a4",
+    "lastStatus": 200,
+    "etag": "W/\"da27-JHQDoAU02wzUL7MSFm+k2B8N/Xc\""
+  },
+  "https://code.visualstudio.com/docs/containers/debug-node": {
+    "sha256": "e21b71a38b3d57c3b4b138103f821679048b5aa7bab1c2223d42dbf3212113da",
+    "lastStatus": 200,
+    "etag": "W/\"13eb4-+353YO8uTLko5q9VIxbQmWCj8+U\""
+  },
+  "https://code.visualstudio.com/docs/containers/debug-python": {
+    "sha256": "0ef47dfa27b5e06c411dc60eca8b9d7a9ee2b4b0df223b3c83278b60731e639b",
+    "lastStatus": 200,
+    "etag": "W/\"176bc-yLIKZ6v0KLM8Z/V2FVQWuaXFgnw\""
+  },
+  "https://code.visualstudio.com/docs/containers/docker-compose": {
+    "sha256": "6a0ee65cffb50791ebeb5deff842a585a5d46f65f6fbb3d826b0a95c7a464777",
+    "lastStatus": 200,
+    "etag": "W/\"16c5f-1TkRMG8hHZR5SO6ZTVBwz82LhDQ\""
+  },
+  "https://code.visualstudio.com/docs/containers/overview": {
+    "sha256": "7e529e7478c30da1fb66b7cee5e60b6909a6725436766038d425ea007e54b44a",
+    "lastStatus": 200,
+    "etag": "W/\"eb3a-Dw63r9ddtgtbpFjgwc/LwaloXFA\""
+  },
+  "https://code.visualstudio.com/docs/containers/quickstart-aspnet-core": {
+    "sha256": "33bfe7f66b780b814bd27416734a056abe331ea606b4cc9ec070e5ae03a0b81e",
+    "lastStatus": 200,
+    "etag": "W/\"120b7-+ICiJRI2X3gqO/RWVfDR1t5Kj7I\""
+  },
+  "https://code.visualstudio.com/docs/containers/quickstart-container-registries": {
+    "sha256": "1da0e1c612256048eefe8ceb9c6e41c0cdf64ee5f5319e1e0bf1163981bf4541",
+    "lastStatus": 200,
+    "etag": "W/\"e956-k+QR9omg8vsrk1AsihRCxDgQVC4\""
+  },
+  "https://code.visualstudio.com/docs/containers/quickstart-node": {
+    "sha256": "9033ba85c802764ecd33c5f3315e222e2534c0978abfdd08187cafee1b322c0d",
+    "lastStatus": 200,
+    "etag": "W/\"ec3e-Ankfd4peVr5VfrGBEmxbGCZwZYM\""
+  },
+  "https://code.visualstudio.com/docs/containers/quickstart-python": {
+    "sha256": "7d6127aeb58c3c6b499b377e3623af4abf3030db0a7bcb4a69b8de053be3f654",
+    "lastStatus": 200,
+    "etag": "W/\"123c9-rzl4GF3pjUqrEn8OGIS2Jn0ORYk\""
+  },
+  "https://code.visualstudio.com/docs/containers/reference": {
+    "sha256": "1dcc615964ef922985339a202f66e6de46dfaf7ed8077489c0c1339822a9fc8d",
+    "lastStatus": 200,
+    "etag": "W/\"1cb91-eOSwrRc/3djOCenKtOMdQSjTFus\""
+  },
+  "https://code.visualstudio.com/docs/containers/ssh": {
+    "sha256": "46b95e15d4c1e718a9eaa1ea3addcef505c8bce7ec20c85bc482d676bd0afe51",
+    "lastStatus": 200,
+    "etag": "W/\"d71d-rSiu51rEKnGn0CLsS59kreGkn+g\""
+  },
+  "https://code.visualstudio.com/docs/containers/troubleshooting": {
+    "sha256": "6ac2237ee6824c9081c458bdc3ec1db1b22ad8deae1e129b3d6f81434c090a4a",
+    "lastStatus": 200,
+    "etag": "W/\"f038-9bvdRVot2o4/UDRbZoI6NhaQaJQ\""
+  },
+  "https://code.visualstudio.com/docs/containers/tutorial-django-push-to-registry": {
+    "sha256": "b9020f1d9d455c997be29f797f191b6164d005b490decd319d7293a6911b1fa4",
+    "lastStatus": 200,
+    "etag": "W/\"c592-kJKBEMZ/m6LHkPa+KQWbkW24E3w\""
+  },
+  "https://code.visualstudio.com/docs/core-editor/overview": {
+    "sha256": "74e4014e4a539ab0ecd4b9dd4b663763928668391611b4b2cf9b4fe1a4f5a33d",
+    "lastStatus": 200,
+    "etag": "W/\"99bd-6Io00HEbbBS/DWDgJSUXpQtm0NY\""
+  },
+  "https://code.visualstudio.com/docs/cpp/build-with-cmake": {
+    "sha256": "fa5d7768a152a4a72ae0c8bd5426d28951b422dddc60f70beafbfaf798c784ad",
+    "lastStatus": 200,
+    "etag": "W/\"3ca1cca0ddb27c26f20b44eff9ea354f\""
+  },
+  "https://code.visualstudio.com/docs/cpp/cmake-linux": {
+    "sha256": "f24a955ae7e64b6470aaf2b099d1a3fa05a70dca132718d547ac2d6d13a6709d",
+    "lastStatus": 200,
+    "etag": "W/\"1206b-FRslA6Q7WoaK6qSVYZHn1z9h+BQ\""
+  },
+  "https://code.visualstudio.com/docs/cpp/cmake-quickstart": {
+    "sha256": "544581e08eb8f5f3e5819c59aaf2f4d9eed8ed1943945ffc7198cf6b64832b1d",
+    "lastStatus": 200,
+    "etag": "W/\"f36d-jnpT8h24onvfpJ9yoi0AZB/FzBU\""
+  },
+  "https://code.visualstudio.com/docs/cpp/colorization-cpp": {
+    "sha256": "da4a3fcf8a6677f6bb3b0150619b79ff7e2cde1c26d6bf19d46053b370163c09",
+    "lastStatus": 200,
+    "etag": "W/\"d687-KpsafIfvPY343t9d+p4ITTf/vTg\""
+  },
+  "https://code.visualstudio.com/docs/cpp/config-clang-mac": {
+    "sha256": "054e5acaeda4d76972eb4613275eccc6b4636caadba15f5ff562a880fa201fc9",
+    "lastStatus": 200,
+    "etag": "W/\"19494-7f3D9fHoovzp9RABYCMxIMH0jxE\""
+  },
+  "https://code.visualstudio.com/docs/cpp/config-linux": {
+    "sha256": "b51d7672d17cbd02ea5b47da815a8260fbf0fbaaedf3b75e8cc5a664ee7cdab1",
+    "lastStatus": 200,
+    "etag": "W/\"18f9a-gwNF2xf7y63RT8zesEVpXUbVTd8\""
+  },
+  "https://code.visualstudio.com/docs/cpp/config-mingw": {
+    "sha256": "d0c18d38170ac734954acca25e5d7ab0fe536d46e2071dd3c590fd47912c7901",
+    "lastStatus": 200,
+    "etag": "W/\"1b8a2-NtByNaZGC1Iq8dKOmI1g46q/sQs\""
+  },
+  "https://code.visualstudio.com/docs/cpp/config-msvc": {
+    "sha256": "2fafe2e885f70e99119365b3a5f96a5a1a30b0e20f005bfcf95123f9d0998129",
+    "lastStatus": 200,
+    "etag": "W/\"1bb56-pjUDRoFDY+UfChQ0Of+S9M0uTXQ\""
+  },
+  "https://code.visualstudio.com/docs/cpp/config-wsl": {
+    "sha256": "340aa6b148152208c599b860de9f0a418e7d55f0f7bde65cefbc4af84e39c0bb",
+    "lastStatus": 200,
+    "etag": "W/\"1a104-a2tUtdansVU8azKkwT342FpRrME\""
+  },
+  "https://code.visualstudio.com/docs/cpp/configure-intellisense": {
+    "sha256": "ce8cffee4520bc64fbea457ab194c14116e3fbef0c69810d7ad8624b1b530abd",
+    "lastStatus": 200,
+    "etag": "W/\"14d47-mRvYv82ozj3QfKgB4QGnNSPvMBw\""
+  },
+  "https://code.visualstudio.com/docs/cpp/configure-intellisense-crosscompilation": {
+    "sha256": "013615477c2c9dc4b442e1305685b739708d93d71ea85628d5b6ea2734a83558",
+    "lastStatus": 200,
+    "etag": "W/\"fd87-DLVLz5BpxXFxHHXHCIWlIbyLYI0\""
+  },
+  "https://code.visualstudio.com/docs/cpp/cpp-debug": {
+    "sha256": "78ffcedc7177fa6655a2d2cd2a2a94c688091b20d433e44862f1eba64911cd9e",
+    "lastStatus": 200,
+    "etag": "W/\"11fbf-vv8shjwEsox3YzuQyPT9MFQTDq0\""
+  },
+  "https://code.visualstudio.com/docs/cpp/cpp-devtools": {
+    "sha256": "c34b328fd29f98a18f9047c263b30d95f28400942da039e0e7cbb06e539e957a",
+    "lastStatus": 200,
+    "etag": "W/\"10631-c1x0g/mqkR6/6UW374KlvKAweFU\""
+  },
+  "https://code.visualstudio.com/docs/cpp/cpp-ide": {
+    "sha256": "c72056c06c8c21cba2991e9a34ae766c137e91d1a6a9d7779106289efaf7fccc",
+    "lastStatus": 200,
+    "etag": "W/\"126a5-VgZZEtSUw7be+jmHDorqquPhIVI\""
+  },
+  "https://code.visualstudio.com/docs/cpp/cpp-refactoring": {
+    "sha256": "c2fe0e9b9142c0ac9b4774e151fc420893358aa9654dcd37d8707b24d7ce9526",
+    "lastStatus": 200,
+    "etag": "W/\"fb61-g9cz+GI9JDomLgLdCgIGrFbOvFU\""
+  },
+  "https://code.visualstudio.com/docs/cpp/customize-cpp-settings": {
+    "sha256": "bfcad71ea6f37bc9efb03a0c7fb5db86093d436bed0ac57de9e28105ad82699e",
+    "lastStatus": 200,
+    "etag": "W/\"130f1-yeG0jRvC7uJ0kDCwif6ezEl0q7Q\""
+  },
+  "https://code.visualstudio.com/docs/cpp/enable-logging-cpp": {
+    "sha256": "2c3a30cdfa746192347c2b0d3bad67f3e1e890964772ac795b232bc117983e6b",
+    "lastStatus": 200,
+    "etag": "W/\"c69d-ZOyr4igPavVIGLvwSrndvx8xSgk\""
+  },
+  "https://code.visualstudio.com/docs/cpp/faq-cpp": {
+    "sha256": "24d1ddc72d6c5001782a839227396b5468a164e66bb736d80dd1c6bf5bac6a94",
+    "lastStatus": 200,
+    "etag": "W/\"11f73-5yQpmPiP3isIZtI62JX4pxMxx6I\""
+  },
+  "https://code.visualstudio.com/docs/cpp/introvideos-cpp": {
+    "sha256": "c2774c2d20b88934223acfa68287461288df8d92980607365d5b7e3b650a263d",
+    "lastStatus": 200,
+    "etag": "W/\"ee56-ksOSWfBLlbzBDnTPpm2/kwSGM80\""
+  },
+  "https://code.visualstudio.com/docs/cpp/launch-json-reference": {
+    "sha256": "ff8fc6d76c6c4d30ee08abfef4d4958df0b84ef4215ba17f6e43ce340070a0fa",
+    "lastStatus": 200,
+    "etag": "W/\"16f0b-Z8lnMywk+5o5FuLx2MXpgC49G3k\""
+  },
+  "https://code.visualstudio.com/docs/cpp/lldb-mi": {
+    "sha256": "f54577796d973b169c337a5db1bd5f97cd1d619efbe0afbd437dc3f5bbbcbc63",
+    "lastStatus": 200,
+    "etag": "W/\"cf98-KQxPIcIkXuWQQra6aoTC5o8xv4k\""
+  },
+  "https://code.visualstudio.com/docs/cpp/natvis": {
+    "sha256": "1cda77c5b7a801356300a89e8f5854b21d4e7733750e047fcbcb61c0392062c3",
+    "lastStatus": 200,
+    "etag": "W/\"7561d-vV8fi3slj1NBSAP6ojgbIgiAzC0\""
+  },
+  "https://code.visualstudio.com/docs/cpp/pipe-transport": {
+    "sha256": "dfeaf6932168bfc52f36eae78fc65fe5c985db0530489c8f1634a26be11bf38f",
+    "lastStatus": 200,
+    "etag": "W/\"cd7f-lDfQ6Qrf02L/LPAngd783hNUAxQ\""
+  },
+  "https://code.visualstudio.com/docs/csharp/build-tools": {
+    "sha256": "67a8a7bbc6881ec1fdd31a9466379b2efc208195674d273789b0a9a9d98f4d61",
+    "lastStatus": 200,
+    "etag": "W/\"ea2e-b9SzFtMAy47ACXmRKXWFECNXt00\""
+  },
+  "https://code.visualstudio.com/docs/csharp/cs-dev-kit-faq": {
+    "sha256": "6f59df3d8fe92f5d779f6f6443bac6e8895b7f1fb9c688a566e5cfb77b308cd0",
+    "lastStatus": 200,
+    "etag": "W/\"17fb4-Dyfnu9TjtfRr6wHR5FcFQl/uVUk\""
+  },
+  "https://code.visualstudio.com/docs/csharp/debugger-settings": {
+    "sha256": "b591d8ac4e5ad7b365cd8718e16d4aaa4a38a0f7757b735c43d3c79f764b0ff1",
+    "lastStatus": 200,
+    "etag": "W/\"1c094-8HQmk9KOxc0WLvg0VO5m48Q48Ho\""
+  },
+  "https://code.visualstudio.com/docs/csharp/debugging": {
+    "sha256": "4f9f67e6e13822d33f3a6d19a18719e27d4526a949df717a3f2d6c423ce5729f",
+    "lastStatus": 200,
+    "etag": "W/\"15213-gNV+HjV749HaYpP5r9KiH0ZI9jg\""
+  },
+  "https://code.visualstudio.com/docs/csharp/formatting-linting": {
+    "sha256": "74c835564c95ac0f021dc399c4a83f28ad2022f0ad5797796454b8ddaa2ee74c",
+    "lastStatus": 200,
+    "etag": "W/\"e5d5-fH5h20sj0ZpWPf+ifOKhNUkb8sk\""
+  },
+  "https://code.visualstudio.com/docs/csharp/get-started": {
+    "sha256": "f7e69b87b1bb7b6949a530d3e51b5da04e8ea5e163ef90babedf84ecd5a73453",
+    "lastStatus": 200,
+    "etag": "W/\"f92f-z/kjvJx71KhV/NIsMx313vRthEw\""
+  },
+  "https://code.visualstudio.com/docs/csharp/intellicode": {
+    "sha256": "980af2ab01467596109d9cb8da12778c66a1c3b87f4f58be0422b2729a016945",
+    "lastStatus": 200,
+    "etag": "W/\"f470-1iWI6DCu3yw70uKEntfrgRpSUT8\""
+  },
+  "https://code.visualstudio.com/docs/csharp/introvideos-csharp": {
+    "sha256": "628e0eb40a5c102d04273a0cf35ced9b13e3acc660f62b9de07d2b6d51738c3a",
+    "lastStatus": 200,
+    "etag": "W/\"ef33-tITM1z5kGXKOTlPV1o+w0uNkfJs\""
+  },
+  "https://code.visualstudio.com/docs/csharp/navigate-edit": {
+    "sha256": "35292d580cf6e110fa01bc0f939e573e55720040eca558f03a7883fdaf2c0c77",
+    "lastStatus": 200,
+    "etag": "W/\"fdec-Pteiq9QoszW4T4uxTjXgPHYCjFc\""
+  },
+  "https://code.visualstudio.com/docs/csharp/package-management": {
+    "sha256": "ae14d8460a68fa7e01057def4c433e8e21109db40766513e07b397a52bb360ac",
+    "lastStatus": 200,
+    "etag": "W/\"10118-rJMogXvic1+qTKJLK6MfTDpR960\""
+  },
+  "https://code.visualstudio.com/docs/csharp/project-management": {
+    "sha256": "10b0a8008825d4272511c4e95ffb6806ce60c1e5a0ea361906155507de0dfd26",
+    "lastStatus": 200,
+    "etag": "W/\"108dd-s/lBMgHhFuM2Hl2UJbi0g8TGR54\""
+  },
+  "https://code.visualstudio.com/docs/csharp/refactoring": {
+    "sha256": "ec89fea3a8a91a82e6097008ea7585c042f1eb79282f65c102fc04a31ba3cddd",
+    "lastStatus": 200,
+    "etag": "W/\"1f2ac-QeNZ/fOoAGyCCgQ5rOvQHn5x5gc\""
+  },
+  "https://code.visualstudio.com/docs/csharp/signing-in": {
+    "sha256": "58da1807f540151b316bdbfa2dcd2843696cee58cd5131fdf6e60797a8233b1c",
+    "lastStatus": 200,
+    "etag": "W/\"c115-VFyX/UCsplsm7WNfI0VF9LHZ+rg\""
+  },
+  "https://code.visualstudio.com/docs/csharp/testing": {
+    "sha256": "19090431db5e0e7ce56deb5c6bb136e13dd069c8bf56c2f3753c70a07a2a950e",
+    "lastStatus": 200,
+    "etag": "W/\"114d0-GY+amnqfi4y5c7oMKypOJIxElck\""
+  },
+  "https://code.visualstudio.com/docs/datascience/azure-machine-learning": {
+    "sha256": "7157f713788bb740f57be746be52258f054ab5a5c0f9874a85a408841063119f",
+    "lastStatus": 200,
+    "etag": "W/\"dd5e-uXixhxE6NWgnFCu3MyrHtvfhS/4\""
+  },
+  "https://code.visualstudio.com/docs/datascience/data-science-tutorial": {
+    "sha256": "d98257bc0ee884353af14ba58852022032594e9df81c5dc9b2c4f8b8ff8d4de9",
+    "lastStatus": 200,
+    "etag": "W/\"185bf-ZMvFX/fI2RWo8iiZmIXCdSDYfio\""
+  },
+  "https://code.visualstudio.com/docs/datascience/data-wrangler": {
+    "sha256": "02e5420cafc35335ba81f807df913b1f2b797cfd6573e1a0f331fc01d226daab",
+    "lastStatus": 200,
+    "etag": "W/\"10bab-4vt+OCNyRxfFusvEuyklOSSNlzo\""
+  },
+  "https://code.visualstudio.com/docs/datascience/data-wrangler-quick-start": {
+    "sha256": "145a7b6e02ec97bc393e65342cbcdcdef94dc5fe8f2948ff286f9563049712b6",
+    "lastStatus": 200,
+    "etag": "W/\"e3fd-sDg6CaEDnZQ8zyjkVNIRtO11LYk\""
+  },
+  "https://code.visualstudio.com/docs/datascience/jupyter-kernel-management": {
+    "sha256": "e3d1f9c93d6a5bdf1bc04867aa783b16a00d924904d5671d6839478873f70095",
+    "lastStatus": 200,
+    "etag": "W/\"e52a-eP+CV1M/naNXATvv3/kndz/XdQc\""
+  },
+  "https://code.visualstudio.com/docs/datascience/jupyter-notebooks": {
+    "sha256": "ad3bc67a6eb715067bf3a368a2e813f003761fa590b3c90244a58fcb2c7ec75f",
+    "lastStatus": 200,
+    "etag": "W/\"13654-DYqLYFyLDar0RFgqddl8oFiZcl0\""
+  },
+  "https://code.visualstudio.com/docs/datascience/microsoft-fabric-quickstart": {
+    "sha256": "57b6a06b5ad99a9c7638125cd8102b187d22712c124d2096c8bf91da47d47bc6",
+    "lastStatus": 200,
+    "etag": "W/\"14bf2-7u+k4UaloDaKbxpDJEU8TIMzPPw\""
+  },
+  "https://code.visualstudio.com/docs/datascience/notebooks-web": {
+    "sha256": "8cffb448a30041ff8fbc408b620153d02b5b2afa38141b1a1463a5b846685b72",
+    "lastStatus": 200,
+    "etag": "W/\"e9bd-RoOdAfmUH/icfX3O/kFpR8CLgBM\""
+  },
+  "https://code.visualstudio.com/docs/datascience/overview": {
+    "sha256": "9b03b71144b6180a5ea6fefbc0279310925a2a5b2229b8bfc6c226c4d2f1a093",
+    "lastStatus": 200,
+    "etag": "W/\"cc04-XMryfkDpAfYBiwAVAVjbRqcQ/Go\""
+  },
+  "https://code.visualstudio.com/docs/datascience/python-interactive": {
+    "sha256": "10b47ffb15e38296b6f41708c2930e29ddc039bd0c3aec8950d23a729082165e",
+    "lastStatus": 200,
+    "etag": "W/\"12d5d-bVEhcefqg22/yGPrFkQJ0Ljhq/8\""
+  },
+  "https://code.visualstudio.com/docs/datascience/pytorch-support": {
+    "sha256": "ee737b8d160d09093ea29780c4789f602c977370299f41f37477e956bf9604eb",
+    "lastStatus": 200,
+    "etag": "W/\"d684-kfLe6NT4OBJBECHCKqdJqwS5cPg\""
+  },
+  "https://code.visualstudio.com/docs/debugtest/debugging": {
+    "sha256": "c29ef6dc7689da65a3a3e0e4f2c27e2a5076577628cb5962bb20ed3b63f16dd4",
+    "lastStatus": 200,
+    "etag": "W/\"13a5a-KxEv+wXCNxUCtvrRuPltqK1BBPQ\""
+  },
+  "https://code.visualstudio.com/docs/debugtest/debugging-configuration": {
+    "sha256": "6c5e25625b71e00b047e33b065804d1f60ee4f86d0b5b446fd27acea6175ce85",
+    "lastStatus": 200,
+    "etag": "W/\"199c4-mJIfAwGpYxp+upTvUE/sk+tOiOk\""
+  },
+  "https://code.visualstudio.com/docs/debugtest/integrated-browser": {
+    "sha256": "0a3f12cac01b0bc896f9fe19fab9c18c303d7884f63af8d45812e7f7a62aad72",
+    "lastStatus": 200,
+    "etag": "W/\"180c5-hifV2P9/ccljZOmRK6qh8s8XwoQ\""
+  },
+  "https://code.visualstudio.com/docs/debugtest/port-forwarding": {
+    "sha256": "d056c3883a479c6242b1d5d369ba6b99bdc93f0f92c6cff0c264ca771df3528e",
+    "lastStatus": 200,
+    "etag": "W/\"c930-cNJx4rTaCLNMJTJdPRi/aHAx/dU\""
+  },
+  "https://code.visualstudio.com/docs/debugtest/tasks": {
+    "sha256": "46a8890818a8ff70841d2057ba2dbfe5fe70ed7e3a0d63e6b26b0e30c2c94a04",
+    "lastStatus": 200,
+    "etag": "W/\"35e6a-XIq4IWJkRuQwiB8Y4xJMG15hT5E\""
+  },
+  "https://code.visualstudio.com/docs/debugtest/testing": {
+    "sha256": "a6e36a5b3c6dacc8b62a96c90336c5f596d0a3d806a69bf1d8ac21e5d7958bd8",
+    "lastStatus": 200,
+    "etag": "W/\"14de5-GFVdIGad3p6mHpouvit268Kf9fE\""
+  },
+  "https://code.visualstudio.com/docs/devcontainers/attach-container": {
+    "sha256": "1405b74d9bd6aff365d60bdda1970e8b30c530cffe935b6dbcd940274d71d882",
+    "lastStatus": 200,
+    "etag": "W/\"fb24-PRPNBwRQlvJ3wnfZk50K2rLxbL0\""
+  },
+  "https://code.visualstudio.com/docs/devcontainers/containers": {
+    "sha256": "b5f94ae61de0de8edb0acfbf39c576fc4a685114ebc4a13e420dff4ae5aa89da",
+    "lastStatus": 200,
+    "etag": "W/\"20b91-hNcJhV3Znl4usdXkJHsYeUo+Ops\""
+  },
+  "https://code.visualstudio.com/docs/devcontainers/containers-advanced": {
+    "sha256": "07dd3091702507708c67bbb0b5949daf3e40f2315688df91eab6783487b2a106",
+    "lastStatus": 200,
+    "etag": "W/\"7694-msrvtUolzn9tO4FCTyQ9/P7bXG8\""
+  },
+  "https://code.visualstudio.com/docs/devcontainers/create-dev-container": {
+    "sha256": "9748ddb2c4c9838c8dd7d579d241fa8154dcec8bc5b082185ab03c229d63e31c",
+    "lastStatus": 200,
+    "etag": "W/\"1b42f-o+BAYnS/1MYio2Giifk1plba5a4\""
+  },
+  "https://code.visualstudio.com/docs/devcontainers/devcontainer-cli": {
+    "sha256": "255c8748d8869928f8394838cdde0ab94ed6b79ffca4519911f83088ce09a02f",
+    "lastStatus": 200,
+    "etag": "W/\"140a9-8h2jHdvmB4I4a7cxoGE9s20HJmo\""
+  },
+  "https://code.visualstudio.com/docs/devcontainers/devcontainerjson-reference": {
+    "sha256": "cb7e0f0e2e4ed8e1f235012c43f0fe45808516e14cd8eba5719deea6b533d489",
+    "lastStatus": 200,
+    "etag": "W/\"6a4b8619-10a99\"",
+    "lastModified": "Mon, 06 Jul 2026 10:40:25 GMT"
+  },
+  "https://code.visualstudio.com/docs/devcontainers/faq": {
+    "sha256": "3cfee8f96f528aa137cc0a0f8f7a05692232c083bb3881b62e43dd013612cccf",
+    "lastStatus": 200,
+    "etag": "W/\"f193-FbBeIwR6oSC1UMLw78yqIbtWSUw\""
+  },
+  "https://code.visualstudio.com/docs/devcontainers/tips-and-tricks": {
+    "sha256": "8f3cd773bed641a2342fb21d6e782763e7a6e9585d0fe3b4a04f6026223c0823",
+    "lastStatus": 200,
+    "etag": "W/\"15411-HLlnvstI9ECde76mqKMNdCHn4iY\""
+  },
+  "https://code.visualstudio.com/docs/devcontainers/tutorial": {
+    "sha256": "003cf0bc98c44c3d6bb1ff27157f65ff1c41b75a597fd0bcebdafd5146c23559",
+    "lastStatus": 200,
+    "etag": "W/\"110c4-FsIqRd60v0/51pZhEGptJdq4K58\""
+  },
+  "https://code.visualstudio.com/docs/editing/ai-powered-suggestions": {
+    "sha256": "ac71e4af89563fdc1c5d4ad53eeace4dbdf12ab27975ccb24fc4152a3cbe0208",
+    "lastStatus": 200,
+    "etag": "W/\"10bfa-Vj4SxBv9T4IgREE0BVXtWlL9KYI\""
+  },
+  "https://code.visualstudio.com/docs/editing/codebasics": {
+    "sha256": "225b01018ea4026f6225285cad9994e8ced165da7e9ee1bdb76d5e98bd0ad350",
+    "lastStatus": 200,
+    "etag": "W/\"23fb7-naDEcEyUltpd5lQb42zj3ZGsVK0\""
+  },
+  "https://code.visualstudio.com/docs/editing/copilot-smart-actions": {
+    "sha256": "edad70fcf169a3b6c18b68f4593d1a78248c59f868445e09c9d9690b2908cf43",
+    "lastStatus": 200,
+    "etag": "W/\"d8a4-vTVxKbHdNRGIUAr932KsGtYN5XY\""
+  },
+  "https://code.visualstudio.com/docs/editing/editingevolved": {
+    "sha256": "bf2fad4043fba7cb93612ccd378bf4d0017930e44eeed4e9f65cc6fbe08e7df8",
+    "lastStatus": 200,
+    "etag": "W/\"13354-DqmklqWFWT2qbExkeOEsmKs+KKU\""
+  },
+  "https://code.visualstudio.com/docs/editing/getting-started": {
+    "sha256": "89b1afad306a8ff3490fa8fb8d7de2e3dfa8067a508a4b5780256f6831a795d9",
+    "lastStatus": 200,
+    "etag": "W/\"1327e-oV+h8CE5fB38JshDMScsKiY5KTA\""
+  },
+  "https://code.visualstudio.com/docs/editing/intellisense": {
+    "sha256": "071f0debea3d2a91736c5c7b5f03ec53b7cccbc31eadf99ef5f677a0c834d88c",
+    "lastStatus": 200,
+    "etag": "W/\"12395-BDRh1NX1cHpHAhZPzD+SqngchKY\""
+  },
+  "https://code.visualstudio.com/docs/editing/refactoring": {
+    "sha256": "c97b36f3cf138f0e3a1c8d67b9dc17b068e1269e6c75f8bcf16da244a773d1d2",
+    "lastStatus": 200,
+    "etag": "W/\"e942-Im4/XbNq50KEYQ4BNQlq4Mh7k6c\""
+  },
+  "https://code.visualstudio.com/docs/editing/tips-and-tricks": {
+    "sha256": "6045113e7333d72c9a5dc1c582202379ce5631ede66bbac224a9b8023b8d4880",
+    "lastStatus": 200,
+    "etag": "W/\"275b6-iFte45lsKibjB3UNzoXIb5fjBr8\""
+  },
+  "https://code.visualstudio.com/docs/editing/userdefinedsnippets": {
+    "sha256": "c57138f4fdb9a10dd6784d165f10c2dd80701daef1632c1f3e02ba591abfa3a0",
+    "lastStatus": 200,
+    "etag": "W/\"13d43-HseQ5XGv0914vlit3LWJ8eOZrUA\""
+  },
+  "https://code.visualstudio.com/docs/editing/userinterface": {
+    "sha256": "92a82b982db4fc75dd528029455c2a063711738e7d239b69a24a019db8d3ac90",
+    "lastStatus": 200,
+    "etag": "W/\"26e8a-ntsQSTlqZD8sCydnwzpaEPArrHA\""
+  },
+  "https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces": {
+    "sha256": "e16f62ff164b2b7f8cad171fce80b2139dd2ae921c2ea9bb7a068d82796b9d1c",
+    "lastStatus": 200,
+    "etag": "W/\"13204-uI4tXDoq9z09WAHbw+CCrDOsuJI\""
+  },
+  "https://code.visualstudio.com/docs/editing/workspaces/workspace-trust": {
+    "sha256": "dadb7fcabc77c25c9bf3717d7f5c7da2cbb8b945144040e2620c030aa8cc68bc",
+    "lastStatus": 200,
+    "etag": "W/\"151e2-LxMmBlTrG9jAJP7BdLdG1Mn0myA\""
+  },
+  "https://code.visualstudio.com/docs/editing/workspaces/workspaces": {
+    "sha256": "75093bd84e1b8b6dfd1c7ec1c3b64e6e73d69b14c757998a0daf26227f957871",
+    "lastStatus": 200,
+    "etag": "W/\"c7d1-pPIJvi3U1SaGZDjm6luiWrrf+94\""
+  },
+  "https://code.visualstudio.com/docs/editor/glob-patterns": {
+    "sha256": "2f3ab96b00d1df72cdacfeaffd4d64f4013cca45cd2e6e6d3479c1dea6ed53f2",
+    "lastStatus": 200,
+    "etag": "W/\"d6e4-uqHaL6sWi3mv4PvJPEyhu6rMN04\""
+  },
+  "https://code.visualstudio.com/docs/editor/whyvscode": {
+    "sha256": "6922590570200ad3926b7f2bb183c56071a21f36dbfb4749a1abe6f17234db19",
+    "lastStatus": 200,
+    "etag": "W/\"c6ac-CeicP5/g//o7X5asse2aOCQTLPc\""
+  },
+  "https://code.visualstudio.com/docs/enterprise/ai-settings": {
+    "sha256": "0d83076a3a2ed5c1e8f4fd4e98008c7a831ed056b01fda2f97151e341a201155",
+    "lastStatus": 200,
+    "etag": "W/\"20c7f-RSqmYowsTb+gRfyE5+XfHr7jVLU\""
+  },
+  "https://code.visualstudio.com/docs/enterprise/extensions": {
+    "sha256": "f5c67038a8fc7ecf7b386c2de9cb7281895ff113da3286026ffe02cd6ba90c47",
+    "lastStatus": 200,
+    "etag": "W/\"ff07-0M0/uOE3z/PGoJyT57SnQZ6yYmw\""
+  },
+  "https://code.visualstudio.com/docs/enterprise/overview": {
+    "sha256": "b20b2eab45ccaeba9bf487a76d7966002a5debc618111b8b230a448aa889eb4e",
+    "lastStatus": 200,
+    "etag": "W/\"c13b-n1cHR9QPW2yUGheGJi9u25oBh9w\""
+  },
+  "https://code.visualstudio.com/docs/enterprise/policies": {
+    "sha256": "87a950d940b3005ca94cac4277929d6feccf35e0af18565804f815ca3c431119",
+    "lastStatus": 200,
+    "etag": "W/\"24add-18NucdohVKGV9uEIKkvqlSBKgmE\""
+  },
+  "https://code.visualstudio.com/docs/enterprise/telemetry": {
+    "sha256": "3e9fbfa5fb379bf916698075824b6573f19901a44ad3fdab27c5fe3cb9094b67",
+    "lastStatus": 200,
+    "etag": "W/\"e3a3-zMkmFGjOwDfmEJ0mf7Yo9xVA/pM\""
+  },
+  "https://code.visualstudio.com/docs/enterprise/updates": {
+    "sha256": "e140cc9dac672c024ced6295563c917adc7e9bcb6865623929a2ab728e86d89d",
+    "lastStatus": 200,
+    "etag": "W/\"c8c2-vMWbi+ZoLQ0XAggV6CSEM+7Yp6o\""
+  },
+  "https://code.visualstudio.com/docs/extension-docs/overview": {
+    "sha256": "6f23db8936a66bd0d49a054b8d5e77f8ab8f46955be0455892be7cb4c87cd961",
+    "lastStatus": 200,
+    "etag": "W/\"cbc0-ATxQM0iS9Awc+oQR4A2Ay6j03aU\""
+  },
+  "https://code.visualstudio.com/docs/getstarted/educators-and-students": {
+    "sha256": "c1426441ef7dddf8ec25cea49cae93468fd74b9ab54f226c0f47defb032c3fb7",
+    "lastStatus": 200,
+    "etag": "W/\"11c24-hUdfzrjGf4DHZPFZ+DmLTKDEQDQ\""
+  },
+  "https://code.visualstudio.com/docs/getstarted/getting-started": {
+    "sha256": "c1426441ef7dddf8ec25cea49cae93468fd74b9ab54f226c0f47defb032c3fb7",
+    "lastStatus": 200,
+    "etag": "W/\"11c24-hUdfzrjGf4DHZPFZ+DmLTKDEQDQ\""
+  },
+  "https://code.visualstudio.com/docs/getstarted/introvideos": {
+    "sha256": "b5a11ab6dfd3b85f8fa660e08c4fdf9ac369f0c4ee9a1916f74045a7cd581b1c",
+    "lastStatus": 200,
+    "etag": "W/\"b20b-7hZRGNpJAnt2PtEupCuEnhMFWmI\""
+  },
+  "https://code.visualstudio.com/docs/getstarted/overview": {
+    "sha256": "87abe38a5bf1d5fdfbbd541cb84e9960f2e695c4e18f8ead42795f052777688c",
+    "lastStatus": 200,
+    "etag": "W/\"f52b-9TJgiLiMvTEIKSP9fahKIqCuCW4\""
+  },
+  "https://code.visualstudio.com/docs/getstarted/personalize-vscode": {
+    "sha256": "44f095a5f872c898fe0df26d83fa0109ad99c3d1ffd0881048a6f3d58412b160",
+    "lastStatus": 200,
+    "etag": "W/\"ea90-4VpL88/jbHlAHTb83xBptukiYlQ\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/agent-inspector": {
+    "sha256": "8b18d363f29694fc3bc6666796350b472d266f614ab2c3ffa0c400b66a6c9d17",
+    "lastStatus": 200,
+    "etag": "W/\"12228-JeYGViXYY5eNtMqDlV7nnoufh4c\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/agentbuilder": {
+    "sha256": "f920e690a2f5b025db765200cdcd832fa1d306ac639c371c3c116f2687198aec",
+    "lastStatus": 200,
+    "etag": "W/\"113e9-Kd6HlQ/2eJa/Q1uIdvIv0VkyfP8\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/copilot-tools": {
+    "sha256": "44215a515a2674a1dedf8813878c283d9e5d454faecda8c591d741a72ebfa99d",
+    "lastStatus": 200,
+    "etag": "W/\"f47e-NUJEjhoKQpg+v8raaWwnm2vxecI\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/create-agents": {
+    "sha256": "cebe2d015f020806dc78ae50972f36f52145afb04637d5f5bbcc9fa1f293f489",
+    "lastStatus": 200,
+    "etag": "W/\"d3db-E8uP3ExB49qqmYNoR/lCvA1MTIU\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/evaluation": {
+    "sha256": "c35c104651cc5cb0b87f1cab3b46c8c4bbc72f6a8d61fb5d53263492c6ba9e70",
+    "lastStatus": 200,
+    "etag": "W/\"11466-vLtawSyt2bV0mD6idSFjmO3aqbk\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/faq": {
+    "sha256": "97ee5c16d1d8a550706477ce08a1872988585cd64b656fd5883993c79bcafe1b",
+    "lastStatus": 200,
+    "etag": "W/\"f10d-qgC92TcpUDUVNA77t6spFC9Uuck\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/finetune": {
+    "sha256": "4c10b857d70b8460f2da23b02e53c8910980605ebf2952b8edbf22b09924987d",
+    "lastStatus": 200,
+    "etag": "W/\"1e7ad-tAlN5lHyzBJVXoCTg5IhXqN9kDk\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/finetune-legacy": {
+    "sha256": "0482b482f9cca8273f5bca7e08ab8a12534597b44c66c75ae7ccb745b563a14c",
+    "lastStatus": 200,
+    "etag": "W/\"15417-KtU972IFiLpmPFJaAXmRlfpxf7A\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/hosted-agents": {
+    "sha256": "935f54834ea23a81fdc3e1025e48a94e0207c4674fd8b84d249bd7c3115424b5",
+    "lastStatus": 200,
+    "etag": "W/\"f05f-yNF0VQ+zpH8pDFiQqX0iuZVA6rQ\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/modelconversion": {
+    "sha256": "95ebfed1c9981a9332c18dc34df9a3dc94f070d3ae27deb6a2a214e3e0dd2a4a",
+    "lastStatus": 200,
+    "etag": "W/\"15e20-p65IL5XsApW+nepJf+bAXFMwDow\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/models": {
+    "sha256": "1bbce5d57bab983293c6b11c4b288f3867a433da1b88b710fff2b84befb372d8",
+    "lastStatus": 200,
+    "etag": "W/\"1066c-4fP5W3NwigK4VmkeG/efet5Omuw\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/overview": {
+    "sha256": "073d2fccaf81f015c6c8de2a33b55bc4e4ff7ab5cb686b745b3f6d7493159c6f",
+    "lastStatus": 200,
+    "etag": "W/\"10b7d-tvrwa8NkIF30I3G6DA3xSOdBRWs\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/playground": {
+    "sha256": "46d3a7cf70c9c75076f3821bc72d01b42414315a2a9e1bf6e7916c0c78961222",
+    "lastStatus": 200,
+    "etag": "W/\"f22c-Kx7tnx7Y7smJBK6C3a+0HjHpYyM\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/profiling": {
+    "sha256": "ecf04c3be95717b21625fd984321635bbb5af27c872fc1c3247e195b2c329072",
+    "lastStatus": 200,
+    "etag": "W/\"edc1-j7ZkQ1KTE6QWPr2YQ4GHoJGmbg0\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/reference/FileStructure": {
+    "sha256": "b9f6dc2fd4b4f1915a58512d685e8f249acdcb40778f65f53851b6d9f9531de1",
+    "lastStatus": 200,
+    "etag": "W/\"d519-31JLUaeALl4k3W5UIz96xc1gRzM\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/reference/ManualConversionOnGPU": {
+    "sha256": "c4a1f20c39f6dd22ff4dcc2409f0f7ece472e741698269b1647f2830faa01a63",
+    "lastStatus": 200,
+    "etag": "W/\"e92a-Eo13hFo7eOTK7WVRBt53N34mYEo\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/reference/ManualModelConversion": {
+    "sha256": "ad35389fba01d042d6f1bb99db3c5d7cfd4b99f44b73ce492956e0fb6b17433c",
+    "lastStatus": 200,
+    "etag": "W/\"f311-pfImDi8N7hfZkco+yncg5P245cg\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/reference/SetupWithoutAITK": {
+    "sha256": "45760424692f246c95ce564100d24a25287ca5cf2680d66f595755b061a82da1",
+    "lastStatus": 200,
+    "etag": "W/\"d7f9-qLvVRueb3UXF/UguKtl/cRJ0Oh4\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/reference/TemplateProject": {
+    "sha256": "96cbc6d71e69771e1d77ba1085c255a90565e7cb30fb3dffdfa8b827606184ec",
+    "lastStatus": 200,
+    "etag": "W/\"cb66-ylbq5obWgUvY0VWtxfPeyb1vaFQ\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/reference/UpdateModelProject": {
+    "sha256": "91b6fc3264f4086ddcdb081a2c1d36f4bd3f798dbed056dcac0354c8ee5224eb",
+    "lastStatus": 200,
+    "etag": "W/\"d256-dfRkipjWu02LaMs1FRQErreg/RU\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/reference/migrate-from-visualizer": {
+    "sha256": "4cbb21c84878615fc91a1bb98cf3344a21e647339227c0c515eed3ac15b357fe",
+    "lastStatus": 200,
+    "etag": "W/\"12cfb-PocybTT90VlxOarp5VwjMoozbq8\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/tool-catalog": {
+    "sha256": "d25fb308077e44e166e80a17575f8b734c0ecef110e692c29eaeb6eeb294520d",
+    "lastStatus": 200,
+    "etag": "W/\"feb0-VRFQKbL9nQ+BOnVIKpOhVKHVo7U\""
+  },
+  "https://code.visualstudio.com/docs/intelligentapps/tracing": {
+    "sha256": "81b150517e50ad8c6f354b9eb184518d9677f6ce468ee595bc4cad782d915902",
+    "lastStatus": 200,
+    "etag": "W/\"30290-llOdJKQCO+qhpE3c2q6nwEL5p/s\""
+  },
+  "https://code.visualstudio.com/docs/introvideos/basics": {
+    "sha256": "d49fa6ce57bbfc2833a180b5ebc78c891cce7d1224065664116dd89304c51d97",
+    "lastStatus": 200,
+    "etag": "W/\"cd39-1xXi8kp5GhEWermMm3t3Dx8JJhA\""
+  },
+  "https://code.visualstudio.com/docs/introvideos/codeediting": {
+    "sha256": "2f475b5ef00d26091a44df86d706f41a6da63553971b2309db40e248ee5b8964",
+    "lastStatus": 200,
+    "etag": "W/\"c43b-eqwuDa8dMeaZmJrMVkM6PTQZ+rE\""
+  },
+  "https://code.visualstudio.com/docs/introvideos/configure": {
+    "sha256": "36c3213219fcd49c634cf0881f24206722773dc6e7ea72addb27ba0f7338e150",
+    "lastStatus": 200,
+    "etag": "W/\"b69d-Rzf3TtJeShy0VCu0aaL/hPiJCNg\""
+  },
+  "https://code.visualstudio.com/docs/introvideos/customize": {
+    "sha256": "62d7d560e7b8b4baefff36a19b20d54ff338421a79d1d9cc481d19720b8a21bd",
+    "lastStatus": 200,
+    "etag": "W/\"b546-GfSH68DXJu3yRxiTNUXNrXdsMVc\""
+  },
+  "https://code.visualstudio.com/docs/introvideos/debugging": {
+    "sha256": "fc2c06c2434a2cb8fba55c4a5698162a888be17519c4b3dc6b39d18f57c78917",
+    "lastStatus": 200,
+    "etag": "W/\"b9a5-JlD9s/0sEVyoHsZpqecfjrQj9Vs\""
+  },
+  "https://code.visualstudio.com/docs/introvideos/extend": {
+    "sha256": "74a9a6b090509247e9bf6fb8abb8016106f6aae4307c3542f4689e314b6d2a16",
+    "lastStatus": 200,
+    "etag": "W/\"b834-KPz0Y203ugx6VdbEonyy1WKYD6A\""
+  },
+  "https://code.visualstudio.com/docs/introvideos/productivity": {
+    "sha256": "479f488246fb7a4b3ed5b1cebbc3df232250744f771e8256262bac430050d862",
+    "lastStatus": 200,
+    "etag": "W/\"bed1-HqFlkyCRIF6YwgqgFUw6fMB8Rzs\""
+  },
+  "https://code.visualstudio.com/docs/introvideos/versioncontrol": {
+    "sha256": "870db7588f26fb4013a8f14bdcac5288e4bc451a8c7f3c7705d09b099a9bd0fb",
+    "lastStatus": 200,
+    "etag": "W/\"bef8-2tswNH8eNEDjOU2orw/1nOzw46E\""
+  },
+  "https://code.visualstudio.com/docs/java/extensions": {
+    "sha256": "37ee64290a47a191d634f2c20f7f89216260723d1f564124a2600a15211a28e9",
+    "lastStatus": 200,
+    "etag": "W/\"10cd4-X4VPa2TZhxltVPytoyphhfSgOXo\""
+  },
+  "https://code.visualstudio.com/docs/java/java-app-mod": {
+    "sha256": "7290e5ed2f6889347ec5103b6c1bdbafcfed368f11d1fb05a74b94472cca48fe",
+    "lastStatus": 200,
+    "etag": "W/\"eb1f-y0aBeYs1MaYJWha6TIqVAYym6D8\""
+  },
+  "https://code.visualstudio.com/docs/java/java-build": {
+    "sha256": "90ad238ad352892b77d27c7acade9fde60d004e7965b806c041e22c76c720310",
+    "lastStatus": 200,
+    "etag": "W/\"119e0-QYrhCiU6O/mLu7sTNWNy/wnmTbo\""
+  },
+  "https://code.visualstudio.com/docs/java/java-debugging": {
+    "sha256": "2ca5d884190176f397d39d18ad41585689d977ac8b134eb94310e05a1ef8da4d",
+    "lastStatus": 200,
+    "etag": "W/\"14e74-3D81v8Q9597szAUIk39C15cHBMg\""
+  },
+  "https://code.visualstudio.com/docs/java/java-editing": {
+    "sha256": "b433f6c4e3842e2651b217b9868612b5700936af59a188a4f890bdcbbac76fc6",
+    "lastStatus": 200,
+    "etag": "W/\"12708-zw08esl+TR7+anUiGyjTjBmPFXU\""
+  },
+  "https://code.visualstudio.com/docs/java/java-faq": {
+    "sha256": "58a46288622bf2235147cf4fd5f30d414fff233273bb527053c0d9801466c5e8",
+    "lastStatus": 200,
+    "etag": "W/\"11c9b-pMqAQLBDIzqjn9aPGbKr0faRnBw\""
+  },
+  "https://code.visualstudio.com/docs/java/java-gui": {
+    "sha256": "6ec758288321b9802a7f7d93c8acac91fbe39798721121beeab56bb73e37e189",
+    "lastStatus": 200,
+    "etag": "W/\"10fb3-i5e0AwlKHv1o2vipB24jYLif2V0\""
+  },
+  "https://code.visualstudio.com/docs/java/java-linting": {
+    "sha256": "e86a891891035493d66038f287ac4f9049a2035a5f6e6dbc0d6f57b6723184b6",
+    "lastStatus": 200,
+    "etag": "W/\"10f8d-b7GH1DxRnpxeUlpiv0n2mII5kug\""
+  },
+  "https://code.visualstudio.com/docs/java/java-on-azure": {
+    "sha256": "35c7c52c960fbddc7ed8733f1ed7aa0628f019a880eebf8c7b4286612fe0a71f",
+    "lastStatus": 200,
+    "etag": "W/\"eaf9-wqQUoqd/OQw/yCVnCuhCINJr8n4\""
+  },
+  "https://code.visualstudio.com/docs/java/java-project": {
+    "sha256": "72f153583aa8c63bb388a7da0058c263f683f82ca7997042725a68e483c26407",
+    "lastStatus": 200,
+    "etag": "W/\"14339-2DULXjlP+C22t4abdAQnQ9CnJT0\""
+  },
+  "https://code.visualstudio.com/docs/java/java-refactoring": {
+    "sha256": "7743d81fdc4575cd6c5a8b34c6fd4e82a13fd441bf9a4f1cc93b19f7e52f7cc3",
+    "lastStatus": 200,
+    "etag": "W/\"23452-uidaDhughGqTg8tHwiZNmbncCes\""
+  },
+  "https://code.visualstudio.com/docs/java/java-spring-apps": {
+    "sha256": "cc975c17c52d5d57cdb503b3aafb5784fc28039557432719403d449607b2ef8a",
+    "lastStatus": 200,
+    "etag": "W/\"eef3-CsXZGeM4mFDzmqxnUaBbvNq0CD4\""
+  },
+  "https://code.visualstudio.com/docs/java/java-spring-boot": {
+    "sha256": "be59e50e212671891ee61797a67a2a4f585a6629d96d71f750d3250c4f7ba9f6",
+    "lastStatus": 200,
+    "etag": "W/\"fdea-DyQ58XXRAvJpkI6KmzFqiHybdsU\""
+  },
+  "https://code.visualstudio.com/docs/java/java-testing": {
+    "sha256": "9d2950d103338380bb0977d4fd77c907d4092e218c0824ebcad681dae3ad629a",
+    "lastStatus": 200,
+    "etag": "W/\"13acb-dtcuHb+NaUlIAdEhWF3of+/Fg6Y\""
+  },
+  "https://code.visualstudio.com/docs/java/java-tomcat-jetty": {
+    "sha256": "ea476f63f36ef1e8203c29cf83e196b534ec1877df9fd460fbe74dd77aaad645",
+    "lastStatus": 200,
+    "etag": "W/\"ec41-uh4p+VSqIin1oWRw+RxSzznzmj8\""
+  },
+  "https://code.visualstudio.com/docs/java/java-tutorial": {
+    "sha256": "645a4bfe5670b2290eee85fbff9ed8024fb42be165b67350e58c983426a76553",
+    "lastStatus": 200,
+    "etag": "W/\"10e4e-04fJjPw1nEvWdWYJTW8P1LhrpYk\""
+  },
+  "https://code.visualstudio.com/docs/java/java-webapp": {
+    "sha256": "34477b2734856b93da64efeb371d1010ad76e15a18167390e2669b674d81b2b8",
+    "lastStatus": 200,
+    "etag": "W/\"e2b9-75l1hyY49i5UN1dbhtBT7d4RBtk\""
+  },
+  "https://code.visualstudio.com/docs/languages/cpp": {
+    "sha256": "2a4f54e262777fdd3a1b228ccd39dd82ab94a17e7d8936d6e3da92614912ed60",
+    "lastStatus": 200,
+    "etag": "W/\"12f25-QC8hU14YPhVpQXjJ2KMrATVaIPI\""
+  },
+  "https://code.visualstudio.com/docs/languages/csharp": {
+    "sha256": "af96dd5206385c6aabb48be547f6deacadfcaf385c79e6e9ea1f4af999fa1a3f",
+    "lastStatus": 200,
+    "etag": "W/\"1117d-Nowr3/E+5IzVRt1nfT371HpvrtY\""
+  },
+  "https://code.visualstudio.com/docs/languages/css": {
+    "sha256": "bbf831d21f37c05174facf89bf189e619c4cd577e6547eca968c211116e3d238",
+    "lastStatus": 200,
+    "etag": "W/\"1bba1-PU+BcJItsy7mqD2b9ywpkpsgrgk\""
+  },
+  "https://code.visualstudio.com/docs/languages/dotnet": {
+    "sha256": "efccf7be980eeb44477139afd0909a3d8be8c17b79d9cfb9269caeecaf739ce1",
+    "lastStatus": 200,
+    "etag": "W/\"ff1a-x6N7qDS8z2VtaLgWgFZfb8HGXo8\""
+  },
+  "https://code.visualstudio.com/docs/languages/emmet": {
+    "sha256": "e88f0d2da5671ce9fe3ca4a72647eefaae832dfe5e6423f8235f545147a0353a",
+    "lastStatus": 200,
+    "etag": "W/\"1d9c1-eNliOmLTDOCGOzuARK8TJy4QBjg\""
+  },
+  "https://code.visualstudio.com/docs/languages/go": {
+    "sha256": "75d1984823fb777df96aedd291164be4391ee6c856b9b1ef9d04e0e0060408dc",
+    "lastStatus": 200,
+    "etag": "W/\"129ff-6EK+6zTvkNNyKfwrDC0DbMnzEqA\""
+  },
+  "https://code.visualstudio.com/docs/languages/html": {
+    "sha256": "3841dc1d07bdc270693002bc63ca2f1468dec7271d528844cd8459764187a442",
+    "lastStatus": 200,
+    "etag": "W/\"16950-3hQrjlpZXsiji8E0Nb53dbYwpjo\""
+  },
+  "https://code.visualstudio.com/docs/languages/identifiers": {
+    "sha256": "e045abdcfd4e5c6a4ab951fc381d968d538cbd63049da6997603fa9f27bf003a",
+    "lastStatus": 200,
+    "etag": "W/\"dcd1-n4LNf2CMcwow8byui9I2W9qtoik\""
+  },
+  "https://code.visualstudio.com/docs/languages/java": {
+    "sha256": "f5402d8014ba8090ef0a70c423d16e2a3a421d0f951a72a0212e9512b6606a08",
+    "lastStatus": 200,
+    "etag": "W/\"14226-XvdAkVtJre2dJv/AFpRMzeNfeqY\""
+  },
+  "https://code.visualstudio.com/docs/languages/javascript": {
+    "sha256": "07a11889ba5523013a739f7c9034f68f49cb2699e2e944b83a81ec9276fdeef6",
+    "lastStatus": 200,
+    "etag": "W/\"1b40a-q/xEI4nXrJs8QqDaeMuUcq+v15E\""
+  },
+  "https://code.visualstudio.com/docs/languages/jsconfig": {
+    "sha256": "a830c0563f6760c26567b704f0097bc6a1b9d2d76630d86f9cde219dafaa0ceb",
+    "lastStatus": 200,
+    "etag": "W/\"eaed-ghlmnr/gGJvHidVmuEbG7dnfwbY\""
+  },
+  "https://code.visualstudio.com/docs/languages/json": {
+    "sha256": "c32d646b9c770288fb267f29e616e6084fb9d3b6d58297b7348443c9f2b218e6",
+    "lastStatus": 200,
+    "etag": "W/\"15990-7vjbd42O4I+Wg2f4Uzq5FFIm6O4\""
+  },
+  "https://code.visualstudio.com/docs/languages/julia": {
+    "sha256": "b9c47a49f23fc2248efdc08feca33016cb3f62b2799d5b9c53cabab9b95aebf9",
+    "lastStatus": 200,
+    "etag": "W/\"1022c-4zpmxE7eR3zi4P36fMUXZ7dRu7o\""
+  },
+  "https://code.visualstudio.com/docs/languages/markdown": {
+    "sha256": "9e5a7b0cfc99596488f3dc3dbc1d8e7fb76acf0d0932d156d8b83a8ee157da81",
+    "lastStatus": 200,
+    "etag": "W/\"1bffc-d0kuPsUJgRmadye2twrwRshGjmw\""
+  },
+  "https://code.visualstudio.com/docs/languages/overview": {
+    "sha256": "11771cf85fc3c2a1eca8c7e5f2733d96287111edf16e9db8969bed63c630a5c0",
+    "lastStatus": 200,
+    "etag": "W/\"122ac-dRZg3zh6De3XCSEMdCUNrcIfBCo\""
+  },
+  "https://code.visualstudio.com/docs/languages/php": {
+    "sha256": "9834c493c7595f90a8127c6fb2fa6b8952690d197a9bd7700236a65a126ca496",
+    "lastStatus": 200,
+    "etag": "W/\"10cfb-8YeU+el3xd5V2fE/kSzema0qsI4\""
+  },
+  "https://code.visualstudio.com/docs/languages/powershell": {
+    "sha256": "10dc33f385584612758935f866fdc873801539f099aee964c5dc7f0e51b3c455",
+    "lastStatus": 200,
+    "etag": "W/\"12f1b-3miD5/epeyXbADAK5u64YrrSx38\""
+  },
+  "https://code.visualstudio.com/docs/languages/python": {
+    "sha256": "0d1d2f883b8e0007a0394fbd7efbdcdd926641bae1dd8af54c199827bfbd26cf",
+    "lastStatus": 200,
+    "etag": "W/\"126f5-JTcRj0XwAPddJgHWh9O9FuN/juk\""
+  },
+  "https://code.visualstudio.com/docs/languages/r": {
+    "sha256": "cc5de22dc3874520d77e3f914a3d55274db8c5253f754cebfa6230962eabd234",
+    "lastStatus": 200,
+    "etag": "W/\"10240-/FHtap/wOpIxdXc4Icq7QoaH7/A\""
+  },
+  "https://code.visualstudio.com/docs/languages/ruby": {
+    "sha256": "5ae92a65714a084128c9b7c9ed0a7ec6937d0f5c50fa7062f265d18dd35cf026",
+    "lastStatus": 200,
+    "etag": "W/\"14625-Sj+ENGOaprNmBNxM1/LQpCX9obE\""
+  },
+  "https://code.visualstudio.com/docs/languages/rust": {
+    "sha256": "38295bd801158160cf0c5d341a90c52b3b65a523e667389378d99da2f7106773",
+    "lastStatus": 200,
+    "etag": "W/\"17208-qnRQnkEO7t31joBb6f1MA7sXk6s\""
+  },
+  "https://code.visualstudio.com/docs/languages/swift": {
+    "sha256": "2b8925bcb616b934b0ebf2a69009d589f7d2680eacbb776fcfebcc7088140169",
+    "lastStatus": 200,
+    "etag": "W/\"12c5c-tnAZAGSsyzglbLQbNdTYpCPSAmw\""
+  },
+  "https://code.visualstudio.com/docs/languages/tsql": {
+    "sha256": "6fe19ca289b2121a952f1feba3f7a9ae823a34db45c4d5dfab3ff9358e323786",
+    "lastStatus": 200,
+    "etag": "W/\"f907-nv9BLMDnjHYbrTylTppe7LT6TZg\""
+  },
+  "https://code.visualstudio.com/docs/languages/typescript": {
+    "sha256": "e3d976ebccdc5c79c282009fdc34cdbb97e324fd1cfef81101618b1bbf20b09a",
+    "lastStatus": 200,
+    "etag": "W/\"139f3-2Dr3oAd0bBW7VFAVHQhI40qBhS4\""
+  },
+  "https://code.visualstudio.com/docs/nodejs/angular-tutorial": {
+    "sha256": "43826d1b0f8519be263d522a00409b9082e2c4fdf63c5f0463bb96190cdade2b",
+    "lastStatus": 200,
+    "etag": "W/\"137b7-GMPt8J3Lf+t89TdfMyMM4b0Qa8I\""
+  },
+  "https://code.visualstudio.com/docs/nodejs/browser-debugging": {
+    "sha256": "7927e60453b797f01051b7810abf8a35b0b362be8ef9f624d6c979d0a545346a",
+    "lastStatus": 200,
+    "etag": "W/\"12866-obVAgQBUMPQzKsDrTNthNZag4W0\""
+  },
+  "https://code.visualstudio.com/docs/nodejs/debugging-recipes": {
+    "sha256": "14794d6be6f2ef1d5634db388f2def58f66f35b3a9bb44904683b3f7ea3919a6",
+    "lastStatus": 200,
+    "etag": "W/\"f2ec-1L3sV+6MGq4ql3kuG93oq0iT084\""
+  },
+  "https://code.visualstudio.com/docs/nodejs/extensions": {
+    "sha256": "b288de15c5d072457d1584640415a723badc033432e9f87a352527ae066e4e4e",
+    "lastStatus": 200,
+    "etag": "W/\"fad5-meNN8EhbZS+GDPqFiu4mcRWg0Ns\""
+  },
+  "https://code.visualstudio.com/docs/nodejs/nodejs-debugging": {
+    "sha256": "572ded6e1616dd2be758634a854901af0d96c947749bb4eeed462db500f0f898",
+    "lastStatus": 200,
+    "etag": "W/\"258ad-8CuDJfT10GliiaypSAyNqIiukjk\""
+  },
+  "https://code.visualstudio.com/docs/nodejs/nodejs-deployment": {
+    "sha256": "427ba7d86f704fa9484786a069135866f3cbaf493d99ba86b8908481978158eb",
+    "lastStatus": 200,
+    "etag": "W/\"e9b2-zCqOHlJFrTNl5o9DN9PqQCvPsAc\""
+  },
+  "https://code.visualstudio.com/docs/nodejs/nodejs-tutorial": {
+    "sha256": "cd97e8558a67706ac4aa66ddc8ef0ff537c2a535b122a32bd6fc4478f6168be5",
+    "lastStatus": 200,
+    "etag": "W/\"13b0b-U69lyHU5FiheHEu2+EP4X7KSmVg\""
+  },
+  "https://code.visualstudio.com/docs/nodejs/profiling": {
+    "sha256": "f728f03897250a4853bf51ae9a48366b3d15923e3c3ec7da5a7340adc2f2bcff",
+    "lastStatus": 200,
+    "etag": "W/\"109e6-vhZdQzlh0/POIezExnFZR8strRY\""
+  },
+  "https://code.visualstudio.com/docs/nodejs/reactjs-tutorial": {
+    "sha256": "116d6574a26ffb4d27fdd854d3ad3d4c435acc21adede158697338e9aecb7d17",
+    "lastStatus": 200,
+    "etag": "W/\"1678d-PAe5RGOKinhw7HHp8NlH5Spbfmo\""
+  },
+  "https://code.visualstudio.com/docs/nodejs/vuejs-tutorial": {
+    "sha256": "9082deffde70c796e7c3d088d0022618f85b54c27c7762f3f70fa1fddf03a7d9",
+    "lastStatus": 200,
+    "etag": "W/\"12a23-06SFO9dGTgdxmUwR1DDfPzI417U\""
+  },
+  "https://code.visualstudio.com/docs/nodejs/working-with-javascript": {
+    "sha256": "11926d67449c3eca650c8af31be9a8affa9c2dede0988b1688162079fc60bdc8",
+    "lastStatus": 200,
+    "etag": "W/\"18f97-KXSmCmeLaU0cgRqameW3+v2Waao\""
+  },
+  "https://code.visualstudio.com/docs/other/office": {
+    "sha256": "9cb2b23688fdd26e8a874155c4315b44a93b0f00db213d30eb8bf02cf1a511e7",
+    "lastStatus": 200,
+    "etag": "W/\"d145-SfG4XL91o3QpgY1SAo/RLv8kcPc\""
+  },
+  "https://code.visualstudio.com/docs/other/unity": {
+    "sha256": "ff3c737651a2ca2ef8e93be254e32abff059ce73cecbc16545464fae6ac27d79",
+    "lastStatus": 200,
+    "etag": "W/\"cae1-78wUmrE2dHW3oNoMjBX8tzayEf8\""
+  },
+  "https://code.visualstudio.com/docs/python/debugging": {
+    "sha256": "ee014db11002361cc45b88c8de98a6d8a3da2351b46565e626f71a8517c754c0",
+    "lastStatus": 200,
+    "etag": "W/\"2102d-M66npBbMDFdfWoSYk/N0GsfNs24\""
+  },
+  "https://code.visualstudio.com/docs/python/editing": {
+    "sha256": "bf129b4a6a1f3e09f6bc0b524674f08784416ec69c21b73db0cc53486b919c07",
+    "lastStatus": 200,
+    "etag": "W/\"14219-HZbHtMG1cdPQoPyHhqTaQ4dtxtw\""
+  },
+  "https://code.visualstudio.com/docs/python/environments": {
+    "sha256": "550ced5fafd062196b44aa6bc3710dd9e8197160f1b5edc3ab08c7bae9eafb7d",
+    "lastStatus": 200,
+    "etag": "W/\"1a180-Q2unzgiZZ/KlJrjLo1ifWFiL7IA\""
+  },
+  "https://code.visualstudio.com/docs/python/formatting": {
+    "sha256": "cd2334f6f974decdc6888199b69007946129d0dd3b1d435a88176b9ee47ff62c",
+    "lastStatus": 200,
+    "etag": "W/\"1167f-Ov8bjLBcTCk/N9s+/qzPcAJOOzo\""
+  },
+  "https://code.visualstudio.com/docs/python/jupyter-support-py": {
+    "sha256": "10b47ffb15e38296b6f41708c2930e29ddc039bd0c3aec8950d23a729082165e",
+    "lastStatus": 200,
+    "etag": "W/\"12d5d-bVEhcefqg22/yGPrFkQJ0Ljhq/8\""
+  },
+  "https://code.visualstudio.com/docs/python/linting": {
+    "sha256": "c373cad0ee21bc51ed95c43f01ca465305f54af102318e0a97c90ef4542be36e",
+    "lastStatus": 200,
+    "etag": "W/\"10bf0-P9AHwCK9eLaTxlqzvQs1JZUXPfU\""
+  },
+  "https://code.visualstudio.com/docs/python/python-on-azure": {
+    "sha256": "94a1eb9bd959443e28848fa0085cb9f710de38a5e0a3816f72ab841366686a79",
+    "lastStatus": 200,
+    "etag": "W/\"ef60-z2vhaQnhmY+OM3S2muyKEvz8RWY\""
+  },
+  "https://code.visualstudio.com/docs/python/python-quick-start": {
+    "sha256": "b6242415785da7ca5b4902c2100538218a84bbe4b8e91e5e7fafed25e9ecbb28",
+    "lastStatus": 200,
+    "etag": "W/\"10d81-UfI3S/KCZyO6eKE6uE8Ve/F1jmE\""
+  },
+  "https://code.visualstudio.com/docs/python/python-tutorial": {
+    "sha256": "ad60c459d6d3573eac19e4a8bae4edba2a83813c01adbe423c176e84c09dc66c",
+    "lastStatus": 200,
+    "etag": "W/\"178d4-XqFWBLx1q4A6zKeW7bDhnyxjQX4\""
+  },
+  "https://code.visualstudio.com/docs/python/python-web": {
+    "sha256": "9d0ae4c6d1f037e327d13dbb9c147fd7eda3a449e8f03953e85cfa2df3387904",
+    "lastStatus": 200,
+    "etag": "W/\"fa56-iRMYhPtjT06yw28GwK/S8s/e9CE\""
+  },
+  "https://code.visualstudio.com/docs/python/run": {
+    "sha256": "242991d925ebcb7eec7c288982142326148efd1776c9ca76cae7802db3c1b6e8",
+    "lastStatus": 200,
+    "etag": "W/\"fae7-zTq23/CBHnqE003ObgqeT4s6cNY\""
+  },
+  "https://code.visualstudio.com/docs/python/settings-reference": {
+    "sha256": "4105f8f45b7a1e8c530723a202e4f4aaf5543cbfbf9b4caaac93406b0155678b",
+    "lastStatus": 200,
+    "etag": "W/\"183fb-5AlEXoOz9IGUCHujASCalZxuWuk\""
+  },
+  "https://code.visualstudio.com/docs/python/testing": {
+    "sha256": "70ce7683392f3481b6b347194a8683e0070f2934b857398fe610b5334a222704",
+    "lastStatus": 200,
+    "etag": "W/\"16e34-o1ymxZj/QsvweTLSAvyZS3MpwRE\""
+  },
+  "https://code.visualstudio.com/docs/python/tutorial-create-containers": {
+    "sha256": "7d6127aeb58c3c6b499b377e3623af4abf3030db0a7bcb4a69b8de053be3f654",
+    "lastStatus": 200,
+    "etag": "W/\"123c9-rzl4GF3pjUqrEn8OGIS2Jn0ORYk\""
+  },
+  "https://code.visualstudio.com/docs/python/tutorial-django": {
+    "sha256": "394061faa8155249b452c713efa1fd919ba8d93670a2fb645ef79124add61e2c",
+    "lastStatus": 200,
+    "etag": "W/\"35b5a-DbjdOPGKL2ASXWGA8f9gTckiXpM\""
+  },
+  "https://code.visualstudio.com/docs/python/tutorial-fastapi": {
+    "sha256": "5bf6603600e77341eef55917e4538a2ba9c23ff733d2d11e066b3dfad0802359",
+    "lastStatus": 200,
+    "etag": "W/\"2e8b7-tD6e0xoDu1yTYKn0U5SmteehvPA\""
+  },
+  "https://code.visualstudio.com/docs/python/tutorial-flask": {
+    "sha256": "036808cddfa549810d9535fa5fdcb7eda8886b4753df569fa81cce844a053ffe",
+    "lastStatus": 200,
+    "etag": "W/\"29865-cCn1NGpc0Nm+LlXlSfi6JIWiVtY\""
+  },
+  "https://code.visualstudio.com/docs/reference/default-keybindings": {
+    "sha256": "2ad514381fb399380f3da8555f664f37ceafbebbfe95c142648ade1235f0bc18",
+    "lastStatus": 200,
+    "etag": "W/\"1807a-Pt7PqECrOaBQsOzY6grtGXdkzf0\""
+  },
+  "https://code.visualstudio.com/docs/reference/default-settings": {
+    "sha256": "10aea8d1c16754d27b3a23d0c6e7b45acc96182389523a453f37560f689b2e07",
+    "lastStatus": 200,
+    "etag": "W/\"92f9-OKvo0ZV+efucBTohCE9de00cW4A\""
+  },
+  "https://code.visualstudio.com/docs/reference/tasks-appendix": {
+    "sha256": "7c28a5af206e1a1f465410d968fe07857cfa9d043b84dbbe91664ea0fad17b28",
+    "lastStatus": 200,
+    "etag": "W/\"183d3-2Q2nKA+yujNcM8eiVQgX8NEc1Pk\""
+  },
+  "https://code.visualstudio.com/docs/reference/variables-reference": {
+    "sha256": "80173637be98d2162015eed225e6ca960eece382c265f58e1a6b3a25db9b4fd4",
+    "lastStatus": 200,
+    "etag": "W/\"1376c-APvCSH2P5Ccc4+XzPcJbfZy/N5k\""
+  },
+  "https://code.visualstudio.com/docs/remote/codespaces": {
+    "sha256": "a15cae764f3b6fe41f45dae19f9856285e15f04c8b871d8662110ab145d7d5d4",
+    "lastStatus": 200,
+    "etag": "W/\"10e2a-Qtuex1eDbZgMMMo439pR3UO1zHU\""
+  },
+  "https://code.visualstudio.com/docs/remote/dev-containers": {
+    "sha256": "b5f94ae61de0de8edb0acfbf39c576fc4a685114ebc4a13e420dff4ae5aa89da",
+    "lastStatus": 200,
+    "etag": "W/\"20b91-hNcJhV3Znl4usdXkJHsYeUo+Ops\""
+  },
+  "https://code.visualstudio.com/docs/remote/faq": {
+    "sha256": "c90bf20b6b37c29234f0a2068352c22fa6dc5a9fc987c2126ae4f228a92100cc",
+    "lastStatus": 200,
+    "etag": "W/\"134cc-5e/trMrARJzDayCNT/THJue/OXs\""
+  },
+  "https://code.visualstudio.com/docs/remote/linux": {
+    "sha256": "82325ac67490fc1b9531813097b9326da31470ba4323534e50bf84df144d296d",
+    "lastStatus": 200,
+    "etag": "W/\"de30-+O3oo0iV8x0QLA3jjqoy+JPVrFo\""
+  },
+  "https://code.visualstudio.com/docs/remote/remote-overview": {
+    "sha256": "e470dbc6f67505f6704d2aa03dde6f7b66b95d13a794102cd135b7c3b9591c06",
+    "lastStatus": 200,
+    "etag": "W/\"c45b-hYTINObOdXSMSys4O9sLWFvkX2Y\""
+  },
+  "https://code.visualstudio.com/docs/remote/ssh": {
+    "sha256": "69afe3996dc5ce1258848aecec757fa0da79bdfe99286412381a333c1b993f1a",
+    "lastStatus": 200,
+    "etag": "W/\"15dd4-l+s+Wp/NZtH/yYpkRJOsT+NHN4o\""
+  },
+  "https://code.visualstudio.com/docs/remote/ssh-tutorial": {
+    "sha256": "e0c0cfa6a7958332e3528ddcf7a8bdf294987c524e6f1585e12d2c664521d56e",
+    "lastStatus": 200,
+    "etag": "W/\"10aae-mutSk7YQUH15xozlr42skJYz+Ec\""
+  },
+  "https://code.visualstudio.com/docs/remote/troubleshooting": {
+    "sha256": "2dbc815617df5b85aba1ebc05e2ce7464b2bbe428c08dce9ceccd438f54ac1db",
+    "lastStatus": 200,
+    "etag": "W/\"28b8f-OZIDCzfVuufO0zSeMPMUpUiIV2o\""
+  },
+  "https://code.visualstudio.com/docs/remote/tunnels": {
+    "sha256": "c7c943f28a8cd43c98cc8754b188c0ba5b280c2c63a450fa76320c63441aa288",
+    "lastStatus": 200,
+    "etag": "W/\"f5fd-p/xxo/OQkKg/S/CtL/hMv8Q59ao\""
+  },
+  "https://code.visualstudio.com/docs/remote/vscode-server": {
+    "sha256": "38d1c13b48b6ed40d1375528cfe36cc05fe9efd2f1475673c11f162b6ca7b425",
+    "lastStatus": 200,
+    "etag": "W/\"daae-9ZlLawjWAYGf9OTDj9FN9os0WXk\""
+  },
+  "https://code.visualstudio.com/docs/remote/vscode-web": {
+    "sha256": "4852499d0d036b36eb86c02a8406e2480d73f5a18a316470a8b8e69dea682dd7",
+    "lastStatus": 200,
+    "etag": "W/\"12423-hhVDX88mJAjTACJ1fHvAImnICOw\""
+  },
+  "https://code.visualstudio.com/docs/remote/wsl": {
+    "sha256": "09f809d9351ef4da185b9c04f3d29322342f05ea8e1b24b6389274b7aeb255c7",
+    "lastStatus": 200,
+    "etag": "W/\"1256d-SdmJwIoUfs0kIj2gnBzemyoe7dA\""
+  },
+  "https://code.visualstudio.com/docs/remote/wsl-tutorial": {
+    "sha256": "c8f24876decb75c48f892932adcae09ae229da4428cefbb04aa98d987fc61aeb",
+    "lastStatus": 200,
+    "etag": "W/\"f3a9-uh3z14558nkcn+svxwZShLmjrnI\""
+  },
+  "https://code.visualstudio.com/docs/setup/additional-components": {
+    "sha256": "8f7900407f96e19bb8669a63e375823f4f144378597d13dc5a5350652a8a4b6d",
+    "lastStatus": 200,
+    "etag": "W/\"c10e-Y5h47YBehS+PFDWgCzPQc8hFqio\""
+  },
+  "https://code.visualstudio.com/docs/setup/copilot": {
+    "sha256": "9c584aea3215d0e3b063188ebb74c13984fa2f1b1e0e48243268f52780c16fdc",
+    "lastStatus": 200,
+    "etag": "W/\"f0c9-X5cYE74l1Z2zDpE7G6mVOByuo4Q\""
+  },
+  "https://code.visualstudio.com/docs/setup/linux": {
+    "sha256": "32d0ba31b64f419c62180ae1d46ddb84d49df3dca54d5169c272abaa879873c0",
+    "lastStatus": 200,
+    "etag": "W/\"16662-SBH2wIalG+y/t6QCS5s3MdjU+jc\""
+  },
+  "https://code.visualstudio.com/docs/setup/mac": {
+    "sha256": "6afe1fc6953138c841aa77efa77f3d76fc8d914b9f7797c86ec705ede9de4f61",
+    "lastStatus": 200,
+    "etag": "W/\"d86b-2sF6wN08C1ONVobYdrCABBPSs74\""
+  },
+  "https://code.visualstudio.com/docs/setup/network": {
+    "sha256": "c37af5d23ac48890021429d2876ffae1bc206aaa4b68487548707e300d33ae7d",
+    "lastStatus": 200,
+    "etag": "W/\"ebe1-W1PCagiBatocMJcta9t+7e1m5S0\""
+  },
+  "https://code.visualstudio.com/docs/setup/portable": {
+    "sha256": "67383cf50e14a78431bfbeeb7e2b5d1b233da27af1bab15c89b7fe44fb763708",
+    "lastStatus": 200,
+    "etag": "W/\"de47-mdkfwlxGW2lVAi5pvFn5ujx5Jc4\""
+  },
+  "https://code.visualstudio.com/docs/setup/raspberry-pi": {
+    "sha256": "f57102044384f86464ececd63c90b752bc3185914c1fd300dc87685f653540b3",
+    "lastStatus": 200,
+    "etag": "W/\"c101-BDdD0ujfmQu7VURP2cLrV/VsKoQ\""
+  },
+  "https://code.visualstudio.com/docs/setup/uninstall": {
+    "sha256": "35f9d33c5cd200acfcad02c65bdb67894b88739eb57156341c9c7200297756d9",
+    "lastStatus": 200,
+    "etag": "W/\"c3ae-6+XQQcrjQttP4NtZ/LWkkyyLISk\""
+  },
+  "https://code.visualstudio.com/docs/setup/windows": {
+    "sha256": "1f74fc558ddbbc90bbc709dd6e7469bd10b4ae62e3d0f093eebe5a3b1fc35c27",
+    "lastStatus": 200,
+    "etag": "W/\"efb2-b08B0e/PMo5CH0coqSMiIxUQoM8\""
+  },
+  "https://code.visualstudio.com/docs/sourcecontrol/branches-worktrees": {
+    "sha256": "ffc8c78963fcc1e97f4d7724c83c91b20cf75bfc165988b42de8bdd86928458b",
+    "lastStatus": 200,
+    "etag": "W/\"1079e-cIYNuquq9U4FcE1GgKCTWIgmPyU\""
+  },
+  "https://code.visualstudio.com/docs/sourcecontrol/faq": {
+    "sha256": "6b9581226b8efdaca138a29d1e400311ac3309774610032a9b4aa609ee419755",
+    "lastStatus": 200,
+    "etag": "W/\"e067-6xYqy5ZsAfGUszz26s8+1F+sd8Q\""
+  },
+  "https://code.visualstudio.com/docs/sourcecontrol/github": {
+    "sha256": "9187dd270fd75e7b38be53510503bb161866d5100c9c5bb048ca68734d8e6f55",
+    "lastStatus": 200,
+    "etag": "W/\"156be-iGVfRKySar7iCmqindY+4saiH/c\""
+  },
+  "https://code.visualstudio.com/docs/sourcecontrol/merge-conflicts": {
+    "sha256": "32b74b7501506b9dd0d878d70a482f73c78384bc82f1b3cbaea3e85bd0c155b3",
+    "lastStatus": 200,
+    "etag": "W/\"f734-1WJDu3KEtrCecUJYVu1AhtKHvTE\""
+  },
+  "https://code.visualstudio.com/docs/sourcecontrol/overview": {
+    "sha256": "41e5f87d0e435a0b1eb50f48d13b0c14306717c941a1b5bac0ef26443ce7bf05",
+    "lastStatus": 200,
+    "etag": "W/\"f12b-50jC73Eawz/nsXThw7OwnKFGvlw\""
+  },
+  "https://code.visualstudio.com/docs/sourcecontrol/quickstart": {
+    "sha256": "ae3f11283ad187ba18d865f1970da1f2110bca320a94f8fff958fbe67542e8d7",
+    "lastStatus": 200,
+    "etag": "W/\"ebb5-+GyrG0W2TndSetvvfIx/6j4Kb48\""
+  },
+  "https://code.visualstudio.com/docs/sourcecontrol/repos-remotes": {
+    "sha256": "30706022e5b86d88236c0e825dd877550dee3701f9cd21f0f337b9094909fefd",
+    "lastStatus": 200,
+    "etag": "W/\"12d95-nVdb+2X/izMowhKbRn8g0RH/608\""
+  },
+  "https://code.visualstudio.com/docs/sourcecontrol/staging-commits": {
+    "sha256": "3465881e35e869f6c46d534edb0f386aa5b5b0ea0dd30b0d91f961e15c82bb6b",
+    "lastStatus": 200,
+    "etag": "W/\"168f7-3GWzHiNQUPLTVAWsEI1fgaqWn/U\""
+  },
+  "https://code.visualstudio.com/docs/sourcecontrol/troubleshooting": {
+    "sha256": "8f7752e7006c9ed16ab014c7ac530002e9714ae7570f0aaa86a69486b3427441",
+    "lastStatus": 200,
+    "etag": "W/\"ce24-fPo3LuCL0ZvcgywVBQbtHGA8+zA\""
+  },
+  "https://code.visualstudio.com/docs/supporting/faq": {
+    "sha256": "b738eada8f27838066369af805864daca2851709e51fe6f8b6b6811bfe19bdc3",
+    "lastStatus": 200,
+    "etag": "W/\"1a4f6-Amj4TT9+Lkq1OepyBnHOGnUt1lA\""
+  },
+  "https://code.visualstudio.com/docs/supporting/oss-extensions": {
+    "sha256": "381de7edd73e777af5f2c93836f19a29d8c6fc22a5cff6b70ae85a2d1da9fa4e",
+    "lastStatus": 200,
+    "etag": "W/\"11791-qs/v4MmeQ6VM8EXlw3Z+4rfsVyc\""
+  },
+  "https://code.visualstudio.com/docs/supporting/requirements": {
+    "sha256": "86ecce51120ab37d4250e7c1825e2eab2fd07b4946688b7f520ded75f427eacd",
+    "lastStatus": 200,
+    "etag": "W/\"b8c1-SNp6SXcJbUvdi9kDOsDuvM1gZfk\""
+  },
+  "https://code.visualstudio.com/docs/supporting/troubleshoot-terminal-launch": {
+    "sha256": "c4f3b4dfa0ab43704df1af7a3f49bab035f986fa71408e489e3fa7be81d46199",
+    "lastStatus": 200,
+    "etag": "W/\"e4d6-v+eH+IRC+XtIZ/o8nbS1SRPXTtI\""
+  },
+  "https://code.visualstudio.com/docs/terminal/advanced": {
+    "sha256": "d87fbad5752597b7c28efb011cc39aded92aa0c04b2629fdc13637b1e62a105d",
+    "lastStatus": 200,
+    "etag": "W/\"17b18-YAjTlN5S83/kjYm33MCTwcKX9M8\""
+  },
+  "https://code.visualstudio.com/docs/terminal/appearance": {
+    "sha256": "bfa731c548f061d15948f467b1e67dc04401389d49d985a047bb730bcc84d3b1",
+    "lastStatus": 200,
+    "etag": "W/\"1780c-qOFvLdq9MNECVH19FVQBNIne4a4\""
+  },
+  "https://code.visualstudio.com/docs/terminal/basics": {
+    "sha256": "15c91c7223ac11092ba502d9c3ea4ec16b9195accc6994d784c87032d438107c",
+    "lastStatus": 200,
+    "etag": "W/\"1fb99-Ho61J+1Miu75JaPYd3CTLdyEYt0\""
+  },
+  "https://code.visualstudio.com/docs/terminal/getting-started": {
+    "sha256": "fd684ae15b36603ac0c6e235257c0c9855a29dabcd6c1b79cc7aba8baa86c3f4",
+    "lastStatus": 200,
+    "etag": "W/\"e2a7-nt5djMOXYcxDA1U9HnMZVLoBzKk\""
+  },
+  "https://code.visualstudio.com/docs/terminal/profiles": {
+    "sha256": "5c13505f9ec0c01e0fd060129301642561f4e4579a8e13570523fdd79df3205b",
+    "lastStatus": 200,
+    "etag": "W/\"147ad-ErQXtuUstz6yzR3mOgQ3U2N/REw\""
+  },
+  "https://code.visualstudio.com/docs/terminal/shell-integration": {
+    "sha256": "bba1f957356dcb652a12d9117b10dec5fb7fd9e8f974025616ac087e8cc983be",
+    "lastStatus": 200,
+    "etag": "W/\"1aa5b-JuBA0y2SfUa74S/wkFS9OErpKes\""
+  },
+  "https://code.visualstudio.com/docs/typescript/typescript-debugging": {
+    "sha256": "fa9bc87a35a208482aa1952ae06618d11ae6953f597a0e4030fca43d0bbf5f13",
+    "lastStatus": 200,
+    "etag": "W/\"12e3f-Ec+epDYJ6OZ/TS5Eoa217YXApxc\""
+  },
+  "https://code.visualstudio.com/docs/typescript/typescript-editing": {
+    "sha256": "175ac86b345fa72bd50b9ca02737f2b8054a6ed66a7465b73409178417560847",
+    "lastStatus": 200,
+    "etag": "W/\"128ba-cZCXv57s8ByacyMnjWK0spiXZ88\""
+  },
+  "https://code.visualstudio.com/docs/typescript/typescript-refactoring": {
+    "sha256": "595809db0a1d0735a82229b71be516f3b4b6e649d01f297bcb1b2f4e4f8b719d",
+    "lastStatus": 200,
+    "etag": "W/\"11d71-ZwTFE7N7LBvoTpaKu12bP2anIjU\""
+  },
+  "https://code.visualstudio.com/docs/typescript/typescript-transpiling": {
+    "sha256": "b049a25dc6b4f9a9d818d0e659b1af649573f48e6151b0676b0a81fc6c8eaf17",
+    "lastStatus": 200,
+    "etag": "W/\"1714b-p+7qxxJLr3DLBoKT+ArsZazlXf0\""
+  },
+  "https://code.visualstudio.com/docs/typescript/typescript-tutorial": {
+    "sha256": "5e6a00944e9de2adcea2087b182b5425f50b1ef469244319d4c4906db8637e26",
+    "lastStatus": 200,
+    "etag": "W/\"13356-NkEGM9YmuaMwlSqTUfb8G2ipizE\""
+  },
+  "https://code.visualstudio.com/learn/customizations/1-why-customization-matter": {
+    "sha256": "2af469d681dbcf343721adae4eba53156623c77668e543ca8a96f257b92748e0",
+    "lastStatus": 200,
+    "etag": "W/\"865e-r7pWr1s+Wm2a3RZWW50T44saoMU\""
+  },
+  "https://code.visualstudio.com/learn/customizations/2-instructions": {
+    "sha256": "567cfb24971793c4a28cec03e5103b2091aa12dae3a646ac8004b4fec6dc5705",
+    "lastStatus": 200,
+    "etag": "W/\"9394-JRN5voQ3S5h9itZZyK0mNDFrn+s\""
+  },
+  "https://code.visualstudio.com/learn/customizations/3-skills": {
+    "sha256": "193b9530138ff8f051d4fdd09bdf35f8935a79ba4e6fb9c7cb6cee21c9d88814",
+    "lastStatus": 200,
+    "etag": "W/\"8db2-HiaSOfTO4m4zJywXo8Z3zxTGWE4\""
+  },
+  "https://code.visualstudio.com/learn/customizations/4-custom-agent": {
+    "sha256": "c1894cbdf1d9a814ad5e5d8afc5f1b730fcbea37bd63bd87dc89b05fbac7e082",
+    "lastStatus": 200,
+    "etag": "W/\"91ac-QKApD984ZRivY3zEhLgekKTEkKk\""
+  },
+  "https://code.visualstudio.com/learn/customizations/5-hooks": {
+    "sha256": "be9b723bd0a9b81c44f2b03e25e47a1295a970088279ddd8bc7131fe3164f696",
+    "lastStatus": 200,
+    "etag": "W/\"8e2f-BOHBX+334lS+6UFc65UGBn40qhc\""
+  },
+  "https://code.visualstudio.com/learn/customizations/6-prompt-files": {
+    "sha256": "bcfbd26c28f53b541b56aa2f3db5fac55fa6d83ebde5096e151b0d65967832e3",
+    "lastStatus": 200,
+    "etag": "W/\"8d9c-yxrgMwzpTsm9s7vKC/nQhW3xn50\""
+  },
+  "https://code.visualstudio.com/learn/customizations/7-customization-features-explained": {
+    "sha256": "bdeb49ef336af4d35cf7ed94f8d53b637d0d10ee8128e6075728866cefabb7eb",
+    "lastStatus": 200,
+    "etag": "W/\"8a93-AhZViXzIgi/1th4EjYrNoip3pmU\""
+  },
+  "https://code.visualstudio.com/learn/customizations/8-demo": {
+    "sha256": "9a60f4676dd02a5a58d3195fa29cbb12182ffef56e098a8c1d3842a845c098a8",
+    "lastStatus": 200,
+    "etag": "W/\"98ff-tovyJIolfLGEpWkBHcCmyJIOrjE\""
+  },
+  "https://code.visualstudio.com/learn/foundations/agent-sessions-and-where-agents-run": {
+    "sha256": "823dce25dd620a93abe1fa0c6308ce2893d4ea775e1d3a919b8c0e8d8082bff5",
+    "lastStatus": 200,
+    "etag": "W/\"927f-v8uGfOjugEJJavIfK+SZ+m5+6mM\""
+  },
+  "https://code.visualstudio.com/learn/foundations/approvals-autonomy-and-context-budget": {
+    "sha256": "863a861c759004df554d34bd8f2648ab8dce0d2f7eb7e0c6f192783e3b614116",
+    "lastStatus": 200,
+    "etag": "W/\"8f83-MYH1pQHel4xSuEZllVhvPu7XPA4\""
+  },
+  "https://code.visualstudio.com/learn/foundations/build-your-first-app-with-agent-mode": {
+    "sha256": "f884d80f192cb734fbcaef05040bf9437e3c60d698adcd250d38dd4d4f9abfd6",
+    "lastStatus": 200,
+    "etag": "W/\"a25f-1fL4eWc6UJGr1EWAsnhg1wItmmo\""
+  },
+  "https://code.visualstudio.com/learn/foundations/debugging-and-whats-happening-behind-the-scenes": {
+    "sha256": "1ce60c542970873edb1fe5a2f3d9d3ea29326f4422dc576aa27fa479e2e527a6",
+    "lastStatus": 200,
+    "etag": "W/\"97dc-a2YiI6BwVWJOjM0Ex/tcO2Ky++Y\""
+  },
+  "https://code.visualstudio.com/learn/foundations/introduction-to-agent-first-development": {
+    "sha256": "80046012b59a9a2af545ae22c82291946eb6034d8c0ff1f4825e83736ba8e54c",
+    "lastStatus": 200,
+    "etag": "W/\"98b2-tI7jUyuVvjR9bdfodmwrR6D/c+4\""
+  },
+  "https://code.visualstudio.com/learn/foundations/reviewing-and-controlling-agent-changes": {
+    "sha256": "b196fefea6905d1f2b79251dbfd816aba515a8880d5a46e99a098d69a4927c68",
+    "lastStatus": 200,
+    "etag": "W/\"9a0b-2VSEwtPDHLRmc0RYEPROTwJvlyI\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount": {
+    "sha256": "6a7e4380f80f2b21a105c3fa4a3f211f095db1f9be6b7d234d0ec8d0a9cbfe6d",
+    "lastStatus": 200,
+    "etag": "W/\"78ac-pHGCXNMkS8MMaHnFezSwoh6tjt4\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user": {
+    "sha256": "8dd35bf1df43e69fe420d01299e52d0add33dc90e34e5dc8219a79c0e745693e",
+    "lastStatus": 200,
+    "etag": "W/\"963c-t/USAWm41vM7NiorD0qbnyHywGw\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/change-default-source-mount": {
+    "sha256": "9565059db7c1d99f9a940e2f491273063e2f11c62a9fd1c954dfe2444095d476",
+    "lastStatus": 200,
+    "etag": "W/\"737c-kV3eBh8c44+746/H7k8RaTa4f/8\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/configure-separate-containers": {
+    "sha256": "81c224da2fe3290d5bb1df82b7d19960efd980a3faca9f197b14490112012cbe",
+    "lastStatus": 200,
+    "etag": "W/\"785e-phuZlXz25bAuXdVxfenNFyN1yP0\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/connect-multiple-containers": {
+    "sha256": "02265382429a222778ff23b532ee5d10dfb10a724222450574e7243e680f8620",
+    "lastStatus": 200,
+    "etag": "W/\"a0f4-WNCpvoG2K2hZ7bmOUUvlDBHoeJM\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host": {
+    "sha256": "932d3f9d12c6e756df0311ead2934ff5a475133a5be256cfb00f921241f3c411",
+    "lastStatus": 200,
+    "etag": "W/\"d33f-UiPhG69dVXx/1knkHiNjaoN6b3Q\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/docker-options": {
+    "sha256": "f770138538e61d294a09ed8a72dd1127e8a03e7fbf029f223b8c071b299dab15",
+    "lastStatus": 200,
+    "etag": "W/\"9b78-7rVfgPYkkFuwq44O9sWgn8J91dU\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/environment-variables": {
+    "sha256": "680b8456e8ac6fb677d7af940e7846895e084133fb77f44eabb723ef1329ef89",
+    "lastStatus": 200,
+    "etag": "W/\"9324-+oMar3W2bVV9oZALP2yWRJ2A5Dg\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/improve-performance": {
+    "sha256": "1d86dfd3a064e9c9b103aea90a56e7a3f40374302946dc150babaca1d98a72d7",
+    "lastStatus": 200,
+    "etag": "W/\"abf3-InZSA3WJ3iBnsvLdVaT5opdmCmY\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/overview": {
+    "sha256": "07dd3091702507708c67bbb0b5949daf3e40f2315688df91eab6783487b2a106",
+    "lastStatus": 200,
+    "etag": "W/\"7694-msrvtUolzn9tO4FCTyQ9/P7bXG8\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/persist-bash-history": {
+    "sha256": "29222354b98cb45c5edf0b260c0c6abd0853cc2c76a5ab47e8b0877ebc096157",
+    "lastStatus": 200,
+    "etag": "W/\"808a-g++OrEUHkLRL1D419H6UddMKce4\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/questions-feedback": {
+    "sha256": "f399a66365a4a710dc0738e82d0398bda47bed9348b61b03ee5c7e28fe4d50e5",
+    "lastStatus": 200,
+    "etag": "W/\"6be5-J+n/0Y5koMeLUUv6ZNDUcWid44E\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/reduce-docker-warnings": {
+    "sha256": "7119319a35da2cbcef2763fb5b239f24892390e8badb500d22638c5ab9dc83e2",
+    "lastStatus": 200,
+    "etag": "W/\"8b61-aKbkrOR0q/ueO/zEeOI7XG5U6+k\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/set-docker-compose-project-name": {
+    "sha256": "9b22000a6325ff822ef86b21f1378d3155cdd498792fab4205608cae28aa4a42",
+    "lastStatus": 200,
+    "etag": "W/\"6eda-46a7iz3T4v0t5ZQPGRR25aafL4E\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials": {
+    "sha256": "95b1c464726e9733e60f5b9917e7336bbe3cc26fb3202d39600391ca90168f70",
+    "lastStatus": 200,
+    "etag": "W/\"9cd3-ySPdIZ+HXLDTUJ4If5x4pfYjHhc\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/start-processes": {
+    "sha256": "6d3dd25743462fe8245efdcebc61dcd1484d8e1efb4121b3fa80edca720019a7",
+    "lastStatus": 200,
+    "etag": "W/\"8d2c-I8DNPezwzPTR3S18NaP+Ue4mOr4\""
+  },
+  "https://code.visualstudio.com/remote/advancedcontainers/use-docker-kubernetes": {
+    "sha256": "d8098295c53a05e525560699dab1278141b789fe123e57ed2d42cb59392b1a2c",
+    "lastStatus": 200,
+    "etag": "W/\"8a85-D4UuoGXR2dqvTvCqMk2sG0aQxRE\""
+  }
+}

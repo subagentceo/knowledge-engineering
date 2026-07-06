@@ -1,0 +1,27 @@
+{
+  "name": "vscode",
+  "homepage": "https://code.visualstudio.com",
+  "llms_txt_candidates": [
+    "https://code.visualstudio.com/llms.txt"
+  ],
+  "sitemap_xml_sources": [
+    "https://code.visualstudio.com/sitemap.xml"
+  ],
+  "transform": "html-extract",
+  "allow_prefixes": [
+    "https://code.visualstudio.com/docs/",
+    "https://code.visualstudio.com/api/",
+    "https://code.visualstudio.com/remote/",
+    "https://code.visualstudio.com/learn/"
+  ],
+  "deny_prefixes": [],
+  "deny_urls": [
+    "https://code.visualstudio.com/docs/getstarted/copilot-quickstart",
+    "https://code.visualstudio.com/docs/containers/bridge-to-kubernetes"
+  ],
+  "page_cap": 0,
+  "html_extract": {
+    "selector": ".docs-main-content, .docs-content-wrapper, main#main-content, article"
+  },
+  "llms_txt": "https://code.visualstudio.com/llms.txt"
+}
