@@ -1,6 +1,6 @@
 # Juno helps people with chronic illness find patterns in their symptoms with Claude
 
-Juno is an AI health assistant for people living with chronic illness. People talk to it by voice or text about how they're feeling each day, and it draws on the medical history and biometrics they bring in to turn those conversations into symptom patterns and doctor-ready summaries. Its voice and text agents run on Claude.
+Juno is an AI health assistant for people living with chronic illness. People talk to it by voice or text about how they're feeling each day, and it draws on the medical history and biometrics they bring in to turn those conversations into symptom patterns and doctor-ready summaries. Its voice and text agents run on Claude. The product took shape during Y Combinator's Spring 2026 batch, when a two-person team had to ship fast.
 
 ## With Claude, Juno:
 

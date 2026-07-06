@@ -12,6 +12,14 @@ The Google Calendar integration enables Claude to understand your calendar commi
   Available on Pro, Max, Team, and Enterprise plans. All Claude integrations are currently in beta.
 </Note>
 
+## Connect Google Calendar
+
+1. In claude.ai, go to **Settings > Connectors**.
+2. Find Google Calendar and click **Connect**.
+3. Sign in to your Google account and grant the requested permissions.
+
+On Team and Enterprise plans, an Owner or Primary Owner must enable the integration for your organization before it appears in your connector list. For the full walkthrough, including troubleshooting, see [Get started with connectors](/connectors/getting-started).
+
 ## How to use Calendar integration
 
 ### 1. Ask about your schedule

@@ -6,11 +6,13 @@ Back to Overview
 
 The Frontier Red Team stress-tests AI systems to understand the full extent of their current capabilities and anticipate what comes next. We provide evidence-based analysis about AI’s implications for cybersecurity, national security, and autonomous systems.
 
-Research
+Research teams:AlignmentEconomic ResearchInterpretabilitySocietal ImpactsFrontier Red Team
 
-## Project Deal
+Frontier Red Team
 
-We created a marketplace for employees in our San Francisco office, with one big twist. We tasked Claude with buying, selling and negotiating on our colleagues’ behalf.
+## Project Fetch: Phase two
+
+We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated (and amusing) robotics tasks.
 
 Read more
 
@@ -20,6 +22,9 @@ Search
 
 DateCategoryTitle
 
+*   Jun 18, 2026Frontier Red Team
+    
+    Project Fetch: Phase two
 *   Jun 8, 2026Frontier Red Team
     
     Measuring LLMs’ impact on N-day exploits
@@ -47,8 +52,7 @@ DateCategoryTitle
 *   Jan 16, 2026Frontier Red Team
     
     AI models are showing a greater ability to find and exploit vulnerabilities on realistic cyber ranges
-*   Jan 14, 2026Frontier Red Team
-    
-    Finding bugs across the Python ecosystem with Claude and property-based testing
 
 See more
+
+![Project Fetch: Phase two](https://www-cdn.anthropic.com/images/4zrzovbb/website/39c40393e610cc0a5e65f50ad12ff5ada273f792-1000x1000.svg)

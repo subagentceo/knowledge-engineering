@@ -1,10 +1,10 @@
-Claude for macOS and Windows respond to the `claude://` URL scheme, much like a browser responds to the `https://` scheme. You can use these links from a website, a script, or another app to open Claude Desktop and jump straight to a chat, a Cowork session, or a Code session.
+Claude for macOS, Windows, and Linux respond to the `claude://` URL scheme, much like a browser responds to the `https://` scheme. You can use these links from a website, a script, or another app to open Claude Desktop and jump straight to a chat, a Cowork session, or a Code session.
 
 This article lists the link formats Claude Desktop supports and the parameters each one accepts.
 
 ## How deep links work
 
-When your operating system opens a `claude://` URL, it hands the URL to Claude. If the app isn't running, both macOS and Windows will launch it first. Claude then reads the path and query parameters and navigates to the right place inside the app.
+When your operating system opens a `claude://` URL, it hands the URL to Claude. If the app isn't running, macOS, Windows, and Linux will launch it first. Claude then reads the path and query parameters and navigates to the right place inside the app.
 
 All parameter values must be URL-encoded. Prompt text passed in `q` is truncated to roughly 14,000 characters.
 
@@ -91,4 +91,12 @@ Open Command Prompt and run:
 
 ```
 start "" "claude://claude.ai/new?q=Hello"
+```
+
+### On Linux
+
+Open a terminal and run:
+
+```
+xdg-open "claude://claude.ai/new?q=Hello"
 ```

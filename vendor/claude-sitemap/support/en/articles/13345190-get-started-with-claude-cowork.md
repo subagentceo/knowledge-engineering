@@ -12,6 +12,10 @@ Claude Cowork is available for paid plans (Pro, Max, Team, Enterprise) on:
 
   - Cowork requires the latest version of Claude for Windows. Download or update at **[claude.com/download](https://claude.com/download)**.
 
+- **Claude Desktop for Linux (beta)**
+
+  - Download at **[claude.com/download](https://claude.com/download)**.
+
 ### Will my computer support Claude Cowork?
 
 If you haven't installed Claude Desktop yet and want to check if your computer will support Cowork, click the link associated with your system to download a simple program that checks this for you:
@@ -98,7 +102,7 @@ You maintain visibility into what Claude is planning and doing throughout the pr
 
 ### Requirements
 
-- **Claude Desktop app:** Cowork requires the **[desktop app](https://support.claude.com/en/articles/10065433-installing-claude-desktop)** for macOS or Windows and is not available on web or mobile.
+- **Claude Desktop app:** Cowork requires the **[desktop app](https://support.claude.com/en/articles/10065433-installing-claude-desktop)** for macOS, Windows, or Linux and is not available on web or mobile.
 
 - **Paid Claude subscription:** Cowork is available to paid Claude plans (Pro, Max, Team, Enterprise) only.
 
@@ -150,7 +154,7 @@ To set global instructions:
 
 3. Type your instructions in the text box and click "Save":
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2180541860/aad5befe38e5d2da4f97040baa29/8c27842d-07d6-4b6f-b513-9ea9fbd002dc?expires=1781748900&amp;signature=98bc6e4da54e4259e5a0858ac68498b3c4c52995ec893789977f6d87fba4d697&amp;req=diEvFsx6nIlZWfMW1HO4zah%2FF7Div9Ry8mPglonEgA5CiD2WFL%2BKwbgc251m%0AZySc%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2180541860/aad5befe38e5d2da4f97040baa29/8c27842d-07d6-4b6f-b513-9ea9fbd002dc?expires=1783364400&amp;signature=749cab9a58f061bea744bde3946e77d390029604f246352c7a7f55937900c468&amp;req=diEvFsx6nIlZWfMW1HO4zah%2FF7Lmvdh%2F8mPglonEgA4nMQW4z9lfoFbqqUfb%0AlCFK%0A)
 
 ### Folder instructions
 

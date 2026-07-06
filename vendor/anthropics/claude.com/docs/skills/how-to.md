@@ -193,3 +193,15 @@ my-skill.zip
 ## Example skills
 
 See [github.com/anthropics/skills](https://github.com/anthropics/skills/tree/main/skills) for example skills you can use as templates.
+
+## Related topics
+
+<Columns cols={2}>
+  <Card title="Skills in Claude Code" icon="terminal" href="https://code.claude.com/docs/en/skills">
+    Create and test skills from the Claude Code CLI, including the `/skills` manager.
+  </Card>
+
+  <Card title="Distribute as a plugin" icon="puzzle-piece" href="/plugins/submit">
+    Package your skill for the plugin directory.
+  </Card>
+</Columns>

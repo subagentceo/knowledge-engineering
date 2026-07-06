@@ -25,13 +25,47 @@
           },
           "type": "array"
         },
+        "description": {
+          "type": "string"
+        },
+        "due_date": {
+          "type": "string"
+        },
         "error": {
           "type": "string"
+        },
+        "estimated_hours": {
+          "type": "number"
+        },
+        "evaluator": {
+          "additionalProperties": false,
+          "properties": {
+            "fail_if": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "pass_if": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "pass_if",
+            "fail_if"
+          ],
+          "type": "object"
         },
         "from": {
           "type": "string"
         },
         "id": {
+          "type": "string"
+        },
+        "jira_key": {
           "type": "string"
         },
         "ke_fit_score": {

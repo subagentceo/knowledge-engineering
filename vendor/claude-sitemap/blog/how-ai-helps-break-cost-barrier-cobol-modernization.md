@@ -1,4 +1,6 @@
-# How AI helps break the cost barrier to COBOL modernization
+# COBOL Modernization with AI: Breaking the Cost Barrier
+
+# COBOL modernization with AI: breaking the cost barrier
 
 COBOL is everywhere. It handles an estimated 95% of ATM transactions in the US. Hundreds of billions of lines of COBOL run in production every day, powering critical systems in finance, airlines, and government.  
   
@@ -8,7 +10,11 @@ The developers who built these systems retired years ago, and the institutional 
 
 Given these roadblocks, how can organizations modernize their systems without losing the reliability, availability, and data they’ve accumulated over decades? And without breaking anything?
 
-## Why modernizing COBOL is different
+# What is COBOL modernization?
+
+COBOL modernization is the process of updating legacy COBOL applications—by rehosting them on new infrastructure, refactoring the code, rewriting it in a modern language like Java, or replacing the system entirely—while preserving the decades of business logic embedded in them. Cost has historically been the barrier: understanding what the code does is the most expensive step.
+
+## Why COBOL modernization is different
 
 COBOL modernization differs fundamentally from typical legacy code refactoring. You aren’t just updating familiar code to use better patterns, you’re reverse engineering business logic from systems built when Nixon was president. You’re untangling dependencies that evolved over decades, and translating institutional knowledge that now exists only in the code itself. 
 
@@ -24,6 +30,16 @@ Tools like Claude Code can automate the exploration and analysis phases that con
 4.  Provide teams with the deep insights they need to make informed decisions
 
 With AI, teams can modernize their COBOL codebase in quarters instead of years.
+
+## Four approaches to COBOL modernization: rehost, refactor, rewrite, replace
+
+Most modernization efforts pick from four approaches.
+
+‍_Rehosting_ moves COBOL unchanged onto cheaper infrastructure—fast, but the maintainability problem remains.
+
+‍_Refactoring_ restructures the code without changing behavior. _Rewriting_ converts it to a modern language like Java or Python—the highest payoff and, historically, the highest cost and risk.
+
+‍_Replacing_ swaps the system for a commercial product, when one fits. The economics of the rewrite path are what AI changes most, which is the focus of the rest of this post.
 
 ## How AI changes COBOL modernization
 
@@ -79,6 +95,5 @@ Start with a single component or workflow that has clear boundaries and moderate
 
 The economics of COBOL modernization have shifted. AI makes the economics work by automating what used to require armies of consultants, freeing your engineers to make the migration decisions that require their domain expertise.
 
-For a step-by-step guide, see the **Code Modernization Playbook**.
-
-‍
+_For a step-by-step guide, see the_ **_Code Modernization Playbook_**_.  
+Thanks to Dan Mason, technical member of Anthropic staff, for their contributions._

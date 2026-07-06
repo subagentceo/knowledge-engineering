@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -9,14 +8,17 @@
 
 Directory connectors and custom connectors run on the **same MCP infrastructure**. The runtime, transport, authentication, and tool-calling code paths are identical. The difference is review, discoverability, and distribution.
 
-|                                       | Directory connector                      | Custom connector                                           |
-| ------------------------------------- | ---------------------------------------- | ---------------------------------------------------------- |
-| **Runtime**                           | Same                                     | Same                                                       |
-| **Anthropic review**                  | Yes                                      | No                                                         |
-| **In-product discovery**              | Browse, search, Suggested Connectors     | None                                                       |
-| **Distribution**                      | [Directory link](#share-an-install-link) | [Install link](#share-an-install-link) or manual URL entry |
-| **Anthropic-held client credentials** | Available                                | Not available                                              |
-| **Appears as**                        | Named card with logo                     | "Custom"                                                   |
+|                                                                                | Directory connector                          | Custom connector                                           |
+| ------------------------------------------------------------------------------ | -------------------------------------------- | ---------------------------------------------------------- |
+| **Runtime**                                                                    | Same                                         | Same                                                       |
+| **Anthropic review**                                                           | Yes                                          | No                                                         |
+| **In-product discovery**                                                       | Browse, search, Suggested Connectors         | None                                                       |
+| **Distribution**                                                               | [Directory link](#share-an-install-link)     | [Install link](#share-an-install-link) or manual URL entry |
+| **Anthropic-held client credentials**                                          | Available                                    | Not available                                              |
+| **[External link](/connectors/building/mcp-apps/external-links) confirmation** | Can allowlist destinations to skip the modal | Always shows the modal                                     |
+| **Appears as**                                                                 | Named card with logo                         | "Custom"                                                   |
+
+For what directory and custom connectors look like to a Claude user, including the Verified and Community labels, see [connector verification](/connectors/verification).
 
 ## Share an install link
 

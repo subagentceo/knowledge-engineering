@@ -1,0 +1,6 @@
+{
+  "name": "technical-staff-plugins",
+  "version": "1.0.0",
+  "description": "Role-based technical-staff skills (frontend engineering, backend engineering, quality assurance, system architecture, technical leadership) that ground code review and refactor work in live documentation and research connectors: O'Reilly, Context7, HuggingFace, Parallel Search/Task, Slack, and GitHub.",
+  "author": { "name": "subagentceo (operator alex@jadecli.com)" }
+}

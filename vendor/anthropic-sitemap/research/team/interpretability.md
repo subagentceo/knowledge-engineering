@@ -6,7 +6,7 @@ Back to Overview
 
 The mission of the Interpretability team is to discover and understand how large language models work internally, as a foundation for AI safety and positive outcomes.
 
-Research teams:AlignmentEconomic ResearchInterpretabilitySocietal Impacts
+Research teams:AlignmentEconomic ResearchInterpretabilitySocietal ImpactsFrontier Red Team
 
 ![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F27748c7d4c470d931ef828085ecb870d6a41f0e9-1440x810.png&w=3840&q=75)
 
@@ -56,6 +56,9 @@ Search
 
 DateCategoryTitle
 
+*   Jul 6, 2026Interpretability
+    
+    A global workspace in language models
 *   May 7, 2026Interpretability
     
     Natural Language Autoencoders: Turning Claude’s thoughts into text
@@ -83,9 +86,6 @@ DateCategoryTitle
 *   Mar 13, 2025Alignment
     
     Auditing language models for hidden objectives
-*   Feb 20, 2025Interpretability
-    
-    Insights on Crosscoder Model Diffing
 
 See more
 

@@ -18,7 +18,7 @@ If you can already see the **All activity** view under Analytics, you have acces
 
 Type a question, or select one of the suggested prompts below the input box. Claude matches your question to the closest supported query, runs it against your organization’s pre-aggregated usage data, and returns:
 
-- A chart, table, or stat card rendered directly in the conversation.
+- A chart, table, or stat card rendered directly in the conversation, which you can expand, drill into, and export.
 
 - A brief written summary calling out the key trend or numbers.
 
@@ -62,6 +62,14 @@ Analytics chat answers questions across these areas.
 
 - "How many pending invites do we have?"
 
+### Groups and teams
+
+- "Which teams doubled their Claude usage this month?"
+
+- "Where are we getting the most value per seat?"
+
+- "Show me spend by group"
+
 ### Claude Code and Claude Cowork
 
 - "Show me Claude Code adoption"
@@ -98,21 +106,23 @@ Queries that list individual users (top spenders, inactive seats, least active u
 
 ---
 
+## Export and share results
+
+When Claude returns a chart, hover over it and click to download it. You can share the exported file with stakeholders who don't have access to the analytics dashboard.
+
+---
+
 ## Limitations
 
-- **Analytics questions only.** Analytics chat is scoped to your organization’s usage data. If you ask an unrelated question, Claude will suggest starting a regular conversation instead. Web search, file uploads, connectors, and artifacts aren’t available here.
-
-- **Supported queries only.** Claude answers from a fixed set of query templates. It can’t run arbitrary queries or break data down by dimensions the templates don’t support.
+- **Analytics questions only.** Analytics chat is scoped to your organization’s usage data. If you ask an unrelated question, Claude will suggest starting a regular conversation instead. Web search, file uploads, and connectors aren't available here.
 
 - **Your organization only.** Results are always scoped to the organization you’re signed into. Cross-organization comparisons aren’t available.
-
-- **No export.** To share a result, take a screenshot. CSV export isn’t currently available.
 
 ---
 
 ## Tips
 
-- **Start with a suggested prompt.** The chips below the input show the full range of supported questions. Selecting one is the fastest way to see what’s available.
+- **Start with a suggested prompt.** The chips below the input show common starting points. Selecting one is the fastest way to see what's available, and you can refine from there.
 
 - **Ask follow-ups instead of starting over.** After any chart, "now compare that to last month" or "show me just Claude Code" will refine the result in place.
 

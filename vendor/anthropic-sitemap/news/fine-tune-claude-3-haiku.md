@@ -95,6 +95,42 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22349f86cd1968deab7_f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
+
+Jul 2, 2026
+
+### Giving admins more visibility and control over Claude spend
+
+Product announcements
+
+Giving admins more visibility and control over Claude spendGiving admins more visibility and control over Claude spend
+
+Giving admins more visibility and control over Claude spendGiving admins more visibility and control over Claude spend
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
+
+Jun 29, 2026
+
+### Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
+
+Product announcements
+
+Introducing the Claude apps gateway for Amazon Bedrock and Google CloudIntroducing the Claude apps gateway for Amazon Bedrock and Google Cloud
+
+Introducing the Claude apps gateway for Amazon Bedrock and Google CloudIntroducing the Claude apps gateway for Amazon Bedrock and Google Cloud
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3f14a08cb97bf1b16d40ef_ObjectClouds.svg)
+
+Jun 29, 2026
+
+### Claude in Microsoft Foundry is now generally available
+
+Product announcements
+
+Claude in Microsoft Foundry is now generally availableClaude in Microsoft Foundry is now generally available
+
+Claude in Microsoft Foundry is now generally availableClaude in Microsoft Foundry is now generally available
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
 
 Jun 17, 2026
@@ -106,42 +142,6 @@ Product announcements
 Secure access to the Claude Platform with Workload Identity FederationSecure access to the Claude Platform with Workload Identity Federation
 
 Secure access to the Claude Platform with Workload Identity FederationSecure access to the Claude Platform with Workload Identity Federation
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22949f86cd1968deb9f_33dbe8f783d4835a838b4c4ae85d3c04e352fee1-1000x1000.svg)
-
-Jun 17, 2026
-
-### Claude Design now stays on brand for daily work
-
-Product announcements
-
-Claude Design now stays on brand for daily workClaude Design now stays on brand for daily work
-
-Claude Design now stays on brand for daily workClaude Design now stays on brand for daily work
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f783c784823d48ad84175_Object-CodeChatText.svg)
-
-Apr 14, 2026
-
-### Introducing routines in Claude Code
-
-Product announcements
-
-Introducing routines in Claude CodeIntroducing routines in Claude Code
-
-Introducing routines in Claude CodeIntroducing routines in Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223de65e7dcca8267d8_ea364001be6bf6d2e86b58109ead6a779d5771a7-1000x1000.svg)
-
-May 28, 2026
-
-### Introducing dynamic workflows in Claude Code
-
-Product announcements
-
-Introducing dynamic workflows in Claude CodeIntroducing dynamic workflows in Claude Code
-
-Introducing dynamic workflows in Claude CodeIntroducing dynamic workflows in Claude Code
 
 ## Transform how your organization operates with Claude
 

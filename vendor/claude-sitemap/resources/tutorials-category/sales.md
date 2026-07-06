@@ -10,18 +10,25 @@
         
     *   Claude Cowork
         
-    *   Claude Security
+    *   @Claude
         
     
     Features
     
     *   Claude for Chrome
         
-    *   Claude for Slack
-        
     *   Claude for Microsoft 365
         
     *   Skills
+        
+    
+    Claude apps built for
+    
+    *   Design
+        
+    *   Science
+        
+    *   Security
         
     
     Models
@@ -39,14 +46,26 @@
     
 *   Platform
     
+    Build on Claude
+    
     *   Overview
-        
-    *   Developer docs
         
     *   Pricing
         
-    
+    *   Developer docs
+        
     *   Console login
+        
+    
+    Works with Claude
+    
+    *   Ecosystem
+        
+    *   Marketplace
+        
+    *   Connectors
+        
+    *   Plugins
         
     
 *   Solutions
@@ -116,13 +135,6 @@
     *   Tutorials
         
     *   Use cases
-        
-    
-    Tools
-    
-    *   Connectors
-        
-    *   Plugins
         
     
     Connect
@@ -179,18 +191,25 @@
         
     *   Claude Cowork
         
-    *   Claude Security
+    *   @Claude
         
     
     Features
     
     *   Claude for Chrome
         
-    *   Claude for Slack
-        
     *   Claude for Microsoft 365
         
     *   Skills
+        
+    
+    Claude apps built for
+    
+    *   Design
+        
+    *   Science
+        
+    *   Security
         
     
     Models
@@ -208,14 +227,26 @@
     
 *   Platform
     
+    Build on Claude
+    
     *   Overview
-        
-    *   Developer docs
         
     *   Pricing
         
-    
+    *   Developer docs
+        
     *   Console login
+        
+    
+    Works with Claude
+    
+    *   Ecosystem
+        
+    *   Marketplace
+        
+    *   Connectors
+        
+    *   Plugins
         
     
 *   Solutions
@@ -287,13 +318,6 @@
     *   Use cases
         
     
-    Tools
-    
-    *   Connectors
-        
-    *   Plugins
-        
-    
     Connect
     
     *   Events
@@ -339,6 +363,8 @@ Category
 
 AI Fluency
 
+Claude Science
+
 Education
 
 Engineering
@@ -375,6 +401,8 @@ Skills
 
 Product
 
+Claude Science
+
 Claude Security
 
 Claude Design
@@ -405,6 +433,8 @@ Thank you! Your submission has been received!
 Oops! Something went wrong while submitting the form.
 
 Sales
+
+Claude Science
 
 Small Business
 
@@ -742,6 +772,18 @@ Products
     
     Claude CoworkClaude Cowork
     
+*   @Claude
+    
+    @Claude@Claude
+    
+*   Claude Design
+    
+    Claude DesignClaude Design
+    
+*   Claude Science
+    
+    Claude ScienceClaude Science
+    
 *   Claude Security
     
     Claude SecurityClaude Security
@@ -764,10 +806,6 @@ Features
 *   Claude for Chrome
     
     Claude for ChromeClaude for Chrome
-    
-*   Claude for Slack
-    
-    Claude for SlackClaude for Slack
     
 *   Claude for Microsoft 365
     
@@ -859,10 +897,6 @@ Solutions
     
     Small businessSmall business
     
-*   Startups
-    
-    StartupsStartups
-    
 
 Claude Platform
 
@@ -877,6 +911,10 @@ Claude Platform
 *   Pricing
     
     PricingPricing
+    
+*   Ecosystem
+    
+    EcosystemEcosystem
     
 *   Marketplace
     
@@ -1001,6 +1039,17 @@ Company
     TransparencyTransparency
     
 
+Programs
+
+*   Startups
+    
+    StartupsStartups
+    
+*   Research Labs
+    
+    Research LabsResearch Labs
+    
+
 Help and security
 
 *   Availability
@@ -1086,3 +1135,5 @@ Deutsch (Germany)
 Français (France)
 
 한국어 (South Korea)
+
+Italian (Italy)

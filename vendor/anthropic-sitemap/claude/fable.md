@@ -10,9 +10,17 @@ Try ClaudeGet API access
 
 ## Announcements
 
-*   Update
+*   UPDATE
     
-    Claude Fable 5 access unavailable
+    Claude Fable 5 is rolling out
+    
+    Jul 1, 2026
+    
+    Access to Claude Fable 5 has been restored. It brings 5th-generation intelligence to your most ambitious coding and professional work.
+    
+    Read more
+    
+*   Claude Fable 5 access unavailable
     
     Jun 12, 2026
     
@@ -31,7 +39,9 @@ Try ClaudeGet API access
 
 ## Availability and pricing
 
-Claude Fable 5 is currently unavailable. Learn more.
+For individuals and organizations taking on their hardest knowledge and coding work, Claude Fable 5 is available to Pro, Max, Team, and Enterprise users. Learn more.
+
+For developers interested in building AI solutions that demand frontier intelligence, Claude Fable 5 is available on the Claude Platform natively, through available marketplaces, and in Amazon Web Services, Google Cloud, and Microsoft Foundry.
 
 Claude Fable 5 is priced at $10 per million input tokens and $50 per million output tokens, with the existing 90% input token discount for prompt caching. To learn more, check out our pricing page. To get started, use claude-fable-5 via the Claude API.
 
@@ -59,7 +69,9 @@ Claude Fable 5 understands diagrams, charts, and tables nested in files and PDFs
 
 ## Safeguards
 
-Claude Fable 5 includes robust safeguards for cybersecurity and biology. Queries in these domains are automatically routed to Opus 4.8 if flagged by these safeguards. You won't be charged Fable prices for rerouted requests. Learn more about how the fallback experience works.
+Claude Fable 5 includes robust safeguards for cybersecurity and biology. Many queries in these domains are automatically routed to Opus 4.8 if flagged by these safeguards. You won’t be charged Fable prices for rerouted requests. Learn more about how the fallback experience works.
+
+We recently further enhanced our safeguards. Learn more.
 
 We extensively test and evaluate our models to ensure they meet Anthropic’s standards for safety, security, and reliability. The accompanying system card covers safety results in depth.
 
@@ -77,7 +89,7 @@ Claude Fable 5 is state-of-the-art at coding, knowledge work, vision, and comput
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f084c88e65466636019709c40cc477aadce2f718-151x64.svg)
 
-> Claude Fable 5 is the state of the art model on CursorBench. It's opened up a class of long-horizon problems that were out of reach for earlier models.
+> Claude Fable 5 is the state of the art model on CursorBench. It’s opened up a class of long-horizon problems that were out of reach for earlier models.
 > 
 > Michael Truell  
 > CEO and Co-founder
@@ -91,21 +103,21 @@ Claude Fable 5 is state-of-the-art at coding, knowledge work, vision, and comput
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/1d9e0d7a5760165244bba057a622513bb75cb65d-80x64.svg)
 
-> These are the strongest results of any Claude model we've had the opportunity to test. Claude Fable 5 is a clear step forward on agentic coding and prototyping.
+> These are the strongest results of any Claude model we’ve had the opportunity to test. Claude Fable 5 is a clear step forward on agentic coding and prototyping.
 > 
 > Matt Colyer  
 > Director of Product, Developers
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/046fc90b1e849e0ef96b6a9923d47ae13272b50f-173x64.svg)
 
-> Claude Fable 5's reasoning is a clear step beyond Opus 4.8. It works at senior research scientist grade — picking directions, allocating resources, killing its incorrect beliefs, and producing novel first-principles outputs.
+> Claude Fable 5’s reasoning is a clear step beyond Opus 4.8. It works at senior research scientist grade — picking directions, allocating resources, killing its incorrect beliefs, and producing novel first-principles outputs.
 > 
 > Sean Ward  
 > CEO and Co-founder
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/40a2a6a28afd8ac8fbf0e764b6bbf4ebf06a1977-133x64.svg)
 
-> Claude Fable 5 understands what builders mean, not just what they type. Apps that took a hundred prompts a year ago, it now one-shots. When a customer really hits a wall, it's the model we reach for to get them past it quickly, so they can finish what they set out to build.
+> Claude Fable 5 understands what builders mean, not just what they type. Apps that took a hundred prompts a year ago, it now one-shots. When a customer really hits a wall, it’s the model we reach for to get them past it quickly, so they can finish what they set out to build.
 > 
 > Fabian Hedin  
 > CTO & Co-founder
@@ -119,7 +131,7 @@ Claude Fable 5 is state-of-the-art at coding, knowledge work, vision, and comput
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/73b380711885c6beb5270575119dbf31d7f71236-107x64.svg)
 
-> At the highest effort, Claude Fable 5 reflects on and validates its own work. For us, that's what makes highly autonomous operations possible — the extra thinking pays for itself.
+> At the highest effort, Claude Fable 5 reflects on and validates its own work. For us, that’s what makes highly autonomous operations possible — the extra thinking pays for itself.
 > 
 > Yusuke Kaji  
 > GM, AI for Business
@@ -140,14 +152,14 @@ Claude Fable 5 is state-of-the-art at coding, knowledge work, vision, and comput
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/ad249bca4e8e195e08764efc43ecbc586ca37482-143x64.svg)
 
-> Claude Fable 5 is the highest-scoring model on FrontierBench, Cognition's frontier coding eval. It excels at long-horizon reasoning and generalizes to unfamiliar tools out of the box.
+> Claude Fable 5 is the highest-scoring model on FrontierBench, Cognition’s frontier coding eval. It excels at long-horizon reasoning and generalizes to unfamiliar tools out of the box.
 > 
 > Scott Wu  
 > CEO
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/e360f8a29093a6b4fccdc006315035583e89f9ac-146x64.svg)
 
-> Claude Fable 5 is the strongest finance-first model we've tested, both on general finance and reasoning. It's a notable step up.
+> Claude Fable 5 is the strongest finance-first model we’ve tested, both on general finance and reasoning. It’s a notable step up.
 > 
 > Damian Miraglia  
 > Principal Engineer, Applied AI
@@ -161,14 +173,14 @@ Claude Fable 5 is state-of-the-art at coding, knowledge work, vision, and comput
 
 ![ logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F41fa2545bafc63f50148ce0d710dbdadb8c06f87-888x256.png&w=256&q=75)
 
-> Claude Fable 5 is the strongest model we've tested on frontier physics research while using a third of the reasoning tokens. In 36 hours it got nearly to where GPT-5.5 landed after four days.
+> Claude Fable 5 is the strongest model we’ve tested on frontier physics research while using a third of the reasoning tokens. In 36 hours it got nearly to where GPT-5.5 landed after four days.
 > 
 > Matthew Pines  
 > CEO
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/0504471eb7da85317c6def349d315e2f8be00b0f-127x64.svg)
 
-> On ViBench, our end-to-end vibe-coding benchmark, Claude Fable 5 is the highest-performing model we've tested — nearly saturating our base use cases and building apps in less time with fewer tokens.
+> On ViBench, our end-to-end vibe-coding benchmark, Claude Fable 5 is the highest-performing model we’ve tested — nearly saturating our base use cases and building apps in less time with fewer tokens.
 > 
 > Michele Catasta  
 > President & Head of AI
@@ -182,7 +194,7 @@ Claude Fable 5 is state-of-the-art at coding, knowledge work, vision, and comput
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/1add7d4281e08801657b1a2cfb75a0adce536010-128x64.svg)
 
-> Claude Fable 5 takes on the work you'd chip away at all afternoon — turning messy notes into a functioning project plan — and carries the whole thing to done.
+> Claude Fable 5 takes on the work you’d chip away at all afternoon — turning messy notes into a functioning project plan — and carries the whole thing to done.
 > 
 > Simon Last  
 > Co-founder
@@ -231,28 +243,28 @@ Claude Fable 5 is state-of-the-art at coding, knowledge work, vision, and comput
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f69ebaa2d39165a909def91e572e7d9ec0088a9a-154x64.svg)
 
-> Claude Fable 5 aced our trading-analysis evaluations nearly across the board: factual lookup, conceptual reasoning, root-cause analysis, expected-value analysis. We haven't seen this kind of performance before.
+> Claude Fable 5 aced our trading-analysis evaluations nearly across the board: factual lookup, conceptual reasoning, root-cause analysis, expected-value analysis. We haven’t seen this kind of performance before.
 > 
 > Marquis Wong  
 > Principal AI Engineer
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/ac77c59a0734811a829fab67d7ee8e801e45c50c-136x64.svg)
 
-> In our initial testing, Claude Fable 5 is the highest-scoring model on Hebbia's Finance Benchmark for senior-level reasoning, with double-digit gains in document reasoning, chart and table interpretation, and problem solving.
+> In our initial testing, Claude Fable 5 is the highest-scoring model on Hebbia’s Finance Benchmark for senior-level reasoning, with double-digit gains in document reasoning, chart and table interpretation, and problem solving.
 > 
 > Aabhas Sharma  
 > CTO
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/beb4f74e935e111be9a63875ae7743aaea2cb0a2-88x64.svg)
 
-> What stands out about Claude Fable 5 isn't just that it can execute multi-step workflows, but how little friction there is along the way. Compared to other models it also showed an emergent ability to pull complex data and perform with an efficiency that wasn't previously possible.
+> What stands out about Claude Fable 5 isn’t just that it can execute multi-step workflows, but how little friction there is along the way. Compared to other models it also showed an emergent ability to pull complex data and perform with an efficiency that wasn’t previously possible.
 > 
 > Alex Wang  
 > Applied AI
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/d514853a44cf69f069306c98b558f214112c4ef3-91x64.svg)
 
-> Claude Fable 5 compresses months of engineering into days. In our 50-million-line Ruby codebase, it did in a day what would've taken us more than two months by hand.
+> Claude Fable 5 compresses months of engineering into days. In our 50-million-line Ruby codebase, it did in a day what would’ve taken us more than two months by hand.
 > 
 > Zach Anker  
 > Principal Software Engineer

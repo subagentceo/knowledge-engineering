@@ -31,16 +31,18 @@ We apologize for this disruption to our customers. We believe this is a misunder
 
 ## Related content
 
-### Anthropic opens Seoul office and announces new partnerships across the Korean AI ecosystem
+### More details on Fable 5’s cyber safeguards and our jailbreak framework
 
 Read more
 
-### Results from the first Anthropic Public Record
+### Introducing Claude Sonnet 5
+
+Sonnet 5 delivers frontier performance across coding, agents, and professional work at scale.
 
 Read more
 
-### TCS and Anthropic partner to bring Claude to regulated industries
+### Redeploying Fable 5
 
-We’re announcing a partnership with Tata Consultancy Services (TCS). TCS will provide Claude to 50,000 of its own employees across 56 countries; build Claude-powered products for clients in financial services, healthcare, the public sector, and other regulated industries; and join the Claude Partner Network.
+Fable 5 returns globally July 1. We're also proposing an industry-wide framework for scoring jailbreak severity, together with Amazon, Microsoft, Google, and other Glasswing partners.
 
 Read more

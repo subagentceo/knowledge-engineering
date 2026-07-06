@@ -1,0 +1,123 @@
+# Redis seed for session 2026-06-17
+# branch: claude/refresh-anthropic-claude-vendors
+# account: e6294e3ea89f8207af387d459824aaae (alex@jadecli.com)
+#
+# Run: redis-cli < infra/containers/cloudflare/session-2026-06-17.redis
+# TTLs match allkeys-lru 7-day convention from src/cache/durable-store.ts
+#
+# @cite src/cache/lru-bm25.ts         (cacheKey convention: namespace:id)
+# @cite src/mcp/ext-tasks/index.ts    (task:<queue>:<uuid> eviction pattern)
+# @cite infra/postgres/init/03-session-context.sql
+# @cite vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md
+#         § "Link artifacts back to the session" — CLAUDE_CODE_REMOTE_SESSION_ID
+
+# ── Remote session ID lookup (CLAUDE_CODE_REMOTE_SESSION_ID) ─────────────────
+# Set at runtime by the SessionStart hook once the env var is available.
+# Key pattern: session:remote:<cse_id>:context → agent_sessions context blob
+# Key pattern: session:remote:<cse_id>:branch  → git branch for this session
+# Transcript URL: https://claude.ai/code/${CLAUDE_CODE_REMOTE_SESSION_ID/#cse_/session_}
+# Source: vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md
+#
+# To populate when running in a web session:
+#   redis-cli SET "session:remote:${CLAUDE_CODE_REMOTE_SESSION_ID}:context" \
+#     "$(redis-cli GET session:2026-06-17:context)" EX 604800
+#   redis-cli SET "session:remote:${CLAUDE_CODE_REMOTE_SESSION_ID}:branch" \
+#     "$(redis-cli GET session:2026-06-17:branch)" EX 604800
+
+# ── Session context ───────────────────────────────────────────────────────────
+
+SET "session:2026-06-17:branch" "claude/refresh-anthropic-claude-vendors"
+EXPIRE "session:2026-06-17:branch" 604800
+
+SET "session:2026-06-17:context" "{\"operator\":\"admin@jadecli.com\",\"cf_account\":\"e6294e3ea89f8207af387d459824aaae\",\"domains\":108,\"daily_req\":80000,\"workers\":41,\"pages\":6,\"branch\":\"claude/refresh-anthropic-claude-vendors\",\"status\":\"open\",\"subdomains_planned\":[\"crawl\",\"pages\",\"workers\",\"plan\"]}"
+EXPIRE "session:2026-06-17:context" 604800
+
+# ── Decisions (LPUSH so latest is index 0) ───────────────────────────────────
+
+DEL "session:2026-06-17:decisions"
+LPUSH "session:2026-06-17:decisions" \
+  "{\"topic\":\"terraform-provider-bump\",\"decision\":\"bump ~>4.52 to ~>5.11\",\"status\":\"pending\"}" \
+  "{\"topic\":\"worker-rename\",\"decision\":\"create subagentknowledge-frontend alongside outcomesdk-frontend\",\"status\":\"pending\"}" \
+  "{\"topic\":\"subdomains\",\"decision\":\"crawl+pages+workers+plan subdomains on subagentknowledge.com\",\"status\":\"pending\"}" \
+  "{\"topic\":\"skills-sh\",\"decision\":\"install workerd + cloudflare-docs skills\",\"status\":\"pending\"}"
+EXPIRE "session:2026-06-17:decisions" 604800
+
+# ── Crawl run results ─────────────────────────────────────────────────────────
+
+SET "crawl:vendor:anthropics:last_run" "{\"fetched\":201,\"unchanged\":1499,\"preflight_304\":0,\"failed\":0,\"status\":\"ok\",\"ran_at\":\"2026-06-17\",\"page_cap\":1700}"
+EXPIRE "crawl:vendor:anthropics:last_run" 604800
+
+SET "crawl:vendor:anthropic-sitemap:last_run" "{\"fetched\":367,\"unchanged\":60,\"preflight_304\":0,\"failed\":2,\"status\":\"partial\",\"ran_at\":\"2026-06-17\",\"page_cap\":500}"
+EXPIRE "crawl:vendor:anthropic-sitemap:last_run" 604800
+
+SET "crawl:vendor:claude-sitemap:last_run" "{\"fetched\":245,\"unchanged\":1382,\"preflight_304\":198,\"failed\":7,\"status\":\"partial\",\"ran_at\":\"2026-06-17\",\"page_cap\":2000}"
+EXPIRE "crawl:vendor:claude-sitemap:last_run" 604800
+
+# ── Subdomain plan ────────────────────────────────────────────────────────────
+
+SET "subagentknowledge:subdomains:plan" "{\"crawl\":{\"worker\":\"subagentknowledge-crawl\",\"queue\":\"subagentknowledge:crawl:job\",\"bindings\":[\"KV\",\"Queue\",\"BrowserRendering\",\"Hyperdrive\"]},\"pages\":{\"worker\":\"subagentknowledge-pages\",\"bindings\":[\"KV\",\"Hyperdrive\"]},\"workers\":{\"worker\":\"subagentknowledge-workers\",\"bindings\":[\"KV\",\"Hyperdrive\"]},\"plan\":{\"worker\":\"subagentknowledge-plan\",\"bindings\":[\"KV\",\"Hyperdrive\",\"D1\"]}}"
+EXPIRE "subagentknowledge:subdomains:plan" 604800
+
+# ── CF account inventory ──────────────────────────────────────────────────────
+# Sourced from workers_list API call this session (41 workers confirmed)
+
+SET "cf:account:e6294e3ea89f8207af387d459824aaae:stats" "{\"workers\":41,\"pages\":6,\"domains\":108,\"daily_requests\":80000,\"tier\":\"paid\",\"as_of\":\"2026-06-17\"}"
+EXPIRE "cf:account:e6294e3ea89f8207af387d459824aaae:stats" 3600
+
+# ── Workers inventory (key workers for subagentknowledge topology) ────────────
+
+SET "cf:workers:outcomesdk-frontend:meta" "{\"name\":\"outcomesdk-frontend\",\"custom_domains\":[\"subagentknowledge.com\",\"www.subagentknowledge.com\"],\"modified\":\"2026-06-10\",\"note\":\"legacy name — rename blocked by custom domain attachment\"}"
+EXPIRE "cf:workers:outcomesdk-frontend:meta" 3600
+
+SET "cf:workers:ke-cloud-agent:meta" "{\"name\":\"ke-cloud-agent\",\"purpose\":\"agent runtime sandbox\",\"bindings\":[\"Containers\",\"DurableObjects\",\"SecretsStore\"]}"
+EXPIRE "cf:workers:ke-cloud-agent:meta" 3600
+
+# ── pg_durable queues registered this session ─────────────────────────────────
+
+SADD "pgdurable:queues:registered" \
+  "cloudflare:skills:install" \
+  "cloudflare:mcp:connect" \
+  "cloudflare:worker:deploy" \
+  "subagentknowledge:crawl:job" \
+  "subagentknowledge:plan:pr-sync"
+EXPIRE "pgdurable:queues:registered" 604800
+
+# ── Tailscale mesh nodes (ts.subagentceo.io) ─────────────────────────────────
+# Source: infra/tailscale/README.md + tailnet-policy.hujson
+# Mirrors dw.dim_tailscale_node seeded by infra/postgres/init/04-tailscale-pr-context.sql
+# TypeScript: src/lib/tailscale-pr-context.ts#seedYesterday
+
+SET "ts:node:wsl2-dev" "{\"hostname\":\"wsl2-dev\",\"tailnet\":\"ts.subagentceo.io\",\"tag\":\"tag:dev\",\"os\":\"ubuntu-24.04\",\"status\":\"active\",\"metadata\":{\"claude_code_ports\":\"5000-5100\"}}"
+EXPIRE "ts:node:wsl2-dev" 604800
+
+SET "ts:node:macbook-m5" "{\"hostname\":\"macbook-m5\",\"tailnet\":\"ts.subagentceo.io\",\"tag\":\"tag:dev\",\"os\":\"macos-arm64\",\"status\":\"active\",\"metadata\":{\"claude_code_ports\":\"5000-5100\"}}"
+EXPIRE "ts:node:macbook-m5" 604800
+
+SET "ts:node:ke-alloydb" "{\"hostname\":\"ke-alloydb\",\"tailnet\":\"ts.subagentceo.io\",\"tag\":\"tag:container\",\"os\":\"docker\",\"status\":\"active\",\"metadata\":{\"port\":5432}}"
+EXPIRE "ts:node:ke-alloydb" 604800
+
+SET "ts:node:ke-redis" "{\"hostname\":\"ke-redis\",\"tailnet\":\"ts.subagentceo.io\",\"tag\":\"tag:container\",\"os\":\"docker\",\"status\":\"active\",\"metadata\":{\"port\":6379}}"
+EXPIRE "ts:node:ke-redis" 604800
+
+# Tag membership sets (JSON arrays for RedisLike interface — no SADD)
+SET "ts:nodes:tag:tag%3Adev" "[\"wsl2-dev\",\"macbook-m5\"]"
+EXPIRE "ts:nodes:tag:tag%3Adev" 604800
+SET "ts:nodes:tag:tag%3Acontainer" "[\"ke-alloydb\",\"ke-redis\",\"ke-cloud-agent\"]"
+EXPIRE "ts:nodes:tag:tag%3Acontainer" 604800
+
+# ── PRs merged 2026-06-16 PST (UTC-7, window: 2026-06-16T07:00Z → 2026-06-17T07:00Z) ─
+# Source: gh pr list --state merged | confirmed merged_at values
+# TypeScript: src/lib/tailscale-pr-context.ts#MERGED_2026_06_16_PST
+
+SET "pr:merge:499" "{\"pr_number\":499,\"title\":\"feat(coding-plugins): knowledge-coding marketplace + anduril-crawl-plugin (O1)\",\"branch\":\"claude/coding-plugins\",\"merged_at\":\"2026-06-17T03:30:22Z\",\"semvar_date\":\"2026.06.16\",\"pr_type\":\"feat\",\"scope\":\"coding-plugins\",\"files_changed\":10,\"initiating_node\":\"macbook-m5\",\"initiating_tag\":\"tag:dev\",\"repo\":\"subagentceo/knowledge-engineering\"}"
+EXPIRE "pr:merge:499" 604800
+
+SET "pr:merge:498" "{\"pr_number\":498,\"title\":\"docs(container): setup.sh, doctor.sh, and web/mobile VM references (O1)\",\"branch\":\"claude/container-docs\",\"merged_at\":\"2026-06-17T03:10:11Z\",\"semvar_date\":\"2026.06.16\",\"pr_type\":\"docs\",\"scope\":\"container\",\"files_changed\":4,\"initiating_node\":\"macbook-m5\",\"initiating_tag\":\"tag:dev\",\"repo\":\"subagentceo/knowledge-engineering\"}"
+EXPIRE "pr:merge:498" 604800
+
+SET "pr:merge:496" "{\"pr_number\":496,\"title\":\"feat(anduril): mirror developer.anduril.com Lattice SDK docs (O1)\",\"branch\":\"claude/session-20260617-0217\",\"merged_at\":\"2026-06-17T02:39:31Z\",\"semvar_date\":\"2026.06.16\",\"pr_type\":\"feat\",\"scope\":\"anduril\",\"files_changed\":67,\"initiating_node\":\"macbook-m5\",\"initiating_tag\":\"tag:dev\",\"repo\":\"subagentceo/knowledge-engineering\"}"
+EXPIRE "pr:merge:496" 604800
+
+# Dated list: all PRs merged 2026.06.16 PST (JSON array, most recent first)
+SET "pr:merged:2026.06.16" "[{\"pr_number\":499,\"semvar_date\":\"2026.06.16\",\"merged_at\":\"2026-06-17T03:30:22Z\",\"pr_type\":\"feat\",\"scope\":\"coding-plugins\",\"files_changed\":10},{\"pr_number\":498,\"semvar_date\":\"2026.06.16\",\"merged_at\":\"2026-06-17T03:10:11Z\",\"pr_type\":\"docs\",\"scope\":\"container\",\"files_changed\":4},{\"pr_number\":496,\"semvar_date\":\"2026.06.16\",\"merged_at\":\"2026-06-17T02:39:31Z\",\"pr_type\":\"feat\",\"scope\":\"anduril\",\"files_changed\":67}]"
+EXPIRE "pr:merged:2026.06.16" 604800

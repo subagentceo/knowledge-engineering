@@ -64,6 +64,8 @@ To connect a service from the directory:
 
 Before members of Team and Enterprise plans can use connectors, an Owner or Primary Owner needs to enable them for the organization. Enabling a connector makes it available to your team, but it doesn't automatically grant anyone access. Each person still needs to authenticate individually before they can use it.
 
+**Note:** With Enterprise-managed auth, you authorize a connector once for your entire organization, and your team inherits access automatically on first login. Enterprise-managed auth is available in beta for Team and Enterprise plans on Claude. Learn about **[authorizing MCP connectors for your entire organization](https://support.claude.com/en/articles/15537633)**.
+
 1. Navigate to **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)**.
 
 2. Click “Browse connectors” at the bottom of the page.

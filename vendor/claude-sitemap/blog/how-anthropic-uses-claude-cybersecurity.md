@@ -95,5 +95,3 @@ _Check out our best practices for preparing your security program for AI-acceler
 _Get started with_ _Claude Code_ _today. Stay tuned for more stories in the "How Anthropic uses Claude" series._
 
 _*These results were generated using Claude Sonnet and Opus models._
-
-‍

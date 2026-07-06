@@ -6,7 +6,7 @@ Back to Overview
 
 The Economic Research team studies how AI is reshaping the economy, including work, productivity, and economic opportunity. Through rigorous data collection and analysis, we track AI's real-world economic effects and publish research that helps policymakers, businesses, and the public understand and prepare for the changes ahead.
 
-Research teams:AlignmentEconomic ResearchInterpretabilitySocietal Impacts
+Research teams:AlignmentEconomic ResearchInterpretabilitySocietal ImpactsFrontier Red Team
 
 ### What We Do
 
@@ -54,6 +54,9 @@ Search
 
 DateCategoryTitle
 
+*   Jun 26, 2026Economic Research
+    
+    Anthropic Economic Index report: Cadences
 *   Jun 16, 2026Economic Research
     
     Agentic coding and persistent returns to expertise
@@ -81,10 +84,7 @@ DateCategoryTitle
 *   Jan 15, 2026Economic Research
     
     Anthropic Economic Index: New building blocks for understanding AI use
-*   Jan 15, 2026Economic Research
-    
-    Anthropic Economic Index report: Economic primitives
 
 See more
 
-![Agentic coding and persistent returns to expertise ](https://www-cdn.anthropic.com/images/4zrzovbb/website/f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
+![Anthropic Economic Index report: Cadences](https://www-cdn.anthropic.com/images/4zrzovbb/website/1c3e87fd90491089b2971dc34f9f75bb8a80f713-1000x1000.svg)

@@ -1,5 +1,3 @@
-**Update June 12:** We've suspended access to Claude Fable 5 and Claude Mythos 5. **[Learn more here](https://anthropic.com/news/fable-mythos-access)**.
-
 This article is for organizations that use Anthropic's HIPAA-ready services under a Business Associate Agreement (BAA). It explains which configurations are Eligible Services under the BAA and whether you can access Covered Models. **Your organization is responsible for ensuring its use of these services complies with applicable legal obligations.** Learn about **[Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)** and **[Covered Models](https://support.claude.com/en/articles/15425695-covered-models)**.
 
 **Important:** The primary ways to access Covered Models while covered by Anthropic's BAA are through the HIPAA-ready API and Chat on HIPAA-ready Claude Enterprise plans. There's currently no configuration that allows BAA-covered access to Covered Models in Claude Code or Cowork.

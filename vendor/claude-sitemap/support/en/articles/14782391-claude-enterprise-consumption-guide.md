@@ -74,7 +74,7 @@ Note the following precedence rules:
 
 - **Individual limits always override group limits**, regardless of which is higher.
 
-- **If a user belongs to multiple groups with different limits**, the org can either apply the lowest or highest spend limit. Use the dropdown under “Spending defaults” to determine the precedence you want to apply. Note that the seat-type default limit is also included in this comparison.
+- **If a user belongs to multiple groups with different limits**, the **Multi-group spend limit** setting under **Spending defaults** controls whether the higher or lower limit applies. The seat-type default limit is included in this comparison.
 
 - **Org-wide limits remain the hard ceiling.**
 
@@ -100,9 +100,9 @@ User-level caps let you set consumption limits for individual accounts. These ar
 
 | **User type**   | **Code** | **Cowork** | **Chat** |
 | --------------- | -------- | ---------- | -------- |
-| Power (Top 10%) | $200     | $100       | $50      |
-| Typical (Mean)  | $85      | $50        | $20      |
-| Light (Median)  | $25      | $20        | $5       |
+| Power (Top 10%) | $500     | $100       | $90      |
+| Typical (Mean)  | $215     | $40        | $30      |
+| Light (Median)  | $40      | $10        | $5       |
 
 **These figures are rough planning estimates. Actual consumption will vary based on your team's size, workflows, and usage patterns.*
 
@@ -112,17 +112,18 @@ User-level caps let you set consumption limits for individual accounts. These ar
 
 One of the most impactful things an admin can do is set clear guidance for users on which model to use for which tasks. Model choice has a direct and significant impact on token consumption—Opus can consume several times more tokens than Sonnet for the same task.
 
-Effort level is a second consumption lever. Users can choose how much thinking Claude applies to each response, and higher effort levels consume more tokens than lower ones. Encourage users to reserve Max effort for more complex work and to use lower effort for routine tasks.
+Effort level is a second consumption lever. Users can choose how much thinking Claude applies to each response, and higher effort levels consume more tokens than lower ones. Encourage users to reserve Max effort for only the most demanding tasks and to use lower effort for routine tasks.
 
 ### The right model for the right task
 
-| **Model**     | **Best for**                                  | **Token intensity** | **Recommended use**                                                  |
-| ------------- | --------------------------------------------- | ------------------- | -------------------------------------------------------------------- |
-| Claude Sonnet | Everyday tasks, writing, analysis, Q&A        | Moderate            | Default model for all users—set as your org-wide default (see below) |
-| Claude Opus   | Complex reasoning, research, multi-step tasks | High                | Reserve for power users or specific workflows only                   |
-| Claude Haiku  | Simple lookups, summaries, fast responses     | Low                 | High-volume, lightweight automation tasks                            |
+| **Model**     | **Best for**                                      | **Token intensity** | **Recommended use**                                                                                         |
+| ------------- | ------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Claude Fable  | Days-long agentic coding work and reasoning tasks | Very High           | Reserve for your highest-value, most complex agentic work. Premium pricing and faster usage draw than Opus. |
+| Claude Opus   | Complex reasoning, research, multi-step tasks     | High                | Reserve for power users or specific workflows only                                                          |
+| Claude Sonnet | Everyday tasks, writing, analysis, Q&A            | Moderate            | Default model for all users—set as your org-wide default (see below)                                        |
+| Claude Haiku  | Simple lookups, summaries, fast responses         | Low                 | High-volume, lightweight automation tasks                                                                   |
 
-### Setting your organization's default model (beta)
+### Set your organization's default model (beta)
 
 Beyond guiding users toward the right model, you can set the model that new conversations start with for everyone in your org. This is one of the most direct consumption levers available—the default shapes what the majority of users run day to day.
 
@@ -139,6 +140,32 @@ You can also set model defaults by role through Custom Roles, so different group
 **How to configure:** Organization settings → Models.
 
 **Note:** Users' current model selection for new conversations may be cleared, so they'll pick up the org default on their next conversation.
+
+### Manage model access for your organization
+
+Beyond setting a default, you can restrict which models are available at all—a firmer lever than guidance alone. This works at two levels:
+
+- **Organization level:** each model is enabled or disabled for everyone, including Owners and Admins. Disabling a model here removes it from every picker org-wide.
+
+- **Custom role level:** for members on Custom roles, each role grants access to a *subset* of what's enabled at the org level. A role can't grant a model the org has disabled — the org setting is always the ceiling.
+
+**Note:** Haiku models are always available to every member and can't be disabled, so there's always a fallback model.
+
+If a member belongs to multiple groups with different custom roles, access is **additive** — they get every model any of their roles grants (as long as it's enabled org-wide).
+
+**Capping effort level by role**
+
+Beyond restricting which models a role can use, you can cap the **maximum effort level** members on that role can select per model — a more granular version of the effort guidance already covered above. This only applies to Custom roles, not at the org level. If a member has multiple roles, the highest effort cap across those roles wins.
+
+**Admin tip: Pair model + effort restrictions**
+
+If model guidance (the "Sonnet is your default" messaging) isn't landing and you're still seeing heavy Opus consumption, restricting Opus access to specific roles—or capping effort to Medium/High instead of Max for non-power-user roles—is the next lever. Reserve full access for the roles where deep reasoning actually pays off.
+
+**Where this applies**
+
+Model access and effort restrictions are enforced in chat (web, desktop, mobile), Claude Cowork, Office Agents, and Claude Code (CLI 2.1.196+—earlier versions still show restricted options but requests using them are rejected). Claude in Chrome, Claude Design, and Claude Security don't support this yet.
+
+**How to configure:** Organization settings → Roles → select a role → Models tab. Set model access, an optional effort cap per model, and an optional role-level default model. To manage configuration across the org, go to **Organization settings → Models**.  More details in **[Manage model access for your organization](https://support.claude.com/en/articles/15694740)**.
 
 ### Admin configuration recommendations
 
@@ -190,7 +217,7 @@ Use this when you have a specific question and don't want to navigate the dashbo
 
 For programmatic access, use the Claude Enterprise Analytics API. Pull a ranked list of users by tokens used or dollars spent, or look at usage and cost trends over time broken down by product, model, context window, or region. Each request is capped at 31 days wide, starting within the last 365 days, and no earlier than Jan 1, 2026.
 
-Your Primary Owner can generate an admin API key. Data refreshes every four hours; for invoicing-grade totals, query dates 30+ days in the past so late events have time to reconcile. **[Learn more](https://support.claude.com/en/articles/13694757-get-started-with-the-claude-enterprise-analytics-api)** and review the **[API reference guide](https://support.claude.com/en/articles/13703965-claude-enterprise-analytics-api-reference-guide)**.
+Your Primary Owner can generate an admin API key. Data refreshes every four hours; for invoicing-grade totals, query dates 30+ days in the past so late events have time to reconcile. **[Learn more](https://platform.claude.com/docs/en/manage-claude/analytics-api)** and review the **[API reference guide](https://platform.claude.com/docs/en/api/admin/analytics)**.
 
 ---
 

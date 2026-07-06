@@ -8,6 +8,7 @@ dist/
 *.log
 .DS_Store
 .mintlify/
+dump.rdb
 
 # Cloudflare Worker / Sandbox local-dev artifacts
 .wrangler/
@@ -36,6 +37,11 @@ third_party/
 # Agent isolation worktrees — runtime git worktrees created by Agent(isolation:"worktree").
 # Ephemeral; never tracked. Branches pushed separately via PR flow.
 .claude/worktrees/
+
+# Per-session hook runtime state (explore_fanout_guidance.py counters). Ephemeral, never commit.
+.claude/state/
+.claude/hooks/__pycache__/
+src/coding-plugins/**/__pycache__/
 
 # Local claude-in-chrome / scratch output — never deliverables, never committed.
 screenshots/

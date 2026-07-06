@@ -6,6 +6,228 @@
 
 > Release notes for Claude Desktop
 
+<Update label="v1.18286.0" description="2026-07-02">
+  **General**
+
+  * Fixed `apt update` failing on Linux after uninstalling a Claude that was installed from the apt repository.
+  * Fixed being asked to sign in repeatedly after a session expired while you were using the app; your in-progress message draft now returns when you sign back in within 10 minutes, and signing out still clears it.
+  * Fixed being unable to disable, delete, or uninstall plugins from GitHub-connected marketplaces, or to remove those marketplaces.
+  * Fixed pressing Enter not sending your message when an @mention had no matching results.
+  * Fixed remote SSH sessions getting stuck in a reconnect loop on very large messages, being lost when the computer woke from sleep mid-reconnect, and occasionally sending the same input twice after reconnecting.
+  * Fixed setup on Windows getting stuck retrying a download when the download folder was locked or inaccessible.
+  * Fixed the file-open spinner on Linux staying up after the download completed.
+
+  **Code**
+
+  * Added a "Choose folder" option to recover a session whose working folder is missing: the conversation forks into the folder you pick and the stuck session is archived.
+  * Added a "Switch organization" option on the "session not found" page so you can reopen a session link under the right organization.
+  * Added drag-to-reorder for queued messages, and Steer now works for messages that include images.
+  * Improved the Code tab's live preview: it now reports honest connection and loading status (including when a page arrives but never finishes loading, or a server overloads itself with requests), adds browser-style Back, Forward, and Reload/Stop controls, and lets you close other preview tabs.
+  * Fixed background tasks and workflows continuing to show as running after they finished, the session restarted, or the session was stopped.
+  * Fixed Remote Control sessions spinning forever with no error after you sent a message when the hosting computer was no longer connected.
+  * Fixed the sidebar project + button opening an empty prompt (or pointing at github.com) for GitHub Enterprise repositories.
+
+  **Cowork**
+
+  * Added click-to-zoom and drag-to-pan to the fullscreen image viewer.
+  * Fixed Computer Use teach mode where the Next and Exit buttons sometimes stopped responding until you switched apps and back, and cleared up teach-mode visuals so the screen-edge glow no longer flickers and the status indicator no longer sticks after you exit a guide.
+  * Fixed dictation dropping back to the text box when started from the mic button in existing sessions.
+  * Fixed document tools in cloud sessions acting on your local files instead of the session's files.
+
+  **3P**
+
+  * Added a usage breakdown by model family, source attribution, and usage tips to the `/usage` card.
+  * Removed automatic addition of Anthropic's default plugin marketplace on third-party deployments, and removed the `disableDefaultPlugins` managed configuration key (which had no effect there). Provision marketplaces via `allowedPluginMarketplaces` (beta).
+</Update>
+
+<Update label="v1.17377.2" description="2026-07-01">
+  **General**
+
+  * No user-facing changes.
+
+  **Code**
+
+  * No user-facing changes.
+
+  **Cowork**
+
+  * No user-facing changes.
+
+  **3P**
+
+  * Added Claude Fable 5 to the model picker for organizations with access.
+</Update>
+
+<Update label="v1.17377.1" description="2026-06-30">
+  **General**
+
+  * Added Linux support: Claude Desktop is now available for Debian and Ubuntu on x64 and arm64, installable as a .deb package.
+  * Updated the plugin Directory to show admin-configured marketplaces under the Organization tab and refresh them automatically when the source repository updates.
+  * Fixed plugin and skill downloads stalling for several minutes on a dead connection before retrying; stalled downloads now retry sooner.
+  * Fixed prompt and tool-detail content missing from OpenTelemetry exports for standard deployments that have not set an explicit content-capture policy; third-party deployments are unchanged.
+  * Changed zoom in and out to use smaller steps for finer control.
+
+  **Code**
+
+  * Added an integrated terminal pane and inline image previews in the transcript for SSH sessions.
+  * Added step-by-step progress and a Stop button while a session's worktree is being set up, so a long checkout on a large repository can be cancelled.
+  * Added a right-click menu in the Terminal pane with Copy, Paste, and Attach selection as context.
+  * Updated the transcript to mask API keys and tokens by default; click the eye icon to reveal them.
+  * Fixed folder access and cross-session requests being rejected after you approved them when permission mode was Auto or Bypass permissions.
+  * Fixed failed mid-turn message sends (for example, while offline) dropping your text instead of returning it to the input.
+  * Fixed new session worktrees branching from the currently checked-out branch instead of the repository's default branch, and archived sessions leaving their worktree folders on disk.
+
+  **Cowork**
+
+  * Fixed a crash when resuming sessions with malformed remote connector data on disk.
+  * Fixed the workspace download restarting from zero after a network interruption; it now resumes from where it left off and retries automatically.
+  * Fixed folder and file names containing a dollar sign being misread, which broke file references.
+  * Fixed dictation immediately dropping back to the text input in existing sessions.
+  * Fixed an error caused by Claude trying to read a document creation skill that was not available.
+  * Fixed clicking a built-in workflow (such as `deep-research`) in the activity panel's Skills section showing an empty drawer instead of its name and source.
+
+  **3P**
+
+  * Added the `allowedPluginMarketplaces` managed configuration key. Configured git repositories appear under the Directory's Organization tab.
+  * Added an optional `omitOfflineAccess` subfield to the `inferenceVertexWorkforceOidc` configuration. Enable it when an identity provider rejects the `offline_access` scope; the app then prompts for sign-in each time the identity provider token expires instead of refreshing silently.
+  * Added managed configuration support on Linux: administrators can provision settings in a root-owned `/etc/claude-desktop/managed-settings.json`, validated against the same schema as the macOS and Windows sources.
+  * Fixed claude.ai sign-in never completing on Windows when an enterprise inference provider is configured.
+  * Fixed subagents failing with an invalid model error on third-party inference providers.
+  * Fixed `inferenceModels[].supports1m` being ignored, restoring the 1M-context option in the model picker for Bedrock, Vertex, Foundry, and gateway providers.
+  * Fixed the Microsoft 365 connector showing an unexpected admin-consent prompt after updating on tenants with restrictive consent policies when the connector's Access setting was blank. Also updated the bundled connector with tools to read the signed-in user's profile and draft reply-all emails.
+  * Improved expired sign-in handling for third-party inference providers and connectors: a sign-in prompt now appears whichever credential type expired, connector authentication errors are shown in Settings and inline in chat with a Reconnect action, and background Code sessions stay signed in across a credential refresh.
+  * Fixed several connector reliability issues: connectors silently stopping mid-session after an OAuth refresh failed instead of prompting to reconnect, connectors configured with both OAuth sign-in and custom headers failing to connect, and admin-configured connectors not appearing in a session until they were signed in.
+</Update>
+
+<Update label="v1.15962.2" description="2026-06-30">
+  **General**
+
+  * Updated the embedded Claude Code engine to the latest version.
+
+  **Code**
+
+  * No user-facing changes.
+
+  **Cowork**
+
+  * No user-facing changes.
+
+  **3P**
+
+  * No user-facing changes.
+</Update>
+
+<Update label="v1.15962.1" description="2026-06-26">
+  **General**
+
+  * No user-facing changes.
+
+  **Code**
+
+  * No user-facing changes.
+
+  **Cowork**
+
+  * No user-facing changes.
+
+  **3P**
+
+  * Fixed locally-configured stdio MCP servers being refused in third-party deployments that don't use MDM.
+  * Fixed third-party MCP connectors disconnecting on every app restart when the OAuth provider returns a non-standard refresh response.
+  * Fixed Microsoft 365 brokered sign-in failing with "No reply address provided" on managed Macs.
+</Update>
+
+<Update label="v1.15962.0" description="2026-06-25">
+  **General**
+
+  * Fixed a crash on launch caused by an unusually large saved session.
+  * Fixed the conversation jumping and the Progress panel flashing when opening a completed task.
+  * Improved keyboard navigation: a message's action buttons are now a single Tab stop, with arrow keys to move between them.
+
+  **Code**
+
+  * Fixed high background CPU usage when several Code sessions were open in the same large repository.
+  * Fixed people without a Claude Code seat being sent to the marketing site from `/code`; they now see an in-app organization switcher.
+  * Added support for custom cron expressions when scheduling local routines.
+  * Added "Open in VS Code", "Open in Cursor", and similar actions to the file panel, file tree, plan panel, titlebar, and sidebar in SSH sessions.
+  * Fixed attachment cards for files that exist only inside a session doing nothing when clicked; they now open in the File pane, lightbox, Preview pane, or Files browser.
+  * Added a "Load more" button to the All sessions list for people with many sessions.
+
+  **Cowork**
+
+  * Fixed workspace setup repeatedly failing with the same checksum error after a corrupted download, until the cache was cleared.
+  * Fixed Cowork sessions losing their project after restarting the app.
+  * Added a one-time prompt before Claude runs a dynamic workflow, explaining what workflows do.
+  * Improved the time it takes to start a session.
+
+  **3P**
+
+  * Added a managed `websearch` built-in tool so self-hosted deployments can search the web. Admins configure Brave, Tavily, Exa, or a custom endpoint in managed config, and it is available in both the Cowork and Code tabs.
+  * Added an `otlpContentCapture` managed setting that lets admins opt in to sending specific categories of unredacted content — user prompts, assistant responses, tool inputs, tool outputs, and raw API request/response bodies — to their OTLP collector.
+  * Updated the Microsoft 365 built-in connector's `scope` field to accept `MailboxSettings.Read`.
+  * Fixed managed connectors that lost their connection staying broken with failing tool calls; they now reconnect automatically on the next tool call, including from newly started conversations, and show a message if reconnecting fails.
+  * Fixed Microsoft 365 connector sign-in failing on Windows because of a broker error.
+  * Fixed a sign-in loop when your organization's gateway denies access; the app now shows "Access denied" and points you to your administrator.
+  * Fixed the selected model reverting after restarting the app and resuming a session.
+  * Added a `disableBundledSkills` managed config key that turns off Claude Code's bundled skills and workflows (such as `deep-research`) on that device.
+</Update>
+
+<Update label="v1.15200.0" description="2026-06-23">
+  **General**
+
+  * No user-facing changes.
+
+  **Code**
+
+  * Added an inline card for multiple-choice questions from Claude, so you can pick an option and step through each question before your choices are sent as a single reply.
+  * Fixed the app crashing shortly after opening the Code tab when local session history files are very large.
+  * Fixed the integrated terminal eventually failing to open new shells after the app had been running for several days on macOS.
+  * Fixed forked sessions not carrying over pull requests from the original conversation, and pull request rows staying marked as closed after being reopened on GitHub.
+  * Fixed the @-mention dropdown, side-chat panel, and plan-comment popover rendering, resizing, and dismissing in the wrong window when a session is opened in its own window.
+  * Fixed an extra tab opening in the system browser when navigating with the Artifacts pane open.
+
+  **Cowork**
+
+  * Added the ability to delete Cowork sessions from the sidebar, recents, and Spaces views.
+
+  **3P**
+
+  * Published the v2 bootstrap-response JSON schema (nested format). The v1 flat schema remains supported.
+  * Removed support for installing connector extensions from local `.mcpb` and `.dxt` files.
+  * Fixed the Setup panel being locked when only the auto-update policy was deployed via MDM.
+  * Fixed connectors configured by your organization not appearing until restart after first sign-in.
+  * Fixed the model picker dropping to "Default model" mid-session when a gateway's model-list response was temporarily degraded.
+</Update>
+
+<Update label="v1.14271.0" description="2026-06-18">
+  **General**
+
+  * Fixed the app prompting you to sign in again every day when your claude.ai session was more than a day old.
+  * Fixed Claude Design links in chat navigating the app in place instead of opening Claude Design.
+  * Fixed the app showing a blank window when a network proxy redirects the connection to Claude.
+
+  **Code**
+
+  * Changed routines to count against your regular usage limits instead of a separate daily included-run limit, and removed the included-runs indicator.
+  * Updated the model picker to show restricted models as non-selectable with an explanatory badge, and to reflect your organization's allowed default model.
+  * Fixed HTML and SVG file previews showing black text on a dark background in dark mode.
+  * Fixed menus and popovers opening behind the preview panel.
+
+  **Cowork**
+
+  * Fixed Claude in Chrome file uploads failing for files in the session's shared folders and outputs.
+  * Fixed scheduled tasks leaving earlier processes running after each scheduled run.
+  * Fixed Windows file paths showing garbled characters in the folder access approval card, and reduced unnecessary folder access denials when allowed workspace folders are configured.
+
+  **3P**
+
+  * (breaking) Changed the `chatCodeExecutionEnabled` managed configuration key to `chatAdvancedFileAnalysisEnabled`. It still lets Claude analyze attached files such as spreadsheets and presentations by running code in a sandbox scoped to the session's attachments, and remains off by default. Update any managed configuration that sets the old key.
+  * Deprecated the `betaFeaturesEnabled` managed configuration key; use the per-feature keys `chatTabEnabled` and `chatAdvancedFileAnalysisEnabled` instead. The Beta label in the Setup window is now informational only, and the Beta label has been removed from the built-in Microsoft 365 connector presets.
+  * Added the `inferenceSessionLifetimeSec` managed configuration key. Set it to your identity provider's session lifetime to show users a re-authenticate reminder before their sign-in expires.
+  * Added `~` and environment variable expansion (such as `%APPDATA%` and `%OneDriveCommercial%`) to the `allowedWorkspaceFolders` setting, so folder paths can vary per user.
+  * Added a per-folder pre-select option to `allowedWorkspaceFolders` so an administrator-configured folder can appear as a ready chip when users start a new task, and removed the "Create workspace folder?" prompt for administrator-configured folders.
+</Update>
+
 <Update label="v1.13576.0" description="2026-06-16">
   **General**
 

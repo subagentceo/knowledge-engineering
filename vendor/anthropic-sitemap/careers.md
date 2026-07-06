@@ -1,4 +1,4 @@
-# Shape how AI meets  the world
+# Shape how AI meets the world
 
 Anthropic builds Claude—AI designed to be helpful, honest, and harmless. We're researchers, engineers, and builders from a range of disciplines, working to make sure powerful AI goes well for everyone. If you're drawn to hard problems with real stakes, we'd like to meet you.
 

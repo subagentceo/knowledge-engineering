@@ -98,6 +98,17 @@ This error appears after the OAuth flow has started. The most common causes:
 * **Refresh failures.** Use RFC 6749-compliant error codes when a refresh token expires. See [token refresh](/connectors/building/authentication#token-refresh).
 * **Slow token endpoint.** Claude waits up to 10 seconds for your `/token` response; if no response bytes arrive in that window, the flow fails here even if your server eventually issues the token. Check the end-to-end latency of your token handler and any proxy or gateway in front of it. See [endpoint latency](/connectors/building/authentication#endpoint-latency).
 
+### Microsoft Entra ID rejects the resource value
+
+If your authorization server is Microsoft Entra ID and the token request fails with `AADSTS9010010` (sometimes surfaced as `invalid_target`), Entra is rejecting the `resource` value Claude sends because it does not match any Application ID URI registered on your app. Claude sets `resource` to your MCP server URL, including the path, and Entra issues a token when that value is listed under **Expose an API** → **Application ID URI** (`identifierUris` in the manifest) on the app registration that represents your protected API. The default `api://{client-id}` URI alone is not sufficient here, because Claude sends the full MCP server URL as the resource value.
+
+**How to fix:**
+
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), open the app registration that represents your protected API. If you have separate registrations for the OAuth client and the API, this is the API registration, not the client.
+2. Under **Expose an API**, add your MCP server URL as an additional [Application ID URI](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-configure-app-expose-web-apis). The value must match exactly, including the path, without a trailing slash.
+3. If your server validates the token audience (for example, through Azure App Service Authentication), add the API app's Application (client) ID and its `api://` URI to the allowed token audiences so your server accepts tokens issued for the API. This is the **Allowed token audiences** setting, not **Allowed client applications**, which is a different list.
+4. If the OAuth client and the API are separate app registrations, confirm the client has an admin-consented API permission for the scope your API exposes.
+
 If the OAuth flow completes successfully on your server (you see the token issued in your logs) but the connection still fails, file a [GitHub issue](https://github.com/anthropics/claude-ai-mcp/issues) with the `ofid_` reference ID and the timestamps from your server's OAuth logs.
 
 ## Diagnostic checklist

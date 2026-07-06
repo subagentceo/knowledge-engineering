@@ -4,7 +4,7 @@ You may cancel your paid (Pro or Max plan) subscription at any time by following
 
 ## Claude and Claude Desktop
 
-If you signed up for a paid plan on the web version of Claude ([claude.ai](http://claude.ai)) or Claude Desktop (Mac or Windows), start by logging into your account on a web browser or opening the desktop app. Click on your initials or name in the lower left corner and select “Settings” from the menu. Navigate to [Settings > Billing](http://claude.ai/settings/billing) and click the “Cancel” button.
+If you signed up for a paid plan on the web version of Claude ([claude.ai](http://claude.ai)) or Claude Desktop (Mac, Windows, or Linux), start by logging into your account on a web browser or opening the desktop app. Click on your initials or name in the lower left corner and select “Settings” from the menu. Navigate to [Settings > Billing](http://claude.ai/settings/billing) and click the “Cancel” button.
 
 ## Claude for iOS
 

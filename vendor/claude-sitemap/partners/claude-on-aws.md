@@ -112,10 +112,6 @@ Apply your policies, logging, and access controls.
 
 Call Claude through the Bedrock SDK and integrate into your team’s AWS workflows.
 
-PrevPrev
-
-NextNext
-
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69ab0e5411dc1c325902191d_logo_godaddy-light-mode.png)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69ab0e573670818d525b34fc_logo_godaddy-dark-mode.png)
 
 “We use Claude Code in Amazon Bedrock for so many things. It’s incredible. I’ve been coding for a very long time, and Claude Code is career-changing for me.”

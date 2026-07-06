@@ -1,12 +1,12 @@
-This guide explains how to choose the Claude model that new conversations start on across your organization, in chat and Claude Cowork. You can set one default for your whole organization, or set different defaults for specific custom roles.
+This guide explains how to choose the Claude model that new conversations start on across your organization. You can set one default for your whole organization, or set different defaults for specific custom roles.
 
-Default model settings are available in beta for Enterprise plan organizations. Owners and Primary Owners can manage them in **[Organization settings > Models](http://claude.ai/admin-settings/models)**.
+Default model settings are available for Enterprise plan organizations. Primary Owners, Owners, and members whose custom role grants the Identity & Access permission can manage them in **[Organization settings > Models](http://claude.ai/admin-settings/models)**.
 
 ---
 
 ## How default models work
 
-When you set or change a default model, it replaces the model currently selected in each member’s model picker. New conversations in chat and Cowork then start on the model you’ve chosen.
+When you set or change a default model, it replaces the model currently selected in each member’s model picker. New conversations in chat, Claude Cowork, Claude Code, and Office Agents then start on the model you’ve chosen.
 
 **Note:** Not all models are available in every product. If the selected model is not available in the product, Anthropic’s recommendation is used as default.
 
@@ -20,7 +20,7 @@ You can set a default at two levels:
 
 - Custom role default: applies to members assigned to that role and takes precedence over the organization default.
 
-**Note:** Default model settings apply to chat and Cowork. Claude Code model selection is managed separately. For more information, see **[Claude Code model configuration](https://support.claude.com/en/articles/11940350)**.
+**Note:** Members on Claude Code CLI versions earlier than 2.1.196 won't pick up the organization default. For member-facing CLI instructions, see **[Claude Code model configuration](https://support.claude.com/en/articles/11940350)**.
 
 For member-facing instructions on switching models, see **[Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)**.
 
@@ -42,7 +42,7 @@ The organization default applies to every member. To set it:
 
 4. Click “Save changes.”
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2451362891/589a6514b79728f85a7d6315fd61/79ac3bb9-baa9-4d9e-bf78-7d6dee929a29?expires=1781870400&amp;signature=0b66bc5083b760362e2d1beec53c47dfb448a077e05436fc912663de58f6415e&amp;req=diQiF8p4n4lWWPMW3nq%2BgQPUWr%2FqZG9Myyo23yRHS1iKC%2Fe%2Bm%2B%2FnJeDR%2B1aX%0AuGR2PBSfRrP9v%2BBD%2BDCEAA9i0k4%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1783364400&amp;signature=b566bb9a9c3c8b61dac9a97c2f643ad7609fbc74eed0cf5948d025be095f6cf6&amp;req=diUmEs58n4BcUPMW1HO4zelOdzFDK0xDfdGVZ664dGFt1eF%2Fdk8BU0t4GN9I%0AGuPNCzLjRIrpR%2FMVDdI%3D%0A)
 
 ---
 
@@ -54,7 +54,7 @@ Custom role defaults let you set different starting models for different teams. 
 
 2. Click the role you want to edit, or create a new role.
 
-3. Under **Default model**, select a model. Roles are set to “None selected” unless you choose a specific model.
+3. Select the **Models** tab, then under **Default model**, select a model. Roles are set to “None selected” unless you choose a specific model. Only models the role has access to can be selected.
 
 4. Click “Save role” to save your changes.
 
@@ -65,3 +65,13 @@ If a member belongs to multiple groups whose custom roles set different default 
 **Note:** Custom roles only affect members whose role is set to “Custom.” Members with the User, Admin, or Owner roles get the default model from the organization setting, not from custom roles.
 
 For details on creating roles and assigning them to groups, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452)**.
+
+---
+
+## Default model and Claude Code managed settings
+
+If your organization also configures Claude Code through `managed-settings.json`, the model setting there takes precedence. When model is set in managed settings, Claude Code CLI and IDE start on that model and ignore the default you set in **[Organization settings > Models](http://claude.ai/admin-settings/models)**.
+
+If `managed-settings.json` specifies `availableModels` that doesn't contain the default model, Claude CLI bypasses `availableModels` and starts on the selected default model unless `enforceAvailableModels` is set.
+
+Managed settings apply only to Claude Code CLI and IDE, not to Claude Code on web or desktop. For consistent behavior across all Claude Code surfaces, we recommend setting the default here alone. For more on managed settings, see **[Claude Code settings](https://code.claude.com/docs/en/settings#settings-files)**.

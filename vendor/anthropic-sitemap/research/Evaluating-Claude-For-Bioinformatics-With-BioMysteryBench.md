@@ -6,7 +6,7 @@ Science
 
 Apr 29, 2026
 
-![Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench](https://www-cdn.anthropic.com/images/4zrzovbb/website/d6058e0db8e477dc782dacae46e2ec6663d165d9-1000x1000.svg)
+![Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2463653e413eb463dbccd43ac34e4844e9adf646-2000x1125.png&w=3840&q=75)
 
 _In this post, Brianna_, _a researcher on the discovery team, shares results from a recent bioinformatics benchmarking effort._  
   
@@ -88,17 +88,17 @@ Sometimes Claude mirrored human strategies. Perhaps humans have landed on a near
 
 Example 1Example 2
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fec850217c59499f29b36e57853a4c93daf20d021-1920x1080.png&w=3840&q=75)
+![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8f163ac92606de805573294eaa417e3ec39e38e4-1920x1080.png&w=3840&q=75)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fba4bf7f74aee2623f6217574ec40ba51e45c120d-1920x1080.png&w=3840&q=75)
+![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6e98b8a8f33638491c1e3a4ffb43cf728d70fc02-1920x1080.png&w=3840&q=75)
 
 Other times, Claude took a completely different route, illustrating there is no strictly correct way to solve these problems and that models may have genuine preferences that diverge from ours.
 
 Example 1Example 2
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8f163ac92606de805573294eaa417e3ec39e38e4-1920x1080.png&w=3840&q=75)
+![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fec850217c59499f29b36e57853a4c93daf20d021-1920x1080.png&w=3840&q=75)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6e98b8a8f33638491c1e3a4ffb43cf728d70fc02-1920x1080.png&w=3840&q=75)
+![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fba4bf7f74aee2623f6217574ec40ba51e45c120d-1920x1080.png&w=3840&q=75)
 
 The examples above showcase a particularly interesting strategy: whereas our human experts used algorithms or databases to identify and annotate properties of a dataset, Claude intuitively recognizes certain patterns or sequences. Admittedly, such clever abstraction is not entirely unique to AI—the first eukaryotic promoter, for example, was discovered when a scientist noticed the sequence “TATA” appearing over and over in sequences upstream of genes. _Intuition_ like this has been difficult to build into traditional biology machine learning models, but LLMs might be able to turn up patterns like this at unprecedented scale.
 
@@ -176,17 +176,21 @@ If you are interested in understanding how models perform on difficult verifiabl
 
 ## Related content
 
-### Agentic coding and persistent returns to expertise
+### A global workspace in language models
+
+New interpretability research reveals an emergent mental workspace in Claude that holds internal thoughts that don’t appear in the model’s output.
 
 Read more
 
-### Paving the way for agents in biology
+### Anthropic Economic Index report: Cadences
+
+In our latest Economic Index report, we sample hourly for the first time to ask: When do people come to Claude? What do they produce with it? And how do they perceive AI's impact on their work?
 
 Read more
 
-### Measuring LLMs’ impact on N-day exploits
+### Project Fetch: Phase two
 
-In cybersecurity, a large fraction of real-world harm comes from N-days: vulnerabilities that have already been publicly disclosed, but only patched on some devices. In this post, we evaluate how much large language models can accelerate and automate the process of developing N-day exploits.
+We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
 
 Read more
 

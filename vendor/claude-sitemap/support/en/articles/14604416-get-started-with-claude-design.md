@@ -30,7 +30,14 @@ The typical flow is:
 
 You can move between working in Claude Design and Claude Code while keeping your work synced. Use `/design-sync` to pull in your design system, so everything you build in Claude Design starts from your existing components. When a design is ready to become software, you can hand it off to Claude Code, which continues from your existing work instead of starting over from a screenshot.
 
-If you prefer to begin your design project from Claude Code, you can create, edit, and sync your work without leaving your terminal using `/design`. Import a design into your codebase, export your code as a live prototype, or let Claude build the whole thing from start to finish.
+If you prefer to work from Claude Code, connect the Claude Design MCP server to create and edit designs without leaving your terminal:
+
+1. Add the server:
+`claude mcp add --scope user --transport http claude-design https://api.anthropic.com/v1/design/mcp`
+
+2. Run `/design-login` to sign in.
+
+Once you're connected, you can import a design into your codebase, export your code as a live prototype, or let Claude build the whole thing from start to finish.
 
 ---
 
@@ -144,7 +151,7 @@ Use the “Export” button in the upper right corner when viewing your project 
 
   - Send to Claude Code Web
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1781870400&amp;signature=b2ba4833b4ae8821f98939a6bb901240dc853503bd697dde1c2664f8f47639e4&amp;req=diIvEcx%2FnYhaW%2FMW3nq%2BgeY03psVHLTHSOSDLaDjt0fx9UzkRo8NvYyPVZrQ%0AA6znHAZbxKYZVcvB0yRV0Z48bf0%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1783364400&amp;signature=ed2c1782a9b77e090d69ad2c2f1fd5477c377a35cac678052d858603654f2485&amp;req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4S9ZnWlwnfz9ljnuyXT5TuTomc0A%2BpMzAMkn%0A4ICtuO3KPmg3DutmU54%3D%0A)
 
 You can also share projects within your organization using a shareable link. Sharing options include view-only, comment, and edit access.
 
@@ -184,9 +191,7 @@ Claude Design is now available in beta. A few things to be aware of:
 
 - **Comment persistence:** Inline comments occasionally don't appear on the page, but you can still see them by opening the comments view.
 
-- **Large codebases:** Consider  linking very large repositories from Claude Code to avoid lag or browser issues. To sync a design system, use `/design-sync` from Claude Code. Design straight from Claude Code using the `/design` skill.
-
-- **Design skills in Claude Code:** If you don't see `/design` or `/design-sync` in Claude Code, try running `/update` to get the latest version of these skills. Only new sessions in Claude Code will have this skill.
+- **Large codebases:** Consider  linking very large repositories from Claude Code to avoid lag or browser issues. To sync a design system, use `/design-sync` from Claude Code.
 
 - **Chat errors:** If you hit a "chat upstream error," try starting a new chat tab within the same project.
 

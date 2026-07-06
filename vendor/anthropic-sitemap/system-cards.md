@@ -8,6 +8,12 @@ Date
 
 System card
 
+Claude Sonnet 5
+
+June 2026
+
+Read system card
+
 Claude Opus 4.8
 
 May 2026

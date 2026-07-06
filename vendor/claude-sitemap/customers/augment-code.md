@@ -1,8 +1,8 @@
-# Augment unlocks complex codebases with Claude on Google Cloud's Vertex AI
+# Augment unlocks complex codebases with Claude on Google Cloud
 
-Augment Code uses Claude on Google Cloud's Vertex AI to transform how developers understand and work with sophisticated codebases. It gives enterprises an AI expert that understands their software systems and helps teams navigate code confidently.
+Augment Code uses Claude on Google Cloud to transform how developers understand and work with sophisticated codebases. It gives enterprises an AI expert that understands their software systems and helps teams navigate code confidently.
 
-With Claude on Vertex AI, Augment has:
+With Claude on Google Cloud, Augment has:
 
 *   Reduced project timelines from 4-8 months to 2 weeks for one enterprise customer
 *   Accelerated developer onboarding from weeks to 1-2 days
@@ -17,15 +17,15 @@ Augment builds AI-powered software development tools that help teams work with e
 
 Enterprise software teams must navigate codebases with millions of interdependent lines of code, where every change can have far-reaching impacts. Igor Ostrovsky, CTO and co-founder at Augment, said, "You can't write a line of code without understanding that context. We built an AI system that combines large language models with deep knowledge of an organization's code, enabling developers to write, document, debug, and maintain software more efficiently."
 
-## Why Augment chose Claude on Vertex AI
+## Why Augment chose Claude on Google Cloud
 
-After testing multiple AI models, Augment selected Claude on Google Cloud's Vertex AI for three main reasons:
+After testing multiple AI models, Augment selected Claude on Google Cloud for three main reasons:
 
 Augment found Claude's code understanding capabilities particularly valuable. Dietzen said, "Sonnet has abilities beyond other code models." "We switched our production site to Claude in a weekend based on the quality." The team regularly tests available models using contractors who work on real-world code tasks, with Claude consistently performing well.
 
 Another important factor was security. Augment implemented a system requiring users to verify access before viewing any codebase. Combined with SOC 2 Level 2 certification and Google Cloud's infrastructure, this helps Augment protect customer data. "Everything stays inside Google Cloud," explained Guy Gur-Ari, Chief Scientist at Augment. "This makes our security story very clean and simple to explain to users."
 
-Infrastructure reliability also influenced their decision. Ostrovsky said, "Google's core cloud services are stable—no networking or DNS issues. With Google Cloud, we can adapt quickly to changes." Their implementation uses several Google Cloud services and Vertex AI for model experimentation.
+Infrastructure reliability also influenced their decision. Ostrovsky said, "Google's core cloud services are stable—no networking or DNS issues. With Google Cloud, we can adapt quickly to changes." Their implementation uses several Google Cloud services for model experimentation.
 
 ## How Claude transforms software development
 

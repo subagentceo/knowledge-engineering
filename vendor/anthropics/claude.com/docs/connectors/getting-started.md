@@ -85,7 +85,7 @@ Available connectors include:
 
 * Best for: Finding discussions, team context
 * Search channels and direct messages
-* Requires Claude in Slack installation first
+* Requires installing the earlier Claude in Slack app first
 
 ### Microsoft 365
 

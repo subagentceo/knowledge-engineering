@@ -165,7 +165,7 @@ Available here.
 
 ```
 @online{hitzig2026agentic,
- author = {Zoe Hitzig and Maxim Massenkoff and Eva Lyubich and Ryan Heller and Peter McCrory},
+ author = {Zoe Hitzig and Maxim Massenkoff and Eva Lyubich and Shaoyi Zhang and Ryan Heller and Peter McCrory},
  title = {Agentic coding and persistent returns to expertise},
  date = {2026-06-16},
  year = {2026},
@@ -200,16 +200,20 @@ With acknowledgements to: Jake Eaton, Sarah Pollack, Hanah Ho, Szymon Sacher, An
 
 ## Related content
 
-### Paving the way for agents in biology
+### A global workspace in language models
+
+New interpretability research reveals an emergent mental workspace in Claude that holds internal thoughts that don’t appear in the model’s output.
 
 Read more
 
-### Measuring LLMs’ impact on N-day exploits
+### Anthropic Economic Index report: Cadences
 
-In cybersecurity, a large fraction of real-world harm comes from N-days: vulnerabilities that have already been publicly disclosed, but only patched on some devices. In this post, we evaluate how much large language models can accelerate and automate the process of developing N-day exploits.
+In our latest Economic Index report, we sample hourly for the first time to ask: When do people come to Claude? What do they produce with it? And how do they perceive AI's impact on their work?
 
 Read more
 
-### Making Claude a chemist
+### Project Fetch: Phase two
+
+We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
 
 Read more

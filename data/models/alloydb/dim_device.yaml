@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: dim
+scd_type: 1
+
+metadata:
+  name: dim_device
+  labels:
+    lane: session-context
+    source: src/lib/tailscale-pr-context.ts
+
+spec:
+  version: 1.0.0
+  schema: dw
+  codeowners:
+    - admin-jadecli
+    - alex-jadecli
+  sla_policy: upsert when Tailscale node registers or last_seen_at is stale >1h
+  data_start_date: "2026-06-17"
+  allowed_operations:
+    - read
+    - scd1_overwrite
+  description: >-
+    Physical or virtual device on the Tailscale mesh ts.subagentceo.io.
+    SCD Type I — IP / tag / status overwrite in place. Linked to dim_os.
+    Devices: macbook-m5 (tag:dev), wsl2-dev (tag:dev), ke-alloydb (tag:container),
+    ke-redis (tag:container), ke-cloud-agent (tag:container).
+  load_type: incremental
+  columns:
+    - name: device_sk
+      kind: dimension
+      sql_type: bigint
+      description: surrogate key (GENERATED ALWAYS AS IDENTITY)
+    - name: hostname
+      kind: dimension
+      sql_type: text
+      description: Tailscale MagicDNS short name (macbook-m5 | wsl2-dev | ke-alloydb)
+    - name: tailscale_ip
+      kind: dimension
+      sql_type: text
+      description: "100.x.y.z Tailscale CGNAT IP"
+    - name: tailscale_tag
+      kind: dimension
+      sql_type: text
+      description: "Tailscale ACL tag: tag:dev | tag:container | tag:server"
+    - name: os_sk
+      kind: dimension
+      sql_type: bigint
+      description: "FK → dw.dim_os.os_sk"
+    - name: platform
+      kind: dimension
+      sql_type: text
+      description: "Denormalized platform for fast filtering without dim_os join"
+    - name: arch
+      kind: dimension
+      sql_type: text
+      description: "CPU architecture (arm64 | x86_64)"
+    - name: device_count
+      kind: measure
+      measure_type: count
+      sql_type: bigint
+      description: total devices registered in this tailnet
+    - name: updated_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: last SCD-1 overwrite timestamp

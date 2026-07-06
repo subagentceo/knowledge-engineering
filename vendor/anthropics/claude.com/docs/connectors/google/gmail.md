@@ -12,6 +12,14 @@ The Gmail integration enables Claude to search your emails and provide answers b
   Available on Pro, Max, Team, and Enterprise plans. All Claude integrations are currently in beta.
 </Note>
 
+## Connect Gmail
+
+1. In claude.ai, go to **Settings > Connectors**.
+2. Find Gmail and click **Connect**.
+3. Sign in to your Google account and grant the requested permissions.
+
+On Team and Enterprise plans, an Owner or Primary Owner must enable the integration for your organization before it appears in your connector list. For the full walkthrough, including troubleshooting, see [Get started with connectors](/connectors/getting-started).
+
 ## How to use Gmail integration
 
 ### 1. Ask a question

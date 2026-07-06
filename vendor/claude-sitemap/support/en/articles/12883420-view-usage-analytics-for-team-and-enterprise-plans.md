@@ -8,53 +8,91 @@ Primary Owners and Owners can access analytics via dedicated Analytics settings 
 
 ---
 
-## All activity
+## Overview
 
 This page includes the following analytics:
 
-## Usage
+### Summary
 
-- Weekly active users (WAU)
+- Weekly active members
 
-- Utilization rates (WAU / total seats)
+- PRs created in Code
 
-- Pending invites
+- Sessions in Cowork
 
-- Daily, weekly, and monthly active users, with filters for Claude (chat), Claude Code, and Claude Cowork
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2515895966/9f231a620f47d49e0ee648152189/848c1787-4eaa-4809-8fd2-1dbe2722560f?expires=1783364400&amp;signature=febff9289d348b7456981e8b7211f1f7cb74a8a7b0d91ee4997aafe9db03b3a9&amp;req=diUmE8F3mIhZX%2FMW1HO4zZL6waVxnYF1ExEG4dCAGDaZr2M7b1ZpfwY2FgKX%0ALMaEKSXIheNdN8WNrSM%3D%0A)
 
-- Top connectors
+### Who’s using Claude?
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2153394909/693f3ae0ec2ea158a1f1e233c024/CleanShot+2026-03-11+at+14_52_44%402x.png?expires=1781748900&amp;signature=0c2dae9d81ab28bd843b67068b3b6450c8cbce8e533a3409ebf3d3f4864d4598&amp;req=diEiFcp3mYhfUPMW1HO4zbQxEMI2CyprSPAYazQ9kuIYA%2FBtpzPaeHNb9ZDw%0AmJXovy09GAX9xQfQBqo%3D%0A)
+- Active members and assigned seats
 
-## Spend
+- Groups
 
-**Note:** If you're on a **[seat-based Enterprise plan](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans#h_6a78e30e26)**, spend reports only appear if your organization has **[enabled usage credits](https://support.claude.com/en/articles/12005970-)**. The spend data covers overage spend only—usage within seat-based allotments isn't included.
+- Members
+
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2515896351/4d955858e6662c37489cc1470871/457cf159-8c2a-4403-ba22-cb92cb47e459?expires=1783364400&amp;signature=6aa42a96d8510f32f4c9333b9a0e3a07c365deed0e24ef7ab60b52b065a8c8be&amp;req=diUmE8F3m4JaWPMW1HO4zYEqejSqRJSrYqPRsgaNdTyhyLhS4hu%2BSZ2txIMe%0AneFYGMGexkmnZ%2BobytA%3D%0A)
+
+### How are they using Claude?
+
+- Adoption level
+
+- Product stickiness
+
+- Skills
+
+- Connectors
+
+- How agentic is their work? (beta)
+
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2515896562/51c6c1c2d73f9873b4ba8e64e5d3/762c32a7-e6d6-4ef1-a6b6-33d638f5008c?expires=1783364400&amp;signature=b3d754ae48a4e37a7410d33726e757942dfad346073563cbc91a9c2844a2ffd6&amp;req=diUmE8F3m4RZW%2FMW1HO4zQmHaE2I3oCbWdW5GUm%2B9K1SEfYl1BvDyN0FIPY0%0Asbi5cWuw%2BufvxZrCQOw%3D%0A)
+
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2515896563/abf008596ce5501297a609696362/fce5423c-4769-4b73-9a0a-c50f6407ebea?expires=1783364400&amp;signature=a564454ec6a9fd3e54f12815daa8daa7ae1b2ea935ace7990c0eb87dfc5ffb2c&amp;req=diUmE8F3m4RZWvMW1HO4zR%2BIDoRtu%2FPzLS3kobW3ZgRjT0BxntYbyCofYT9N%0AtfOgat%2F0%2Fu8TSTOiR5M%3D%0A)
+
+### What are the results?
+
+- PRs created
+
+- Designs created
+
+- File operations
+
+- Conversations
+
+- MCP writes
+
+- Estimated time saved
+
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2515896943/dd415f03afe56ca38308ef987f86/189e8ebc-5594-4f4b-bd84-e3c11c824d5b?expires=1783364400&amp;signature=863afb459cafad85bd67e32a0de6649f26c8f6afa0369380566f40e1d801d7c0&amp;req=diUmE8F3m4hbWvMW1HO4zfJThCc8r9hCiovaLYNN7RkXED0kCn7pZ6BIWZmf%0AHKCN2xnYDThSiyjaNXo%3D%0A)
+
+### How much is Claude costing?
+
+**Note:** If you're on a[https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans#h_6a78e30e26](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans#h_6a78e30e26)**[seat-based Enterprise plan](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans#h_6a78e30e26)**, spend reports only appear if your organization has[https://support.claude.com/en/articles/12005970-](https://support.claude.com/en/articles/12005970-)**[enabled usage credits](https://support.claude.com/en/articles/12005970-)**. The spend data covers overage spend only—usage within seat-based allotments isn't included.
 
 This section includes the following analytics:
 
-- Total spend (month-to-date, quarter-to-date, year-to-date) — the graph shows your actual spend and list price
+- Usage limits
 
-- Spend by model (1 month, 3 months, 1 year)
+- Spend concentration
 
-- Top 10 users by spend leaderboard
+- Total spend (month-to-date, quarter-to-date, year-to-date, 1 year)—the graph shows your actual spend and list price
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2434747802/80667668d997d87426b7c04fd54c/SpendGraph.png?expires=1781748900&amp;signature=9bc50d535e7392e81ec0515e3958527dcb3c5e034087a5d5b612772e3aba627d&amp;req=diQkEs56molfW%2FMW1HO4zfK6rvrqOJgGHjVUKeN2QU8xri1qt80s2IzM6HE0%0Aku8JRdEIFKlYqypnKq4%3D%0A)
+- Spend by model (month-to-date, quarter-to-date, year-to-date, 1 year)
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2153419527/18cba69667e2af1a6f4f2e5ca2c5/CleanShot+2026-03-11+at+15_03_28%402x.png?expires=1781748900&amp;signature=cd5f44b5225066c426a4d735312f79d0040aa12df51389abc866a1996187f9b3&amp;req=diEiFc1%2FlIRdXvMW1HO4zdGt%2BiWvD%2FdgP9LVpsbj5NfUBOULBHaQbMp6NK%2F1%0AEoI603D0o7iO3hbYqm0%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2515896942/b403f2d216fc40b5195911020b8e/446b99f1-3187-4b79-b2be-9f17b1632ff8?expires=1783364400&amp;signature=cc177078b6897f2ddfc48983b5304a43cfbe96cd08887f98f34d33601962e569&amp;req=diUmE8F3m4hbW%2FMW1HO4zYE%2BQ90B6jXZWbBLGZ4vBJXTZt%2FT9Q2QmCIgdG5b%0Afo0GQsD5HdLsNs6fJVE%3D%0A)
 
-**Note:** The spend leaderboard can be delayed by one to two days. For more current month-to-date spend per user, refer to spend limits by person in **[Organization settings > Usage](https://claude.ai/admin-settings/usage)**.
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2515896941/2239ce38639df339b24d5af1cb50/f829bc2a-ee52-4135-9b13-09ef1b7d66d6?expires=1783364400&amp;signature=552d64b31d18e5696224e986d107d6492be4d53ba8beb4714ffcfa13b565d7ba&amp;req=diUmE8F3m4hbWPMW1HO4zTz0NukBIc1UC%2BtvTPa1I7Ged75qcdvtU8XQixfQ%0AGXnRbVbwwRkxyIoTURA%3D%0A)
 
 ## Export a spend report
 
-You can export a detailed cost and usage report as a CSV file. The report provides per-user, per-model visibility into token usage and estimated spend within a selected time period, updated daily.
+You can export a detailed spend report as a CSV file. The report provides per-user, per-model visibility into token usage and estimated spend within a selected time period, updated daily.
 
 To export spend data:
 
 1. Navigate to **[Settings > Analytics](https://claude.ai/analytics/activity)**.
 
-2. Scroll down to the **Spend** section.
+2. Scroll down to the **How much is Claude costing?** section.
 
-3. Click the "Export Spend Report" button.
+3. Click the "Export spend report" button.
 
 4. Select a time period: MTD, Last Month, Last 90 Days, or Custom.
 
@@ -104,11 +142,11 @@ Analytics chat, the Analytics API, and exported spend reports from the analytics
 
 ---
 
-## Claude.ai
+## Claude Chat
 
-Navigate to **[Analytics > Claude.ai](https://claude.ai/analytics/usage)** to view usage and activity metrics for your organization. This page includes the following analytics:
+Navigate to **[Analytics > Claude Chat](https://claude.ai/analytics/usage)** to view usage and activity metrics for your organization. This page includes the following analytics:
 
-## Chats
+### Chats
 
 - Chats per day
 
@@ -116,19 +154,23 @@ Navigate to **[Analytics > Claude.ai](https://claude.ai/analytics/usage)** to vi
 
 - Total number of chats (1 week, 1 month, 3 months, 1 year)
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916169034/e3e557f223fcd6976fa5b6353095/CleanShot+2026-01-05+at+15_32_41.png?expires=1781748900&amp;signature=3cbc87df034922b1497d5287d55a8f8d0667f42883f046bc1a88a917dd2ae9d9&amp;req=dSkmEMh4lIFcXfMW1HO4zZyh9TKZ%2BoFyRyyyIe2wZ0WBIn2RUPnU3nikdYc2%0AdV2NBMTvDP6JsysEI70%3D%0A)
+- Top members by chats
 
-## Projects
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2515898793/405db0c492da11886c28a2b82731/71a55afc-1cef-4c50-b7e1-86775cb9a168?expires=1783364400&amp;signature=3fbff6864e2eb73c1907bc715be827689e0a61dce49a7a226da802c7def78280&amp;req=diUmE8F3lYZWWvMW1HO4zbhc8f6fZ%2BAlTcfMEUwBBiXdN4xZsXzEtlTEw3DX%0AUX57e4%2B4Iob1jxW9r%2Bo%3D%0A)
+
+### Projects
 
 - Projects created per day
 
 - Percentage of users with 1 or more project
 
-- Top 10 users by projects used (month-to-date, quarter-to-date, year-to-date, 1 year)
+- Projects listed with the number of users, conversations, and messages associated with each one.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916170133/666961061f9a044385e0ea1debdd/CleanShot+2026-01-05+at+15_36_27.png?expires=1781748900&amp;signature=e6c4cb4c783171c6150b21574b7b04ce81adc76975547f5eb5005f61557ef90f&amp;req=dSkmEMh5nYBcWvMW1HO4zed16iXp2RBTqVPXIl8sPeadNn3grivrk3KSlq%2B2%0AhUzs0V%2BoFwf7VHMnJ30%3D%0A)
+- Top members by project usage
 
-## Artifacts
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2515899610/91d93108f0767e795fb9e488e882/71607d6d-dff1-4a13-a445-aa1d79850eed?expires=1783364400&amp;signature=f83ff43a71999581616f2631b7b4239af7dc1f2489ce06df14a9afba6ea89cdb&amp;req=diUmE8F3lIdeWfMW1HO4zWhGoT%2BanSemExu5cYiHHN%2B2mEy5RQ0L4rnFxMuG%0AIMSRUl4I2hd6OoB7yt0%3D%0A)
+
+### Artifacts
 
 - Artifacts created per day
 
@@ -136,17 +178,79 @@ Navigate to **[Analytics > Claude.ai](https://claude.ai/analytics/usage)** to vi
 
 - Top 10 users by artifacts generated (month-to-date, quarter-to-date, year-to-date, 1 year)
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916171160/cd17d2abba34659b9d8f6231df5a/CleanShot+2026-01-05+at+15_37_20.png?expires=1781748900&amp;signature=9a785ea5c9cf3042724aa11a835440a9b5fa4a3fa7eaa65e10ef2c9371302a6c&amp;req=dSkmEMh5nIBZWfMW1HO4zXYF0VjluQjw4Jgm1Axxim1o8eHSasgzCVxSk0bf%0AoHs%2BrpL2cFwKNWxHbXo%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2515899838/33d737f2357d6e485704669962ae/43faadc3-47da-4a93-bbb7-47a7983e7441?expires=1783364400&amp;signature=caeea089165c623d1df8a21e34de9b6d334f1323b90f22ac756a30afb0150a06&amp;req=diUmE8F3lIlcUfMW1HO4zcSk4rnReOrEjHDogqK0V%2Bw8xzo1vX0FjHw%2Bd100%0Aq1myRrUq8NNBkM3Prs4%3D%0A)
 
 ---
 
-## Claude Code analytics
+## Claude Code
 
-Navigate to **[Analytics > Claude Code](https://claude.ai/analytics/claude-code)** to view usage and activity metrics for your organization. For more specific details, refer to **[Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)**.
+Navigate to **[Analytics > Claude Code](https://claude.ai/analytics/claude-code)** to view usage and value metrics for Claude Code across your organization. The page has three tabs.
+
+### Productivity
+
+- PRs with Claude Code
+
+- LOC with Claude Code
+
+- Adoption
+
+- Total PRs per user
+
+- Pull requests / lines of code
+
+- Suggestion accept rate
+
+- Lines of code accepted
+
+- Leaderboard (Pull requests / lines of code) with an option to export users
+
+### Usage
+
+- Users with skills
+
+- Known MCP servers
+
+- Top skills
+
+- Top MCP servers
+
+- Tool usage
+
+- Feature adoption
+
+- Sessions by agent type
+
+Usage data refreshes daily.
+
+### Value
+
+- Estimated productivity lift
+
+- Time recovered (annual)
+
+- Cost per commit
+
+- Cost per PR
+
+- Cost per session
+
+- Top spenders
+
+- Spend concentration
+
+- Automation leverage
+
+- Observed metrics
+
+- Calibrations
+
+Every formula on the Value tab is shown inline, and you can adjust the inputs to match your organization's assumptions.
+
+For contribution metrics, GitHub setup, and per-developer detail, refer to[**Claude Code usage analytics**](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics).
 
 ---
 
-## Claude Cowork analytics
+## Cowork
 
 Navigate to **[Analytics > Cowork](https://claude.ai/analytics/cowork)** to view usage and activity metrics for Claude Cowork across your organization. This page includes:
 
@@ -156,12 +260,32 @@ Navigate to **[Analytics > Cowork](https://claude.ai/analytics/cowork)** to view
 
 - Daily, weekly, and monthly active Cowork users
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2253604219/0d21918d55e10b3e5d2a92e65c90/42a47632-08c2-4557-a087-fc080c4dda80?expires=1781748900&amp;signature=8928fe70895779cc7e223c30855826578041618a816da696c3dd24adae2c9663&amp;req=diIiFc9%2BmYNeUPMW1HO4zSCqp6UAEHcX8zs2pRdG0k7jMrr9iRjqeOJAElD%2F%0A9T4D1kJHnXnR%2BbijtGo%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2515901489/8005693d55b7fefbfe9233258d39/106c22a0-3f47-47a6-abbd-4788dd70f218?expires=1783364400&amp;signature=767a84eae124940162f115ee1daf1dc84742688e0d01ecb53a0aeb503316512d&amp;req=diUmE8B%2BnIVXUPMW1HO4zX7WEouyW0WsFSi1Z3SzLLsAHDuLfuo%2BXZL7AeyD%0ARFs002FrLGC0fNCLCm8%3D%0A)
 
-**Note:** Cowork analytics are available alongside Chat and Claude Code data in the **[Analytics API](https://support.claude.com/en/articles/13694757-access-engagement-and-adoption-data-with-the-analytics-api)**.
+**Note:** Cowork analytics are available alongside Chat and Claude Code data in the **[Analytics API](https://platform.claude.com/docs/en/manage-claude/analytics-api)**.
+
+---
+
+## View your own usage as a member
+
+When your admin turns on individual usage analytics, any member of the organization can see their own usage broken down by product, model, and skill, along with where they stand against any spend limits set for them. Individual usage analytics are available in **[Settings > Usage](https://claude.ai/settings/usage)**.
+
+---
+
+## Turn individual usage analytics on or off
+
+**Note:** Individual usage analytics is off  by default, but will be on by default starting on July 11, 2026. If you want to keep member-level visibility off, change the setting on or after July 11.
+
+Owners and Primary Owners control whether members can see this view. The setting applies to the whole organization.
+
+1. Navigate to **[Organization settings > Usage](https://claude.ai/admin-settings/usage)**.
+
+2. Find the **Member analytics** toggle.
+
+3. Switch it on or off.
 
 ---
 
 ## Access your analytics data programmatically
 
-If you’re on an Enterprise plan and want to pull analytics data into your own dashboards or reporting tools, the Analytics API gives you programmatic access to the same usage and engagement metrics available in the analytics dashboard. To get started, refer to **[Access usage data with the Analytics API](https://support.claude.com/en/articles/13694757-access-usage-data-with-the-analytics-api)**.
+If you’re on an Enterprise plan and want to pull analytics data into your own dashboards or reporting tools, the Analytics API gives you programmatic access to the same usage and engagement metrics available in the analytics dashboard. To get started, refer to our **[Analytics API docs](https://platform.claude.com/docs/en/manage-claude/analytics-api)**.

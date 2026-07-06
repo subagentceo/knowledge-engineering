@@ -1,6 +1,10 @@
-Accessing artifacts in the sidebar and Claude-powered artifacts are supported on Free, Pro, Max, Team, and Enterprise plans.
+Accessing artifacts in the sidebar and Claude-powered artifacts are supported on Free, Pro, Max, Team, and Enterprise plans. Artifacts are available in Claude Code on Team and Enterprise plans.
 
 Artifacts allow you to turn ideas into shareable apps, tools, or content—build tools, visualizations, and experiences by simply describing what you need. Claude can share substantial, standalone content with you in a dedicated window separate from the main conversation. This makes it easy to work with significant pieces of content that you may want to modify, build upon, or reference later.
+
+**Important:** We no longer support artifacts without **Code execution and file creation** enabled in **[Settings > Capabilities](https://claude.ai/settings/capabilities)** (Free, Pro, Max) or **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)** (Team, Enterprise).
+
+Artifacts are available in Claude, Claude Desktop, and Claude Code. This article focuses on Claude and Claude Desktop. To learn how to create, update, and share artifacts in Claude Code, see the **[artifacts documentation on Claude Code Docs](https://code.claude.com/docs/en/artifacts)**.
 
 ---
 
@@ -32,33 +36,39 @@ Common examples of artifact content include:
 
 ---
 
-## Enable or disable artifacts
+## Enable artifacts
 
-To adjust your artifacts preferences:
+To enable artifacts individually on a Free, Pro, or Max plan:
 
 1. Click your initials or name in the lower left corner.
 
 2. Navigate to **[Settings > Capabilities](https://claude.ai/settings/capabilities)**.
 
-3. Find **Artifacts** and toggle it on or off.
+3. Toggle **Code execution and file creation** on.
 
-4. If toggling **Artifacts** on, you'll also need to enable **Code execution and file creation** to create and use artifacts in the VM-based environment.
+To enable artifacts organization-wide on a Team or Enterprise plan:
 
-**Note:** Team and Enterprise administrators may manage some artifact settings at the organization level.
+1. Log in as an Owner.
+
+2. Click your initials or name in the lower left corner.
+
+3. Navigate to **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)**.
+
+4. Toggle **Code execution and file creation** on.
 
 ---
 
 ## Access your artifacts
 
-You can access all your artifacts through the dedicated artifacts space in your Claude sidebar. This space allows you to:
+You can access all your artifacts through the dedicated **[Artifacts](https://claude.ai/artifacts)** section in your Claude sidebar. This space allows you to:
 
 - View all your creations in one organized location
-
-- Browse Anthropic-created artifacts for inspiration
 
 - Create new artifacts from scratch or by customizing existing ones
 
 - Manage and organize your artifact collection
+
+**Note:** Artifacts you create in a conversation don't appear in your sidebar automatically. To add an artifact to your **Artifacts** section, open it and click "Publish." Learn more about **[publishing and sharing artifacts](https://support.claude.com/en/articles/9547008)**.
 
 ---
 
@@ -167,6 +177,18 @@ When you interact with an artifact that uses shared storage for the first time, 
 - Unpublishing an artifact permanently deletes all associated storage data
 
 **Privacy consideration:** Artifact creators determine which data uses personal versus shared storage when building the artifact. Before entering sensitive information, consider whether the artifact uses shared storage.
+
+---
+
+## Artifacts in Claude Code
+
+Artifacts are available in Claude Code on Team and Enterprise plans.
+
+Claude Code can publish its session output as an artifact—a live, interactive page at a private URL. The page updates in place as your session continues, and you can share it with people in your organization. An artifact might be a pull-request walkthrough with annotated diffs, a dashboard built from session data, or an investigation timeline that fills in as Claude works.
+
+By default, artifacts in Claude Code are only visible to the individual who created them. They can choose to share artifacts with the rest of their organization, and they can’t be shared publicly.
+
+To learn how to create, update, and share artifacts in Claude Code, see the **[artifacts documentation on Claude Code Docs](https://code.claude.com/docs/en/artifacts)**.
 
 ---
 

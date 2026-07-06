@@ -76,6 +76,10 @@ Whichever way Claude finds the document:
 * The metadata's `authorization_servers` field must list your authorization server's issuer URL. If you list more than one, Claude uses the first entry and does not fall back to later entries — list your primary issuer first.
 * Your authorization server must serve its own discovery metadata — [RFC 8414](https://www.rfc-editor.org/rfc/rfc8414) authorization server metadata or [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html) — at its `/.well-known/` paths, and that host must also be reachable from Anthropic's [published egress range](https://platform.claude.com/docs/en/api/ip-addresses). Discovery requests to the authorization server come from the same IP range as requests to your MCP server, so a WAF in front of your identity provider can break the flow even when your MCP server is reachable.
 
+<Note>
+  If your authorization server is Microsoft Entra ID, you must also register the MCP server URL as an Application ID URI on your Entra app registration, or the token request fails with `AADSTS9010010`. See [the troubleshooting entry](/connectors/building/troubleshooting#microsoft-entra-id-rejects-the-resource-value) for the fix.
+</Note>
+
 If you control both hosts, an alternative is to serve the MCP endpoint and the authorization server behind a single custom domain that can route both `/.well-known/*` and your MCP path.
 
 <Tip>
@@ -110,6 +114,10 @@ Claude refreshes tokens **reactively on a 401 response**, with a proactive refre
 Your `/token` endpoint must accept `Content-Type: application/x-www-form-urlencoded` per [RFC 6749 section 4.1.3](https://www.rfc-editor.org/rfc/rfc6749#section-4.1.3). Claude sends both the initial token exchange and refresh requests with this content type. Some web frameworks default to JSON-only body parsing—if your endpoint returns `415 Unsupported Media Type`, register a form-urlencoded body parser. Dynamic client registration (`/register`) uses `application/json` per [RFC 7591 section 3.1](https://www.rfc-editor.org/rfc/rfc7591#section-3.1), so don't assume the same parser works for both.
 
 ## Enterprise authentication
+
+<Note>
+  Organizations using SSO can also connect their users to your server without an interactive OAuth consent step, using an identity assertion signed by their identity provider. See [Enterprise Managed Auth](./enterprise-managed-auth) for what your authorization server needs to support.
+</Note>
 
 Directory connectors use a **single shared OAuth application per connector**. There is no per-org OAuth client for directory connectors — enterprise customers connect to the same OAuth app as everyone else, and access is scoped by the user's own permissions on your service. Custom connectors are different: an admin can supply their own OAuth client credentials when adding the connector, which scopes the OAuth client to that organization. See [custom connectors](#custom-connectors).
 

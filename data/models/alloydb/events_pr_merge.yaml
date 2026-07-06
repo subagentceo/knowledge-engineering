@@ -1,0 +1,110 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: events
+grain: one row per PR merge per repo (pr_number × repo; UNIQUE constraint enforced)
+
+metadata:
+  name: events_pr_merge
+  labels:
+    lane: session-context
+    source: src/lib/tailscale-pr-context.ts
+
+spec:
+  version: 1.0.0
+  schema: dw
+  codeowners:
+    - admin-jadecli
+    - alex-jadecli
+  sla_policy: append on every GitHub PR merge; never UPDATE or DELETE
+  data_start_date: "2026-06-17"
+  allowed_operations:
+    - read
+    - append
+  description: >-
+    Append-only PR merge event log with Tailscale initiating-node context.
+    semvar_date stores the PST/PDT calendar date in yyyy.mm.dd format for
+    deterministic version-control queries. UTC bounds stored for range queries.
+    DDL in infra/postgres/init/04-tailscale-pr-context.sql.
+    TypeScript writer: src/lib/tailscale-pr-context.ts#recordPrMerge.
+    Seed: PRs #496/#498/#499 merged 2026-06-16 PDT.
+  load_type: append_only
+  columns:
+    - name: event_id
+      kind: dimension
+      sql_type: bigint
+      description: surrogate key (GENERATED ALWAYS AS IDENTITY)
+    - name: pr_number
+      kind: dimension
+      sql_type: integer
+      description: GitHub PR number
+    - name: title
+      kind: dimension
+      sql_type: text
+      description: PR title (Conventional Commit format)
+    - name: branch
+      kind: dimension
+      sql_type: text
+      description: "head ref (claude/* convention)"
+    - name: semvar_date
+      kind: dimension
+      sql_type: text
+      description: "PST/PDT calendar date of merge in yyyy.mm.dd format — deterministic version key"
+    - name: pr_type
+      kind: dimension
+      sql_type: text
+      description: "Conventional Commit type: feat | fix | chore | docs | refactor | test | ci"
+    - name: scope
+      kind: dimension
+      sql_type: text
+      description: "Conventional Commit scope (e.g. anduril | container | coding-plugins)"
+    - name: files_changed
+      kind: dimension
+      sql_type: integer
+      description: number of files changed in the PR
+    - name: initiating_node
+      kind: dimension
+      sql_type: text
+      description: "Tailscale hostname that triggered the merge (FK → dw.dim_tailscale_node)"
+    - name: initiating_tag
+      kind: dimension
+      sql_type: text
+      description: "Tailscale ACL tag of the initiating node"
+    - name: repo
+      kind: dimension
+      sql_type: text
+      description: "GitHub repo slug (subagentceo/knowledge-engineering)"
+    - name: merged_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: UTC merge timestamp from GitHub API
+    - name: utc_window_start
+      kind: time_dimension
+      sql_type: timestamptz
+      description: "UTC start of the PST/PDT day window (semvar_date PDT → T+07:00:00Z)"
+    - name: utc_window_end
+      kind: time_dimension
+      sql_type: timestamptz
+      description: "UTC end of the PST/PDT day window (utc_window_start + 24h)"
+    - name: merge_count
+      kind: measure
+      measure_type: count
+      sql_type: bigint
+      description: total PR merge events
+    - name: files_changed_sum
+      kind: measure
+      measure_type: sum
+      sql_type: bigint
+      description: total files changed across all merged PRs
+    - name: avg_files_changed
+      kind: measure
+      measure_type: avg
+      sql_type: numeric
+      description: average files changed per PR
+      calculation:
+        expression: "SUM(files_changed)::numeric / NULLIF(COUNT(*), 0)"
+        inherits:
+          - events_pr_merge.files_changed_sum
+          - events_pr_merge.merge_count
+        result_type: numeric

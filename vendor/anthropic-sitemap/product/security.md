@@ -1,83 +1,129 @@
-# Claude Security by Anthropic
+# Claude Security: Putting Claude to work for defenders
 
-Claude Security reasons about your code like a security researcher: scanning for vulnerabilities, validating findings, and proposing targeted patches. It helps close the loop from finding to shipped fix, so vulnerabilities get resolved instead of sitting in a queue.
+# Claude Security
 
-Learn more about Claude Security
+From scan to fix, done seamlessly
 
-## Find and fix vulnerabilities
+Claude scans your codebase, validates findings, and suggests patches you can review and approve. Available in public beta for Claude Enterprise.
 
-Claude Security finds vulnerabilities in code that pattern-matching tools miss, and proposes a fix you can open and work through in Claude Code.
+Contact sales
 
-![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F4b7deb517dfc5f7b870ca4e069b95d362e61ba8f-1200x630.jpg&w=3840&q=75)
+Contact salesContact sales
 
-## Built for defenders
+Read the tutorial
 
-Software runs critical infrastructure: power grids, hospitals, payment networks, and the supply chains economies depend on. The teams defending that code are stretched thin, and the pace of AI-enabled threats is accelerating. Claude Security helps give defenders the leverage and scale they need to respond: the ability to reason across an entire codebase, surface what is exploitable, and ship the fix before it becomes an incident.
+Read the tutorialRead the tutorial
 
-## Surfacing vulnerabilities, ready for review
+Play videoPlay video
 
-Claude Security reads code the way a security researcher would. It follows variables across files, and reasons about which inputs can be trusted. Findings are written the way one engineer would explain them to another: what the issue is, why it matters, what to change. And it can propose the patch.
+## How teams use Claude Security
 
-Proposed fixes open in Claude Code for review; these aren't changes that ship on their own. Humans stay in the decision loop, so teams are always in control.
+Claude reasons through your code like a skilled security researcher. It understands context, traces data flows, and catches vulnerabilities that pattern-matching tools miss. Then it suggests a fix.
 
-  
+### Scan your code in parallel
 
-## How Claude Security works, from scan to fix
+Claude Security understands context, traces data flows across files, and identifies complex, multi-component vulnerability patterns that traditional scanners might not detect.
 
-01
+### Validate findings
 
-### Finding what scanners miss
+Every finding goes through an adversarial verification pass. Claude challenges its own results before surfacing them. More real issues get reported, and fewer false positives waste analyst time.
 
-Claude Security reads code the way a security researcher would: understanding how components interact, tracing how data moves through your application, and catching logic and access-control flaws that pattern-matching tools often miss.
+### Review and patch
 
-02
+Claude detects issues and proposes fixes. Every finding includes a recommended patch for teams to review and approve. Fix vulnerabilities quickly rather than adding them to a growing backlog.
 
-### Validating before you triage
+Claude Security is now in public beta
 
-Every finding goes through multi-stage verification. Claude re-examines each result to prove or disprove it, filters false positives, and assigns severity and confidence ratings so your team works a short, ranked list instead of a noisy report.
+Available today for Enterprise customers.
 
-03
+Learn more
 
-### Suggesting targeted fixes
+Learn moreLearn more
 
-For each validated finding, Claude generates a targeted patch and creates a branch ready for PR review. You inspect the diff in the dashboard. Nothing ships without your approval. Your call, every time.
+## Built for security teams, used by Anthropic
 
-04
+### Transparency and visibility
 
-### Running on your schedule
+See details about every finding: the vulnerability, why it matters, and the proposed fix
 
-Scheduled scans keep coverage continuous, and webhooks push new findings into a team's existing tools. Security review happens on the team's cadence rather than in response to a release.
+### Targeted patches
 
-## The research behind Claude Security
+Suggested fixes that maintain your code's structure and style
 
-Claude Security is built on model capabilities that Anthropic's Frontier Red Team has refined through applied research: competitive Capture-the-Flag events, critical-infrastructure defense work with national labs, and systematic vulnerability hunting in production code. That work surfaced over 500 previously unknown vulnerabilities in widely used open-source software, including bugs that had survived decades of expert review. Claude Security brings the same model capabilities to the code your team owns and ships.
+### Fits your existing workflow
 
-## Agent safety
+Push findings via webhooks to Slack or Jira, export for audit, and schedule recurring scans
 
-Capable agents need clear constraints. Claude Security scopes its access to the repository it's invited into and surfaces proposed changes for human review rather than acting on them. These are the same principles we apply across our agentic products, drawing on alignment research into how to let capable systems do useful work without giving up oversight.
+### Full remediation control
 
-Read our recent research on agent safety for more insights.
+Teams stay in control, with every patch requiring human review and approval
+
+### Our most capable generally available models
+
+Powered by the same models Anthropic uses to secure its own codebase
+
+Security resources
+
+Contact sales
+
+Contact salesContact sales
+
+Read the tutorial
+
+Read the tutorialRead the tutorial
+
+Claude Security is now in public betaClaude Security is now in public beta
+
+Claude Security is now in public beta
+
+Blog
+
+BlogBlog
+
+Evaluating and mitigating the growing risk of LLM-discovered 0-daysEvaluating and mitigating the growing risk of LLM-discovered 0-days
+
+Evaluating and mitigating the growing risk of LLM-discovered 0-days
+
+Blog
+
+BlogBlog
+
+Experimenting with AI to defend critical infrastructureExperimenting with AI to defend critical infrastructure
+
+Experimenting with AI to defend critical infrastructure
+
+Blog
+
+BlogBlog
 
 ## FAQ
 
-### What is Claude Security?
+### Where is this available?
 
-Claude Security is a capability accessed through Claude.ai and Claude Code on the web that reads a codebase in context, finds vulnerabilities a rules-based scanner would miss, and proposes fixes for human review.
+Claude Security is available in public beta for Claude Enterprise. Access to Claude Team and Max plans coming soon.
 
-### How is Claude Security different from a traditional code scanner?
+Admins can enable Claude Security in the admin console. See the getting started guide for setup steps.
 
-Traditional scanners match code against patterns someone has already written rules for. Claude Security reasons about how code actually behaves, including how data flows across files and where trust boundaries break. That lets it find issues outside the patterns a rules engine knows about, reducing false positives.
+### What are the security risks I should know about?
 
-### What kinds of vulnerabilities does Claude Security find?
+Claude can make mistakes, so you should always review proposed patches before applying them, especially for critical systems.
 
-Claude Security reasons about code the way a security researcher would, so it catches the context-dependent issues that pattern-matching scanners miss: business logic flaws, broken access control, and unsafe data flows that span files and components.
+### What types of vulnerabilities does Claude Security find?
 
-### Does Claude Security make changes to my code?
+Claude Security focuses on high-severity vulnerabilities including memory corruption, injection flaws, authentication bypasses, and complex logic errors that pattern-matching tools typically miss. It's particularly effective at finding context-dependent vulnerabilities that require understanding code across multiple files.
 
-Only with your approval. Claude Security can generate a suggested patch for each validated finding
+### How is this different from traditional security tools?
 
-Get started with Claude Security
+Traditional tools often use rule-based pattern matching, which catches known vulnerability patterns but can produce high false positive rates and miss complex issues. Claude Security reasons through your code like a security researcher. It can read Git history, trace data flows, and understand business logic to find real vulnerabilities and generate real fixes.
 
-See additional resources and how you can get started scanning your codebase.
+### Does Claude Security work with my existing security tools?
 
-Learn more about Claude Security
+Yes. Claude Security is built to feed into the tools your team already uses. Send findings to Slack, Jira, or any ticketing system via webhooks, or export results as CSV or Markdown for tracking and audit. Documented dismissals carry forward, so triage decisions made in Claude Security stay visible wherever your team works.
+
+### Can I scan part of a repository, or run scans on a schedule?
+
+Yes to both. You can scope a scan to a specific directory, and you can configure scheduled scans for ongoing coverage without manual kickoffs.
+
+PrevPrev
+
+NextNext

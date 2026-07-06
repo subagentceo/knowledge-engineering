@@ -1,0 +1,41 @@
+// infra/workers/pages.wrangler.jsonc
+// pages.subagentknowledge.com — tagged Cloudflare Pages inventory
+//
+// @cite infra/containers/cloudflare/subdomains-plan.md
+// @cite infra/postgres/init/02-cloudflare-agent.sql   (dw.dim_cloudflare_agent_setup)
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "subagentknowledge-pages",
+  "main": "../../src/subdomains/pages/worker.ts",
+  "compatibility_date": "2026-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "account_id": "e6294e3ea89f8207af387d459824aaae",
+
+  "routes": [
+    { "pattern": "pages.subagentknowledge.com", "custom_domain": true },
+    { "pattern": "pages.subagentknowledge.com/*", "custom_domain": true }
+  ],
+
+  "kv_namespaces": [
+    { "binding": "PAGES_CACHE", "id": "PLACEHOLDER_KV_PAGES_CACHE" }
+  ],
+
+  "hyperdrive": [
+    { "binding": "DB", "id": "PLACEHOLDER_HYPERDRIVE_ID" }
+  ],
+
+  "secrets_store_secrets": [
+    {
+      "binding": "CF_API_TOKEN",
+      "store_id": "BOOTSTRAP_PLACEHOLDER",
+      "secret_name": "CLOUDFLARE_API_TOKEN"
+    }
+  ],
+
+  "vars": {
+    "SITE_NAME": "subagentknowledge-pages",
+    "CF_ACCOUNT_ID": "e6294e3ea89f8207af387d459824aaae",
+    "REDIS_KEY_PREFIX": "cf:pages",
+    "CACHE_TTL_SECONDS": "3600"
+  }
+}

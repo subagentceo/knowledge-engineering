@@ -44,3 +44,15 @@ This approach prevents context window overload while providing specialized capab
 Skills follow the [Agent Skills specification](https://agentskills.io/specification), a platform-agnostic standard. Skills you create can work across any platform adopting the standard.
 
 See [Creating custom skills](/skills/how-to) to learn how to build your own, or bundle skills into [plugins](/plugins/overview) to share them with your team.
+
+## Related topics
+
+<Columns cols={2}>
+  <Card title="Skills in Claude Code" icon="terminal" href="https://code.claude.com/docs/en/skills">
+    Create, install, and invoke skills from the Claude Code CLI.
+  </Card>
+
+  <Card title="Plugins" icon="puzzle-piece" href="/plugins/overview">
+    Bundle skills with connectors and commands.
+  </Card>
+</Columns>

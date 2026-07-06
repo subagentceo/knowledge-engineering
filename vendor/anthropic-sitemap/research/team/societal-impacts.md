@@ -6,7 +6,7 @@ Back to Overview
 
 Working closely with the Anthropic Policy and Safeguards teams, Societal Impacts is a technical research team that explores how AI is used in the real world.
 
-Research teams:AlignmentEconomic ResearchInterpretabilitySocietal Impacts
+Research teams:AlignmentEconomic ResearchInterpretabilitySocietal ImpactsFrontier Red Team
 
 ![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F4f268223739d63a56f89b21a45559ba82392e8e0-1280x720.jpg&w=3840&q=75)
 
