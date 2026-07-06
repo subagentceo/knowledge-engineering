@@ -29,14 +29,22 @@ export const durableTaskSchema = z.object({
     id: z.string(),
     queue: z.string(),
     subject: z.string(),
+    description: z.string().optional(),
     state: z.union([z.literal("pending"), z.literal("in_progress"), z.literal("completed"), z.literal("blocked"), z.literal("failed")]),
     created_at: z.string(),
     updated_at: z.string(),
     from: z.string().optional(),
     ke_fit_score: z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4), z.literal(5)]).optional(),
     owner: z.string().optional(),
+    estimated_hours: z.number().optional(),
+    due_date: z.string().optional(),
+    jira_key: z.string().optional(),
     depends_on: z.array(z.string()).optional(),
     blocks: z.array(z.string()).optional(),
+    evaluator: z.object({
+        pass_if: z.array(z.string()),
+        fail_if: z.array(z.string())
+    }).optional(),
     payload: z.record(z.string(), z.unknown()).optional(),
     result: z.record(z.string(), z.unknown()).optional(),
     error: z.string().optional()

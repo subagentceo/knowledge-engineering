@@ -1,0 +1,12 @@
+# Python codegen dependency for `npm run schema:gen` (scripts/schema-gen-py-rs.ts).
+# Install: pip3 install -r cowork/schemas/requirements-codegen.txt
+#
+# Pinned exact versions for schema:gen determinism — see
+# cowork/schemas/E2M-PROTOCOL.md and `npm run verify:schema`'s drift check.
+# black + isort are pinned too: datamodel-codegen post-formats envelope.py
+# with both by default, so an unpinned formatter release could change
+# envelope.py's bytes and fail the drift check for reasons unrelated to
+# envelope.ts.
+datamodel-code-generator==0.66.2
+black==26.5.1
+isort==8.0.1
