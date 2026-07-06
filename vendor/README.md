@@ -32,11 +32,12 @@ vendor/<name>/
 |---|---|---|
 | `verbatim` | URL already has `.md`; fetch as-is | turbopuffer |
 | `append-md` | Append `.md` | modelcontextprotocol, anduril |
-| `append-md-and-accept` | + `Accept: text/markdown` | stripe, twilio, sentry |
+| `append-md-and-accept` | + `Accept: text/markdown` | stripe, twilio, sentry, lmstudio |
 | `cloudflare-index-md` | `developers.cloudflare.com` → `/index.md`; reject HTML | cloudflare |
 | `anthropic-mdfirst` | `code.claude.com` / `platform.claude.com` / `claude.com/docs` / `neon.com/guides` → `.md`; reject HTML | anthropics, neon |
+| `docker-md` | `docs.docker.com` → slash-stripped path + `.md` (not `/index.md`); reject HTML | docker |
 | `accept-only` | URL unchanged; Accept header | (reserved) |
-| `html-extract` | Fetch HTML; turndown → markdown | brave-search, intercom, sift, arkose-labs |
+| `html-extract` | Fetch HTML; turndown → markdown | brave-search, intercom, sift, arkose-labs, openfeature, vscode |
 
 ## Why commit the bodies
 

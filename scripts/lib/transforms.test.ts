@@ -20,6 +20,7 @@ import {
   githubArticleBody,
   acceptOnly,
   htmlExtract,
+  dockerMd,
 } from "./transforms.js";
 
 let passed = 0;
@@ -177,6 +178,31 @@ check("github-article-body: rejects HTML responses (404 shell)", () => {
   if (t.validateBody("text/html; charset=utf-8", "anything") !== false)
     throw new Error("text/html accepted");
   if (t.validateBody("text/markdown; charset=utf-8", "# REST API\nintro") !== true)
+    throw new Error("text/markdown rejected");
+});
+
+check("docker-md: trailing-slash path maps to slug.md (not /index.md)", () => {
+  const t = dockerMd("https://docs.docker.com/get-started/");
+  if (t.fetchUrl !== "https://docs.docker.com/get-started.md") throw new Error(`url: ${t.fetchUrl}`);
+  if (t.headers["Accept"] !== "text/markdown") throw new Error("accept missing");
+});
+
+check("docker-md: nested trailing-slash path", () => {
+  const t = dockerMd("https://docs.docker.com/manuals/desktop/features/containerd/");
+  if (t.fetchUrl !== "https://docs.docker.com/manuals/desktop/features/containerd.md")
+    throw new Error(`url: ${t.fetchUrl}`);
+});
+
+check("docker-md: site root maps to /index.md", () => {
+  const t = dockerMd("https://docs.docker.com/");
+  if (t.fetchUrl !== "https://docs.docker.com/index.md") throw new Error(`url: ${t.fetchUrl}`);
+});
+
+check("docker-md: rejects HTML error shell, accepts markdown", () => {
+  const t = dockerMd("https://docs.docker.com/get-started/");
+  if (t.validateBody("text/html; charset=utf-8", "<!doctype html>") !== false)
+    throw new Error("text/html accepted");
+  if (t.validateBody("text/markdown; charset=utf-8", "# Get started\nintro") !== true)
     throw new Error("text/markdown rejected");
 });
 

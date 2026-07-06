@@ -24,7 +24,8 @@ export type TransformName =
   | "support-mdfirst"
   | "accept-only"
   | "html-extract"
-  | "github-article-body";
+  | "github-article-body"
+  | "docker-md";
 
 export interface TransformOutput {
   fetchUrl: string;
@@ -242,6 +243,35 @@ export function githubArticleBody(url: string): TransformOutput {
 }
 
 /**
+ * docker-md — for `docs.docker.com`. Every sitemap URL ends in a
+ * trailing slash and has no extension; the native markdown twin lives
+ * at the slash-stripped path + `.md` (e.g. `/get-started/` →
+ * `/get-started.md`), NOT at `/get-started/index.md` (which 404s).
+ * The site root maps to `/index.md`. Sends `Accept: text/markdown` and
+ * rejects HTML (the .md endpoint returns an HTML error shell for
+ * unknown pages).
+ *
+ * @cite https://docs.docker.com/llms.txt (per-page `Markdown: …/<slug>.md` links)
+ */
+export function dockerMd(url: string): TransformOutput {
+  const u = new URL(url);
+  const path = u.pathname;
+  if (path === "/" || path === "") {
+    u.pathname = "/index.md";
+  } else if (!KNOWN_EXT_RE.test(path)) {
+    u.pathname = `${path.replace(/\/$/, "")}.md`;
+  }
+  return {
+    fetchUrl: u.toString(),
+    headers: { ...acceptMarkdown },
+    validateBody: (ct, body) => {
+      if (ct && /text\/html/i.test(ct)) return false;
+      return !looksLikeHtml(body);
+    },
+  };
+}
+
+/**
  * html-extract — fetch HTML, run turndown to convert to markdown.
  * Used by brave-search, intercom, sift, arkose-labs (vendors with
  * no .md endpoint and no llms.txt-friendly negotiation).
@@ -268,4 +298,5 @@ export const TRANSFORMS = {
   "support-mdfirst": supportMdFirst,
   "accept-only": acceptOnly,
   "github-article-body": githubArticleBody,
+  "docker-md": dockerMd,
 } satisfies Partial<Record<TransformName, (url: string) => TransformOutput>>;

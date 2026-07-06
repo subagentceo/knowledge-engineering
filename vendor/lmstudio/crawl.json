@@ -1,0 +1,22 @@
+{
+  "name": "lmstudio",
+  "homepage": "https://lmstudio.ai",
+  "llms_txt_candidates": [
+    "https://lmstudio.ai/docs/llms.txt",
+    "https://lmstudio.ai/llms.txt"
+  ],
+  "sitemap_xml_sources": [
+    "https://lmstudio.ai/docs/sitemap.xml"
+  ],
+  "transform": "append-md-and-accept",
+  "allow_prefixes": [
+    "https://lmstudio.ai/docs/"
+  ],
+  "deny_prefixes": [],
+  "deny_urls": [
+    "https://lmstudio.ai/docs/api/openai-api",
+    "https://lmstudio.ai/docs/api/sdk"
+  ],
+  "page_cap": 0,
+  "llms_txt": "https://lmstudio.ai/llms.txt"
+}

@@ -1,0 +1,281 @@
+# Get started with Docker Sandboxes
+
+
+Docker Sandboxes run AI coding agents in isolated microVM sandboxes. Each
+sandbox gets its own Docker daemon, filesystem, and network — the agent can
+build containers, install packages, and modify files without touching your host
+system.
+
+This page walks through a typical first session: installing the CLI,
+authenticating your agent, running a sandbox, isolating the agent's workspace,
+and cleaning up.
+
+## Prerequisites
+
+**macOS**
+
+
+
+- macOS Sonoma (version 14) or later
+- Apple silicon
+
+**Windows**
+
+
+
+- 64-bit Intel or AMD (x86_64)
+- Windows 11
+- Windows Hypervisor Platform enabled. Open an elevated PowerShell prompt (Run
+  as Administrator) and run:
+  ```powershell
+  Enable-WindowsOptionalFeature -Online -FeatureName HypervisorPlatform -All
+  ```
+
+**Linux (Ubuntu)**
+
+
+
+- Ubuntu 24.04 or later
+- 64-bit Intel or AMD (x86_64) or 64-bit Arm (aarch64)
+- KVM hardware virtualization supported and enabled by the CPU. If you're
+  running inside a VM, nested virtualization must be turned on. Verify that KVM
+  is available:
+  ```console
+  $ lsmod | grep kvm
+  ```
+  A working setup shows `kvm_intel`, `kvm_amd`, `kvm_arm64`, or `kvm` in the output. If the output
+  is empty, run `kvm-ok` for diagnostics. If KVM is unavailable, `sbx` will
+  not start.
+- Your user in the `kvm` group:
+  ```console
+  $ sudo usermod -aG kvm $USER
+  ```
+  Log out and back in (or run `newgrp kvm`) for the group change to take effect.
+
+
+
+An API key or authentication method for the agent you want to use. Most agents
+require an API key for their model provider (Anthropic, OpenAI, Google, and
+others). See the [agent pages](/ai/sandboxes/get-started/agents) for provider-specific instructions.
+
+Docker Desktop is not required to use `sbx`.
+
+## Install and sign in
+
+**macOS**
+
+
+
+```console
+$ brew trust docker/tap
+$ brew install docker/tap/sbx
+$ sbx login
+```
+
+**Windows**
+
+
+
+```powershell
+> winget install -h Docker.sbx
+> sbx login
+```
+
+**Linux (Ubuntu)**
+
+
+
+```console
+$ curl -fsSL https://get.docker.com | sudo REPO_ONLY=1 sh
+$ sudo apt-get install docker-sbx
+$ sbx login
+```
+
+The first command adds Docker's `apt` repository to your system.
+
+
+
+If you need to install `sbx` manually, download a binary directly from the
+[sbx-releases](https://github.com/docker/sbx-releases/releases) repository.
+
+`sbx login` opens a browser for Docker OAuth. On first login (and after `sbx
+policy reset`), the CLI prompts you to choose a default network policy for your
+sandboxes:
+
+```plaintext
+Choose a default network policy:
+
+     1. Open         — All network traffic allowed, no restrictions.
+     2. Balanced     — Default deny, with common dev sites allowed.
+     3. Locked Down  — All network traffic blocked unless you allow it.
+
+Use ↑/↓ to navigate, Enter to select, or press 1–3.
+```
+
+**Balanced** is a good starting point — it permits traffic to common
+development services while blocking everything else. You can adjust individual
+rules later. See [Policies](/ai/sandboxes/get-started/governance/local/) for a full description of each
+option.
+
+> [!NOTE]
+> See the [FAQ](/ai/sandboxes/get-started/faq/) for details on why sign-in is required and what
+> happens with your data.
+
+## Authenticate your agent
+
+Agents need credentials for their model provider. How you provide them depends
+on the agent.
+
+For Claude Code with a Claude subscription (Max, Team, or Enterprise), no
+upfront setup is needed — use the `/login` command inside the sandbox to sign
+in with OAuth. The session token stays on your host and is injected by a
+proxy, not stored inside the sandbox.
+
+For agents that use API keys (or if you prefer API key authentication for
+Claude Code), store the key before starting a sandbox:
+
+```console
+$ sbx secret set -g anthropic
+```
+
+This prompts for the secret value and stores it in your OS keychain. A proxy on
+your host injects the key into outbound API requests so it's never exposed
+inside the sandbox. See [Credentials](/ai/sandboxes/get-started/security/credentials/) for details on
+scoping, supported services, and alternative methods.
+
+To give the agent access to GitHub for creating pull requests or interacting
+with repositories:
+
+```console
+$ sbx secret set -g github -t "$(gh auth token)"
+```
+
+## Run your first sandbox
+
+Pick a project directory and launch an agent with
+[`sbx run`](/reference/cli/sbx/run/):
+
+```console
+$ cd ~/my-project
+$ sbx run --name my-sandbox claude
+```
+
+Replace `claude` with the agent you want to use — see [Agents](/ai/sandboxes/get-started/agents) for the
+full list.
+
+The first run takes a little longer while the agent image is pulled. Subsequent
+runs reuse the cached image and start in seconds.
+
+You can check what's running at any time:
+
+```console
+$ sbx ls
+SANDBOX       AGENT    STATUS    PORTS   WORKSPACE
+my-sandbox    claude   running           ~/my-project
+```
+
+You can also run `sbx` with no arguments to open an interactive dashboard.
+The dashboard shows your sandboxes with live status, lets you attach to
+agents, open shells, and manage network rules from one place. See
+[Interactive mode](/ai/sandboxes/get-started/usage/#interactive-mode) for details.
+
+![The interactive dashboard showing sandbox status, resource usage, and network governance controls.](/ai/sandboxes/get-started/images/sbx-dashboard.png)
+
+## Use clone mode
+
+By default, the agent edits your working tree directly. To give the agent an
+isolated copy of your repository, use `--clone`. Because `--clone` is a
+create-time flag, remove the existing sandbox first:
+
+```console
+$ sbx rm my-sandbox
+$ sbx run --clone --name my-sandbox claude
+```
+
+In clone mode, the sandbox keeps a private Git clone inside the microVM and
+mounts your host repository read-only. The sandbox exposes its clone as a
+`sandbox-<sandbox-name>` remote on your host, so you review the agent's
+commits the same way you'd fetch from any other remote:
+
+```console
+$ git fetch sandbox-my-sandbox
+$ git log sandbox-my-sandbox/main
+$ git diff main..sandbox-my-sandbox/main
+```
+
+When you're ready to create a pull request:
+
+```console
+$ git checkout -b my-feature sandbox-my-sandbox/main
+$ git push -u origin my-feature
+$ gh pr create
+```
+
+For Claude Code, pair `--clone` with the
+[agents view](/ai/sandboxes/get-started/agents/claude-code/#agents-view) to dispatch tasks to
+subagents that each work on their own branch inside the same sandbox:
+
+```console
+$ sbx run --clone --name my-sandbox claude -- agents
+```
+
+Clone mode is especially useful when running multiple agents on the same
+repository in parallel — each works in its own isolated clone without
+touching your host working tree. See [Clone mode](/ai/sandboxes/get-started/usage/#clone-mode) for
+the full workflow, including how to have the agent commit to a dedicated
+branch.
+
+## Manage network access
+
+Your network policy controls what the sandbox can reach. If the agent fails to
+connect to an API or service, it's likely blocked by the policy.
+
+Check which rules are in effect:
+
+```console
+$ sbx policy ls
+```
+
+To allow a specific host:
+
+```console
+$ sbx policy allow network registry.npmjs.org
+```
+
+With **Locked Down**, even your model provider API is blocked unless you
+explicitly allow it. With **Balanced**, common development services are
+permitted by default. See [Policies](/ai/sandboxes/get-started/governance/local/) for the full rule
+set and how to customize it.
+
+## Clean up
+
+Sandboxes persist after the agent exits. To stop a sandbox without deleting it:
+
+```console
+$ sbx stop my-sandbox
+```
+
+Installed packages, Docker images, and configuration changes are preserved
+across restarts. When you're done with a sandbox, remove it to reclaim disk
+space:
+
+```console
+$ sbx rm my-sandbox
+```
+
+Removing a sandbox deletes everything inside it — installed packages, Docker
+images, and the in-sandbox Git clone if you used clone mode. Files in your
+host working tree are unaffected.
+
+## Next steps
+
+- [Usage guide](/ai/sandboxes/get-started/usage/) — sandbox management, reconnecting, multiple
+  workspaces, port forwarding, and more
+- [Agents](/ai/sandboxes/get-started/agents) — supported agents and configuration
+- [Customize](/ai/sandboxes/get-started/customize) — build reusable templates or declare capabilities
+  with kits
+- [Credentials](/ai/sandboxes/get-started/security/credentials/) — credential storage and management
+- [Workspace isolation](/ai/sandboxes/get-started/security/isolation/#workspace-isolation) — what
+  the agent can affect on your host, and how to review changes
+- [Governance](/ai/sandboxes/get-started/governance) — control outbound access
+

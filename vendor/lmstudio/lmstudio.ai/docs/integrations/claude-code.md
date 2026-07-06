@@ -1,0 +1,79 @@
+
+
+
+
+Claude Code can talk to LM Studio via the Anthropic-compatible `POST /v1/messages` endpoint.
+See: [Anthropic-compatible Messages endpoint](/docs/developer/anthropic-compat/messages).
+
+<img src="/assets/marketing/docs/claude-code.webp" style="{ width: &#x22;100%&#x22; }" data-caption="Claude Code configured to use LM Studio via the Anthropic-compatible API" />
+
+<Callout type="success" title="Pro Tip">
+  Have a powerful LLM rig? Use [LM Link](/docs/integrations/lmlink) to run Claude Code from your laptop while the model runs on your rig.
+</Callout>
+
+Setup [#setup]
+
+<Steps>
+  <Step>
+    <h3>
+      Start LM Studio's local server
+    </h3>
+
+    Make sure LM Studio is running as a server (default port `1234`).
+
+    You can start it from the app, or from the terminal with `lms`:
+
+    ```bash
+    lms server start --port 1234
+    ```
+  </Step>
+
+  <Step>
+    <h3>
+      Configure Claude Code
+    </h3>
+
+    Set these environment variables so the `claude` CLI points to your local LM Studio:
+
+    ```bash
+    export ANTHROPIC_BASE_URL=http://localhost:1234
+    export ANTHROPIC_AUTH_TOKEN=lmstudio
+    export CLAUDE_CODE_ATTRIBUTION_HEADER=0
+    ```
+
+    Notes:
+
+    * If Require Authentication is enabled, set `ANTHROPIC_AUTH_TOKEN` to your LM Studio API token. To learn more, see: [Authentication](/docs/developer/core/authentication).
+  </Step>
+
+  <Step>
+    <h3>
+      Run Claude Code against a local model
+    </h3>
+
+    ```bash
+    claude --model openai/gpt-oss-20b
+    ```
+
+    <Callout type="success" title="Pro Tip">
+      Use a model (and server/model settings) with more than \~25k context length. Tools like Claude Code can consume a lot of context.
+    </Callout>
+  </Step>
+
+  <Step>
+    <h3>
+      If Require Authentication is enabled, use your LM Studio API token
+    </h3>
+
+    If you turned on "Require Authentication" in LM Studio, create an API token and set:
+
+    ```bash
+    export LM_API_TOKEN=<LMSTUDIO_TOKEN>
+    export ANTHROPIC_AUTH_TOKEN=$LM_API_TOKEN
+    ```
+
+    When Require Authentication is enabled, LM Studio accepts both `x-api-key` and `Authorization: Bearer <token>`.
+  </Step>
+</Steps>
+
+If you're running into trouble, hop onto our [Discord](https://discord.gg/lmstudio)

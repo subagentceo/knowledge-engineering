@@ -1,0 +1,650 @@
+{
+  "https://lmstudio.ai/docs/app": {
+    "sha256": "3e0c12a87d9968b2002ccccb21f1a292af859b35aa1f97a68d87d8abe726ac12",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/advanced/import-model": {
+    "sha256": "98f5135bf5ef61d3e75cd75596a0d2333a23106d8b4b74040524237441ae3ff1",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/advanced/parallel-requests": {
+    "sha256": "2c7fd4c7c1e4e09b991717908f2f6a71b8dd22c0bff56a913cffe8499be1fc3c",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/advanced/per-model": {
+    "sha256": "5aeed01e4b58242a69021b8b232297ca57cbaca143266012d0fce912441b6536",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/advanced/prompt-template": {
+    "sha256": "374b1f639f77803948c85000f222d96d1b485b25a98667ad139e0c3ae55f3495",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/advanced/speculative-decoding": {
+    "sha256": "63cc980e21d0c0eb818015f7a83298bf7f07a27c01940434859128fd9d55bf22",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/basics": {
+    "sha256": "63c3c99f9a5d75a4344bf6eebd878ad354abd390f561ad1b607abd7dc4755877",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/basics/chat": {
+    "sha256": "90f390f1a25ce795c0d630ea4f5b02d2965617f36962fae7b1df941fe4acc181",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/basics/download-model": {
+    "sha256": "3fc14043b8eb46812f262338cd9160f27e021e384016a5078ec6af382d2bae3f",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/basics/lmstudio-vs-llmster-vs-lms": {
+    "sha256": "383d3a2016b009d3cf177c25e9f609ec270e1726e6986ec2ffd6578e7ae0fcb4",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/basics/rag": {
+    "sha256": "3d729b70d1be2efba1f4849c2708f0ec6783d54566248f7680ae6a8202b9b57e",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/mcp": {
+    "sha256": "ad891bc8351fb93be87f7c3a2f3a9aa0ef1990ded67e074b37648f8d22e1482c",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/mcp/deeplink": {
+    "sha256": "90b955da510501277e3057b149fcf31085b666b1ea20f1d08ac34d710dfdf326",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/modelyaml": {
+    "sha256": "419fe118b73b4576dff661e8520a330ae78ccb17bd1903bbe9f797b8a51d1790",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/modelyaml/publish": {
+    "sha256": "814052dfcc1783656d50a3d059be13f0bfb742c6c8990a7f71069336b9b7e45a",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/offline": {
+    "sha256": "78a94b00d1ca56cdb5ee07aa3bc9f1aed20af89c32d237bfa64e49b327de174e",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/presets": {
+    "sha256": "5e867a9606f4ca1a17e56af778a8baffcc75b5b9f3f0e88185ac5ff5036308e3",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/presets/import": {
+    "sha256": "8d579dc31c3e9f15c45aa1955ac536923ae88a5e9c25c9d37106f8a75058743d",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/presets/publish": {
+    "sha256": "ef0578616b0da5366b5150bf174f7e9bd67440f48689aef63d6576ff14705f63",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/presets/pull": {
+    "sha256": "2ba1db0383fa32899605b3ef3f343d2a461ef666305fed68f39ca9b63043ed95",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/presets/push": {
+    "sha256": "0c927652c00f2a2c0b436bc9f30928a6f1c6775ab75aa0ee651f35256ea6d693",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/system-requirements": {
+    "sha256": "e16e270c20e56be2d7da8f1dc4064b294d2cbe7212fcfe1265949c63bfc9153c",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/user-interface/languages": {
+    "sha256": "50209845e1c4ce557dd89a1424f1e64a2ef9d2dcebe6f83ee8e855ba4ef4705b",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/user-interface/modes": {
+    "sha256": "2c1e5752f59a4b2d25ac0acb744aaae730ab46fa03c63d2ad8f3252ad437ff7b",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/app/user-interface/themes": {
+    "sha256": "f9c3b1e6bb4a262561badf5e556e1db20e3047b555ae062dc2e671e3e83be274",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli": {
+    "sha256": "5f81314e8864e272cac36a0ca2b01bfee4bbe1fb62c3facb86428a414daf6d41",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/contributing": {
+    "sha256": "406e5276a1421c8a0fcef6eafc1b06af1f320a346634b81ca20180a2d611ece4",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/daemon/daemon-down": {
+    "sha256": "19ab46c8e00e8da5de9a6033f47f06ab89f22bf28d29755cfb3f6ca8e655aaa6",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/daemon/daemon-status": {
+    "sha256": "336b107c9c90308e5140dcb38c9c1581bb996bb1942e8b9c4f47c56afbe7534e",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/daemon/daemon-up": {
+    "sha256": "c3c5183511ea9d7731381b9e125e916d58c97174508ab1049eac78b40b4757e5",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/daemon/daemon-update": {
+    "sha256": "0995c9d5888eb7366f4d5fdb8b19169f7ae0f8788c7cb75f449a27774a2f1132",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/develop-and-publish/clone": {
+    "sha256": "0eead974a28ca51f3e7079990de38c0c0a7b7ab65219a24399cf6cba35e5c557",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/develop-and-publish/dev": {
+    "sha256": "198330f29b69b15ae5690b841cd265c754585f4fbd95dbb4e9b51c5b3b3d205c",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/develop-and-publish/login": {
+    "sha256": "69c1fe77d47ae101a23ac2852269bbefc0c534d429a2346af2d534731e39ec02",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/develop-and-publish/push": {
+    "sha256": "22a05232164dbad0c84a29093fa1f6e0d9663dcb0500f644c9dc36697fb77996",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/link/link-disable": {
+    "sha256": "17e6f8f8d240c429da69ba01f3a7fb6313642a8f1e071b2daae1fb529644fa6b",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/link/link-enable": {
+    "sha256": "f566efa912118a2bcf44ea2d247674fc88e5feb9f5ce266961b851b77d6818d3",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/link/link-set-device-name": {
+    "sha256": "309829b546798d4db250b19312c919815f2de27e9e5dd0c12064cd3b6d2010f3",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/link/link-set-preferred-device": {
+    "sha256": "5869621c9a5cf7d1ff1b935efd27cd330626a8c9ef73cd292dd7676484fa3c8c",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/link/link-status": {
+    "sha256": "6e7d96c0219bf25d4fc7cd1aca256206299e1c6610c8b4fc4444944ddba6185e",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/local-models/chat": {
+    "sha256": "122254d5bc5f9aaf52a18c3549bf8723b4d3ad577574e753fb2ad637a4b6256c",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/local-models/get": {
+    "sha256": "6240e5ac0e00b9ab5a981fd705f4af18633077d0567a3dd14fbe00c51d89d963",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/local-models/import": {
+    "sha256": "b56e5a78040102b8b3adfa216f6f2637d1411d9033a5c3cf82e047a1edb98760",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/local-models/load": {
+    "sha256": "6e66f32a0ef71a2786b71a6b0151431886ba05c978b7ed5f3e862d724f4cc8d8",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/local-models/ls": {
+    "sha256": "07f22e6253d7d9e7285e9af797df7e493492ecbb37fb9cf04283af52dfe8de86",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/local-models/ps": {
+    "sha256": "24ad6d399f4b0b30af8d86286dfff876ca180cdff12dee1c1d07f5caa365b64a",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/runtime/runtime": {
+    "sha256": "75f9230e0c4833d8e492995c946fe50a7be6fa01623f4c5dc5647c64a7c80a3b",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/serve/log-stream": {
+    "sha256": "4eca6e9341a958cc45fa46cf44bda19bd087d1ffd68d748478e00a91859dd68e",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/serve/server-start": {
+    "sha256": "8d0b3338654e0a46d75137eb09a620aa3709ddecec820eca20afdf3c06a41908",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/serve/server-status": {
+    "sha256": "a78b4eb004c68f5b3624d14debe31cc340b28732c8de70e4450dda06680fdc70",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/cli/serve/server-stop": {
+    "sha256": "7289b9b47b8801d98be1da3f09667744aa90f717e801258168e445d18a4b759c",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer": {
+    "sha256": "b2d2e1d345dce2176fc99245fd76a9cc3ef506fb2f94c4f35547e3b863178f22",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/anthropic-compat": {
+    "sha256": "fdef11b5174c1c871d15bc07a782eb01f1fc4c9f4a6668d6c62d111a4f714bb4",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/anthropic-compat/messages": {
+    "sha256": "a25399f9cbf810d710b21107e533c27964025e0d2bb0e98254d7a317ecee0d8d",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/api-changelog": {
+    "sha256": "bf9f60a2375f9fe09c925b006fa155eef02cddd4dca0d3ce251403aca7ac5692",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/core/authentication": {
+    "sha256": "92c7191cf7d09ab7767b86d8dc4b056160abe19d64ad54d7050382f3641f21f6",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/core/headless": {
+    "sha256": "fefd6148400e0aff01efd41df8e6f0fe49a53a1f2a1488fdf239c9fe78bee89d",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/core/headless_llmster": {
+    "sha256": "2710c08d66586bd55237e3e91282e343bf52fabd5293eb66352eb080ba501a6f",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/core/lmlink": {
+    "sha256": "f568fc07d6875580056bdfa38019af7137134d7ef49faf959cf30c9ea4b4064c",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/core/mcp": {
+    "sha256": "adb1cba7acd3edf35a693aa3f86e2f2ac79d708ae1d8f4a2e38f306da40c40fa",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/core/server": {
+    "sha256": "7a6e867d773d9205b2951e79031a3ba25a8875efcbf7f42b8947f5625d1cc6f3",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/core/server/serve-on-network": {
+    "sha256": "bfbef76d36f6d9f0d455ddbd280f3bd32a8579371d462d0394a0a830e077e501",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/core/server/settings": {
+    "sha256": "35d637cbbcf1c90936996b926a3682a1719fd6af2626933c5341148d1f8cef43",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/core/ttl-and-auto-evict": {
+    "sha256": "f77aa9508cd82102299ada937ed48d4baec10f7c07b17056b613b0f4122f0724",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/openai-compat": {
+    "sha256": "68918e5e7f4bd2e4c9b16c933d34893db8c649ee78f8e27da92446c33e5d10a8",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/openai-compat/chat-completions": {
+    "sha256": "0a35bb9c194babf11e7eefe9f05784bb428bc5b437e44a156301a151c596ebb9",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/openai-compat/completions": {
+    "sha256": "118bcb2c5c19899931d22d8a3aad891b7b9b9b77bd96f1c3f84e8a1f444c4c7c",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/openai-compat/embeddings": {
+    "sha256": "7ab5aba6d722a594b5cd47ecdded9512d76da8604f9d818e91d526eab0adbc7c",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/openai-compat/models": {
+    "sha256": "35e8d2a87203f01d205becd4637c79ff7ae9c936fb9d968b3f6321a8d26d67bf",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/openai-compat/responses": {
+    "sha256": "4fd4e5c892b0b5ef427231107bedc3904e0c47e8cc42f661ee682af9a3a2b06d",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/openai-compat/structured-output": {
+    "sha256": "97305a63fd510afa82c369d6bea2bcb30ebbacfdb554055ccae88c3a1d2fc8c1",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/openai-compat/tools": {
+    "sha256": "302f55a36fe1f985061d88efa0e2403d647659c0b607ee0d98c395cc060a4403",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/rest": {
+    "sha256": "c1e028e6910e059e1e1b377b646df0fa4bc0dee2ac6231975961921fa6820511",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/rest/chat": {
+    "sha256": "ada419e04e9d5540db0d12d16116a68aafcc7804f16b04e63ba7344f9b9ab084",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/rest/download": {
+    "sha256": "583895c6cdcbf77a0ce675002740da6497ca2758d56d976ccf4ed78da132e7d5",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/rest/download-status": {
+    "sha256": "7f4b0b1c6bc8ced112879c125b3f92783969c9ecf8a8645fbc8da7d6b6267dcc",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/rest/endpoints": {
+    "sha256": "a4c8783213f1f9c3154c03091c138da8572d69f860a8d9e52cc4701699f9421e",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/rest/list": {
+    "sha256": "e2b6085db242fca077522f1cebd1e6650205eb5999fd63fba8ba45071d9fc56e",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/rest/load": {
+    "sha256": "eb1d691aec452700c120457859910ecab2a91d7baef38662481347e669888fa2",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/rest/quickstart": {
+    "sha256": "952b4b29815d2acc3f56545192feeb46fa8818018d720c1039397603ec1d4304",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/rest/stateful-chats": {
+    "sha256": "034ca13813f6c746699e21d8e1d80da3b5bf7d3434174534ba450c1b2cc3937d",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/rest/streaming-events": {
+    "sha256": "5e6a5e14c010843d13599bcf352617f8f7beb8a525f4e89aee384d473e4929d2",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/developer/rest/unload": {
+    "sha256": "442cee11808e4cbe7a3d4c4104467340cb817993f201870c908ee3eb8c2c0d31",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/integrations": {
+    "sha256": "10982d04e8ce8d67029807fa9dc2b7864c840a7ee7a4ef4868e4a7e2b4075515",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/integrations/claude-code": {
+    "sha256": "fd1d1736bf3ebc1c2bbb90364cada677e6e85e8c7806b47759bb52f53e2a1fc0",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/integrations/codex": {
+    "sha256": "afcddc334ecb0f1268e59871d1d4370b71844140f9555ebef34ba404e50e6620",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/integrations/hermes": {
+    "sha256": "c530c15a84bf0015c6f6e08bec375b0ed9be62149cbcd259e77fa1a3de6ffa2b",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/integrations/lmlink": {
+    "sha256": "a51d75b662c1fdd0c40d612e4fa3e226ed32bfc4fd4101c72ee72d8b8c37e865",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/integrations/mcp-remote": {
+    "sha256": "269a109fba0c0e2d7bd17d314b8cbdc51dc094307047035b15b7a4ce30efca7e",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/integrations/mcp-remote/popular": {
+    "sha256": "ca86976adf2613c702f4ed3b6bd10d04f90f25d8b278403f0ebacce0a6fc13cd",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/integrations/openclaw": {
+    "sha256": "79e822280d03c99004b73e7c5446ee655f71167bf907a72ed80b582445af88d2",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/lmlink": {
+    "sha256": "fb9423e55ce8d7980ef4b631b8cc73871e3e8afb5aa1996c2bf40742bb9330c9",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/lmlink/basics": {
+    "sha256": "d6f751b9b5684156e3e0c14355254f4b6d54d3d884845e7683465082216cee63",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/lmlink/basics/add-device": {
+    "sha256": "c71efabc7af2adb59119eb0d7f9c559e474dfe55b0c094004901c84d53cda5f0",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/lmlink/basics/faq": {
+    "sha256": "24c011a58590c65dd3a00cfbe0fc4f1d35ead9ca30b77ee230332ac662b046dc",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/lmlink/basics/preferred-device": {
+    "sha256": "8b952de1b5d42b8e49aa346a97cc02f19048eefe9a4d7d7087284d074cfe60db",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/lmlink/lmlink-in-locally": {
+    "sha256": "e4d11ac33e2f1a9bce2647891c191bf11e8133911531ce1f628651beca780083",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python": {
+    "sha256": "fd5aabc3cf36e260fd9576829c8c579d097047954f2a46bdd42d3d637fad2140",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/agent/act": {
+    "sha256": "9aef1f3c1da7748d80749e3f4b39d21a3aff50b4421f2456e9737f8db33f69c6",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/agent/tools": {
+    "sha256": "d2311fda4837f4d4245cea63f2c75a7de03e392d0f0654d02aa151cb16746800",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/embedding": {
+    "sha256": "0d452a5d4af6e8e9c5198b6ced00bffd98df7a9965e4612369c91e3c2e7f10ab",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/getting-started/authentication": {
+    "sha256": "1c3a344acf9364b8816f77f625de86cd5878215552f880b088516a0e926a9aa8",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/getting-started/project-setup": {
+    "sha256": "0600dceed80bbf63d31bf1bc9a00d3cb89b421e98a41a47ea4a19646d0f636cc",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/getting-started/repl": {
+    "sha256": "318a5a1f8f5367fa55358fcb42fce7c71de549db28b063543436a0b79440078f",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/llm-prediction/cancelling-predictions": {
+    "sha256": "c9e9a1a824b1fa82bfa38ad67aa0d7b595f7c748b4e6c1270970a51292411e2f",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/llm-prediction/chat-completion": {
+    "sha256": "f412fc7751f2076ecfd0c0fda32241c3c1ab64049d915259e3b81744992e3f6e",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/llm-prediction/completion": {
+    "sha256": "6466068f1cd05b49542a697d01c0d26111cb0f58506f3192b8d3ebe3350d11e1",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/llm-prediction/image-input": {
+    "sha256": "bd9a2b87a541eaff522d9ed65f69e5bf905edffa90d1e49e9542d257f841f52a",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/llm-prediction/parameters": {
+    "sha256": "948cc8d621d9f5ee4fe4de1072dbf35d0facbea469d51dcaa2cc72d4a52904e7",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/llm-prediction/speculative-decoding": {
+    "sha256": "bb7e58ab0554ac81f1227fa40eeaad84f5f1907a99dd04d3bb4bb83d1ad06507",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/llm-prediction/structured-response": {
+    "sha256": "880ba71ed98fcb2a8d643653f9973c5a2875cada060d5518fa28455f50ae8020",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/llm-prediction/working-with-chats": {
+    "sha256": "8f85b7809e63737b95f1cc1a595c172c035567012b15f52717f79d5e2a3074fb",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/manage-models/list-downloaded": {
+    "sha256": "531e5af35c093236c06dc591517909d902d6561a798b918d139ccdc6b10883a0",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/manage-models/list-loaded": {
+    "sha256": "e9f0da69162f643a45bc3f572179dc200807047cc8e223ea5e28ff4f2a196421",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/manage-models/loading": {
+    "sha256": "71d82e9e54f1a7e379131d48192184332b3a21b3234fda6f35f243193160a3e3",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/model-info/get-context-length": {
+    "sha256": "b6cb548ee356fa3b825607da6a14cf3442a9253a428e1952e42066705078e058",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/model-info/get-load-config": {
+    "sha256": "230d15008631b48ac0ac68a6e9fa099a05ea45ad47243ca77e9f762b3df84a05",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/model-info/get-model-info": {
+    "sha256": "1bcad543b2426edd493d3971f0707028f41a576d782c7e5b1caf85d2d208eb1b",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/python/tokenization": {
+    "sha256": "0cd9434a915e5e3f455fd3ffeb0b3e051951fcd3ca9f61c2672bc135f60b7968",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript": {
+    "sha256": "bf210694a5d9d05ffaedb718a0fb2ea52198113ef2fb12034eec0fc321483d41",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/agent/act": {
+    "sha256": "181dc1b3a52f1c55b4e77c6a5080f4ce01bd1d928bb44fe73f839e53747dbdaa",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/agent/tools": {
+    "sha256": "a0cfd5b9e62cd00cb32270f6a2588bcb9793fae93aa4392181b3f3f72854983e",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/api-reference/llm-load-model-config": {
+    "sha256": "332172f655122724fe93979a14451104296b0beb308cadfc5e886493d46ffff8",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/api-reference/llm-prediction-config-input": {
+    "sha256": "ccbe8a05b4530efe8a8e667d5ad5e488462a87d31107c8a75d6e2216de909d3a",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/authentication": {
+    "sha256": "ff9a21f3414d7af1a4e3872876473901d0ba81d854649ccf67e043fef600d697",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/embedding": {
+    "sha256": "c22ff165c9e3b552dab1678fed52d61c09b926b5a62ecd485b9d3d735c1a915b",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/llm-prediction/cancelling-predictions": {
+    "sha256": "c562477e031cd54d342eb4404a75b02fae2a171c0288ad77b3047449dfc9d990",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/llm-prediction/chat-completion": {
+    "sha256": "fc789a36bf675fc2a21c2808dc282eecb928be9a6cc91647e20b420587e3bc0d",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/llm-prediction/completion": {
+    "sha256": "101ea0f9c52bbd69c49b930046f514c09b03fc8e145323c177926104b6ba712f",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/llm-prediction/image-input": {
+    "sha256": "37dd749e97603943982497c6447c9c3e621f22b6b4cedf72e47e99596e315f08",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/llm-prediction/parameters": {
+    "sha256": "6ecd480d712c397be2d03142d3718957424d9c5e0aa8481bf6ab8b9e143fafe8",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/llm-prediction/speculative-decoding": {
+    "sha256": "76c616b8105ddd707baa0563eb54c046a5dd9839bfbf5372f6965ae9bc21cc33",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/llm-prediction/structured-response": {
+    "sha256": "d392c37ca5ecd7d08cef5793249708e45ab5f4824edbafcdda848fca1a2500ab",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/llm-prediction/working-with-chats": {
+    "sha256": "d15923e6eac80dd58655eca8b0444862edafd1975094d5419db438775542add9",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/manage-models/list-downloaded": {
+    "sha256": "9e6fdc57c93423cb744a3a589883f67f624f6ed1f008b855cca653a7648341ff",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/manage-models/list-loaded": {
+    "sha256": "c8b3d68b2c392b45ce7b7f8f8a36a22b8cc05ddac37b9d393821f4fe9d8bcf8d",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/manage-models/loading": {
+    "sha256": "342153c15b60811e3a4e856626d5e3654d5de0168c9f749bfa75c1c8fbb13058",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/model-info/get-context-length": {
+    "sha256": "05a707c887109a7f5565bd3443c96f794806bd2a2a7308868595cb8173e58fa6",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/model-info/get-model-info": {
+    "sha256": "5d25602fb14d87893e64b9d9259238cbd2bb05f42a1413cf5d41098de29c1d9f",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins": {
+    "sha256": "f176ba9585dff689f883103d210c9ed70a2762a8aed39559db99df02247f4493",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/custom-configuration": {
+    "sha256": "184e3b56ea8d72e698b970de7e0eb810cf4fc2ae389adb779fa8f307a65c02d6",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/custom-configuration/accessing-config": {
+    "sha256": "145d91f47ce8742205ba6db066805a0ca7cb0671507db18b2acae9c5f291a82b",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/custom-configuration/config-ts": {
+    "sha256": "493b4a262a78e0c0df4c6704419c1c4a7fe66e847189ddfa211600abaaf52ea7",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/custom-configuration/defining-new-fields": {
+    "sha256": "ed6e40dc9cf6a04eabbd24e919753da58570413ae5f288c9e0e67885f0d4197b",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/dependencies": {
+    "sha256": "c6b17ed3107245132f2bad78ddcf84c668f909ffabcf148d2b52e12f829381eb",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/generator": {
+    "sha256": "cec23205b258030e047904fcff1311b1b84e62dad8001e795aaec0942729440f",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/generator/text-only-generators": {
+    "sha256": "fd4458d5644495f25251592166177fe24fc15a5018a12a830a79ee75d782cfd6",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/generator/tool-calling-generators": {
+    "sha256": "dc834eba38a326ddaa4bd62a39a875057ed4b2ec9e85a7973fc52f643a7e8c48",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/prompt-preprocessor": {
+    "sha256": "76b71af2a7e9f6f5d6305720fe128dc54a15f97150fa6c52a7bbf142faaea837",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/prompt-preprocessor/custom-configuration": {
+    "sha256": "3ceba7e0ec47eb2bb3896fa4deeb5a3f692687d017d97374de8f91b4b3c603c1",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/prompt-preprocessor/custom-status-report": {
+    "sha256": "5d9bd67d964ba05ed241e76eb8a387e0ee34b49e06223b7cd966e0d3c3c10948",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/prompt-preprocessor/examples": {
+    "sha256": "4db207a4b430f801c26cc0a7da16309876c7f56baf1c23b67eb00e1bc7a06768",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/prompt-preprocessor/handling-aborts": {
+    "sha256": "0f6903697b066af93697247cedbf384898c4eb07cc14abda64c44ad433fba4bf",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/publish-plugins": {
+    "sha256": "f92349b1837efa1d73cdb5d2c1e75410952a3610cae0f3d1ff0682175d7a5cdb",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/tools-provider": {
+    "sha256": "f88a1ad81d68f8976e23fa88fdcf08300bc4001c70b68b4391e64e7abab35e15",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/tools-provider/custom-configuration": {
+    "sha256": "9d4b1fa5b9e93f4e1e66d0c4b7570d1f501f67530c1a499da269ebeb26168603",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/tools-provider/handling-aborts": {
+    "sha256": "02c43b034f7f4f6adc0848921ce1f88425ebb346e70284366a683e295cda02ab",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/tools-provider/multiple-tools": {
+    "sha256": "e435eb4d7a0c778a640346713f2252e8f5d05287f89cb3ef39b57d2458f7f56a",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/tools-provider/single-tool": {
+    "sha256": "1f5564f3c5fe547c46c07761b152aeaa3c3d814fc66e5cca2716c4204dcd5e75",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/plugins/tools-provider/status-reports-and-warnings": {
+    "sha256": "3994e6b255d1586ad34e6f5f6dffb4f032fee82070dbe414a4f77b73cef708ce",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/project-setup": {
+    "sha256": "8838d61994fceef974e1b1fea6b91a9daf0e7d2d76a22779f29b4cab61dd909c",
+    "lastStatus": 200
+  },
+  "https://lmstudio.ai/docs/typescript/tokenization": {
+    "sha256": "23ce2c84994e2447a4da3ced24299cfd6abde50aca63b7c5d491d7acc301a420",
+    "lastStatus": 200
+  }
+}

@@ -145,6 +145,11 @@ const EXCEPTIONS: Record<string, VendorException> = {
     reason:
       "Docusaurus category index pages render as link-card grids without an H1. Real content pages start with H1 cleanly per OVS10.",
   },
+  lmstudio: {
+    skipHeadline: true,
+    reason:
+      "lmstudio.ai's native `.md` endpoint (append-md-and-accept) omits the page H1 title; bodies start with the first content paragraph, with section anchors like `[#slug]` appended to in-body headings. Vendor-canonical, no turndown involved.",
+  },
 };
 
 const FORBIDDEN_SIGNATURES: { needle: string; reason: string }[] = [

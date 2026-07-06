@@ -1,0 +1,31 @@
+{
+  "name": "docker",
+  "homepage": "https://docs.docker.com",
+  "llms_txt_candidates": [
+    "https://docs.docker.com/llms.txt"
+  ],
+  "sitemap_xml_sources": [
+    "https://docs.docker.com/sitemap.xml"
+  ],
+  "transform": "docker-md",
+  "allow_prefixes": [
+    "https://docs.docker.com/"
+  ],
+  "deny_prefixes": [],
+  "deny_urls": [
+    "https://docs.docker.com/reference/cli/docker/build/",
+    "https://docs.docker.com/reference/cli/docker/info/",
+    "https://docs.docker.com/reference/cli/docker/exec/",
+    "https://docs.docker.com/reference/cli/docker/images/",
+    "https://docs.docker.com/reference/cli/docker/push/",
+    "https://docs.docker.com/reference/cli/docker/pull/",
+    "https://docs.docker.com/reference/cli/docker/ps/",
+    "https://docs.docker.com/reference/cli/docker/run/",
+    "https://docs.docker.com/reference/cli/sbx/",
+    "https://docs.docker.com/reference/cli/sbx/cp/",
+    "https://docs.docker.com/reference/cli/sbx/ls/",
+    "https://docs.docker.com/reference/cli/sbx/rm/"
+  ],
+  "page_cap": 0,
+  "llms_txt": "https://docs.docker.com/llms.txt"
+}

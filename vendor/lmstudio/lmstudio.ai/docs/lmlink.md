@@ -1,0 +1,25 @@
+
+
+<img src="/assets/marketing/docs/lmlink-animation.gif" style="width: 75%;" data-caption="Introducing LM Link" />
+
+LM Link is a new feature in LM Studio that provides a way to access local models across devices, wherever you are. Links are custom made, end-to-end encrypted networks intended for loading and serving LLMs across devices you own, made possible in partnership with Tailscale.
+
+What can I do with LM Link? [#what-can-i-do-with-lm-link]
+
+LM Link unlocks the full potential of your hardware by sharing compute across connected devices.
+
+For example, you might have a powerful desktop in your home office, and a lightweight laptop you carry on the go. With LM Link, you can run large open-weight models on a powerful machine, and use them seamlessly from your laptop or your iPhone as if they were local.
+
+To use LM Link on iPhone, [download Locally](https://apps.apple.com/us/app/locally-ai-local-ai-chat/id6741426692), link it to LM Studio, and those models are now in your pocket wherever you are. All communication and data transfer between devices is always end-to-end encrypted, thanks to Tailscale.
+
+Use Cases [#use-cases]
+
+LM Link use cases span individuals as well as teams.
+
+You can manage a private link to keep your prized gaming GPU busy even when you're on the go. Moreover, LM Link allows you to set up LLM serving in a server and start using it with just few clicks.
+
+Use LM Link with [#use-lm-link-with]
+
+* **CLI** — manage LM Link from the terminal with [`lms link`](/docs/cli/link/link-enable)
+* **REST API** — use remote models via the REST API with [LM Link](/docs/developer/core/lmlink)
+* **Integrations** — use remote models with coding tools like Claude Code and Codex via [LM Link](/docs/integrations/lmlink)
