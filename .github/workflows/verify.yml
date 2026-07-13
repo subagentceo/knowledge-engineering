@@ -52,7 +52,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           # Full history required for src/lib/conventions.test.ts:
           # the test runs `git merge-base HEAD origin/main` to find
