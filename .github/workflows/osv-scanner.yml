@@ -61,7 +61,7 @@ jobs:
     # `if:[^\n]*workflow_dispatch` matches it.
     if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || github.event_name == 'workflow_dispatch'
     name: OSV-Scanner (PR)
-    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.3.8
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.5.0
     with:
       # OHYG1: explicit --experimental-exclude is a belt-and-suspenders for
       # third_party/. The dir is gitignored (OSV --use-gitignore is default-on
@@ -82,7 +82,7 @@ jobs:
   scan-main:
     if: github.event_name != 'pull_request'
     name: OSV-Scanner (push / schedule)
-    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.8
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.5.0
     with:
       # OHYG1: see scan-pr above for the third_party exclude rationale.
       scan-args: |-

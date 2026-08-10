@@ -53,7 +53,7 @@ jobs:
       store_id: ${{ steps.resolve_store.outputs.store_id }}
     steps:
       - name: Setup Node 20
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: "20"
 
@@ -157,10 +157,10 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup Node 20
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: "20"
           cache: npm
